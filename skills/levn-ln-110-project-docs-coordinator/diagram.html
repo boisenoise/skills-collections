@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-110-project-docs-coordinator - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ln-110-project-docs-coordinator</h1>
+            <p class="subtitle">L2 Coordinator - Project Documentation - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Gather project context ONCE and delegate to 5 L3 workers</li>
+                <li><strong>Invoked by:</strong> ln-100-documents-pipeline</li>
+                <li><strong>Delegates to:</strong> ln-111, ln-112, ln-113, ln-114, ln-115</li>
+                <li><strong>Key feature:</strong> Solves "context loss" problem by passing Context Store explicitly</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Action</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-decision"></div>
+                <span>Decision</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-error"></div>
+                <span>Error</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: ln-110]) --> P1[Phase 1: Context Gathering<br/>Auto-discovery + User materials]
+
+    P1 --> Scan[1.1 Scan project files<br/>package.json, docker-compose, src/]
+    Scan --> Detect[1.2 Detect project type<br/>hasBackend, hasDatabase, hasFrontend, hasDocker]
+    Detect --> Materials{User<br/>materials?}
+    Materials -->|Yes| Extract[Extract from materials]
+    Materials -->|No| MCP
+    Extract --> MCP[1.4 MCP Research<br/>Context7 + Ref]
+    MCP --> Build[1.5 Build Context Store<br/>PROJECT_NAME, TECH_STACK, etc.]
+    Build --> Legacy{LEGACY_CONTENT<br/>from ln-100?}
+    Legacy -->|Yes| Merge[1.6 Merge Legacy Content<br/>Priority: Legacy > Auto > Template]
+    Legacy -->|No| P2
+    Merge --> P2
+
+    P2[Phase 2: Delegate to Workers] --> W111[ln-111-root-docs-creator<br/>4 root docs - ALWAYS]
+    P2 --> W112[ln-112-project-core-creator<br/>3 core docs - ALWAYS]
+
+    W111 --> CheckBackend{hasBackend OR<br/>hasDatabase?}
+    W112 --> CheckBackend
+
+    CheckBackend -->|Yes| W113[ln-113-backend-docs-creator<br/>api_spec + database_schema]
+    CheckBackend -->|No| CheckFront
+    W113 --> CheckFront{hasFrontend?}
+
+    CheckFront -->|Yes| W114[ln-114-frontend-docs-creator<br/>design_guidelines]
+    CheckFront -->|No| CheckDocker
+    W114 --> CheckDocker{hasDocker?}
+
+    CheckDocker -->|Yes| W115[ln-115-devops-docs-creator<br/>runbook]
+    CheckDocker -->|No| P3
+    W115 --> P3
+
+    P3[Phase 3: Aggregate Results<br/>Collect status, sum totals] --> Output[Return summary to ln-100<br/>+ Context Store for ln-120]
+    Output --> End([End: 11 docs created])
+
+    classDef action fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+    classDef decision fill:#FFE0B2,stroke:#E64A19,stroke-width:2px
+
+    class P1,Scan,Detect,Extract,MCP,Build,Merge,P2,W111,W112,W113,W114,W115,P3,Output action
+    class Materials,Legacy,CheckBackend,CheckFront,CheckDocker decision
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Single Context Gathering:</strong> Analyzes project once, passes Context Store to all workers</li>
+                <li><strong>Project Type Detection:</strong> Determines which conditional docs to create</li>
+                <li><strong>Legacy Content Support:</strong> Merges existing docs from ln-100 Phase 0</li>
+                <li><strong>Parallel Execution:</strong> ln-111 and ln-112 can run in parallel</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Generated for ln-110-project-docs-coordinator skill | Version 2.0.0</p>
+            <p>Diagram format: Mermaid.js | Last updated: 2025-12-20</p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

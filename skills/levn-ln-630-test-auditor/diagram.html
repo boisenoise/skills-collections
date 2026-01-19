@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-370-test-auditor Workflow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ln-370-test-auditor Workflow</h1>
+            <p class="subtitle">L2 Coordinator v3.0.0 | Domain-Aware Coverage Gaps</p>
+        </header>
+        <div class="info-box">
+        <h3>Overview</h3>
+        <p><strong>Purpose:</strong> Coordinates 5 specialized test audit workers with domain-aware coverage gap analysis.</p>
+        <p><strong>Type:</strong> Orchestrator-Worker Pattern (L2 Coordinator + 5 L3 Workers)</p>
+        <p><strong>Domain Support:</strong> Auto-detects project domains; runs Coverage Gaps (ln-374) per domain.</p>
+        <p><strong>Invocation:</strong> Manual - user runs when needed for test suite optimization.</p>
+    </div>
+
+    <h2>Main Workflow (7 Phases)</h2>
+
+    <div class="mermaid">
+graph TD
+    Start([START]) --> Phase1[Phase 1: Discovery<br/>Find all test files<br/>*.test.*, *.spec.*]
+
+    Phase1 --> Phase2[Phase 2: Research<br/>MCP Ref + Context7<br/>Best practices ONCE<br/>Build contextStore]
+
+    Phase2 --> Phase3[Phase 3: Domain Discovery<br/>Detect project structure<br/>Build domain_map<br/>Set domain_mode]
+
+    Phase3 --> Decision{Domains<br/>found?}
+
+    Decision -->|Yes domain-aware| Phase4a
+    Decision -->|No global| Phase4aGlobal[Phase 4a: Global Workers<br/>4 workers PARALLEL]
+
+    Phase4a[Phase 4a: Global Workers<br/>4 workers PARALLEL] --> Phase4b[Phase 4b: Domain-Aware<br/>ln-374 per domain<br/>PARALLEL]
+
+    Phase4aGlobal --> Phase4bGlobal[Phase 4b: ln-374<br/>global mode]
+
+    Phase4b --> Phase5[Phase 5: Aggregate<br/>Group by domain<br/>Domain Coverage Summary<br/>Calculate scores]
+
+    Phase4bGlobal --> Phase5
+
+    Phase5 --> Phase6[Phase 6: Report<br/>Compliance Scores<br/>Domain-grouped findings<br/>Recommendations]
+
+    Phase6 --> Phase7[Phase 7: Create Task<br/>Linear Epic 0<br/>Full report]
+
+    Phase7 --> End([END:<br/>Audit task created])
+
+    classDef phase fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef newphase fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+    classDef decision fill:#FFF3E0,stroke:#FF9800,stroke-width:2px
+    classDef endpoint fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+
+    class Phase1,Phase2,Phase4a,Phase4aGlobal,Phase5,Phase6,Phase7 phase
+    class Phase3,Phase4b,Phase4bGlobal newphase
+    class Decision decision
+    class Start,End endpoint
+    </div>
+
+    <h2>Worker Distribution</h2>
+
+    <div class="mermaid">
+graph TB
+    subgraph Coordinator["ln-370-test-auditor (L2)"]
+        direction TB
+        Coord[Orchestrator<br/>Domain Discovery<br/>Context Building<br/>Aggregation]
+    end
+
+    subgraph GlobalWorkers["Global Workers (4) - Entire Test Suite"]
+        direction LR
+        W1[ln-371<br/>Business Logic<br/>MEDIUM]
+        W2[ln-372<br/>E2E Priority<br/>HIGH]
+        W3[ln-373<br/>Value<br/>CRITICAL]
+        W5[ln-375<br/>Isolation<br/>MEDIUM]
+    end
+
+    subgraph DomainWorkers["Domain-Aware Worker (1 x N) - Per Domain"]
+        direction TB
+        subgraph DomainUsers["Domain: users"]
+            W4u[ln-374<br/>Coverage Gaps]
+        end
+        subgraph DomainOrders["Domain: orders"]
+            W4o[ln-374<br/>Coverage Gaps]
+        end
+        subgraph DomainPayments["Domain: payments"]
+            W4p[ln-374<br/>Coverage Gaps]
+        end
+    end
+
+    Coord --> GlobalWorkers
+    Coord --> DomainWorkers
+
+    classDef coordinator fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef critical fill:#FFCDD2,stroke:#D32F2F,stroke-width:2px
+    classDef high fill:#FFE0B2,stroke:#F57C00,stroke-width:2px
+    classDef medium fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px
+    classDef domain fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+
+    class Coord coordinator
+    class W3 critical
+    class W2 high
+    class W1,W5 medium
+    class W4u,W4o,W4p domain
+    </div>
+
+    <h2>Domain Discovery Algorithm</h2>
+
+    <div class="mermaid">
+graph TD
+    Start2([Check Structure]) --> P1{Priority 1:<br/>Explicit domains?}
+    P1 -->|Found| UseExplicit[Use domains/features/modules]
+    P1 -->|Not found| P2{Priority 2:<br/>src/* folders?}
+    P2 -->|Found >1| FilterInfra[Filter infrastructure<br/>utils/shared/config/types]
+    P2 -->|Not found| P3[Priority 3:<br/>Fallback to global]
+    FilterInfra --> HasDomains{Remaining<br/>>1 folders?}
+    HasDomains -->|Yes| UseSrc[Use src/* as domains]
+    HasDomains -->|No| P3
+    UseExplicit --> DomainAware([domain_mode = domain-aware])
+    UseSrc --> DomainAware
+    P3 --> GlobalMode([domain_mode = global])
+
+    classDef decision fill:#FFF3E0,stroke:#FF9800,stroke-width:2px
+    classDef process fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef result fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+
+    class P1,P2,HasDomains decision
+    class UseExplicit,FilterInfra,UseSrc,P3 process
+    class DomainAware,GlobalMode,Start2 result
+    </div>
+
+    <h2>Usefulness Score Decision Flow</h2>
+
+    <div class="mermaid">
+graph TD
+    Test[Each Test] --> CalcScore[Calculate Score<br/>Impact 1-5 x Probability 1-5]
+
+    CalcScore --> Check{Score?}
+
+    Check -->|15-25| Keep[KEEP<br/>High value test]
+    Check -->|10-14| Review[REVIEW<br/>Check if E2E covers]
+    Check -->|1-9| Remove[REMOVE<br/>Delete test]
+
+    Review --> ReviewQ{Already covered<br/>by E2E?}
+    ReviewQ -->|Yes| Remove
+    ReviewQ -->|No| Keep
+
+    Keep --> Done[Include in suite]
+    Remove --> Delete[Add to removal list]
+
+    classDef keep fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+    classDef review fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px
+    classDef remove fill:#FFCDD2,stroke:#D32F2F,stroke-width:2px
+    classDef neutral fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+
+    class Keep,Done keep
+    class Review,ReviewQ review
+    class Remove,Delete remove
+    class Test,CalcScore,Check neutral
+    </div>
+
+    <h2>Audit Categories</h2>
+
+    <div class="mermaid">
+graph LR
+    subgraph Core
+        C1[1. Business Logic Focus<br/>OUR code vs Framework]
+        C2[2. E2E Priority<br/>E2E primary, rest secondary]
+    end
+
+    subgraph Value
+        V1[3. Risk-Based Value<br/>Priority >= 15 required]
+        V2[4. Coverage Gaps<br/>Per-domain analysis]
+    end
+
+    subgraph Quality
+        Q1[5. Test Isolation<br/>Mocking, determinism]
+        Q2[6. Anti-Patterns<br/>Liars, Giants, etc.]
+    end
+
+    C1 --> C2 --> V1 --> V2 --> Q1 --> Q2
+
+    classDef core fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef value fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px
+    classDef domain fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+    classDef quality fill:#E1BEE7,stroke:#7B1FA2,stroke-width:2px
+
+    class C1,C2 core
+    class V1 value
+    class V2 domain
+    class Q1,Q2 quality
+    </div>
+
+    <h2>Output: Report with Domain Coverage Summary</h2>
+    <pre style="background: #F5F5F5; padding: 15px; border-radius: 4px; overflow-x: auto;">
+## Test Suite Audit Report - 2025-12-22
+
+### Compliance Score
+| Category | Score |
+|----------|-------|
+| Business Logic Focus | 8/10 |
+| E2E Priority | 7/10 |
+| Risk-Based Value | 7/10 |
+| Coverage Gaps | 6.5/10 |
+| Test Isolation | 8/10 |
+| Anti-Patterns | 7/10 |
+| **Overall** | **7.3/10** |
+
+### Domain Coverage Summary (NEW)
+| Domain | Critical Paths | Tested | Coverage % | Gaps |
+|--------|---------------|--------|------------|------|
+| users | 8 | 6 | 75% | 2 |
+| orders | 12 | 8 | 67% | 4 |
+| shared | 4 | 4 | 100% | 0 |
+| **Total** | **24** | **18** | **75%** | **6** |
+
+### Coverage Gaps by Domain
+#### Domain: users (src/users/)
+| Severity | Category | Missing Test | Location |
+| CRITICAL | Money | E2E: processRefund() | services/user.ts:120 |
+
+#### Domain: orders (src/orders/)
+| Severity | Category | Missing Test | Location |
+| CRITICAL | Money | E2E: applyDiscount() | services/order.ts:45 |
+| HIGH | Data | Integration: orderTransaction() | repositories/order.ts:78 |
+    </pre>
+
+    <h2>Key Characteristics</h2>
+    <ul>
+        <li><strong>Orchestrator-Worker:</strong> L2 Coordinator + 5 L3 Workers</li>
+        <li><strong>Domain-Aware:</strong> Coverage Gaps (ln-374) runs per domain</li>
+        <li><strong>Global Workers:</strong> Business Logic, E2E Priority, Value, Isolation</li>
+        <li><strong>Parallel Execution:</strong> All workers (global + domain-aware) run in PARALLEL</li>
+        <li><strong>Domain Coverage Summary:</strong> Per-domain coverage metrics</li>
+        <li><strong>Backward Compatible:</strong> Falls back to global mode if <2 domains detected</li>
+    </ul>
+
+    <footer>
+        <p>ln-370-test-auditor v3.0.0 | L2 Coordinator | 5 Workers | Domain-Aware Coverage</p>
+    </footer>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>

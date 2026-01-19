@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-221-library-researcher Workflow</title>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#4A90E2',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2E5C8A',
+                lineColor: '#5C6BC0',
+                secondaryColor: '#7E57C2',
+                tertiaryColor: '#26A69A'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>ln-221-library-researcher: Library Researcher (Worker)</h1>
+
+        <div class="diagram-section">
+            <h2>Workflow Diagram</h2>
+            <div class="mermaid">
+graph TD
+    Start([Input: Epic Description + Story Domain]) --> Phase1[Phase 1: Identify Libraries]
+
+    Phase1 --> Parse[Parse Epic Technical Notes<br/>+ Scope In + Goal]
+    Parse --> ExtractLibs[Extract Library List<br/>3-5 libraries max]
+    ExtractLibs --> Domain[Determine Story Domain<br/>e.g., rate limiting]
+
+    Domain --> SkipCheck{Libraries<br/>found?}
+    SkipCheck -->|No| EmptySummary[Output: Empty Research Summary]
+    SkipCheck -->|Yes| Phase2[Phase 2: MCP Context7 Research]
+
+    Phase2 --> LoopLibs[FOR EACH Library]
+    LoopLibs --> ResolveID[resolve-library-id<br/>libraryName]
+    ResolveID --> GetDocs[get-library-docs<br/>libraryID, topic, tokens=3000]
+    GetDocs --> ExtractAPI[Extract:<br/>- Latest version<br/>- Key APIs 2-5<br/>- Constraints<br/>- Deprecations]
+
+    ExtractAPI --> Fallback{Found in<br/>Context7?}
+    Fallback -->|No| WebSearch[Fallback: WebSearch<br/>library latest version API]
+    Fallback -->|Yes| Phase3[Phase 3: MCP Ref Research]
+    WebSearch --> Phase3
+
+    Phase3 --> RefSearch[ref_search_documentation<br/>library + domain best practices]
+    RefSearch --> RefStandards[ref_search_documentation<br/>domain standards RFC]
+    RefStandards --> ExtractStandards[Extract:<br/>- Industry standards<br/>- Common patterns<br/>- Security considerations<br/>- Integration approaches]
+
+    ExtractStandards --> Phase4[Phase 4: Scan Existing Guides]
+    Phase4 --> GlobGuides[Glob docs/guides/*.md]
+    GlobGuides --> MatchDomain[Match guides to Story domain<br/>fuzzy match]
+    MatchDomain --> CollectPaths[Collect guide paths]
+
+    CollectPaths --> Phase5[Phase 5: Generate Research Summary]
+    Phase5 --> CompileTable[Compile:<br/>- Library table version, purpose<br/>- Key APIs list<br/>- Constraints list<br/>- Standards compliance<br/>- Existing guides links]
+    CompileTable --> FormatMD[Format as Markdown]
+    FormatMD --> End([Output: Research Summary<br/>for Technical Notes])
+
+    EmptySummary --> End
+
+    style Start fill:#4A90E2,stroke:#2E5C8A,color:#fff
+    style End fill:#26A69A,stroke:#1B5E20,color:#fff
+    style Phase1 fill:#7E57C2,stroke:#4A148C,color:#fff
+    style Phase2 fill:#7E57C2,stroke:#4A148C,color:#fff
+    style Phase3 fill:#7E57C2,stroke:#4A148C,color:#fff
+    style Phase4 fill:#7E57C2,stroke:#4A148C,color:#fff
+    style Phase5 fill:#7E57C2,stroke:#4A148C,color:#fff
+    style SkipCheck fill:#FF9800,stroke:#E65100,color:#fff
+    style Fallback fill:#FF9800,stroke:#E65100,color:#fff
+    style WebSearch fill:#FFC107,stroke:#F57C00,color:#000
+    style EmptySummary fill:#9E9E9E,stroke:#424242,color:#fff
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Key Information</h2>
+            <ul>
+                <li><strong>Type:</strong> Worker (reusable)</li>
+                <li><strong>Phases:</strong> 5 (sequential workflow)</li>
+                <li><strong>Input:</strong> Epic description + Story domain</li>
+                <li><strong>Output:</strong> Research Summary (Markdown)</li>
+                <li><strong>Time-box:</strong> 15-20 minutes per Epic</li>
+                <li><strong>Token usage:</strong> ~10,000 tokens (3-4 libraries)</li>
+                <li><strong>Reusability:</strong> Called by ln-220, ln-310, ln-350</li>
+            </ul>
+        </div>
+
+        <div class="tools-section">
+            <h2>Tools Used</h2>
+            <ul>
+                <li><code>mcp__context7__resolve-library-id()</code> - Get library ID from name</li>
+                <li><code>mcp__context7__get-library-docs()</code> - Get latest API documentation (max 3000 tokens per library)</li>
+                <li><code>mcp__Ref__ref_search_documentation()</code> - Search best practices and industry standards</li>
+                <li><code>Glob</code> - Scan docs/guides/ directory for existing pattern guides</li>
+                <li><code>WebSearch</code> - Fallback for libraries not in Context7</li>
+            </ul>
+        </div>
+
+        <div class="notes-section">
+            <h2>Important Notes</h2>
+            <ul>
+                <li>Research done ONCE per Epic, results reused for all Stories (5-10 Stories benefit)</li>
+                <li>Focus on KEY APIs only (2-5 methods), not exhaustive documentation</li>
+                <li>Prefer official docs and RFC standards over blog posts</li>
+                <li>Skip research if NO libraries mentioned or trivial CRUD operation</li>
+                <li>Parallel MCP calls when possible (Context7 + Ref)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-112-project-core-creator - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ln-112-project-core-creator</h1>
+            <p class="subtitle">L3 Worker - Project Core Documentation Creator - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Create 3 core project docs (requirements.md, architecture.md, tech_stack.md)</li>
+                <li><strong>Invoked by:</strong> ln-110-project-docs-coordinator (ALWAYS)</li>
+                <li><strong>Key feature:</strong> Heavy auto-discovery + LEGACY_CONTENT handling</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Action</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-decision"></div>
+                <span>Decision</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: ln-112]) --> P1[Phase 1: Receive Context<br/>Parse Context Store from coordinator]
+
+    P1 --> Validate[Validate Required Keys<br/>PROJECT_NAME, TECH_STACK]
+    Validate --> Extract[Extract Architecture Data<br/>SRC_STRUCTURE, DEPENDENCIES]
+
+    Extract --> P2[Phase 2: Create Documents]
+
+    P2 --> Req[Create requirements.md]
+    P2 --> Arch[Create architecture.md]
+    P2 --> Tech[Create tech_stack.md]
+
+    Req --> ReqExists{File<br/>exists?}
+    ReqExists -->|Yes| ReqSkip[Skip with log]
+    ReqExists -->|No| ReqLegacy{LEGACY_CONTENT<br/>requirements?}
+    ReqLegacy -->|Yes| ReqMerge[Merge legacy functional[]<br/>+ user_stories[]]
+    ReqLegacy -->|No| ReqTemplate[Use template defaults]
+    ReqMerge --> ReqCreate[Replace placeholders<br/>Add MoSCoW labels]
+    ReqTemplate --> ReqCreate
+
+    Arch --> ArchExists{File<br/>exists?}
+    ArchExists -->|Yes| ArchSkip[Skip with log]
+    ArchExists -->|No| ArchLegacy{LEGACY_CONTENT<br/>architecture?}
+    ArchLegacy -->|Yes| ArchMerge[Merge legacy layers[]<br/>components[], diagrams[]]
+    ArchLegacy -->|No| ArchAuto[Auto-discover from<br/>SRC_STRUCTURE]
+    ArchMerge --> ArchCreate[Generate C4 diagrams<br/>Insert ADR links]
+    ArchAuto --> ArchCreate
+
+    Tech --> TechExists{File<br/>exists?}
+    TechExists -->|Yes| TechSkip[Skip with log]
+    TechExists -->|No| TechLegacy{LEGACY_CONTENT<br/>tech_stack?}
+    TechLegacy -->|Yes| TechMerge[Merge legacy versions<br/>rationale]
+    TechLegacy -->|No| TechAuto[Use TECH_STACK<br/>from Context Store]
+    TechMerge --> TechCreate[Replace placeholders<br/>Mark TBD for missing]
+    TechAuto --> TechCreate
+
+    ReqSkip --> P3
+    ReqCreate --> P3
+    ArchSkip --> P3
+    ArchCreate --> P3
+    TechSkip --> P3
+    TechCreate --> P3
+
+    P3[Phase 3: Self-Validate] --> V1[Check SCOPE tag<br/>first 10 lines]
+    V1 --> V2[Check required sections<br/>from questions_core.md]
+    V2 --> V3[Validate format:<br/>FR-XXX, arc42, versions]
+    V3 --> V4[Check Maintenance section]
+    V4 --> AutoFix[Auto-fix issues<br/>where possible]
+
+    AutoFix --> P4[Phase 4: Return Status]
+    P4 --> Output[Return to coordinator:<br/>created[], skipped[], tbd_count]
+    Output --> End([End: 3 docs processed])
+
+    classDef action fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+    classDef decision fill:#FFE0B2,stroke:#E64A19,stroke-width:2px
+
+    class P1,Validate,Extract,P2,Req,Arch,Tech,ReqSkip,ReqMerge,ReqTemplate,ReqCreate,ArchSkip,ArchMerge,ArchAuto,ArchCreate,TechSkip,TechMerge,TechAuto,TechCreate,P3,V1,V2,V3,V4,AutoFix,P4,Output action
+    class ReqExists,ReqLegacy,ArchExists,ArchLegacy,TechExists,TechLegacy decision
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Documents Created</h3>
+            <ul>
+                <li><strong>requirements.md:</strong> Functional requirements (FR-XXX-NNN format, MoSCoW labels)</li>
+                <li><strong>architecture.md:</strong> 11 arc42 sections with C4 diagrams, ADR references</li>
+                <li><strong>tech_stack.md:</strong> Frontend, Backend, Database with versions and rationale</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Generated for ln-112-project-core-creator skill | Version 2.0.0</p>
+            <p>Diagram format: Mermaid.js | Last updated: 2025-12-20</p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-762-dependency-audit - Workflow Diagram</title>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad: true, theme: 'default'});</script>
+</head>
+<body>
+    <h1>ln-762-dependency-audit</h1>
+    <p>L3 Worker - Audits project dependencies for security vulnerabilities</p>
+
+    <h2>Main Workflow</h2>
+    <div class="mermaid">
+stateDiagram-v2
+    [*] --> Phase1: Start Audit
+
+    state Phase1 {
+        [*] --> DetectPM
+        DetectPM --> CheckTools
+        CheckTools --> [*]
+
+        DetectPM: Detect package managers
+        CheckTools: Check tool availability
+    }
+
+    Phase1 --> Phase2: Ecosystems Detected
+
+    state Phase2 {
+        [*] --> RunAudits
+        RunAudits --> ParseResults
+        ParseResults --> [*]
+
+        RunAudits: Execute ecosystem audits
+        ParseResults: Normalize to common format
+    }
+
+    Phase2 --> Phase3: Audits Complete
+
+    state Phase3 {
+        [*] --> Classify
+        Classify --> Group
+        Group --> Build
+        Build --> [*]
+
+        Classify: CVSS severity mapping
+        Group: Group by ecosystem
+        Build: Build report
+    }
+
+    Phase3 --> Phase4: Report Ready
+
+    state Phase4 {
+        [*] --> FixType
+        FixType --> Recommend
+        Recommend --> Return
+        Return --> [*]
+
+        FixType: Classify fix type
+        Recommend: Generate recommendations
+        Return: Return to orchestrator
+    }
+
+    Phase4 --> [*]: Findings Returned
+    </div>
+
+    <h2>Ecosystem Detection</h2>
+    <div class="mermaid">
+flowchart TD
+    Start([Start Detection]) --> ScanFiles[Scan Project Files]
+
+    ScanFiles --> npm{package.json?}
+    ScanFiles --> dotnet{*.csproj?}
+    ScanFiles --> python{requirements.txt?}
+    ScanFiles --> go{go.mod?}
+    ScanFiles --> ruby{Gemfile?}
+    ScanFiles --> rust{Cargo.toml?}
+
+    npm -->|Yes| npmTool{npm available?}
+    dotnet -->|Yes| dotnetTool{dotnet available?}
+    python -->|Yes| pipTool{pip-audit available?}
+    go -->|Yes| goTool{govulncheck available?}
+    ruby -->|Yes| rubyTool{bundle audit available?}
+    rust -->|Yes| rustTool{cargo audit available?}
+
+    npmTool -->|Yes| AddNpm[Add npm to queue]
+    dotnetTool -->|Yes| AddDotnet[Add .NET to queue]
+    pipTool -->|Yes| AddPip[Add Python to queue]
+    goTool -->|Yes| AddGo[Add Go to queue]
+    rubyTool -->|Yes| AddRuby[Add Ruby to queue]
+    rustTool -->|Yes| AddRust[Add Rust to queue]
+
+    npmTool -->|No| WarnNpm[Log: npm unavailable]
+    dotnetTool -->|No| WarnDotnet[Log: dotnet unavailable]
+    pipTool -->|No| WarnPip[Log: pip-audit unavailable]
+    goTool -->|No| WarnGo[Log: govulncheck unavailable]
+    rubyTool -->|No| WarnRuby[Log: bundle unavailable]
+    rustTool -->|No| WarnRust[Log: cargo unavailable]
+
+    AddNpm --> Queue([Audit Queue])
+    AddDotnet --> Queue
+    AddPip --> Queue
+    AddGo --> Queue
+    AddRuby --> Queue
+    AddRust --> Queue
+
+    classDef ecosystem fill:#87CEEB
+    classDef available fill:#90EE90
+    classDef unavailable fill:#FFB6C1
+    class npm,dotnet,python,go,ruby,rust ecosystem
+    class AddNpm,AddDotnet,AddPip,AddGo,AddRuby,AddRust available
+    class WarnNpm,WarnDotnet,WarnPip,WarnGo,WarnRuby,WarnRust unavailable
+    </div>
+
+    <h2>Severity Classification (CVSS)</h2>
+    <div class="mermaid">
+flowchart LR
+    subgraph CVSS["CVSS Score Range"]
+        C9[9.0 - 10.0]
+        C7[7.0 - 8.9]
+        C4[4.0 - 6.9]
+        C0[0.1 - 3.9]
+    end
+
+    subgraph Severity["Severity Level"]
+        Critical[Critical]
+        High[High]
+        Medium[Medium]
+        Low[Low]
+    end
+
+    subgraph Action["Required Action"]
+        Immediate[Immediate fix]
+        Soon[Fix within 48h]
+        Week[Fix within 1 week]
+        Backlog[Fix when convenient]
+    end
+
+    C9 --> Critical --> Immediate
+    C7 --> High --> Soon
+    C4 --> Medium --> Week
+    C0 --> Low --> Backlog
+
+    classDef critical fill:#FF6B6B
+    classDef high fill:#FFB347
+    classDef medium fill:#FFEB3B
+    classDef low fill:#90EE90
+    class C9,Critical,Immediate critical
+    class C7,High,Soon high
+    class C4,Medium,Week medium
+    class C0,Low,Backlog low
+    </div>
+
+    <h2>Fix Recommendation Flow</h2>
+    <div class="mermaid">
+flowchart TD
+    Vuln([Vulnerability Found]) --> HasFix{Fix available?}
+
+    HasFix -->|No| Document[Document in known issues]
+    HasFix -->|Yes| FixType{Update type?}
+
+    FixType -->|Patch x.x.Y| SafeAuto[Safe to auto-fix]
+    FixType -->|Minor x.Y.0| UsualSafe[Usually safe]
+    FixType -->|Major Y.0.0| ManualReview[Manual review required]
+
+    SafeAuto --> AutoFix[Recommend auto-fix command]
+    UsualSafe --> CheckChangelog[Check changelog first]
+    ManualReview --> Breaking[Flag breaking changes]
+
+    AutoFix --> Output([Add to recommendations])
+    CheckChangelog --> Output
+    Breaking --> Output
+    Document --> Output
+
+    classDef safe fill:#90EE90
+    classDef caution fill:#FFEB3B
+    classDef danger fill:#FF6B6B
+    classDef info fill:#87CEEB
+    class SafeAuto,AutoFix safe
+    class UsualSafe,CheckChangelog caution
+    class ManualReview,Breaking danger
+    class Document info
+    </div>
+
+    <footer>
+        <p>ln-762-dependency-audit v2.0.0 | Last Updated: 2026-01-10</p>
+    </footer>
+</body>
+</html>

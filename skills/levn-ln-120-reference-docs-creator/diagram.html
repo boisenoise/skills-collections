@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-112-reference-docs-creator - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 ln-112-reference-docs-creator</h1>
+            <p class="subtitle">Reference Documentation Creator - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>📋 Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Create reference documentation structure (adrs/, guides/, manuals/) + README hub</li>
+                <li><strong>Worker for:</strong> ln-110-documents-pipeline orchestrator</li>
+                <li><strong>Phases:</strong> 4 phases (Phase 1+2 CREATE merged → Phase 3 Structure Validation → Phase 4 Content Validation)</li>
+                <li><strong>Optimization:</strong> Merged Phase 1+2 CREATE, removed redundant verifications, parametrized validation</li>
+                <li><strong>Output:</strong> Empty structure with registries ready for content creation</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Creation Action</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-validation"></div>
+                <span>Validation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-success"></div>
+                <span>Success State</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: Reference Docs Creation]) --> Phase1[Phase 1+2: Create Structure merged<br/>Create dirs + README + ADR template]
+
+    Phase1 --> CreateAll[Create subdirectories adrs/, guides/, manuals/<br/>+ README.md + _template.md]
+    CreateAll --> ReplaceVars[Replace placeholders:<br/>DATE, registries]
+
+    ReplaceVars --> Phase3[Phase 3: Structure Validation<br/>Verify dirs, SCOPE tags, registries]
+    Phase3 --> Phase4[Phase 4: Content Validation<br/>Parametric validation with questions.md]
+
+    Phase4 --> Notify[Notify: Reference structure<br/>created + validated]
+
+    Notify --> End([End: ✓ Reference structure ready])
+
+    %% Styling
+    classDef action fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+    classDef validation fill:#FFF9C4,stroke:#F57C00,stroke-width:2px
+    classDef success fill:#B3E5FC,stroke:#0277BD,stroke-width:2px
+
+    class Phase1,CreateAll,ReplaceVars action
+    class Phase3,Phase4 validation
+    class Notify action
+    class End success
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🔑 Key Features</h3>
+            <ul>
+                <li><strong>Second Worker:</strong> Creates reference documentation structure after root docs</li>
+                <li><strong>Structure Only:</strong> Creates directories and registries, NOT content</li>
+                <li><strong>ADR Template:</strong> Copies Michael Nygard's 7-section ADR template</li>
+                <li><strong>Validation:</strong> Parametric content validation (Phase 4) with project-specific standards removal</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Generated for ln-112-reference-docs-creator skill | Version 7.1.0</p>
+            <p>Diagram format: Mermaid.js | Last updated: 2025-11-18</p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

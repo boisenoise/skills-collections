@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-115-devops-docs-creator - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ln-115-devops-docs-creator</h1>
+            <p class="subtitle">L3 Worker - DevOps Documentation Creator - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Create runbook.md (CONDITIONAL)</li>
+                <li><strong>Invoked by:</strong> ln-110-project-docs-coordinator when hasDocker</li>
+                <li><strong>Key feature:</strong> Conditional section pruning based on DEPLOYMENT_SCALE and DOCKER_SERVICES</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Action</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-decision"></div>
+                <span>Decision</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: ln-115]) --> P1[Phase 1: Check Conditions<br/>Parse flags from coordinator]
+
+    P1 --> CheckFlags{hasDocker?}
+    CheckFlags -->|No| EarlyReturn([Return empty result<br/>No Docker detected])
+    CheckFlags -->|Yes| P2[Phase 2: Create Document]
+
+    P2 --> Exists{runbook.md<br/>exists?}
+    Exists -->|Yes| Skip[Skip with log]
+    Exists -->|No| Create[Copy template]
+
+    Create --> Setup[Populate setup steps<br/>from package.json scripts]
+    Setup --> Env[Extract env vars<br/>from .env.example]
+    Env --> Docker[Populate from<br/>docker-compose.yml]
+    Docker --> CICD[Add CI/CD pipeline<br/>from .github/workflows]
+
+    CICD --> Prune[Conditional Section Pruning]
+
+    Prune --> ScaleCheck{DEPLOYMENT_SCALE<br/>= multi/auto?}
+    ScaleCheck -->|No| RemoveScale[Remove scaling/<br/>load balancer sections]
+    ScaleCheck -->|Yes| KeepScale[Keep scaling sections]
+
+    RemoveScale --> GPUCheck
+    KeepScale --> GPUCheck
+
+    GPUCheck{HAS_GPU?}
+    GPUCheck -->|No| RemoveGPU[Remove GPU sections<br/>nvidia, CUDA]
+    GPUCheck -->|Yes| KeepGPU[Keep GPU sections]
+
+    RemoveGPU --> ServiceCheck
+    KeepGPU --> ServiceCheck
+
+    ServiceCheck[Populate SERVICE_DEPENDENCIES<br/>ONLY from DOCKER_SERVICES] --> PortCheck[Populate PORT_MAPPING<br/>from docker-compose.yml ports]
+    PortCheck --> ContactCheck{DEVOPS_CONTACTS<br/>empty?}
+    ContactCheck -->|Yes| MarkTBD[Mark KEY_CONTACTS<br/>as TBD]
+    ContactCheck -->|No| PopContacts[Populate contacts]
+
+    MarkTBD --> P3
+    PopContacts --> P3
+    Skip --> P3
+
+    P3[Phase 3: Self-Validate] --> V1[Check SCOPE tag]
+    V1 --> V2[Validate sections:<br/>Setup, Deployment, Troubleshooting]
+    V2 --> V3[Check env vars documented]
+    V3 --> V4[Check Maintenance section]
+
+    V4 --> P4[Phase 4: Return Status]
+    P4 --> Output[Return to coordinator:<br/>created[], skipped[], tbd_count]
+    Output --> End([End: 0-1 doc processed])
+
+    classDef action fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+    classDef decision fill:#FFE0B2,stroke:#E64A19,stroke-width:2px
+
+    class P1,P2,Skip,Create,Setup,Env,Docker,CICD,Prune,RemoveScale,KeepScale,RemoveGPU,KeepGPU,ServiceCheck,PortCheck,MarkTBD,PopContacts,P3,V1,V2,V3,V4,P4,Output action
+    class CheckFlags,Exists,ScaleCheck,GPUCheck,ContactCheck decision
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Conditional Sections</h3>
+            <ul>
+                <li><strong>Scaling sections:</strong> Only if DEPLOYMENT_SCALE = "multi" or "auto-scaling"</li>
+                <li><strong>GPU sections:</strong> Only if HAS_GPU (nvidia runtime detected)</li>
+                <li><strong>Service dependencies:</strong> Only services found in DOCKER_SERVICES</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Generated for ln-115-devops-docs-creator skill | Version 1.0.0</p>
+            <p>Diagram format: Mermaid.js | Last updated: 2025-12-20</p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

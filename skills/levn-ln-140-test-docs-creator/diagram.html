@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-114-test-docs-creator - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 ln-114-test-docs-creator</h1>
+            <p class="subtitle">Test Documentation Creator - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>📋 Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Create and validate test documentation (testing-strategy.md + tests/README.md)</li>
+                <li><strong>Worker for:</strong> ln-110-documents-pipeline orchestrator</li>
+                <li><strong>Phases:</strong> 3 phases (Phase 1 CREATE → Phase 2 Structure Validation → Phase 3 Content Validation)</li>
+                <li><strong>Auto-Discovery:</strong> Test framework detection, directory structure scanning, naming convention detection</li>
+                <li><strong>Risk-Based Testing:</strong> Priority ≥15 scenarios, test caps (2-5 E2E, 3-8 Integration, 5-15 Unit)</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Creation Action</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-validation"></div>
+                <span>Validation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-decision"></div>
+                <span>Decision Point</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: Test Docs Creation]) --> Phase1[Phase 1: CREATE<br/>Check & create test documentation]
+
+    Phase1 --> CheckDirs[Check directories:<br/>docs/reference/guides/, tests/]
+    CheckDirs --> CreateDirs{Directories<br/>exist?}
+    CreateDirs -->|No| MakeDirs[Create missing directories]
+    CreateDirs -->|Yes| CheckFiles
+    MakeDirs --> CheckFiles
+
+    CheckFiles[Check files:<br/>testing-strategy.md, tests/README.md]
+    CheckFiles --> FilesExist{Files<br/>exist?}
+    FilesExist -->|Yes| Preserved[Preserve existing files<br/>Skip creation]
+    FilesExist -->|No| CreateFiles[Create from templates<br/>Replace DATE placeholders]
+
+    Preserved --> Phase2
+    CreateFiles --> Phase2
+
+    Phase2[Phase 2: Validate Structure<br/>Auto-fix violations]
+
+    Phase2 --> AutoFix[Auto-fix:<br/>SCOPE tags, required sections,<br/>Maintenance sections, POSIX endings]
+
+    AutoFix --> Phase3[Phase 3: Validate Content<br/>Semantic validation + auto-discovery]
+
+    Phase3 --> ValidateStrategy[Validate testing-strategy.md:<br/>Testing Philosophy, Test Levels]
+
+    Phase3 --> AutoDiscovery[Auto-discovery for tests/README.md]
+    AutoDiscovery --> FrameworkDetect[Detect framework:<br/>package.json jest/vitest<br/>requirements.txt pytest<br/>go.mod built-in]
+    FrameworkDetect --> StructureScan[Scan test directory structure:<br/>tests/e2e/, tests/integration/, tests/unit/]
+    StructureScan --> NamingDetect[Detect naming conventions:<br/>*.test.js, *.spec.ts, test_*.py, *_test.go]
+
+    NamingDetect --> ValidateReadme[Validate tests/README.md sections:<br/>Test Organization, Running Tests]
+
+    ValidateStrategy --> Summary
+    ValidateReadme --> Summary
+
+    Summary[Display completion summary:<br/>Files created/preserved,<br/>Framework detected,<br/>Structure validated]
+
+    Summary --> End([End: ✓ Test docs created + validated])
+
+    %% Styling
+    classDef action fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+    classDef validation fill:#FFF9C4,stroke:#F57C00,stroke-width:2px
+    classDef decision fill:#FFE0B2,stroke:#E64A19,stroke-width:2px
+
+    class Phase1,CheckDirs,MakeDirs,CheckFiles,CreateFiles,Preserved,AutoFix,FrameworkDetect,StructureScan,NamingDetect,Summary action
+    class Phase2,Phase3,ValidateStrategy,AutoDiscovery,ValidateReadme validation
+    class CreateDirs,FilesExist decision
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🔑 Key Features</h3>
+            <ul>
+                <li><strong>Fourth Worker:</strong> Creates test documentation (ln-110 → ln-111 → ln-112 → ln-113 → ln-114 → ln-115)</li>
+                <li><strong>Two Files:</strong> testing-strategy.md (universal philosophy) + tests/README.md (organization with framework-specific details)</li>
+                <li><strong>Universal Philosophy:</strong> testing-strategy.md is framework-agnostic (Risk-Based Testing, test pyramid, isolation patterns)</li>
+                <li><strong>Story-Level Test Task Pattern:</strong> All tests consolidated in final Story task (NOT scattered across implementation tasks)</li>
+                <li><strong>Framework Detection:</strong> Auto-discovers test framework from package.json/requirements.txt/go.mod</li>
+                <li><strong>Structure Auto-Discovery:</strong> Scans tests/ directory for e2e/integration/unit, detects naming conventions</li>
+                <li><strong>Idempotent:</strong> Checks file existence, preserves existing files, re-validates on each run</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Generated for ln-114-test-docs-creator skill | Version 7.0.0</p>
+            <p>Diagram format: Mermaid.js | Last updated: 2025-12-18</p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

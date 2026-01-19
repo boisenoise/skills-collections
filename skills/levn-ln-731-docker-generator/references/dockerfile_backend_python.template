@@ -1,0 +1,94 @@
+# Dockerfile.backend Template (Python)
+# Stack: Python + FastAPI/Django (Multi-stage build)
+# Variables: {{PYTHON_VERSION}}, {{PROJECT_NAME}}, {{FRAMEWORK}}
+
+# =============================================================================
+# TEMPLATE INSTRUCTIONS
+# =============================================================================
+# This template generates a production-ready Dockerfile for Python backend.
+#
+# STRUCTURE:
+# - Stage 1 (builder): Install dependencies with pip
+# - Stage 2 (runtime): Run with minimal Python image
+#
+# REQUIRED FILES:
+# - requirements.txt OR pyproject.toml in root
+#
+# SECURITY BEST PRACTICES:
+# - Use specific Python version (not 'latest')
+# - Use slim images for smaller attack surface
+# - Run as non-root user
+# - Don't store secrets in image
+#
+# VARIABLE SUBSTITUTION:
+# {{PYTHON_VERSION}} - Detected from pyproject.toml or default (3.12)
+# {{PROJECT_NAME}} - Project name for labels
+# {{FRAMEWORK}} - fastapi or django
+#
+# FOR FASTAPI: Use uvicorn as server
+# FOR DJANGO: Use gunicorn as server
+#
+# =============================================================================
+
+# Build stage
+FROM python:{{PYTHON_VERSION}}-slim AS builder
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create virtual environment
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Runtime stage
+FROM python:{{PYTHON_VERSION}}-slim
+
+WORKDIR /app
+
+# Install runtime dependencies only
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq5 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Security: Run as non-root
+RUN groupadd --gid 1001 appgroup && \
+    useradd --uid 1001 --gid 1001 --create-home appuser
+
+# Copy virtual environment from builder
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Copy application code
+COPY . .
+
+# Set ownership
+RUN chown -R appuser:appgroup /app
+
+USER appuser
+
+# Health check endpoint
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+EXPOSE 8000
+
+# FastAPI with uvicorn
+# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# Django with gunicorn
+# CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{{PROJECT_NAME}}.wsgi:application"]
+
+# =============================================================================
+# Version: 1.0.0
+# Last Updated: 2026-01-10
+# =============================================================================

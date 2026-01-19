@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-01-19 14:19 UTC*
+*Last updated: 2026-01-19 09:51 UTC*
 
 ## Source Repositories
 
@@ -60,10 +60,50 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 - **License:** MIT
 - **Description:** 130+ universal agentic skills for multiple AI coding assistants
 
+### ComposioHQ/awesome-claude-skills
+
+- **URL:** https://github.com/ComposioHQ/awesome-claude-skills
+- **License:** MIT
+- **Description:** 25+ practical Claude Skills for enhancing productivity
+
+### levnikolaevich/claude-code-skills
+
+- **URL:** https://github.com/levnikolaevich/claude-code-skills
+- **License:** MIT
+- **Description:** 84 production-ready skills covering workflow phases from research through quality gates
+
+### alec-c4/claude-skills-rails-dev
+
+- **URL:** https://github.com/alec-c4/claude-skills-rails-dev
+- **License:** MIT
+- **Description:** 13 Rails-focused skills with RSpec integration
+
+### muratcankoylan/Agent-Skills-for-Context-Engineering
+
+- **URL:** https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering
+- **License:** MIT
+- **Description:** 13+ skills for context engineering, multi-agent architectures, and agent systems
+
+### brunoasm/my_claude_skills
+
+- **URL:** https://github.com/brunoasm/my_claude_skills
+- **License:** MIT
+- **Description:** Personal Claude skills including think_deeply and phylogenetics tools
+
+### Claude-Skills-Org/skills-main
+
+- **URL:** https://github.com/Claude-Skills-Org/skills-main
+- **License:** Apache-2.0
+- **Description:** 13+ community skills including algorithmic-art, canvas-design, mcp-builder
+
 ## License Summary
 
 | License | Count |
 |---------|-------|
+| Apache-2.0 | 2 |
+| Complete terms in LICENSE.txt | 45 |
+| MIT | 321 |
+| Proprietary. LICENSE.txt has complete terms | 4 |
 
 
 ## Full License Texts

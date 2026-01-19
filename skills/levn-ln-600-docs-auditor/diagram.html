@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-160-docs-auditor - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 ln-160-docs-auditor</h1>
+            <p class="subtitle">Documentation Quality Auditor - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>📋 Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Audit project documentation quality across 6 categories</li>
+                <li><strong>Output:</strong> Compliance Score X/10 per category + Findings + Recommended Actions</li>
+                <li><strong>Categories:</strong> Hierarchy, SSOT, Compactness, Requirements, Actuality, Legacy</li>
+                <li><strong>Invocation:</strong> Direct user call or via ln-100-documents-pipeline (Phase 5)</li>
+                <li><strong>Universal:</strong> Works with any tech stack</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-discovery"></div>
+                <span>Discovery</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-processing"></div>
+                <span>Audit Checks</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Output</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: Documentation Audit]) --> Scan[Phase 1: Scan<br/>Find all .md files]
+
+    Scan --> BuildTree[Phase 2: Build Tree<br/>Construct hierarchy from CLAUDE.md]
+
+    BuildTree --> Cat1[Category 1: Hierarchy & Links<br/>Root, reachability, broken links]
+
+    Cat1 --> Cat2[Category 2: Single Source of Truth<br/>Detect duplication, check ownership]
+
+    Cat2 --> Cat3[Category 3: Context Compactness<br/>Size limits, verbose phrases]
+
+    Cat3 --> Cat4[Category 4: Requirements Compliance<br/>Sections, formatting, structure]
+
+    Cat4 --> Cat5[Category 5: Actuality<br/>Docs vs code, runnable examples]
+
+    Cat5 --> Cat6[Category 6: Legacy Cleanup<br/>History, deprecated, outdated]
+
+    Cat6 --> Score[Phase 3: Calculate Scores<br/>X/10 per category]
+
+    Score --> Report[Phase 4: Generate Report<br/>Findings + Recommended Actions]
+
+    Report --> Output([Output: Audit Report])
+
+    classDef discovery fill:#e1f5fe,stroke:#01579b
+    classDef processing fill:#fff3e0,stroke:#e65100
+    classDef action fill:#e8f5e9,stroke:#2e7d32
+
+    class Start,Scan,BuildTree discovery
+    class Cat1,Cat2,Cat3,Cat4,Cat5,Cat6 processing
+    class Score,Report,Output action
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>📊 Scoring Rules</h3>
+            <table>
+                <tr><th>Score</th><th>Meaning</th></tr>
+                <tr><td>10/10</td><td>No issues</td></tr>
+                <tr><td>8-9/10</td><td>Minor issues</td></tr>
+                <tr><td>6-7/10</td><td>Moderate issues</td></tr>
+                <tr><td>4-5/10</td><td>Significant issues</td></tr>
+                <tr><td>1-3/10</td><td>Critical issues</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</body>
+</html>

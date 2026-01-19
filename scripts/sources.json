@@ -90,6 +90,66 @@
       "license": "MIT",
       "exclude": ["docx-official", "pdf-official", "pptx-official", "xlsx-official"],
       "description": "130+ universal agentic skills for multiple AI coding assistants"
+    },
+    {
+      "name": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "branch": "master",
+      "skills_paths": ["."],
+      "prefix": "composio",
+      "license": "MIT",
+      "exclude": [".github", "README.md", "CONTRIBUTING.md", "LICENSE", "document-skills"],
+      "description": "25+ practical Claude Skills for enhancing productivity"
+    },
+    {
+      "name": "levnikolaevich/claude-code-skills",
+      "url": "https://github.com/levnikolaevich/claude-code-skills",
+      "branch": "master",
+      "skills_paths": ["."],
+      "prefix": "levn",
+      "license": "MIT",
+      "exclude": [".github", "docs", "README.md", "LICENSE", "CONTRIBUTING.md", "CHANGELOG.md", "CLAUDE.md"],
+      "description": "84 production-ready skills covering workflow phases from research through quality gates"
+    },
+    {
+      "name": "alec-c4/claude-skills-rails-dev",
+      "url": "https://github.com/alec-c4/claude-skills-rails-dev",
+      "branch": "master",
+      "skills_paths": ["."],
+      "prefix": "rails",
+      "license": "MIT",
+      "exclude": [".github", "README.md", "LICENSE", "INSTALLATION.md", "SKILLS_REGISTRY.md"],
+      "description": "13 Rails-focused skills with RSpec integration"
+    },
+    {
+      "name": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "context-eng",
+      "license": "MIT",
+      "exclude": [],
+      "description": "13+ skills for context engineering, multi-agent architectures, and agent systems"
+    },
+    {
+      "name": "brunoasm/my_claude_skills",
+      "url": "https://github.com/brunoasm/my_claude_skills",
+      "branch": "main",
+      "skills_paths": ["."],
+      "prefix": "brunoasm",
+      "license": "MIT",
+      "exclude": [".github"],
+      "description": "Personal Claude skills including think_deeply and phylogenetics tools"
+    },
+    {
+      "name": "Claude-Skills-Org/skills-main",
+      "url": "https://github.com/Claude-Skills-Org/skills-main",
+      "branch": "main",
+      "skills_paths": ["."],
+      "prefix": "skills-org",
+      "license": "Apache-2.0",
+      "exclude": [".github", "document-skills"],
+      "description": "13+ community skills including algorithmic-art, canvas-design, mcp-builder"
     }
   ],
   "discovery": {

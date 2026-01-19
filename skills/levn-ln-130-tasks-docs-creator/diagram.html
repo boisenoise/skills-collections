@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-113-tasks-docs-creator - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 ln-113-tasks-docs-creator</h1>
+            <p class="subtitle">Tasks Documentation Creator - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>📋 Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Create task management documentation (docs/tasks/README.md + kanban_board.md)</li>
+                <li><strong>Worker for:</strong> ln-110-documents-pipeline orchestrator</li>
+                <li><strong>Phases:</strong> 3 phases (Phase 1 CREATE → Phase 2 Structure Validation → Phase 3 Content Validation)</li>
+                <li><strong>Linear Integration:</strong> Special handling for Linear Configuration (UUID/Team Key validation, placeholder detection)</li>
+                <li><strong>Auto-Discovery:</strong> Epic Story Counters for automatic team configuration</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Creation Action</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-validation"></div>
+                <span>Validation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-decision"></div>
+                <span>Conditional Check</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: Tasks Docs Creation]) --> Phase1[Phase 1: CREATE tasks/README.md]
+
+    Phase1 --> CheckExists{README.md<br/>exists?}
+    CheckExists -->|Yes| Preserved[Preserve existing<br/>README.md]
+    CheckExists -->|No| CreateReadme[Create from template<br/>+ replace DATE placeholder]
+
+    Preserved --> Phase2
+    CreateReadme --> Phase2
+
+    Phase2[Phase 2: Structure Validation<br/>Auto-fix SCOPE tags, sections, Maintenance]
+
+    Phase2 --> AutoFix[Auto-fix violations:<br/>SCOPE tags, required sections,<br/>Maintenance, POSIX endings]
+
+    AutoFix --> Phase3[Phase 3: Content Validation<br/>Semantic validation + Linear Configuration]
+
+    Phase3 --> ValidateReadme[Validate tasks/README.md sections:<br/>Linear Integration, Task Workflow, Templates]
+
+    Phase3 --> CheckKanban{kanban_board.md<br/>exists?}
+    CheckKanban -->|No| Summary
+    CheckKanban -->|Yes| LinearConfig[Linear Configuration<br/>Special Handling]
+
+    LinearConfig --> PlaceholderCheck{Has placeholders<br/>[TEAM_NAME/UUID/KEY]?}
+
+    PlaceholderCheck -->|Yes| InteractiveSetup[Interactive Setup Mode<br/>User prompts + validation:<br/>UUID regex, Team Key regex]
+    PlaceholderCheck -->|No| ValidationMode[Validation Mode<br/>Check UUID/Team Key formats]
+
+    InteractiveSetup --> UpdateConfig[Replace placeholders<br/>+ Set Epic/Story counters to 1]
+    ValidationMode --> EpicTracking
+
+    UpdateConfig --> EpicTracking[Validate Epic Tracking section]
+    EpicTracking --> Summary
+
+    ValidateReadme --> Summary[Notify: Task documentation<br/>validated (3-phase complete)]
+
+    Summary --> End([End: ✓ Tasks docs created + validated])
+
+    %% Styling
+    classDef action fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+    classDef validation fill:#FFF9C4,stroke:#F57C00,stroke-width:2px
+    classDef decision fill:#FFE0B2,stroke:#E64A19,stroke-width:2px
+
+    class Phase1,CreateReadme,Preserved,AutoFix,InteractiveSetup,UpdateConfig,Summary action
+    class Phase2,Phase3,ValidateReadme,LinearConfig,ValidationMode,EpicTracking validation
+    class CheckExists,CheckKanban,PlaceholderCheck decision
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🔑 Key Features</h3>
+            <ul>
+                <li><strong>Third Worker:</strong> Creates task management system after reference docs (ln-110 → ln-111 → ln-112 → ln-113)</li>
+                <li><strong>Story-Level Test Task Pattern:</strong> Documents test consolidation approach (tests in final Story task)</li>
+                <li><strong>Epic Grouping Pattern:</strong> Status → Epic → Story → Tasks hierarchy (0/2/4 space indentation)</li>
+                <li><strong>Linear Configuration:</strong> UUID/Team Key validation with regex, Interactive Setup Mode for placeholders</li>
+                <li><strong>Epic Story Counters:</strong> Auto-discovery integration (Next Epic Number, Story counters per Epic)</li>
+                <li><strong>Idempotent:</strong> Can be invoked multiple times - preserves existing files, re-validates on each run</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Generated for ln-113-tasks-docs-creator skill | Version 7.0.0</p>
+            <p>Diagram format: Mermaid.js | Last updated: 2025-11-18</p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
