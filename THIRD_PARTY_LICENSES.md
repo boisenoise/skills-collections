@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-01-19 09:51 UTC*
+*Last updated: 2026-01-19 13:19 UTC*
 
 ## Source Repositories
 
@@ -96,13 +96,19 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 - **License:** Apache-2.0
 - **Description:** 13+ community skills including algorithmic-art, canvas-design, mcp-builder
 
+### coreyhaines31/marketingskills
+
+- **URL:** https://github.com/coreyhaines31/marketingskills
+- **License:** MIT
+- **Description:** 23 marketing skills including copywriting, SEO, CRO, and email campaigns
+
 ## License Summary
 
 | License | Count |
 |---------|-------|
 | Apache-2.0 | 2 |
 | Complete terms in LICENSE.txt | 45 |
-| MIT | 321 |
+| MIT | 345 |
 | Proprietary. LICENSE.txt has complete terms | 4 |
 
 

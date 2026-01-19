@@ -150,6 +150,16 @@
       "license": "Apache-2.0",
       "exclude": [".github", "document-skills"],
       "description": "13+ community skills including algorithmic-art, canvas-design, mcp-builder"
+    },
+    {
+      "name": "coreyhaines31/marketingskills",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "marketing",
+      "license": "MIT",
+      "exclude": [],
+      "description": "23 marketing skills including copywriting, SEO, CRO, and email campaigns"
     }
   ],
   "discovery": {

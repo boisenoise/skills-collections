@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-19 09:51 UTC*
+*Last updated: 2026-01-19 13:19 UTC*
 
-Total skills: **372**
+Total skills: **396**
 
 ## Skills by Source
 
@@ -98,6 +98,34 @@ Total skills: **372**
 | `brunoasm-extract_from_pdfs` | This skill should be used when extracting structured data from scientific PDFs for systematic review... |
 | `brunoasm-phylo_from_buscos` | Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with s... |
 | `brunoasm-think_deeply` | Engages structured analysis to explore multiple perspectives and context dependencies before respond... |
+
+### coreyhaines31/marketingskills
+
+| Skill | Description |
+|-------|-------------|
+| `marketing-ab-test-setup` | When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user ... |
+| `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
+| `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
+| `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment... |
+| `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, ... |
+| `marketing-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
+| `marketing-form-cro` | When the user wants to optimize any form that is NOT signup/registration — including lead capture fo... |
+| `marketing-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
+| `marketing-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
+| `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
+| `marketing-marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marke... |
+| `marketing-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
+| `marketing-page-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page — including ... |
+| `marketing-paid-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
+| `marketing-paywall-upgrade-cro` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
+| `marketing-popup-cro` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
+| `marketing-pricing-strategy` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
+| `marketing-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
+| `marketing-referral-program` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
+| `marketing-schema-markup` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u... |
+| `marketing-seo-audit` | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user m... |
+| `marketing-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
+| `marketing-social-content` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twit... |
 
 ### levnikolaevich/claude-code-skills
 
@@ -357,6 +385,7 @@ Total skills: **372**
 | `antigravity-mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
 | `antigravity-metasploit-framework` | This skill should be used when the user asks to "use Metasploit for penetration testing", "exploit v... |
 | `antigravity-micro-saas-launcher` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profit... |
+| `antigravity-moodle-external-api-development` | Create custom external web service APIs for Moodle LMS. Use when implementing web services for cours... |
 | `antigravity-neon-postgres` | Expert patterns for Neon serverless Postgres, branching, connection pooling, and Prisma/Drizzle inte... |
 | `antigravity-network-101` | This skill should be used when the user asks to "set up a web server", "configure HTTP or HTTPS", "p... |
 | `antigravity-nextjs-supabase-auth` | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authentica... |
