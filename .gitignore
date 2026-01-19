@@ -28,3 +28,4 @@ Thumbs.db
 
 # Don't ignore the skills directory itself
 !skills/
+.claude/
