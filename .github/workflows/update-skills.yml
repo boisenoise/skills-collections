@@ -1,0 +1,140 @@
+name: Update Skills Collection
+
+on:
+  schedule:
+    # Run daily at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      discover:
+        description: 'Run GitHub discovery for new skills'
+        required: false
+        default: 'false'
+        type: boolean
+      clean:
+        description: 'Clean rebuild (remove all skills first)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  update-skills:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+      
+      - name: Fetch skills from sources
+        run: |
+          if [ "${{ inputs.clean }}" = "true" ]; then
+            python scripts/fetch_skills.py --clean
+          else
+            python scripts/fetch_skills.py
+          fi
+      
+      - name: Run discovery (if enabled)
+        if: inputs.discover == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/discover_skills.py
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected:"
+            git diff --staged --stat
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Get skill count from metadata
+          SKILL_COUNT=$(python -c "import json; print(json.load(open('.skill_metadata.json'))['skill_count'])")
+          
+          git commit -m "chore: update skills collection ($SKILL_COUNT skills)"
+          git push
+      
+      - name: Create summary
+        run: |
+          echo "## Skills Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f ".skill_metadata.json" ]; then
+            SKILL_COUNT=$(python -c "import json; print(json.load(open('.skill_metadata.json'))['skill_count'])")
+            SOURCES=$(python -c "import json; print(json.load(open('.skill_metadata.json'))['sources_processed'])")
+            echo "- **Skills collected:** $SKILL_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "- **Sources processed:** $SOURCES" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check_changes.outputs.has_changes }}" = "true" ]; then
+            echo "✅ Changes committed and pushed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ No changes detected" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  discover-weekly:
+    runs-on: ubuntu-latest
+    # Only run discovery on Sundays
+    if: github.event.schedule == '0 6 * * 0' || inputs.discover == 'true'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run discovery
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/discover_skills.py
+      
+      - name: Upload discovery results
+        uses: actions/upload-artifact@v4
+        with:
+          name: discovered-skills
+          path: scripts/discovered.json
+          retention-days: 30
+      
+      - name: Create issue for new discoveries
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f "scripts/discovered.json" ]; then
+            COUNT=$(python -c "import json; data=json.load(open('scripts/discovered.json')); print(len(data.get('repositories', [])))")
+            
+            if [ "$COUNT" -gt "0" ]; then
+              echo "Found $COUNT new skill repositories to review"
+              # Could create an issue here with gh cli
+            fi
+          fi

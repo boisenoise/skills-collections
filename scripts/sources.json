@@ -1,0 +1,105 @@
+{
+  "_comment": "Skills paths vary by repository - check each repo's structure",
+  "sources": [
+    {
+      "name": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "anthropic",
+      "license": "Apache-2.0",
+      "exclude": ["docx", "pdf", "pptx", "xlsx"],
+      "description": "Official Anthropic skills repository"
+    },
+    {
+      "name": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "branch": "main",
+      "skills_paths": ["skills", "."],
+      "prefix": "superpowers",
+      "license": "MIT",
+      "exclude": [".claude-plugin", ".codex", ".opencode", ".github"],
+      "description": "Core skills library for Claude Code with TDD, debugging, collaboration"
+    },
+    {
+      "name": "obra/superpowers-skills",
+      "url": "https://github.com/obra/superpowers-skills",
+      "branch": "main",
+      "skills_paths": [".", "skills"],
+      "prefix": "superpowers-community",
+      "license": "MIT",
+      "exclude": [".github"],
+      "description": "Community-editable skills for superpowers plugin"
+    },
+    {
+      "name": "obra/superpowers-lab",
+      "url": "https://github.com/obra/superpowers-lab",
+      "branch": "main",
+      "skills_paths": ["skills", "."],
+      "prefix": "superpowers-lab",
+      "license": "MIT",
+      "exclude": [".claude-plugin", ".github"],
+      "description": "Experimental skills under active development"
+    },
+    {
+      "name": "obra/superpowers-developing-for-claude-code",
+      "url": "https://github.com/obra/superpowers-developing-for-claude-code",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "superpowers-dev",
+      "license": "MIT",
+      "exclude": [".claude-plugin"],
+      "description": "Skills for developing Claude Code plugins and MCP servers"
+    },
+    {
+      "name": "vercel-labs/agent-skills",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "vercel",
+      "license": "MIT",
+      "exclude": [],
+      "description": "React/Next.js best practices and Vercel deployment skills"
+    },
+    {
+      "name": "K-Dense-AI/claude-scientific-skills",
+      "url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "kdense",
+      "license": "MIT",
+      "exclude": [],
+      "description": "140+ scientific research and analysis skills"
+    },
+    {
+      "name": "alirezarezvani/claude-skills",
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "branch": "main",
+      "skills_paths": ["skills", "claude-skills"],
+      "prefix": "rezvani",
+      "license": "MIT",
+      "exclude": [],
+      "description": "Professional skills including CEO advisor, content creator, compliance"
+    },
+    {
+      "name": "sickn33/antigravity-awesome-skills",
+      "url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "antigravity",
+      "license": "MIT",
+      "exclude": ["docx-official", "pdf-official", "pptx-official", "xlsx-official"],
+      "description": "130+ universal agentic skills for multiple AI coding assistants"
+    }
+  ],
+  "discovery": {
+    "enabled": true,
+    "search_queries": [
+      "SKILL.md claude agent in:path",
+      "claude-skills SKILL.md",
+      "agent-skills SKILL.md"
+    ],
+    "min_stars": 5,
+    "allowed_licenses": ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unlicense", "CC0-1.0"]
+  }
+}
