@@ -1,0 +1,50 @@
+{
+  "name": "claude-plugin-linear",
+  "version": "2.0.0",
+  "description": "Claude Code skill for Linear issue, project, and team management with MCP integration",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "claude-plugin",
+    "linear",
+    "project-management",
+    "issue-tracking",
+    "workflow"
+  ],
+  "author": "wrsmith108",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wrsmith108/linear-claude-skill.git"
+  },
+  "homepage": "https://github.com/wrsmith108/linear-claude-skill#readme",
+  "bugs": {
+    "url": "https://github.com/wrsmith108/linear-claude-skill/issues"
+  },
+  "files": [
+    "SKILL.md",
+    "scripts",
+    "docs",
+    "hooks",
+    "api.md",
+    "sdk.md",
+    "sync.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "npx tsx scripts/setup.ts --silent 2>/dev/null || true",
+    "setup": "npx tsx scripts/setup.ts",
+    "ops": "npx tsx scripts/linear-ops.ts",
+    "query": "npx tsx scripts/query.ts",
+    "test-connection": "npx tsx scripts/query.ts \"query { viewer { name } }\""
+  },
+  "claude-plugin": {
+    "name": "Linear",
+    "description": "Manage Linear issues, projects, and teams with MCP tools, SDK automation, and GraphQL API patterns",
+    "skills": ["."]
+  },
+  "dependencies": {
+    "@linear/sdk": "^68.1.0"
+  }
+}

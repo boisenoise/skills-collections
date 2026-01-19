@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-01-19 13:19 UTC*
+*Last updated: 2026-01-19 14:09 UTC*
 
 ## Source Repositories
 
@@ -102,13 +102,31 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 - **License:** MIT
 - **Description:** 23 marketing skills including copywriting, SEO, CRO, and email campaigns
 
+### itsmostafa/aws-agent-skills
+
+- **URL:** https://github.com/itsmostafa/aws-agent-skills
+- **License:** MIT
+- **Description:** 18 AWS service skills with CLI reference, best practices, and troubleshooting
+
+### zxkane/aws-skills
+
+- **URL:** https://github.com/zxkane/aws-skills
+- **License:** Apache-2.0
+- **Description:** 5 AWS development pattern skills: MCP setup, CDK, cost ops, serverless EDA, agentic AI
+
+### wrsmith108/linear-claude-skill
+
+- **URL:** https://github.com/wrsmith108/linear-claude-skill
+- **License:** MIT
+- **Description:** Linear issue management with MCP tools and GraphQL API patterns (Note: Manual handling required - SKILL.md at root level)
+
 ## License Summary
 
 | License | Count |
 |---------|-------|
-| Apache-2.0 | 2 |
+| Apache-2.0 | 7 |
 | Complete terms in LICENSE.txt | 45 |
-| MIT | 345 |
+| MIT | 386 |
 | Proprietary. LICENSE.txt has complete terms | 4 |
 
 

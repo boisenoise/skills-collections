@@ -160,6 +160,36 @@
       "license": "MIT",
       "exclude": [],
       "description": "23 marketing skills including copywriting, SEO, CRO, and email campaigns"
+    },
+    {
+      "name": "itsmostafa/aws-agent-skills",
+      "url": "https://github.com/itsmostafa/aws-agent-skills",
+      "branch": "main",
+      "skills_paths": ["skills"],
+      "prefix": "aws",
+      "license": "MIT",
+      "exclude": [],
+      "description": "18 AWS service skills with CLI reference, best practices, and troubleshooting"
+    },
+    {
+      "name": "zxkane/aws-skills",
+      "url": "https://github.com/zxkane/aws-skills",
+      "branch": "main",
+      "skills_paths": ["plugins/aws-common/skills", "plugins/aws-cdk/skills", "plugins/aws-cost-ops/skills", "plugins/serverless-eda/skills", "plugins/aws-agentic-ai/skills"],
+      "prefix": "aws-dev",
+      "license": "Apache-2.0",
+      "exclude": [],
+      "description": "5 AWS development pattern skills: MCP setup, CDK, cost ops, serverless EDA, agentic AI"
+    },
+    {
+      "name": "wrsmith108/linear-claude-skill",
+      "url": "https://github.com/wrsmith108/linear-claude-skill",
+      "branch": "main",
+      "skills_paths": ["."],
+      "prefix": "linear",
+      "license": "MIT",
+      "exclude": [".github", "README.md", "LICENSE", ".gitignore", "CHANGELOG.md", "package.json", "package-lock.json"],
+      "description": "Linear issue management with MCP tools and GraphQL API patterns (Note: Manual handling required - SKILL.md at root level)"
     }
   ],
   "discovery": {
