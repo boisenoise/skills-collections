@@ -1,5 +1,8 @@
 # Verification Checklist
 
+<!-- SCOPE: Post-bootstrap verification steps ONLY. Contains build, test, lint verification commands. -->
+<!-- DO NOT add here: Bootstrap workflow → ln-700-project-bootstrap SKILL.md -->
+
 Post-bootstrap verification steps for ln-700-project-bootstrap.
 
 ---

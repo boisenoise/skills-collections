@@ -1,5 +1,8 @@
 # Secret Remediation Guide
 
+<!-- SCOPE: Secret remediation procedures ONLY. Contains rotation steps, git history cleanup, per-service rotation links. -->
+<!-- DO NOT add here: Scanner workflow → ln-761-secret-scanner SKILL.md, detection → detection_patterns.md -->
+
 Procedures for handling discovered secrets. **Critical:** Treat any found secret as already compromised.
 
 ---

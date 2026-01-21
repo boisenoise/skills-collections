@@ -1,5 +1,8 @@
 # Program.cs Sections
 
+<!-- SCOPE: ASP.NET Core Program.cs structure ONLY. Contains section order, service registration, middleware pipeline. -->
+<!-- DO NOT add here: Generation workflow → ln-722-backend-generator SKILL.md -->
+
 Structure and order of sections in ASP.NET Core Program.cs.
 
 ---

@@ -1,5 +1,8 @@
 # Controller Generation Patterns
 
+<!-- SCOPE: ASP.NET Core controller generation rules ONLY. Contains naming conventions, route patterns, CRUD templates. -->
+<!-- DO NOT add here: Generation workflow → ln-722-backend-generator SKILL.md -->
+
 Rules for generating ASP.NET Core Controllers in Clean Architecture.
 
 ---

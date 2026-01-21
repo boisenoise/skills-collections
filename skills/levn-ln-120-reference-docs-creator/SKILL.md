@@ -55,6 +55,7 @@ The skill follows a 4-phase workflow: **CREATE STRUCTURE** → **SMART DOCUMENT 
 - Check if `docs/reference/adrs/` exists → create if missing
 - Check if `docs/reference/guides/` exists → create if missing
 - Check if `docs/reference/manuals/` exists → create if missing
+- Check if `docs/reference/research/` exists → create if missing
 - Log for each: "✓ Created docs/reference/[name]/" or "✓ docs/reference/[name]/ already exists"
 
 **1.2 Check & create README**:
@@ -78,7 +79,8 @@ docs/reference/
 ├── README.md         # Created or existing
 ├── adrs/            # Empty, ready for ADRs
 ├── guides/          # Empty, ready for guides
-└── manuals/         # Empty, ready for manuals
+├── manuals/         # Empty, ready for manuals
+└── research/        # Empty, ready for research documents
 ```
 
 ---
@@ -210,6 +212,7 @@ For each package with complex API:
   - "Architecture Decision Records (ADRs)"
   - "Project Guides"
   - "Package Manuals"
+  - "Research"
 - For each section:
   - Check if `## [Section Name]` header exists
   - If missing:
@@ -313,6 +316,18 @@ sections = [
       "Has placeholder {{MANUAL_LIST}} or actual list",
       "Length > 20 words"
     ]
+  },
+  {
+    "name": "Research",
+    "question": "Where are research/investigation documents stored?",
+    "directory": "docs/reference/research/",
+    "placeholder": "{{RESEARCH_LIST}}",
+    "glob_pattern": "docs/reference/research/*.md",
+    "heuristics": [
+      "Contains link: [Research](research/) or [research](research/)",
+      "Has placeholder {{RESEARCH_LIST}} or actual list",
+      "Length > 20 words"
+    ]
   }
 ]
 ```
@@ -350,7 +365,7 @@ For each section in sections:
 - Log summary:
   ```
   ✅ Content validation complete:
-    - Sections checked: 3
+    - Sections checked: 4
     - Populated from auto-discovery: [count]
     - Placeholders kept (no files): [count]
     - Already valid: [count]
@@ -366,7 +381,8 @@ docs/
     ├── README.md                     # Reference hub with registries
     ├── adrs/                         # Empty or with ADR files
     ├── guides/                       # Empty or with guide files
-    └── manuals/                      # Empty or with manual files
+    ├── manuals/                      # Empty or with manual files
+    └── research/                     # Empty or with research files
 ```
 
 ---
@@ -385,6 +401,7 @@ docs/
 - `shared/templates/adr_template.md` - Nygard ADR format (7 sections)
 - `shared/templates/guide_template.md` - Pattern documentation (Do/Don't/When)
 - `shared/templates/manual_template.md` - API reference format
+- `shared/templates/research_template.md` - Research/Spike documentation
 
 **Justification Rules**:
 - `references/tech_justification_rules.md` - Mapping: category → create/skip conditions
@@ -444,6 +461,7 @@ Before completing work, verify ALL checkpoints:
 - [ ] `docs/reference/adrs/` directory exists
 - [ ] `docs/reference/guides/` directory exists
 - [ ] `docs/reference/manuals/` directory exists
+- [ ] `docs/reference/research/` directory exists
 - [ ] `docs/reference/README.md` exists (created or existing)
 
 **✅ Phase 2 - Smart Documents Created (if Context Store provided):**
@@ -455,7 +473,7 @@ Before completing work, verify ALL checkpoints:
 
 **✅ Phase 3 - Structure Validated:**
 - [ ] SCOPE tag present in first 5 lines
-- [ ] Three registry sections present (ADRs, Guides, Manuals)
+- [ ] Four registry sections present (ADRs, Guides, Manuals, Research)
 - [ ] Maintenance section present at end
 - [ ] POSIX file endings compliant
 

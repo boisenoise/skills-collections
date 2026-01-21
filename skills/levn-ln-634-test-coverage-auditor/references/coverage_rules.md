@@ -1,5 +1,8 @@
 # Coverage Gaps Audit Rules
 
+<!-- SCOPE: Critical paths classification for coverage gaps ONLY. Contains priority keywords (money, auth, data), detection patterns. -->
+<!-- DO NOT add here: Audit workflow → ln-634-test-coverage-auditor SKILL.md -->
+
 Critical paths classification and missing test identification.
 
 ## Critical Paths Classification

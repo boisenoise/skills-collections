@@ -1,5 +1,8 @@
 # Story Verification Checklist (Template)
 
+<!-- SCOPE: Verification checklist structure for ln-310-story-validator ONLY. Contains 17 criteria in 6 categories with penalty points. -->
+<!-- DO NOT add here: validation implementation → SKILL.md, specific rules → individual validation files -->
+
 General structure and category overview for ln-310-story-validator verification process.
 
 **CRITICAL PRINCIPLE:** This skill ALWAYS auto-fixes all issues detected. Goal = 0 penalty points.

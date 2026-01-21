@@ -1,5 +1,8 @@
 # Transformation Plan Template
 
+<!-- SCOPE: Bootstrap transformation plan structure ONLY. Contains project info, detected stack, phases, verification checklist. -->
+<!-- DO NOT add here: bootstrap logic → ln-700-project-bootstrap SKILL.md, phase details → L2/L3 worker skills -->
+
 Template for generating bootstrap transformation plans.
 
 ---

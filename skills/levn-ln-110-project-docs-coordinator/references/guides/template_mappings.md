@@ -1,5 +1,8 @@
 # Template Mappings Reference
 
+<!-- SCOPE: Answer-to-template mappings ONLY. Contains source questions for each document section. -->
+<!-- DO NOT add here: Template creation → templates/*.md, Phase logic → ln-110-project-docs-coordinator SKILL.md -->
+
 This document details how collected answers from Phase 2 (Core Documents Generation) map to specific sections in the 7 generated documentation templates.
 
 ## Document 1: requirements.md

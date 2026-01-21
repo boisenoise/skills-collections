@@ -1,5 +1,8 @@
 # refresh_infrastructure.md Template
 
+<!-- SCOPE: refresh_infrastructure.md command template ONLY. Contains stop/start/verify steps, variable placeholders. -->
+<!-- DO NOT add here: Generation workflow → ln-751-command-templates SKILL.md -->
+
 Template for generating project-specific infrastructure restart command.
 
 ---

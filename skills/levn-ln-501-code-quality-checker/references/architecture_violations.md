@@ -1,5 +1,8 @@
 # Architecture Violations Reference
 
+<!-- SCOPE: Clean Architecture violation patterns ONLY. Contains layer hierarchy, dependency rules, cross-cutting concerns. -->
+<!-- DO NOT add here: DRY rules → dry_violations.md, KISS rules → kiss_violations.md, YAGNI rules → yagni_violations.md -->
+
 Clean Architecture principles: Separation of concerns, layer independence, dependency inversion.
 
 ## Layer Hierarchy

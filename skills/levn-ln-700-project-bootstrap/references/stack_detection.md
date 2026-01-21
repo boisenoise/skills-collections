@@ -1,5 +1,8 @@
 # Stack Detection Reference
 
+<!-- SCOPE: Technology detection patterns ONLY. Contains file markers, dependency patterns, detection priority. -->
+<!-- DO NOT add here: Bootstrap workflow → ln-700-project-bootstrap SKILL.md -->
+
 Technology detection patterns for ln-700-project-bootstrap.
 
 ---

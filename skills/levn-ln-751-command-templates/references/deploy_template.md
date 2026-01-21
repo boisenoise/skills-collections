@@ -1,5 +1,8 @@
 # deploy.md Template
 
+<!-- SCOPE: deploy.md command template ONLY. Contains deployment steps, conditional generation. -->
+<!-- DO NOT add here: Generation workflow → ln-751-command-templates SKILL.md -->
+
 Template for generating deployment workflow command.
 
 **Condition:** Generated only if CI/CD config detected (.github/workflows/, Dockerfile, etc.)

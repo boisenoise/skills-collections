@@ -1,5 +1,8 @@
 # Verification Checklist
 
+<!-- SCOPE: Quality setup verification steps ONLY. Contains pre-verification requirements, test commands. -->
+<!-- DO NOT add here: Quality setup workflow → ln-740-quality-setup SKILL.md -->
+
 Reference for ln-740-quality-setup Phase 4.
 
 ---

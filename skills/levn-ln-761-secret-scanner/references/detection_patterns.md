@@ -1,5 +1,8 @@
 # Secret Detection Patterns
 
+<!-- SCOPE: Secret detection regex patterns ONLY. Contains AWS/GitHub/Slack token patterns, confidence levels. -->
+<!-- DO NOT add here: Scanner workflow → ln-761-secret-scanner SKILL.md, remediation → remediation_guide.md -->
+
 Reference for secret patterns detected by ln-761-secret-scanner.
 
 ---

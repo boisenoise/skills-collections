@@ -1,5 +1,8 @@
 # Entity Generation Patterns
 
+<!-- SCOPE: .NET entity generation rules ONLY. Contains BaseEntity structure, property conventions, relationship patterns. -->
+<!-- DO NOT add here: Generation workflow → ln-722-backend-generator SKILL.md -->
+
 Rules for generating Domain entities in .NET Clean Architecture.
 
 ---

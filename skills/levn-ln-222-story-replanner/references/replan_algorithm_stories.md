@@ -1,5 +1,8 @@
 # Story Replan Algorithm
 
+<!-- SCOPE: ln-222-story-replanner comparison logic ONLY. Contains KEEP/UPDATE/OBSOLETE/CREATE operations, diff generation, status constraints. -->
+<!-- DO NOT add here: coordinator logic → ln-220-story-coordinator SKILL.md, Task replan → ln-302-task-replanner -->
+
 Comparison logic for ln-222-story-replanner REPLAN MODE. Determines operations (KEEP/UPDATE/OBSOLETE/CREATE) when existing Stories found for Epic.
 
 ## Overview

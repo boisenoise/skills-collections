@@ -1,5 +1,8 @@
 # CORS Configuration
 
+<!-- SCOPE: CORS configuration patterns ONLY. Contains dev/prod policies, per-stack setup (Express, ASP.NET). -->
+<!-- DO NOT add here: Setup workflow → ln-770-crosscutting-setup SKILL.md -->
+
 Cross-Origin Resource Sharing setup for all supported stacks.
 
 ---

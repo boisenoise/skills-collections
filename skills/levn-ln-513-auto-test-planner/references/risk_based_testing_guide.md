@@ -1,5 +1,8 @@
 # Risk-Based Testing Guide
 
+<!-- SCOPE: Risk-Based Testing philosophy and limits ONLY. Contains prioritization rules, test counts (10-28 per Story), Kent Beck principle. -->
+<!-- DO NOT add here: Examples → risk_based_testing_examples.md, test planning logic → ln-513-auto-test-planner SKILL.md -->
+
 ## Purpose
 
 This guide replaces the traditional Test Pyramid (70/20/10 ratio) with a **Value-Based Testing Framework** that prioritizes business risk and practical test limits. The goal is to write tests that matter, not to chase coverage metrics.

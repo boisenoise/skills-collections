@@ -1,5 +1,8 @@
 # Security Audit Guide
 
+<!-- SCOPE: Pre-upgrade security audit commands ONLY. Contains npm/pip/nuget audit commands, CVE checks. -->
+<!-- DO NOT add here: Upgrade workflow → ln-710-dependency-upgrader SKILL.md -->
+
 Pre-upgrade security checks for all package managers.
 
 ---

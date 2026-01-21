@@ -1,5 +1,8 @@
 # Frontend Transformation Rules
 
+<!-- SCOPE: React restructuring transformation rules ONLY. Contains split triggers, extraction thresholds. -->
+<!-- DO NOT add here: Migration workflow → ln-721-frontend-restructure SKILL.md -->
+
 Rules for restructuring React frontend from monolith to component-based architecture.
 
 ---

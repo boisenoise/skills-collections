@@ -3,6 +3,9 @@
 **Linear Project:** [Epic Title](https://linear.app/workspace/project/...)
 **Priority:** High | Medium | Low
 
+<!-- SCOPE: Epic document structure ONLY. Contains goal, scope definition, success criteria, Stories list. -->
+<!-- DO NOT add here: Story details → individual Story docs, task implementation → task docs, architecture → architecture.md -->
+
 ---
 
 ## Goal

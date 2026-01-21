@@ -1,5 +1,8 @@
 # React Folder Structure Template
 
+<!-- SCOPE: React target folder structure ONLY. Contains directory tree, file naming conventions. -->
+<!-- DO NOT add here: Migration workflow → ln-721-frontend-restructure SKILL.md, transformation rules → transformation_rules.md -->
+
 Target structure for restructured React frontend projects.
 
 ---

@@ -1,5 +1,8 @@
 # Puppeteer Testing Patterns
 
+<!-- SCOPE: Puppeteer MCP browser automation patterns ONLY. Contains selectors, navigation, assertion patterns. -->
+<!-- DO NOT add here: Test result format → test_result_format_v1.md, testing workflow → ln-512-manual-tester SKILL.md -->
+
 This document provides reusable patterns for UI testing with puppeteer MCP.
 
 ## Overview

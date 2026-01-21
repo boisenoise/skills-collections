@@ -1,5 +1,8 @@
 # Type Mapping Reference
 
+<!-- SCOPE: Drizzle to C# type mapping ONLY. Contains type conversions, nullable rules, default values. -->
+<!-- DO NOT add here: Migration workflow → ln-723-mockdata-migrator SKILL.md -->
+
 Mapping rules from ORM schema types to C# types.
 
 ---

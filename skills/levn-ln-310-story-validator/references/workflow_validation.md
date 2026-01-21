@@ -1,5 +1,8 @@
 # Workflow Validation (Criteria #7-#13)
 
+<!-- SCOPE: Workflow validation criteria #7-#13 ONLY. Contains test strategy, KISS/YAGNI, task order, Story size rules. -->
+<!-- DO NOT add here: Structural validation → structural_validation.md, traceability → traceability_validation.md -->
+
 Detailed rules for test strategy, documentation integration, Story size, test cleanup, YAGNI, KISS, and task order.
 
 ---

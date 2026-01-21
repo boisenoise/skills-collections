@@ -1,5 +1,8 @@
 # database-ops.md Template
 
+<!-- SCOPE: database-ops.md command template ONLY. Contains migration/backup/reset steps, conditional generation. -->
+<!-- DO NOT add here: Generation workflow → ln-751-command-templates SKILL.md -->
+
 Template for generating database operations command.
 
 **Condition:** Generated only if database detected (PostgreSQL in docker-compose, EF Core, etc.)

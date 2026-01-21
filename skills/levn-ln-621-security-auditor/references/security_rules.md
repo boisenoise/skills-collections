@@ -1,5 +1,8 @@
 # Security Audit Rules
 
+<!-- SCOPE: Security vulnerability detection patterns ONLY. Contains regex patterns, OWASP mappings, remediation steps. -->
+<!-- DO NOT add here: Audit workflow → ln-621-security-auditor SKILL.md -->
+
 Detailed detection patterns and recommendations for security vulnerabilities.
 
 ## 1. Hardcoded Secrets

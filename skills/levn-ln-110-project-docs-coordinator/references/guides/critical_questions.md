@@ -1,5 +1,8 @@
 # Technical Questions for Project Documentation
 
+<!-- SCOPE: 23 critical technical questions for project documentation ONLY. Contains priority order, auto-discovery rules, category groupings. -->
+<!-- DO NOT add here: Question implementation → ln-110-project-docs-coordinator SKILL.md, L3 workers → ln-111 through ln-115 SKILL.md -->
+
 These 23 technical questions MUST be answered before creating project documentation. They are grouped into 6 categories for structured technical discovery.
 
 **Focus**: This document is **purely technical** - no business metrics, stakeholder management, or budget planning. For technical teams documenting architecture, requirements, and implementation details.

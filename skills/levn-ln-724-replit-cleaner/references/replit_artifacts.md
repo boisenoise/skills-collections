@@ -1,5 +1,8 @@
 # Replit Artifacts Reference
 
+<!-- SCOPE: Replit-specific files and directories ONLY. Contains file list, descriptions, DELETE/MODIFY actions. -->
+<!-- DO NOT add here: Cleanup workflow → ln-724-replit-cleaner SKILL.md -->
+
 Complete list of Replit-specific artifacts found in exported projects.
 
 ---

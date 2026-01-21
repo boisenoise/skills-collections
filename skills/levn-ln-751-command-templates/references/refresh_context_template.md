@@ -1,5 +1,8 @@
 # refresh_context.md Template
 
+<!-- SCOPE: refresh_context.md command template ONLY. Contains variable placeholders, file sections. -->
+<!-- DO NOT add here: Generation workflow → ln-751-command-templates SKILL.md, variables → ln-750-commands-generator -->
+
 Template for generating project-specific context refresh command.
 
 ---

@@ -1,5 +1,8 @@
 # DevOps Documentation Questions (Q46-Q51)
 
+<!-- SCOPE: Interactive questions for runbook.md ONLY. Conditional: hasDocker. Contains deployment, monitoring, troubleshooting questions. -->
+<!-- DO NOT add here: question logic → ln-115-devops-docs-creator SKILL.md, other doc questions → questions_backend.md, questions_frontend.md -->
+
 **Purpose:** Validation questions for runbook.md with conditional content support.
 
 ---

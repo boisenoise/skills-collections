@@ -1,5 +1,8 @@
 # build-and-test.md Template
 
+<!-- SCOPE: build-and-test.md command template ONLY. Contains build/test steps, variable placeholders. -->
+<!-- DO NOT add here: Generation workflow → ln-751-command-templates SKILL.md -->
+
 Template for generating project-specific build and test command.
 
 ---

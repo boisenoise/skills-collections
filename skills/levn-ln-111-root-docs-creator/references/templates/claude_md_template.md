@@ -2,7 +2,8 @@
 
 {{PROJECT_DESCRIPTION}}
 
-> **SCOPE:** Entry point with project overview and navigation ONLY. Contains project summary, documentation rules, and links to detailed docs. DO NOT add: business logic (→ Architecture.md + ADRs), principles (→ principles.md), API specs (→ api_spec.md), patterns (→ guides/).
+<!-- SCOPE: Entry point with project overview and navigation ONLY. Contains project summary, documentation rules, and links to detailed docs. -->
+<!-- DO NOT add here: business logic → architecture.md + ADRs, principles → principles.md, API specs → api_spec.md, patterns → guides/ -->
 
 ## ⚠️ Critical Rules for AI Agents
 

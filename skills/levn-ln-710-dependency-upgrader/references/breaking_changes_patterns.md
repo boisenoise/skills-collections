@@ -1,5 +1,8 @@
 # Breaking Changes Patterns
 
+<!-- SCOPE: Breaking changes and migration patterns ONLY. Contains per-library upgrade tables (React, Next.js, Express, etc.). -->
+<!-- DO NOT add here: Upgrade workflow → ln-710-dependency-upgrader SKILL.md -->
+
 Common breaking changes and migration patterns for major package upgrades.
 
 > **Note:** For detailed migration steps, always query Context7/Ref for the latest official guides.

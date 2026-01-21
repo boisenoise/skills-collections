@@ -1,5 +1,8 @@
 # Usefulness Score Calculation Guide
 
+<!-- SCOPE: Test usefulness scoring matrix ONLY. Contains Impact (1-5) × Probability (1-5), score ranges. -->
+<!-- DO NOT add here: Audit workflow → ln-633-test-value-auditor SKILL.md -->
+
 Impact × Probability matrix for risk-based test value assessment.
 
 ## Scoring Formula

@@ -1,5 +1,8 @@
 # Quality Validation (Criteria #14-#15)
 
+<!-- SCOPE: Documentation and code quality criteria #14-#15 ONLY. Contains completeness checks, hardcoded values rules. -->
+<!-- DO NOT add here: Other criteria → structural_validation.md, workflow_validation.md, penalty system → penalty_points.md -->
+
 Detailed rules for documentation completeness and code quality (no hardcoded values).
 
 ---
@@ -40,7 +43,7 @@ Detailed rules for documentation completeness and code quality (no hardcoded val
 ## Technical Notes
 
 We'll add OAuth authentication and REST API endpoints.
-(No references to guides/manuals/ADRs created in Phase 2)
+(No references to guides/manuals/ADRs/research created in Phase 2)
 ```
 
 **Auto-fix actions:**

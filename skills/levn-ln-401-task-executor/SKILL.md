@@ -29,7 +29,7 @@ Executes a single implementation (or refactor) task from Todo to To Review using
 ```
 
 ## Workflow (concise)
-1) **Load context:** Fetch full task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs; auto-discover team/config if needed.
+1) **Load context:** Fetch full task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; auto-discover team/config if needed.
 2) **Receive task:** Get task ID from orchestrator (ln-400); load full task description.
 3) **Start work:** Update this task to In Progress (Linear: update_issue; File: Edit status line); move it in kanban (keep Epic/Story indent).
 4) **Implement:** Follow checkboxes/plan; keep it simple; avoid hardcoded values; reuse existing components; add Task ID comment (`// See PROJ-123`) to new code blocks; update docs noted in Affected Components; update existing tests if impacted (no new tests here).
@@ -46,13 +46,13 @@ Executes a single implementation (or refactor) task from Todo to To Review using
 
 ## Definition of Done
 - Task selected and set to In Progress; kanban updated accordingly.
-- Guides/manuals/ADRs read; approach aligned with task Technical Approach.
+- Guides/manuals/ADRs/research read; approach aligned with task Technical Approach.
 - Implementation completed per plan/AC; docs and impacted tests updated.
 - Typecheck and lint passed (or project quality commands) with evidence in comment.
 - Task set to To Review; kanban moved to To Review; summary comment added.
 
 ## Reference Files
-- Guides/manuals/ADRs: `docs/guides/`, `docs/manuals/`, `docs/adrs/`
+- Guides/manuals/ADRs/research: `docs/guides/`, `docs/manuals/`, `docs/adrs/`, `docs/research/`
 - Kanban format: `docs/tasks/kanban_board.md`
 
 ---

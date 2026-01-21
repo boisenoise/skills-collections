@@ -1,6 +1,7 @@
 # {{PROJECT_NAME}} - Presentation
 
-> **SCOPE:** Navigation hub for project presentation (HTML presentation access, customization guide, build instructions ONLY). DO NOT add here: Project documentation → docs/project/, Architecture details → docs/project/architecture.md, Technical specs → docs/project/tech_stack.md
+<!-- SCOPE: Navigation hub for project presentation ONLY. Contains HTML presentation access, customization guide, build instructions. -->
+<!-- DO NOT add here: project documentation → docs/project/, architecture details → docs/project/architecture.md, technical specs → docs/project/tech_stack.md -->
 
 ---
 

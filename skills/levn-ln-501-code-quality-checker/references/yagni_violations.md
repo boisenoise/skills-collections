@@ -1,5 +1,8 @@
 # YAGNI Violations Reference
 
+<!-- SCOPE: YAGNI violation patterns ONLY. Contains unused code detection, speculative abstraction rules. -->
+<!-- DO NOT add here: DRY rules → dry_violations.md, KISS rules → kiss_violations.md, architecture → architecture_violations.md -->
+
 YAGNI (You Aren't Gonna Need It) principle: Don't add functionality until it's necessary.
 
 ## Violation Patterns

@@ -15,6 +15,7 @@ This directory contains reusable knowledge base and architecture decisions:
 - **Architecture Decision Records (ADRs)** - Key technical decisions
 - **Project Guides** - Reusable patterns and best practices
 - **Package Manuals** - API reference for external libraries
+- **Research** - Investigation documents answering specific questions
 
 ---
 
@@ -42,6 +43,14 @@ This directory contains reusable knowledge base and architecture decisions:
 
 ---
 
+## Research
+
+<!-- Example: [RSH-001: WebSocket vs SSE](research/rsh-001-websocket-vs-sse.md) | 2025-01-20 -->
+
+{{RESEARCH_LIST}}
+
+---
+
 ## Maintenance
 
 **Last Updated:** {{DATE}}
@@ -50,14 +59,16 @@ This directory contains reusable knowledge base and architecture decisions:
 - New ADRs added to adrs/ directory
 - New guides added to guides/ directory
 - New manuals added to manuals/ directory
+- New research added to research/ directory
 
 **Verification:**
 - [ ] All ADR links in registry are valid
 - [ ] All guide links in registry are valid
 - [ ] All manual links in registry are valid
-- [ ] Placeholders {{ADR_LIST}}, {{GUIDE_LIST}}, {{MANUAL_LIST}} synced with files
+- [ ] All research links in registry are valid
+- [ ] Placeholders {{ADR_LIST}}, {{GUIDE_LIST}}, {{MANUAL_LIST}}, {{RESEARCH_LIST}} synced with files
 
 ---
 
-**Template Version:** 2.0.0
-**Template Last Updated:** {{DATE}}
+**Template Version:** 3.0.0
+**Template Last Updated:** 2025-01-20

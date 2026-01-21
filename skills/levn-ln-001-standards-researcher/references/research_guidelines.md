@@ -1,5 +1,8 @@
 # Research Guidelines
 
+<!-- SCOPE: Research quality guidelines ONLY. Contains source credibility hierarchy, citation rules, version verification, time-boxing. -->
+<!-- DO NOT add here: research implementation → ln-001-standards-researcher SKILL.md, document generation → ln-002-best-practices-researcher -->
+
 Quality guidelines for library and standards research to ensure accurate, up-to-date, and actionable information.
 
 ## Source Credibility Hierarchy

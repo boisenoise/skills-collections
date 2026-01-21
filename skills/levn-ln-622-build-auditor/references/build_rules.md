@@ -1,5 +1,8 @@
 # Build Health Audit Rules
 
+<!-- SCOPE: Build commands and error patterns ONLY. Contains per-stack commands, error regex, severity mapping. -->
+<!-- DO NOT add here: Audit workflow → ln-622-build-auditor SKILL.md -->
+
 Commands, error patterns, and recommendations for build health checks.
 
 ## 1. Compiler/Linter Errors

@@ -1,5 +1,8 @@
 # CI Integration Guide
 
+<!-- SCOPE: CI/CD pipeline audit integration ONLY. Contains stage recommendations, GitHub Actions/GitLab CI examples. -->
+<!-- DO NOT add here: Audit workflow → ln-762-dependency-audit SKILL.md, severity → severity_mapping.md -->
+
 Guidelines for integrating dependency audits into CI/CD pipelines.
 
 ---

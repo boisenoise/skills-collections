@@ -1,5 +1,8 @@
 # Frontend Documentation Questions (Q43-Q45)
 
+<!-- SCOPE: Interactive questions for design_guidelines.md ONLY. Conditional: hasFrontend. -->
+<!-- DO NOT add here: question logic → ln-114-frontend-docs-creator SKILL.md, other doc questions → questions_backend.md, questions_devops.md -->
+
 **Purpose:** Validation questions for design_guidelines.md.
 
 ---

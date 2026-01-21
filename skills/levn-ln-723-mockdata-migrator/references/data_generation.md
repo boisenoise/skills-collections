@@ -1,5 +1,8 @@
 # Data Generation Patterns
 
+<!-- SCOPE: Mock data generation patterns ONLY. Contains field type → data pattern mapping, realistic value examples. -->
+<!-- DO NOT add here: Migration workflow → ln-723-mockdata-migrator SKILL.md -->
+
 Patterns for generating realistic mock data by field type.
 
 ---

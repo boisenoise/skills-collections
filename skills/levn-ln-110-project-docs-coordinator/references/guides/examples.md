@@ -1,5 +1,8 @@
 # Example Usage
 
+<!-- SCOPE: Example scenarios for project-documentation-creator usage ONLY. Contains phase-by-phase response examples. -->
+<!-- DO NOT add here: Actual implementation → ln-110-project-docs-coordinator SKILL.md -->
+
 This document provides detailed examples of using the project-documentation-creator skill in different scenarios.
 
 ## Example 1: New Project with Materials

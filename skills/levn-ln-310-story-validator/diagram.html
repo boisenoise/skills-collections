@@ -19,7 +19,7 @@
                 <li><strong>Purpose:</strong> Validate and auto-fix Stories/Tasks against 2025 standards</li>
                 <li><strong>Goal:</strong> Penalty Points = 0 after all fixes applied</li>
                 <li><strong>Plan Mode:</strong> Phase 3 waits for user approval before fixing</li>
-                <li><strong>Delegation:</strong> ln-002 creates guides/manuals/ADRs in Phase 2</li>
+                <li><strong>Delegation:</strong> ln-002 creates guides/manuals/ADRs/research in Phase 2</li>
             </ul>
         </div>
         <div class="diagram-container">
@@ -38,7 +38,7 @@ graph TD
     subgraph Phase2 [Phase 2: Research & Audit]
         P2A[Domain Extraction<br/>Scan Story for patterns]
         P2A --> P2B{Patterns<br/>detected?}
-        P2B -->|Yes| P2C[Delegate to ln-002<br/>Create guides/manuals/ADRs]
+        P2B -->|Yes| P2C[Delegate to ln-002<br/>Create guides/manuals/ADRs/research]
         P2B -->|No| P2D[MCP Ref fallback<br/>Query standards directly]
         P2C --> P2E[Calculate Penalty Points<br/>17 criteria evaluation]
         P2D --> P2E

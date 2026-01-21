@@ -1,5 +1,8 @@
 # Component Detection Patterns
 
+<!-- SCOPE: React component classification rules ONLY. Contains detection keywords, target locations (ui/layout/feature). -->
+<!-- DO NOT add here: Migration workflow → ln-721-frontend-restructure SKILL.md -->
+
 Rules for classifying React components by purpose and target location.
 
 ---

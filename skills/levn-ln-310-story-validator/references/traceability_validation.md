@@ -1,5 +1,8 @@
 # Traceability Validation (Criteria #16-#17)
 
+<!-- SCOPE: Story-Task alignment and AC coverage criteria #16-#17 ONLY. Contains orphan task detection, AC-Task mapping. -->
+<!-- DO NOT add here: Structural validation → structural_validation.md, quality → quality_validation.md -->
+
 Detailed rules for Story-Task alignment and AC-Task coverage verification.
 
 ---

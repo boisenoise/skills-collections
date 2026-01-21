@@ -17,7 +17,7 @@
         <div class="info-box">
             <h3>📋 Workflow Overview</h3>
             <ul>
-                <li><strong>Purpose:</strong> Create reference documentation structure (adrs/, guides/, manuals/) + README hub</li>
+                <li><strong>Purpose:</strong> Create reference documentation structure (adrs/, guides/, manuals/, research/) + README hub</li>
                 <li><strong>Worker for:</strong> ln-110-documents-pipeline orchestrator</li>
                 <li><strong>Phases:</strong> 4 phases (Phase 1+2 CREATE merged → Phase 3 Structure Validation → Phase 4 Content Validation)</li>
                 <li><strong>Optimization:</strong> Merged Phase 1+2 CREATE, removed redundant verifications, parametrized validation</li>
@@ -45,7 +45,7 @@
 graph TD
     Start([Start: Reference Docs Creation]) --> Phase1[Phase 1+2: Create Structure merged<br/>Create dirs + README + ADR template]
 
-    Phase1 --> CreateAll[Create subdirectories adrs/, guides/, manuals/<br/>+ README.md + _template.md]
+    Phase1 --> CreateAll[Create subdirectories adrs/, guides/, manuals/, research/<br/>+ README.md + _template.md]
     CreateAll --> ReplaceVars[Replace placeholders:<br/>DATE, registries]
 
     ReplaceVars --> Phase3[Phase 3: Structure Validation<br/>Verify dirs, SCOPE tags, registries]

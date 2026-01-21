@@ -1,5 +1,8 @@
 # DRY Violations Reference
 
+<!-- SCOPE: DRY violation patterns ONLY. Contains duplicate detection rules, extraction strategies. -->
+<!-- DO NOT add here: KISS rules → kiss_violations.md, YAGNI rules → yagni_violations.md, architecture → architecture_violations.md -->
+
 DRY (Don't Repeat Yourself) principle: Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
 
 ## Common Violation Patterns

@@ -1,6 +1,6 @@
 ---
 name: ln-002-best-practices-researcher
-description: Research best practices via MCP Ref/Context7 and create documentation (guide/manual/ADR). Single research, multiple output types.
+description: Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/research). Single research, multiple output types.
 ---
 
 # Best Practices Researcher
@@ -9,10 +9,11 @@ Research industry standards and create project documentation in one workflow.
 
 ## Purpose & Scope
 - Research via MCP Ref + Context7 for standards, patterns, versions
-- Create 3 types of documents from research results:
+- Create 4 types of documents from research results:
   - Guide: Pattern documentation (Do/Don't/When table)
   - Manual: API reference (methods/params/doc links)
   - ADR: Architecture Decision Record (Q&A dialog)
+  - Research: Investigation document answering specific question
 - Return document path for linking in Stories/Tasks
 
 ## Phase 0: Stack Detection
@@ -43,72 +44,54 @@ Research industry standards and create project documentation in one workflow.
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| doc_type | Yes | "guide" / "manual" / "adr" |
-| topic | Yes | What to document (pattern name, package name, decision title) |
+| doc_type | Yes | "guide" / "manual" / "adr" / "research" |
+| topic | Yes | What to document (pattern name, package name, decision title, research question) |
 | story_context | No | Story/Task context for relevance |
 
 ## Research Tools
 
-**For patterns and standards (guide/manual):**
-- `mcp__Ref__ref_search_documentation(query="[topic] RFC standard best practices 2025")` - industry standards
-- `mcp__Ref__ref_search_documentation(query="[topic] security vulnerabilities OWASP")` - security checks
-
-**For library versions (manual):**
-- `mcp__context7__resolve-library-id(libraryName="[topic]")` -> get Context7 ID
-- `mcp__context7__get-library-docs(context7CompatibleLibraryID="...", topic="version changelog")` - current versions
-- `WebSearch(query="[topic] latest stable version 2025")` - version verification
+| Tool | Use Case | Query Pattern |
+|------|----------|---------------|
+| `ref_search_documentation` | Standards, patterns, RFCs | `"[topic] RFC standard best practices 2025"` |
+| `context7__resolve-library-id` | Get library ID for docs | `libraryName="[topic]"` |
+| `context7__query-docs` | Library API, methods | `topic="[stack_prefix] [topic]"` |
+| `WebSearch` | Market, competitors, versions | `"[topic] latest 2025"` or `"[topic] vs alternatives"` |
 
 **Time-box:** 5-10 minutes for research; skip if topic is trivial
 
+## Research Methodology by Type (for doc_type="research")
+
+| Type | Focus | Primary Sources | Key Questions |
+|------|-------|-----------------|---------------|
+| **Technical** | Solution comparison | Docs, benchmarks, RFCs | "Which solution fits our use-case?" |
+| **Market** | Industry landscape | Reports, blogs, articles | "What's the market size/trend?" |
+| **Competitor** | How others solve it | Product pages, reviews, demos | "What features do competitors offer?" |
+| **Requirements** | User needs | Feedback, support tickets, forums | "What do customers complain about?" |
+| **Feasibility** | Can we build it? | PoC, prototypes, local tests | "Is it technically possible?" |
+| **Feature Demand** | Feature viability | Competitor features + blogs/socials + user complaints | "Is this feature worth building?" |
+
 ## Workflow by doc_type
 
-### doc_type="guide" (Pattern Guide)
+| doc_type | Purpose | Research Source | Template | Output Path | Words |
+|----------|---------|-----------------|----------|-------------|-------|
+| **guide** | Pattern with Do/Don't/When table | `ref_search` (best practices) | guide_template.md | `guides/NN-[slug].md` | 300-500 |
+| **manual** | API/library reference | `context7__query-docs` | manual_template.md | `manuals/[pkg]-[ver].md` | 300-500 |
+| **adr** | Architecture decision | Dialog (5 questions) | adr_template.md | `adrs/adr-NNN-[slug].md` | 300-500 |
+| **research** | Investigation answering question | See Methodology table above | research_template.md | `research/rsh-NNN-[slug].md` | 300-700 |
 
-**Purpose:** Document a reusable pattern with Do/Don't/When table.
+**Common Workflow:** Detect number (if needed) → Research → Generate from template → Validate (SCOPE, POSIX) → Save → Return path
 
-**Workflow:**
-1) **Research:** Call `ref_search_documentation(query="[topic] best practices pattern 2025")`; extract principle, 2-3 do/don'ts, sources with dates
-2) **Generate:** Fill 6 sections from guide_template.md:
-   - SCOPE tags, Principle, Our Implementation, Patterns table (Do/Don't/When), Sources, Related + Last Updated
-   - 300-500 words; no code snippets
-3) **Validate:** Ensure SCOPE tags, sources dated (>=2025), patterns table present, POSIX ending
-4) **Save:** Assign next number, write `docs/reference/guides/NN-[topic-slug].md`; return path
+**Extract & Sections by doc_type:**
+- **guide:** Extract principle, 2-3 do/don'ts, sources → Sections: Principle, Our Implementation, Patterns table, Sources, Related
+- **manual:** Extract methods, params (type/required/default), returns → Sections: Package info, Overview, Methods table, Config table, Limitations
+- **adr:** Dialog answers → Sections: Context, Decision, Rationale, Alternatives table, Consequences, Related
+- **research:** Findings by methodology → Sections: Question, Context, Methodology, Findings (tables!), Conclusions, Next Steps, Sources
 
-**Output:** Guide file path for linking in Technical Notes
+**Validation specifics:** guide: patterns table present; manual: version in filename; adr: ISO date, status field; all: sources ≥2025
 
-### doc_type="manual" (API Manual)
+**ADR Dialog (5 questions):** Q1: Title? → Q2: Category (Strategic/Technical)? → Q3: Context? → Q4: Decision + Rationale? → Q5: Alternatives (2 with pros/cons)?
 
-**Purpose:** Document a package/library API reference.
-
-**Workflow:**
-1) **Research:** Call `mcp__context7__get-library-docs(topic="[detected_stack.query_prefix] [topic]")`; extract methods, params (type/required/default), returns, exceptions
-2) **Generate:** Fill sections from manual_template.md:
-   - Package info, Overview, Methods (signature/params table/returns), Config table, Limitations, Version notes, Related + Last Updated
-   - 300-500 words; neutral factual tone; NO CODE - use doc links instead
-3) **Validate:** Ensure SCOPE tags, version in filename, stack-appropriate doc links, POSIX ending
-4) **Save:** Write `docs/reference/manuals/[package]-[version].md`; return path
-
-**Output:** Manual file path for linking in Technical Notes
-
-### doc_type="adr" (Architecture Decision Record)
-
-**Purpose:** Document an architecture decision through Q&A dialog.
-
-**Workflow:**
-1) **Detect number:** Scan `docs/reference/adrs/` for existing ADRs, pick next zero-padded number
-2) **Dialog (5 questions):**
-   - Q1: Title of the decision?
-   - Q2: Category (Strategic/Technical)?
-   - Q3: Context - what problem are we solving?
-   - Q4: Decision + Rationale - what did we decide and why?
-   - Q5: Alternatives (2 rows with pros/cons/rejection reason)?
-3) **Generate:** Fill Nygard format from adr_template.md:
-   - Title, Date, Status, Category, Decision Makers, Context, Decision, Rationale, Alternatives table, Consequences, Related
-   - 300-500 words
-4) **Validate:** Ensure SCOPE tags, ISO date, status field, POSIX ending
-5) **Save:** Write `docs/reference/adrs/adr-NNN-[slug].md`; return path
-
-**Output:** ADR file path; remind user to reference in architecture.md if needed
+**Output:** File path for linking in Stories/Tasks; for ADR remind to reference in architecture.md; for Research suggest ADR if decision needed
 
 ## Critical Rules
 
@@ -117,21 +100,21 @@ Research industry standards and create project documentation in one workflow.
 | Forbidden | Allowed |
 |-----------|---------|
 | Code snippets | Tables (params, config, alternatives) |
-| Implementation examples | ASCII-схемы, Mermaid diagrams |
+| Implementation examples | ASCII diagrams, Mermaid diagrams |
 | Code blocks >1 line | Method signatures (1 line inline) |
 | | Links to official docs |
 
 **Format Priority (STRICT):**
 ```
 ┌───────────────────────────────────────────────┐
-│ 1. TABLES + ASCII-схемы  ←── ПРИОРИТЕТ        │
+│ 1. TABLES + ASCII diagrams  ←── PRIORITY      │
 │    Params, Config, Alternatives, Flows        │
 ├───────────────────────────────────────────────┤
-│ 2. СПИСКИ (только перечисления)               │
+│ 2. LISTS (enumerations only)                  │
 │    Enumeration items, file lists, tools       │
 ├───────────────────────────────────────────────┤
-│ 3. ТЕКСТ (крайний случай)                     │
-│    Только если нельзя выразить таблицей       │
+│ 3. TEXT (last resort)                         │
+│    Only if cannot express as table            │
 └───────────────────────────────────────────────┘
 ```
 
@@ -141,7 +124,7 @@ Research industry standards and create project documentation in one workflow.
 | Configuration | Table: Option \| Type \| Default \| Description |
 | Alternatives | Table: Alt \| Pros \| Cons \| Why Rejected |
 | Patterns | Table: Do \| Don't \| When |
-| Workflow | ASCII-схема: `A → B → C` |
+| Workflow | ASCII diagram: `A → B → C` |
 
 **Other Rules:**
 - Research ONCE per invocation; reuse results
@@ -163,6 +146,7 @@ Research industry standards and create project documentation in one workflow.
 - Guide template: `shared/templates/guide_template.md`
 - Manual template: `shared/templates/manual_template.md`
 - ADR template: `shared/templates/adr_template.md`
+- Research template: `shared/templates/research_template.md`
 - Standards: `docs/DOCUMENTATION_STANDARDS.md` (if exists)
 
 ---

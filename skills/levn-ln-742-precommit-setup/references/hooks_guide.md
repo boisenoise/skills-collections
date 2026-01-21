@@ -1,5 +1,8 @@
 # Git Hooks Configuration Guide
 
+<!-- SCOPE: Git hooks configuration ONLY. Contains hook types, Husky/lint-staged setup, trigger points. -->
+<!-- DO NOT add here: Setup workflow → ln-742-precommit-setup SKILL.md -->
+
 Reference for ln-742-precommit-setup.
 
 ---

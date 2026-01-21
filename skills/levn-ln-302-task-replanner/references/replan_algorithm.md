@@ -1,5 +1,8 @@
 # Task Replan Algorithm
 
+<!-- SCOPE: Task REPLAN algorithm ONLY. Contains IDEAL vs existing comparison, KEEP/UPDATE/OBSOLETE/CREATE operations, status constraints. -->
+<!-- DO NOT add here: Task creation → ln-301-task-creator SKILL.md, coordinator logic → ln-300-task-coordinator SKILL.md -->
+
 Detailed comparison logic for x-task-coordinator REPLAN MODE. This algorithm determines which operations (KEEP/UPDATE/OBSOLETE/CREATE) to perform when existing tasks are found for a Story.
 
 ## Overview

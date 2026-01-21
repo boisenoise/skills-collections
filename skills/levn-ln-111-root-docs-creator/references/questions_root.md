@@ -1,5 +1,8 @@
 # Root Documentation Questions (Q1-Q22)
 
+<!-- SCOPE: Interactive questions for 4 root docs (CLAUDE.md, docs/README.md, documentation_standards.md, principles.md) ONLY. -->
+<!-- DO NOT add here: question logic → ln-111-root-docs-creator SKILL.md, other doc questions → questions_core.md, questions_backend.md -->
+
 **Purpose:** Validation questions for 4 root documentation files.
 
 **Format:** Document -> Rules -> Questions -> Validation Heuristics -> Auto-Discovery

@@ -1,5 +1,8 @@
 # Test Audit Rules
 
+<!-- SCOPE: Test suite quality audit rules ONLY. Contains business logic focus, what to test/avoid, balance guide. -->
+<!-- DO NOT add here: Audit workflow → ln-630-test-auditor SKILL.md, specific auditors → ln-631-635 SKILL.md -->
+
 Detailed rules for test suite quality audit.
 
 ## 1. Business Logic Focus

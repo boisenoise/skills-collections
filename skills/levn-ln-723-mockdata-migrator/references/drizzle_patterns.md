@@ -1,5 +1,8 @@
 # Drizzle Schema Parsing Patterns
 
+<!-- SCOPE: Drizzle ORM schema parsing rules ONLY. Contains regex patterns, constraint extraction, reference detection. -->
+<!-- DO NOT add here: Migration workflow → ln-723-mockdata-migrator SKILL.md -->
+
 Rules for parsing Drizzle ORM schemas and extracting entity information.
 
 ---

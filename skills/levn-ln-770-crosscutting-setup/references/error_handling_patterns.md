@@ -1,5 +1,8 @@
 # Error Handling Patterns
 
+<!-- SCOPE: Global exception handling patterns ONLY. Contains error response format, per-stack middleware/filters. -->
+<!-- DO NOT add here: Setup workflow → ln-770-crosscutting-setup SKILL.md, logging → logging_patterns.md -->
+
 Global exception handling for all supported stacks.
 
 ---

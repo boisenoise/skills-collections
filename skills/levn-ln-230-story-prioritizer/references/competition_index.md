@@ -1,5 +1,8 @@
 # Competition Index Guide
 
+<!-- SCOPE: Competition Index (Blue/Red Ocean) scale ONLY. Contains competitor count → index mapping. -->
+<!-- DO NOT add here: RICE scoring → rice_scoring_guide.md, prioritization logic → ln-230-story-prioritizer SKILL.md -->
+
 Blue Ocean / Red Ocean classification for ln-230-story-prioritizer.
 
 ## Competition Index Scale

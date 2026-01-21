@@ -1,5 +1,8 @@
 # Research Query Templates
 
+<!-- SCOPE: Market research query templates ONLY. Contains TAM/SAM/SOM framework, WebSearch patterns. -->
+<!-- DO NOT add here: Prioritization logic → ln-230-story-prioritizer SKILL.md -->
+
 WebSearch and MCP Ref query templates for ln-230-story-prioritizer market research.
 
 ---

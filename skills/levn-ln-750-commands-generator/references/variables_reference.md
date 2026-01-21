@@ -1,5 +1,8 @@
 # Variables Reference
 
+<!-- SCOPE: Command template variable definitions ONLY. Contains variable names, sources, example values. -->
+<!-- DO NOT add here: Generation workflow → ln-750-commands-generator SKILL.md -->
+
 Complete list of variables extracted by ln-750 for command generation.
 
 ---

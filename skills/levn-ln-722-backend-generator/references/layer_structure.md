@@ -1,5 +1,8 @@
 # Clean Architecture Layer Structure
 
+<!-- SCOPE: .NET Clean Architecture layer definitions ONLY. Contains layer responsibilities, dependencies, project names. -->
+<!-- DO NOT add here: Generation workflow → ln-722-backend-generator SKILL.md -->
+
 Structure and responsibilities for .NET Clean Architecture projects.
 
 ---

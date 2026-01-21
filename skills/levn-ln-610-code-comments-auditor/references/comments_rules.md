@@ -1,5 +1,8 @@
 # Code Comments Rules
 
+<!-- SCOPE: Code comments quality rules ONLY. Contains WHY vs WHAT principle, ratio targets (15-20%), forbidden patterns. -->
+<!-- DO NOT add here: Audit workflow → ln-610-code-comments-auditor SKILL.md -->
+
 Quality standards for code comments and docstrings.
 
 ## Core Principle: WHY not WHAT

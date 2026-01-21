@@ -1,5 +1,8 @@
 # Test Result Format v1.0
 
+<!-- SCOPE: Manual testing result format specification ONLY. Contains header, AC mapping, defect sections. -->
+<!-- DO NOT add here: Testing execution → ln-512-manual-tester SKILL.md, Puppeteer patterns → puppeteer_patterns.md -->
+
 This document specifies the structured format for manual testing results in Linear comments.
 
 ## Purpose

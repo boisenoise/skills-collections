@@ -1,5 +1,8 @@
 # Clean Architecture Template (.NET)
 
+<!-- SCOPE: .NET Clean Architecture folder structure ONLY. Contains Api/Domain/Infrastructure layers, file naming. -->
+<!-- DO NOT add here: Migration workflow → ln-720-structure-migrator SKILL.md -->
+
 Reference structure for .NET backend projects.
 
 ---

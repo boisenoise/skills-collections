@@ -1,5 +1,8 @@
 # KISS Violations Reference
 
+<!-- SCOPE: KISS violation patterns ONLY. Contains cyclomatic complexity, over-engineering, premature abstraction rules. -->
+<!-- DO NOT add here: DRY rules → dry_violations.md, YAGNI rules → yagni_violations.md, architecture → architecture_violations.md -->
+
 KISS (Keep It Simple, Stupid) principle: Most systems work best if they are kept simple rather than made complicated.
 
 ## Violation Types

@@ -11,7 +11,7 @@ Validate and auto-fix Stories and Tasks against 2025 standards before execution.
 
 - Validate Story plus child Tasks against industry standards and project patterns
 - Calculate Penalty Points for violations, then auto-fix to reach 0 points
-- Delegate to ln-002-best-practices-researcher for creating documentation (guides, manuals, ADRs)
+- Delegate to ln-002-best-practices-researcher for creating documentation (guides, manuals, ADRs, research)
 - Support Plan Mode: show audit results, wait for approval, then fix
 - Approve Story after fixes (Backlog -> Todo) with tabular output summary
 
@@ -77,7 +77,7 @@ Detect operating mode at startup:
   Skill(skill="ln-002-best-practices-researcher",
         args="doc_type=[guide|manual|adr] topic='[pattern]'")
   ```
-- Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `docs/adrs/`)
+- Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `docs/adrs/`, `docs/research/`)
 
 **Step 3: Research via MCP**
 - Query MCP Ref for industry standards: `ref_search_documentation(query="[topic] RFC OWASP best practices 2025")`

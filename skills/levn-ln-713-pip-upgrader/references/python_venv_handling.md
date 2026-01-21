@@ -1,5 +1,8 @@
 # Python Virtual Environment Handling
 
+<!-- SCOPE: Python venv management ONLY. Contains pip/poetry/uv commands, activation steps. -->
+<!-- DO NOT add here: Upgrade workflow → ln-713-pip-upgrader SKILL.md -->
+
 Guide for managing virtual environments during dependency upgrades.
 
 ---

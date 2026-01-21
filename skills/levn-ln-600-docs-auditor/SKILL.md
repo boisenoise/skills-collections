@@ -36,7 +36,7 @@ Audit project documentation quality. Universal for any tech stack.
 | 1 | **Hierarchy & Links** | CLAUDE.md is root; all docs reachable via links; no orphaned files; no broken links |
 | 2 | **Single Source of Truth** | No content duplication; duplicates replaced with links to source; clear ownership |
 | 3 | **Proactive Compression** | Eliminate verbose/redundant content; prose→tables; remove meaningless info; compress even under-limit files; see [size_limits.md](references/size_limits.md) |
-| 4 | **Requirements Compliance** | Correct sections; within size limits; **no code blocks** (tables/ASCII-схемы/text only); stack-appropriate doc links |
+| 4 | **Requirements Compliance** | Correct sections; within size limits; **no code blocks** (tables/ASCII diagrams/text only); stack-appropriate doc links |
 | 5 | **Actuality (CRITICAL)** | **Verify facts against code:** paths exist, functions match, APIs work, configs valid; outdated docs are worse than none |
 | 6 | **Legacy Cleanup** | No history sections; no "was changed" notes; no deprecated info; current state only |
 | 7 | **Stack Adaptation** | Links/refs match project stack; no Python examples in .NET project; official docs for correct platform |
@@ -92,7 +92,7 @@ Audit project documentation quality. Universal for any tech stack.
 - **Verify facts against code:** Actively check every path, function name, API, config mentioned in docs. Run commands. Outdated docs mislead - they're worse than no docs.
 - **Compress always:** Size limits are upper bounds, not targets. A 100-line file instead of 300 is a win. Always look for compression opportunities.
 - **Meaningless content:** Remove filler words, obvious statements, over-explanations. If it doesn't add value, delete it.
-- **No code in docs:** Documents describe algorithms in tables or ASCII-схемы. Code belongs in codebase.
+- **No code in docs:** Documents describe algorithms in tables or ASCII diagrams. Code belongs in codebase.
   - **Forbidden:** Code blocks, implementation snippets
   - **Allowed:** Tables, ASCII diagrams, Mermaid, method signatures (1 line)
   - **Instead of code:** "See [Official docs](url)" or "See [src/file.cs:42](path#L42)"

@@ -1,5 +1,8 @@
 # NuGet Package Dependencies
 
+<!-- SCOPE: NuGet package reference for .NET projects ONLY. Contains package names, versions, target projects. -->
+<!-- DO NOT add here: Generation workflow → ln-722-backend-generator SKILL.md -->
+
 Required and optional packages for .NET Clean Architecture projects.
 
 ---

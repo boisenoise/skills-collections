@@ -1,5 +1,8 @@
 # E2E Priority Audit Rules
 
+<!-- SCOPE: E2E test baseline requirements ONLY. Contains 2-test-per-endpoint rule, endpoint discovery patterns. -->
+<!-- DO NOT add here: Audit workflow → ln-632-test-e2e-priority-auditor SKILL.md -->
+
 E2E baseline requirements and test pyramid validation.
 
 ## E2E Baseline Rule

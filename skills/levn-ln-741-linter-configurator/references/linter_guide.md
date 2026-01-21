@@ -1,5 +1,8 @@
 # Linter Configuration Guide
 
+<!-- SCOPE: ESLint/Prettier configuration rules ONLY. Contains config choices, rule explanations, conflict resolution. -->
+<!-- DO NOT add here: Configuration workflow → ln-741-linter-configurator SKILL.md -->
+
 Reference for ln-741-linter-configurator.
 
 ---

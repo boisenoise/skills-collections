@@ -1,5 +1,8 @@
 # Testing Best Practices Guide
 
+<!-- SCOPE: Testing infrastructure best practices ONLY. Contains AAA pattern, fixture patterns, framework configs. -->
+<!-- DO NOT add here: Setup workflow → ln-743-test-infrastructure SKILL.md -->
+
 Reference for ln-743-test-infrastructure.
 
 ---

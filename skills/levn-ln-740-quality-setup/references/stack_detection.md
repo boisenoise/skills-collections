@@ -1,5 +1,8 @@
 # Stack Detection Rules
 
+<!-- SCOPE: Technology stack detection rules ONLY. Contains file patterns, confidence levels for TypeScript/React/.NET. -->
+<!-- DO NOT add here: Quality setup workflow → ln-740-quality-setup SKILL.md -->
+
 Reference for ln-740-quality-setup Phase 1.
 
 ---

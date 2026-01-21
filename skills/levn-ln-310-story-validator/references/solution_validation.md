@@ -1,5 +1,8 @@
 # Solution Validation (Criterion #6)
 
+<!-- SCOPE: Library version validation criterion #6 ONLY. Contains version verification rules, npm/pypi checks. -->
+<!-- DO NOT add here: Standards validation → standards_validation.md, other criteria → structural_validation.md -->
+
 Detailed rules for library version verification.
 
 ---

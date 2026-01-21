@@ -1,5 +1,8 @@
 # Standards Validation (Criterion #5)
 
+<!-- SCOPE: RFC/OWASP/REST/Security compliance criterion #5 ONLY. Contains standard types, compliance checks. -->
+<!-- DO NOT add here: Library versions → solution_validation.md, other criteria → structural_validation.md -->
+
 Detailed rules for RFC/OWASP/REST/Security compliance verification.
 
 ---
@@ -59,7 +62,7 @@ and returns a session cookie.
 
 ## Auto-fix Actions
 
-1. Read docs created by ln-002 in Phase 2 (guides/manuals/ADRs)
+1. Read docs created by ln-002 in Phase 2 (guides/manuals/ADRs/research)
 2. Query MCP Ref for additional standards:
    ```
    ref_search_documentation(query="[domain] RFC OWASP best practices 2025")

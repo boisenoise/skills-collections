@@ -1,5 +1,8 @@
 # Relationship Mapping Reference
 
+<!-- SCOPE: Entity relationship mapping rules ONLY. Contains FK handling, navigation properties, join tables. -->
+<!-- DO NOT add here: Migration workflow → ln-723-mockdata-migrator SKILL.md -->
+
 Rules for handling foreign keys and relationships in MockData migration.
 
 ---

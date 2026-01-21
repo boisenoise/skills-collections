@@ -1,5 +1,8 @@
 # Technology Justification Rules
 
+<!-- SCOPE: Rules for when to create ADR/Guide/Manual ONLY. Contains justification matrix by category, skip criteria. -->
+<!-- DO NOT add here: document creation → ln-120-reference-docs-creator SKILL.md, document templates → shared/templates/ -->
+
 **Purpose:** Defines when to create ADR/Guide/Manual for detected technologies. Prevents "for checkbox" documents - only creates when choice was nontrivial.
 
 ---

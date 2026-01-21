@@ -5,6 +5,9 @@
 **Total Stories:** {{STORY_COUNT}}
 **Time Elapsed:** {{TIME_MINUTES}} minutes
 
+<!-- SCOPE: RICE prioritization results for Epic Stories ONLY. Contains priority summary, detailed scoring table, market research findings. -->
+<!-- DO NOT add here: Story content → Story docs, implementation details → task docs, market strategy → separate analysis -->
+
 ---
 
 ## Priority Summary

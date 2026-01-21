@@ -1,5 +1,8 @@
 # Severity Mapping Reference
 
+<!-- SCOPE: CVSS severity level mapping ONLY. Contains score ranges, action requirements, blocking rules. -->
+<!-- DO NOT add here: Audit workflow → ln-762-dependency-audit SKILL.md, CI integration → ci_integration_guide.md -->
+
 CVSS score to severity level mapping for dependency vulnerabilities.
 
 ---

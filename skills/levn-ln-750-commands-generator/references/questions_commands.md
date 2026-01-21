@@ -1,5 +1,8 @@
 # Questions: Command Validation
 
+<!-- SCOPE: Command file validation questions ONLY. Contains per-command questions, auto-discovery rules. -->
+<!-- DO NOT add here: Generation workflow → ln-750-commands-generator SKILL.md, templates → ln-751-command-templates -->
+
 Validation questions for generated .claude/commands/ files.
 
 ---

@@ -25,7 +25,7 @@ Runs a single Story final test task (label "tests") through implementation/execu
 **File Mode transitions:** Todo → In Progress → To Review
 
 ## Workflow (concise)
-1) **Receive task:** Get task ID from orchestrator (ln-400); fetch full test task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs; review parent Story and manual test results if provided.
+1) **Receive task:** Get task ID from orchestrator (ln-400); fetch full test task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; review parent Story and manual test results if provided.
 2) **Read runbook:** **Read `docs/project/runbook.md`** — understand test environment setup, Docker commands, test execution prerequisites. Use exact commands from runbook.
 3) **Validate plan:** Check Priority ≤15 and test count limits; ensure focus on business flows (no infra-only tests).
 4) **Start work:** Set task In Progress (Linear: update_issue; File: Edit status line); move in kanban.

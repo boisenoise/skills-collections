@@ -1,5 +1,8 @@
 # ui-testing.md Template
 
+<!-- SCOPE: ui-testing.md command template ONLY. Contains Playwright test steps, conditional generation. -->
+<!-- DO NOT add here: Generation workflow → ln-751-command-templates SKILL.md -->
+
 Template for generating Playwright UI testing command.
 
 **Condition:** Generated only if Playwright detected (playwright.config.ts or @playwright/test in deps)

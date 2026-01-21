@@ -1,5 +1,8 @@
 # .NET Version Compatibility Matrix
 
+<!-- SCOPE: .NET version compatibility matrix ONLY. Contains SDK versions, LTS status, package compatibility. -->
+<!-- DO NOT add here: Upgrade workflow → ln-712-nuget-upgrader SKILL.md -->
+
 Version compatibility for .NET SDK, runtime, and common packages.
 
 ---

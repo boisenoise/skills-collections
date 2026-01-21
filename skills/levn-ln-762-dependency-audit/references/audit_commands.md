@@ -1,5 +1,8 @@
 # Dependency Audit Commands
 
+<!-- SCOPE: Dependency audit CLI commands ONLY. Contains npm/pip/dotnet audit commands, output formats. -->
+<!-- DO NOT add here: Audit workflow → ln-762-dependency-audit SKILL.md, severity → severity_mapping.md -->
+
 Reference for ecosystem-specific audit commands and tools.
 
 ---

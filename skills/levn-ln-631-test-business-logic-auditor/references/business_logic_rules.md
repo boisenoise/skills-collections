@@ -1,5 +1,8 @@
 # Business Logic Focus Audit Rules
 
+<!-- SCOPE: Framework/library test detection patterns ONLY. Contains regex patterns, DELETE/KEEP decisions. -->
+<!-- DO NOT add here: Audit workflow → ln-631-test-business-logic-auditor SKILL.md -->
+
 Framework/library test detection patterns and examples.
 
 ## Detection Patterns (Regex)

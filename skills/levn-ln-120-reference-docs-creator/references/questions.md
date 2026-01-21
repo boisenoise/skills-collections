@@ -1,5 +1,8 @@
 # Reference Documentation Questions
 
+<!-- SCOPE: Interactive questions for reference docs (ADRs, Guides, Manuals) ONLY. Contains validation heuristics, auto-discovery hints. -->
+<!-- DO NOT add here: question logic → ln-120-reference-docs-creator SKILL.md, tech justification → tech_justification_rules.md -->
+
 **Purpose:** Define what each section of reference documentation should answer.
 
 **Format:** Question → Expected Content → Validation Heuristics → Auto-Discovery Hints → MCP Ref Hints

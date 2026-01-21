@@ -2,7 +2,8 @@
 
 Universal testing philosophy and strategy for modern software projects: principles, organization, and best practices.
 
-> **SCOPE:** Testing philosophy, risk-based strategy, test organization, isolation patterns, what to test. **NOT IN SCOPE:** Project structure, framework-specific patterns, CI/CD configuration, test tooling setup.
+<!-- SCOPE: Testing philosophy, risk-based strategy, test organization, isolation patterns, what to test ONLY. -->
+<!-- DO NOT add here: project structure, framework-specific patterns, CI/CD configuration, test tooling setup -->
 
 ## Quick Navigation
 

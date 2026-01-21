@@ -1,5 +1,8 @@
 # Import Update Strategy
 
+<!-- SCOPE: Import path update rules ONLY. Contains alias configuration, barrel exports, path transformations. -->
+<!-- DO NOT add here: Migration workflow → ln-721-frontend-restructure SKILL.md -->
+
 Rules for updating imports after restructuring React components.
 
 ---

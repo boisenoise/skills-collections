@@ -1,5 +1,8 @@
 # Risk-Based Testing - Practical Examples
 
+<!-- SCOPE: Risk-Based Testing practical examples ONLY. Contains Story-to-test mapping examples. -->
+<!-- DO NOT add here: Testing rules → risk_based_testing_guide.md, test planning logic → ln-513-auto-test-planner SKILL.md -->
+
 This file contains detailed examples of applying Minimum Viable Testing philosophy to real Stories.
 
 **Purpose:** Learning and reference (not loaded during skill execution).

@@ -1,5 +1,8 @@
 # RICE Scoring Guide
 
+<!-- SCOPE: RICE scoring formula and scale definitions ONLY. Contains Reach, Impact, Confidence, Effort guidelines. -->
+<!-- DO NOT add here: Prioritization logic → ln-230-story-prioritizer SKILL.md, competition analysis → competition_index.md -->
+
 Reference for calculating RICE scores in ln-230-story-prioritizer.
 
 ## Formula

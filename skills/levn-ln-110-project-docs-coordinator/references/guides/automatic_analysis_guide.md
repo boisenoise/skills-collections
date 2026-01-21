@@ -1,5 +1,8 @@
 # Automatic Analysis Guide
 
+<!-- SCOPE: Automatic project analysis guidelines ONLY. Contains file search patterns, information extraction rules, MCP research workflow. -->
+<!-- DO NOT add here: Phase coordination → ln-110-project-docs-coordinator SKILL.md -->
+
 Guide for automatic analysis of project materials and researching 2025 best practices.
 
 ---

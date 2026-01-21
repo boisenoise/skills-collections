@@ -1,6 +1,7 @@
 ﻿# Task Tracking System
 
-> **SCOPE:** Task tracking system workflow and rules ONLY. Contains task lifecycle, naming conventions, and integration rules. DO NOT add: actual task details (→ task files), kanban status (→ kanban_board.md), or implementation guides (→ guides/).
+<!-- SCOPE: Task tracking system workflow and rules ONLY. Contains task lifecycle, naming conventions, and integration rules. -->
+<!-- DO NOT add here: actual task details → task files, kanban status → kanban_board.md, implementation guides → guides/ -->
 
 ---
 

@@ -1,5 +1,8 @@
 # Frontend Structure Template
 
+<!-- SCOPE: React frontend folder structure ONLY. Contains components/hooks/services directories, naming conventions. -->
+<!-- DO NOT add here: Migration workflow → ln-720-structure-migrator SKILL.md -->
+
 Reference structure for React frontend projects.
 
 ---

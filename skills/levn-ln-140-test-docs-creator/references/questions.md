@@ -1,5 +1,8 @@
 # Test Documentation Questions
 
+<!-- SCOPE: Interactive questions for test documentation (testing_strategy.md, tests/README.md) ONLY. -->
+<!-- DO NOT add here: question logic → ln-140-test-docs-creator SKILL.md, test implementation → test files -->
+
 **Purpose:** Define what each section of test documentation should answer.
 
 **Format:** Question → Expected Content → Validation Heuristics → Auto-Discovery Hints → MCP Ref Hints

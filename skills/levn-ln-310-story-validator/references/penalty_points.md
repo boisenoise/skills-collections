@@ -1,5 +1,8 @@
 # Penalty Points System
 
+<!-- SCOPE: Penalty points severity levels and thresholds ONLY. Contains point values, severity categories, quality gates. -->
+<!-- DO NOT add here: Specific criteria rules → *_validation.md files, validation workflow → ln-310-story-validator SKILL.md -->
+
 Detailed specification for the quantitative Story/Tasks quality assessment.
 
 ---

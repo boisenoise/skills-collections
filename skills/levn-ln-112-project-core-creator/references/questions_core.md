@@ -1,5 +1,8 @@
 # Project Core Documentation Questions (Q23-Q38)
 
+<!-- SCOPE: Interactive questions for 3 core docs (requirements.md, architecture.md, tech_stack.md) ONLY. -->
+<!-- DO NOT add here: question logic → ln-112-project-core-creator SKILL.md, other doc questions → questions_root.md, questions_backend.md -->
+
 **Purpose:** Validation questions for 3 core project documentation files.
 
 **Format:** Document -> Rules -> Questions -> Validation Heuristics -> Auto-Discovery

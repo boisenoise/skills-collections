@@ -1,5 +1,8 @@
 # Logging Patterns
 
+<!-- SCOPE: Structured logging patterns ONLY. Contains standardized fields, per-stack configurations (Winston, Serilog). -->
+<!-- DO NOT add here: Setup workflow → ln-770-crosscutting-setup SKILL.md, error handling → error_handling_patterns.md -->
+
 Structured logging configuration for all supported stacks.
 
 ---

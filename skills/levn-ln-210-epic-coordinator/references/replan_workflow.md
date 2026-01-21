@@ -1,5 +1,8 @@
 # Epic Replan Workflow
 
+<!-- SCOPE: Epic REPLAN mode algorithm ONLY. Contains comparison logic, operations (KEEP/UPDATE/OBSOLETE/CREATE), merge strategy. -->
+<!-- DO NOT add here: Epic creation → ln-210-epic-coordinator SKILL.md CREATE mode, Story replan → ln-220/replan_algorithm.md -->
+
 Reference file for ln-210-epic-coordinator Phase 5b (REPLAN MODE).
 
 ## When Triggered

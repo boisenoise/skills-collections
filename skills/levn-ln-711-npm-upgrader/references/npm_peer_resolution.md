@@ -1,5 +1,8 @@
 # npm Peer Dependency Resolution
 
+<!-- SCOPE: npm peer dependency conflict resolution ONLY. Contains ERESOLVE solutions, --legacy-peer-deps usage. -->
+<!-- DO NOT add here: Upgrade workflow → ln-711-npm-upgrader SKILL.md -->
+
 Guide for handling peer dependency conflicts during upgrades.
 
 ---

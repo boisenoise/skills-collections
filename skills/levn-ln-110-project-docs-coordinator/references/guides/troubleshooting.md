@@ -1,5 +1,8 @@
 # Troubleshooting Guide
 
+<!-- SCOPE: Troubleshooting solutions for docs-creator skill ONLY. Contains common issues and resolutions. -->
+<!-- DO NOT add here: Skill workflow → ln-110-project-docs-coordinator SKILL.md -->
+
 This document provides solutions to common issues when using the x-docs-creator skill.
 
 ## Issue 1: User Doesn't Know Answers

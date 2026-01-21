@@ -1,5 +1,8 @@
 # Story Replan Algorithm
 
+<!-- SCOPE: Story REPLAN algorithm for ln-220-story-coordinator ONLY. Contains comparison logic, Decompose-First Pattern, operation determination. -->
+<!-- DO NOT add here: Story creation → ln-221-story-creator SKILL.md, worker implementation → ln-222-story-replanner SKILL.md -->
+
 Detailed documentation of the Story comparison and operation determination logic used in ln-220-story-coordinator REPLAN MODE.
 
 ## Overview

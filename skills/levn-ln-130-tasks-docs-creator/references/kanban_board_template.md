@@ -1,6 +1,7 @@
 # Task Navigation
 
-> **SCOPE:** Quick navigation to active tasks in Linear. Contains ONLY links and titles per Context Budget Rule. DO NOT add: task descriptions, implementation notes, or workflow rules (→ tasks/README.md).
+<!-- SCOPE: Quick navigation to active tasks in Linear ONLY. Contains links and titles per Context Budget Rule. -->
+<!-- DO NOT add here: task descriptions, implementation notes, workflow rules → tasks/README.md -->
 
 > **Last Updated**: [YYYY-MM-DD] (Hierarchical format: Status → Epic → Story → Tasks)
 

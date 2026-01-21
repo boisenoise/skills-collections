@@ -1,5 +1,8 @@
 # Structural Validation (Criteria #1-#4)
 
+<!-- SCOPE: Structure and template compliance criteria #1-#4 ONLY. Contains section order, Story statement, AC format rules. -->
+<!-- DO NOT add here: Workflow criteria → workflow_validation.md, standards → standards_validation.md -->
+
 Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criteria validation.
 
 ---

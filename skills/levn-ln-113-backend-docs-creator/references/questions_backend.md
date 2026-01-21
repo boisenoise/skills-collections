@@ -1,5 +1,8 @@
 # Backend Documentation Questions (Q39-Q42)
 
+<!-- SCOPE: Interactive questions for 2 backend docs (api_spec.md, database_schema.md) ONLY. Conditional: hasBackend, hasDatabase. -->
+<!-- DO NOT add here: question logic → ln-113-backend-docs-creator SKILL.md, other doc questions → questions_frontend.md, questions_devops.md -->
+
 **Purpose:** Validation questions for 2 backend documentation files.
 
 ---

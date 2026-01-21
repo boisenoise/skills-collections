@@ -1,5 +1,8 @@
 # SECURITY.md Template
 
+<!-- SCOPE: SECURITY.md file template ONLY. Contains vulnerability reporting, supported versions sections. -->
+<!-- DO NOT add here: Setup workflow → ln-760-security-setup SKILL.md -->
+
 Template for generating project SECURITY.md file.
 
 ---

@@ -1,5 +1,8 @@
 # Test Isolation & Anti-Patterns Catalog
 
+<!-- SCOPE: Test isolation checklist and anti-patterns ONLY. Contains 6 isolation categories, determinism rules, flaky test patterns. -->
+<!-- DO NOT add here: Audit workflow → ln-635-test-isolation-auditor SKILL.md -->
+
 Isolation checklist, determinism rules, and anti-pattern detection.
 
 ## Isolation Checklist (6 Categories)

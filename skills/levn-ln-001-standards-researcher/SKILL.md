@@ -153,7 +153,7 @@ Stack Detection → Identify → Ref Research → Existing Guides → Standards 
 **Format Priority:**
 ```
 ┌─────────────────────────────────────┐
-│ 1. TABLES + ASCII-схемы  ← Priority │
+│ 1. TABLES + ASCII diagrams ← Priority │
 │ 2. Lists (enumerations only)        │
 │ 3. Text (last resort)               │
 └─────────────────────────────────────┘
