@@ -21,6 +21,11 @@
 # - Run as non-root user
 # - Don't expose unnecessary ports
 #
+# LAYER CACHING STRATEGY:
+# - Copy only *.csproj files first (rarely change)
+# - Run dotnet restore (cached if csproj unchanged)
+# - Copy source code last (changes frequently)
+#
 # VARIABLE SUBSTITUTION:
 # {{DOTNET_VERSION}} - Detected from *.csproj TargetFramework (e.g., 8.0, 9.0)
 # {{PROJECT_NAME}} - Project name for labels
@@ -32,11 +37,19 @@
 FROM mcr.microsoft.com/dotnet/sdk:{{DOTNET_VERSION}} AS build
 WORKDIR /src
 
-# Copy solution and restore (better layer caching)
-COPY *.sln .
-COPY src/ src/
+# Disable interactive prompts
+ARG DEBIAN_FRONTEND=noninteractive
 
+# Copy ONLY project files first for better layer caching
+# This ensures dotnet restore is cached when only source code changes
+COPY *.sln .
+COPY src/**/*.csproj ./src/
+
+# Restore dependencies (cached if csproj files unchanged)
 RUN dotnet restore
+
+# Now copy all source code
+COPY src/ src/
 
 # Build and publish
 RUN dotnet publish -c Release -o /app --no-restore
@@ -44,6 +57,9 @@ RUN dotnet publish -c Release -o /app --no-restore
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:{{DOTNET_VERSION}}
 WORKDIR /app
+
+# Disable interactive prompts
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Security: Run as non-root
 RUN addgroup --gid 1001 appgroup && \
@@ -57,14 +73,14 @@ RUN chown -R appuser:appgroup /app
 
 USER appuser
 
-# Health check endpoint
+# Health check endpoint (wget is available in aspnet image)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:5000/health || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:5000/health || exit 1
 
 EXPOSE 5000
 ENTRYPOINT ["dotnet", "{{DLL_NAME}}"]
 
 # =============================================================================
-# Version: 1.0.0
-# Last Updated: 2026-01-10
+# Version: 1.1.0
+# Last Updated: 2026-01-21
 # =============================================================================

@@ -21,6 +21,11 @@
 # - Run as non-root user
 # - Use multi-stage to exclude dev dependencies
 #
+# LAYER CACHING STRATEGY:
+# - Copy package*.json first (rarely changes)
+# - Run npm ci (cached if package files unchanged)
+# - Copy source code last (changes frequently)
+#
 # VARIABLE SUBSTITUTION:
 # {{NODE_VERSION}} - Detected from package.json engines or default to LTS
 # {{PROJECT_NAME}} - Project name for labels
@@ -41,8 +46,8 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Production stage
-FROM nginx:alpine
+# Production stage (pinned nginx version for reproducibility)
+FROM nginx:1.27-alpine
 
 # Security: Run as non-root
 RUN addgroup -g 1001 -S appgroup && \
@@ -63,10 +68,14 @@ RUN chown -R appuser:appgroup /usr/share/nginx/html && \
 
 USER appuser
 
+# Health check (wget available in Alpine via BusyBox)
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget -q --spider http://localhost:80/ || exit 1
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 # =============================================================================
-# Version: 1.0.0
-# Last Updated: 2026-01-10
+# Version: 1.1.0
+# Last Updated: 2026-01-21
 # =============================================================================

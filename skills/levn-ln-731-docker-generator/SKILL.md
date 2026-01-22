@@ -81,6 +81,7 @@ Replace template variables with detected values:
 | `{{FRONTEND_PORT}}` | Default or detected | 3000 |
 | `{{BACKEND_PORT}}` | Stack-dependent | 5000 (.NET), 8000 (Python) |
 | `{{BACKEND_HOST}}` | Service name | backend |
+| `{{CMD}}` | Framework-dependent | `["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]` (FastAPI) or `["gunicorn", "--bind", "0.0.0.0:8000", "{{PROJECT_NAME}}.wsgi:application"]` (Django) |
 
 ### Phase 4: File Generation
 
@@ -132,9 +133,9 @@ Generate files from templates:
 
 ---
 
-## Security Best Practices
+## Security & Performance Best Practices
 
-All generated files follow these security guidelines:
+All generated files follow these guidelines:
 
 | Practice | Implementation |
 |----------|----------------|
@@ -142,8 +143,12 @@ All generated files follow these security guidelines:
 | **Minimal images** | Alpine/slim variants |
 | **Multi-stage builds** | Exclude build tools from runtime |
 | **No secrets** | Use environment variables, not hardcoded |
-| **Health checks** | Built-in HEALTHCHECK instructions |
-| **Specific versions** | Pin base image versions |
+| **Health checks** | Built-in HEALTHCHECK instructions (wget/curl) |
+| **Specific versions** | Pin base image versions (e.g., nginx:1.27-alpine) |
+| **Non-interactive mode** | ARG DEBIAN_FRONTEND=noninteractive |
+| **Layer caching** | Copy dependency files first, source code last |
+| **BuildKit cache** | Use `--mount=type=cache` for pip |
+| **Python optimization** | PYTHONDONTWRITEBYTECODE=1, PYTHONUNBUFFERED=1 |
 
 ---
 
@@ -181,5 +186,5 @@ Generated files must meet:
 
 ---
 
-**Version:** 1.1.0
-**Last Updated:** 2026-01-10
+**Version:** 1.2.0
+**Last Updated:** 2026-01-21

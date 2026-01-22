@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-01-21T06:15:48.782554",
-  "skill_count": 475,
+  "last_updated": "2026-01-22T06:14:57.540665",
+  "skill_count": 485,
   "sources_processed": 19,
   "skills": [
     {
@@ -572,6 +572,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cc-skill-coding-standards",
+      "original_name": "coding-standards",
+      "description": "Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-seo-fundamentals",
       "original_name": "seo-fundamentals",
       "description": "SEO fundamentals, E-E-A-T, Core Web Vitals, and Google algorithm principles.",
@@ -916,6 +924,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cc-skill-clickhouse-io",
+      "original_name": "clickhouse-io",
+      "description": "ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-architecture",
       "original_name": "architecture",
       "description": "Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.",
@@ -1124,6 +1140,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cc-skill-security-review",
+      "original_name": "security-review",
+      "description": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-behavioral-modes",
       "original_name": "behavioral-modes",
       "description": "AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt behavior based on task type.",
@@ -1207,6 +1231,14 @@
       "name": "antigravity-senior-fullstack",
       "original_name": "senior-fullstack",
       "description": "Comprehensive fullstack development skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, and complete tech stack guidance. Use when building new projects, analyzing code quality, implementing design patterns, or setting up development workflows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-remotion-best-practices",
+      "original_name": "remotion-best-practices",
+      "description": "Best practices for Remotion - Video creation in React",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1660,6 +1692,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cc-skill-backend-patterns",
+      "original_name": "backend-patterns",
+      "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-autonomous-agent-patterns",
       "original_name": "autonomous-agent-patterns",
       "description": "Design patterns for building autonomous coding agents. Covers tool integration, permission systems, browser automation, and human-in-the-loop workflows. Use when building AI agents, designing tool APIs, implementing permission systems, or creating autonomous coding assistants.",
@@ -1687,6 +1727,14 @@
       "name": "antigravity-cloud-penetration-testing",
       "original_name": "Cloud Penetration Testing",
       "description": "This skill should be used when the user asks to \"perform cloud penetration testing\", \"assess Azure or AWS or GCP security\", \"enumerate cloud resources\", \"exploit cloud misconfigurations\", \"test O365 security\", \"extract secrets from cloud environments\", or \"audit cloud infrastructure\". It provides comprehensive techniques for security assessment across major cloud platforms.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cc-skill-project-guidelines-example",
+      "original_name": "cc-skill-project-guidelines-example",
+      "description": "Project Guidelines Skill (Example)",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1980,6 +2028,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cc-skill-frontend-patterns",
+      "original_name": "frontend-patterns",
+      "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-prisma-expert",
       "original_name": "prisma-expert",
       "description": "Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and database operations. Use PROACTIVELY for Prisma schema issues, migration problems, query performance, relation design, or database connection issues.",
@@ -2095,6 +2151,22 @@
       "name": "antigravity-upstash-qstash",
       "original_name": "upstash-qstash",
       "description": "Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task delivery without managing infrastructure. Use when: qstash, upstash queue, serverless cron, scheduled http, message queue serverless.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cc-skill-continuous-learning",
+      "original_name": "cc-skill-continuous-learning",
+      "description": "Development skill from everything-claude-code",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cc-skill-strategic-compact",
+      "original_name": "cc-skill-strategic-compact",
+      "description": "Development skill from everything-claude-code",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2314,6 +2386,14 @@
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
+    },
+    {
+      "name": "composio-twitter-algorithm-optimizer",
+      "original_name": "twitter-algorithm-optimizer",
+      "description": "Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. Rewrite and edit user tweets to improve engagement and visibility based on how the recommendation system ranks content.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "AGPL-3.0 (referencing Twitter's algorithm source)"
     },
     {
       "name": "composio-template-skill",

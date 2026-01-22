@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-21 06:15 UTC*
+*Last updated: 2026-01-22 06:14 UTC*
 
-Total skills: **475**
+Total skills: **485**
 
 ## Skills by Source
 
@@ -52,6 +52,7 @@ Total skills: **475**
 | `composio-tailored-resume-generator` | Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills,... |
 | `composio-template-skill` | Replace with description of the skill and when Claude should use it. |
 | `composio-theme-factory` | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML la... |
+| `composio-twitter-algorithm-optimizer` | Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. Rewrit... |
 | `composio-video-downloader` | Download YouTube videos with customizable quality and format options. Use this skill when the user a... |
 | `composio-webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying... |
 
@@ -368,6 +369,14 @@ Total skills: **475**
 | `antigravity-bun-development` | Modern JavaScript/TypeScript development with Bun runtime. Covers package management, bundling, test... |
 | `antigravity-burp-suite-testing` | This skill should be used when the user asks to "intercept HTTP traffic", "modify web requests", "us... |
 | `antigravity-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
+| `antigravity-cc-skill-backend-patterns` | Backend architecture patterns, API design, database optimization, and server-side best practices for... |
+| `antigravity-cc-skill-clickhouse-io` | ClickHouse database patterns, query optimization, analytics, and data engineering best practices for... |
+| `antigravity-cc-skill-coding-standards` | Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node... |
+| `antigravity-cc-skill-continuous-learning` | Development skill from everything-claude-code |
+| `antigravity-cc-skill-frontend-patterns` | Frontend development patterns for React, Next.js, state management, performance optimization, and UI... |
+| `antigravity-cc-skill-project-guidelines-example` | Project Guidelines Skill (Example) |
+| `antigravity-cc-skill-security-review` | Use this skill when adding authentication, handling user input, working with secrets, creating API e... |
+| `antigravity-cc-skill-strategic-compact` | Development skill from everything-claude-code |
 | `antigravity-claude-code-guide` | Master guide for using Claude Code effectively. Includes configuration templates, prompting strategi... |
 | `antigravity-claude-d3js-skill` | Creating interactive data visualisations using d3.js. This skill should be used when creating custom... |
 | `antigravity-clean-code` | Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments |
@@ -479,6 +488,7 @@ Total skills: **475**
 | `antigravity-red-team-tactics` | Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting. |
 | `antigravity-red-team-tools` | This skill should be used when the user asks to "follow red team methodology", "perform bug bounty h... |
 | `antigravity-referral-program` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
+| `antigravity-remotion-best-practices` | Best practices for Remotion - Video creation in React |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-research-engineer` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objective cri... |
 | `antigravity-salesforce-development` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex t... |
