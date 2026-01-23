@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-01-22T06:14:57.540665",
-  "skill_count": 485,
+  "last_updated": "2026-01-23T06:14:26.646101",
+  "skill_count": 490,
   "sources_processed": 19,
   "skills": [
     {
@@ -572,6 +572,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-web-performance-optimization",
+      "original_name": "web-performance-optimization",
+      "description": "Optimize website and web application performance including loading speed, Core Web Vitals, bundle size, caching strategies, and runtime performance",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-cc-skill-coding-standards",
       "original_name": "coding-standards",
       "description": "Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development.",
@@ -1020,6 +1028,14 @@
       "license": "Proprietary. LICENSE.txt has complete terms"
     },
     {
+      "name": "antigravity-api-documentation-generator",
+      "original_name": "api-documentation-generator",
+      "description": "Generate comprehensive, developer-friendly API documentation from code, including endpoints, parameters, examples, and best practices",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-mcp-builder",
       "original_name": "mcp-builder",
       "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
@@ -1118,7 +1134,7 @@
     {
       "name": "antigravity-code-review-checklist",
       "original_name": "code-review-checklist",
-      "description": "Code review guidelines covering code quality, security, and best practices.",
+      "description": "Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1151,6 +1167,14 @@
       "name": "antigravity-behavioral-modes",
       "original_name": "behavioral-modes",
       "description": "AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt behavior based on task type.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agent-memory-mcp",
+      "original_name": "agent-memory-mcp",
+      "description": "A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Architecture, Patterns, Decisions).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1327,6 +1351,14 @@
       "name": "antigravity-voice-agents",
       "original_name": "voice-agents",
       "description": "Voice agents represent the frontier of AI interaction - humans speaking naturally with AI systems. The challenge isn't just speech recognition and synthesis, it's achieving natural conversation flow with sub-800ms latency while handling interruptions, background noise, and emotional nuance.  This skill covers two architectures: speech-to-speech (OpenAI Realtime API, lowest latency, most natural) and pipeline (STT\u2192LLM\u2192TTS, more control, easier to debug). Key insight: latency is the constraint. Hu",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-environment-setup-guide",
+      "original_name": "environment-setup-guide",
+      "description": "Guide developers through setting up development environments with proper tools, dependencies, and configurations",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1695,6 +1727,14 @@
       "name": "antigravity-cc-skill-backend-patterns",
       "original_name": "backend-patterns",
       "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-api-security-best-practices",
+      "original_name": "api-security-best-practices",
+      "description": "Implement secure API design patterns including authentication, authorization, input validation, rate limiting, and protection against common API vulnerabilities",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

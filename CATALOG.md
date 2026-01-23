@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-22 06:14 UTC*
+*Last updated: 2026-01-23 06:14 UTC*
 
-Total skills: **485**
+Total skills: **490**
 
 ## Skills by Source
 
@@ -337,6 +337,7 @@ Total skills: **485**
 | `antigravity-address-github-comments` | Use when you need to address review or issue comments on an open GitHub Pull Request using the gh CL... |
 | `antigravity-agent-evaluation` | Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability... |
 | `antigravity-agent-manager-skill` | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly sc... |
+| `antigravity-agent-memory-mcp` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Arch... |
 | `antigravity-agent-memory-systems` | Memory is the cornerstone of intelligent agents. Without it, every interaction starts from zero. Thi... |
 | `antigravity-agent-tool-builder` | Tools are how AI agents interact with the world. A well-designed tool is the difference between an a... |
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
@@ -345,8 +346,10 @@ Total skills: **485**
 | `antigravity-algolia-search` | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and rel... |
 | `antigravity-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `antigravity-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
+| `antigravity-api-documentation-generator` | Generate comprehensive, developer-friendly API documentation from code, including endpoints, paramet... |
 | `antigravity-api-fuzzing-bug-bounty` | This skill should be used when the user asks to "test API security", "fuzz APIs", "find IDOR vulnera... |
 | `antigravity-api-patterns` | API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, vers... |
+| `antigravity-api-security-best-practices` | Implement secure API design patterns including authentication, authorization, input validation, rate... |
 | `antigravity-app-builder` | Main application building orchestrator. Creates full-stack applications from natural language reques... |
 | `antigravity-app-store-optimization` | Complete App Store Optimization (ASO) toolkit for researching, optimizing, and tracking mobile app p... |
 | `antigravity-architecture` | Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentat... |
@@ -382,7 +385,7 @@ Total skills: **485**
 | `antigravity-clean-code` | Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments |
 | `antigravity-clerk-auth` | Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync Us... |
 | `antigravity-cloud-penetration-testing` | This skill should be used when the user asks to "perform cloud penetration testing", "assess Azure o... |
-| `antigravity-code-review-checklist` | Code review guidelines covering code quality, security, and best practices. |
+| `antigravity-code-review-checklist` | Comprehensive checklist for conducting thorough code reviews covering functionality, security, perfo... |
 | `antigravity-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
 | `antigravity-computer-use-agents` | Build AI agents that interact with computers like humans do - viewing screens, moving cursors, click... |
 | `antigravity-concise-planning` | Use when a user asks for a plan for a coding task, to generate a clear, actionable, and atomic check... |
@@ -403,6 +406,7 @@ Total skills: **485**
 | `antigravity-docx` | Comprehensive document creation, editing, and analysis with support for tracked changes, comments, f... |
 | `antigravity-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
 | `antigravity-email-systems` | Email has the highest ROI of any marketing channel. $36 for every $1 spent. Yet most startups treat ... |
+| `antigravity-environment-setup-guide` | Guide developers through setting up development environments with proper tools, dependencies, and co... |
 | `antigravity-ethical-hacking-methodology` | This skill should be used when the user asks to "learn ethical hacking", "understand penetration tes... |
 | `antigravity-executing-plans` | Use when you have a written implementation plan to execute in a separate session with review checkpo... |
 | `antigravity-file-organizer` | Intelligently organizes files and folders by understanding context, finding duplicates, and suggesti... |
@@ -542,6 +546,7 @@ Total skills: **485**
 | `antigravity-vulnerability-scanner` | Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mappin... |
 | `antigravity-web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern fronten... |
 | `antigravity-web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check acc... |
+| `antigravity-web-performance-optimization` | Optimize website and web application performance including loading speed, Core Web Vitals, bundle si... |
 | `antigravity-webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying... |
 | `antigravity-windows-privilege-escalation` | This skill should be used when the user asks to "escalate privileges on Windows," "find Windows priv... |
 | `antigravity-wireshark-analysis` | This skill should be used when the user asks to "analyze network traffic with Wireshark", "capture p... |
