@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-23 06:14 UTC*
+*Last updated: 2026-01-24 06:12 UTC*
 
-Total skills: **490**
+Total skills: **495**
 
 ## Skills by Source
 
@@ -355,6 +355,9 @@ Total skills: **490**
 | `antigravity-architecture` | Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentat... |
 | `antigravity-autonomous-agent-patterns` | Design patterns for building autonomous coding agents. Covers tool integration, permission systems, ... |
 | `antigravity-autonomous-agents` | Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools... |
+| `antigravity-avalonia-layout-zafiro` | Guidelines for modern Avalonia UI layout using Zafiro.Avalonia, emphasizing shared styles, generic c... |
+| `antigravity-avalonia-viewmodels-zafiro` | Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI. |
+| `antigravity-avalonia-zafiro-development` | Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro too... |
 | `antigravity-aws-penetration-testing` | This skill should be used when the user asks to "pentest AWS", "test AWS security", "enumerate IAM",... |
 | `antigravity-aws-serverless` | Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functi... |
 | `antigravity-azure-functions` | Expert patterns for Azure Functions development including isolated worker model, Durable Functions o... |
@@ -471,12 +474,14 @@ Total skills: **490**
 | `antigravity-planning-with-files` | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and... |
 | `antigravity-playwright-skill` | Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to ... |
 | `antigravity-popup-cro` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
+| `antigravity-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
 | `antigravity-powershell-windows` | PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling. |
 | `antigravity-pptx` | Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx fi... |
 | `antigravity-pricing-strategy` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
 | `antigravity-prisma-expert` | Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and databas... |
 | `antigravity-privilege-escalation-methods` | This skill should be used when the user asks to "escalate privileges", "get root access", "become ad... |
 | `antigravity-product-manager-toolkit` | Comprehensive toolkit for product managers including RICE prioritization, customer interview analysi... |
+| `antigravity-production-code-audit` | Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then syst... |
 | `antigravity-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
 | `antigravity-prompt-caching` | Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Ca... |
 | `antigravity-prompt-engineer` | Expert in designing effective prompts for LLM-powered applications. Masters prompt structure, contex... |

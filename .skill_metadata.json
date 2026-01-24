@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-01-23T06:14:26.646101",
-  "skill_count": 490,
+  "last_updated": "2026-01-24T06:12:49.963852",
+  "skill_count": 495,
   "sources_processed": 19,
   "skills": [
     {
@@ -780,6 +780,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-postgres-best-practices",
+      "original_name": "supabase-postgres-best-practices",
+      "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-slack-bot-builder",
       "original_name": "slack-bot-builder",
       "description": "Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for rich UIs, interactive components, slash commands, event handling, OAuth installation flows, and Workflow Builder integration. Focus on best practices for production-ready Slack apps. Use when: slack bot, slack app, bolt framework, block kit, slash command.",
@@ -999,6 +1007,14 @@
       "name": "antigravity-parallel-agents",
       "original_name": "parallel-agents",
       "description": "Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domain expertise or when comprehensive analysis requires multiple perspectives.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-avalonia-viewmodels-zafiro",
+      "original_name": "avalonia-viewmodels-zafiro",
+      "description": "Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1644,6 +1660,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-avalonia-zafiro-development",
+      "original_name": "avalonia-zafiro-development",
+      "description": "Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro toolkit.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-mobile-design",
       "original_name": "mobile-design",
       "description": "Mobile-first design thinking and decision-making for iOS and Android apps. Touch interaction, performance patterns, platform conventions. Teaches principles, not fixed values. Use when building React Native, Flutter, or native mobile apps.",
@@ -1892,6 +1916,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-avalonia-layout-zafiro",
+      "original_name": "avalonia-layout-zafiro",
+      "description": "Guidelines for modern Avalonia UI layout using Zafiro.Avalonia, emphasizing shared styles, generic components, and avoiding XAML redundancy.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ai-wrapper-product",
       "original_name": "ai-wrapper-product",
       "description": "Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people will pay for. Not just 'ChatGPT but different' - products that solve specific problems with AI. Covers prompt engineering for products, cost management, rate limiting, and building defensible AI businesses. Use when: AI wrapper, GPT product, AI tool, wrap AI, AI SaaS.",
@@ -1911,6 +1943,14 @@
       "name": "antigravity-autonomous-agents",
       "original_name": "autonomous-agents",
       "description": "Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools, and self-correct without constant human guidance. The challenge isn't making them capable - it's making them reliable. Every extra decision multiplies failure probability.  This skill covers agent loops (ReAct, Plan-Execute), goal decomposition, reflection patterns, and production reliability. Key insight: compounding error rates kill autonomous agents. A 95% success rate per step drops to 60% b",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-production-code-audit",
+      "original_name": "production-code-audit",
+      "description": "Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then systematically transform it to production-grade, corporate-level professional quality with optimizations",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
