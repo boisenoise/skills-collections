@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-24 06:12 UTC*
+*Last updated: 2026-01-25 06:13 UTC*
 
-Total skills: **495**
+Total skills: **496**
 
 ## Skills by Source
 
@@ -457,6 +457,7 @@ Total skills: **495**
 | `antigravity-nextjs-best-practices` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
 | `antigravity-nextjs-supabase-auth` | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authentica... |
 | `antigravity-nodejs-best-practices` | Node.js development principles and decision-making. Framework selection, async patterns, security, a... |
+| `antigravity-nosql-expert` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, que... |
 | `antigravity-notebooklm` | Use this skill to query your Google NotebookLM notebooks directly from Claude Code for source-ground... |
 | `antigravity-notion-template-business` | Expert in building and selling Notion templates as a business - not just making templates, but build... |
 | `antigravity-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
