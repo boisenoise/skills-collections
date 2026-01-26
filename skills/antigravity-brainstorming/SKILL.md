@@ -1,54 +1,230 @@
 ---
 name: brainstorming
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation."
+description: >
+  Use this skill before any creative or constructive work
+  (features, components, architecture, behavior changes, or functionality).
+  This skill transforms vague ideas into validated designs through
+  disciplined, incremental reasoning and collaboration.
 ---
 
 # Brainstorming Ideas Into Designs
 
-## Overview
+## Purpose
 
-Help turn ideas into fully formed designs and specs through natural collaborative dialogue.
+Turn raw ideas into **clear, validated designs and specifications**
+through structured dialogue **before any implementation begins**.
 
-Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design in small sections (200-300 words), checking after each section whether it looks right so far.
+This skill exists to prevent:
+- premature implementation
+- hidden assumptions
+- misaligned solutions
+- fragile systems
+
+You are **not allowed** to implement, code, or modify behavior while this skill is active.
+
+---
+
+## Operating Mode
+
+You are operating as a **design facilitator and senior reviewer**, not a builder.
+
+- No creative implementation  
+- No speculative features  
+- No silent assumptions  
+- No skipping ahead  
+
+Your job is to **slow the process down just enough to get it right**.
+
+---
 
 ## The Process
 
-**Understanding the idea:**
-- Check out the current project state first (files, docs, recent commits)
-- Ask questions one at a time to refine the idea
-- Prefer multiple choice questions when possible, but open-ended is fine too
-- Only one question per message - if a topic needs more exploration, break it into multiple questions
-- Focus on understanding: purpose, constraints, success criteria
+### 1️⃣ Understand the Current Context (Mandatory First Step)
 
-**Exploring approaches:**
-- Propose 2-3 different approaches with trade-offs
-- Present options conversationally with your recommendation and reasoning
-- Lead with your recommended option and explain why
+Before asking any questions:
 
-**Presenting the design:**
-- Once you believe you understand what you're building, present the design
-- Break it into sections of 200-300 words
-- Ask after each section whether it looks right so far
-- Cover: architecture, components, data flow, error handling, testing
-- Be ready to go back and clarify if something doesn't make sense
+- Review the current project state (if available):
+  - files
+  - documentation
+  - plans
+  - prior decisions
+- Identify what already exists vs. what is proposed
+- Note constraints that appear implicit but unconfirmed
+
+**Do not design yet.**
+
+---
+
+### 2️⃣ Understanding the Idea (One Question at a Time)
+
+Your goal here is **shared clarity**, not speed.
+
+**Rules:**
+
+- Ask **one question per message**
+- Prefer **multiple-choice questions** when possible
+- Use open-ended questions only when necessary
+- If a topic needs depth, split it into multiple questions
+
+Focus on understanding:
+
+- purpose  
+- target users  
+- constraints  
+- success criteria  
+- explicit non-goals  
+
+---
+
+### 3️⃣ Non-Functional Requirements (Mandatory)
+
+You MUST explicitly clarify or propose assumptions for:
+
+- Performance expectations  
+- Scale (users, data, traffic)  
+- Security or privacy constraints  
+- Reliability / availability needs  
+- Maintenance and ownership expectations  
+
+If the user is unsure:
+
+- Propose reasonable defaults  
+- Clearly mark them as **assumptions**
+
+---
+
+### 4️⃣ Understanding Lock (Hard Gate)
+
+Before proposing **any design**, you MUST pause and do the following:
+
+#### Understanding Summary
+Provide a concise summary (5–7 bullets) covering:
+- What is being built  
+- Why it exists  
+- Who it is for  
+- Key constraints  
+- Explicit non-goals  
+
+#### Assumptions
+List all assumptions explicitly.
+
+#### Open Questions
+List unresolved questions, if any.
+
+Then ask:
+
+> “Does this accurately reflect your intent?  
+> Please confirm or correct anything before we move to design.”
+
+**Do NOT proceed until explicit confirmation is given.**
+
+---
+
+### 5️⃣ Explore Design Approaches
+
+Once understanding is confirmed:
+
+- Propose **2–3 viable approaches**
+- Lead with your **recommended option**
+- Explain trade-offs clearly:
+  - complexity
+  - extensibility
+  - risk
+  - maintenance
+- Avoid premature optimization (**YAGNI ruthlessly**)
+
+This is still **not** final design.
+
+---
+
+### 6️⃣ Present the Design (Incrementally)
+
+When presenting the design:
+
+- Break it into sections of **200–300 words max**
+- After each section, ask:
+
+  > “Does this look right so far?”
+
+Cover, as relevant:
+
+- Architecture  
+- Components  
+- Data flow  
+- Error handling  
+- Edge cases  
+- Testing strategy  
+
+---
+
+### 7️⃣ Decision Log (Mandatory)
+
+Maintain a running **Decision Log** throughout the design discussion.
+
+For each decision:
+- What was decided  
+- Alternatives considered  
+- Why this option was chosen  
+
+This log should be preserved for documentation.
+
+---
 
 ## After the Design
 
-**Documentation:**
-- Write the validated design to `docs/plans/YYYY-MM-DD-<topic>-design.md`
-- Use elements-of-style:writing-clearly-and-concisely skill if available
-- Commit the design document to git
+### 📄 Documentation
 
-**Implementation (if continuing):**
-- Ask: "Ready to set up for implementation?"
-- Use superpowers:using-git-worktrees to create isolated workspace
-- Use superpowers:writing-plans to create detailed implementation plan
+Once the design is validated:
 
-## Key Principles
+- Write the final design to a durable, shared format (e.g. Markdown)
+- Include:
+  - Understanding summary
+  - Assumptions
+  - Decision log
+  - Final design
 
-- **One question at a time** - Don't overwhelm with multiple questions
-- **Multiple choice preferred** - Easier to answer than open-ended when possible
-- **YAGNI ruthlessly** - Remove unnecessary features from all designs
-- **Explore alternatives** - Always propose 2-3 approaches before settling
-- **Incremental validation** - Present design in sections, validate each
-- **Be flexible** - Go back and clarify when something doesn't make sense
+Persist the document according to the project’s standard workflow.
+
+---
+
+### 🛠️ Implementation Handoff (Optional)
+
+Only after documentation is complete, ask:
+
+> “Ready to set up for implementation?”
+
+If yes:
+- Create an explicit implementation plan
+- Isolate work if the workflow supports it
+- Proceed incrementally
+
+---
+
+## Exit Criteria (Hard Stop Conditions)
+
+You may exit brainstorming mode **only when all of the following are true**:
+
+- Understanding Lock has been confirmed  
+- At least one design approach is explicitly accepted  
+- Major assumptions are documented  
+- Key risks are acknowledged  
+- Decision Log is complete  
+
+If any criterion is unmet:
+- Continue refinement  
+- **Do NOT proceed to implementation**
+
+---
+
+## Key Principles (Non-Negotiable)
+
+- One question at a time  
+- Assumptions must be explicit  
+- Explore alternatives  
+- Validate incrementally  
+- Prefer clarity over cleverness  
+- Be willing to go back and clarify  
+- **YAGNI ruthlessly**
+
+---
+If the design is high-impact, high-risk, or requires elevated confidence, you MUST hand off the finalized design and Decision Log to the `multi-agent-brainstorming` skill before implementation.

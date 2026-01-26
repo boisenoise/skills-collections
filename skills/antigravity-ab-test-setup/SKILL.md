@@ -1,508 +1,232 @@
 ---
 name: ab-test-setup
-description: When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," or "hypothesis." For tracking implementation, see analytics-tracking.
+description: Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and execution readiness.
 ---
 
 # A/B Test Setup
 
-You are an expert in experimentation and A/B testing. Your goal is to help design tests that produce statistically valid, actionable results.
+## 1️⃣ Purpose & Scope
 
-## Initial Assessment
+Ensure every A/B test is **valid, rigorous, and safe** before a single line of code is written.
 
-Before designing a test, understand:
-
-1. **Test Context**
-   - What are you trying to improve?
-   - What change are you considering?
-   - What made you want to test this?
-
-2. **Current State**
-   - Baseline conversion rate?
-   - Current traffic volume?
-   - Any historical test data?
-
-3. **Constraints**
-   - Technical implementation complexity?
-   - Timeline requirements?
-   - Tools available?
+- Prevents "peeking"
+- Enforces statistical power
+- Blocks invalid hypotheses
 
 ---
 
-## Core Principles
+## 2️⃣ Pre-Requisites
 
-### 1. Start with a Hypothesis
-- Not just "let's see what happens"
-- Specific prediction of outcome
-- Based on reasoning or data
+You must have:
 
-### 2. Test One Thing
-- Single variable per test
-- Otherwise you don't know what worked
-- Save MVT for later
+- A clear user problem
+- Access to an analytics source
+- Roughly estimated traffic volume
 
-### 3. Statistical Rigor
-- Pre-determine sample size
-- Don't peek and stop early
-- Commit to the methodology
+### Hypothesis Quality Checklist
 
-### 4. Measure What Matters
-- Primary metric tied to business value
-- Secondary metrics for context
-- Guardrail metrics to prevent harm
+A valid hypothesis includes:
+
+- Observation or evidence
+- Single, specific change
+- Directional expectation
+- Defined audience
+- Measurable success criteria
 
 ---
 
-## Hypothesis Framework
+### 3️⃣ Hypothesis Lock (Hard Gate)
 
-### Structure
+Before designing variants or metrics, you MUST:
 
-```
-Because [observation/data],
-we believe [change]
-will cause [expected outcome]
-for [audience].
-We'll know this is true when [metrics].
-```
+- Present the **final hypothesis**
+- Specify:
+  - Target audience
+  - Primary metric
+  - Expected direction of effect
+  - Minimum Detectable Effect (MDE)
 
-### Examples
+Ask explicitly:
 
-**Weak hypothesis:**
-"Changing the button color might increase clicks."
+> “Is this the final hypothesis we are committing to for this test?”
 
-**Strong hypothesis:**
-"Because users report difficulty finding the CTA (per heatmaps and feedback), we believe making the button larger and using contrasting color will increase CTA clicks by 15%+ for new visitors. We'll measure click-through rate from page view to signup start."
-
-### Good Hypotheses Include
-
-- **Observation**: What prompted this idea
-- **Change**: Specific modification
-- **Effect**: Expected outcome and direction
-- **Audience**: Who this applies to
-- **Metric**: How you'll measure success
+**Do NOT proceed until confirmed.**
 
 ---
 
-## Test Types
+### 4️⃣ Assumptions & Validity Check (Mandatory)
 
-### A/B Test (Split Test)
-- Two versions: Control (A) vs. Variant (B)
-- Single change between versions
-- Most common, easiest to analyze
+Explicitly list assumptions about:
 
-### A/B/n Test
-- Multiple variants (A vs. B vs. C...)
-- Requires more traffic
-- Good for testing several options
+- Traffic stability
+- User independence
+- Metric reliability
+- Randomization quality
+- External factors (seasonality, campaigns, releases)
 
-### Multivariate Test (MVT)
-- Multiple changes in combinations
-- Tests interactions between changes
-- Requires significantly more traffic
-- Complex analysis
+If assumptions are weak or violated:
 
-### Split URL Test
-- Different URLs for variants
-- Good for major page changes
-- Easier implementation sometimes
+- Warn the user
+- Recommend delaying or redesigning the test
 
 ---
 
-## Sample Size Calculation
+### 5️⃣ Test Type Selection
 
-### Inputs Needed
+Choose the simplest valid test:
 
-1. **Baseline conversion rate**: Your current rate
-2. **Minimum detectable effect (MDE)**: Smallest change worth detecting
-3. **Statistical significance level**: Usually 95%
-4. **Statistical power**: Usually 80%
+- **A/B Test** – single change, two variants
+- **A/B/n Test** – multiple variants, higher traffic required
+- **Multivariate Test (MVT)** – interaction effects, very high traffic
+- **Split URL Test** – major structural changes
 
-### Quick Reference
-
-| Baseline Rate | 10% Lift | 20% Lift | 50% Lift |
-|---------------|----------|----------|----------|
-| 1% | 150k/variant | 39k/variant | 6k/variant |
-| 3% | 47k/variant | 12k/variant | 2k/variant |
-| 5% | 27k/variant | 7k/variant | 1.2k/variant |
-| 10% | 12k/variant | 3k/variant | 550/variant |
-
-### Formula Resources
-- Evan Miller's calculator: https://www.evanmiller.org/ab-testing/sample-size.html
-- Optimizely's calculator: https://www.optimizely.com/sample-size-calculator/
-
-### Test Duration
-
-```
-Duration = Sample size needed per variant × Number of variants
-           ───────────────────────────────────────────────────
-           Daily traffic to test page × Conversion rate
-```
-
-Minimum: 1-2 business cycles (usually 1-2 weeks)
-Maximum: Avoid running too long (novelty effects, external factors)
+Default to **A/B** unless there is a clear reason otherwise.
 
 ---
 
-## Metrics Selection
+### 6️⃣ Metrics Definition
 
-### Primary Metric
-- Single metric that matters most
-- Directly tied to hypothesis
-- What you'll use to call the test
+#### Primary Metric (Mandatory)
 
-### Secondary Metrics
-- Support primary metric interpretation
-- Explain why/how the change worked
-- Help understand user behavior
+- Single metric used to evaluate success
+- Directly tied to the hypothesis
+- Pre-defined and frozen before launch
 
-### Guardrail Metrics
-- Things that shouldn't get worse
-- Revenue, retention, satisfaction
-- Stop test if significantly negative
+#### Secondary Metrics
 
-### Metric Examples by Test Type
+- Provide context
+- Explain _why_ results occurred
+- Must not override the primary metric
 
-**Homepage CTA test:**
-- Primary: CTA click-through rate
-- Secondary: Time to click, scroll depth
-- Guardrail: Bounce rate, downstream conversion
+#### Guardrail Metrics
 
-**Pricing page test:**
-- Primary: Plan selection rate
-- Secondary: Time on page, plan distribution
-- Guardrail: Support tickets, refund rate
-
-**Signup flow test:**
-- Primary: Signup completion rate
-- Secondary: Field-level completion, time to complete
-- Guardrail: User activation rate (post-signup quality)
+- Metrics that must not degrade
+- Used to prevent harmful wins
+- Trigger test stop if significantly negative
 
 ---
 
-## Designing Variants
+### 7️⃣ Sample Size & Duration
 
-### Control (A)
-- Current experience, unchanged
-- Don't modify during test
+Define upfront:
 
-### Variant (B+)
+- Baseline rate
+- MDE
+- Significance level (typically 95%)
+- Statistical power (typically 80%)
 
-**Best practices:**
-- Single, meaningful change
-- Bold enough to make a difference
-- True to the hypothesis
+Estimate:
 
-**What to vary:**
+- Required sample size per variant
+- Expected test duration
 
-Headlines/Copy:
-- Message angle
-- Value proposition
-- Specificity level
-- Tone/voice
-
-Visual Design:
-- Layout structure
-- Color and contrast
-- Image selection
-- Visual hierarchy
-
-CTA:
-- Button copy
-- Size/prominence
-- Placement
-- Number of CTAs
-
-Content:
-- Information included
-- Order of information
-- Amount of content
-- Social proof type
-
-### Documenting Variants
-
-```
-Control (A):
-- Screenshot
-- Description of current state
-
-Variant (B):
-- Screenshot or mockup
-- Specific changes made
-- Hypothesis for why this will win
-```
+**Do NOT proceed without a realistic sample size estimate.**
 
 ---
 
-## Traffic Allocation
+### 8️⃣ Execution Readiness Gate (Hard Stop)
 
-### Standard Split
-- 50/50 for A/B test
-- Equal split for multiple variants
+You may proceed to implementation **only if all are true**:
 
-### Conservative Rollout
-- 90/10 or 80/20 initially
-- Limits risk of bad variant
-- Longer to reach significance
+- Hypothesis is locked
+- Primary metric is frozen
+- Sample size is calculated
+- Test duration is defined
+- Guardrails are set
+- Tracking is verified
 
-### Ramping
-- Start small, increase over time
-- Good for technical risk mitigation
-- Most tools support this
-
-### Considerations
-- Consistency: Users see same variant on return
-- Segment sizes: Ensure segments are large enough
-- Time of day/week: Balanced exposure
-
----
-
-## Implementation Approaches
-
-### Client-Side Testing
-
-**Tools**: PostHog, Optimizely, VWO, custom
-
-**How it works**:
-- JavaScript modifies page after load
-- Quick to implement
-- Can cause flicker
-
-**Best for**:
-- Marketing pages
-- Copy/visual changes
-- Quick iteration
-
-### Server-Side Testing
-
-**Tools**: PostHog, LaunchDarkly, Split, custom
-
-**How it works**:
-- Variant determined before page renders
-- No flicker
-- Requires development work
-
-**Best for**:
-- Product features
-- Complex changes
-- Performance-sensitive pages
-
-### Feature Flags
-
-- Binary on/off (not true A/B)
-- Good for rollouts
-- Can convert to A/B with percentage split
+If any item is missing, stop and resolve it.
 
 ---
 
 ## Running the Test
 
-### Pre-Launch Checklist
-
-- [ ] Hypothesis documented
-- [ ] Primary metric defined
-- [ ] Sample size calculated
-- [ ] Test duration estimated
-- [ ] Variants implemented correctly
-- [ ] Tracking verified
-- [ ] QA completed on all variants
-- [ ] Stakeholders informed
-
 ### During the Test
 
 **DO:**
-- Monitor for technical issues
-- Check segment quality
-- Document any external factors
 
-**DON'T:**
-- Peek at results and stop early
-- Make changes to variants
-- Add traffic from new sources
-- End early because you "know" the answer
+- Monitor technical health
+- Document external factors
 
-### Peeking Problem
+**DO NOT:**
 
-Looking at results before reaching sample size and stopping when you see significance leads to:
-- False positives
-- Inflated effect sizes
-- Wrong decisions
-
-**Solutions:**
-- Pre-commit to sample size and stick to it
-- Use sequential testing if you must peek
-- Trust the process
+- Stop early due to “good-looking” results
+- Change variants mid-test
+- Add new traffic sources
+- Redefine success criteria
 
 ---
 
 ## Analyzing Results
 
-### Statistical Significance
+### Analysis Discipline
 
-- 95% confidence = p-value < 0.05
-- Means: <5% chance result is random
-- Not a guarantee—just a threshold
+When interpreting results:
 
-### Practical Significance
+- Do NOT generalize beyond the tested population
+- Do NOT claim causality beyond the tested change
+- Do NOT override guardrail failures
+- Separate statistical significance from business judgment
 
-Statistical ≠ Practical
+### Interpretation Outcomes
 
-- Is the effect size meaningful for business?
-- Is it worth the implementation cost?
-- Is it sustainable over time?
-
-### What to Look At
-
-1. **Did you reach sample size?**
-   - If not, result is preliminary
-
-2. **Is it statistically significant?**
-   - Check confidence intervals
-   - Check p-value
-
-3. **Is the effect size meaningful?**
-   - Compare to your MDE
-   - Project business impact
-
-4. **Are secondary metrics consistent?**
-   - Do they support the primary?
-   - Any unexpected effects?
-
-5. **Any guardrail concerns?**
-   - Did anything get worse?
-   - Long-term risks?
-
-6. **Segment differences?**
-   - Mobile vs. desktop?
-   - New vs. returning?
-   - Traffic source?
-
-### Interpreting Results
-
-| Result | Conclusion |
-|--------|------------|
-| Significant winner | Implement variant |
-| Significant loser | Keep control, learn why |
-| No significant difference | Need more traffic or bolder test |
-| Mixed signals | Dig deeper, maybe segment |
+| Result               | Action                                 |
+| -------------------- | -------------------------------------- |
+| Significant positive | Consider rollout                       |
+| Significant negative | Reject variant, document learning      |
+| Inconclusive         | Consider more traffic or bolder change |
+| Guardrail failure    | Do not ship, even if primary wins      |
 
 ---
 
-## Documenting and Learning
+## Documentation & Learning
 
-### Test Documentation
+### Test Record (Mandatory)
 
-```
-Test Name: [Name]
-Test ID: [ID in testing tool]
-Dates: [Start] - [End]
-Owner: [Name]
+Document:
 
-Hypothesis:
-[Full hypothesis statement]
+- Hypothesis
+- Variants
+- Metrics
+- Sample size vs achieved
+- Results
+- Decision
+- Learnings
+- Follow-up ideas
 
-Variants:
-- Control: [Description + screenshot]
-- Variant: [Description + screenshot]
-
-Results:
-- Sample size: [achieved vs. target]
-- Primary metric: [control] vs. [variant] ([% change], [confidence])
-- Secondary metrics: [summary]
-- Segment insights: [notable differences]
-
-Decision: [Winner/Loser/Inconclusive]
-Action: [What we're doing]
-
-Learnings:
-[What we learned, what to test next]
-```
-
-### Building a Learning Repository
-
-- Central location for all tests
-- Searchable by page, element, outcome
-- Prevents re-running failed tests
-- Builds institutional knowledge
+Store records in a shared, searchable location to avoid repeated failures.
 
 ---
 
-## Output Format
+## Refusal Conditions (Safety)
 
-### Test Plan Document
+Refuse to proceed if:
 
-```
-# A/B Test: [Name]
+- Baseline rate is unknown and cannot be estimated
+- Traffic is insufficient to detect the MDE
+- Primary metric is undefined
+- Multiple variables are changed without proper design
+- Hypothesis cannot be clearly stated
 
-## Hypothesis
-[Full hypothesis using framework]
-
-## Test Design
-- Type: A/B / A/B/n / MVT
-- Duration: X weeks
-- Sample size: X per variant
-- Traffic allocation: 50/50
-
-## Variants
-[Control and variant descriptions with visuals]
-
-## Metrics
-- Primary: [metric and definition]
-- Secondary: [list]
-- Guardrails: [list]
-
-## Implementation
-- Method: Client-side / Server-side
-- Tool: [Tool name]
-- Dev requirements: [If any]
-
-## Analysis Plan
-- Success criteria: [What constitutes a win]
-- Segment analysis: [Planned segments]
-```
-
-### Results Summary
-When test is complete
-
-### Recommendations
-Next steps based on results
+Explain why and recommend next steps.
 
 ---
 
-## Common Mistakes
+## Key Principles (Non-Negotiable)
 
-### Test Design
-- Testing too small a change (undetectable)
-- Testing too many things (can't isolate)
-- No clear hypothesis
-- Wrong audience
-
-### Execution
-- Stopping early
-- Changing things mid-test
-- Not checking implementation
-- Uneven traffic allocation
-
-### Analysis
-- Ignoring confidence intervals
-- Cherry-picking segments
-- Over-interpreting inconclusive results
-- Not considering practical significance
+- One hypothesis per test
+- One primary metric
+- Commit before launch
+- No peeking
+- Learning over winning
+- Statistical rigor first
 
 ---
 
-## Questions to Ask
+## Final Reminder
 
-If you need more context:
-1. What's your current conversion rate?
-2. How much traffic does this page get?
-3. What change are you considering and why?
-4. What's the smallest improvement worth detecting?
-5. What tools do you have for testing?
-6. Have you tested this area before?
+A/B testing is not about proving ideas right.
+It is about **learning the truth with confidence**.
 
----
-
-## Related Skills
-
-- **page-cro**: For generating test ideas based on CRO principles
-- **analytics-tracking**: For setting up test measurement
-- **copywriting**: For creating variant copy
+If you feel tempted to rush, simplify, or “just try it” —
+that is the signal to **slow down and re-check the design**.

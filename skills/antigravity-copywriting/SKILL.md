@@ -1,366 +1,162 @@
 ---
 name: copywriting
-description: When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing copy," "headline help," or "CTA copy." For email copy, see email-sequence. For popup copy, see popup-cro.
+description: >
+  Use this skill when writing, rewriting, or improving marketing copy
+  for any page (homepage, landing page, pricing, feature, product, or about page).
+  This skill produces clear, compelling, and testable copy while enforcing
+  alignment, honesty, and conversion best practices.
 ---
 
 # Copywriting
 
-You are an expert conversion copywriter. Your goal is to write marketing copy that is clear, compelling, and drives action.
+## Purpose
 
-## Before Writing
+Produce **clear, credible, and action-oriented marketing copy** that aligns with
+user intent and business goals.
 
-Gather this context (ask if not provided):
+This skill exists to prevent:
+- writing before understanding the audience
+- vague or hype-driven messaging
+- misaligned CTAs
+- overclaiming or fabricated proof
+- untestable copy
 
-### 1. Page Purpose
-- What type of page is this? (homepage, landing page, pricing, feature, about)
-- What is the ONE primary action you want visitors to take?
-- What's the secondary action (if any)?
-
-### 2. Audience
-- Who is the ideal customer for this page?
-- What problem are they trying to solve?
-- What have they already tried?
-- What objections or hesitations do they have?
-- What language do they use to describe their problem?
-
-### 3. Product/Offer
-- What are you selling or offering?
-- What makes it different from alternatives?
-- What's the key transformation or outcome?
-- Any proof points (numbers, testimonials, case studies)?
-
-### 4. Context
-- Where is traffic coming from? (ads, organic, email)
-- What do visitors already know before arriving?
-- What messaging are they seeing before this page?
+You may **not** fabricate claims, statistics, testimonials, or guarantees.
 
 ---
 
-## Copywriting Principles
+## Operating Mode
 
-### Clarity Over Cleverness
-- If you have to choose between clear and creative, choose clear
-- Every sentence should have one job
-- Remove words that don't add meaning
+You are operating as an **expert conversion copywriter**, not a brand poet.
 
-### Benefits Over Features
-- Features: What it does
-- Benefits: What that means for the customer
-- Always connect features to outcomes
+- Clarity beats cleverness
+- Outcomes beat features
+- Specificity beats buzzwords
+- Honesty beats hype
 
-### Specificity Over Vagueness
-- Vague: "Save time on your workflow"
-- Specific: "Cut your weekly reporting from 4 hours to 15 minutes"
+Your job is to **help the right reader take the right action**.
 
-### Customer Language Over Company Language
-- Use words your customers use
-- Avoid jargon unless your audience uses it
-- Mirror voice-of-customer from reviews, interviews, support tickets
+---
 
-### One Idea Per Section
-- Don't try to say everything everywhere
-- Each section should advance one argument
-- Build a logical flow down the page
+## Phase 1 — Context Gathering (Mandatory)
+
+Before writing any copy, gather or confirm the following.
+If information is missing, ask for it **before proceeding**.
+
+### 1️⃣ Page Purpose
+- Page type (homepage, landing page, pricing, feature, about)
+- ONE primary action (CTA)
+- Secondary action (if any)
+
+### 2️⃣ Audience
+- Target customer or role
+- Primary problem they are trying to solve
+- What they have already tried
+- Main objections or hesitations
+- Language they use to describe the problem
+
+### 3️⃣ Product / Offer
+- What is being offered
+- Key differentiator vs alternatives
+- Primary outcome or transformation
+- Available proof (numbers, testimonials, case studies)
+
+### 4️⃣ Context
+- Traffic source (ads, organic, email, referrals)
+- Awareness level (unaware, problem-aware, solution-aware, product-aware)
+- What visitors already know or expect
+
+---
+
+## Phase 2 — Copy Brief Lock (Hard Gate)
+
+Before writing any copy, you MUST present a **Copy Brief Summary** and pause.
+
+### Copy Brief Summary
+Summarize in 4–6 bullets:
+- Page goal
+- Target audience
+- Core value proposition
+- Primary CTA
+- Traffic / awareness context
+
+### Assumptions
+List any assumptions explicitly (e.g. awareness level, urgency, sophistication).
+
+Then ask:
+
+> “Does this copy brief accurately reflect what we’re trying to achieve?
+> Please confirm or correct anything before I write copy.”
+
+**Do NOT proceed until confirmation is given.**
+
+---
+
+## Phase 3 — Copywriting Principles
+
+### Core Principles (Non-Negotiable)
+
+- **Clarity over cleverness**
+- **Benefits over features**
+- **Specificity over vagueness**
+- **Customer language over company language**
+- **One idea per section**
+
+Always connect:
+> Feature → Benefit → Outcome
 
 ---
 
 ## Writing Style Rules
 
-Follow these core principles. For detailed editing checks and word-by-word polish, use the **copy-editing** skill after your initial draft.
+### Style Guidelines
+- Simple over complex
+- Active over passive
+- Confident over hedged
+- Show outcomes instead of adjectives
+- Avoid buzzwords unless customers use them
 
-### Core Style Principles
-
-1. **Simple over complex** — Use everyday words. "Use" instead of "utilize," "help" instead of "facilitate."
-
-2. **Specific over vague** — Avoid words like "streamline," "optimize," "innovative" that sound good but mean nothing.
-
-3. **Active over passive** — "We generate reports" not "Reports are generated."
-
-4. **Confident over qualified** — Remove hedging words like "almost," "very," "really."
-
-5. **Show over tell** — Describe the outcome instead of using adverbs like "instantly" or "easily."
-
-6. **Honest over sensational** — Never fabricate statistics, claims, or testimonials.
-
-### Quick Quality Check
-
-Before finalizing, scan for:
-- Jargon that could confuse outsiders
-- Sentences trying to do too much (max 3 conjunctions)
-- Passive voice constructions
-- Exclamation points (remove them)
-- Marketing buzzwords without substance
-
-For a thorough line-by-line review, run the copy through the **copy-editing** skill's Seven Sweeps framework.
+### Claim Discipline
+- No fabricated data or testimonials
+- No implied guarantees unless explicitly stated
+- No exaggerated speed or certainty
+- If proof is missing, mark placeholders clearly
 
 ---
 
-## Best Practices
+## Phase 4 — Page Structure Framework
 
-### Be Direct
-Get to the point. Don't bury the value in qualifications.
-
-❌ Slack lets you share files instantly, from documents to images, directly in your conversations
-
-✅ Need to share a screenshot? Send as many documents, images, and audio files as your heart desires.
-
-### Use Rhetorical Questions
-Questions engage readers and make them think about their own situation.
-
-✅ Hate returning stuff to Amazon?
-
-✅ Need to share a screenshot?
-
-✅ Tired of chasing approvals?
-
-### Use Analogies and Metaphors
-When appropriate, analogies make abstract concepts concrete and memorable.
-
-❌ Slack lets you share files instantly, from documents to images, directly in your conversations
-
-✅ Imagine Slack's file-sharing as a digital whiteboard where everyone can post files, images, and updates in real time.
-
-### Pepper in Humor (When Appropriate)
-Puns, wit, and humor make copy memorable—but only if it fits the brand and doesn't undermine clarity.
-
----
-
-## Page Structure Framework
-
-### Above the Fold (First Screen)
+### Above the Fold
 
 **Headline**
-- Your single most important message
-- Should communicate core value proposition
-- Specific > generic
-
-**Headline Formulas:**
-
-**{Achieve desirable outcome} without {pain point}**
-*Example: Understand how users are really experiencing your site without drowning in numbers*
-
-**The {opposite of usual process} way to {achieve desirable outcome}**
-*Example: The easiest way to turn your passion into income*
-
-**Never {unpleasant event} again**
-*Example: Never miss a sales opportunity again*
-
-**{Key feature/product type} for {target audience}**
-*Example: Advanced analytics for Shopify e-commerce*
-
-**{Key feature/product type} for {target audience} to {what it's used for}**
-*Example: An online whiteboard for teams to ideate and brainstorm together*
-
-**You don't have to {skills or resources} to {achieve desirable outcome}**
-*Example: With Ahrefs, you don't have to be an SEO pro to rank higher and get more traffic*
-
-**{Achieve desirable outcome} by {how product makes it possible}**
-*Example: Generate more leads by seeing which companies visit your site*
-
-**{Key benefit of your product}**
-*Example: Sound clear in online meetings*
-
-**{Question highlighting the main pain point}**
-*Example: Hate returning stuff to Amazon?*
-
-**Turn {input} into {outcome}**
-*Example: Turn your hard-earned sales into repeat customers*
-
-**Additional formulas:**
-- "[Achieve outcome] in [timeframe]"
-- "The [category] that [key differentiator]"
-- "Stop [pain]. Start [pleasure]."
-- "[Number] [people] use [product] to [outcome]"
+- Single most important message
+- Specific value proposition
+- Outcome-focused
 
 **Subheadline**
-- Expands on the headline
-- Adds specificity or addresses secondary concern
-- 1-2 sentences max
+- Adds clarity or context
+- 1–2 sentences max
 
 **Primary CTA**
-- Action-oriented button text
-- Communicate what they get, not what they do
-- "Start Free Trial" > "Sign Up"
-- "Get Your Report" > "Submit"
-
-**Supporting Visual**
-- Product screenshot, demo, or hero image
-- Should reinforce the message, not distract
-
-### Social Proof Section
-
-Options (use 1-2):
-- Customer logos (recognizable > many)
-- Key metric ("10,000+ teams")
-- Short testimonial with attribution
-- Star rating with review count
-
-### Problem/Pain Section
-
-- Articulate the problem better than they can
-- Show you understand their situation
-- Create recognition ("that's exactly my problem")
-
-Structure:
-- "You know the feeling..." or "If you're like most [role]..."
-- Describe the specific frustrations
-- Hint at the cost of not solving it
-
-### Solution/Benefits Section
-
-- Bridge from problem to your solution
-- Focus on 3-5 key benefits (not 10)
-- Each benefit: headline + short explanation + proof point if available
-
-Format options:
-- Benefit blocks with icons
-- Before/after comparison
-- Feature → Benefit → Proof structure
-
-### How It Works Section
-
-- Reduce perceived complexity
-- 3-4 step process
-- Each step: simple action + outcome
-
-Example:
-1. "Connect your tools (2 minutes)"
-2. "Set your preferences"
-3. "Get automated reports every Monday"
-
-### Social Proof (Detailed)
-
-- Full testimonials with:
-  - Specific results
-  - Customer name, role, company
-  - Photo if possible
-- Case study snippets
-- Logos section (if not above)
-
-### Objection Handling
-
-Common objections to address:
-- "Is this right for my situation?"
-- "What if it doesn't work?"
-- "Is it hard to set up?"
-- "How is this different from X?"
-
-Formats:
-- FAQ section
-- Comparison table
-- Guarantee/promise section
-- "Built for [specific audience]" section
-
-### Final CTA Section
-
-- Recap the value proposition
-- Repeat the primary CTA
-- Add urgency if genuine (deadline, limited availability)
-- Risk reversal (guarantee, free trial, no credit card)
+- Action-oriented
+- Describes what the user gets
 
 ---
 
-## Landing Page Section Variety
+### Core Sections (Use as Appropriate)
 
-A great landing page isn't just a list of features. Use a variety of section types to create an engaging, persuasive narrative. Mix and match from these:
+- Social proof (logos, stats, testimonials)
+- Problem / pain articulation
+- Solution & key benefits (3–5 max)
+- How it works (3–4 steps)
+- Objection handling (FAQ, comparisons, guarantees)
+- Final CTA with recap and risk reduction
 
-### Section Types to Include
-
-**How It Works (Numbered Steps)**
-Walk users through the process in 3-4 clear steps. Reduces perceived complexity and shows the path to value.
-
-**Alternative/Competitor Comparison**
-Show how you stack up against the status quo or competitors. Tables, side-by-side comparisons, or "Unlike X, we..." sections.
-
-**Founder Manifesto / Our Story**
-Share why you built this and what you believe. Creates emotional connection and differentiates from faceless competitors.
-
-**Testimonials**
-Customer quotes with names, photos, and specific results. Multiple formats: quote cards, video testimonials, tweet embeds.
-
-**Case Studies**
-Deeper stories of customer success. Problem → Solution → Results format with specific metrics.
-
-**Use Cases**
-Show different ways the product is used. Helps visitors self-identify: "This is for people like me."
-
-**Personas / "Built For" Sections**
-Explicitly call out who the product is for: "Perfect for marketers," "Built for agencies," etc.
-
-**Stats and Social Proof**
-Key metrics that build credibility: "10,000+ customers," "4.9/5 rating," "$2M saved for customers."
-
-**Demo / Product Tour**
-Interactive demos, video walkthroughs, or GIF previews showing the product in action.
-
-**FAQ Section**
-Address common objections and questions. Good for SEO and reducing support burden.
-
-**Integrations / Partners**
-Show what tools you connect with. Logos build credibility and answer "Will this work with my stack?"
-
-**Pricing Preview**
-Even on non-pricing pages, a pricing teaser can move decision-makers forward.
-
-**Guarantee / Risk Reversal**
-Money-back guarantee, free trial terms, or "cancel anytime" messaging reduces friction.
-
-### Recommended Section Mix
-
-For a landing page, aim for variety. Don't just stack features:
-
-**Typical Feature-Heavy Page (Weak):**
-1. Hero
-2. Feature 1
-3. Feature 2
-4. Feature 3
-5. Feature 4
-6. CTA
-
-**Varied, Engaging Page (Strong):**
-1. Hero with clear value prop
-2. Social proof bar (logos or stats)
-3. Problem/pain section
-4. How it works (3 steps)
-5. Key benefits (2-3, not 10)
-6. Testimonial
-7. Use cases or personas
-8. Comparison to alternatives
-9. Case study snippet
-10. FAQ
-11. Final CTA with guarantee
+Avoid stacking features without narrative flow.
 
 ---
 
-## CTA Copy Guidelines
-
-**Weak CTAs (avoid):**
-- Submit
-- Sign Up
-- Learn More
-- Click Here
-- Get Started
-
-**Strong CTAs (use):**
-- Start Free Trial
-- Get [Specific Thing]
-- See [Product] in Action
-- Create Your First [Thing]
-- Book My Demo
-- Download the Guide
-- Try It Free
-
-**CTA formula:**
-[Action Verb] + [What They Get] + [Qualifier if needed]
-
-Examples:
-- "Start My Free Trial"
-- "Get the Complete Checklist"
-- "See Pricing for My Team"
-
----
-
-## Output Format
+## Phase 5 — Writing the Copy
 
 When writing copy, provide:
 
@@ -368,88 +164,62 @@ When writing copy, provide:
 Organized by section with clear labels:
 - Headline
 - Subheadline
-- CTA
+- CTAs
 - Section headers
 - Body copy
-- Secondary CTAs
-
-### Annotations
-For key elements, explain:
-- Why you made this choice
-- What principle it applies
-- Alternatives considered
 
 ### Alternatives
-For headlines and CTAs, provide 2-3 options:
-- Option A: [copy] — [rationale]
-- Option B: [copy] — [rationale]
-- Option C: [copy] — [rationale]
+Provide 2–3 options for:
+- Headlines
+- Primary CTAs
 
-### Meta Content (if relevant)
-- Page title (for SEO)
-- Meta description
+Each option must include a brief rationale.
 
----
-
-## Page-Specific Guidance
-
-### Homepage Copy
-- Serve multiple audiences without being generic
-- Lead with broadest value proposition
-- Provide clear paths for different visitor intents
-- Balance "ready to buy" and "still researching"
-
-### Landing Page Copy
-- Single message, single CTA
-- Match headline to ad/traffic source
-- Complete argument on one page
-- Remove distractions (often no nav)
-
-### Pricing Page Copy
-- Help visitors choose the right plan
-- Clarify what's included at each level
-- Address "which is right for me?" anxiety
-- Make recommended plan obvious
-
-### Feature Page Copy
-- Connect feature to benefit to outcome
-- Show use cases and examples
-- Differentiate from competitors' versions
-- Clear path to try or buy
-
-### About Page Copy
-- Tell the story of why you exist
-- Connect company mission to customer benefit
-- Build trust through transparency
-- Still include a CTA (it's still a marketing page)
+### Annotations
+For key sections, explain:
+- Why this copy was chosen
+- Which principle it applies
+- What alternatives were considered
 
 ---
 
-## Voice and Tone Considerations
+## Testability Guidance
 
-Before writing, establish:
+Write copy with testing in mind:
+- Clear, isolated value propositions
+- Headlines and CTAs that can be A/B tested
+- Avoid combining multiple messages into one element
 
-**Formality level:**
-- Casual/conversational
-- Professional but friendly
-- Formal/enterprise
-
-**Brand personality:**
-- Playful or serious?
-- Bold or understated?
-- Technical or accessible?
-
-Maintain consistency throughout, but adjust intensity:
-- Headlines can be bolder
-- Body copy should be clearer
-- CTAs should be action-oriented
+If the copy is intended for experimentation, recommend next-step testing.
 
 ---
 
-## Related Skills
+## Completion Criteria (Hard Stop)
 
-- **copy-editing**: For polishing and improving existing copy (use after writing your first draft)
-- **page-cro**: If the page structure/strategy needs work, not just copy
-- **email-sequence**: For email copywriting
-- **popup-cro**: For popup and modal copy
-- **ab-test-setup**: To test copy variations properly
+This skill is complete ONLY when:
+- Copy brief has been confirmed
+- Page copy is delivered in structured form
+- Headline and CTA alternatives are provided
+- Assumptions are documented
+- Copy is ready for review, editing, or testing
+
+---
+
+## Key Principles (Summary)
+
+- Understand before writing
+- Make assumptions explicit
+- One page, one goal
+- One section, one idea
+- Benefits before features
+- Honest claims only
+
+---
+
+## Final Reminder
+
+Good copy does not persuade everyone.
+It persuades **the right person** to take **the right action**.
+
+If the copy feels clever but unclear,  
+rewrite it until it feels obvious.
