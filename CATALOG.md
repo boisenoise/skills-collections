@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-26 06:16 UTC*
+*Last updated: 2026-01-27 06:14 UTC*
 
-Total skills: **506**
+Total skills: **512**
 
 ## Skills by Source
 
@@ -107,6 +107,7 @@ Total skills: **506**
 | `marketing-ab-test-setup` | When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user ... |
 | `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
 | `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
+| `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
 | `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment... |
 | `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, ... |
 | `marketing-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
@@ -121,6 +122,7 @@ Total skills: **506**
 | `marketing-paywall-upgrade-cro` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
 | `marketing-popup-cro` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
 | `marketing-pricing-strategy` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
+| `marketing-product-marketing-context` | When the user wants to create or update their product marketing context document. Also use when the ... |
 | `marketing-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
 | `marketing-referral-program` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
 | `marketing-schema-markup` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u... |
@@ -345,7 +347,7 @@ Total skills: **506**
 | `antigravity-ai-wrapper-product` | Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people wi... |
 | `antigravity-algolia-search` | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and rel... |
 | `antigravity-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
-| `antigravity-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
+| `antigravity-analytics-tracking` | Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. Us... |
 | `antigravity-api-documentation-generator` | Generate comprehensive, developer-friendly API documentation from code, including endpoints, paramet... |
 | `antigravity-api-fuzzing-bug-bounty` | This skill should be used when the user asks to "test API security", "fuzz APIs", "find IDOR vulnera... |
 | `antigravity-api-patterns` | API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, vers... |
@@ -361,7 +363,7 @@ Total skills: **506**
 | `antigravity-aws-penetration-testing` | This skill should be used when the user asks to "pentest AWS", "test AWS security", "enumerate IAM",... |
 | `antigravity-aws-serverless` | Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functi... |
 | `antigravity-azure-functions` | Expert patterns for Azure Functions development including isolated worker model, Durable Functions o... |
-| `antigravity-backend-dev-guidelines` | Comprehensive backend development guide for Node.js/Express/TypeScript microservices. Use when creat... |
+| `antigravity-backend-dev-guidelines` | Opinionated backend development standards for Node.js + Express + TypeScript microservices. Covers l... |
 | `antigravity-bash-linux` | Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working... |
 | `antigravity-behavioral-modes` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt ... |
 | `antigravity-blockrun` | Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explic... |
@@ -402,6 +404,7 @@ Total skills: **506**
 | `antigravity-copywriting` | Use this skill when writing, rewriting, or improving marketing copy for any page (homepage, landing ... |
 | `antigravity-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
 | `antigravity-crewai` | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies... |
+| `antigravity-daily-news-report` | 基于预设 URL 列表抓取内容，筛选高质量技术信息并生成每日 Markdown 报告。 |
 | `antigravity-database-design` | Database design principles and decision-making. Schema design, indexing strategy, ORM selection, ser... |
 | `antigravity-deployment-procedures` | Production deployment principles and decision-making. Safe deployment workflows, rollback strategies... |
 | `antigravity-design-orchestration` | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and executi... |
@@ -423,10 +426,10 @@ Total skills: **506**
 | `antigravity-finishing-a-development-branch` | Use when implementation is complete, all tests pass, and you need to decide how to integrate the wor... |
 | `antigravity-firebase` | Firebase gives you a complete backend in minutes - auth, database, storage, functions, hosting. But ... |
 | `antigravity-firecrawl-scraper` | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API |
-| `antigravity-form-cro` | When the user wants to optimize any form that is NOT signup/registration — including lead capture fo... |
+| `antigravity-form-cro` | Optimize any form that is NOT signup or account registration — including lead capture, contact, demo... |
 | `antigravity-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
-| `antigravity-frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill wh... |
-| `antigravity-frontend-dev-guidelines` | Frontend development guidelines for React/TypeScript applications. Modern patterns including Suspens... |
+| `antigravity-frontend-design` | Create distinctive, production-grade frontend interfaces with intentional aesthetics, high craft, an... |
+| `antigravity-frontend-dev-guidelines` | Opinionated frontend development standards for modern React + TypeScript applications. Covers Suspen... |
 | `antigravity-game-development` | Game development orchestrator. Routes to platform-specific skills based on project needs. |
 | `antigravity-gcp-cloud-run` | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run ser... |
 | `antigravity-geo-fundamentals` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
@@ -445,18 +448,19 @@ Total skills: **506**
 | `antigravity-kaizen` | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user ... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |
 | `antigravity-langgraph` | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applicati... |
+| `antigravity-last30days` | Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-r... |
 | `antigravity-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `antigravity-lint-and-validate` | Automatic quality control, linting, and static analysis procedures. Use after every code modificatio... |
 | `antigravity-linux-privilege-escalation` | This skill should be used when the user asks to "escalate privileges on Linux", "find privesc vector... |
 | `antigravity-linux-shell-scripting` | This skill should be used when the user asks to "create bash scripts", "automate Linux tasks", "moni... |
 | `antigravity-llm-app-patterns` | Production-ready patterns for building LLM applications. Covers RAG pipelines, agent architectures, ... |
 | `antigravity-loki-mode` | Multi-agent autonomous startup system for Claude Code. Triggers on "Loki Mode". Orchestrates 100+ sp... |
-| `antigravity-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
-| `antigravity-marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marke... |
+| `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
+| `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
 | `antigravity-mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
 | `antigravity-metasploit-framework` | This skill should be used when the user asks to "use Metasploit for penetration testing", "exploit v... |
 | `antigravity-micro-saas-launcher` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profit... |
-| `antigravity-mobile-design` | Mobile-first design thinking and decision-making for iOS and Android apps. Touch interaction, perfor... |
+| `antigravity-mobile-design` | Mobile-first design and engineering doctrine for iOS and Android apps. Covers touch interaction, per... |
 | `antigravity-moodle-external-api-development` | Create custom external web service APIs for Moodle LMS. Use when implementing web services for cours... |
 | `antigravity-multi-agent-brainstorming` | Use this skill when a design or idea requires higher confidence, risk reduction, or formal review. T... |
 | `antigravity-neon-postgres` | Expert patterns for Neon serverless Postgres, branching, connection pooling, and Prisma/Drizzle inte... |
@@ -470,7 +474,7 @@ Total skills: **506**
 | `antigravity-notion-template-business` | Expert in building and selling Notion templates as a business - not just making templates, but build... |
 | `antigravity-obsidian-clipper-template-creator` | Guide for creating templates for the Obsidian Web Clipper. Use when you want to create a new clippin... |
 | `antigravity-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
-| `antigravity-page-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page — including ... |
+| `antigravity-page-cro` | Analyze and optimize individual pages for conversion performance. Use when the user wants to improve... |
 | `antigravity-paid-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
 | `antigravity-parallel-agents` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domai... |
 | `antigravity-paywall-upgrade-cro` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
@@ -483,16 +487,16 @@ Total skills: **506**
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
 | `antigravity-planning-with-files` | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and... |
 | `antigravity-playwright-skill` | Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to ... |
-| `antigravity-popup-cro` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
+| `antigravity-popup-cro` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without... |
 | `antigravity-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
 | `antigravity-powershell-windows` | PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling. |
 | `antigravity-pptx` | Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx fi... |
-| `antigravity-pricing-strategy` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
+| `antigravity-pricing-strategy` | Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, ... |
 | `antigravity-prisma-expert` | Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and databas... |
 | `antigravity-privilege-escalation-methods` | This skill should be used when the user asks to "escalate privileges", "get root access", "become ad... |
 | `antigravity-product-manager-toolkit` | Comprehensive toolkit for product managers including RICE prioritization, customer interview analysi... |
 | `antigravity-production-code-audit` | Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then syst... |
-| `antigravity-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
+| `antigravity-programmatic-seo` | Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templat... |
 | `antigravity-prompt-caching` | Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Ca... |
 | `antigravity-prompt-engineer` | Expert in designing effective prompts for LLM-powered applications. Masters prompt structure, contex... |
 | `antigravity-prompt-engineering` | Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when u... |
@@ -512,13 +516,13 @@ Total skills: **506**
 | `antigravity-research-engineer` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objective cri... |
 | `antigravity-salesforce-development` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex t... |
 | `antigravity-scanning-tools` | This skill should be used when the user asks to "perform vulnerability scanning", "scan networks for... |
-| `antigravity-schema-markup` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u... |
+| `antigravity-schema-markup` | Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurab... |
 | `antigravity-scroll-experience` | Expert in building immersive scroll-driven experiences - parallax storytelling, scroll animations, i... |
 | `antigravity-segment-cdp` | Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tra... |
 | `antigravity-senior-architect` | Comprehensive software architecture skill for designing scalable, maintainable systems using ReactJS... |
 | `antigravity-senior-fullstack` | Comprehensive fullstack development skill for building complete web applications with React, Next.js... |
-| `antigravity-seo-audit` | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user m... |
-| `antigravity-seo-fundamentals` | SEO fundamentals, E-E-A-T, Core Web Vitals, and Google algorithm principles. |
+| `antigravity-seo-audit` | Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance.... |
+| `antigravity-seo-fundamentals` | Core principles of SEO including E-E-A-T, Core Web Vitals, technical foundations, content quality, a... |
 | `antigravity-server-management` | Server management principles and decision-making. Process management, monitoring strategy, and scali... |
 | `antigravity-shodan-reconnaissance` | This skill should be used when the user asks to "search for exposed devices on the internet," "perfo... |
 | `antigravity-shopify-apps` | Expert patterns for Shopify app development including Remix/React Router apps, embedded apps with Ap... |
@@ -578,7 +582,9 @@ Total skills: **506**
 
 | Skill | Description |
 |-------|-------------|
+| `vercel-composition-patterns` | React composition patterns that scale. Use when refactoring components with boolean prop proliferati... |
 | `vercel-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be ... |
+| `vercel-react-native-skills` | React Native and Expo best practices for building performant mobile apps. Use when building React Na... |
 | `vercel-vercel-deploy-claimable` | Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions... |
 | `vercel-web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check acc... |
 
