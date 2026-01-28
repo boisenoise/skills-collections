@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-01-27T06:14:47.944332",
-  "skill_count": 512,
+  "last_updated": "2026-01-28T06:15:43.329622",
+  "skill_count": 500,
   "sources_processed": 19,
   "skills": [
     {
@@ -1772,6 +1772,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-voice-ai-engine-development",
+      "original_name": "voice-ai-engine-development",
+      "description": "Build real-time conversational AI voice engines using async worker pipelines, streaming transcription, LLM agents, and TTS synthesis with interrupt handling and multi-provider support",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-shopify-development",
       "original_name": "shopify-development",
       "description": "Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid.\nTRIGGER: \"shopify\", \"shopify app\", \"checkout extension\", \"admin extension\", \"POS extension\",\n\"shopify theme\", \"liquid template\", \"polaris\", \"shopify graphql\", \"shopify webhook\",\n\"shopify billing\", \"app subscription\", \"metafields\", \"shopify functions\"\n",
@@ -3377,110 +3385,6 @@
       "description": "Coordinates security scanning (secrets + deps). Delegates to ln-761/ln-762. Generates SECURITY.md, pre-commit hooks, CI workflow.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-devops",
-      "original_name": "rails-devops",
-      "description": "DevOps and infrastructure specialist for Rails applications. Use when setting up Docker, CI/CD pipelines, deployment configurations, monitoring, logging, or production optimizations. Covers GitHub Actions, Docker, Kubernetes, and cloud platforms.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-api",
-      "original_name": "rails-api",
-      "description": "REST API specialist for Rails applications. Use when building API endpoints, implementing serialization, API versioning, JWT authentication, or creating API documentation. Focuses on RESTful design, performance, and consistency.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-inertia",
-      "original_name": "rails-inertia",
-      "description": "Specialized skill for building modern SPAs with Inertia.js, React/Vue/Svelte, and Rails. Use when creating Inertia pages, handling forms, implementing client-side routing, managing shared data, or building interactive frontends. Alternative to traditional Rails views or full API approach.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-ruby-on-rails-development",
-      "original_name": "ruby-on-rails-development",
-      "description": "Rails skills router and knowledge base. Routes your request to the appropriate specialist skill. Contains core Rails principles and conventions. Use when unsure which specialist to choose or for general Rails questions.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-graphql",
-      "original_name": "rails-graphql",
-      "description": "GraphQL specialist for Rails applications. Use when building GraphQL schemas, resolvers, mutations, subscriptions, or implementing DataLoader for N+1 prevention. Alternative to REST APIs with flexible querying capabilities.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-testing",
-      "original_name": "rails-testing",
-      "description": "Specialized skill for Rails testing with RSpec, FactoryBot, and TDD workflows. Use when writing tests, setting up test coverage, creating factories, or implementing test-driven development. Covers unit tests, integration tests, system tests, and component tests.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-business-logic",
-      "original_name": "rails-business-logic",
-      "description": "Specialized skill for Rails business logic with ActiveInteraction, AASM state machines, and ActiveDecorator. Use when implementing complex operations, state transitions, or presentation logic. Enforces interaction pattern over service objects.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-background-jobs",
-      "original_name": "rails-background-jobs",
-      "description": "Specialized skill for Rails background jobs with Solid Queue. Use when creating jobs, scheduling tasks, implementing recurring jobs, testing jobs, or monitoring job queues. Includes best practices for reliable background processing.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-viewcomponents",
-      "original_name": "rails-viewcomponents",
-      "description": "Specialized skill for building ViewComponents with Hotwire (Turbo & Stimulus). Use when creating reusable UI components, implementing frontend interactions, building Turbo Frames/Streams, or writing Stimulus controllers. Includes component testing with Lookbook.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-technical-writer",
-      "original_name": "rails-technical-writer",
-      "description": "Technical documentation specialist for Rails projects. Use when writing README files, API documentation, setup guides, architectural decisions, code comments, or user-facing documentation. Focuses on clarity, completeness, and maintainability.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-analyst",
-      "original_name": "rails-analyst",
-      "description": "Business and systems analyst for Rails projects. Use when decomposing features into tasks, estimating complexity, describing architecture, writing JTBD (Jobs To Be Done), creating use cases, identifying risks, analyzing project weaknesses, and planning product features.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-project-manager",
-      "original_name": "rails-project-manager",
-      "description": "Project management skill that analyzes tasks, breaks them down into stages, coordinates other skills, and ensures proper workflow. Use when planning features, managing complex multi-step implementations, or need help organizing development tasks. Routes work to specialized skills (testing, security, components, etc.).",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
-      "license": "MIT"
-    },
-    {
-      "name": "rails-rails-security",
-      "original_name": "rails-security",
-      "description": "Specialized skill for Rails security, authorization, and data protection. Use when implementing Pundit policies, Lockbox encryption, Blind Index searches, authentication, secure configuration, or fixing security vulnerabilities. Includes security best practices and common pitfall prevention.",
-      "source": "alec-c4/claude-skills-rails-dev",
-      "source_url": "https://github.com/alec-c4/claude-skills-rails-dev",
       "license": "MIT"
     },
     {

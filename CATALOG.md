@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-27 06:14 UTC*
+*Last updated: 2026-01-28 06:15 UTC*
 
-Total skills: **512**
+Total skills: **500**
 
 ## Skills by Source
 
@@ -55,24 +55,6 @@ Total skills: **512**
 | `composio-twitter-algorithm-optimizer` | Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. Rewrit... |
 | `composio-video-downloader` | Download YouTube videos with customizable quality and format options. Use this skill when the user a... |
 | `composio-webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying... |
-
-### alec-c4/claude-skills-rails-dev
-
-| Skill | Description |
-|-------|-------------|
-| `rails-rails-analyst` | Business and systems analyst for Rails projects. Use when decomposing features into tasks, estimatin... |
-| `rails-rails-api` | REST API specialist for Rails applications. Use when building API endpoints, implementing serializat... |
-| `rails-rails-background-jobs` | Specialized skill for Rails background jobs with Solid Queue. Use when creating jobs, scheduling tas... |
-| `rails-rails-business-logic` | Specialized skill for Rails business logic with ActiveInteraction, AASM state machines, and ActiveDe... |
-| `rails-rails-devops` | DevOps and infrastructure specialist for Rails applications. Use when setting up Docker, CI/CD pipel... |
-| `rails-rails-graphql` | GraphQL specialist for Rails applications. Use when building GraphQL schemas, resolvers, mutations, ... |
-| `rails-rails-inertia` | Specialized skill for building modern SPAs with Inertia.js, React/Vue/Svelte, and Rails. Use when cr... |
-| `rails-rails-project-manager` | Project management skill that analyzes tasks, breaks them down into stages, coordinates other skills... |
-| `rails-rails-security` | Specialized skill for Rails security, authorization, and data protection. Use when implementing Pund... |
-| `rails-rails-technical-writer` | Technical documentation specialist for Rails projects. Use when writing README files, API documentat... |
-| `rails-rails-testing` | Specialized skill for Rails testing with RSpec, FactoryBot, and TDD workflows. Use when writing test... |
-| `rails-rails-viewcomponents` | Specialized skill for building ViewComponents with Hotwire (Turbo & Stimulus). Use when creating reu... |
-| `rails-ruby-on-rails-development` | Rails skills router and knowledge base. Routes your request to the appropriate specialist skill. Con... |
 
 ### anthropics/skills
 
@@ -563,6 +545,7 @@ Total skills: **512**
 | `antigravity-viral-generator-builder` | Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar cr... |
 | `antigravity-voice-agents` | Voice agents represent the frontier of AI interaction - humans speaking naturally with AI systems. T... |
 | `antigravity-voice-ai-development` | Expert in building voice AI applications - from real-time voice agents to voice-enabled apps. Covers... |
+| `antigravity-voice-ai-engine-development` | Build real-time conversational AI voice engines using async worker pipelines, streaming transcriptio... |
 | `antigravity-vulnerability-scanner` | Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mappin... |
 | `antigravity-web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern fronten... |
 | `antigravity-web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check acc... |

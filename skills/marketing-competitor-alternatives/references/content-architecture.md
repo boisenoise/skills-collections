@@ -206,3 +206,58 @@ Looking to switch? See how [Your Product] compares to the tools you're evaluatin
 - Last updated date for credibility
 - Number of pages/comparisons available
 - Quick filters if you have many comparisons
+
+---
+
+## Footer Navigation
+
+The site footer appears on all marketing pages, making it a powerful internal linking opportunity for competitor pages.
+
+### Option 1: Link to Index Pages (Minimum)
+
+At minimum, add links to your comparison index pages in the footer:
+
+```
+Footer
+├── Compare
+│   ├── Alternatives →  /alternatives
+│   └── Comparisons →  /vs
+```
+
+This ensures every marketing page passes link equity to your comparison content hub.
+
+### Option 2: Footer Columns by Format (Recommended for SEO)
+
+For stronger internal linking, create dedicated footer columns for each format you've built, linking directly to your top competitors:
+
+```
+Footer
+├── [Product] vs               ├── Alternatives to            ├── Compare
+│   ├── vs Notion              │   ├── Notion Alternative     │   ├── Notion vs Airtable
+│   ├── vs Airtable            │   ├── Airtable Alternative   │   ├── Monday vs Asana
+│   ├── vs Monday              │   ├── Monday Alternative     │   ├── Notion vs Monday
+│   ├── vs Asana               │   ├── Asana Alternative      │   ├── ...
+│   ├── vs Clickup             │   ├── Clickup Alternative    │   └── View all →
+│   ├── ...                    │   ├── ...                    │
+│   └── View all →             │   └── View all →             │
+```
+
+**Guidelines**:
+- Include up to 8 links per column (top competitors by search volume)
+- Add "View all" link to the full index page
+- Only create columns for formats you've actually built pages for
+- Prioritize competitors with highest search volume
+
+### Why Footer Links Matter
+
+1. **Sitewide distribution**: Footer links appear on every marketing page, passing link equity from your entire site to comparison content
+2. **Crawl efficiency**: Search engines discover all comparison pages quickly
+3. **User discovery**: Visitors evaluating your product can easily find comparisons
+4. **Competitive positioning**: Signals to search engines that you're a key player in the space
+
+### Implementation Notes
+
+- Update footer when adding new high-priority comparison pages
+- Keep footer clean—don't list every comparison, just the top ones
+- Match column headers to your URL structure (e.g., "vs" column → `/vs/` URLs)
+- Consider mobile: columns may stack, so order by priority
