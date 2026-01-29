@@ -1,6 +1,6 @@
 ---
 name: ln-600-docs-auditor
-description: Audit project documentation quality across 6 categories (Hierarchy, SSOT, Compactness, Requirements, Actuality, Legacy). Use when documentation needs quality review, after major doc updates, or as part of ln-100-documents-pipeline. Outputs Compliance Score X/10 per category + Findings + Recommended Actions.
+description: Audit project documentation quality across 8 categories (Hierarchy, SSOT, Compactness, Requirements, Actuality, Legacy, Stack Adaptation, Semantic Content). Delegates to ln-601 for deep semantic verification of project documents. Use when documentation needs quality review, after major doc updates, or as part of ln-100-documents-pipeline. Outputs Compliance Score X/10 per category + Findings + Recommended Actions.
 ---
 
 # Documentation Auditor
@@ -15,6 +15,7 @@ Audit project documentation quality. Universal for any tech stack.
 - Verify documentation hierarchy with CLAUDE.md as root
 - Detect duplication and enforce Single Source of Truth
 - Ensure docs match current code state
+- **Semantic verification** - delegate to ln-601 to verify content matches SCOPE and codebase reality
 
 ## Invocation
 
@@ -25,9 +26,29 @@ Audit project documentation quality. Universal for any tech stack.
 
 1. **Scan:** Find all .md files in project (CLAUDE.md, README.md, docs/**)
 2. **Build Tree:** Construct hierarchy from CLAUDE.md outward links
-3. **Audit:** Run 6 category checks (see Audit Categories below)
-4. **Score:** Calculate X/10 per category
-5. **Report:** Output findings and recommended actions
+3. **Audit Categories 1-7:** Run structural checks (see Audit Categories below)
+4. **Semantic Audit (Category 8):** For each project document, delegate to ln-601-semantic-content-auditor
+5. **Score:** Calculate X/10 per category (including semantic scores from ln-601)
+6. **Report:** Output findings and recommended actions
+
+### Phase 4: Semantic Audit Delegation
+
+For each project document (excluding tasks/, reference/, presentation/):
+
+```
+FOR doc IN [CLAUDE.md, docs/README.md, docs/project/*.md]:
+    result = DELEGATE ln-601-semantic-content-auditor {
+        doc_path: doc,
+        project_root: project_root,
+        tech_stack: detected_stack
+    }
+    semantic_findings.append(result.findings)
+    semantic_scores[doc] = result.scores
+```
+
+**Target documents:** CLAUDE.md, docs/README.md, docs/documentation_standards.md, docs/principles.md, docs/project/*.md
+
+**Excluded:** docs/tasks/, docs/reference/, docs/presentation/, tests/
 
 ## Audit Categories
 
@@ -40,6 +61,7 @@ Audit project documentation quality. Universal for any tech stack.
 | 5 | **Actuality (CRITICAL)** | **Verify facts against code:** paths exist, functions match, APIs work, configs valid; outdated docs are worse than none |
 | 6 | **Legacy Cleanup** | No history sections; no "was changed" notes; no deprecated info; current state only |
 | 7 | **Stack Adaptation** | Links/refs match project stack; no Python examples in .NET project; official docs for correct platform |
+| 8 | **Semantic Content** | **Delegated to ln-601:** Content matches SCOPE; serves project goals; descriptions match actual code behavior; architecture/API docs reflect reality |
 
 ## Output Format
 
@@ -57,6 +79,7 @@ Audit project documentation quality. Universal for any tech stack.
 | Actuality | X/10 | N mismatches with code |
 | Legacy Cleanup | X/10 | N legacy items |
 | Stack Adaptation | X/10 | N stack mismatches |
+| Semantic Content | X/10 | N semantic issues (via ln-601) |
 | **Overall** | **X/10** | |
 
 ### Critical Findings
@@ -103,5 +126,5 @@ Audit project documentation quality. Universal for any tech stack.
 - **No history:** Documents describe current state only; git tracks history
 
 ---
-**Version:** 3.0.0
-**Last Updated:** 2025-12-23
+**Version:** 4.0.0
+**Last Updated:** 2026-01-28

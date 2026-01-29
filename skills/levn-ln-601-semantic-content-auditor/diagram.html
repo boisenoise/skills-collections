@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-601-semantic-content-auditor - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 ln-601-semantic-content-auditor</h1>
+            <p class="subtitle">Semantic Content Auditor (L3 Worker) - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>📋 Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Verify document content matches SCOPE and reflects actual codebase state</li>
+                <li><strong>Invocation:</strong> Called by ln-600-docs-auditor for each project document</li>
+                <li><strong>Output:</strong> scope_alignment + fact_accuracy scores with findings</li>
+                <li><strong>Target:</strong> 11 project documents (CLAUDE.md, docs/project/*)</li>
+                <li><strong>Excludes:</strong> docs/tasks/, docs/reference/, docs/presentation/</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-discovery"></div>
+                <span>Input/Parse</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-processing"></div>
+                <span>Analysis</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Verification</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-output"></div>
+                <span>Output</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Input: doc_path, project_root]) --> Read[Read Document<br/>Full content]
+
+    Read --> Phase1[Phase 1: SCOPE EXTRACTION<br/>Parse SCOPE comment or infer]
+
+    Phase1 --> HasScope{SCOPE tag<br/>found?}
+    HasScope -->|Yes| UseScope[Use stated SCOPE]
+    HasScope -->|No| InferScope[Infer from doc type]
+
+    UseScope --> Phase2
+    InferScope --> Phase2
+
+    Phase2[Phase 2: CONTENT-SCOPE ALIGNMENT<br/>Analyze sections vs scope]
+
+    Phase2 --> CheckCoverage[Check: Scope fully covered?]
+    CheckCoverage --> CheckRelevance[Check: All content serves scope?]
+    CheckRelevance --> CheckFocus[Check: No scope creep?]
+
+    CheckFocus --> AlignScore[Calculate scope_alignment score]
+
+    AlignScore --> Phase3[Phase 3: FACT VERIFICATION<br/>Per document type]
+
+    Phase3 --> DocType{Document<br/>Type?}
+
+    DocType -->|architecture.md| VerifyArch[Verify layers, components<br/>Check import patterns]
+    DocType -->|tech_stack.md| VerifyTech[Verify versions<br/>Check package files]
+    DocType -->|api_spec.md| VerifyAPI[Verify endpoints<br/>Check controllers]
+    DocType -->|requirements.md| VerifyReq[Verify features exist<br/>Search implementations]
+    DocType -->|Other| VerifyGeneral[Verify paths, commands<br/>Check file existence]
+
+    VerifyArch --> CollectFindings
+    VerifyTech --> CollectFindings
+    VerifyAPI --> CollectFindings
+    VerifyReq --> CollectFindings
+    VerifyGeneral --> CollectFindings
+
+    CollectFindings[Collect findings with evidence]
+
+    CollectFindings --> FactScore[Calculate fact_accuracy score]
+
+    FactScore --> Phase4[Phase 4: SCORING & REPORT<br/>Combine scores, format JSON]
+
+    Phase4 --> Output([Return JSON to ln-600])
+
+    classDef discovery fill:#e1f5fe,stroke:#01579b
+    classDef processing fill:#fff3e0,stroke:#e65100
+    classDef action fill:#e8f5e9,stroke:#2e7d32
+    classDef output fill:#f3e5f5,stroke:#7b1fa2
+    classDef decision fill:#fff9c4,stroke:#f57f17
+
+    class Start,Read,Phase1 discovery
+    class HasScope,DocType decision
+    class UseScope,InferScope,Phase2,CheckCoverage,CheckRelevance,CheckFocus,AlignScore processing
+    class Phase3,VerifyArch,VerifyTech,VerifyAPI,VerifyReq,VerifyGeneral,CollectFindings,FactScore action
+    class Phase4,Output output
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>📊 Scoring Formula</h3>
+            <table>
+                <tr><th>Score</th><th>Weight</th><th>Meaning</th></tr>
+                <tr><td>scope_alignment</td><td>40%</td><td>Content serves document purpose</td></tr>
+                <tr><td>fact_accuracy</td><td>60%</td><td>Facts match codebase reality</td></tr>
+                <tr><td colspan="3"><strong>overall = (scope × 0.4) + (facts × 0.6)</strong></td></tr>
+            </table>
+            <p><em>Fact accuracy weighted higher: incorrect information is worse than scope drift.</em></p>
+        </div>
+
+        <div class="info-box">
+            <h3>📁 Target Documents</h3>
+            <table>
+                <tr><th>Document</th><th>Verification Focus</th></tr>
+                <tr><td>CLAUDE.md</td><td>Instructions match project structure</td></tr>
+                <tr><td>architecture.md</td><td>Layers/components match imports</td></tr>
+                <tr><td>tech_stack.md</td><td>Versions match package files</td></tr>
+                <tr><td>api_spec.md</td><td>Endpoints match controllers</td></tr>
+                <tr><td>requirements.md</td><td>Features implemented</td></tr>
+                <tr><td>database_schema.md</td><td>Schema matches migrations</td></tr>
+                <tr><td>runbook.md</td><td>Commands work, paths valid</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</body>
+</html>
