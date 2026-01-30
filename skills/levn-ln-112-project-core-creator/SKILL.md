@@ -1,18 +1,18 @@
 ---
 name: ln-112-project-core-creator
-description: Creates 3 core project docs (requirements.md, architecture.md, tech_stack.md). L3 Worker invoked by ln-110-project-docs-coordinator. ALWAYS created.
+description: Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). L3 Worker invoked by ln-110-project-docs-coordinator. ALWAYS created.
 ---
 
 # Project Core Documentation Creator
 
-L3 Worker that creates 3 core project documentation files. These are ALWAYS created regardless of project type.
+L3 Worker that creates 4 core project documentation files. These are ALWAYS created regardless of project type.
 
 ## Purpose & Scope
-- Creates 3 core project documentation files (required for all projects)
+- Creates 4 core project documentation files (required for all projects)
 - Receives Context Store from ln-110-project-docs-coordinator
 - Heavy use of auto-discovery (architecture needs full project scan)
 - Replaces placeholders with project-specific data
-- Self-validates structure and content (16 questions)
+- Self-validates structure and content (16+ questions)
 - Never gathers context itself; uses coordinator input
 
 ## Invocation (who/when)
@@ -37,13 +37,14 @@ From coordinator:
 
 **LEGACY_CONTENT** is used as base content when creating documents. Priority: **Legacy > Auto-discovery > Template defaults**.
 
-## Documents Created (3)
+## Documents Created (4)
 
 | File | Target Sections | Questions | Auto-Discovery |
 |------|-----------------|-----------|----------------|
 | docs/project/requirements.md | Functional Requirements (FR-XXX-NNN format) | Q23 | Low |
 | docs/project/architecture.md | 11 arc42 sections with C4 diagrams | Q24-Q34 | High |
 | docs/project/tech_stack.md | Frontend, Backend, Database, Additional | Q35-Q38 | High |
+| docs/architecture/patterns_catalog.md | Pattern summary, 4-score model, trend tracking | — | High |
 
 ## Workflow
 
@@ -53,7 +54,7 @@ From coordinator:
 3. Extract architecture-specific data (SRC_STRUCTURE, DEPENDENCIES)
 
 ### Phase 2: Create Documents
-For each document (requirements.md, architecture.md, tech_stack.md):
+For each document (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md):
 1. Check if file exists (idempotent)
 2. If exists: skip with log
 3. If not exists:
@@ -74,6 +75,16 @@ For each document (requirements.md, architecture.md, tech_stack.md):
        - Use `legacy_tech_stack.versions` as base for technology versions
        - Merge with auto-discovered TECH_STACK (legacy versions take priority)
        - Use `legacy_tech_stack.rationale` for decision explanations
+     - For `patterns_catalog.md`:
+       - Copy template from `shared/templates/patterns_template.md`
+       - **Auto-detect patterns in codebase:**
+         - Grep("Queue|Worker|Job|Bull") → Job Processing
+         - Grep("EventEmitter|publish|subscribe") → Event-Driven
+         - Grep("Cache|Redis|Memcached") → Caching
+         - Grep("CircuitBreaker|Retry") → Resilience
+       - Add detected patterns as "Status: Detected" (not yet audited)
+       - Link to existing ADRs if pattern names match
+       - Mark: `<!-- Auto-detected by ln-112, audit with ln-640 -->`
    - Replace `{{PLACEHOLDER}}` with Context Store values
    - Generate C4 diagrams from SRC_STRUCTURE (for architecture.md, if no legacy diagrams)
    - Insert ADR links (for architecture.md Section 8)
@@ -126,14 +137,16 @@ Tables > Mermaid/ASCII diagrams > Lists > Text
 
 ## Definition of Done
 - Context Store received and validated
-- 3 core documents created (or skipped if exist)
+- 4 core documents created (or skipped if exist)
 - C4 diagrams generated (Context, Container, Component)
 - ADR links populated
+- Patterns auto-detected and added to catalog
 - Self-validation passed (SCOPE, sections, format)
 - Status returned to coordinator
 
 ## Reference Files
 - Templates: `references/templates/requirements_template.md`, `architecture_template.md`, `tech_stack_template.md`
+- Patterns template: `shared/templates/patterns_template.md`
 - Questions: `references/questions_core.md` (Q23-Q38)
 
 ---

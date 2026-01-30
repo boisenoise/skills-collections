@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-01-29T06:24:05.313938",
-  "skill_count": 804,
+  "last_updated": "2026-01-30T06:24:29.725567",
+  "skill_count": 808,
   "sources_processed": 19,
   "skills": [
     {
@@ -3092,6 +3092,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-unreal-engine-cpp-pro",
+      "original_name": "unreal-engine-cpp-pro",
+      "description": "Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-security-auditor",
       "original_name": "security-auditor",
       "description": "Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, and compliance frameworks. Masters vulnerability assessment, threat modeling, secure authentication (OAuth2/OIDC), OWASP standards, cloud security, and security automation. Handles DevSecOps integration, compliance (GDPR/HIPAA/SOC2), and incident response. Use PROACTIVELY for security audits, DevSecOps, or compliance implementation.",
@@ -5188,6 +5196,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-642-layer-boundary-auditor",
+      "original_name": "ln-642-layer-boundary-auditor",
+      "description": "L3 Worker. Audits architectural layer boundaries, detects violations (code in wrong layers), checks pattern coverage. Invoked by ln-640 once per audit.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-762-dependency-audit",
       "original_name": "ln-762-dependency-audit",
       "description": "Audits project dependencies for vulnerabilities. Multi-ecosystem support (npm, .NET, Python, Go). CVSS-based severity classification.",
@@ -5215,6 +5231,14 @@
       "name": "levn-ln-130-tasks-docs-creator",
       "original_name": "ln-130-tasks-docs-creator",
       "description": "Creates task management documentation (docs/tasks/README.md + kanban_board.md). L2 Worker in ln-100-documents-pipeline. Sets up Linear integration and task tracking rules.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-402-task-reviewer",
+      "original_name": "ln-402-task-reviewer",
+      "description": "L3 Worker. Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tasks for side-effect issues found outside task scope. Sets task Done or To Rework. Usually invoked by ln-400 with isolated context, can also review a specific task on user request.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -5420,6 +5444,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-623-code-principles-auditor",
+      "original_name": "ln-623-code-principles-auditor",
+      "description": "Code principles audit worker (L3). Checks DRY (7 types), KISS/YAGNI, TODOs, error handling, DI patterns. Returns findings with severity, location, effort, recommendations.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-721-frontend-restructure",
       "original_name": "ln-721-frontend-restructure",
       "description": "Restructures React frontend from monolith to component-based architecture",
@@ -5494,7 +5526,7 @@
     {
       "name": "levn-ln-112-project-core-creator",
       "original_name": "ln-112-project-core-creator",
-      "description": "Creates 3 core project docs (requirements.md, architecture.md, tech_stack.md). L3 Worker invoked by ln-110-project-docs-coordinator. ALWAYS created.",
+      "description": "Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). L3 Worker invoked by ln-110-project-docs-coordinator. ALWAYS created.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -5516,6 +5548,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-201-opportunity-discoverer",
+      "original_name": "ln-201-opportunity-discoverer",
+      "description": "Traffic-First opportunity discovery. KILL funnel filters ideas by traffic channel, demand, competition, revenue, interest, MVP-ability. Outputs one idea + one channel recommendation.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-632-test-e2e-priority-auditor",
       "original_name": "ln-632-test-e2e-priority-auditor",
       "description": "E2E Critical Coverage audit worker (L3). Validates E2E coverage for critical paths (Money 20+, Security 20+, Data 15+). Pure risk-based - no pyramid percentages.",
@@ -5527,6 +5567,14 @@
       "name": "levn-ln-731-docker-generator",
       "original_name": "ln-731-docker-generator",
       "description": "Generates Docker and docker-compose configuration for multi-container development",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-641-pattern-analyzer",
+      "original_name": "ln-641-pattern-analyzer",
+      "description": "L3 Worker. Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, quality, implementation), identifies gaps and issues. Usually invoked by ln-640, can also analyze a specific pattern on user request.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -5662,15 +5710,7 @@
     {
       "name": "levn-ln-400-story-executor",
       "original_name": "ln-400-story-executor",
-      "description": "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-403/ln-404, hands Story quality to ln-500. Metadata-only loading up front.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-623-architecture-auditor",
-      "original_name": "ln-623-architecture-auditor",
-      "description": "Architecture audit worker (L3). Checks DRY (7 types), KISS/YAGNI, layer breaks, error handling, DI patterns. Returns findings with severity, location, effort, recommendations.",
+      "description": "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404, hands Story quality to ln-500. Metadata-only loading up front.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -5780,14 +5820,6 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-501-code-quality-checker",
-      "original_name": "ln-501-code-quality-checker",
-      "description": "Worker that checks DRY/KISS/YAGNI/architecture/guide compliance for Done implementation tasks. Reports issues; does not change statuses or create tasks.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-510-test-planner",
       "original_name": "ln-510-test-planner",
       "description": "Orchestrates test planning pipeline (research \u2192 manual \u2192 auto tests). Coordinates ln-511, ln-512, ln-513. Invoked by ln-500-story-quality-gate.",
@@ -5806,7 +5838,7 @@
     {
       "name": "levn-ln-310-story-validator",
       "original_name": "ln-310-story-validator",
-      "description": "This skill should be used to validate and auto-fix Stories/Tasks against 2025 standards. Penalty Points system (goal = 0), delegates to ln-002 for documentation, Plan Mode support. Auto-discovers team/config.",
+      "description": "Validates Stories/Tasks with GO/NO-GO verdict, Readiness Score (1-10), Penalty Points, and Anti-Hallucination verification. Auto-fixes to reach 0 points, delegates to ln-002 for docs. Use when reviewing Stories before execution or when user requests validation.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

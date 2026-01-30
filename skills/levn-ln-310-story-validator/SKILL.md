@@ -1,11 +1,11 @@
 ---
 name: ln-310-story-validator
-description: This skill should be used to validate and auto-fix Stories/Tasks against 2025 standards. Penalty Points system (goal = 0), delegates to ln-002 for documentation, Plan Mode support. Auto-discovers team/config.
+description: Validates Stories/Tasks with GO/NO-GO verdict, Readiness Score (1-10), Penalty Points, and Anti-Hallucination verification. Auto-fixes to reach 0 points, delegates to ln-002 for docs. Use when reviewing Stories before execution or when user requests validation.
 ---
 
 # Story Verification Skill
 
-Validate and auto-fix Stories and Tasks against 2025 standards before execution.
+Validate Stories/Tasks with explicit GO/NO-GO verdict, Readiness Score, and Anti-Hallucination verification.
 
 ## Purpose & Scope
 
@@ -83,6 +83,12 @@ Detect operating mode at startup:
 - Query MCP Ref for industry standards: `ref_search_documentation(query="[topic] RFC OWASP best practices 2025")`
 - Query Context7 for library versions: `resolve-library-id` + `query-docs`
 - Extract: standards (RFC numbers, OWASP rules), library versions, patterns
+
+**Step 3.5: Anti-Hallucination Verification**
+- Scan Story/Tasks for technical claims (RFC references, library versions, security requirements)
+- Verify each claim has MCP Ref/Context7 evidence
+- Flag unverified claims for correction
+- Status: VERIFIED (all sourced) or FLAGGED (list unverified)
 
 **Step 4: Penalty Points Calculation**
 - Evaluate all 17 criteria against Story/Tasks
@@ -179,6 +185,59 @@ Detect operating mode at startup:
 
 **Maximum Penalty:** 50 points
 
+## Final Assessment Model
+
+**Outputs after all fixes applied:**
+
+| Metric | Value | Meaning |
+|--------|-------|---------|
+| **Gate** | GO / NO-GO | Final verdict for execution readiness |
+| **Readiness Score** | 1-10 | Quality confidence level |
+| **Penalty Points** | 0 (after fixes) | Validation completeness |
+| **Anti-Hallucination** | VERIFIED / FLAGGED | Technical claims verified |
+| **AC Coverage** | 100% (N/N) | All ACs mapped to Tasks |
+
+### Readiness Score Calculation
+
+```
+Readiness Score = 10 - (Penalty Points / 5)
+```
+
+| Score | Status | Gate |
+|-------|--------|------|
+| 9-10 | Excellent | GO |
+| 7-8 | Good | GO |
+| 5-6 | Acceptable | GO (with notes) |
+| 3-4 | Concerns | NO-GO (requires review) |
+| 1-2 | Critical | NO-GO (major issues) |
+
+### Anti-Hallucination Verification
+
+Verify technical claims have evidence:
+
+| Claim Type | Verification |
+|------------|--------------|
+| RFC/Standard reference | MCP Ref search confirms existence |
+| Library version | Context7 query confirms version |
+| Security requirement | OWASP/CWE reference exists |
+| Performance claim | Benchmark/doc reference |
+
+**Status:** VERIFIED (all claims sourced) or FLAGGED (unverified claims listed)
+
+### Task-AC Coverage Matrix
+
+Output explicit mapping:
+
+```
+| AC | Task(s) | Coverage |
+|----|---------|----------|
+| AC1: Given/When/Then | T-001, T-002 | ✅ |
+| AC2: Given/When/Then | T-003 | ✅ |
+| AC3: Given/When/Then | — | ❌ UNCOVERED |
+```
+
+**Coverage:** `{covered}/{total} ACs` (target: 100%)
+
 ## Self-Audit Protocol (Mandatory)
 
 Before marking any criterion as complete, provide concrete evidence (doc path, MCP result, Linear update).
@@ -206,10 +265,22 @@ Before marking any criterion as complete, provide concrete evidence (doc path, M
 ## Definition of Done
 
 - **Phase 1:** Auto-discovery done; Story + Tasks metadata loaded; task count checked
-- **Phase 2:** Domain extraction complete; ln-002 delegated for docs; MCP research done; Penalty Points calculated
+- **Phase 2:** Domain extraction complete; ln-002 delegated for docs; MCP research done; Anti-Hallucination verification done; Penalty Points calculated
 - **Phase 3:** Audit results shown; IF Plan Mode: user approved
 - **Phase 4:** All 17 criteria auto-fixed; Penalty Points = 0; Test Strategy empty; test tasks removed
-- **Phase 5:** Story/Tasks set to Todo; `kanban_board.md` updated; Linear comment added; tabular output displayed
+- **Phase 5:** Final Assessment output:
+  ```yaml
+  gate: GO | NO-GO
+  readiness_score: {1-10}
+  penalty_points: 0 (was {N})
+  anti_hallucination: VERIFIED | FLAGGED
+  ac_coverage: "{N}/{M} (100%)"
+  ac_matrix:
+    - ac: "AC1"
+      tasks: ["T-001", "T-002"]
+      status: covered
+  ```
+- Story/Tasks set to Todo; `kanban_board.md` updated; Linear comment with Final Assessment added
 - **Optional:** If `--execute` flag, ln-400-story-executor invoked after approval
 
 ## Example Workflow
@@ -255,6 +326,7 @@ Before marking any criterion as complete, provide concrete evidence (doc path, M
 
 ## Reference Files
 
+- **Final Assessment:** `references/readiness_scoring.md` (GO/NO-GO rules, Readiness Score calculation)
 - **Templates (centralized):** `shared/templates/story_template.md`, `shared/templates/task_template_implementation.md`
 - **Local copies:** `docs/templates/` (in target project)
 - **Validation Checklists (Progressive Disclosure):**
@@ -270,5 +342,5 @@ Before marking any criterion as complete, provide concrete evidence (doc path, M
 - **Linear integration:** `../shared/templates/linear_integration.md`
 
 ---
-**Version:** 5.0.0
-**Last Updated:** 2025-01-07
+**Version:** 6.0.0 (Added GO/NO-GO verdict, Readiness Score, Anti-Hallucination verification based on BMAD validate-next-story methodology)
+**Last Updated:** 2026-01-29

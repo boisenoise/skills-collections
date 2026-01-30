@@ -143,7 +143,7 @@ FOR EACH worker IN [ln-621, ln-622, ln-625, ln-626, ln-627, ln-628, ln-629]:
 
 | # | Worker | Priority | What It Audits |
 |---|--------|----------|----------------|
-| 3 | ln-623-architecture-auditor | HIGH | DRY/KISS/YAGNI violations, layer breaks, TODO/FIXME |
+| 3 | ln-623-code-principles-auditor | HIGH | DRY/KISS/YAGNI violations, TODO/FIXME, error handling, DI |
 | 4 | ln-624-code-quality-auditor | MEDIUM | Cyclomatic complexity, O(n²), N+1 queries, magic numbers |
 
 **Invocation (2 workers × N domains):**
@@ -156,11 +156,11 @@ IF domain_mode == "domain-aware":
       current_domain: { name: domain.name, path: domain.path }
     }
     // Invoke both workers for this domain
-    Skill(skill="ln-623-architecture-auditor", args=JSON.stringify(domain_context))
+    Skill(skill="ln-623-code-principles-auditor", args=JSON.stringify(domain_context))
     Skill(skill="ln-624-code-quality-auditor", args=JSON.stringify(domain_context))
 ELSE:
   // Fallback: invoke once for entire codebase (global mode)
-  Skill(skill="ln-623-architecture-auditor", args=JSON.stringify(contextStore))
+  Skill(skill="ln-623-code-principles-auditor", args=JSON.stringify(contextStore))
   Skill(skill="ln-624-code-quality-auditor", args=JSON.stringify(contextStore))
 ```
 
@@ -378,7 +378,7 @@ Create task in Epic 0:
 See individual worker SKILL.md files for detailed audit rules:
 - [ln-621-security-auditor](../ln-621-security-auditor/SKILL.md)
 - [ln-622-build-auditor](../ln-622-build-auditor/SKILL.md)
-- [ln-623-architecture-auditor](../ln-623-architecture-auditor/SKILL.md)
+- [ln-623-code-principles-auditor](../ln-623-code-principles-auditor/SKILL.md)
 - [ln-624-code-quality-auditor](../ln-624-code-quality-auditor/SKILL.md)
 - [ln-625-dependencies-auditor](../ln-625-dependencies-auditor/SKILL.md)
 - [ln-626-dead-code-auditor](../ln-626-dead-code-auditor/SKILL.md)

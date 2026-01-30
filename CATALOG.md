@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-29 06:24 UTC*
+*Last updated: 2026-01-30 06:24 UTC*
 
-Total skills: **804**
+Total skills: **808**
 
 ## Skills by Source
 
@@ -143,7 +143,7 @@ Total skills: **804**
 | `levn-ln-002-best-practices-researcher` | Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/re... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
 | `levn-ln-111-root-docs-creator` | Creates 4 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
-| `levn-ln-112-project-core-creator` | Creates 3 core project docs (requirements.md, architecture.md, tech_stack.md). L3 Worker invoked by ... |
+| `levn-ln-112-project-core-creator` | Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). ... |
 | `levn-ln-113-backend-docs-creator` | Creates 2 backend docs (api_spec.md, database_schema.md). L3 Worker invoked CONDITIONALLY when hasBa... |
 | `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md for frontend projects. L3 Worker invoked CONDITIONALLY when hasFrontend... |
 | `levn-ln-115-devops-docs-creator` | Creates runbook.md for DevOps setup. L3 Worker invoked CONDITIONALLY when hasDocker detected. |
@@ -152,6 +152,7 @@ Total skills: **804**
 | `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md + tests/README.md). Establishes testing philosophy a... |
 | `levn-ln-150-presentation-creator` | Builds interactive HTML presentation with 6 tabs (Overview, Requirements, Architecture/C4, Tech Spec... |
 | `levn-ln-200-scope-decomposer` | Orchestrates full decomposition (scope → Epics → Stories) by delegating ln-210 → ln-220. Sequential ... |
+| `levn-ln-201-opportunity-discoverer` | Traffic-First opportunity discovery. KILL funnel filters ideas by traffic channel, demand, competiti... |
 | `levn-ln-210-epic-coordinator` | CREATE/REPLAN Epics from scope (3-7 Epics). Batch Preview + Auto-extraction. Decompose-First Pattern... |
 | `levn-ln-220-story-coordinator` | CREATE/REPLAN Stories for Epic (5-10 Stories). Delegates ln-001-standards-researcher for standards r... |
 | `levn-ln-221-story-creator` | Creates Stories from IDEAL plan (CREATE) or appends user-requested Stories (ADD). Generates 8-sectio... |
@@ -160,12 +161,12 @@ Total skills: **804**
 | `levn-ln-300-task-coordinator` | Orchestrates task operations. Analyzes Story, builds optimal plan (1-6 implementation tasks), delega... |
 | `levn-ln-301-task-creator` | Creates ALL task types (implementation, refactoring, test). Generates task documents from templates,... |
 | `levn-ln-302-task-replanner` | Updates ALL task types (implementation/refactoring/test). Compares IDEAL plan vs existing tasks, cat... |
-| `levn-ln-310-story-validator` | This skill should be used to validate and auto-fix Stories/Tasks against 2025 standards. Penalty Poi... |
-| `levn-ln-400-story-executor` | Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-403/ln-... |
+| `levn-ln-310-story-validator` | Validates Stories/Tasks with GO/NO-GO verdict, Readiness Score (1-10), Penalty Points, and Anti-Hall... |
+| `levn-ln-400-story-executor` | Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-... |
 | `levn-ln-401-task-executor` | Executes implementation tasks (Todo -> In Progress -> To Review). Follows KISS/YAGNI, guides, qualit... |
+| `levn-ln-402-task-reviewer` | L3 Worker. Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tas... |
 | `levn-ln-403-task-rework` | Fixes tasks in To Rework and returns them to To Review. Applies reviewer feedback only for the selec... |
 | `levn-ln-404-test-executor` | Executes Story Finalizer test tasks (label "tests") from Todo -> To Review. Enforces risk-based limi... |
-| `levn-ln-501-code-quality-checker` | Worker that checks DRY/KISS/YAGNI/architecture/guide compliance for Done implementation tasks. Repor... |
 | `levn-ln-502-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
 | `levn-ln-510-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-511, ln-512, ln... |
 | `levn-ln-511-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
@@ -177,7 +178,7 @@ Total skills: **804**
 | `levn-ln-620-codebase-auditor` | Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, ... |
 | `levn-ln-621-security-auditor` | Security audit worker (L3). Scans codebase for hardcoded secrets, SQL injection, XSS, insecure depen... |
 | `levn-ln-622-build-auditor` | Build health audit worker (L3). Checks compiler/linter errors, deprecation warnings, type errors, fa... |
-| `levn-ln-623-architecture-auditor` | Architecture audit worker (L3). Checks DRY (7 types), KISS/YAGNI, layer breaks, error handling, DI p... |
+| `levn-ln-623-code-principles-auditor` | Code principles audit worker (L3). Checks DRY (7 types), KISS/YAGNI, TODOs, error handling, DI patte... |
 | `levn-ln-624-code-quality-auditor` | Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classe... |
 | `levn-ln-625-dependencies-auditor` | Dependencies and reuse audit worker (L3). Checks outdated packages, unused dependencies, reinvented ... |
 | `levn-ln-626-dead-code-auditor` | Dead code & legacy audit worker (L3). Checks unreachable code, unused imports/variables/functions, c... |
@@ -190,6 +191,8 @@ Total skills: **804**
 | `levn-ln-633-test-value-auditor` | Risk-Based Value audit worker (L3). Calculates Usefulness Score = Impact (1-5) × Probability (1-5) f... |
 | `levn-ln-634-test-coverage-auditor` | Coverage Gaps audit worker (L3). Identifies missing tests for critical paths (Money 20+, Security 20... |
 | `levn-ln-635-test-isolation-auditor` | Test Isolation + Anti-Patterns audit worker (L3). Checks isolation (APIs/DB/FS/Time/Random/Network),... |
+| `levn-ln-641-pattern-analyzer` | L3 Worker. Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, qu... |
+| `levn-ln-642-layer-boundary-auditor` | L3 Worker. Audits architectural layer boundaries, detects violations (code in wrong layers), checks ... |
 | `levn-ln-700-project-bootstrap` | Orchestrates full project bootstrap from Replit export to production-ready structure |
 | `levn-ln-710-dependency-upgrader` | Coordinates dependency upgrades across all detected package managers |
 | `levn-ln-711-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling |
@@ -834,6 +837,7 @@ Total skills: **804**
 | `antigravity-unit-testing-test-generate` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case ... |
 | `antigravity-unity-developer` | Build Unity games with optimized C# scripts, efficient rendering, and proper asset management. Maste... |
 | `antigravity-unity-ecs-patterns` | Master Unity ECS (Entity Component System) with DOTS, Jobs, and Burst for high-performance game deve... |
+| `antigravity-unreal-engine-cpp-pro` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, ... |
 | `antigravity-upstash-qstash` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task de... |
 | `antigravity-using-git-worktrees` | Use when starting feature work that needs isolation from current workspace or before executing imple... |
 | `antigravity-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool in... |
