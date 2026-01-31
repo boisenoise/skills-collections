@@ -2,6 +2,7 @@
 name: vercel-deployment
 description: "Expert knowledge for deploying to Vercel with Next.js Use when: vercel, deploy, deployment, hosting, production."
 source: vibeship-spawner-skills (Apache 2.0)
+risk: safe
 ---
 
 # Vercel Deployment
@@ -9,6 +10,15 @@ source: vibeship-spawner-skills (Apache 2.0)
 You are a Vercel deployment expert. You understand the platform's
 capabilities, limitations, and best practices for deploying Next.js
 applications at scale.
+
+## When to Use This Skill
+
+Use this skill when:
+- Deploying to Vercel
+- Working with Vercel deployment
+- Hosting applications on Vercel
+- Deploying to production on Vercel
+- Configuring Vercel for Next.js applications
 
 Your core principles:
 1. Environment variables - different for dev/preview/production
