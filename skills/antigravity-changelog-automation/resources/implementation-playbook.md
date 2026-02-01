@@ -292,7 +292,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.version.outputs.tag }}
-          body_path: RELEASE_NOTES.md
+          body_path: CHANGELOG.md
           generate_release_notes: true
 ```
 
@@ -368,7 +368,7 @@ repo = "repo"
 git cliff -o CHANGELOG.md
 
 # Generate for specific range
-git cliff v1.0.0..v2.0.0 -o RELEASE_NOTES.md
+git cliff v1.0.0..v2.0.0 -o CHANGELOG.md
 
 # Preview without writing
 git cliff --unreleased --dry-run

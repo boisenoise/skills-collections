@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-01-31T06:18:06.718045",
-  "skill_count": 869,
+  "last_updated": "2026-02-01T06:25:12.665028",
+  "skill_count": 872,
   "sources_processed": 19,
   "skills": [
     {
@@ -457,6 +457,14 @@
       "description": "Complete feature development with structured options for merge, PR, or cleanup",
       "source": "obra/superpowers-skills",
       "source_url": "https://github.com/obra/superpowers-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "superpowers-lab-slack-messaging",
+      "original_name": "slack-messaging",
+      "description": "Use when asked to send or read Slack messages, check Slack channels, test Slack integrations, or interact with a Slack workspace from the command line.",
+      "source": "obra/superpowers-lab",
+      "source_url": "https://github.com/obra/superpowers-lab",
       "license": "MIT"
     },
     {
@@ -2420,6 +2428,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-stitch-ui-design",
+      "original_name": "stitch-ui-design",
+      "description": "Expert guide for creating effective prompts for Google Stitch AI UI design tool. Use when user wants to design UI/UX in Stitch, create app interfaces, generate mobile/web designs, or needs help crafting Stitch prompts. Covers prompt structure, specificity techniques, iteration strategies, and design-to-code workflows for Stitch by Google.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-security-bluebook-builder",
       "original_name": "security-bluebook-builder",
       "description": "Build security Blue Books for sensitive apps",
@@ -3439,6 +3455,14 @@
       "name": "antigravity-mobile-design",
       "original_name": "mobile-design",
       "description": "Mobile-first design and engineering doctrine for iOS and Android apps. Covers touch interaction, performance, platform conventions, offline behavior, and mobile-specific decision-making. Teaches principles and constraints, not fixed layouts. Use for React Native, Flutter, or native mobile apps.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-frontend-slides",
+      "original_name": "frontend-slides",
+      "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

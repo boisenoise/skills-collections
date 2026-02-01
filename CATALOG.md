@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-01-31 06:18 UTC*
+*Last updated: 2026-02-01 06:25 UTC*
 
-Total skills: **869**
+Total skills: **872**
 
 ## Skills by Source
 
@@ -277,6 +277,7 @@ Total skills: **869**
 |-------|-------------|
 | `superpowers-lab-finding-duplicate-functions` | Use when auditing a codebase for semantic duplication - functions that do the same thing but have di... |
 | `superpowers-lab-mcp-cli` | Use MCP servers on-demand via the mcp CLI tool - discover tools, resources, and prompts without poll... |
+| `superpowers-lab-slack-messaging` | Use when asked to send or read Slack messages, check Slack channels, test Slack integrations, or int... |
 | `superpowers-lab-using-tmux-for-interactive-commands` | Use when you need to run interactive CLI tools (vim, git rebase -i, Python REPL, etc.) that require ... |
 
 ### obra/superpowers-skills
@@ -574,6 +575,7 @@ Total skills: **869**
 | `antigravity-frontend-mobile-development-component-scaffold` | You are a React component architecture expert specializing in scaffolding production-ready, accessib... |
 | `antigravity-frontend-mobile-security-xss-scan` | You are a frontend security specialist focusing on Cross-Site Scripting (XSS) vulnerability detectio... |
 | `antigravity-frontend-security-coder` | Expert in secure frontend coding practices specializing in XSS prevention, output sanitization, and ... |
+| `antigravity-frontend-slides` | Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. U... |
 | `antigravity-full-stack-orchestration-full-stack-feature` | Use when working with full stack orchestration full stack feature |
 | `antigravity-game-development` | Game development orchestrator. Routes to platform-specific skills based on project needs. |
 | `antigravity-gcp-cloud-run` | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run ser... |
@@ -842,6 +844,7 @@ Total skills: **869**
 | `antigravity-startup-business-analyst-market-opportunity` | Generate comprehensive market opportunity analysis with TAM/SAM/SOM calculations |
 | `antigravity-startup-financial-modeling` | This skill should be used when the user asks to "create financial projections", "build a financial m... |
 | `antigravity-startup-metrics-framework` | This skill should be used when the user asks about "key startup metrics", "SaaS metrics", "CAC and L... |
+| `antigravity-stitch-ui-design` | Expert guide for creating effective prompts for Google Stitch AI UI design tool. Use when user wants... |
 | `antigravity-stride-analysis-patterns` | Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, con... |
 | `antigravity-stripe-integration` | Implement Stripe payment processing for robust, PCI-compliant payment flows including checkout, subs... |
 | `antigravity-subagent-driven-development` | Use when executing implementation plans with independent tasks in the current session |
