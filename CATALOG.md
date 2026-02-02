@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-01 06:25 UTC*
+*Last updated: 2026-02-02 06:33 UTC*
 
-Total skills: **872**
+Total skills: **873**
 
 ## Skills by Source
 
@@ -755,6 +755,7 @@ Total skills: **872**
 | `antigravity-python-pro` | Master Python 3.12+ with modern features, async programming, performance optimization, and productio... |
 | `antigravity-python-testing-patterns` | Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven developme... |
 | `antigravity-quant-analyst` | Build financial models, backtest trading strategies, and analyze market data. Implements risk metric... |
+| `antigravity-radix-ui-design-system` | Build accessible design systems with Radix UI primitives. Headless component customization, theming ... |
 | `antigravity-rag-engineer` | Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector database... |
 | `antigravity-rag-implementation` | Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases and se... |
 | `antigravity-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be ... |

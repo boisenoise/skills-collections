@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-01T06:25:12.665028",
-  "skill_count": 872,
+  "last_updated": "2026-02-02T06:33:59.512708",
+  "skill_count": 873,
   "sources_processed": 19,
   "skills": [
     {
@@ -3535,6 +3535,14 @@
       "name": "antigravity-competitor-alternatives",
       "original_name": "competitor-alternatives",
       "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' or 'competitive landing pages.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-radix-ui-design-system",
+      "original_name": "radix-ui-design-system",
+      "description": "Build accessible design systems with Radix UI primitives. Headless component customization, theming strategies, and compound component patterns for production-grade UI libraries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
