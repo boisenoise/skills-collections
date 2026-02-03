@@ -40,6 +40,26 @@ Workers (ln-301, ln-302) handle the actual Linear/File operations based on detec
 - **Phase 4 Delegate:** Call the right worker with Story data, IDEAL plan/append request, guide links, existing task IDs if any; autoApprove=true.
 - **Phase 5 Verify:** Ensure worker returns URLs/summary and updated kanban_board.md; report result.
 
+## Worker Invocation
+
+> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
+
+| Worker | Purpose |
+|--------|---------|
+| ln-301-task-creator | CREATE/ADD implementation tasks |
+| ln-302-task-replanner | REPLAN existing tasks |
+
+**Prompt template:**
+```
+Task(description: "[CREATE/REPLAN] tasks for Story {ID}",
+     prompt: "Execute {skill-name}. Read skill from {skill-name}/SKILL.md. Story: {storyData}, Plan: {idealPlan}",
+     subagent_type: "general-purpose")
+```
+
+**Anti-Patterns:**
+- ❌ Direct Skill tool invocation without Task wrapper
+- ❌ Any execution bypassing subagent context isolation
+
 ## Mode Matrix
 | Condition | Mode | Delegate | Payload |
 |-----------|------|----------|---------|

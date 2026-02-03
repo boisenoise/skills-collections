@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-640-pattern-evolution-auditor Workflow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ln-640-pattern-evolution-auditor Workflow</h1>
+            <p class="subtitle">L2 Coordinator v1.0.0 | Pattern Evolution Analysis</p>
+        </header>
+        <div class="info-box">
+        <h3>Overview</h3>
+        <p><strong>Purpose:</strong> Audits architectural patterns against best practices, tracks evolution, creates Stories for improvements.</p>
+        <p><strong>Type:</strong> Orchestrator-Worker Pattern (L2 Coordinator + ln-641 L3 Worker)</p>
+        <p><strong>Output:</strong> Updated patterns_catalog.md + Stories via ln-220-story-coordinator</p>
+        <p><strong>Invocation:</strong> Manual or periodic (monthly recommended).</p>
+    </div>
+
+    <h2>Main Workflow (6 Phases)</h2>
+
+    <div class="mermaid">
+graph TD
+    Start([START]) --> Phase1[Phase 1: Discovery<br/>Load patterns_catalog.md<br/>Load ADRs<br/>Auto-detect undocumented patterns]
+
+    Phase1 --> HasPatterns{Patterns<br/>found?}
+
+    HasPatterns -->|No| CreateCatalog[Create catalog<br/>from template<br/>Ask user for patterns]
+    HasPatterns -->|Yes| Phase2
+
+    CreateCatalog --> Phase2[Phase 2: Best Practices Research<br/>MCP Ref + Context7<br/>WebSearch 2026<br/>Build contextStore]
+
+    Phase2 --> Phase3[Phase 3: Analysis Loop<br/>FOR EACH pattern:<br/>Task → ln-641-pattern-analyzer<br/>Calculate 4 scores]
+
+    Phase3 --> Phase4[Phase 4: Gap Analysis<br/>Undocumented patterns<br/>Implementation gaps<br/>Consistency issues]
+
+    Phase4 --> HasIssues{Patterns with<br/>score < 70%?}
+
+    HasIssues -->|No| Phase6
+    HasIssues -->|Yes| Phase5
+
+    Phase5 --> DetectEpic{Can detect<br/>Epic?}
+
+    DetectEpic -->|Yes| CreateStories[Create Stories<br/>via ln-220<br/>in detected Epic]
+    DetectEpic -->|No| AskEpic[Ask user<br/>for Epic]
+
+    AskEpic --> CreateStories
+
+    CreateStories --> Phase6[Phase 6: Report<br/>Update catalog<br/>Trend analysis<br/>Health score]
+
+    Phase6 --> End([END:<br/>Catalog updated<br/>Stories created])
+
+    classDef phase fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef decision fill:#FFF3E0,stroke:#FF9800,stroke-width:2px
+    classDef action fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+    classDef endpoint fill:#C8E6C9,stroke:#388E3C,stroke-width:2px
+
+    class Phase1,Phase2,Phase3,Phase4,Phase6 phase
+    class HasPatterns,HasIssues,DetectEpic decision
+    class CreateCatalog,CreateStories,AskEpic action
+    class Start,End endpoint
+    </div>
+
+    <h2>Phase 3: Analysis Loop Detail</h2>
+
+    <div class="mermaid">
+graph LR
+    subgraph "FOR EACH pattern"
+        P1[Load pattern<br/>from catalog] --> P2[Task tool<br/>→ ln-641]
+        P2 --> P3[ln-641 calculates<br/>4 scores]
+        P3 --> P4[Return:<br/>scores, issues, gaps]
+        P4 --> P5[Update catalog<br/>entry]
+    end
+
+    classDef step fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    class P1,P2,P3,P4,P5 step
+    </div>
+
+    <h2>4-Score Model</h2>
+
+    <div class="mermaid">
+graph TD
+    subgraph "Pattern Scores"
+        S1[Compliance<br/>Industry standards<br/>ADR documentation] --> Result
+        S2[Completeness<br/>All components<br/>Error handling] --> Result
+        S3[Quality<br/>Readability<br/>Maintainability] --> Result
+        S4[Implementation<br/>Production usage<br/>Monitoring] --> Result
+        Result{Average<br/>< 70%?}
+    end
+
+    Result -->|Yes| Story[Create Story<br/>via ln-220]
+    Result -->|No| Pass[Pattern OK<br/>Update trend]
+
+    classDef score fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef decision fill:#FFF3E0,stroke:#FF9800,stroke-width:2px
+    classDef action fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+
+    class S1,S2,S3,S4 score
+    class Result decision
+    class Story,Pass action
+    </div>
+
+    <h2>Integration with Other Skills</h2>
+
+    <div class="mermaid">
+graph LR
+    ln640[ln-640<br/>Pattern Auditor] --> ln641[ln-641<br/>Pattern Analyzer]
+    ln640 --> ln220[ln-220<br/>Story Coordinator]
+    ln220 --> ln400[ln-400<br/>Story Executor]
+    ln400 --> ln620[ln-620<br/>Codebase Auditor]
+
+    ln112[ln-112<br/>Creates initial<br/>patterns_catalog.md] -.-> ln640
+
+    classDef main fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef worker fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+    classDef downstream fill:#FFF3E0,stroke:#FF9800,stroke-width:2px
+
+    class ln640 main
+    class ln641,ln112 worker
+    class ln220,ln400,ln620 downstream
+    </div>
+
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</body>
+</html>

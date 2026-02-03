@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-02T06:33:59.512708",
-  "skill_count": 873,
+  "last_updated": "2026-02-03T06:26:03.897026",
+  "skill_count": 877,
   "sources_processed": 19,
   "skills": [
     {
@@ -5852,6 +5852,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-100-documents-pipeline",
+      "original_name": "ln-100-documents-pipeline",
+      "description": "Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs via 5 L3 workers) + ln-120-150 workers. Phase 4: global cleanup. Idempotent.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-610-code-comments-auditor",
       "original_name": "ln-610-code-comments-auditor",
       "description": "Audit code comments and docstrings quality across 6 categories (WHY-not-WHAT, Density, Forbidden Content, Docstrings, Actuality, Legacy). Use when code needs comment review, after major refactoring, or as part of ln-100-documents-pipeline. Outputs Compliance Score X/10 per category + Findings + Recommended Actions.",
@@ -6047,6 +6055,14 @@
       "name": "levn-ln-112-project-core-creator",
       "original_name": "ln-112-project-core-creator",
       "description": "Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). L3 Worker invoked by ln-110-project-docs-coordinator. ALWAYS created.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-500-story-quality-gate",
+      "original_name": "ln-500-story-quality-gate",
+      "description": "Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Pass 1: code quality -> regression -> manual testing. Pass 2: verify tests/coverage -> calculate NFR scores -> mark Story Done. Use when user requests quality gate for Story or when ln-400 delegates quality check.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -6332,9 +6348,25 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-640-pattern-evolution-auditor",
+      "original_name": "ln-640-pattern-evolution-auditor",
+      "description": "Audits architectural patterns against best practices (MCP Ref, Context7, WebSearch). Maintains patterns catalog, calculates 4 scores, creates refactor Stories via ln-220. Use when user asks to: (1) Check architecture health, (2) Audit patterns before refactoring, (3) Find undocumented patterns in codebase.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-511-test-researcher",
       "original_name": "ln-511-test-researcher",
       "description": "Researches real-world problems, competitor solutions, and customer complaints before test planning. Posts findings as Linear comment for ln-512 and ln-513.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-501-code-quality-checker",
+      "original_name": "ln-501-code-quality-checker",
+      "description": "Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates architectural decisions via MCP Ref: (1) Optimality - is chosen approach the best? (2) Compliance - does it follow best practices? (3) Performance - algorithms, configs, bottlenecks. Reports issues with SEC-, PERF-, MNT-, ARCH-, BP-, OPT- prefixes.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

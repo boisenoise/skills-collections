@@ -347,6 +347,29 @@ Mark each as in_progress when starting, completed when done.
 
 ---
 
+## Worker Invocation
+
+> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
+
+| Worker | Purpose | Phase |
+|--------|---------|-------|
+| ln-001-standards-researcher | Research standards/patterns | Phase 2 |
+| ln-221-story-creator | CREATE and ADD Stories | Phase 5a, 5c |
+| ln-222-story-replanner | REPLAN existing Stories | Phase 5b |
+
+**Prompt template:**
+```
+Task(description: "[Action] Stories for Epic {ID}",
+     prompt: "Execute {skill-name}. Read skill from {skill-name}/SKILL.md. Epic: {epicData}, Plan: {idealPlan}",
+     subagent_type: "general-purpose")
+```
+
+**Anti-Patterns:**
+- ❌ Direct Skill tool invocation without Task wrapper
+- ❌ Any execution bypassing subagent context isolation
+
+---
+
 ## Integration with Ecosystem
 
 **Calls:**

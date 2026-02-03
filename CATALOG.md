@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-02 06:33 UTC*
+*Last updated: 2026-02-03 06:26 UTC*
 
-Total skills: **873**
+Total skills: **877**
 
 ## Skills by Source
 
@@ -141,6 +141,7 @@ Total skills: **873**
 |-------|-------------|
 | `levn-ln-001-standards-researcher` | Research standards/patterns via MCP Ref. Generates Standards Research for Story Technical Notes subs... |
 | `levn-ln-002-best-practices-researcher` | Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/re... |
+| `levn-ln-100-documents-pipeline` | Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs via 5 L3 wor... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
 | `levn-ln-111-root-docs-creator` | Creates 4 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
 | `levn-ln-112-project-core-creator` | Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). ... |
@@ -167,6 +168,8 @@ Total skills: **873**
 | `levn-ln-402-task-reviewer` | L3 Worker. Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tas... |
 | `levn-ln-403-task-rework` | Fixes tasks in To Rework and returns them to To Review. Applies reviewer feedback only for the selec... |
 | `levn-ln-404-test-executor` | Executes Story Finalizer test tasks (label "tests") from Todo -> To Review. Enforces risk-based limi... |
+| `levn-ln-500-story-quality-gate` | Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Pa... |
+| `levn-ln-501-code-quality-checker` | Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Vali... |
 | `levn-ln-502-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
 | `levn-ln-510-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-511, ln-512, ln... |
 | `levn-ln-511-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
@@ -191,6 +194,7 @@ Total skills: **873**
 | `levn-ln-633-test-value-auditor` | Risk-Based Value audit worker (L3). Calculates Usefulness Score = Impact (1-5) × Probability (1-5) f... |
 | `levn-ln-634-test-coverage-auditor` | Coverage Gaps audit worker (L3). Identifies missing tests for critical paths (Money 20+, Security 20... |
 | `levn-ln-635-test-isolation-auditor` | Test Isolation + Anti-Patterns audit worker (L3). Checks isolation (APIs/DB/FS/Time/Random/Network),... |
+| `levn-ln-640-pattern-evolution-auditor` | Audits architectural patterns against best practices (MCP Ref, Context7, WebSearch). Maintains patte... |
 | `levn-ln-641-pattern-analyzer` | L3 Worker. Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, qu... |
 | `levn-ln-642-layer-boundary-auditor` | L3 Worker. Audits architectural layer boundaries, detects violations (code in wrong layers), checks ... |
 | `levn-ln-700-project-bootstrap` | Orchestrates full project bootstrap from Replit export to production-ready structure |

@@ -135,6 +135,8 @@ ln-110-project-docs-coordinator (this skill)
 
 ### Phase 2: Delegate to Workers
 
+> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
+
 **2.1 Always invoke (parallel):**
 - `ln-111-root-docs-creator` with Context Store
 - `ln-112-project-core-creator` with full Context Store
@@ -144,14 +146,25 @@ ln-110-project-docs-coordinator (this skill)
 - `ln-114-frontend-docs-creator` if hasFrontend
 - `ln-115-devops-docs-creator` if hasDocker
 
+**Prompt template:**
+```
+Task(description: "Create docs via ln-11X",
+     prompt: "Execute ln-11X-{worker}. Read skill from ln-11X-{worker}/SKILL.md. Context: {contextStore}",
+     subagent_type: "general-purpose")
+```
+
 **Delegation Pattern:**
 ```
 For each worker:
-  1. Invoke Skill tool with skill name
-  2. Pass Context Store and flags
+  1. Invoke via Task tool (subagent_type: "general-purpose")
+  2. Pass Context Store and flags in prompt
   3. Wait for completion
   4. Collect result (created, skipped, tbd_count, validation)
 ```
+
+**Anti-Patterns:**
+- ❌ Direct Skill tool invocation without Task wrapper
+- ❌ Any execution bypassing subagent context isolation
 
 ### Phase 3: Aggregate Results
 
