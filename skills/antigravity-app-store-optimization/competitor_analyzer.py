@@ -186,7 +186,7 @@ class CompetitorAnalyzer:
 
     def _analyze_title(self, title: str) -> Dict[str, Any]:
         """Analyze title structure and keyword usage."""
-        parts = re.split(r'[-:|]', title)
+        parts = re.split(r'[-' + r':|]', title)
 
         return {
             'title': title,

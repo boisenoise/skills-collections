@@ -97,6 +97,10 @@ FOR EACH pattern IN catalog:
     Input: pattern, locations, adr_reference, bestPractices
     Output: scores{}, issues[], gaps{}
 
+  **Task tool result contract:**
+  - ln-641 returns: `{scores: {compliance, completeness, quality, implementation}, issues: [], gaps: {}}`
+  - ln-642 returns: `{violations: [{severity, location, code, suggestion}], coverage: {layer: %}}`
+
   # Merge layer violations from Phase 3
   pattern.issues += layer_violations.filter(v => v.pattern == pattern)
   pattern.scores.compliance -= compliance_deduction

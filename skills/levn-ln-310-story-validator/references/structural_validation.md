@@ -140,6 +140,17 @@ Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criter
 - Given/When/Then format
 - Cover main scenarios + edge cases + error handling
 
+**Completeness Check (3 scenario types required):**
+1. ✅ **Happy Path** (1-2 AC) - main success scenarios
+2. ✅ **Error Handling** (1-2 AC) - invalid inputs, auth failures, system errors
+3. ✅ **Edge Cases** (1 AC) - boundary conditions, special states, race conditions
+
+**Specificity Check (measurable outcomes required):**
+- ✅ HTTP status codes (200, 201, 400, 401, 403, 404, 500)
+- ✅ Response times (<200ms, <1s, <5s)
+- ✅ Exact error messages ("Invalid credentials", "Token expired")
+- ✅ Quantifiable metrics (99% uptime, 1000 req/sec)
+
 **Auto-fix actions:**
 1. Parse existing AC
 2. Convert to Given/When/Then format:
@@ -149,18 +160,30 @@ Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criter
 3. Add missing scenarios:
    - If only positive → add negative (error handling)
    - If only main flow → add edge cases
-4. Update Linear issue via `mcp__linear-server__update_issue`
-5. Add comment explaining additions
+4. **Check AC coverage types:**
+   - IF only happy path → Add error handling AC (401, 403, 404, 500 scenarios)
+   - IF no edge cases → Add boundary condition AC (empty input, max limits, concurrent access)
+5. **Check AC specificity:**
+   - IF vague ("fast", "secure", "reliable") → Add measurable criteria
+   - IF no HTTP codes → Suggest specific codes (200 success, 401 auth, 400 validation)
+   - IF no error messages → Add exact message text
+   - IF performance claim → Add timing (<200ms) or throughput (1000 req/sec)
+6. Update Linear issue via `mcp__linear-server__update_issue`
+7. Add comment explaining additions
 
 **Example transformation:**
 - Before: "User can login", "Login fails with wrong password"
 - After:
-  1. "Given valid credentials, When user submits login form, Then user is authenticated and redirected to dashboard"
-  2. "Given invalid password, When user submits login form, Then 401 error is returned with message 'Invalid credentials'"
-  3. "Given account locked, When user submits login form, Then 403 error is returned with message 'Account locked'"
-  4. "Given missing email field, When user submits login form, Then 400 error is returned with message 'Email required'"
+  1. "Given valid credentials, When user submits login form, Then user is authenticated and redirected to dashboard" (happy path)
+  2. "Given invalid password, When user submits login form, Then 401 error is returned with message 'Invalid credentials'" (error handling)
+  3. "Given account locked, When user submits login form, Then 403 error is returned with message 'Account locked'" (edge case)
+  4. "Given missing email field, When user submits login form, Then 400 error is returned with message 'Email required'" (error handling)
+
+**Completeness + Specificity Example:**
+- Before: "Login should be fast and secure"
+- After: "Given valid credentials, When user submits login form, Then user authenticated <200ms and token expires in 1h" (measurable)
 
 ---
 
-**Version:** 2.0.0
-**Last Updated:** 2025-01-07
+**Version:** 3.0.0 (BREAKING: Added AC Completeness (3 scenario types) and Specificity (measurable outcomes) checks per BMAD Method best practices)
+**Last Updated:** 2026-02-03

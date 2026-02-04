@@ -82,11 +82,25 @@ Unit tests:
 | Medium | 5-6 | Integrate external service (OAuth, Stripe) |
 | Complex | 7-8 | Implement multi-step workflow |
 
+**Database Creation Principle (Incremental Schema Evolution):**
+- ❌ WRONG: Epic 1 Story 1 "Setup Database" (creates all 50 tables)
+- ✅ RIGHT: Each Story creates ONLY tables it needs
+
+**Rationale:** Big-bang database setup violates incremental delivery and vertical slicing principles. Each Story should deliver user value, not technical infrastructure.
+
 **Auto-fix actions:**
 1. Count implementation Tasks (exclude final test Task)
 2. IF <3 Tasks -> Add warning: "Story may need splitting"
 3. IF >8 Tasks -> Consolidate related Tasks
-4. Update Linear issue
+4. **Scan first Story in Epic for database setup indicators:**
+   - Keywords: "Setup Database", "Create all tables", "Database schema", "Initialize DB"
+   - Check Implementation Tasks for table creation count
+5. **IF found in Epic's first Story:**
+   - Check if Story creates >5 tables
+   - Add warning: "❌ Database setup Story violates incremental delivery principle"
+   - Suggest: "Move table creation to Stories that first use them"
+   - Example: "Story 1.1: User Registration (creates Users table only)"
+6. Update Linear issue
 
 ---
 
@@ -218,11 +232,24 @@ Level 3: KISS -> Apply ONLY if no conflict with Level 1-2
 2. [Task] Database schema  <- Should be first
 ```
 
+**Task Independence Check (no forward dependencies):**
+- Can Task N be completed using only Tasks 1 to N-1?
+- ❌ WRONG: Task 2 requires Task 3 output
+- ✅ RIGHT: Task 2 uses only Task 1 output
+
+**Note:** Detailed forward dependency detection is handled by Criterion #19 in [dependency_validation.md](dependency_validation.md). This criterion focuses on LAYER ordering.
+
 **Auto-fix actions:**
 1. Identify layer for each Task (keywords: "schema", "repository", "service", "route")
 2. Check if ordered bottom-up
 3. IF out of order -> Reorder Tasks
 4. Update Linear issue
+5. **Parse Task descriptions for dependency keywords** ("requires", "depends on", "needs")
+6. **Check if dependencies reference future Tasks**
+7. **IF forward dependency found:**
+   - Flag as MEDIUM violation (3 points)
+   - Suggest reordering Tasks
+   - Add TODO: "Task depends on future Task - reorder or refactor"
 
 ---
 

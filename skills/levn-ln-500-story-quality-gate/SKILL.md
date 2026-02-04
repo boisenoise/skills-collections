@@ -45,7 +45,7 @@ Evaluate 4 non-functional requirement dimensions:
 | **Reliability** | Error handling, retries, timeouts | REL- |
 | **Maintainability** | DRY, SOLID, cyclomatic complexity | MNT- |
 
-Additional prefixes: `TEST-` (coverage gaps), `ARCH-` (architecture issues), `DOC-` (documentation gaps)
+Additional prefixes: `TEST-` (coverage gaps), `ARCH-` (architecture issues), `DOC-` (documentation gaps), `DEP-` (Story/Task dependencies), `COV-` (AC coverage quality), `DB-` (database schema), `AC-` (AC validation)
 
 **NFR verdict per dimension:** PASS / CONCERNS / FAIL
 
@@ -58,6 +58,10 @@ Additional prefixes: `TEST-` (coverage gaps), `ARCH-` (architecture issues), `DO
 - **Phase 1 Discovery:** Auto-discover team/config; select Story; load Story + task metadata (no descriptions), detect test task status.
 - **Pass 1 flow (fail fast):**
   1) Invoke ln-501-code-quality-checker. If issues -> create refactor task (Backlog), stop.
+  1.5) **Criteria Validation (Story-level checks)** - see `references/criteria_validation.md`:
+     - Check #1: Story Dependencies (no forward deps within Epic) - if FAIL → create [DEP-] task, stop.
+     - Check #2: AC-Task Coverage Quality (STRONG/WEAK/MISSING scoring) - if FAIL/CONCERNS → create [BUG-]/[COV-] tasks, stop.
+     - Check #3: Database Creation Principle (schema scope matches Story) - if FAIL → create [DB-] task, stop.
   2) Run all linters from tech_stack.md. If fail -> create lint-fix task, stop.
   3) Invoke ln-502-regression-checker. If fail -> create regression-fix task, stop.
   4) Invoke ln-510-test-planner (orchestrates: ln-511-test-researcher → ln-512-manual-tester → ln-513-auto-test-planner). If manual testing fails -> create bug-fix task, stop. If all passed -> test task created/updated.
@@ -77,6 +81,7 @@ Add pass steps to todos before starting:
 ```
 Pass 1:
 - Invoke ln-501-code-quality-checker (in_progress)
+- Pass 1.5: Criteria Validation (Story deps, AC coverage, DB schema) (pending)
 - Run linters from tech_stack.md (pending)
 - Invoke ln-502-regression-checker (pending)
 - Invoke ln-510-test-planner (research + manual + auto tests) (pending)
@@ -89,20 +94,27 @@ Mark each as in_progress when starting, completed when done. On failure, mark re
 
 ## Worker Invocation (MANDATORY)
 
-> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
+| Step | Worker | Context | Rationale |
+|------|--------|---------|-----------|
+| Code Quality | ln-501-code-quality-checker | **Separate** (Task tool) | Independent analysis, focused on DRY/KISS/YAGNI |
+| Regression | ln-502-regression-checker | **Shared** (direct Skill tool) | Needs Story context and previous check results |
+| Test Planning | ln-510-test-planner | **Shared** (direct Skill tool) | Needs full Gate context for test planning |
 
-| Step | Worker | Purpose |
-|------|--------|---------|
-| Code Quality | ln-501-code-quality-checker | DRY/KISS/YAGNI + Code Quality Score |
-| Regression | ln-502-regression-checker | Run existing test suite |
-| Test Planning | ln-510-test-planner | Orchestrates ln-511/512/513 pipeline |
-
-**Prompt template:**
+**ln-501 invocation (Separate Context):**
 ```
-Task(description: "[Pass 1/2] quality check via ln-50X",
-     prompt: "Execute ln-50X-{worker}. Read skill from ln-50X-{worker}/SKILL.md. Story: {storyId}",
+Task(description: "Code quality check via ln-501",
+     prompt: "Execute ln-501-code-quality-checker. Read skill from ln-501-code-quality-checker/SKILL.md. Story: {storyId}",
      subagent_type: "general-purpose")
 ```
+
+**ln-501 result contract (Task tool return):**
+Task tool returns worker's final message. Parse for YAML block:
+- `verdict: PASS | CONCERNS | ISSUES_FOUND`
+- `quality_score: 0-100`
+- `issues: [{id, severity, finding, action}]`
+- If verdict = ISSUES_FOUND → create refactor task (Backlog), stop Pass 1.
+
+**ln-502 and ln-510:** Invoke via direct Skill tool — workers see Gate context.
 
 **Note:** ln-510 orchestrates the full test pipeline (ln-511 research → ln-512 manual → ln-513 auto tests).
 
@@ -145,11 +157,12 @@ Task(description: "[Pass 1/2] quality check via ln-50X",
 - Story set to Done (PASS/CONCERNS/WAIVED) or fix tasks created (FAIL); comment with gate verdict posted.
 
 ## Reference Files
+- Criteria Validation: `references/criteria_validation.md` (Story deps, AC coverage quality, DB schema checks from ln-310)
 - Gate levels: `references/gate_levels.md` (detailed scoring rules and thresholds)
 - Workers: `../ln-501-code-quality-checker/SKILL.md`, `../ln-502-regression-checker/SKILL.md`
 - Test planning orchestrator: `../ln-510-test-planner/SKILL.md` (coordinates ln-511/512/513)
 - Tech stack/linters: `docs/project/tech_stack.md`
 
 ---
-**Version:** 5.0.0 (Added 4-level Gate Model, Quality Score, NFR validation based on BMAD qa-gate methodology)
-**Last Updated:** 2026-01-29
+**Version:** 6.0.0 (BREAKING: Added Pass 1.5 Criteria Validation with 3 checks from ln-310 - Story dependencies, AC-Task Coverage Quality (STRONG/WEAK/MISSING), Database Creation Principle. New issue prefixes: DEP-, COV-, DB-, AC-. Closes validation-execution gap at Story level per BMAD Method best practices.)
+**Last Updated:** 2026-02-03

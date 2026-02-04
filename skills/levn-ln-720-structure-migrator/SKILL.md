@@ -29,28 +29,6 @@ Coordinates project restructuring from prototype layout to Clean Architecture.
 
 ---
 
-## Worker Invocation
-
-> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
-
-| Worker | Purpose |
-|--------|---------|
-| ln-721-frontend-restructure | Restructure React frontend |
-| ln-722-backend-generator | Generate .NET Clean Architecture |
-| ln-723-mockdata-migrator | Migrate mock data from Drizzle |
-| ln-724-replit-cleaner | Remove Replit artifacts |
-
-**Prompt template:**
-```
-Task(description: "Migrate via ln-72X",
-     prompt: "Execute ln-72X-{worker}. Read skill from ln-72X-{worker}/SKILL.md. Context: {delegationContext}",
-     subagent_type: "general-purpose")
-```
-
-**Anti-Patterns:**
-- ❌ Direct Skill tool invocation without Task wrapper
-- ❌ Any execution bypassing subagent context isolation
-
 ## Workflow
 
 | Phase | Name | Actions | Output |

@@ -140,11 +140,33 @@ As a user, I want to log in with OAuth so that I can access protected resources.
    | 2 | T2 | Covered |
    | 3 | - | MISSING |
    ```
-4. IF AC uncovered:
+4. **Coverage Quality Check (NEW):**
+   - For each AC→Task mapping, extract AC requirements:
+     - **HTTP codes** (200, 201, 400, 401, 403, 404, 500)
+     - **Error messages** ("Invalid token", "User not found", "Access denied")
+     - **Performance criteria** (<200ms, <1s, 1000 req/sec)
+     - **Timing constraints** (token expires in 1h, session timeout 30min)
+   - Check if Task description mentions these requirements
+   - **Scoring:**
+     - **STRONG Coverage:** Task mentions all AC requirements (HTTP code + message + timing)
+     - **WEAK Coverage:** Task exists but missing specific requirements
+     - **MISSING:** No Task for AC
+5. IF AC uncovered:
    - Add TODO to Story: `_TODO: Add Task for AC #[N]: "[AC text]"_`
    - Suggest Task title: "Implement [AC summary]"
-5. Update Linear issue via `mcp__linear-server__update_issue`
-6. Add comment: "AC coverage verified - [N]/[M] ACs covered, [K] missing"
+6. **IF coverage is WEAK:**
+   - Add TODO to Task: `_TODO: Ensure AC requirement: [specific requirement]_`
+   - Example: "AC requires 401 error with message 'Invalid token'"
+7. Update coverage matrix with quality indicators:
+   ```markdown
+   | AC | Task | Status |
+   |----|------|--------|
+   | 1: Valid credentials → 200 success | T1 | ✅ STRONG (mentions 200, success flow) |
+   | 2: Invalid token → 401 "Invalid token" | T2 | ⚠️ WEAK (mentions validation, no 401/message) |
+   | 3: Timeout <200ms | - | ❌ MISSING |
+   ```
+8. Update Linear issue via `mcp__linear-server__update_issue`
+9. Add comment: "AC coverage verified - [N]/[M] ACs covered ([K] STRONG, [L] WEAK, [M] MISSING)"
 
 ---
 
@@ -206,5 +228,5 @@ Phase 4 Groups 1-5 complete -> All Tasks/ACs finalized
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2025-01-07
+**Version:** 2.0.0 (BREAKING: Added AC-Task Coverage Quality Check with STRONG/WEAK/MISSING scoring per BMAD Method best practices)
+**Last Updated:** 2026-02-03

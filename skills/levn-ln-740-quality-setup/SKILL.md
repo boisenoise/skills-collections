@@ -96,19 +96,6 @@ Before delegating, check what configurations already exist.
 
 ## Phase 3: Parallel Delegation
 
-> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
-
-**Prompt template:**
-```
-Task(description: "Quality setup via ln-74X",
-     prompt: "Execute ln-74X-{worker}. Read skill from ln-74X-{worker}/SKILL.md. Stack: {detectedStack}",
-     subagent_type: "general-purpose")
-```
-
-**Anti-Patterns:**
-- ❌ Direct Skill tool invocation without Task wrapper
-- ❌ Any execution bypassing subagent context isolation
-
 Invoke workers for each quality aspect. Workers can run in parallel as they configure independent tools.
 
 **Delegation Order:**
@@ -116,36 +103,23 @@ Invoke workers for each quality aspect. Workers can run in parallel as they conf
 ```
 ln-740 (this)
     |
-    +---> ln-741-linter-configurator (via Task tool)
+    +---> ln-741-linter-configurator
     |         - ESLint/Prettier (TypeScript)
     |         - editorconfig/Roslyn (.NET)
     |         - Ruff (Python)
     |
-    +---> ln-742-precommit-setup (via Task tool)
+    +---> ln-742-precommit-setup
     |         - Husky + lint-staged (Node.js)
     |         - pre-commit framework (Python)
     |         - commitlint
     |
-    +---> ln-743-test-infrastructure (via Task tool)
+    +---> ln-743-test-infrastructure
               - Vitest (TypeScript)
               - xUnit (.NET)
               - pytest (Python)
 ```
 
-**Worker Invocation:**
-```
-Task(description: "Linter setup via ln-741",
-     prompt: "Execute ln-741-linter-configurator. Stack: {stack}, configs: {existingConfigs}",
-     subagent_type: "general-purpose")
-
-Task(description: "Pre-commit setup via ln-742",
-     prompt: "Execute ln-742-precommit-setup. Stack: {stack}, lintCommands: {lintCommands}",
-     subagent_type: "general-purpose")
-
-Task(description: "Test infra via ln-743",
-     prompt: "Execute ln-743-test-infrastructure. Stack: {stack}, structure: {projectStructure}",
-     subagent_type: "general-purpose")
-```
+Pass detected stack and existing configs to workers via direct Skill tool invocation.
 
 ---
 
