@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistence & Performance Auditor Workflow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Persistence & Performance Auditor</h1>
+            <p class="subtitle">ln-650 L2 Coordinator v1.0.0</p>
+        </header>
+
+        <div class="info-box">
+            <h3>Overview</h3>
+            <p><strong>Purpose:</strong> Coordinates 3 specialized workers for DB efficiency, transaction correctness, and runtime performance audit</p>
+            <p><strong>Type:</strong> L2 Coordinator (independent, peer to ln-620 and ln-640)</p>
+            <p><strong>Workers:</strong> ln-651 (Query Efficiency), ln-652 (Transaction Correctness), ln-653 (Runtime Performance)</p>
+            <p><strong>Invocation:</strong> Manual by user when persistence/performance audit needed</p>
+        </div>
+
+        <h2>Main Workflow (5 Phases)</h2>
+        <div class="mermaid">
+graph TD
+    A[Phase 1: Discovery] --> B[Phase 2: Research Best Practices]
+    B --> C[Phase 3: Delegate Workers]
+    C --> D[Phase 4: Aggregate Results]
+    D --> E[Phase 5: Create Linear Task]
+
+    A --> A1[Load tech_stack.md]
+    A --> A2[Detect DB/ORM/async]
+    A --> A3[Scan triggers in migrations]
+    A --> A4[Auto-discover Team ID]
+
+    B --> B1[MCP Ref: SQLAlchemy]
+    B --> B2[MCP Ref: PostgreSQL]
+    B --> B3[MCP Ref: asyncio]
+    B --> B4[Build contextStore]
+
+    C --> C1[ln-651: Query Efficiency]
+    C --> C2[ln-652: Transaction Correctness]
+    C --> C3[ln-653: Runtime Performance]
+
+    D --> D1[Merge findings]
+    D --> D2[Calculate scores]
+    D --> D3[Sort by severity]
+
+    E --> E1[Epic 0 task in Linear]
+
+    style A fill:#e8f5e9
+    style B fill:#e3f2fd
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#fce4ec
+    style C1 fill:#fff8e1
+    style C2 fill:#fff8e1
+    style C3 fill:#fff8e1
+        </div>
+
+        <h2>Worker Distribution</h2>
+        <div class="mermaid">
+graph LR
+    COORD[ln-650 Coordinator] -->|PARALLEL| W1[ln-651<br/>Query Efficiency<br/>6 checks, HIGH]
+    COORD -->|PARALLEL| W2[ln-652<br/>Transaction Correctness<br/>5 checks, HIGH]
+    COORD -->|PARALLEL| W3[ln-653<br/>Runtime Performance<br/>6 checks, MEDIUM]
+
+    W1 --> R1[Redundant fetches<br/>N-UPDATE loops<br/>Over-fetching<br/>Caching scope]
+    W2 --> R2[Missing commits<br/>Scope too wide/narrow<br/>Rollback handling<br/>Long-held txn]
+    W3 --> R3[Blocking IO in async<br/>Unnecessary allocs<br/>Sync sleep<br/>String concat]
+
+    style COORD fill:#1565c0,color:#fff
+    style W1 fill:#ff8f00,color:#fff
+    style W2 fill:#ff8f00,color:#fff
+    style W3 fill:#ff8f00,color:#fff
+        </div>
+
+        <h2>Relationship to Other Audit Coordinators</h2>
+        <div class="mermaid">
+graph TB
+    subgraph "Audit Dimension: Code Quality"
+        A620[ln-620 Codebase Auditor<br/>9 workers]
+    end
+    subgraph "Audit Dimension: Architecture"
+        A640[ln-640 Pattern Evolution<br/>3 workers]
+    end
+    subgraph "Audit Dimension: Persistence & Performance"
+        A650[ln-650 Persistence & Performance<br/>3 workers]
+    end
+
+    USER[User] --> A620
+    USER --> A640
+    USER --> A650
+
+    A620 -.->|complements| A650
+    A640 -.->|complements| A650
+
+    style A620 fill:#2e7d32,color:#fff
+    style A640 fill:#1565c0,color:#fff
+    style A650 fill:#e65100,color:#fff
+    style USER fill:#424242,color:#fff
+        </div>
+
+        <footer>
+            <p>ln-650-persistence-performance-auditor v1.0.0 | Coordinates DB efficiency, transaction correctness, and runtime performance audits</p>
+        </footer>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>

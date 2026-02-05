@@ -33,6 +33,7 @@ L2 Coordinator that analyzes implemented architectural patterns against current 
 |--------|---------|-------|
 | ln-641-pattern-analyzer | Calculate 4 scores per pattern | Phase 4 |
 | ln-642-layer-boundary-auditor | Detect layer violations | Phase 3 |
+| ln-643-api-contract-auditor | Audit API contracts, DTOs, layer leakage | Phase 4 |
 | ln-220-story-coordinator | Create refactor Stories | Phase 6 |
 
 **Prompt template:**
@@ -92,14 +93,21 @@ FOR EACH violation IN violations:
 ### Phase 4: Pattern Analysis Loop
 
 ```
+# Analyze individual patterns
 FOR EACH pattern IN catalog:
   Task(ln-641-pattern-analyzer)
     Input: pattern, locations, adr_reference, bestPractices
     Output: scores{}, issues[], gaps{}
 
-  **Task tool result contract:**
-  - ln-641 returns: `{scores: {compliance, completeness, quality, implementation}, issues: [], gaps: {}}`
-  - ln-642 returns: `{violations: [{severity, location, code, suggestion}], coverage: {layer: %}}`
+# Analyze API contracts (always, in parallel with patterns)
+Task(ln-643-api-contract-auditor)
+  Input: pattern="API Contracts", locations=[service_dirs, api_dirs], bestPractices
+  Output: scores{}, issues[], gaps{}
+
+  **Worker Output Contract:**
+  - ln-641 returns: `{overall_score: X.X, scores: {compliance, completeness, quality, implementation}, issues: [], gaps: {}}`
+  - ln-642 returns: `{category, score, total_issues, critical, high, medium, low, findings: []}`
+  - ln-643 returns: `{overall_score: X.X, scores: {compliance, completeness, quality, implementation}, issues: [], gaps: {}}`
 
   # Merge layer violations from Phase 3
   pattern.issues += layer_violations.filter(v => v.pattern == pattern)
@@ -137,6 +145,24 @@ IF refactorItems.length > 0:
       MANDATORY AC: Zero Legacy principle
 ```
 
+### Aggregation Algorithm
+
+```
+# Step 1: Get all worker scores (0-10 scale)
+pattern_scores = [p.overall_score for p in ln641_results]  # Each 0-10
+layer_score = ln642_result.score                            # 0-10
+api_score = ln643_result.overall_score                      # 0-10
+
+# Step 2: Calculate architecture_health_score
+all_scores = pattern_scores + [layer_score, api_score]
+architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
+
+# Status mapping:
+# >= 80: "healthy"
+# 70-79: "warning"
+# < 70: "critical"
+```
+
 ### Phase 7: Report + Trend Analysis
 
 ```
@@ -148,11 +174,41 @@ IF refactorItems.length > 0:
 
 2. Calculate trend: compare current vs previous scores
 
-3. Output summary:
-   - Patterns analyzed: N
-   - Layer violations: M
-   - Architecture Health Score: X%
-   - Trend: improving/stable/declining
+3. Output summary (see Return Result below)
+```
+
+### Phase 7: Return Result
+
+```json
+{
+  "audit_date": "2026-02-04",
+  "architecture_health_score": 78,
+  "trend": "improving",
+  "patterns_analyzed": 5,
+  "layer_audit": {
+    "architecture_type": "Layered",
+    "violations_total": 5,
+    "violations_by_severity": {"high": 2, "medium": 3, "low": 0},
+    "coverage": {"http_abstraction": 85, "error_centralization": true}
+  },
+  "patterns": [
+    {
+      "name": "Job Processing",
+      "scores": {"compliance": 72, "completeness": 85, "quality": 68, "implementation": 90},
+      "avg_score": 79,
+      "status": "warning",
+      "issues_count": 3,
+      "story_created": "LIN-123"
+    }
+  ],
+  "quick_wins": [
+    {"pattern": "Caching", "issue": "Add TTL config", "effort": "2h", "impact": "+10 completeness"}
+  ],
+  "requires_attention": [
+    {"pattern": "Event-Driven", "avg_score": 58, "critical_issues": ["No DLQ", "No schema versioning"]}
+  ],
+  "stories_created": ["LIN-123", "LIN-124"]
+}
 ```
 
 ## Critical Rules
@@ -184,6 +240,7 @@ IF refactorItems.length > 0:
 - Scoring rules: `references/scoring_rules.md`
 - Pattern analysis: `../ln-641-pattern-analyzer/SKILL.md`
 - Layer boundary audit: `../ln-642-layer-boundary-auditor/SKILL.md`
+- API contract audit: `../ln-643-api-contract-auditor/SKILL.md`
 - Story creation: `../ln-220-story-coordinator/SKILL.md`
 
 ---

@@ -88,7 +88,7 @@ Receives `contextStore` with tech stack, package manifest paths, codebase root.
 ## Scoring Algorithm
 
 ```
-penalty = (high * 1.0) + (medium * 0.5) + (low * 0.2)
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
 score = max(0, 10 - penalty)
 ```
 
@@ -99,6 +99,7 @@ score = max(0, 10 - penalty)
   "category": "Dependencies & Reuse",
   "score": 7,
   "total_issues": 8,
+  "critical": 0,
   "high": 2,
   "medium": 4,
   "low": 2,

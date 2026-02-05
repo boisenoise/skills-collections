@@ -130,6 +130,39 @@ Task(description: "Audit via ln-62X",
 - ❌ Direct Skill tool invocation without Task wrapper
 - ❌ Any execution bypassing subagent context isolation
 
+**Worker Output Contract (Unified):**
+
+All workers MUST return JSON with this structure:
+```json
+{
+  "category": "Category Name",
+  "score": 7,
+  "total_issues": 12,
+  "critical": 0,
+  "high": 3,
+  "medium": 7,
+  "low": 2,
+  "findings": [
+    {
+      "severity": "HIGH",
+      "location": "path/file.ts:123",
+      "issue": "Description of the issue",
+      "principle": "Category / Sub-principle",
+      "recommendation": "How to fix",
+      "effort": "S"
+    }
+  ]
+}
+```
+
+**Unified Scoring Formula (all workers):**
+```
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
+score = max(0, 10 - penalty)
+```
+
+**Domain-aware workers** add optional fields: `domain`, `scan_path`
+
 ### Phase 4a: Global Workers (PARALLEL)
 
 **Global workers** scan entire codebase (not domain-aware):
@@ -228,13 +261,28 @@ ELSE:
 }
 ```
 
+**Aggregation Algorithm:**
+```
+1. Collect JSON from all 9 workers (7 global + 2×N domain-aware)
+2. Merge findings from all workers into single array
+3. Sum severity counts:
+   total_critical = sum(worker.critical for all workers)
+   total_high = sum(worker.high for all workers)
+   total_medium = sum(worker.medium for all workers)
+   total_low = sum(worker.low for all workers)
+4. Calculate Overall Score:
+   overall_score = average(worker.score for all 9 categories)
+5. Sort findings by severity: CRITICAL → HIGH → MEDIUM → LOW
+6. Group findings by category for report sections
+```
+
 **Aggregation steps:**
 
-1. **Global workers** → merge findings (as before)
-2. **Domain-aware workers** → group by domain.name:
+1. **Global workers (7)** → merge findings into single list
+2. **Domain-aware workers (2 × N)** → group by domain.name:
    - Calculate domain-level scores (Architecture + Quality per domain)
    - Build Domain Health Summary table
-3. **Overall score** → average of all category scores (Architecture/Quality averaged across domains)
+3. **Overall score** → average of 9 category scores (Architecture/Quality averaged across domains)
 4. **Severity summary** → sum critical/high/medium/low across ALL workers
 5. **Findings grouping:**
    - Global categories (Security, Build, etc.) → single table

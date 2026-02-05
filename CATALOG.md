@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-04 06:26 UTC*
+*Last updated: 2026-02-05 06:29 UTC*
 
-Total skills: **877**
+Total skills: **889**
 
 ## Skills by Source
 
@@ -196,7 +196,12 @@ Total skills: **877**
 | `levn-ln-635-test-isolation-auditor` | Test Isolation + Anti-Patterns audit worker (L3). Checks isolation (APIs/DB/FS/Time/Random/Network),... |
 | `levn-ln-640-pattern-evolution-auditor` | Audits architectural patterns against best practices (MCP Ref, Context7, WebSearch). Maintains patte... |
 | `levn-ln-641-pattern-analyzer` | L3 Worker. Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, qu... |
-| `levn-ln-642-layer-boundary-auditor` | L3 Worker. Audits architectural layer boundaries, detects violations (code in wrong layers), checks ... |
+| `levn-ln-642-layer-boundary-auditor` | L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries... |
+| `levn-ln-643-api-contract-auditor` | API contract audit worker (L3). Checks layer leakage in method signatures, missing DTOs, entity leak... |
+| `levn-ln-650-persistence-performance-auditor` | Coordinates 3 specialized audit workers (query efficiency, transaction correctness, runtime performa... |
+| `levn-ln-651-query-efficiency-auditor` | Query efficiency audit worker (L3). Checks redundant entity fetches, N-UPDATE/DELETE loops, unnecess... |
+| `levn-ln-652-transaction-correctness-auditor` | Transaction correctness audit worker (L3). Checks missing intermediate commits, transaction scope (t... |
+| `levn-ln-653-runtime-performance-auditor` | Runtime performance audit worker (L3). Checks blocking IO in async, unnecessary allocations, sync sl... |
 | `levn-ln-700-project-bootstrap` | Orchestrates full project bootstrap from Replit export to production-ready structure |
 | `levn-ln-710-dependency-upgrader` | Coordinates dependency upgrades across all detected package managers |
 | `levn-ln-711-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling |
@@ -344,7 +349,11 @@ Total skills: **877**
 | `antigravity-algolia-search` | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and rel... |
 | `antigravity-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `antigravity-analytics-tracking` | Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. Us... |
+| `antigravity-angular` | Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applica... |
+| `antigravity-angular-best-practices` | Angular performance optimization and best practices guide. Use when writing, reviewing, or refactori... |
 | `antigravity-angular-migration` | Migrate from AngularJS to Angular using hybrid mode, incremental component rewriting, and dependency... |
+| `antigravity-angular-state-management` | Master modern Angular state management with Signals, NgRx, and RxJS. Use when setting up global stat... |
+| `antigravity-angular-ui-patterns` | Modern Angular UI patterns for loading states, error handling, and data display. Use when building U... |
 | `antigravity-anti-reversing-techniques` | Understand anti-reversing, obfuscation, and protection techniques encountered during software analys... |
 | `antigravity-api-design-principles` | Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs th... |
 | `antigravity-api-documentation-generator` | Generate comprehensive, developer-friendly API documentation from code, including endpoints, paramet... |
@@ -448,6 +457,7 @@ Total skills: **877**
 | `antigravity-comprehensive-review-full-review` | Use when working with comprehensive review full review |
 | `antigravity-comprehensive-review-pr-enhance` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate... |
 | `antigravity-computer-use-agents` | Build AI agents that interact with computers like humans do - viewing screens, moving cursors, click... |
+| `antigravity-computer-vision-expert` | SOTA Computer Vision Expert (2026). Specialized in YOLO26, Segment Anything 3 (SAM 3), Vision Langua... |
 | `antigravity-concise-planning` | Use when a user asks for a plan for a coding task, to generate a clear, actionable, and atomic check... |
 | `antigravity-conductor-implement` | Execute tasks from a track's implementation plan following TDD workflow |
 | `antigravity-conductor-manage` | Manage track lifecycle: archive, restore, delete, rename, and cleanup |
@@ -768,6 +778,7 @@ Total skills: **877**
 | `antigravity-react-patterns` | Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. |
 | `antigravity-react-state-management` | Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when s... |
 | `antigravity-react-ui-patterns` | Modern React UI patterns for loading states, error handling, and data fetching. Use when building UI... |
+| `antigravity-readme` | When the user wants to create or update a README.md file for a project. Also use when the user says ... |
 | `antigravity-receiving-code-review` | Use when receiving code review feedback, before implementing suggestions, especially if feedback see... |
 | `antigravity-red-team-tactics` | Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting. |
 | `antigravity-red-team-tools` | This skill should be used when the user asks to "follow red team methodology", "perform bug bounty h... |
@@ -911,6 +922,7 @@ Total skills: **877**
 | `antigravity-varlock-claude-skill` | Secure environment variable management ensuring secrets are never exposed in Claude sessions, termin... |
 | `antigravity-vector-database-engineer` | Expert in vector databases, embedding strategies, and semantic search implementation. Masters Pineco... |
 | `antigravity-vector-index-tuning` | Optimize vector index performance for latency, recall, and memory. Use when tuning HNSW parameters, ... |
+| `antigravity-vercel-deploy-claimable` | Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions... |
 | `antigravity-vercel-deployment` | Expert knowledge for deploying to Vercel with Next.js Use when: vercel, deploy, deployment, hosting,... |
 | `antigravity-verification-before-completion` | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - req... |
 | `antigravity-vexor` | Vector-powered CLI for semantic file search with a Claude/Codex skill |

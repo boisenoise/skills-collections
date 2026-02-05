@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Contract Auditor Workflow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>API Contract Auditor</h1>
+            <p class="subtitle">ln-643 L3 Worker v1.0.0</p>
+        </header>
+
+        <div class="info-box">
+            <h3>Overview</h3>
+            <p><strong>Purpose:</strong> Architecture-level audit of API contracts, method signatures at service boundaries, DTO usage patterns</p>
+            <p><strong>Type:</strong> L3 Worker (invoked by ln-640-pattern-evolution-auditor)</p>
+            <p><strong>Checks:</strong> Layer leakage, missing DTOs, entity leakage, error contracts, redundant overloads</p>
+            <p><strong>Scoring:</strong> 4-score model (compliance, completeness, quality, implementation)</p>
+        </div>
+
+        <h2>Main Workflow (4 Phases)</h2>
+        <div class="mermaid">
+graph TD
+    A[Phase 1: Discover<br/>Service Boundaries] --> B[Phase 2: Analyze<br/>Contracts]
+    B --> C[Phase 3: Calculate<br/>4 Scores]
+    C --> D[Phase 4: Return<br/>Result]
+
+    A --> A1[Find API layer]
+    A --> A2[Find service layer]
+    A --> A3[Find domain layer]
+    A --> A4[Map service-to-endpoint]
+
+    B --> B1[Extract method signatures]
+    B --> B2[Check 5 audit rules]
+    B --> B3[Collect findings]
+
+    C --> C1[Compliance: 0-100]
+    C --> C2[Completeness: 0-100]
+    C --> C3[Quality: 0-100]
+    C --> C4[Implementation: 0-100]
+
+    style A fill:#e8f5e9
+    style B fill:#e3f2fd
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+        </div>
+
+        <h2>Audit Rules</h2>
+        <div class="mermaid">
+graph LR
+    subgraph "5 Audit Rules"
+        R1[1. Layer Leakage<br/>HTTP types in service<br/>Severity: HIGH]
+        R2[2. Missing DTO<br/>4+ related params<br/>Severity: MEDIUM]
+        R3[3. Entity Leakage<br/>ORM model in API<br/>Severity: HIGH]
+        R4[4. Error Contracts<br/>Mixed patterns<br/>Severity: MEDIUM]
+        R5[5. Redundant Overloads<br/>Duplicate methods<br/>Severity: LOW]
+    end
+
+    R1 --> FIX1[Create domain DTO]
+    R2 --> FIX2[Group into dataclass]
+    R3 --> FIX3[Response DTO]
+    R4 --> FIX4[Standardize pattern]
+    R5 --> FIX5[Merge with optional params]
+
+    style R1 fill:#ef5350,color:#fff
+    style R2 fill:#ffa726
+    style R3 fill:#ef5350,color:#fff
+    style R4 fill:#ffa726
+    style R5 fill:#66bb6a,color:#fff
+        </div>
+
+        <h2>Integration with ln-640</h2>
+        <div class="mermaid">
+graph TB
+    LN640[ln-640 Coordinator] -->|Phase 3| LN642[ln-642<br/>Layer Boundaries]
+    LN640 -->|Phase 4| LN641[ln-641<br/>Pattern Analyzer]
+    LN640 -->|Phase 4| LN643[ln-643<br/>API Contract Auditor]
+    LN640 -->|Phase 6| LN220[ln-220<br/>Story Coordinator]
+
+    LN643 -->|scores + issues| LN640
+
+    style LN640 fill:#1565c0,color:#fff
+    style LN643 fill:#e65100,color:#fff
+    style LN641 fill:#ff8f00,color:#fff
+    style LN642 fill:#ff8f00,color:#fff
+    style LN220 fill:#2e7d32,color:#fff
+        </div>
+
+        <footer>
+            <p>ln-643-api-contract-auditor v1.0.0 | Architecture-level audit of API contracts and DTO patterns</p>
+        </footer>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>

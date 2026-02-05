@@ -134,5 +134,58 @@ Regardless of architecture, these patterns should be isolated in infrastructure/
 | HTTP Abstraction | `client\\.(get\|post\|put\|delete)` vs direct calls | 90% |
 | Error Centralization | `except\\s+(httpx\|aiohttp\|requests)\\.` in ≤2 files | Yes |
 
+## Cross-Layer Consistency Checks
+
+Used by ln-642 Phase 2.5 to detect patterns that span multiple layers inconsistently.
+
+### Transaction Boundary Rules
+
+| Owner Layer | commit() Allowed In | commit() Forbidden In |
+|-------------|---------------------|----------------------|
+| Service-owned UoW | services/ | repositories/, api/ |
+| Endpoint-owned UoW | api/ | repositories/, services/ |
+| Repository-owned UoW | repositories/ | services/, api/ |
+
+**Detection:**
+```
+repo_commits = Grep("\\.commit\\(\\)\|\\.rollback\\(\\)", "**/repositories/**")
+service_commits = Grep("\\.commit\\(\\)\|\\.rollback\\(\\)", "**/services/**")
+api_commits = Grep("\\.commit\\(\\)\|\\.rollback\\(\\)", "**/api/**")
+```
+
+**Safe Patterns (not violations):**
+- `# best-effort telemetry` comment in context
+- `_callbacks.py` files (progress notifiers)
+- `# UoW boundary` explicit marker
+
+### Session Ownership Rules
+
+| Pattern | Detection | Severity |
+|---------|-----------|----------|
+| DI + Local mix | `Depends(get_session)` in API AND `AsyncSessionLocal()` in service/repo | HIGH |
+| Service local session | `AsyncSessionLocal()` in service calling DI-based repo | MEDIUM |
+
+### Async Consistency Rules
+
+| Blocking Pattern | Detection in `async def` | Safe Alternative |
+|------------------|-------------------------|------------------|
+| File read | `\\.read_bytes\\(\\)\|\\.read_text\\(\\)` | `asyncio.to_thread()` |
+| File write | `\\.write_bytes\\(\\)\|\\.write_text\\(\\)` | `asyncio.to_thread()` |
+| open() | `(?<!aiofiles\\.)open\\(` | `aiofiles.open()` |
+| time.sleep | `time\\.sleep\\(` | `asyncio.sleep()` |
+| requests | `requests\\.(get\|post)` | `httpx.AsyncClient` |
+
+### Fire-and-Forget Rules
+
+| Pattern | Detection | Severity |
+|---------|-----------|----------|
+| Task without handler | `create_task\\(` without `.add_done_callback(` | MEDIUM |
+| Task in loop | `for.*create_task\\(` without error collection | HIGH |
+
+**Safe Patterns:**
+- `# fire-and-forget` comment documenting intent
+- Task assigned to variable with later `await`
+- Explicit `.add_done_callback(handle_exception)`
+
 ---
-**Version:** 1.1.0
+**Version:** 1.2.0

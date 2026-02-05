@@ -166,77 +166,54 @@ Receives `contextStore` with critical paths classification, codebase structure, 
 
 ## Scoring Algorithm
 
+**Unified formula (same as ln-650):**
 ```
-critical_paths = count of critical paths
-tested_paths = count of critical paths with tests
-coverage_percentage = (tested_paths / critical_paths) * 100
-score = coverage_percentage / 10  // 100% coverage = 10 score
-score = max(0, min(10, score))
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
+score = max(0, 10 - penalty)
 ```
+
+**Severity mapping by Priority:**
+- Priority 20+ (Money, Security) missing test → CRITICAL
+- Priority 15-19 (Data Integrity, Core Flows) missing test → HIGH
+- Priority 10-14 (Important) missing test → MEDIUM
+- Priority <10 (Nice-to-have) → LOW
 
 ## Output Format
 
-**Global mode output:**
+**Return JSON to coordinator:**
 ```json
 {
   "category": "Coverage Gaps",
   "score": 6,
-  "critical_paths_total": 25,
-  "tested_paths": 15,
-  "untested_paths": 10,
-  "coverage_percentage": 60,
+  "total_issues": 10,
+  "critical": 3,
+  "high": 4,
+  "medium": 2,
+  "low": 1,
+  "domain": "orders",
+  "scan_path": "src/orders",
   "findings": [
     {
       "severity": "CRITICAL",
-      "category": "Money",
-      "missing_test": "E2E: Payment with discount code",
-      "location": "services/payment.ts:processPayment()",
-      "priority": 25,
-      "justification": "Money calculation with discount logic — high risk of incorrect total",
-      "test_type": "E2E",
+      "location": "src/orders/services/order.ts:45",
+      "issue": "Missing E2E test for applyDiscount() (Priority 25, Money flow)",
+      "principle": "Coverage Gaps / Money Flow",
+      "recommendation": "Add E2E test: applyDiscount() with edge cases (negative discount, max discount, currency rounding)",
+      "effort": "M"
+    },
+    {
+      "severity": "HIGH",
+      "location": "src/orders/repositories/order.ts:78",
+      "issue": "Missing Integration test for orderTransaction() rollback (Priority 18, Data Integrity)",
+      "principle": "Coverage Gaps / Data Integrity",
+      "recommendation": "Add Integration test verifying transaction rollback on failure",
       "effort": "M"
     }
   ]
 }
 ```
 
-**Domain-aware mode output (NEW):**
-```json
-{
-  "category": "Coverage Gaps",
-  "score": 7,
-  "domain": "orders",
-  "scan_path": "src/orders",
-  "critical_paths_total": 12,
-  "tested_paths": 8,
-  "untested_paths": 4,
-  "coverage_percentage": 67,
-  "findings": [
-    {
-      "severity": "CRITICAL",
-      "category": "Money",
-      "missing_test": "E2E: applyDiscount() with edge cases",
-      "location": "src/orders/services/order.ts:45",
-      "priority": 25,
-      "justification": "Discount calculation in orders domain — high risk of incorrect total",
-      "test_type": "E2E",
-      "effort": "M",
-      "domain": "orders"
-    },
-    {
-      "severity": "HIGH",
-      "category": "Data Integrity",
-      "missing_test": "Integration: orderTransaction() rollback",
-      "location": "src/orders/repositories/order.ts:78",
-      "priority": 18,
-      "justification": "Data corruption risk in orders domain",
-      "test_type": "Integration",
-      "effort": "M",
-      "domain": "orders"
-    }
-  ]
-}
-```
+**Note:** `domain` and `scan_path` fields included only when `domain_mode="domain-aware"`.
 
 ## Critical Rules
 

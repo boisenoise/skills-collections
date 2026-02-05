@@ -58,41 +58,120 @@ FOR EACH file IN files (limit: 10 key files):
 **Compliance Score (0-100):**
 ```
 score = 0
-IF follows industry standard (MADR, Nygard): +30
-IF has ADR documentation: +20
-IF consistent naming conventions: +15
-IF follows tech stack conventions: +15
-IF no anti-patterns detected: +20
+
+# Detection: ADR documentation exists
+IF Glob("docs/adr/*{pattern}*.md") OR Glob("docs/architecture/*.md" contains pattern):
+  +20
+
+# Detection: Standard naming conventions
+IF Grep("class.*{Pattern}(Service|Handler|Worker|Processor)", files):
+  +15
+IF file names follow pattern (e.g., job_processor.py, event_handler.ts):
+  +15
+
+# Detection: No anti-patterns
+IF NOT Grep("(callback hell|Promise\.all without error|global state)", files):
+  +20
+
+# Detection: Industry standard structure
+IF pattern == "Job Processing":
+  IF Grep("(queue|worker|job|processor)", files) AND Grep("(retry|backoff|dlq)", files):
+    +30
+IF pattern == "Event-Driven":
+  IF Grep("(EventEmitter|publish|subscribe|emit)", files) AND Grep("(schema|validate)", files):
+    +30
 ```
 
 **Completeness Score (0-100):**
 ```
 score = 0
-IF all required components present: +40
-IF error handling implemented: +20
-IF logging/observability: +15
-IF tests exist: +15
-IF documentation complete: +10
+
+# Detection: Required components present
+component_patterns = bestPractices[pattern].required_components  # from coordinator
+FOR EACH component IN component_patterns:
+  IF Grep(component.grep_pattern, files):
+    +component.weight  # Total: 40 points
+
+# Detection: Error handling
+IF Grep("(try|catch|except|error|Error|Exception)", files):
+  +10
+IF Grep("(retry|backoff|circuit.?breaker)", files):
+  +10
+
+# Detection: Logging/observability
+IF Grep("(logger|logging|log\\.|console\\.log|structlog)", files):
+  +10
+IF Grep("(metrics|prometheus|statsd|trace)", files):
+  +5
+
+# Detection: Tests exist
+IF Glob("**/test*{pattern}*") OR Glob("**/*{pattern}*.test.*"):
+  +15
+
+# Detection: Documentation
+IF Grep("docstring|@param|@returns|\"\"\"", files):
+  +10
 ```
 
 **Quality Score (0-100):**
 ```
 score = 0
-IF code readable (short methods, clear names): +25
-IF maintainable (low complexity): +25
-IF no code smells: +20
-IF follows SOLID: +15
-IF performance optimized: +15
+
+# Detection: Short methods (<50 lines)
+method_lengths = analyze_method_lengths(files)
+IF average(method_lengths) < 30: +25
+ELIF average(method_lengths) < 50: +15
+
+# Detection: Low cyclomatic complexity
+IF NOT Grep("(if.*if.*if|for.*for.*for|switch.*case.*case.*case)", files):
+  +25
+
+# Detection: No code smells
+IF NOT Grep("(TODO|FIXME|HACK|XXX|REFACTOR)", files):
+  +10
+IF NOT Grep("(magic number|hardcoded)", files):
+  +10
+
+# Detection: SOLID principles
+IF Grep("(interface|abstract|Protocol|ABC)", files):  # Dependency Inversion
+  +15
+
+# Detection: Performance patterns
+IF Grep("(async|await|asyncio|Promise)", files):  # Non-blocking
+  +10
+IF Grep("(cache|memoize|lru_cache)", files):
+  +5
 ```
 
 **Implementation Score (0-100):**
 ```
 score = 0
-IF code exists and compiles: +30
-IF used in production paths (not dead code): +25
-IF no dead/unused implementations: +15
-IF integrated with other patterns: +15
-IF monitored/observable: +15
+
+# Detection: Code compiles/runs
+IF no syntax errors in files:
+  +30
+
+# Detection: Used in production (imported elsewhere)
+imports = Grep("from.*{pattern}|import.*{pattern}", codebase_root, exclude=files)
+IF len(imports) > 0:
+  +25
+
+# Detection: No dead code
+unused_exports = find_unused_exports(files)
+IF len(unused_exports) == 0:
+  +15
+
+# Detection: Integrated with other patterns
+IF Grep("(dependency.?injection|@inject|container)", files):
+  +10
+IF Grep("(config|settings|env)", files):
+  +5
+
+# Detection: Monitored
+IF Grep("(health.?check|readiness|liveness|/health)", files):
+  +10
+IF Grep("(alert|alarm|notification)", files):
+  +5
 ```
 
 ### Phase 4: Identify Issues and Gaps
@@ -120,10 +199,17 @@ recommendations = [
 ]
 ```
 
-### Phase 5: Return Result
+### Phase 5: Calculate Overall Score
+```
+overall_score = average(compliance, completeness, quality, implementation) / 10
+Example: (72 + 85 + 68 + 90) / 4 / 10 = 7.9
+```
+
+### Phase 6: Return Result
 ```json
 {
   "pattern": "Job Processing",
+  "overall_score": 7.9,
   "scores": {
     "compliance": 72,
     "completeness": 85,

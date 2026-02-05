@@ -275,90 +275,83 @@ Receives `contextStore` with isolation checklist, anti-patterns catalog, test fi
 
 ## Scoring Algorithm
 
+**Unified formula (same as ln-650):**
 ```
-isolation_issues = sum of all isolation violations
-determinism_issues = sum of all determinism violations
-anti_patterns = sum of all anti-pattern counts
-
-penalty = (isolation_issues * 0.5) + (determinism_issues * 0.5) + (anti_patterns * 0.3)
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
 score = max(0, 10 - penalty)
 ```
 
+**Severity mapping:**
+- Flaky tests, External API not mocked, The Liar → HIGH
+- Real database, File system, Time/Date, Network, The Giant, Happy Path Only → MEDIUM
+- Random without seed, Order-dependent, Conjoined Twins → LOW
+
 ## Output Format
 
+**Return JSON to coordinator (flat findings array):**
 ```json
 {
   "category": "Isolation & Anti-Patterns",
   "score": 6,
   "total_issues": 18,
-  "isolation_issues": 8,
-  "determinism_issues": 4,
-  "anti_patterns": 6,
-  "findings": {
-    "isolation": [
-      {
-        "severity": "HIGH",
-        "issue": "External API not mocked",
-        "test_file": "user.test.ts",
-        "location": "user.test.ts:45-52",
-        "description": "Test makes real HTTP call to https://api.github.com",
-        "recommendation": "Mock external API with nock or jest.mock",
-        "effort": "M"
-      },
-      {
-        "severity": "MEDIUM",
-        "issue": "Real database used in tests",
-        "test_file": "db.test.ts",
-        "location": "db.test.ts:12",
-        "description": "Test connects to localhost:5432 PostgreSQL",
-        "recommendation": "Use in-memory SQLite (:memory:) or mock DB",
-        "effort": "L"
-      }
-    ],
-    "determinism": [
-      {
-        "severity": "HIGH",
-        "issue": "Flaky test (race condition)",
-        "test_file": "async.test.ts",
-        "location": "async.test.ts:28-35",
-        "description": "setTimeout without proper await",
-        "recommendation": "Fix race condition with proper async/await",
-        "effort": "M"
-      }
-    ],
-    "anti_patterns": [
-      {
-        "anti_pattern": "The Liar",
-        "count": 3,
-        "examples": [
-          "user.test.ts:45 - 'createUser works' (no assertions)",
-          "auth.test.ts:12 - 'login works' (only toBeTruthy())"
-        ],
-        "recommendation": "Add specific assertions or delete tests",
-        "effort": "S"
-      },
-      {
-        "anti_pattern": "The Giant",
-        "count": 2,
-        "examples": [
-          "order.test.ts:200-350 - 'order flow' (150 lines)"
-        ],
-        "recommendation": "Split into focused tests (one scenario per test)",
-        "effort": "M"
-      },
-      {
-        "anti_pattern": "Happy Path Only",
-        "count": 5,
-        "examples": [
-          "payment.test.ts - only success scenarios, no error tests"
-        ],
-        "recommendation": "Add negative tests for error handling",
-        "effort": "M"
-      }
-    ]
-  }
+  "critical": 0,
+  "high": 5,
+  "medium": 10,
+  "low": 3,
+  "findings": [
+    {
+      "severity": "HIGH",
+      "location": "user.test.ts:45-52",
+      "issue": "External API not mocked — test makes real HTTP call to https://api.github.com",
+      "principle": "Test Isolation / External APIs",
+      "recommendation": "Mock external API with nock or jest.mock",
+      "effort": "M"
+    },
+    {
+      "severity": "HIGH",
+      "location": "async.test.ts:28-35",
+      "issue": "Flaky test (race condition) — setTimeout without proper await",
+      "principle": "Determinism / Race Condition",
+      "recommendation": "Fix race condition with proper async/await",
+      "effort": "M"
+    },
+    {
+      "severity": "HIGH",
+      "location": "user.test.ts:45",
+      "issue": "Anti-pattern 'The Liar' — test 'createUser works' has no assertions",
+      "principle": "Anti-Patterns / The Liar",
+      "recommendation": "Add specific assertions or delete test",
+      "effort": "S"
+    },
+    {
+      "severity": "MEDIUM",
+      "location": "db.test.ts:12",
+      "issue": "Real database used — test connects to localhost:5432 PostgreSQL",
+      "principle": "Test Isolation / Database",
+      "recommendation": "Use in-memory SQLite (:memory:) or mock DB",
+      "effort": "L"
+    },
+    {
+      "severity": "MEDIUM",
+      "location": "order.test.ts:200-350",
+      "issue": "Anti-pattern 'The Giant' — test 'order flow' is 150 lines (>100)",
+      "principle": "Anti-Patterns / The Giant",
+      "recommendation": "Split into focused tests (one scenario per test)",
+      "effort": "M"
+    },
+    {
+      "severity": "MEDIUM",
+      "location": "payment.test.ts",
+      "issue": "Anti-pattern 'Happy Path Only' — only success scenarios, no error tests",
+      "principle": "Anti-Patterns / Happy Path Only",
+      "recommendation": "Add negative tests for error handling",
+      "effort": "M"
+    }
+  ]
 }
 ```
+
+**Note:** Findings are flattened into single array. Use `principle` field prefix (Test Isolation / Determinism / Anti-Patterns) to identify issue category.
 
 ---
 **Version:** 3.0.0

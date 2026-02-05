@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-04T06:26:07.104579",
-  "skill_count": 877,
+  "last_updated": "2026-02-05T06:29:31.262793",
+  "skill_count": 889,
   "sources_processed": 19,
   "skills": [
     {
@@ -1084,6 +1084,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-computer-vision-expert",
+      "original_name": "computer-vision-expert",
+      "description": "SOTA Computer Vision Expert (2026). Specialized in YOLO26, Segment Anything 3 (SAM 3), Vision Language Models, and real-time spatial analysis.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-e2e-testing-patterns",
       "original_name": "e2e-testing-patterns",
       "description": "Master end-to-end testing with Playwright and Cypress to build reliable test suites that catch bugs, improve confidence, and enable fast deployment. Use when implementing E2E tests, debugging flaky tests, or establishing testing standards.",
@@ -1159,6 +1167,14 @@
       "name": "antigravity-saga-orchestration",
       "original_name": "saga-orchestration",
       "description": "Implement saga patterns for distributed transactions and cross-aggregate workflows. Use when coordinating multi-step business processes, handling compensating transactions, or managing long-running workflows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-angular-best-practices",
+      "original_name": "angular-best-practices",
+      "description": "Angular performance optimization and best practices guide. Use when writing, reviewing, or refactoring Angular code for optimal performance, bundle size, and rendering efficiency.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2708,6 +2724,14 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
+      "name": "antigravity-angular-ui-patterns",
+      "original_name": "angular-ui-patterns",
+      "description": "Modern Angular UI patterns for loading states, error handling, and data display. Use when building UI components, handling async data, or managing component states.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-voice-ai-development",
       "original_name": "voice-ai-development",
       "description": "Expert in building voice AI applications - from real-time voice agents to voice-enabled apps. Covers OpenAI Realtime API, Vapi for voice agents, Deepgram for transcription, ElevenLabs for synthesis, LiveKit for real-time infrastructure, and WebRTC fundamentals. Knows how to build low-latency, production-ready voice experiences. Use when: voice ai, voice agent, speech to text, text to speech, realtime voice.",
@@ -3596,6 +3620,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-angular-state-management",
+      "original_name": "angular-state-management",
+      "description": "Master modern Angular state management with Signals, NgRx, and RxJS. Use when setting up global state, managing component stores, choosing between state solutions, or migrating from legacy patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-voice-ai-engine-development",
       "original_name": "voice-ai-engine-development",
       "description": "Build real-time conversational AI voice engines using async worker pipelines, streaming transcription, LLM agents, and TTS synthesis with interrupt handling and multi-provider support",
@@ -4108,6 +4140,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-readme",
+      "original_name": "readme",
+      "description": "When the user wants to create or update a README.md file for a project. Also use when the user says 'write readme,' 'create readme,' 'document this project,' 'project documentation,' or asks for help with README.md. This skill creates absurdly thorough documentation covering local setup, architecture, and deployment.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-helm-chart-scaffolding",
       "original_name": "helm-chart-scaffolding",
       "description": "Design, organize, and manage Helm charts for templating and packaging Kubernetes applications with reusable configurations. Use when creating Helm charts, packaging Kubernetes applications, or implementing templated deployments.",
@@ -4615,6 +4655,14 @@
       "name": "antigravity-api-patterns",
       "original_name": "api-patterns",
       "description": "API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-vercel-deploy-claimable",
+      "original_name": "vercel-deploy-claimable",
+      "description": "Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions such as 'Deploy my app', 'Deploy this to production', 'Create a preview deployment', 'Deploy and give me the link', or 'Push this live'. No authentication required - returns preview URL and claimable deployment link.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5380,6 +5428,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-angular",
+      "original_name": "angular",
+      "description": "Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applications, SSR/Hydration, and reactive patterns. Use PROACTIVELY for Angular development, component architecture, state management, performance optimization, and migration to modern patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-zapier-make-patterns",
       "original_name": "zapier-make-patterns",
       "description": "No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-developers automate business processes without writing code. But no-code doesn't mean no-complexity - these platforms have their own patterns, pitfalls, and breaking points.  This skill covers when to use which platform, how to build reliable automations, and when to graduate to code-based solutions. Key insight: Zapier optimizes for simplicity and integrations (7000+ apps), Make optimizes for power ",
@@ -5692,6 +5748,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-653-runtime-performance-auditor",
+      "original_name": "ln-653-runtime-performance-auditor",
+      "description": "Runtime performance audit worker (L3). Checks blocking IO in async, unnecessary allocations, sync sleep in async, string concat in loops, missing to_thread for CPU-bound, redundant data copies. Returns findings with severity, location, effort, recommendations.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-770-crosscutting-setup",
       "original_name": "ln-770-crosscutting-setup",
       "description": "Coordinates logging, error handling, CORS, health checks, and API docs",
@@ -5718,7 +5782,7 @@
     {
       "name": "levn-ln-642-layer-boundary-auditor",
       "original_name": "ln-642-layer-boundary-auditor",
-      "description": "L3 Worker. Audits architectural layer boundaries, detects violations (code in wrong layers), checks pattern coverage. Invoked by ln-640 once per audit.",
+      "description": "L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ownership), session ownership (DI vs local), async consistency (sync I/O in async), fire-and-forget tasks.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -6044,6 +6108,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-643-api-contract-auditor",
+      "original_name": "ln-643-api-contract-auditor",
+      "description": "API contract audit worker (L3). Checks layer leakage in method signatures, missing DTOs, entity leakage to API, inconsistent error contracts, redundant method overloads. Returns findings with 4-score model (compliance, completeness, quality, implementation).",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-761-secret-scanner",
       "original_name": "ln-761-secret-scanner",
       "description": "Scans codebase for hardcoded secrets. Returns normalized findings with severity and remediation guidance. Pre-commit hook integration.",
@@ -6116,9 +6188,17 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-651-query-efficiency-auditor",
+      "original_name": "ln-651-query-efficiency-auditor",
+      "description": "Query efficiency audit worker (L3). Checks redundant entity fetches, N-UPDATE/DELETE loops, unnecessary resolves, over-fetching, missing bulk operations, wrong caching scope. Returns findings with severity, location, effort, recommendations.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-624-code-quality-auditor",
       "original_name": "ln-624-code-quality-auditor",
-      "description": "Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classes, O(n\u00b2) algorithms, N+1 queries, magic numbers, decentralized constants, duplicate constants. Returns findings with severity, location, effort, recommendations.",
+      "description": "Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classes, method signature quality, O(n\u00b2) algorithms, N+1 queries, magic numbers/constants. Returns findings with severity, location, effort, recommendations.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -6348,6 +6428,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-650-persistence-performance-auditor",
+      "original_name": "ln-650-persistence-performance-auditor",
+      "description": "Coordinates 3 specialized audit workers (query efficiency, transaction correctness, runtime performance). Researches DB/ORM/async best practices, delegates parallel audits, aggregates results into single Linear task in Epic 0.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-640-pattern-evolution-auditor",
       "original_name": "ln-640-pattern-evolution-auditor",
       "description": "Audits architectural patterns against best practices (MCP Ref, Context7, WebSearch). Maintains patterns catalog, calculates 4 scores, creates refactor Stories via ln-220. Use when user asks to: (1) Check architecture health, (2) Audit patterns before refactoring, (3) Find undocumented patterns in codebase.",
@@ -6399,6 +6487,14 @@
       "name": "levn-ln-760-security-setup",
       "original_name": "ln-760-security-setup",
       "description": "Coordinates security scanning (secrets + deps). Delegates to ln-761/ln-762. Generates SECURITY.md, pre-commit hooks, CI workflow.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-652-transaction-correctness-auditor",
+      "original_name": "ln-652-transaction-correctness-auditor",
+      "description": "Transaction correctness audit worker (L3). Checks missing intermediate commits, transaction scope (too wide/narrow), missing rollback handling, long-held transactions, trigger/notify interaction. Returns findings with severity, location, effort, recommendations.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

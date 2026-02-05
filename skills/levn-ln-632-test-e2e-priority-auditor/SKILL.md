@@ -103,23 +103,22 @@ For each E2E test, calculate Usefulness Score = Impact × Probability
 
 ## Scoring Algorithm
 
+**Unified formula (same as ln-650):**
 ```
-critical_coverage = (critical_paths_covered / critical_paths_total) * 100
-journey_coverage = (core_journeys_covered / core_journeys_total) * 100
-wasteful_penalty = wasteful_e2e_tests * 0.5
-
-score = (critical_coverage * 0.6 + journey_coverage * 0.4) / 10 - wasteful_penalty
-score = max(0, min(10, score))
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
+score = max(0, 10 - penalty)
 ```
 
-**Rationale:**
-- Focus on **critical path coverage** (60% weight), not total E2E count
-- Core journeys contribute 40% weight
-- Penalize **wasteful E2E tests** (low Usefulness Score)
-- No pyramid percentages - pure risk-based prioritization
+**Severity mapping:**
+- Missing E2E for Priority 25 (Money, Security) → CRITICAL
+- Missing E2E for Priority 20 (Data Export) → HIGH
+- Missing E2E for Priority 15-19 (Core Journeys) → HIGH
+- Wasteful E2E (Score <15) → MEDIUM
+- Incomplete journey coverage → LOW
 
 ## Output Format
 
+**Return JSON to coordinator:**
 ```json
 {
   "category": "E2E Critical Coverage",
@@ -127,41 +126,30 @@ score = max(0, min(10, score))
   "total_issues": 8,
   "critical": 2,
   "high": 3,
-  "medium": 3,
-  "metrics": {
-    "critical_paths_total": 12,
-    "critical_paths_covered": 7,
-    "critical_coverage_percentage": 58,
-    "core_journeys_total": 5,
-    "core_journeys_covered": 3,
-    "journey_coverage_percentage": 60,
-    "wasteful_e2e_tests": 4
-  },
+  "medium": 2,
+  "low": 1,
   "findings": [
     {
       "severity": "CRITICAL",
-      "critical_path": "POST /payment",
-      "priority": 25,
       "location": "routes/payment.ts:45",
-      "issue": "No E2E test for payment processing",
+      "issue": "No E2E test for payment processing (POST /payment, Priority 25)",
+      "principle": "E2E Critical Coverage / Money Flow",
       "recommendation": "Add E2E: successful payment + failed payment scenarios",
       "effort": "M"
     },
     {
       "severity": "HIGH",
-      "user_journey": "Registration → Email verification → First login",
-      "priority": 16,
       "location": "routes/auth.ts + routes/users.ts",
-      "issue": "Missing end-to-end journey test",
+      "issue": "Missing E2E for user journey: Registration → Email verification → First login (Priority 16)",
+      "principle": "E2E Critical Coverage / Core Journey",
       "recommendation": "Add E2E test covering full registration flow",
       "effort": "L"
     },
     {
       "severity": "MEDIUM",
-      "e2e_test": "GET /users returns 200",
-      "usefulness_score": 4,
       "location": "users.test.ts:23",
-      "issue": "Low-value E2E test (Score <15)",
+      "issue": "Low-value E2E test 'GET /users returns 200' (Usefulness Score 4 < 15)",
+      "principle": "E2E Critical Coverage / Wasteful Test",
       "recommendation": "Convert to Integration test or remove",
       "effort": "S"
     }

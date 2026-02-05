@@ -133,61 +133,54 @@ Decision: REVIEW (if E2E covers, remove; else keep)
 - Testing constant values
 - Testing type annotations
 
-## Scoring Algorithm (for compliance)
+## Scoring Algorithm
 
+**Unified formula (same as ln-650):**
 ```
-total_tests = KEEP + REVIEW + REMOVE
-remove_percentage = (REMOVE / total_tests) * 100
-score = 10 - (remove_percentage / 10)  // penalize for wasteful tests
-score = max(0, min(10, score))
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
+score = max(0, 10 - penalty)
 ```
+
+**Severity mapping by Usefulness Score:**
+- Score <5 → CRITICAL (test wastes significant maintenance effort)
+- Score 5-9 → HIGH (test likely wasteful)
+- Score 10-14 → MEDIUM (review needed)
+- Score ≥15 → no issue (KEEP)
 
 ## Output Format
 
+**Return JSON to coordinator:**
 ```json
 {
   "category": "Risk-Based Value",
   "score": 7,
-  "total_tests": 65,
-  "keep_count": 35,
-  "review_count": 15,
-  "remove_count": 15,
+  "total_issues": 12,
+  "critical": 2,
+  "high": 5,
+  "medium": 5,
+  "low": 0,
   "findings": [
     {
-      "test_file": "payment.test.ts",
-      "test_name": "processPayment calculates discount correctly",
-      "location": "payment.test.ts:45-68",
-      "impact": 5,
-      "probability": 4,
-      "usefulness_score": 20,
-      "decision": "KEEP",
-      "reason": "Critical money calculation, complex algorithm"
-    },
-    {
-      "test_file": "utils.test.ts",
-      "test_name": "validateEmail returns true for valid email",
+      "severity": "CRITICAL",
       "location": "utils.test.ts:23-27",
-      "impact": 2,
-      "probability": 2,
-      "usefulness_score": 4,
-      "decision": "REMOVE",
-      "reason": "Low value, likely covered by E2E registration test",
+      "issue": "Test 'validateEmail returns true' has Usefulness Score 4 (Impact 2 × Probability 2) — REMOVE",
+      "principle": "Risk-Based Value / Low Priority Test",
+      "recommendation": "Delete test — likely covered by E2E registration test",
       "effort": "S"
     },
     {
-      "test_file": "auth.test.ts",
-      "test_name": "login with valid credentials returns JWT",
+      "severity": "MEDIUM",
       "location": "auth.test.ts:12-25",
-      "impact": 4,
-      "probability": 3,
-      "usefulness_score": 12,
-      "decision": "REVIEW",
-      "question": "Is this already covered by E2E login test?",
+      "issue": "Test 'login with valid credentials returns JWT' has Usefulness Score 12 (Impact 4 × Probability 3) — REVIEW",
+      "principle": "Risk-Based Value / Borderline Test",
+      "recommendation": "If E2E login test exists → delete; otherwise keep",
       "effort": "S"
     }
   ]
 }
 ```
+
+**Note:** Tests with Usefulness Score ≥15 (KEEP) are NOT included in findings — only issues are reported.
 
 ---
 **Version:** 3.0.0

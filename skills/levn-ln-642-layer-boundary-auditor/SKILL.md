@@ -1,6 +1,6 @@
 ---
 name: ln-642-layer-boundary-auditor
-description: L3 Worker. Audits architectural layer boundaries, detects violations (code in wrong layers), checks pattern coverage. Invoked by ln-640 once per audit.
+description: "L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ownership), session ownership (DI vs local), async consistency (sync I/O in async), fire-and-forget tasks."
 ---
 
 # Layer Boundary Auditor
@@ -11,6 +11,11 @@ L3 Worker that audits architectural layer boundaries and detects violations.
 
 - Read architecture.md to discover project's layer structure
 - Detect layer violations (I/O code outside infrastructure layer)
+- **Detect cross-layer consistency issues:**
+  - Transaction boundaries (commit/rollback ownership)
+  - Session ownership (DI vs local)
+  - Async consistency (sync I/O in async)
+  - Fire-and-forget tasks (unhandled exceptions)
 - Check pattern coverage (all HTTP calls use client abstraction)
 - Detect error handling duplication
 - Return violations list to coordinator
@@ -70,6 +75,117 @@ FOR EACH violation_type IN common_patterns.md I/O Pattern Boundary Rules:
         })
 ```
 
+### Phase 2.5: Cross-Layer Consistency Checks
+
+#### 2.5.1 Transaction Boundary Violations
+
+**What:** commit()/rollback() called at inconsistent layers (repo + service + API)
+
+**Detection:**
+```
+repo_commits = Grep("\.commit\(\)|\.rollback\(\)", "**/repositories/**/*.py")
+service_commits = Grep("\.commit\(\)|\.rollback\(\)", "**/services/**/*.py")
+api_commits = Grep("\.commit\(\)|\.rollback\(\)", "**/api/**/*.py")
+
+layers_with_commits = count([repo_commits, service_commits, api_commits].filter(len > 0))
+```
+
+**Safe Patterns (ignore):**
+- Comment "# best-effort telemetry" in same context
+- File ends with `_callbacks.py` (progress notifiers)
+- Explicit `# UoW boundary` comment
+
+**Violation Rules:**
+
+| Condition | Severity | Issue |
+|-----------|----------|-------|
+| layers_with_commits >= 3 | CRITICAL | Mixed UoW ownership across all layers |
+| repo + api commits | HIGH | Transaction control bypasses service layer |
+| repo + service commits | HIGH | Ambiguous UoW owner (repo vs service) |
+| service + api commits | MEDIUM | Transaction control spans service + API |
+
+**Recommendation:** Choose single UoW owner (service layer recommended), remove commit() from other layers
+
+**Effort:** L (requires architectural decision + refactoring)
+
+#### 2.5.2 Session Ownership Violations
+
+**What:** Mixed DI-injected and locally-created sessions in same call chain
+
+**Detection:**
+```
+di_session = Grep("Depends\(get_session\)|Depends\(get_db\)", "**/api/**/*.py")
+local_session = Grep("AsyncSessionLocal\(\)|async_sessionmaker", "**/services/**/*.py")
+local_in_repo = Grep("AsyncSessionLocal\(\)", "**/repositories/**/*.py")
+```
+
+**Violation Rules:**
+
+| Condition | Severity | Issue |
+|-----------|----------|-------|
+| di_session AND local_in_repo in same module | HIGH | Repo creates own session while API injects different |
+| local_session in service calling DI-based repo | MEDIUM | Session mismatch in call chain |
+
+**Recommendation:** Use DI consistently OR use local sessions consistently. Document exceptions (e.g., telemetry)
+
+**Effort:** M
+
+#### 2.5.3 Async Consistency Violations
+
+**What:** Synchronous blocking I/O inside async functions
+
+**Detection:**
+```
+# For each file with "async def":
+sync_file_io = Grep("\.read_bytes\(\)|\.read_text\(\)|\.write_bytes\(\)|\.write_text\(\)", file)
+sync_open = Grep("(?<!aiofiles\.)open\(", file)  # open() not preceded by aiofiles.
+
+# Safe patterns (not violations):
+# - "asyncio.to_thread(" wrapping the call
+# - "await aiofiles.open("
+# - "run_in_executor(" wrapping the call
+```
+
+**Violation Rules:**
+
+| Pattern | Severity | Issue |
+|---------|----------|-------|
+| Path.read_bytes() in async def | HIGH | Blocking file read in async context |
+| open() without aiofiles in async def | HIGH | Blocking file operation |
+| time.sleep() in async def | HIGH | Blocking sleep (use asyncio.sleep) |
+
+**Recommendation:** Use `asyncio.to_thread()` or `aiofiles` for file I/O in async functions
+
+**Effort:** S-M
+
+#### 2.5.4 Fire-and-Forget Violations
+
+**What:** asyncio.create_task() without error handling
+
+**Detection:**
+```
+all_tasks = Grep("create_task\(", codebase)
+
+# For each match, check context:
+# - Has .add_done_callback() → OK
+# - Assigned to variable with later await → OK
+# - Has "# fire-and-forget" comment → OK (documented intent)
+# - None of above → VIOLATION
+```
+
+**Violation Rules:**
+
+| Pattern | Severity | Issue |
+|---------|----------|-------|
+| create_task() without handler or comment | MEDIUM | Unhandled task exception possible |
+| create_task() in loop without error collection | HIGH | Multiple silent failures possible |
+
+**Recommendation:** Add `task.add_done_callback(handle_exception)` or document intent with comment
+
+**Effort:** S
+
+---
+
 ### Phase 3: Check Pattern Coverage
 
 ```
@@ -102,35 +218,74 @@ IF len(unique_files) > 2:
   })
 ```
 
+### Phase 3.5: Calculate Score
+
+**Unified formula:**
+```
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
+score = max(0, 10 - penalty)
+```
+
+**Example:**
+- 1 CRITICAL + 2 HIGH + 3 MEDIUM = 1×2.0 + 2×1.0 + 3×0.5 = 5.5 penalty
+- score = 10 - 5.5 = 4.5
+
 ### Phase 4: Return Result
 
 ```json
 {
+  "category": "Layer Boundary",
+  "score": 4.5,
+  "total_issues": 8,
+  "critical": 1,
+  "high": 3,
+  "medium": 4,
+  "low": 0,
   "architecture": {
     "type": "Layered",
     "layers": ["api", "services", "domain", "infrastructure"]
   },
-  "violations": [
+  "findings": [
     {
-      "type": "layer_violation",
+      "severity": "CRITICAL",
+      "location": "app/",
+      "issue": "Mixed UoW ownership: commit() found in repositories (3), services (2), api (4)",
+      "principle": "Layer Boundary / Transaction Control",
+      "recommendation": "Choose single UoW owner (service layer recommended), remove commit() from other layers",
+      "effort": "L"
+    },
+    {
       "severity": "HIGH",
-      "pattern": "HTTP Client",
-      "file": "app/domain/pdf/parser.py",
-      "line": 45,
-      "code": "async with httpx.AsyncClient() as client:",
-      "allowed_in": "infrastructure/http/",
-      "suggestion": "Move to infrastructure/http/clients/"
+      "location": "app/services/job/service.py:45",
+      "issue": "Blocking file I/O in async: Path.read_bytes() inside async def process_job()",
+      "principle": "Layer Boundary / Async Consistency",
+      "recommendation": "Use asyncio.to_thread(path.read_bytes) or aiofiles",
+      "effort": "S"
+    },
+    {
+      "severity": "HIGH",
+      "location": "app/domain/pdf/parser.py:45",
+      "issue": "Layer violation: HTTP client used in domain layer",
+      "principle": "Layer Boundary / I/O Isolation",
+      "recommendation": "Move httpx.AsyncClient to infrastructure/http/clients/",
+      "effort": "M"
+    },
+    {
+      "severity": "MEDIUM",
+      "location": "app/api/v1/jobs.py:78",
+      "issue": "Fire-and-forget task without error handler: create_task(notify_user())",
+      "principle": "Layer Boundary / Task Error Handling",
+      "recommendation": "Add task.add_done_callback(handle_exception) or document with # fire-and-forget comment",
+      "effort": "S"
     }
   ],
   "coverage": {
     "http_abstraction": 75,
-    "resilience_wrapper": 60
-  },
-  "summary": {
-    "total_violations": 5,
-    "high": 2,
-    "medium": 3,
-    "low": 0
+    "error_centralization": false,
+    "transaction_boundary_consistent": false,
+    "session_ownership_consistent": true,
+    "async_io_consistent": false,
+    "fire_and_forget_handled": false
   }
 }
 ```
@@ -147,7 +302,12 @@ IF len(unique_files) > 2:
 
 - Architecture discovered from docs/architecture.md (or fallback used)
 - All violation types from common_patterns.md checked
-- Coverage calculated for HTTP abstraction
+- **Cross-layer consistency checked:**
+  - Transaction boundaries analyzed (commit/rollback distribution)
+  - Session ownership analyzed (DI vs local)
+  - Async consistency analyzed (sync I/O in async functions)
+  - Fire-and-forget tasks analyzed (error handling)
+- Coverage calculated for HTTP abstraction + 4 consistency metrics
 - Violations list with severity, location, suggestion
 - Summary counts returned to coordinator
 
@@ -158,5 +318,5 @@ IF len(unique_files) > 2:
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2026-01-29
+**Version:** 2.0.0
+**Last Updated:** 2026-02-04

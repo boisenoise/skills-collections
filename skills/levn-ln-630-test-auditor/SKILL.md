@@ -172,47 +172,67 @@ ELSE:
 - Phase 4b: All N domain-aware invocations run in PARALLEL
 - Example: 3 domains → 3 ln-374 invocations in single message
 
-**Each worker returns structured JSON:**
+**Worker Output Contract (Unified):**
+
+All workers MUST return JSON with this structure:
 ```json
 {
-  "category": "Business Logic Focus",
+  "category": "Category Name",
   "score": 7,
   "total_issues": 12,
+  "critical": 0,
+  "high": 3,
+  "medium": 7,
+  "low": 2,
   "findings": [
     {
-      "severity": "MEDIUM",
-      "test_file": "auth.test.ts",
-      "test_name": "bcrypt hashes password",
-      "decision": "REMOVE",
-      "usefulness_score": 3,
-      "reason": "Tests library behavior, not OUR code",
+      "severity": "HIGH",
+      "location": "path/file.ts:123",
+      "issue": "Description of the issue",
+      "principle": "Category / Sub-principle",
+      "recommendation": "How to fix",
       "effort": "S"
     }
   ]
 }
 ```
 
+**Unified Scoring Formula (all workers):**
+```
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
+score = max(0, 10 - penalty)
+```
+
+**Domain-aware workers** add optional fields: `domain`, `scan_path`
+
 ### Phase 5: Aggregate Results
 
-**Goal:** Merge all worker results into unified Test Suite Audit Report with domain grouping
+**Goal:** Merge all worker results into unified Test Suite Audit Report
+
+**Aggregation Algorithm:**
+```
+1. Collect JSON from all 5 workers
+2. Merge findings from all workers into single array
+3. Sum severity counts:
+   total_critical = sum(worker.critical for all workers)
+   total_high = sum(worker.high for all workers)
+   total_medium = sum(worker.medium for all workers)
+   total_low = sum(worker.low for all workers)
+4. Calculate Overall Score:
+   overall_score = average(worker.score for all workers)
+5. Sort findings by severity: CRITICAL → HIGH → MEDIUM → LOW
+6. Group findings by category for report sections
+```
 
 **Actions:**
 1. **Collect results** from all workers (global + domain-aware)
-2. **Global workers (ln-371, ln-372, ln-373, ln-375)** → merge findings (as before)
-3. **Domain-aware worker (ln-374)** → group by domain.name:
-   - Aggregate coverage gaps per domain
-   - Build Domain Coverage Summary table
-4. **Merge findings** into decision categories:
-   - **Tests to REMOVE** (Usefulness Score <10)
-   - **Tests to REVIEW** (Usefulness Score 10-14)
-   - **Tests to KEEP** (Usefulness Score ≥15)
-   - **Missing Tests** (Priority/Justification) — grouped by domain if domain_mode="domain-aware"
-   - **Anti-Patterns Found** (counts + examples)
-5. **Calculate compliance scores** (6 categories, each /10)
-6. **Build decision summary** (KEEP/REVIEW/REMOVE counts)
-7. **Generate Executive Summary** (2-3 sentences)
-8. **Create Linear task** in Epic 0 with full report (see Output Format below)
-9. **Return summary** to user
+2. **Merge findings** into single flat array (all workers use unified format)
+3. **Sum severity counts** across all workers
+4. **Calculate overall score** = average of 5 worker scores
+5. **Domain-aware worker (ln-634)** → group by domain.name if domain_mode="domain-aware"
+6. **Generate Executive Summary** (2-3 sentences)
+7. **Create Linear task** in Epic 0 with full report (see Output Format below)
+8. **Return summary** to user
 
 **Findings grouping:**
 - Categories 1-3, 5-6 (Business Logic, E2E, Value, Isolation, Anti-Patterns) → single tables (global)
@@ -226,26 +246,26 @@ ELSE:
 ### Executive Summary
 [2-3 sentences: test suite health, major issues, key recommendations]
 
-### Test Count by Decision
+### Severity Summary
 
-| Decision | Count | % |
-|----------|-------|---|
-| KEEP | X | X% |
-| REVIEW | X | X% |
-| REMOVE | X | X% |
-| **Total** | **X** | |
+| Severity | Count |
+|----------|-------|
+| Critical | X |
+| High | X |
+| Medium | X |
+| Low | X |
+| **Total** | **X** |
 
 ### Compliance Score
 
 | Category | Score | Notes |
 |----------|-------|-------|
 | Business Logic Focus | X/10 | X framework tests found |
-| E2E Priority | X/10 | X E2E, X Integration, X Unit |
-| Risk-Based Value | X/10 | X tests with Priority <10 |
+| E2E Critical Coverage | X/10 | X critical paths missing E2E |
+| Risk-Based Value | X/10 | X low-value tests |
 | Coverage Gaps | X/10 | X critical paths untested |
-| Test Isolation | X/10 | X isolation issues |
-| Anti-Patterns | X/10 | X anti-patterns found |
-| **Overall** | **X/10** | |
+| Isolation & Anti-Patterns | X/10 | X isolation + anti-pattern issues |
+| **Overall** | **X/10** | Average of 5 categories |
 
 ### Domain Coverage Summary (NEW - if domain_mode="domain-aware")
 
@@ -258,16 +278,15 @@ ELSE:
 
 ### Audit Findings
 
-| Severity | Location | Issue | Violated Principle | Recommendation | Effort |
-|----------|----------|-------|-------------------|----------------|--------|
-| **CRITICAL** | - | Missing E2E for payment with discount | #3: E2E for critical paths only (Money Priority 25) | Add E2E test: successful payment + discount edge cases | M |
-| **HIGH** | auth.test.ts:45 | Test "bcrypt hashes password" (Score 3) | #1: Test business logic, not frameworks | Delete — bcrypt already tested by maintainers | S |
-| **HIGH** | db.test.ts:78 | Test "Prisma findMany returns array" (Score 4) | #1: Test business logic, not frameworks | Delete — Prisma ORM already tested | S |
-| **HIGH** | - | Missing Unit test for tax calculation edge cases | #5: Every test must justify existence (Impact 5 × Probability 4 = 20) | Add Unit tests for country-specific tax rules | M |
-| **MEDIUM** | utils.test.ts:23 | Test "validateEmail returns true" (Score 12) | #4: Usefulness over quantity | Review: if E2E login covers → DELETE; else KEEP | S |
-| **MEDIUM** | order.test.ts:200-350 | Giant test (>100 lines) | Anti-pattern: The Giant | Split into focused tests (one scenario per test) | M |
-| **MEDIUM** | test.ts:45 | No assertions in test | Anti-pattern: The Liar | Add specific assertions or delete test | S |
-| **LOW** | auth.test.ts | Only positive login scenarios | Anti-pattern: Happy Path Only | Add negative tests (invalid credentials, expired tokens) | M |
+| Severity | Location | Issue | Principle | Recommendation | Effort |
+|----------|----------|-------|-----------|----------------|--------|
+| **CRITICAL** | routes/payment.ts:45 | Missing E2E for payment processing (Priority 25) | E2E Critical Coverage / Money Flow | Add E2E: successful payment + discount edge cases | M |
+| **HIGH** | auth.test.ts:45-52 | Test 'bcrypt hashes password' validates library behavior | Business Logic Focus / Crypto Testing | Delete — bcrypt already tested by maintainers | S |
+| **HIGH** | db.test.ts:78-85 | Test 'Prisma findMany returns array' validates ORM | Business Logic Focus / ORM Testing | Delete — Prisma already tested | S |
+| **HIGH** | user.test.ts:45 | Anti-pattern 'The Liar' — no assertions | Anti-Patterns / The Liar | Add specific assertions or delete test | S |
+| **MEDIUM** | utils.test.ts:23-27 | Test 'validateEmail' has Usefulness Score 4 | Risk-Based Value / Low Priority | Delete — likely covered by E2E registration | S |
+| **MEDIUM** | order.test.ts:200-350 | Anti-pattern 'The Giant' — 150 lines | Anti-Patterns / The Giant | Split into focused tests | M |
+| **LOW** | payment.test.ts | Anti-pattern 'Happy Path Only' — no error tests | Anti-Patterns / Happy Path | Add negative tests | M |
 
 ### Coverage Gaps by Domain (if domain_mode="domain-aware")
 

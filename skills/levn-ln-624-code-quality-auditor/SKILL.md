@@ -1,18 +1,18 @@
 ---
 name: ln-624-code-quality-auditor
-description: Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classes, O(n²) algorithms, N+1 queries, magic numbers, decentralized constants, duplicate constants. Returns findings with severity, location, effort, recommendations.
+description: "Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classes, method signature quality, O(n²) algorithms, N+1 queries, magic numbers/constants. Returns findings with severity, location, effort, recommendations."
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
 # Code Quality Auditor (L3 Worker)
 
-Specialized worker auditing code complexity, algorithms, and constants management.
+Specialized worker auditing code complexity, method signatures, algorithms, and constants management.
 
 ## Purpose & Scope
 
 - **Worker in ln-620 coordinator pipeline** - invoked by ln-620-codebase-auditor
 - Audit **code quality** (Categories 5+6+NEW: Medium Priority)
-- Check complexity metrics, algorithmic efficiency, constants management
+- Check complexity metrics, method signature quality, algorithmic efficiency, constants management
 - Return structured findings with severity, location, effort, recommendations
 - Calculate compliance score (X/10) for Code Quality category
 
@@ -209,6 +209,30 @@ Receives `contextStore` with:
 
 **Effort:** M (extract constants, update imports, consolidate)
 
+### 9. Method Signature Quality
+**What:** Poor method contracts reducing readability and maintainability
+
+**Detection:**
+
+| Issue | Pattern | Example |
+|-------|---------|---------|
+| Boolean flag params | >=2 boolean params in signature | `def process(data, is_async: bool, skip_validation: bool)` |
+| Too many optional params | >=3 optional params with defaults | `def query(db, limit=10, offset=0, sort="id", order="asc")` |
+| Inconsistent verb naming | Different verbs for same operation type in one module | `get_user()` vs `fetch_account()` vs `load_profile()` |
+| Unclear return type | `-> dict`, `-> Any`, `-> tuple` without TypedDict/NamedTuple | `def get_stats() -> dict` instead of `-> StatsResponse` |
+
+**Severity:**
+- **MEDIUM:** Boolean flag params (use enum/strategy), unclear return types
+- **LOW:** Too many optional params, inconsistent naming
+
+**Recommendation:**
+- Boolean flags: replace with enum, strategy pattern, or separate methods
+- Optional params: group into config/options dataclass
+- Naming: standardize verb conventions per module (`get_` for sync, `fetch_` for async, etc.)
+- Return types: use TypedDict, NamedTuple, or dataclass instead of raw dict/tuple
+
+**Effort:** S-M (refactor signatures + callers)
+
 ## Scoring Algorithm
 
 ```
@@ -282,8 +306,8 @@ Return JSON to coordinator:
 
 - contextStore parsed (including domain_mode and current_domain)
 - scan_path determined (domain path or codebase root)
-- All 8 checks completed (scoped to scan_path):
-  - complexity, nesting, length, god classes, parameters, O(n²), N+1, constants
+- All 9 checks completed (scoped to scan_path):
+  - complexity, nesting, length, god classes, parameters, O(n²), N+1, constants, method signatures
 - Findings collected with severity, location, effort, recommendation, domain
 - Score calculated
 - JSON returned to coordinator with domain metadata

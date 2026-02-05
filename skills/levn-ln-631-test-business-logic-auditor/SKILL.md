@@ -115,40 +115,38 @@ Receives `contextStore` with framework detection patterns, tech stack, test file
 
 ## Scoring Algorithm
 
+**Unified formula (same as ln-650):**
 ```
-penalty = (medium * 0.5) + (low * 0.2)
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
 score = max(0, 10 - penalty)
 ```
 
 ## Output Format
 
+**Return JSON to coordinator:**
 ```json
 {
   "category": "Business Logic Focus",
   "score": 7,
   "total_issues": 12,
+  "critical": 0,
+  "high": 0,
   "medium": 10,
   "low": 2,
   "findings": [
     {
       "severity": "MEDIUM",
-      "test_file": "auth.test.ts",
-      "test_name": "bcrypt hashes password",
       "location": "auth.test.ts:45-52",
-      "decision": "REMOVE",
-      "usefulness_score": 3,
-      "reason": "Tests bcrypt library behavior, not OUR code",
+      "issue": "Test 'bcrypt hashes password' validates library behavior, not OUR code",
+      "principle": "Business Logic Focus / Framework Testing",
       "recommendation": "Delete test — bcrypt already tested by maintainers",
       "effort": "S"
     },
     {
       "severity": "MEDIUM",
-      "test_file": "db.test.ts",
-      "test_name": "Prisma findMany returns array",
       "location": "db.test.ts:78-85",
-      "decision": "REMOVE",
-      "usefulness_score": 4,
-      "reason": "Tests Prisma ORM behavior, not OUR query logic",
+      "issue": "Test 'Prisma findMany returns array' validates ORM behavior, not OUR query logic",
+      "principle": "Business Logic Focus / ORM Testing",
       "recommendation": "Delete test — Prisma already tested",
       "effort": "S"
     }

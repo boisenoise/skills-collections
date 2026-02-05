@@ -93,7 +93,7 @@ Receives `contextStore` with tech stack, framework, codebase root.
 ## Scoring Algorithm
 
 ```
-penalty = (high * 1.0) + (medium * 0.5) + (low * 0.2)
+penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
 score = max(0, 10 - penalty)
 ```
 
@@ -104,6 +104,7 @@ score = max(0, 10 - penalty)
   "category": "Observability",
   "score": 6,
   "total_issues": 5,
+  "critical": 0,
   "high": 1,
   "medium": 3,
   "low": 1,

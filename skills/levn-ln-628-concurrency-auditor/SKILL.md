@@ -30,73 +30,123 @@ Receives `contextStore` with tech stack, language, codebase root.
 ## Audit Rules
 
 ### 1. Race Conditions
-**Detection:**
-- Shared state modified without synchronization
-- Global variables accessed by multiple async functions
-- Check for locks/mutexes usage
+**What:** Shared state modified without synchronization
+
+**Detection Patterns:**
+
+| Language | Pattern | Grep |
+|----------|---------|------|
+| Python | Global modified in async | `global\s+\w+` inside `async def` |
+| TypeScript | Module-level let in async | `^let\s+\w+` at file scope + async function modifies it |
+| Go | Map access without mutex | `map\[.*\].*=` without `sync.Mutex` in same file |
+| All | Shared cache | `cache\[.*\]\s*=` or `cache\.set` without lock |
 
 **Severity:**
-- **CRITICAL:** Race condition in payment/auth
+- **CRITICAL:** Race in payment/auth (`payment`, `balance`, `auth`, `token` in variable name)
 - **HIGH:** Race in user-facing feature
 - **MEDIUM:** Race in background job
 
 **Recommendation:** Use locks, atomic operations, message queues
 
-**Effort:** M-L (redesign with synchronization)
+**Effort:** M-L
 
 ### 2. Missing Async/Await
-**Detection:**
-- Callback hell: nested callbacks >3 levels
-- Grep for `.then().then().then()`
-- Find promises without await
+**What:** Callback hell or unhandled promises
+
+**Detection Patterns:**
+
+| Issue | Grep | Example |
+|-------|------|---------|
+| Callback hell | `\.then\(.*\.then\(.*\.then\(` | `.then().then().then()` |
+| Fire-and-forget | `async.*\(\)` not preceded by `await` | `saveToDb()` without await |
+| Missing await | `return\s+new\s+Promise` in async function | Should just `return await` or `return` value |
+| Dangling promise | `\.catch\(\s*\)` | Empty catch swallows errors |
 
 **Severity:**
+- **HIGH:** Fire-and-forget async (can cause data loss)
 - **MEDIUM:** Callback hell (hard to maintain)
-- **LOW:** Mixed Promise styles (then + await)
+- **LOW:** Mixed Promise styles
 
-**Recommendation:** Convert to async/await
+**Recommendation:** Convert to async/await, always await or handle promises
 
-**Effort:** M (refactor control flow)
+**Effort:** M
 
 ### 3. Resource Contention
-**Detection:**
-- Multiple file handles to same file
-- Database connection pool exhausted
-- Concurrent writes without locking
+**What:** Multiple processes competing for same resource
+
+**Detection Patterns:**
+
+| Issue | Grep | Example |
+|-------|------|---------|
+| File lock missing | `open\(.*["']w["']\)` without `flock` or `lockfile` | Concurrent file writes |
+| Connection exhaustion | `create_engine\(.*pool_size` check if pool_size < 5 | DB pool too small |
+| Concurrent writes | `writeFile` or `fs\.write` without lock check | File corruption risk |
 
 **Severity:**
-- **HIGH:** File corruption risk
+- **HIGH:** File corruption risk, DB exhaustion
 - **MEDIUM:** Performance degradation
 
-**Recommendation:** Use connection pooling, file locking
+**Recommendation:** Use connection pooling, file locking, `asyncio.Lock`
 
-**Effort:** M (add resource management)
+**Effort:** M
 
 ### 4. Thread Safety Violations
-**Detection (Go, Rust, Java):**
-- Shared mutable state
-- Missing `sync.Mutex` (Go)
-- Missing `Arc<Mutex<T>>` (Rust)
-- Missing `synchronized` (Java)
+**What:** Shared mutable state without synchronization
 
-**Severity:**
-- **HIGH:** Data corruption possible
+**Detection Patterns:**
+
+| Language | Safe Pattern | Unsafe Pattern |
+|----------|--------------|----------------|
+| Go | `sync.Mutex` with map | `map[...]` without Mutex in same struct |
+| Rust | `Arc<Mutex<T>>` | `Rc<RefCell<T>>` in multi-threaded context |
+| Java | `synchronized` or `ConcurrentHashMap` | `HashMap` shared between threads |
+| Python | `threading.Lock` | Global dict modified in threads |
+
+**Grep patterns:**
+- Go unsafe: `type.*struct\s*{[^}]*map\[` without `sync.Mutex` in same struct
+- Python unsafe: `global\s+\w+` in function + `threading.Thread` in same file
+
+**Severity:** **HIGH** (data corruption possible)
 
 **Recommendation:** Use thread-safe primitives
 
-**Effort:** M (add synchronization)
+**Effort:** M
 
 ### 5. Deadlock Potential
-**Detection:**
-- Multiple locks acquired in different order
-- Lock held while calling external API
+**What:** Lock acquisition in inconsistent order
+
+**Detection Patterns:**
+
+| Issue | Grep | Example |
+|-------|------|---------|
+| Nested locks | `with\s+\w+_lock:.*with\s+\w+_lock:` (multiline) | Lock A then Lock B |
+| Lock in loop | `for.*:.*\.acquire\(\)` | Lock acquired repeatedly without release |
+| Lock + external call | `.acquire\(\)` followed by `await` or `requests.` | Holding lock during I/O |
+
+**Severity:** **HIGH** (deadlock freezes application)
+
+**Recommendation:** Consistent lock ordering, timeout locks (`asyncio.wait_for`)
+
+**Effort:** L
+
+### 6. Blocking I/O in Event Loop (Python asyncio)
+**What:** Synchronous blocking calls inside async functions
+
+**Detection Patterns:**
+
+| Blocking Call | Grep in `async def` | Replacement |
+|---------------|---------------------|-------------|
+| `time.sleep` | `time\.sleep` inside async def | `await asyncio.sleep` |
+| `requests.` | `requests\.(get\|post)` inside async def | `httpx` or `aiohttp` |
+| `open()` file | `open\(` inside async def | `aiofiles.open` |
 
 **Severity:**
-- **HIGH:** Deadlock freezes application
+- **HIGH:** Blocks entire event loop
+- **MEDIUM:** Minor blocking (<100ms)
 
-**Recommendation:** Consistent lock ordering, timeout locks
+**Recommendation:** Use async alternatives
 
-**Effort:** L (redesign locking strategy)
+**Effort:** S-M
 
 ## Scoring Algorithm
 
