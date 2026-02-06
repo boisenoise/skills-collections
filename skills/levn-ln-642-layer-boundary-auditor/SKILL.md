@@ -220,15 +220,7 @@ IF len(unique_files) > 2:
 
 ### Phase 3.5: Calculate Score
 
-**Unified formula:**
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
-
-**Example:**
-- 1 CRITICAL + 2 HIGH + 3 MEDIUM = 1×2.0 + 2×1.0 + 3×0.5 = 5.5 penalty
-- score = 10 - 5.5 = 4.5
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ### Phase 4: Return Result
 
@@ -245,6 +237,15 @@ score = max(0, 10 - penalty)
     "type": "Layered",
     "layers": ["api", "services", "domain", "infrastructure"]
   },
+  "checks": [
+    {"id": "io_isolation", "name": "I/O Isolation", "status": "failed", "details": "HTTP client found in domain layer"},
+    {"id": "http_abstraction", "name": "HTTP Abstraction", "status": "warning", "details": "75% coverage, 3 direct calls outside infrastructure"},
+    {"id": "error_centralization", "name": "Error Centralization", "status": "failed", "details": "HTTP error handlers in 4 files, should be centralized"},
+    {"id": "transaction_boundary", "name": "Transaction Boundary", "status": "failed", "details": "commit() in repos (3), services (2), api (4) - mixed UoW ownership"},
+    {"id": "session_ownership", "name": "Session Ownership", "status": "passed", "details": "DI-based sessions used consistently"},
+    {"id": "async_consistency", "name": "Async Consistency", "status": "failed", "details": "Blocking I/O in async functions detected"},
+    {"id": "fire_and_forget", "name": "Fire-and-Forget Handling", "status": "warning", "details": "2 tasks without error handlers"}
+  ],
   "findings": [
     {
       "severity": "CRITICAL",

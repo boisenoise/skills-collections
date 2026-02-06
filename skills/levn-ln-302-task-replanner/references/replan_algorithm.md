@@ -3,7 +3,9 @@
 <!-- SCOPE: Task REPLAN algorithm ONLY. Contains IDEAL vs existing comparison, KEEP/UPDATE/OBSOLETE/CREATE operations, status constraints. -->
 <!-- DO NOT add here: Task creation → ln-301-task-creator SKILL.md, coordinator logic → ln-300-task-coordinator SKILL.md -->
 
-Detailed comparison logic for x-task-coordinator REPLAN MODE. This algorithm determines which operations (KEEP/UPDATE/OBSOLETE/CREATE) to perform when existing tasks are found for a Story.
+**MANDATORY READ:** Load `shared/references/replan_algorithm.md` for Operations Matrix, Status Constraints, Edge Cases, Best Practices.
+
+Detailed comparison logic for ln-302-task-replanner REPLAN MODE. This algorithm determines which operations (KEEP/UPDATE/OBSOLETE/CREATE) to perform when existing tasks are found for a Story.
 
 ## Overview
 
@@ -101,208 +103,26 @@ For EACH existing task:
 
 ### Step 2: Determine Operations
 
-For EACH existing task:
+> **See shared/references/replan_algorithm.md** for KEEP/UPDATE/OBSOLETE/CREATE criteria and Status Constraints.
 
-#### KEEP Operation
+**Task-specific examples:**
 
-**Criteria** (ALL must be true):
-- ✅ Task exists in IDEAL plan (goal matches)
-- ✅ AC unchanged (compare Story AC sections referenced in task)
-- ✅ Implementation approach still valid (guide links, patterns)
-- ✅ Status: Any except Done or Canceled
-- ✅ No structural changes needed (Affected Components same)
-
-**Action**: None (task is already correct)
-
-**Example**:
-```
-EP7_01: Implement token generation endpoint
-- IDEAL plan has: "Token generation endpoint" (AC1, AC2)
-- Existing task has: AC1, AC2
-- Status: Done
-→ KEEP (task matches IDEAL plan, already complete)
-```
-
-#### UPDATE Operation
-
-**Criteria** (ANY must be true):
-- ⚠️ Task in IDEAL plan BUT AC changed
-  - New AC added to Story
-  - Existing AC modified (conditions changed)
-  - AC removed from task scope
-- ⚠️ Technical approach changed
-  - New guide links added to Story
-  - Architecture patterns updated
-  - Technology stack changed
-- ⚠️ Affected components changed
-  - New files to modify
-  - Different layers involved
-
-**Constraints**:
-- ✅ Status: Todo or Backlog ONLY
-- ❌ If In Progress/To Review → WARNING, manual review needed (don't auto-update)
-- ❌ If Done → WARNING, never update Done tasks
-
-**Action**: `update_issue(id, description=new_description)`
-
-**Example**:
-```
-EP7_02: Validate JWT tokens
-- IDEAL plan has: "Token validation middleware" (AC3, AC4)
-- Existing task has: AC3 ONLY (AC4 missing!)
-- Status: Todo
-→ UPDATE (AC4 "Handle expired tokens" added to Story)
-
-Changes to apply:
-- Update AC section: Add AC4 scenario
-- Update Implementation Plan: Add expiration check phase
-- Update Technical Approach: Reference token expiration guide
-```
-
-#### OBSOLETE Operation
-
-**Criteria** (ALL must be true):
-- ❌ Task NOT in IDEAL plan (no matching goal)
-- ❌ Feature removed from Story AC
-- ❌ OR functionality merged into different task
-
-**Constraints**:
-- ✅ Status: Todo or Backlog ONLY
-- ❌ If In Progress/To Review → WARNING, manual review needed (don't auto-cancel)
-- ❌ If Done → WARNING, never obsolete Done tasks (work was completed)
-
-**Action**:
-```
-update_issue(id, state="Canceled")
-```
-Add comment: "Task canceled due to Story replan. Feature removed from requirements."
-
-**Example**:
-```
-EP7_03: Cache tokens in Redis
-- IDEAL plan does NOT have: Caching task
-- Story AC6 (caching requirement) REMOVED
-- Status: Todo
-→ OBSOLETE (caching is no longer in scope)
-
-Action: Cancel task, preserve history
-```
-
-#### CREATE Operation
-
-**Criteria** (ALL must be true):
-- ✨ Task in IDEAL plan
-- ✨ No existing task matches goal
-- ✨ New requirement added to Story
-
-**Action**: `create_issue(title, description, parentId=Story.id, ...)` (same as CREATE MODE)
-
-**Example**:
-```
-IDEAL plan has: "Email validation" (NEW AC6)
-- No existing task for email validation
-- New requirement added to Story
-→ CREATE (new task needed)
-
-Generate:
-- Title: "EP7_04: Validate email format in registration"
-- Description: Full 7 sections
-- AC: AC6 from Story
-- parentId: Story.id
-```
+| Operation | Task Example | Result |
+|-----------|--------------|--------|
+| KEEP | EP7_01 (AC1,AC2) matches IDEAL Task 1 (AC1,AC2), Status: Done | No action |
+| UPDATE | EP7_02 (AC3 only) vs IDEAL Task 2 (AC3,AC4), Status: Todo | Add AC4, update Implementation Plan |
+| OBSOLETE | EP7_03 (AC6 caching) not in IDEAL, AC6 removed | Cancel + comment |
+| CREATE | IDEAL has "Email validation" (AC6), no existing task | Generate 7-section doc |
 
 ### Step 3: Handle Edge Cases
 
-#### Edge Case 1: Obsolete Task In Progress
+> **See shared/references/replan_algorithm.md** for generic edge cases (Split, Merge, Ambiguous, Done conflicts, In Progress OBSOLETE).
 
-**Scenario**: Task is marked OBSOLETE but status is In Progress or To Review.
-
-**Problem**: Someone is actively working on this task, auto-canceling would waste work.
-
-**Action**:
+**Task-specific edge case:** AC Count Mismatch (AC reassigned between tasks)
 ```
-WARNING: "Task EP7_03 is In Progress but no longer in IDEAL plan. Manual review needed."
-- Do NOT auto-cancel
-- Show in operations summary with ⚠️ warning
-- Let user decide:
-  - Complete the task and cancel later?
-  - Cancel now and abandon work?
-  - Merge work into different task?
-```
-
-#### Edge Case 2: UPDATE Task To Review
-
-**Scenario**: Task needs UPDATE (AC changed) but status is To Review (awaiting review).
-
-**Problem**: Task already completed and awaiting review, updating would invalidate the review.
-
-**Action**:
-```
-WARNING: "Task EP7_02 is To Review but AC changed. Review may need to restart."
-- Show diff (old AC vs new AC)
-- Let user decide:
-  - Update now (review must restart)?
-  - Wait for review to complete, then update?
-  - Cancel task and create new one?
-```
-
-#### Edge Case 3: IDEAL Plan Differs from Done Tasks
-
-**Scenario**: IDEAL plan significantly differs from completed Done tasks.
-
-**Problem**: Work was completed under old requirements, new requirements are different.
-
-**Action**:
-```
-WARNING: "Story requirements changed significantly. Done tasks may need follow-up work."
-- NEVER update or cancel Done tasks (preserve completed work)
-- If new requirements conflict with Done work → CREATE new task to address discrepancy
-- Example:
-  - Done: "EP7_01: Token generation with JWT"
-  - IDEAL: "Token generation with OAuth2" (different approach!)
-  - Action: CREATE "EP7_04: Migrate token generation to OAuth2"
-```
-
-#### Edge Case 4: Multiple Tasks Match Same IDEAL Goal
-
-**Scenario**: Two existing tasks both match same IDEAL plan goal.
-
-**Problem**: Duplicate work, unclear which to keep.
-
-**Action**:
-```
-WARNING: "Multiple tasks match same IDEAL goal. Manual consolidation needed."
-- EP7_02: "Validate JWT tokens" (Todo)
-- EP7_05: "Add token validation" (In Progress)
-- Both match IDEAL: "Token validation middleware"
-
-Let user decide:
-- Keep EP7_05 (In Progress), obsolete EP7_02?
-- Merge both into one task?
-```
-
-#### Edge Case 5: AC Count Mismatch
-
-**Scenario**: IDEAL plan has 5 AC, but distributed differently across tasks than existing tasks.
-
-**Problem**: AC reassignment between tasks.
-
-**Action**:
-```
-EXAMPLE:
-IDEAL Plan:
-- Task 1: AC1, AC2, AC3 (endpoint)
-- Task 2: AC4, AC5 (middleware)
-
-Existing Tasks:
-- EP7_01: AC1, AC2 (endpoint) - Done
-- EP7_02: AC3, AC4, AC5 (middleware) - Todo
-
-Operations:
-- EP7_01: KEEP (Done, matches AC1, AC2)
-- EP7_02: UPDATE (AC3 moved to Task 1, remove from EP7_02)
-  - BUT AC3 implementation may be in EP7_02 code!
-  - WARNING: "AC3 reassigned. Manual code review needed."
+IDEAL: Task 1 (AC1,AC2,AC3), Task 2 (AC4,AC5)
+Existing: EP7_01 (AC1,AC2) Done, EP7_02 (AC3,AC4,AC5) Todo
+→ WARNING: "AC3 reassigned. Manual code review needed."
 ```
 
 ## Example Scenarios
@@ -571,52 +391,13 @@ EP10_03: "Refactor pagination from results to API"
 - Estimate: 3 hours
 ```
 
-## Best Practices
+## Task-Specific Best Practices
 
-### 1. Be Conservative with Updates
+> **See shared/references/replan_algorithm.md** for universal Best Practices (Conservative Updates, Respect Status, Preserve History, Show Diffs, Warn Work Loss).
 
-- **Prefer CREATE over UPDATE** when in doubt
-- Updating tasks can invalidate work in progress
-- Creating new tasks preserves existing work
-
-### 2. Respect Status
-
-- **Never auto-update In Progress/To Review tasks**
-- **Never auto-cancel In Progress/To Review tasks**
-- **Never update/cancel Done tasks**
-- Show warnings, let user decide
-
-### 3. Preserve History
-
-- Use `state="Canceled"` for obsolete tasks (don't delete)
-- Add comments explaining why task was canceled
-- Reference removed AC numbers and reasons
-
-### 4. Handle AC Reassignment Carefully
-
-- AC moving between tasks is complex
-- Code may be in wrong task
-- Requires manual refactoring
-- Create explicit refactoring tasks
-
-### 5. Show Clear Diffs
-
-- For UPDATE operations, show before/after
-- Highlight added/removed AC
-- Show technical approach changes
-- Make review easy for user
-
-### 6. Warn About Work Loss
-
-- If canceling task with partial work → warning
-- If updating task with code changes → warning
-- If Done task conflicts with new requirements → create follow-up task
-
-### 7. Foundation-First Validation
-
-- Ensure IDEAL plan respects Foundation-First execution order
-- If replan changes order → warning
-- Dependencies should flow correctly (Database before Repository before Service before API)
+**Task-specific additions:**
+- **Foundation-First Validation:** Ensure IDEAL plan respects Foundation-First order (DB → Repository → Service → API). Warn if replan changes order.
+- **AC Reassignment:** When AC moves between tasks, code may be in wrong task. Create explicit refactoring tasks.
 
 ## Output Format
 
@@ -664,5 +445,5 @@ Type "confirm" to execute all operations.
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2025-11-10
+**Version:** 2.0.0
+**Last Updated:** 2026-02-05

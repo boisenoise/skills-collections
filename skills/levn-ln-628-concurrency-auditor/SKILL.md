@@ -150,10 +150,7 @@ Receives `contextStore` with tech stack, language, codebase root.
 
 ## Scoring Algorithm
 
-```
-penalty = (critical * 2.0) + (high * 1.0) + (medium * 0.5) + (low * 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
@@ -166,6 +163,14 @@ score = max(0, 10 - penalty)
   "high": 2,
   "medium": 2,
   "low": 0,
+  "checks": [
+    {"id": "race_conditions", "name": "Race Conditions", "status": "passed", "details": "No shared state modified without synchronization"},
+    {"id": "missing_await", "name": "Missing Await", "status": "failed", "details": "2 fire-and-forget async calls found"},
+    {"id": "resource_contention", "name": "Resource Contention", "status": "warning", "details": "DB pool_size=3 may be insufficient"},
+    {"id": "thread_safety", "name": "Thread Safety", "status": "passed", "details": "All shared state properly synchronized"},
+    {"id": "deadlock_potential", "name": "Deadlock Potential", "status": "passed", "details": "No nested locks or inconsistent ordering"},
+    {"id": "blocking_io", "name": "Blocking I/O", "status": "failed", "details": "time.sleep in async context"}
+  ],
   "findings": [
     {
       "severity": "HIGH",
@@ -178,6 +183,11 @@ score = max(0, 10 - penalty)
   ]
 }
 ```
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

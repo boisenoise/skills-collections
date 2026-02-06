@@ -351,6 +351,14 @@ Each worker:
 - Linear task created in Epic 0 with full report
 - Summary returned to user
 
+## Reference Files
+
+- **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
+- **Risk-based testing methodology:** `shared/references/risk_based_testing.md`
+- **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
+
 ## Related Skills
 
 - **Workers:**

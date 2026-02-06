@@ -216,6 +216,12 @@ Example: (72 + 85 + 68 + 90) / 4 / 10 = 7.9
     "quality": 68,
     "implementation": 90
   },
+  "checks": [
+    {"id": "compliance_check", "name": "Compliance Check", "status": "passed", "details": "ADR exists, standard naming, no anti-patterns"},
+    {"id": "completeness_check", "name": "Completeness Check", "status": "warning", "details": "Missing retry logic documentation"},
+    {"id": "quality_check", "name": "Quality Check", "status": "failed", "details": "Average method length 45 lines, TODO comments found"},
+    {"id": "implementation_check", "name": "Implementation Check", "status": "passed", "details": "Code compiles, used in production, integrated with DI"}
+  ],
   "codeReferences": [
     "src/jobs/processor.ts",
     "src/workers/base.ts"

@@ -15,15 +15,7 @@ Executes a Story end-to-end by looping through its tasks in priority order and d
 
 ## Task Storage Mode
 
-| Aspect | Linear Mode | File Mode |
-|--------|-------------|-----------|
-| **Detection** | Default (MCP Linear available) | `docs/tasks/epics/` directory exists |
-| **Load tasks** | `list_issues(parentId=Story.id)` | `Glob("docs/tasks/epics/*/stories/*/tasks/*.md")` + parse status |
-| **Source of truth** | Linear API | Task files + kanban_board.md |
-
-**Auto-detection:** Check if `docs/tasks/epics/` exists → File Mode, otherwise Linear Mode.
-
-**File Mode status values:** Backlog, Todo, In Progress, To Review, To Rework, Done, Canceled
+**MANDATORY READ:** Load `shared/references/storage_mode_detection.md` for Linear vs File mode detection and operations.
 
 ## When to Use
 - Story is Todo or In Progress and has implementation/refactor/test tasks to finish
@@ -150,6 +142,11 @@ N. [Quality Gate Pass 1/2] via ln-500-story-quality-gate
 - Final report with task counts
 
 ## Reference Files
+- **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
+- **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
+- **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
+- **Plan mode behavior:** `shared/references/plan_mode_pattern.md`
+- **Storage mode detection:** `shared/references/storage_mode_detection.md`
 - Quality orchestration: `../ln-500-story-quality-gate/SKILL.md`
 - Executors: `../ln-401-task-executor/SKILL.md`, `../ln-403-task-rework/SKILL.md`, `../ln-404-test-executor/SKILL.md`
 - Reviewer: `../ln-402-task-reviewer/SKILL.md`

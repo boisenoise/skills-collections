@@ -92,10 +92,7 @@ Receives `contextStore` with tech stack, codebase root.
 
 ## Scoring Algorithm
 
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
@@ -108,6 +105,12 @@ score = max(0, 10 - penalty)
   "high": 2,
   "medium": 3,
   "low": 7,
+  "checks": [
+    {"id": "unreachable_code", "name": "Unreachable Code", "status": "passed", "details": "No unreachable code detected"},
+    {"id": "unused_exports", "name": "Unused Exports", "status": "failed", "details": "3 unused functions found"},
+    {"id": "commented_code", "name": "Commented Code", "status": "warning", "details": "7 blocks of commented code"},
+    {"id": "legacy_shims", "name": "Legacy Shims", "status": "failed", "details": "2 backward compatibility shims"}
+  ],
   "findings": [
     {
       "severity": "MEDIUM",
@@ -128,6 +131,11 @@ score = max(0, 10 - penalty)
   ]
 }
 ```
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

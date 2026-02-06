@@ -97,6 +97,13 @@ Example: (65 + 70 + 55 + 80) / 4 / 10 = 6.75
     "quality": 55,
     "implementation": 80
   },
+  "checks": [
+    {"id": "layer_leakage", "name": "Layer Leakage", "status": "failed", "details": "Service accepts parsed_body: dict in 3 methods"},
+    {"id": "missing_dto", "name": "Missing DTO", "status": "warning", "details": "4 params repeated in 2 methods without grouping DTO"},
+    {"id": "entity_leakage", "name": "Entity Leakage", "status": "passed", "details": "All API endpoints use response DTOs"},
+    {"id": "error_contracts", "name": "Error Contracts", "status": "warning", "details": "Mixed patterns: raise + return None in UserService"},
+    {"id": "redundant_overloads", "name": "Redundant Overloads", "status": "passed", "details": "No redundant method pairs found"}
+  ],
   "codeReferences": ["app/services/translation/", "app/api/v1/"],
   "issues": [...],
   "gaps": {...},

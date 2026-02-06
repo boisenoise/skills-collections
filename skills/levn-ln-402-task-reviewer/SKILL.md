@@ -86,6 +86,8 @@ description: L3 Worker. Reviews task implementation for quality, code standards,
 - Linear status updated; kanban updated (if Done → task removed from kanban; if To Rework → task moved to To Rework section); review comment posted (including list of any side-effect bug tasks created).
 
 ## Reference Files
+- **[MANDATORY] Problem-solving approach:** `shared/references/problem_solving.md`
+- **AC validation rules:** `shared/references/ac_validation_rules.md`
 - AC Validation Checklist: `references/ac_validation_checklist.md` (criteria #4, #9, #17, #19 from ln-310)
 - Kanban format: `docs/tasks/kanban_board.md`
 

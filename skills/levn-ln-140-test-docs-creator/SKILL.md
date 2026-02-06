@@ -328,6 +328,8 @@ tests/
 
 ## Reference Files Used
 
+- **Risk-based testing methodology:** `shared/references/risk_based_testing.md`
+
 ### Templates
 
 **Testing Strategy Template**:

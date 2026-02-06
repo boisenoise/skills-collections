@@ -42,6 +42,7 @@ Executes rework for a single task marked To Rework and hands it back for review.
 - Status set to To Review; kanban updated; summary comment added referencing fixed items.
 
 ## Reference Files
+- **[MANDATORY] Problem-solving approach:** `shared/references/problem_solving.md`
 - Kanban format: `docs/tasks/kanban_board.md`
 
 ---

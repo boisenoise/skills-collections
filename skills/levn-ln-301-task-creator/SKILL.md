@@ -16,18 +16,7 @@ Worker that generates task documents and creates Linear issues for implementatio
 
 ## Task Storage Mode
 
-| Aspect | Linear Mode | File Mode |
-|--------|-------------|-----------|
-| **Create task** | `create_issue(parentId, state: "Backlog")` | `Write("docs/tasks/epics/.../tasks/T{NNN}-{slug}.md")` |
-| **Task ID** | Linear issue ID (e.g., PROJ-123) | File-based (e.g., T001, T002) |
-| **Status** | Linear state field | `**Status:** Backlog` in file |
-| **Kanban** | Auto-synced | Must update `kanban_board.md` manually |
-
-**File Mode task creation:**
-1. Determine next task number: count existing `T*.md` files + 1
-2. Generate filename: `T{NNN}-{slug}.md` (e.g., `T003-implement-auth-service.md`)
-3. Write task file using template
-4. Add link to `kanban_board.md` under Story in Backlog section
+**MANDATORY READ:** Load `shared/references/storage_mode_detection.md` for Linear vs File mode operations.
 
 ## Invocation (who/when)
 - **ln-300-task-coordinator:** CREATE (no tasks) or ADD (appendMode) for implementation tasks.
@@ -115,29 +104,20 @@ Example 3: No duplication (skip warning)
 
 ## Template Loading
 
-**Templates:** `task_template_implementation.md`, `refactoring_task_template.md`, `test_task_template.md`
+**MANDATORY READ:** Load `shared/references/template_loading_pattern.md` for template copy workflow.
 
 **Template Selection by taskType:**
 - `implementation` → `task_template_implementation.md`
 - `refactoring` → `refactoring_task_template.md`
 - `test` → `test_task_template.md`
 
-**Loading Logic (for each template):**
-1. Check if `docs/templates/{template}.md` exists in target project
-2. IF NOT EXISTS:
-   a. Create `docs/templates/` directory if missing
-   b. Copy `shared/templates/{template}.md` → `docs/templates/{template}.md`
-   c. Replace placeholders in the LOCAL copy:
-      - `{{TEAM_ID}}` → from `docs/tasks/kanban_board.md`
-      - `{{DOCS_PATH}}` → "docs" (standard)
-3. Use LOCAL copy (`docs/templates/{template}.md`) for all operations
-
-**Rationale:** Templates are copied to target project on first use, ensuring:
-- Project independence (no dependency on skills repository)
-- Customization possible (project can modify local templates)
-- Placeholder replacement happens once at copy time
+**Local copies:** `docs/templates/*.md` (in target project)
 
 ## Reference Files
+- **Kanban update algorithm:** `shared/references/kanban_update_algorithm.md`
+- **Template loading:** `shared/references/template_loading_pattern.md`
+- **Linear creation workflow:** `shared/references/linear_creation_workflow.md`
+- **Storage mode detection:** `shared/references/storage_mode_detection.md`
 - Templates (centralized): `shared/templates/task_template_implementation.md`, `shared/templates/refactoring_task_template.md`, `shared/templates/test_task_template.md`
 - Local copies: `docs/templates/*.md` (in target project)
 - Kanban format: `docs/tasks/kanban_board.md`

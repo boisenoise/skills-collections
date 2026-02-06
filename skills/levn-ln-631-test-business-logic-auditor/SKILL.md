@@ -115,11 +115,7 @@ Receives `contextStore` with framework detection patterns, tech stack, test file
 
 ## Scoring Algorithm
 
-**Unified formula (same as ln-650):**
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
@@ -133,6 +129,11 @@ score = max(0, 10 - penalty)
   "high": 0,
   "medium": 10,
   "low": 2,
+  "checks": [
+    {"id": "framework_tests", "name": "Framework Tests Detection", "status": "failed", "details": "Found 6 tests validating Express/Fastify behavior"},
+    {"id": "orm_tests", "name": "ORM Library Tests", "status": "warning", "details": "Found 4 Prisma validation tests"},
+    {"id": "business_logic_coverage", "name": "Business Logic Coverage", "status": "passed", "details": "Core business logic properly tested"}
+  ],
   "findings": [
     {
       "severity": "MEDIUM",
@@ -153,6 +154,11 @@ score = max(0, 10 - penalty)
   ]
 }
 ```
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

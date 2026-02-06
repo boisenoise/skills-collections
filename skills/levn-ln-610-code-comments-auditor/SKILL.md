@@ -69,15 +69,20 @@ Audit code comments and docstrings quality. Universal for any tech stack.
 | Medium | Update stale docstring | lib/Y:120 | Actuality |
 ```
 
-## Scoring Rules
+## Scoring Algorithm
 
-| Score | Meaning |
-|-------|---------|
-| 10/10 | No issues |
-| 8-9/10 | Minor issues (small density deviation, few obvious comments) |
-| 6-7/10 | Moderate issues (stale docstrings, some forbidden content) |
-| 4-5/10 | Significant issues (major density problems, outdated comments) |
-| 1-3/10 | Critical issues (author names, commented-out code blocks, broken docstrings) |
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+
+**Severity mapping:**
+
+| Issue Type | Severity |
+|------------|----------|
+| Author names, dates in comments | CRITICAL |
+| Commented-out code blocks | HIGH |
+| Stale/outdated comments | HIGH |
+| Obvious WHAT comments | MEDIUM |
+| Density deviation >5% | MEDIUM |
+| Minor density deviation | LOW |
 
 ## Reference Files
 

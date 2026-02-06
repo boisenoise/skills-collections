@@ -275,11 +275,7 @@ Receives `contextStore` with isolation checklist, anti-patterns catalog, test fi
 
 ## Scoring Algorithm
 
-**Unified formula (same as ln-650):**
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 **Severity mapping:**
 - Flaky tests, External API not mocked, The Liar → HIGH
@@ -298,6 +294,14 @@ score = max(0, 10 - penalty)
   "high": 5,
   "medium": 10,
   "low": 3,
+  "checks": [
+    {"id": "api_isolation", "name": "API Isolation", "status": "failed", "details": "2 tests make real HTTP calls"},
+    {"id": "db_isolation", "name": "Database Isolation", "status": "warning", "details": "1 test uses real PostgreSQL"},
+    {"id": "fs_isolation", "name": "File System Isolation", "status": "passed", "details": "All FS calls mocked"},
+    {"id": "time_isolation", "name": "Time Isolation", "status": "passed", "details": "All Date/Time mocked"},
+    {"id": "flaky_tests", "name": "Flaky Tests", "status": "failed", "details": "3 race conditions detected"},
+    {"id": "anti_patterns", "name": "Anti-Patterns", "status": "warning", "details": "2 Liars, 1 Giant found"}
+  ],
   "findings": [
     {
       "severity": "HIGH",
@@ -352,6 +356,11 @@ score = max(0, 10 - penalty)
 ```
 
 **Note:** Findings are flattened into single array. Use `principle` field prefix (Test Isolation / Determinism / Anti-Patterns) to identify issue category.
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

@@ -235,6 +235,7 @@ architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
 
 ## Reference Files
 
+- **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
 - Pattern catalog template: `shared/templates/patterns_template.md`
 - Common patterns detection: `references/common_patterns.md`
 - Scoring rules: `references/scoring_rules.md`

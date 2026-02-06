@@ -3,6 +3,8 @@
 <!-- SCOPE: Epic REPLAN mode algorithm ONLY. Contains comparison logic, operations (KEEP/UPDATE/OBSOLETE/CREATE), merge strategy. -->
 <!-- DO NOT add here: Epic creation → ln-210-epic-coordinator SKILL.md CREATE mode, Story replan → ln-220/replan_algorithm.md -->
 
+**MANDATORY READ:** Load `shared/references/replan_algorithm.md` for Operations Matrix, Status Constraints, Edge Cases, Best Practices.
+
 Reference file for ln-210-epic-coordinator Phase 5b (REPLAN MODE).
 
 ## When Triggered
@@ -77,11 +79,11 @@ Phase 3 determined Count ≥ 1 (existing Epics found in kanban_board.md Epic Sto
 
 Summary message with operation results + affected Epic URLs
 
-## Important Constraints
+## Epic-Specific Constraint
 
-- **Never auto-update/archive Epics with Stories In Progress** (show warnings only)
-- **Never delete Epics:** Use state="archived" to preserve history
-- **Always require user confirmation** before executing operations
+> **See shared/references/replan_algorithm.md** for Status Constraints (In Progress → warning, Done → never modify).
+
+**Epic-specific:** Never DELETE Epics — use `state="archived"` to preserve history.
 
 ---
 
@@ -97,5 +99,5 @@ Summary message with operation results + affected Epic URLs
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2025-12-12
+**Version:** 2.0.0
+**Last Updated:** 2026-02-05

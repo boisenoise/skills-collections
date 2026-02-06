@@ -41,7 +41,7 @@ stateDiagram-v2
         Parallel --> [*]
 
         Secrets: ln-761 Secret Scanner
-        Dependencies: ln-762 Dependency Audit
+        Dependencies: ln-625 Dependencies Auditor
     }
 
     Phase2 --> Phase3: Scans Complete
@@ -80,7 +80,7 @@ stateDiagram-v2
 sequenceDiagram
     participant C as ln-760 Coordinator
     participant S as ln-761 Secret Scanner
-    participant D as ln-762 Dependency Audit
+    participant D as ln-625 Dependencies Auditor
     participant R as Report
 
     C->>C: Phase 1: Pre-flight checks
@@ -179,7 +179,7 @@ flowchart TD
     </div>
 
     <footer>
-        <p>ln-760-security-setup v2.0.0 | Last Updated: 2026-01-10</p>
+        <p>ln-760-security-setup v3.0.0 | Last Updated: 2026-02-05</p>
     </footer>
 </body>
 </html>

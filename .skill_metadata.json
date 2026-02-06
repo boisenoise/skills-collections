@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-05T06:29:31.262793",
-  "skill_count": 889,
+  "last_updated": "2026-02-06T06:27:30.654680",
+  "skill_count": 969,
   "sources_processed": 19,
   "skills": [
     {
@@ -1532,6 +1532,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-youtube-summarizer",
+      "original_name": "youtube-summarizer",
+      "description": "Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelligent analysis frameworks",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-typescript-pro",
       "original_name": "typescript-pro",
       "description": "Master TypeScript with advanced types, generics, and strict type safety. Handles complex type systems, decorators, and enterprise-grade patterns. Use PROACTIVELY for TypeScript architecture, type inference optimization, or advanced typing patterns.",
@@ -2020,6 +2028,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-audio-transcriber",
+      "original_name": "audio-transcriber",
+      "description": "Transform audio recordings into professional Markdown documentation with intelligent summaries using LLM integration",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-prompt-engineering",
       "original_name": "prompt-engineering",
       "description": "Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when user wants to improve prompts, learn prompting strategies, or debug agent behavior.",
@@ -2030,7 +2046,7 @@
     {
       "name": "antigravity-prompt-engineer",
       "original_name": "prompt-engineer",
-      "description": "Expert prompt engineer specializing in advanced prompting techniques, LLM optimization, and AI system design. Masters chain-of-thought, constitutional AI, and production prompt strategies. Use when building AI features, improving agent performance, or crafting system prompts.",
+      "description": "Transforms user prompts into optimized prompts using frameworks (RTF, RISEN, Chain of Thought, RODES, Chain of Density, RACE, RISE, STAR, SOAP, CLEAR, GROW)",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2231,6 +2247,14 @@
       "name": "antigravity-turborepo-caching",
       "original_name": "turborepo-caching",
       "description": "Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up Turborepo, optimizing build pipelines, or implementing distributed caching.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-oss-hunter",
+      "original_name": "oss-hunter",
+      "description": "Automatically hunt for high-impact OSS contribution opportunities in trending repositories.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4246,10 +4270,10 @@
     {
       "name": "antigravity-skill-creator",
       "original_name": "skill-creator",
-      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
+      "description": "This skill should be used when the user asks to create a new skill, build a skill, make a custom skill, develop a CLI skill, or wants to extend the CLI with new capabilities. Automates the entire skill creation workflow from brainstorming to installation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "Complete terms in LICENSE.txt"
+      "license": "MIT"
     },
     {
       "name": "antigravity-obsidian-clipper-template-creator",
@@ -5508,9 +5532,73 @@
       "license": "MIT"
     },
     {
+      "name": "composio-zoho-crm-automation",
+      "original_name": "zoho-crm-automation",
+      "description": "Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage leads, and convert leads. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-domain-name-brainstormer",
       "original_name": "domain-name-brainstormer",
       "description": "Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-todoist-automation",
+      "original_name": "todoist-automation",
+      "description": "Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-circleci-automation",
+      "original_name": "circleci-automation",
+      "description": "Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve artifacts and test metadata. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-bitbucket-automation",
+      "original_name": "bitbucket-automation",
+      "description": "Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-gitlab-automation",
+      "original_name": "gitlab-automation",
+      "description": "Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-whatsapp-automation",
+      "original_name": "whatsapp-automation",
+      "description": "Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload media, and handle contacts. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-sendgrid-automation",
+      "original_name": "sendgrid-automation",
+      "description": "Automate SendGrid email operations including sending emails, managing contacts/lists, sender identities, templates, and analytics via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-intercom-automation",
+      "original_name": "intercom-automation",
+      "description": "Automate Intercom tasks via Rube MCP (Composio): conversations, contacts, companies, segments, admins. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5524,9 +5612,57 @@
       "license": "MIT"
     },
     {
+      "name": "composio-figma-automation",
+      "original_name": "figma-automation",
+      "description": "Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-shopify-automation",
+      "original_name": "shopify-automation",
+      "description": "Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-airtable-automation",
+      "original_name": "airtable-automation",
+      "description": "Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-raffle-winner-picker",
       "original_name": "raffle-winner-picker",
       "description": "Picks random winners from lists, spreadsheets, or Google Sheets for giveaways, raffles, and contests. Ensures fair, unbiased selection with transparency.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-pagerduty-automation",
+      "original_name": "pagerduty-automation",
+      "description": "Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation policies, and on-call rotations. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-convertkit-automation",
+      "original_name": "convertkit-automation",
+      "description": "Automate ConvertKit (Kit) tasks via Rube MCP (Composio): manage subscribers, tags, broadcasts, and broadcast stats. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-amplitude-automation",
+      "original_name": "amplitude-automation",
+      "description": "Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identification. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5540,9 +5676,49 @@
       "license": "MIT"
     },
     {
+      "name": "composio-twitter-automation",
+      "original_name": "twitter-automation",
+      "description": "Automate Twitter/X tasks via Rube MCP (Composio): posts, search, users, bookmarks, lists, media. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-vercel-automation",
+      "original_name": "vercel-automation",
+      "description": "Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects, and teams. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-connect",
       "original_name": "connect",
       "description": "Connect Claude to any app. Send emails, create issues, post messages, update databases - take real actions across Gmail, Slack, GitHub, Notion, and 1000+ services.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-make-automation",
+      "original_name": "make-automation",
+      "description": "Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone lookups. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-basecamp-automation",
+      "original_name": "basecamp-automation",
+      "description": "Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-stripe-automation",
+      "original_name": "stripe-automation",
+      "description": "Automate Stripe tasks via Rube MCP (Composio): customers, charges, subscriptions, invoices, products, refunds. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5556,12 +5732,44 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
+      "name": "composio-instagram-automation",
+      "original_name": "instagram-automation",
+      "description": "Automate Instagram tasks via Rube MCP (Composio): create posts, carousels, manage media, get insights, and publishing limits. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-trello-automation",
+      "original_name": "trello-automation",
+      "description": "Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, assign members, and search across boards programmatically.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-slack-gif-creator",
       "original_name": "slack-gif-creator",
       "description": "Toolkit for creating animated GIFs optimized for Slack, with validators for size constraints and composable animation primitives. This skill applies when users request animated GIFs or emoji animations for Slack from descriptions like \"make me a GIF for Slack of X doing Y\".",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "Complete terms in LICENSE.txt"
+    },
+    {
+      "name": "composio-linear-automation",
+      "original_name": "linear-automation",
+      "description": "Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-supabase-automation",
+      "original_name": "supabase-automation",
+      "description": "Automate Supabase database queries, table management, project administration, storage, edge functions, and SQL execution via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
     },
     {
       "name": "composio-mcp-builder",
@@ -5572,9 +5780,137 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
+      "name": "composio-notion-automation",
+      "original_name": "notion-automation",
+      "description": "Automate Notion tasks via Rube MCP (Composio): pages, databases, blocks, comments, users. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-mixpanel-automation",
+      "original_name": "mixpanel-automation",
+      "description": "Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profiles, JQL queries. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-postmark-automation",
+      "original_name": "postmark-automation",
+      "description": "Automate Postmark email delivery tasks via Rube MCP (Composio): send templated emails, manage templates, monitor delivery stats and bounces. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-lead-research-assistant",
       "original_name": "lead-research-assistant",
       "description": "Identifies high-quality leads for your product or service by analyzing your business, searching for target companies, and providing actionable contact strategies. Perfect for sales, business development, and marketing professionals.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-one-drive-automation",
+      "original_name": "one-drive-automation",
+      "description": "Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder operations via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-helpdesk-automation",
+      "original_name": "helpdesk-automation",
+      "description": "Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, and configure custom fields. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-asana-automation",
+      "original_name": "asana-automation",
+      "description": "Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-google-analytics-automation",
+      "original_name": "google-analytics-automation",
+      "description": "Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funnels, pivots, key events. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-monday-automation",
+      "original_name": "monday-automation",
+      "description": "Automate Monday.com work management including boards, items, columns, groups, subitems, and updates via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-miro-automation",
+      "original_name": "miro-automation",
+      "description": "Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connectors. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-google-drive-automation",
+      "original_name": "google-drive-automation",
+      "description": "Automate Google Drive file operations (upload, download, search, share, organize) via Rube MCP (Composio). Upload/download files, manage folders, share with permissions, and search across drives programmatically.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-youtube-automation",
+      "original_name": "youtube-automation",
+      "description": "Automate YouTube tasks via Rube MCP (Composio): upload videos, manage playlists, search content, get analytics, and handle comments. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-activecampaign-automation",
+      "original_name": "activecampaign-automation",
+      "description": "Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, automation enrollment, and tasks. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-outlook-automation",
+      "original_name": "outlook-automation",
+      "description": "Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-jira-automation",
+      "original_name": "jira-automation",
+      "description": "Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-segment-automation",
+      "original_name": "segment-automation",
+      "description": "Automate Segment tasks via Rube MCP (Composio): track events, identify users, manage groups, page views, aliases, batch operations. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-freshdesk-automation",
+      "original_name": "freshdesk-automation",
+      "description": "Automate Freshdesk helpdesk operations including tickets, contacts, companies, notes, and replies via Rube MCP (Composio). Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5588,6 +5924,14 @@
       "license": "MIT"
     },
     {
+      "name": "composio-tiktok-automation",
+      "original_name": "tiktok-automation",
+      "description": "Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, and view user profiles/stats. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-skill-share",
       "original_name": "skill-share",
       "description": "A skill that creates new Claude skills and automatically shares them on Slack using Rube for seamless team collaboration and skill discovery.",
@@ -5596,9 +5940,33 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
+      "name": "composio-box-automation",
+      "original_name": "box-automation",
+      "description": "Automate Box cloud storage operations including file upload/download, search, folder management, sharing, collaborations, and metadata queries via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-zoom-automation",
+      "original_name": "zoom-automation",
+      "description": "Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-video-downloader",
       "original_name": "youtube-downloader",
       "description": "Download YouTube videos with customizable quality and format options. Use this skill when the user asks to download, save, or grab YouTube videos. Supports various quality settings (best, 1080p, 720p, 480p, 360p), multiple formats (mp4, webm, mkv), and audio-only downloads as MP3.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-bamboohr-automation",
+      "original_name": "bamboohr-automation",
+      "description": "Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee updates. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5628,9 +5996,113 @@
       "license": "MIT"
     },
     {
+      "name": "composio-klaviyo-automation",
+      "original_name": "klaviyo-automation",
+      "description": "Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign messages, track tags, and monitor send jobs. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-salesforce-automation",
+      "original_name": "salesforce-automation",
+      "description": "Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL queries. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-googlesheets-automation",
+      "original_name": "googlesheets-automation",
+      "description": "Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (Composio). Read/write data, manage tabs, apply formatting, and search rows programmatically.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-close-automation",
+      "original_name": "close-automation",
+      "description": "Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and track notes. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-langsmith-fetch",
       "original_name": "langsmith-fetch",
       "description": "Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use when debugging agent behavior, investigating errors, analyzing tool calls, checking memory operations, or examining agent performance. Automatically fetches recent traces and analyzes execution patterns. Requires langsmith-fetch CLI installed.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-clickup-automation",
+      "original_name": "clickup-automation",
+      "description": "Automate ClickUp project management including tasks, spaces, folders, lists, comments, and team operations via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-brevo-automation",
+      "original_name": "brevo-automation",
+      "description": "Automate Brevo (Sendinblue) tasks via Rube MCP (Composio): manage email campaigns, create/edit templates, track senders, and monitor campaign performance. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-mailchimp-automation",
+      "original_name": "mailchimp-automation",
+      "description": "Automate Mailchimp email marketing including campaigns, audiences, subscribers, segments, and analytics via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-wrike-automation",
+      "original_name": "wrike-automation",
+      "description": "Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, assign work, and track progress. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-microsoft-teams-automation",
+      "original_name": "microsoft-teams-automation",
+      "description": "Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meetings, handle chats, and search messages. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-telegram-automation",
+      "original_name": "telegram-automation",
+      "description": "Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents, and handle bot commands. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-zendesk-automation",
+      "original_name": "zendesk-automation",
+      "description": "Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-datadog-automation",
+      "original_name": "datadog-automation",
+      "description": "Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboards, create events and downtimes. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-freshservice-automation",
+      "original_name": "freshservice-automation",
+      "description": "Automate Freshservice ITSM tasks via Rube MCP (Composio): create/update tickets, bulk operations, service requests, and outbound emails. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5644,6 +6116,14 @@
       "license": "MIT"
     },
     {
+      "name": "composio-sentry-automation",
+      "original_name": "sentry-automation",
+      "description": "Automate Sentry tasks via Rube MCP (Composio): manage issues/events, configure alerts, track releases, monitor projects and teams. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-artifacts-builder",
       "original_name": "artifacts-builder",
       "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
@@ -5652,9 +6132,33 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
+      "name": "composio-coda-automation",
+      "original_name": "coda-automation",
+      "description": "Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions, and publishing. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-outlook-calendar-automation",
+      "original_name": "outlook-calendar-automation",
+      "description": "Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeting times, and handle invitations. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-developer-growth-analysis",
       "original_name": "developer-growth-analysis",
       "description": "Analyzes your recent Claude Code chat history to identify coding patterns, development gaps, and areas for improvement, curates relevant learning resources from HackerNews, and automatically sends a personalized growth report to your Slack DMs.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-canva-automation",
+      "original_name": "canva-automation",
+      "description": "Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5668,6 +6172,14 @@
       "license": "MIT"
     },
     {
+      "name": "composio-gmail-automation",
+      "original_name": "gmail-automation",
+      "description": "Automate Gmail tasks via Rube MCP (Composio): send/reply, search, labels, drafts, attachments. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-skill-creator",
       "original_name": "skill-creator",
       "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
@@ -5676,9 +6188,49 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
+      "name": "composio-linkedin-automation",
+      "original_name": "linkedin-automation",
+      "description": "Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comments, and image uploads. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-competitive-ads-extractor",
       "original_name": "competitive-ads-extractor",
       "description": "Extracts and analyzes competitors' ads from ad libraries (Facebook, LinkedIn, etc.) to understand what messaging, problems, and creative approaches are working. Helps inspire and improve your own ad campaigns.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-dropbox-automation",
+      "original_name": "dropbox-automation",
+      "description": "Automate Dropbox file management, sharing, search, uploads, downloads, and folder operations via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-cal-com-automation",
+      "original_name": "cal-com-automation",
+      "description": "Automate Cal.com tasks via Rube MCP (Composio): manage bookings, check availability, configure webhooks, and handle teams. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-pipedrive-automation",
+      "original_name": "pipedrive-automation",
+      "description": "Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and pipeline management via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-docusign-automation",
+      "original_name": "docusign-automation",
+      "description": "Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document management. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5692,6 +6244,22 @@
       "license": "Complete terms in LICENSE.txt"
     },
     {
+      "name": "composio-slack-automation",
+      "original_name": "slack-automation",
+      "description": "Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Composio). Send messages, search conversations, manage channels/users, and react to messages programmatically.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-render-automation",
+      "original_name": "render-automation",
+      "description": "Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-internal-comms",
       "original_name": "internal-comms",
       "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
@@ -5703,6 +6271,14 @@
       "name": "composio-connect-apps",
       "original_name": "connect-apps",
       "description": "Connect Claude to external apps like Gmail, Slack, GitHub. Use this skill when the user wants to send emails, create issues, post messages, or take actions in external services.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-reddit-automation",
+      "original_name": "reddit-automation",
+      "description": "Automate Reddit tasks via Rube MCP (Composio): search subreddits, create posts, manage comments, and browse top content. Always search tools first for current schemas.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "MIT"
@@ -5724,12 +6300,84 @@
       "license": "MIT"
     },
     {
+      "name": "composio-posthog-automation",
+      "original_name": "posthog-automation",
+      "description": "Automate PostHog tasks via Rube MCP (Composio): events, feature flags, projects, user profiles, annotations. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-github-automation",
+      "original_name": "github-automation",
+      "description": "Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (Composio). Manage code workflows, review PRs, search code, and handle deployments programmatically.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-google-calendar-automation",
+      "original_name": "google-calendar-automation",
+      "description": "Automate Google Calendar events, scheduling, availability checks, and attendee management via Rube MCP (Composio). Create events, find free slots, manage attendees, and list calendars programmatically.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
       "name": "composio-canvas-design",
       "original_name": "canvas-design",
       "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "Complete terms in LICENSE.txt"
+    },
+    {
+      "name": "composio-webflow-automation",
+      "original_name": "webflow-automation",
+      "description": "Automate Webflow CMS collections, site publishing, page management, asset uploads, and ecommerce orders via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-discord-automation",
+      "original_name": "discord-automation",
+      "description": "Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-confluence-automation",
+      "original_name": "confluence-automation",
+      "description": "Automate Confluence page creation, content search, space management, labels, and hierarchy navigation via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-hubspot-automation",
+      "original_name": "hubspot-automation",
+      "description": "Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using Composio integration.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-calendly-automation",
+      "original_name": "calendly-automation",
+      "description": "Automate Calendly scheduling, event management, invitee tracking, availability checks, and organization administration via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "composio-square-automation",
+      "original_name": "square-automation",
+      "description": "Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search tools first for current schemas.",
+      "source": "ComposioHQ/awesome-claude-skills",
+      "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "license": "MIT"
     },
     {
       "name": "levn-ln-751-command-templates",
@@ -5783,14 +6431,6 @@
       "name": "levn-ln-642-layer-boundary-auditor",
       "original_name": "ln-642-layer-boundary-auditor",
       "description": "L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ownership), session ownership (DI vs local), async consistency (sync I/O in async), fire-and-forget tasks.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-762-dependency-audit",
-      "original_name": "ln-762-dependency-audit",
-      "description": "Audits project dependencies for vulnerabilities. Multi-ecosystem support (npm, .NET, Python, Go). CVSS-based severity classification.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -6070,7 +6710,7 @@
     {
       "name": "levn-ln-625-dependencies-auditor",
       "original_name": "ln-625-dependencies-auditor",
-      "description": "Dependencies and reuse audit worker (L3). Checks outdated packages, unused dependencies, reinvented wheels, custom implementations of standard library features. Returns findings with severity, location, effort, recommendations.",
+      "description": "Dependencies audit worker (L3). Checks outdated packages, unused deps, reinvented wheels, vulnerability scan (CVE/CVSS). Supports mode: full | vulnerabilities_only.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -6486,7 +7126,7 @@
     {
       "name": "levn-ln-760-security-setup",
       "original_name": "ln-760-security-setup",
-      "description": "Coordinates security scanning (secrets + deps). Delegates to ln-761/ln-762. Generates SECURITY.md, pre-commit hooks, CI workflow.",
+      "description": "Coordinates security scanning (secrets + deps). Delegates to ln-761 + ln-625(mode=vulnerabilities_only). Generates SECURITY.md, pre-commit hooks, CI workflow.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

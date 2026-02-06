@@ -157,6 +157,9 @@ Task tool returns worker's final message. Parse for YAML block:
 - Story set to Done (PASS/CONCERNS/WAIVED) or fix tasks created (FAIL); comment with gate verdict posted.
 
 ## Reference Files
+- **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
+- **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
+- **AC validation rules:** `shared/references/ac_validation_rules.md`
 - Criteria Validation: `references/criteria_validation.md` (Story deps, AC coverage quality, DB schema checks from ln-310)
 - Gate levels: `references/gate_levels.md` (detailed scoring rules and thresholds)
 - Workers: `../ln-501-code-quality-checker/SKILL.md`, `../ln-502-regression-checker/SKILL.md`

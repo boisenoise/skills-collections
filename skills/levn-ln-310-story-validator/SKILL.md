@@ -334,6 +334,8 @@ Before marking any criterion as complete, provide concrete evidence (doc path, M
 
 ## Reference Files
 
+- **AC validation rules:** `shared/references/ac_validation_rules.md`
+- **Plan mode behavior:** `shared/references/plan_mode_pattern.md`
 - **Final Assessment:** `references/readiness_scoring.md` (GO/NO-GO rules, Readiness Score calculation)
 - **Templates (centralized):** `shared/templates/story_template.md`, `shared/templates/task_template_implementation.md`
 - **Local copies:** `docs/templates/` (in target project)

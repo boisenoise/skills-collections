@@ -93,10 +93,7 @@ Receives `contextStore` with tech stack, deployment type, codebase root.
 
 ## Scoring Algorithm
 
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
@@ -109,6 +106,13 @@ score = max(0, 10 - penalty)
   "high": 1,
   "medium": 3,
   "low": 0,
+  "checks": [
+    {"id": "bootstrap_order", "name": "Bootstrap Order", "status": "passed", "details": "Initialization sequence correct: config -> DB -> routes -> server"},
+    {"id": "graceful_shutdown", "name": "Graceful Shutdown", "status": "failed", "details": "No SIGTERM handler found"},
+    {"id": "resource_cleanup", "name": "Resource Cleanup", "status": "warning", "details": "DB connection closed, but file handles not released"},
+    {"id": "signal_handling", "name": "Signal Handling", "status": "warning", "details": "SIGINT handled, SIGTERM missing"},
+    {"id": "probes", "name": "Liveness/Readiness Probes", "status": "passed", "details": "/health and /ready endpoints present"}
+  ],
   "findings": [
     {
       "severity": "HIGH",
@@ -121,6 +125,11 @@ score = max(0, 10 - penalty)
   ]
 }
 ```
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

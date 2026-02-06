@@ -103,11 +103,7 @@ For each E2E test, calculate Usefulness Score = Impact × Probability
 
 ## Scoring Algorithm
 
-**Unified formula (same as ln-650):**
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 **Severity mapping:**
 - Missing E2E for Priority 25 (Money, Security) → CRITICAL
@@ -128,6 +124,11 @@ score = max(0, 10 - penalty)
   "high": 3,
   "medium": 2,
   "low": 1,
+  "checks": [
+    {"id": "critical_path_coverage", "name": "Critical Path Coverage", "status": "failed", "details": "Missing E2E for 2 Priority 25 paths (payment, auth)"},
+    {"id": "user_journey_coverage", "name": "User Journey Coverage", "status": "warning", "details": "1 of 3 core journeys missing E2E"},
+    {"id": "edge_case_coverage", "name": "Edge Case Coverage", "status": "passed", "details": "Error scenarios covered in existing E2E"}
+  ],
   "findings": [
     {
       "severity": "CRITICAL",
@@ -156,6 +157,11 @@ score = max(0, 10 - penalty)
   ]
 }
 ```
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

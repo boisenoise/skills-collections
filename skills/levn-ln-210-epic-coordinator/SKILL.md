@@ -32,25 +32,7 @@ This skill should be used when:
 
 ### Epic 0 Reserved for Infrastructure
 
-**Rule:** Epic 0 is a reserved index for Infrastructure Epic within an initiative.
-
-**When to use Epic 0:**
-- New project requiring infrastructure setup
-- Multi-stack project (Frontend + Backend on different stacks)
-- Project with security/monitoring/deployment requirements
-
-**Epic indexes within initiative:**
-- **Epic 0:** Infrastructure & Operations (if needed)
-- **Epic 1, 2, 3, ... N:** Business domains
-
-**Linear Project Titles:**
-- Use Next Epic Number from kanban_board.md for sequential numbering
-- Example: Next Epic Number = 11
-  - Epic 0 → Linear title: "Epic 11: Infrastructure & Operations"
-  - Epic 1 → Linear title: "Epic 12: User Management"
-  - Epic 2 → Linear title: "Epic 13: Product Catalog"
-
-**Important:** Epic 0/1/2 are initiative-internal indexes for organizing domains. Linear uses global Next Epic Number for project titles.
+**MANDATORY READ:** Load `shared/references/numbering_conventions.md` for Epic 0 rules, when to use it, and Linear numbering.
 
 ---
 
@@ -159,10 +141,7 @@ Use research context from Phase 1 Step 2:
 **Step 2: Build Epic List (inline)**
 
 **IF Infrastructure needed (from Phase 1 Step 3):**
-- **Epic 0: Infrastructure & Operations**
-  - Goal: Establish foundational infrastructure, deployment pipeline, operational capabilities
-  - Scope: Logging, error handling, monitoring, CI/CD, security baseline, performance
-  - **Multi-stack projects:** Each Story doubles (Frontend Story + Backend Story for same functionality)
+- **Epic 0: Infrastructure & Operations** — See `shared/references/numbering_conventions.md#epic-0-content-template`
 - **Epic 1-N:** Business domains (from Step 1)
 
 **ELSE:**
@@ -469,6 +448,12 @@ Before completing work, verify ALL checkpoints:
 
 ## Reference Files
 
+- **[MANDATORY] Problem-solving approach:** `shared/references/problem_solving.md`
+- **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
+- **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
+- **Decompose-first pattern:** `shared/references/decompose_first_pattern.md`
+- **Numbering conventions:** `shared/references/numbering_conventions.md` (Epic 0 reserved, Linear numbering)
+- **Linear creation workflow:** `shared/references/linear_creation_workflow.md`
 - **linear_integration.md:** Discovery patterns + Linear API reference (moved to `shared/templates/linear_integration.md`)
 - **epic_template_universal.md:** Epic template structure
 - **replan_workflow.md:** Complete REPLAN mode workflow (Phase 5b)

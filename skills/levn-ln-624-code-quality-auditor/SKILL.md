@@ -18,45 +18,15 @@ Specialized worker auditing code complexity, method signatures, algorithms, and 
 
 ## Inputs (from Coordinator)
 
-Receives `contextStore` with:
-- `tech_stack` - detected tech stack (languages, frameworks)
-- `best_practices` - researched best practices from MCP
-- `principles` - project-specific principles from docs/principles.md
-- `codebase_root` - root path of codebase
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
 
-**Domain-aware fields (NEW):**
-- `domain_mode`: `"domain-aware"` | `"global"` (optional, defaults to "global")
-- `current_domain`: `{name, path}` when domain_mode="domain-aware"
+Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `codebase_root`.
 
-**Example contextStore (domain-aware):**
-```json
-{
-  "tech_stack": {...},
-  "best_practices": {...},
-  "principles": {...},
-  "codebase_root": "/project",
-  "domain_mode": "domain-aware",
-  "current_domain": {
-    "name": "orders",
-    "path": "src/orders"
-  }
-}
-```
+**Domain-aware:** Supports `domain_mode` + `current_domain` (see `audit_output_schema.md#domain-aware-worker-output`).
 
 ## Workflow
 
-1) **Parse context from contextStore**
-   - Extract tech_stack, best_practices, principles
-   - **Determine scan_path (NEW):**
-     ```
-     IF domain_mode == "domain-aware":
-       scan_path = codebase_root + "/" + current_domain.path
-       domain_name = current_domain.name
-     ELSE:
-       scan_path = codebase_root
-       domain_name = null
-     ```
-
+1) **Parse context** — extract fields, determine `scan_path` (domain-aware if specified)
 2) **Scan codebase for violations**
    - All Grep/Glob patterns use `scan_path` (not codebase_root)
    - Example: `Grep(pattern="if.*if.*if", path=scan_path)` for nesting detection
@@ -235,10 +205,7 @@ Receives `contextStore` with:
 
 ## Scoring Algorithm
 
-```
-penalty = (critical * 2.0) + (high * 1.0) + (medium * 0.5) + (low * 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
@@ -254,6 +221,12 @@ Return JSON to coordinator:
   "high": 3,
   "medium": 5,
   "low": 3,
+  "checks": [
+    {"id": "cyclomatic_complexity", "name": "Cyclomatic Complexity", "status": "failed", "details": "2 functions exceed threshold"},
+    {"id": "deep_nesting", "name": "Deep Nesting", "status": "warning", "details": "1 function with 5 levels"},
+    {"id": "long_methods", "name": "Long Methods", "status": "passed", "details": "No methods exceed 50 lines"},
+    {"id": "magic_numbers", "name": "Magic Numbers", "status": "failed", "details": "5 magic numbers found"}
+  ],
   "findings": [...]
 }
 ```
@@ -270,6 +243,12 @@ Return JSON to coordinator:
   "high": 2,
   "medium": 4,
   "low": 2,
+  "checks": [
+    {"id": "cyclomatic_complexity", "name": "Cyclomatic Complexity", "status": "failed", "details": "1 function exceeds threshold"},
+    {"id": "deep_nesting", "name": "Deep Nesting", "status": "passed", "details": "No deep nesting detected"},
+    {"id": "long_methods", "name": "Long Methods", "status": "passed", "details": "No methods exceed 50 lines"},
+    {"id": "magic_numbers", "name": "Magic Numbers", "status": "warning", "details": "1 magic number found"}
+  ],
   "findings": [
     {
       "severity": "HIGH",
@@ -314,6 +293,8 @@ Return JSON to coordinator:
 
 ## Reference Files
 
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 - Code quality rules: [references/code_quality_rules.md](references/code_quality_rules.md)
 
 ---

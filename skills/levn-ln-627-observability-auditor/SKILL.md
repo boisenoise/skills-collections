@@ -92,10 +92,7 @@ Receives `contextStore` with tech stack, framework, codebase root.
 
 ## Scoring Algorithm
 
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
@@ -108,6 +105,12 @@ score = max(0, 10 - penalty)
   "high": 1,
   "medium": 3,
   "low": 1,
+  "checks": [
+    {"id": "structured_logging", "name": "Structured Logging", "status": "warning", "details": "3 console.log calls in production code"},
+    {"id": "health_endpoints", "name": "Health Endpoints", "status": "failed", "details": "No /health endpoint found"},
+    {"id": "metrics_collection", "name": "Metrics Collection", "status": "passed", "details": "Prometheus client configured"},
+    {"id": "request_tracing", "name": "Request Tracing", "status": "warning", "details": "Correlation IDs missing in 2 services"}
+  ],
   "findings": [
     {
       "severity": "HIGH",
@@ -120,6 +123,11 @@ score = max(0, 10 - penalty)
   ]
 }
 ```
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

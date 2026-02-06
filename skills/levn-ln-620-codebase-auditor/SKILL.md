@@ -451,6 +451,10 @@ See individual worker SKILL.md files for detailed audit rules:
 
 ## Reference Files
 
+- **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
+- **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 - Principles: `docs/principles.md`
 - Tech stack: `docs/project/tech_stack.md`
 - Kanban board: `docs/tasks/kanban_board.md`

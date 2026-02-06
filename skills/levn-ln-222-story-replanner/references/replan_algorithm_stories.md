@@ -3,6 +3,8 @@
 <!-- SCOPE: ln-222-story-replanner comparison logic ONLY. Contains KEEP/UPDATE/OBSOLETE/CREATE operations, diff generation, status constraints. -->
 <!-- DO NOT add here: coordinator logic → ln-220-story-coordinator SKILL.md, Task replan → ln-302-task-replanner -->
 
+**MANDATORY READ:** Load `shared/references/replan_algorithm.md` for Operations Matrix, Status Constraints, Edge Cases, Best Practices.
+
 Comparison logic for ln-222-story-replanner REPLAN MODE. Determines operations (KEEP/UPDATE/OBSOLETE/CREATE) when existing Stories found for Epic.
 
 ## Overview
@@ -27,25 +29,11 @@ Comparison logic for ln-222-story-replanner REPLAN MODE. Determines operations (
 - Search IDEAL: Fuzzy match
 - Result: Match found → KEEP/UPDATE candidate | No match → OBSOLETE
 
-### Operations Matrix
+### Story-Specific Criteria
 
-| Operation | Criteria | Status Constraint | Action |
-|-----------|----------|-------------------|--------|
-| **KEEP** | Goal match + Persona same + Capability same + AC same + Standards Research same | Any | None |
-| **UPDATE** | Goal match + (AC changed OR Standards Research changed OR Technical Notes changed) | Backlog/Todo ✅<br>In Progress/Review ⚠️<br>Done ❌ | `update_issue(description)` |
-| **OBSOLETE** | No goal match + Feature removed from Epic Scope In | Backlog/Todo ✅<br>In Progress/Review ⚠️<br>Done ❌ | `update_issue(state="Canceled")` + comment |
-| **CREATE** | In IDEAL + No existing match + New Epic requirement | N/A | Generate doc + `create_issue()` |
+**For KEEP/UPDATE decision:** Compare Standards Research section (from Technical Notes → Library Research).
 
-### Edge Cases
-
-| Case | Condition | Action |
-|------|-----------|--------|
-| **In Progress OBSOLETE** | Story not in IDEAL + status In Progress/Review | ⚠️ NO auto-cancel, show warning |
-| **Done conflicts** | IDEAL differs from Done Stories | Preserve Done, CREATE follow-up |
-| **Story Split** | 1 existing → 2+ IDEAL (same persona, split capabilities) | ⚠️ UPDATE first + CREATE new |
-| **Story Merge** | 2+ existing → 1 IDEAL (combined capabilities) | ⚠️ UPDATE first + OBSOLETE rest |
-| **Ambiguous match** | >1 existing matches IDEAL (>70% similarity) | Show all, select highest |
-| **Standards Research changed** | Epic standards updated (new RFCs added/removed) | UPDATE all affected Stories (Backlog/Todo only) |
+**Story-specific edge case:** Standards Research changed → UPDATE all affected Stories (Backlog/Todo only).
 
 ## Example Scenarios
 
@@ -115,30 +103,10 @@ Comparison logic for ln-222-story-replanner REPLAN MODE. Determines operations (
 
 ⚠️ Warning: "Story Merge detected: US004 'Product list' + US005 'Product search' → US004 'Product catalog' (update US004, obsolete US005)"
 
-## Status Constraints
+### Story-Specific Best Practices
 
-| Status | UPDATE | OBSOLETE |
-|--------|--------|----------|
-| **Backlog/Todo** | ✅ Allowed | ✅ Allowed |
-| **In Progress/To Review** | ⚠️ Warning, manual review | ⚠️ Warning, manual review |
-| **Done** | ❌ Never (preserve work) | ❌ Never (preserve history) |
-
-**Done Story conflicts:** Keep Done, CREATE follow-up Story to address discrepancy.
-
-Example: Done US005 "Request token" (without PKCE) + IDEAL "Request token with PKCE" → KEEP US005, CREATE US010 "Add PKCE support"
-
-## Best Practices
-
-| Practice | Rationale |
-|----------|-----------|
-| **Conservative Updates** | Prefer CREATE over UPDATE when in doubt (preserves existing work) |
-| **Respect Status** | Never auto-update/cancel In Progress/Review/Done Stories |
-| **Preserve History** | Use state="Canceled" for obsolete Stories (don't delete) |
-| **Clear Diffs** | Show before/after for UPDATE (AC, Standards Research, Technical Notes) |
-| **Meaningful Comments** | Explain why canceled (reference removed capabilities, reason) |
-| **Split/Merge Detection** | Show warnings for structural changes (complex, impacts Tasks) |
-| **Vertical Slicing** | Ensure IDEAL plan uses vertical slices (complete user journeys) |
-| **Standards Consistency** | UPDATE all affected Stories when Epic standards change (Backlog/Todo only) |
+- **Vertical Slicing:** Ensure IDEAL plan uses vertical slices (complete user journeys)
+- **Standards Consistency:** UPDATE all affected Stories when Epic standards change (Backlog/Todo only)
 
 ## Output Format
 
@@ -175,5 +143,5 @@ Type "confirm" to execute.
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2025-11-20
+**Version:** 2.0.0
+**Last Updated:** 2026-02-05

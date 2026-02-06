@@ -94,15 +94,19 @@ FOR doc IN [CLAUDE.md, docs/README.md, docs/project/*.md]:
 | Medium | Add link to CLAUDE.md | docs/Y.md | Hierarchy |
 ```
 
-## Scoring Rules
+## Scoring Algorithm
 
-| Score | Meaning |
-|-------|---------|
-| 10/10 | No issues |
-| 8-9/10 | Minor issues (formatting, small redundancies) |
-| 6-7/10 | Moderate issues (some duplication, missing links) |
-| 4-5/10 | Significant issues (orphaned docs, outdated content) |
-| 1-3/10 | Critical issues (major mismatches, broken hierarchy) |
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+
+**Severity mapping:**
+
+| Issue Type | Severity |
+|------------|----------|
+| Outdated content (code mismatch) | CRITICAL |
+| Broken links, orphaned docs | HIGH |
+| Semantic mismatch (via ln-601) | HIGH |
+| Content duplication | MEDIUM |
+| Missing compression opportunity | LOW |
 
 ## Reference Files
 

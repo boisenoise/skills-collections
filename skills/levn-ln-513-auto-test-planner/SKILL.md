@@ -198,9 +198,12 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 
 ## Reference Files
 
+- **Risk-based testing methodology:** `shared/references/risk_based_testing.md`
+- **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
+
 ### risk_based_testing_guide.md
 
-**Purpose**: Risk-Based Testing methodology
+**Purpose**: Risk-Based Testing methodology (detailed guide)
 
 **Location**: [references/risk_based_testing_guide.md](references/risk_based_testing_guide.md)
 

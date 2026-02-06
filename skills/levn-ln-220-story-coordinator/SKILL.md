@@ -25,19 +25,7 @@ Use when:
 
 ## Story Numbering Convention
 
-**Rule:** Stories start from Story 1 (US001), NO Story 0 reserved.
-
-**Rationale:**
-- Epic 0 = Infrastructure **Epic** (group of 5-10 Stories like any other Epic)
-- Stories within Epic 0 numbered normally: US001, US002, ... US010
-- No reserved Story 0 (unlike Epics, Stories don't need infrastructure placeholder)
-
-**Numbering within Epic:**
-- Epic 0: Infrastructure → US001-US010 (logging, monitoring, CI/CD Stories)
-- Epic 1: User Management → US011-US020 (registration, login, profile Stories)
-- Epic 2: Product Catalog → US021-US030 (product list, search, details Stories)
-
-**Next Story Number:** Incremented sequentially across ALL Epics (read from kanban_board.md Epic Story Counters table)
+**MANDATORY READ:** Load `shared/references/numbering_conventions.md` for Story numbering rules (US001 sequential across Epics, no Story 0).
 
 ## How It Works
 
@@ -469,6 +457,16 @@ Mark each as in_progress when starting, completed when done.
 3. Phase 3: Planning → Build IDEAL (5 Stories: "Register client", "Request token", "Validate token", "Refresh token", "Manage scopes")
 4. Phase 4: Check Existing → Count = 5 → REPLAN MODE
 5. Phase 5b: Delegate REPLAN → Call ln-222-story-replanner → KEEP 4, UPDATE Technical Notes (scope research), OBSOLETE US008, CREATE US009
+
+---
+
+## Reference Files
+
+- **[MANDATORY] Problem-solving approach:** `shared/references/problem_solving.md`
+- **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
+- **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
+- **Decompose-first pattern:** `shared/references/decompose_first_pattern.md`
+- **Numbering conventions:** `shared/references/numbering_conventions.md` (Story sequential across Epics)
 
 ---
 

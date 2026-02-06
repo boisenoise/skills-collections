@@ -16,15 +16,7 @@ Coordinates creation or replanning of implementation tasks for a Story. Builds t
 
 ## Task Storage Mode
 
-This orchestrator supports dual-mode task storage:
-
-| Aspect | Linear Mode | File Mode |
-|--------|-------------|-----------|
-| **Detection** | Default (MCP Linear available) | `docs/tasks/epics/` directory exists |
-| **Check existing** | `list_issues(parentId=Story.id)` | `Glob("docs/tasks/epics/*/stories/{slug}/tasks/*.md")` |
-| **Delegate to** | ln-301/ln-302 (same workers) | ln-301/ln-302 (same workers) |
-
-**Auto-detection:** Check if `docs/tasks/epics/` exists → File Mode, otherwise Linear Mode.
+**MANDATORY READ:** Load `shared/references/storage_mode_detection.md` for Linear vs File mode detection and operations.
 
 Workers (ln-301, ln-302) handle the actual Linear/File operations based on detected mode.
 
@@ -105,6 +97,13 @@ Mark each as in_progress when starting, completed when done.
 - Next steps returned (ln-310-story-validator, then orchestrator continues).
 
 ## Reference Files
+- **[MANDATORY] Problem-solving approach:** `shared/references/problem_solving.md`
+- **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
+- **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
+- **Decompose-first pattern:** `shared/references/decompose_first_pattern.md`
+- **Plan mode behavior:** `shared/references/plan_mode_pattern.md`
+- **Numbering conventions:** `shared/references/numbering_conventions.md` (Task per-Story numbering)
+- **Storage mode detection:** `shared/references/storage_mode_detection.md`
 - Templates (centralized): `shared/templates/task_template_implementation.md`
 - Local copies: `docs/templates/task_template_implementation.md` (in target project, created by workers)
 - Replan algorithm details: `ln-302-task-replanner/references/replan_algorithm.md`

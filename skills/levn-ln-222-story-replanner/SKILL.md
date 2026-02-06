@@ -240,24 +240,16 @@ NEXT STEPS:
 
 ## Template Loading
 
+**MANDATORY READ:** Load `shared/references/template_loading_pattern.md` for template copy workflow.
+
 **Template:** `story_template.md`
-
-**Loading Logic:**
-1. Check if `docs/templates/story_template.md` exists in target project
-2. IF NOT EXISTS:
-   a. Create `docs/templates/` directory if missing
-   b. Copy `shared/templates/story_template.md` → `docs/templates/story_template.md`
-   c. Replace placeholders in the LOCAL copy:
-      - `{{TEAM_ID}}` → from `docs/tasks/kanban_board.md`
-      - `{{DOCS_PATH}}` → "docs" (standard)
-3. Use LOCAL copy (`docs/templates/story_template.md`) for all operations
-
-**Rationale:** Templates are copied to target project on first use, ensuring:
-- Project independence (no dependency on skills repository)
-- Customization possible (project can modify local templates)
-- Placeholder replacement happens once at copy time
+**Local copy:** `docs/templates/story_template.md` (in target project)
 
 ## Reference Files
+
+- **Template loading:** `shared/references/template_loading_pattern.md`
+- **Linear creation workflow:** `shared/references/linear_creation_workflow.md`
+- **Replan algorithm:** `shared/references/replan_algorithm.md`
 
 ### replan_algorithm_stories.md
 

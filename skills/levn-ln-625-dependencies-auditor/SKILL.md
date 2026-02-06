@@ -1,35 +1,49 @@
 ---
 name: ln-625-dependencies-auditor
-description: Dependencies and reuse audit worker (L3). Checks outdated packages, unused dependencies, reinvented wheels, custom implementations of standard library features. Returns findings with severity, location, effort, recommendations.
+description: "Dependencies audit worker (L3). Checks outdated packages, unused deps, reinvented wheels, vulnerability scan (CVE/CVSS). Supports mode: full | vulnerabilities_only."
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
 # Dependencies & Reuse Auditor (L3 Worker)
 
-Specialized worker auditing dependency management and code reuse.
+Specialized worker auditing dependency management, code reuse, and security vulnerabilities.
 
 ## Purpose & Scope
 
-- **Worker in ln-620 coordinator pipeline**
+- **Worker in ln-620 coordinator pipeline** (full audit mode)
+- **Worker in ln-760 security-setup pipeline** (vulnerabilities_only mode)
 - Audit **dependencies and reuse** (Categories 7+8: Medium Priority)
-- Check outdated packages, unused deps, wheel reinvention
+- Check outdated packages, unused deps, wheel reinvention, **CVE vulnerabilities**
 - Calculate compliance score (X/10)
+
+## Parameters
+
+| Param | Values | Default | Description |
+|-------|--------|---------|-------------|
+| mode | `full` / `vulnerabilities_only` | `full` | `full` = all 5 checks, `vulnerabilities_only` = only CVE scan |
 
 ## Inputs (from Coordinator)
 
 Receives `contextStore` with tech stack, package manifest paths, codebase root.
 
+**From ln-620 (codebase-auditor):** mode=full (default)
+**From ln-760 (security-setup):** mode=vulnerabilities_only
+
 ## Workflow
 
-1) Parse context
-2) Run dependency checks (outdated, unused, reinvented)
+1) Parse context + mode parameter
+2) Run dependency checks (based on mode)
 3) Collect findings
 4) Calculate score
 5) Return JSON
 
-## Audit Rules
+---
+
+## Audit Rules (5 Checks)
 
 ### 1. Outdated Packages
+**Mode:** full only
+
 **Detection:**
 - Run `npm outdated --json` (Node.js)
 - Run `pip list --outdated --format=json` (Python)
@@ -45,6 +59,8 @@ Receives `contextStore` with tech stack, package manifest paths, codebase root.
 **Effort:** S-M (update version, run tests)
 
 ### 2. Unused Dependencies
+**Mode:** full only
+
 **Detection:**
 - Parse package.json/requirements.txt
 - Grep codebase for `import`/`require` statements
@@ -59,6 +75,8 @@ Receives `contextStore` with tech stack, package manifest paths, codebase root.
 **Effort:** S (delete line, test)
 
 ### 3. Available Features Not Used
+**Mode:** full only
+
 **Detection:**
 - Check for axios when native fetch available (Node 18+)
 - Check for lodash when Array methods sufficient
@@ -72,6 +90,8 @@ Receives `contextStore` with tech stack, package manifest paths, codebase root.
 **Effort:** M (refactor code to use native API)
 
 ### 4. Custom Implementations
+**Mode:** full only
+
 **Detection:**
 - Grep for custom sorting algorithms
 - Check for hand-rolled validation (vs validator.js)
@@ -85,25 +105,67 @@ Receives `contextStore` with tech stack, package manifest paths, codebase root.
 
 **Effort:** M (integrate library, replace calls)
 
+### 5. Vulnerability Scan (CVE/CVSS)
+**Mode:** full AND vulnerabilities_only
+
+**Detection:**
+- Detect ecosystems: npm, NuGet, pip, Go, Bundler, Cargo, Composer
+- Run audit commands per `references/vulnerability_commands.md`
+- Parse results with CVSS mapping per `shared/references/cvss_severity_mapping.md`
+
+**Severity:**
+- **CRITICAL:** CVSS 9.0-10.0 (immediate fix required)
+- **HIGH:** CVSS 7.0-8.9 (fix within 48h)
+- **MEDIUM:** CVSS 4.0-6.9 (fix within 1 week)
+- **LOW:** CVSS 0.1-3.9 (fix when convenient)
+
+**Fix Classification:**
+- Patch update (x.x.Y) → safe auto-fix
+- Minor update (x.Y.0) → usually safe
+- Major update (Y.0.0) → manual review required
+- No fix available → document and monitor
+
+**Recommendation:** Update to fixed version, verify lock file integrity
+
+**Effort:** S-L (depends on breaking changes)
+
+---
+
 ## Scoring Algorithm
 
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+
+**Note:** When mode=vulnerabilities_only, score based only on vulnerability findings.
 
 ## Output Format
 
 ```json
 {
   "category": "Dependencies & Reuse",
+  "mode": "full",
   "score": 7,
-  "total_issues": 8,
-  "critical": 0,
-  "high": 2,
-  "medium": 4,
-  "low": 2,
+  "total_issues": 12,
+  "critical": 1,
+  "high": 3,
+  "medium": 5,
+  "low": 3,
+  "checks": [
+    {"id": "outdated_packages", "name": "Outdated Packages", "status": "failed", "details": "2 packages behind major versions"},
+    {"id": "unused_deps", "name": "Unused Dependencies", "status": "warning", "details": "4 unused dev dependencies"},
+    {"id": "available_natives", "name": "Available Natives", "status": "passed", "details": "No unnecessary polyfills"},
+    {"id": "custom_implementations", "name": "Custom Implementations", "status": "warning", "details": "2 custom utilities found"},
+    {"id": "vulnerability_scan", "name": "Vulnerability Scan (CVE)", "status": "failed", "details": "1 critical, 2 high vulnerabilities"}
+  ],
   "findings": [
+    {
+      "severity": "CRITICAL",
+      "location": "package.json",
+      "issue": "lodash@4.17.15 has CVE-2021-23337 (CVSS 7.2)",
+      "principle": "Security / Vulnerability Management",
+      "recommendation": "Update to lodash@4.17.21",
+      "effort": "S",
+      "fix_type": "patch"
+    },
     {
       "severity": "HIGH",
       "location": "package.json:15",
@@ -116,6 +178,16 @@ score = max(0, 10 - penalty)
 }
 ```
 
+## Reference Files
+
+| File | Purpose |
+|------|---------|
+| `references/vulnerability_commands.md` | Ecosystem-specific audit commands |
+| `references/ci_integration_guide.md` | CI/CD integration guidance |
+| `shared/references/cvss_severity_mapping.md` | CVSS to severity level mapping |
+| `shared/references/audit_scoring.md` | Audit scoring formula |
+| `shared/references/audit_output_schema.md` | Audit output schema |
+
 ---
-**Version:** 3.0.0
-**Last Updated:** 2025-12-23
+**Version:** 4.0.0
+**Last Updated:** 2026-02-05

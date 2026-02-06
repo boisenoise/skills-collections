@@ -135,11 +135,7 @@ Decision: REVIEW (if E2E covers, remove; else keep)
 
 ## Scoring Algorithm
 
-**Unified formula (same as ln-650):**
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 **Severity mapping by Usefulness Score:**
 - Score <5 → CRITICAL (test wastes significant maintenance effort)
@@ -159,6 +155,11 @@ score = max(0, 10 - penalty)
   "high": 5,
   "medium": 5,
   "low": 0,
+  "checks": [
+    {"id": "usefulness_score", "name": "Usefulness Score Analysis", "status": "warning", "details": "7 tests scored below threshold 15"},
+    {"id": "remove_candidates", "name": "Remove Candidates", "status": "failed", "details": "2 tests with Score <10 should be removed"},
+    {"id": "review_candidates", "name": "Review Candidates", "status": "warning", "details": "5 tests with Score 10-14 need review"}
+  ],
   "findings": [
     {
       "severity": "CRITICAL",
@@ -181,6 +182,11 @@ score = max(0, 10 - penalty)
 ```
 
 **Note:** Tests with Usefulness Score ≥15 (KEEP) are NOT included in findings — only issues are reported.
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

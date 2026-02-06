@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-05 06:29 UTC*
+*Last updated: 2026-02-06 06:27 UTC*
 
-Total skills: **889**
+Total skills: **969**
 
 ## Skills by Source
 
@@ -27,34 +27,112 @@ Total skills: **889**
 
 | Skill | Description |
 |-------|-------------|
+| `composio-activecampaign-automation` | Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, au... |
+| `composio-airtable-automation` | Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always searc... |
+| `composio-amplitude-automation` | Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identificatio... |
 | `composio-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern fronten... |
+| `composio-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
+| `composio-bamboohr-automation` | Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee... |
+| `composio-basecamp-automation` | Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube... |
+| `composio-bitbucket-automation` | Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube ... |
+| `composio-box-automation` | Automate Box cloud storage operations including file upload/download, search, folder management, sha... |
 | `composio-brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
+| `composio-brevo-automation` | Automate Brevo (Sendinblue) tasks via Rube MCP (Composio): manage email campaigns, create/edit templ... |
+| `composio-cal-com-automation` | Automate Cal.com tasks via Rube MCP (Composio): manage bookings, check availability, configure webho... |
+| `composio-calendly-automation` | Automate Calendly scheduling, event management, invitee tracking, availability checks, and organizat... |
+| `composio-canva-automation` | Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. ... |
 | `composio-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
 | `composio-changelog-generator` | Automatically creates user-facing changelogs from git commits by analyzing commit history, categoriz... |
+| `composio-circleci-automation` | Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve... |
+| `composio-clickup-automation` | Automate ClickUp project management including tasks, spaces, folders, lists, comments, and team oper... |
+| `composio-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |
+| `composio-coda-automation` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions... |
 | `composio-competitive-ads-extractor` | Extracts and analyzes competitors' ads from ad libraries (Facebook, LinkedIn, etc.) to understand wh... |
+| `composio-confluence-automation` | Automate Confluence page creation, content search, space management, labels, and hierarchy navigatio... |
 | `composio-connect` | Connect Claude to any app. Send emails, create issues, post messages, update databases - take real a... |
 | `composio-connect-apps` | Connect Claude to external apps like Gmail, Slack, GitHub. Use this skill when the user wants to sen... |
 | `composio-content-research-writer` | Assists in writing high-quality content by conducting research, adding citations, improving hooks, i... |
+| `composio-convertkit-automation` | Automate ConvertKit (Kit) tasks via Rube MCP (Composio): manage subscribers, tags, broadcasts, and b... |
+| `composio-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
 | `composio-developer-growth-analysis` | Analyzes your recent Claude Code chat history to identify coding patterns, development gaps, and are... |
+| `composio-discord-automation` | Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Alwa... |
+| `composio-docusign-automation` | Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document manageme... |
 | `composio-domain-name-brainstormer` | Generates creative domain name ideas for your project and checks availability across multiple TLDs (... |
+| `composio-dropbox-automation` | Automate Dropbox file management, sharing, search, uploads, downloads, and folder operations via Rub... |
+| `composio-figma-automation` | Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. A... |
 | `composio-file-organizer` | Intelligently organizes your files and folders across your computer by understanding context, findin... |
+| `composio-freshdesk-automation` | Automate Freshdesk helpdesk operations including tickets, contacts, companies, notes, and replies vi... |
+| `composio-freshservice-automation` | Automate Freshservice ITSM tasks via Rube MCP (Composio): create/update tickets, bulk operations, se... |
+| `composio-github-automation` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (... |
+| `composio-gitlab-automation` | Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations... |
+| `composio-gmail-automation` | Automate Gmail tasks via Rube MCP (Composio): send/reply, search, labels, drafts, attachments. Alway... |
+| `composio-google-analytics-automation` | Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn... |
+| `composio-google-calendar-automation` | Automate Google Calendar events, scheduling, availability checks, and attendee management via Rube M... |
+| `composio-google-drive-automation` | Automate Google Drive file operations (upload, download, search, share, organize) via Rube MCP (Comp... |
+| `composio-googlesheets-automation` | Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (C... |
+| `composio-helpdesk-automation` | Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, a... |
+| `composio-hubspot-automation` | Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using... |
 | `composio-image-enhancer` | Improves the quality of images, especially screenshots, by enhancing resolution, sharpness, and clar... |
+| `composio-instagram-automation` | Automate Instagram tasks via Rube MCP (Composio): create posts, carousels, manage media, get insight... |
+| `composio-intercom-automation` | Automate Intercom tasks via Rube MCP (Composio): conversations, contacts, companies, segments, admin... |
 | `composio-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
 | `composio-invoice-organizer` | Automatically organizes invoices and receipts for tax preparation by reading messy files, extracting... |
+| `composio-jira-automation` | Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw... |
+| `composio-klaviyo-automation` | Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign message... |
 | `composio-langsmith-fetch` | Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use when de... |
 | `composio-lead-research-assistant` | Identifies high-quality leads for your product or service by analyzing your business, searching for ... |
+| `composio-linear-automation` | Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always searc... |
+| `composio-linkedin-automation` | Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comment... |
+| `composio-mailchimp-automation` | Automate Mailchimp email marketing including campaigns, audiences, subscribers, segments, and analyt... |
+| `composio-make-automation` | Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone l... |
 | `composio-mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
 | `composio-meeting-insights-analyzer` | Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insights, ... |
+| `composio-microsoft-teams-automation` | Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meeti... |
+| `composio-miro-automation` | Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connector... |
+| `composio-mixpanel-automation` | Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profil... |
+| `composio-monday-automation` | Automate Monday.com work management including boards, items, columns, groups, subitems, and updates ... |
+| `composio-notion-automation` | Automate Notion tasks via Rube MCP (Composio): pages, databases, blocks, comments, users. Always sea... |
+| `composio-one-drive-automation` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder oper... |
+| `composio-outlook-automation` | Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Al... |
+| `composio-outlook-calendar-automation` | Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeti... |
+| `composio-pagerduty-automation` | Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation ... |
+| `composio-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
+| `composio-posthog-automation` | Automate PostHog tasks via Rube MCP (Composio): events, feature flags, projects, user profiles, anno... |
+| `composio-postmark-automation` | Automate Postmark email delivery tasks via Rube MCP (Composio): send templated emails, manage templa... |
 | `composio-raffle-winner-picker` | Picks random winners from lists, spreadsheets, or Google Sheets for giveaways, raffles, and contests... |
+| `composio-reddit-automation` | Automate Reddit tasks via Rube MCP (Composio): search subreddits, create posts, manage comments, and... |
+| `composio-render-automation` | Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools ... |
+| `composio-salesforce-automation` | Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL qu... |
+| `composio-segment-automation` | Automate Segment tasks via Rube MCP (Composio): track events, identify users, manage groups, page vi... |
+| `composio-sendgrid-automation` | Automate SendGrid email operations including sending emails, managing contacts/lists, sender identit... |
+| `composio-sentry-automation` | Automate Sentry tasks via Rube MCP (Composio): manage issues/events, configure alerts, track release... |
+| `composio-shopify-automation` | Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections.... |
 | `composio-skill-creator` | Guide for creating effective skills. This skill should be used when users want to create a new skill... |
 | `composio-skill-share` | A skill that creates new Claude skills and automatically shares them on Slack using Rube for seamles... |
+| `composio-slack-automation` | Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Composio)... |
 | `composio-slack-gif-creator` | Toolkit for creating animated GIFs optimized for Slack, with validators for size constraints and com... |
+| `composio-square-automation` | Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search ... |
+| `composio-stripe-automation` | Automate Stripe tasks via Rube MCP (Composio): customers, charges, subscriptions, invoices, products... |
+| `composio-supabase-automation` | Automate Supabase database queries, table management, project administration, storage, edge function... |
 | `composio-tailored-resume-generator` | Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills,... |
+| `composio-telegram-automation` | Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents... |
 | `composio-template-skill` | Replace with description of the skill and when Claude should use it. |
 | `composio-theme-factory` | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML la... |
+| `composio-tiktok-automation` | Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a... |
+| `composio-todoist-automation` | Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (C... |
+| `composio-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `composio-twitter-algorithm-optimizer` | Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. Rewrit... |
+| `composio-twitter-automation` | Automate Twitter/X tasks via Rube MCP (Composio): posts, search, users, bookmarks, lists, media. Alw... |
+| `composio-vercel-automation` | Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects,... |
 | `composio-video-downloader` | Download YouTube videos with customizable quality and format options. Use this skill when the user a... |
 | `composio-webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying... |
+| `composio-webflow-automation` | Automate Webflow CMS collections, site publishing, page management, asset uploads, and ecommerce ord... |
+| `composio-whatsapp-automation` | Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload me... |
+| `composio-wrike-automation` | Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, as... |
+| `composio-youtube-automation` | Automate YouTube tasks via Rube MCP (Composio): upload videos, manage playlists, search content, get... |
+| `composio-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
+| `composio-zoho-crm-automation` | Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage lead... |
+| `composio-zoom-automation` | Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube ... |
 
 ### anthropics/skills
 
@@ -183,7 +261,7 @@ Total skills: **889**
 | `levn-ln-622-build-auditor` | Build health audit worker (L3). Checks compiler/linter errors, deprecation warnings, type errors, fa... |
 | `levn-ln-623-code-principles-auditor` | Code principles audit worker (L3). Checks DRY (7 types), KISS/YAGNI, TODOs, error handling, DI patte... |
 | `levn-ln-624-code-quality-auditor` | Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classe... |
-| `levn-ln-625-dependencies-auditor` | Dependencies and reuse audit worker (L3). Checks outdated packages, unused dependencies, reinvented ... |
+| `levn-ln-625-dependencies-auditor` | Dependencies audit worker (L3). Checks outdated packages, unused deps, reinvented wheels, vulnerabil... |
 | `levn-ln-626-dead-code-auditor` | Dead code & legacy audit worker (L3). Checks unreachable code, unused imports/variables/functions, c... |
 | `levn-ln-627-observability-auditor` | Observability audit worker (L3). Checks structured logging, health check endpoints, metrics collecti... |
 | `levn-ln-628-concurrency-auditor` | Concurrency audit worker (L3). Checks race conditions, missing async/await, resource contention, thr... |
@@ -222,9 +300,8 @@ Total skills: **889**
 | `levn-ln-743-test-infrastructure` | Creates test infrastructure with Vitest, xUnit, and pytest |
 | `levn-ln-750-commands-generator` | Generates project-specific .claude/commands for Claude Code |
 | `levn-ln-751-command-templates` | Generates individual .claude/commands files from templates |
-| `levn-ln-760-security-setup` | Coordinates security scanning (secrets + deps). Delegates to ln-761/ln-762. Generates SECURITY.md, p... |
+| `levn-ln-760-security-setup` | Coordinates security scanning (secrets + deps). Delegates to ln-761 + ln-625(mode=vulnerabilities_on... |
 | `levn-ln-761-secret-scanner` | Scans codebase for hardcoded secrets. Returns normalized findings with severity and remediation guid... |
-| `levn-ln-762-dependency-audit` | Audits project dependencies for vulnerabilities. Multi-ecosystem support (npm, .NET, Python, Go). CV... |
 | `levn-ln-770-crosscutting-setup` | Coordinates logging, error handling, CORS, health checks, and API docs |
 | `levn-ln-771-logging-configurator` | Configures structured logging (Serilog/.NET, structlog/Python) |
 | `levn-ln-772-error-handler-setup` | Configures global exception handling middleware |
@@ -372,6 +449,7 @@ Total skills: **889**
 | `antigravity-arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M m... |
 | `antigravity-async-python-patterns` | Master Python asyncio, concurrent programming, and async/await patterns for high-performance applica... |
 | `antigravity-attack-tree-construction` | Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, ident... |
+| `antigravity-audio-transcriber` | Transform audio recordings into professional Markdown documentation with intelligent summaries using... |
 | `antigravity-auth-implementation-patterns` | Master authentication and authorization patterns including JWT, OAuth2, session management, and RBAC... |
 | `antigravity-automate-whatsapp` | Build WhatsApp automations with Kapso workflows: configure WhatsApp triggers, edit workflow graphs, ... |
 | `antigravity-autonomous-agent-patterns` | Design patterns for building autonomous coding agents. Covers tool integration, permission systems, ... |
@@ -720,6 +798,7 @@ Total skills: **889**
 | `antigravity-on-call-handoff-patterns` | Master on-call shift handoffs with context transfer, escalation procedures, and documentation. Use w... |
 | `antigravity-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
 | `antigravity-openapi-spec-generation` | Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patte... |
+| `antigravity-oss-hunter` | Automatically hunt for high-impact OSS contribution opportunities in trending repositories. |
 | `antigravity-page-cro` | Analyze and optimize individual pages for conversion performance. Use when the user wants to improve... |
 | `antigravity-paid-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
 | `antigravity-parallel-agents` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domai... |
@@ -756,7 +835,7 @@ Total skills: **889**
 | `antigravity-projection-patterns` | Build read models and projections from event streams. Use when implementing CQRS read sides, buildin... |
 | `antigravity-prometheus-configuration` | Set up Prometheus for comprehensive metric collection, storage, and monitoring of infrastructure and... |
 | `antigravity-prompt-caching` | Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Ca... |
-| `antigravity-prompt-engineer` | Expert prompt engineer specializing in advanced prompting techniques, LLM optimization, and AI syste... |
+| `antigravity-prompt-engineer` | Transforms user prompts into optimized prompts using frameworks (RTF, RISEN, Chain of Thought, RODES... |
 | `antigravity-prompt-engineering` | Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when u... |
 | `antigravity-prompt-engineering-patterns` | Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controll... |
 | `antigravity-prompt-library` | Curated collection of high-quality prompts for various use cases. Includes role-based prompts, task-... |
@@ -837,7 +916,7 @@ Total skills: **889**
 | `antigravity-shopify-development` | Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid.... |
 | `antigravity-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
-| `antigravity-skill-creator` | Guide for creating effective skills. This skill should be used when users want to create a new skill... |
+| `antigravity-skill-creator` | This skill should be used when the user asks to create a new skill, build a skill, make a custom ski... |
 | `antigravity-skill-developer` | Create and manage Claude Code skills following Anthropic best practices. Use when creating new skill... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
 | `antigravity-skill-seekers` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills i... |
@@ -948,6 +1027,7 @@ Total skills: **889**
 | `antigravity-x-article-publisher-skill` | Publish articles to X/Twitter |
 | `antigravity-xlsx` | Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, dat... |
 | `antigravity-xss-html-injection` | This skill should be used when the user asks to "test for XSS vulnerabilities", "perform cross-site ... |
+| `antigravity-youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelli... |
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 
 ### vercel-labs/agent-skills

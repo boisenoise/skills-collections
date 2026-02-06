@@ -18,20 +18,9 @@ Specialized worker auditing build health and code quality tooling.
 
 ## Inputs (from Coordinator)
 
-Receives `contextStore` as JSON string:
-```json
-{
-  "tech_stack": {
-    "language": "TypeScript",
-    "build_tool": "Webpack",
-    "test_framework": "Jest",
-    ...
-  },
-  "best_practices": {...},
-  "principles": {...},
-  "codebase_root": "/path/to/project"
-}
-```
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+
+Receives `contextStore` with: `tech_stack` (including build_tool, test_framework), `best_practices`, `principles`, `codebase_root`.
 
 ## Workflow
 
@@ -157,52 +146,13 @@ Receives `contextStore` as JSON string:
 
 ## Scoring Algorithm
 
-```
-violations = {critical: N, high: M, medium: K, low: L}
-
-penalty = (critical * 2.0) + (high * 1.0) + (medium * 0.5) + (low * 0.2)
-
-score = max(0, 10 - penalty)
-```
-
-**Examples:**
-- 0 violations → 10/10
-- 1 critical (build fails) → 8/10
-- 2 critical, 5 high → 3/10
-- 10 high, 20 medium → 0/10
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
-Return JSON to coordinator:
-```json
-{
-  "category": "Build Health",
-  "score": 7,
-  "total_issues": 5,
-  "critical": 1,
-  "high": 2,
-  "medium": 2,
-  "low": 0,
-  "findings": [
-    {
-      "severity": "CRITICAL",
-      "location": "src/utils/helper.ts:45",
-      "issue": "TypeScript error: Type 'string' is not assignable to type 'number'",
-      "principle": "Type Safety",
-      "recommendation": "Fix type mismatch: change 'id: string' to 'id: number' or update usage",
-      "effort": "S"
-    },
-    {
-      "severity": "HIGH",
-      "location": "tests/api.test.ts:112",
-      "issue": "Test failed: Expected 200, received 404",
-      "principle": "Test Quality",
-      "recommendation": "Update API endpoint or fix test assertion",
-      "effort": "M"
-    }
-  ]
-}
-```
+**MANDATORY READ:** Load `shared/references/audit_output_schema.md` for JSON structure.
+
+Return JSON with `category: "Build Health"` and checks: compilation_errors, linter_warnings, type_errors, test_failures, build_config.
 
 ## Critical Rules
 
@@ -222,6 +172,8 @@ Return JSON to coordinator:
 
 ## Reference Files
 
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 - Build audit rules: [references/build_rules.md](references/build_rules.md)
 
 ---

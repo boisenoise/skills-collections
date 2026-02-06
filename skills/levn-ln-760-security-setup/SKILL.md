@@ -1,6 +1,6 @@
 ---
 name: ln-760-security-setup
-description: Coordinates security scanning (secrets + deps). Delegates to ln-761/ln-762. Generates SECURITY.md, pre-commit hooks, CI workflow.
+description: "Coordinates security scanning (secrets + deps). Delegates to ln-761 + ln-625(mode=vulnerabilities_only). Generates SECURITY.md, pre-commit hooks, CI workflow."
 ---
 
 # Security Setup Coordinator
@@ -9,7 +9,7 @@ L2 Domain Coordinator that orchestrates security scanning and configuration for 
 
 ## Purpose & Scope
 
-- Coordinate secret scanning (ln-761) and dependency audit (ln-762)
+- Coordinate secret scanning (ln-761) and dependency vulnerability audit (ln-625)
 - Aggregate findings from both workers into unified report
 - Generate security infrastructure: SECURITY.md, pre-commit hooks, CI workflow
 - Provide overall security score and risk assessment
@@ -43,11 +43,12 @@ L2 Domain Coordinator that orchestrates security scanning and configuration for 
 ### Phase 2: Delegate Scans
 
 **Step 1: Invoke ln-761 Secret Scanner**
-- Delegate via Skill tool
+- Delegate via Task tool
 - Receive: findings list, severity summary, remediation guidance
 
-**Step 2: Invoke ln-762 Dependency Audit**
-- Delegate via Skill tool (can run parallel with Step 1)
+**Step 2: Invoke ln-625 Dependencies Auditor (mode=vulnerabilities_only)**
+- Delegate via Task tool (can run parallel with Step 1)
+- Pass parameter: `mode=vulnerabilities_only`
 - Receive: vulnerability list, CVSS scores, fix recommendations
 
 ### Phase 3: Aggregate Reports
@@ -100,12 +101,16 @@ L2 Domain Coordinator that orchestrates security scanning and configuration for 
 | Worker | Parallel | Purpose |
 |--------|----------|---------|
 | ln-761-secret-scanner | Yes | Hardcoded secret detection |
-| ln-762-dependency-audit | Yes | Vulnerability scanning |
+| ln-625-dependencies-auditor | Yes | Vulnerability scanning (mode=vulnerabilities_only) |
 
 **Prompt template:**
 ```
-Task(description: "Security scan via ln-76X",
-     prompt: "Execute ln-76X-{worker}. Read skill from ln-76X-{worker}/SKILL.md. Project: {projectPath}",
+Task(description: "Secret scanning via ln-761",
+     prompt: "Execute ln-761-secret-scanner. Read skill from ln-761-secret-scanner/SKILL.md. Project: {projectPath}",
+     subagent_type: "general-purpose")
+
+Task(description: "Dependency vulnerability scan via ln-625",
+     prompt: "Execute ln-625-dependencies-auditor with mode=vulnerabilities_only. Read skill from ln-625-dependencies-auditor/SKILL.md. Project: {projectPath}. Mode: vulnerabilities_only (only CVE scan, skip outdated/unused checks).",
      subagent_type: "general-purpose")
 ```
 
@@ -114,12 +119,13 @@ Task(description: "Security scan via ln-76X",
 **Anti-Patterns:**
 - ❌ Direct Skill tool invocation without Task wrapper
 - ❌ Any execution bypassing subagent context isolation
+- ❌ Calling ln-625 without mode parameter (would run full audit)
 
 ---
 
 ## Definition of Done
 
-- [ ] Both workers (ln-761, ln-762) invoked and completed
+- [ ] Both workers (ln-761, ln-625) invoked and completed
 - [ ] Findings aggregated with severity classification
 - [ ] SECURITY.md created/updated
 - [ ] Pre-commit hook configured (or recommendation logged)
@@ -139,5 +145,5 @@ Task(description: "Security scan via ln-76X",
 
 ---
 
-**Version:** 2.0.0
-**Last Updated:** 2026-01-10
+**Version:** 3.0.0
+**Last Updated:** 2026-02-05

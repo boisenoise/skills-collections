@@ -18,23 +18,9 @@ Specialized worker auditing security vulnerabilities in codebase.
 
 ## Inputs (from Coordinator)
 
-Receives `contextStore` as JSON string:
-```json
-{
-  "tech_stack": {
-    "language": "TypeScript",
-    "frameworks": ["Express", "React"],
-    "database": "PostgreSQL",
-    ...
-  },
-  "best_practices": {
-    "framework_patterns": [...],
-    "security_guidelines": [...]
-  },
-  "principles": {...},
-  "codebase_root": "/path/to/project"
-}
-```
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+
+Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `codebase_root`.
 
 ## Workflow
 
@@ -131,52 +117,13 @@ Receives `contextStore` as JSON string:
 
 ## Scoring Algorithm
 
-```
-violations = {critical: N, high: M, medium: K, low: L}
-
-penalty = (critical * 2.0) + (high * 1.0) + (medium * 0.5) + (low * 0.2)
-
-score = max(0, 10 - penalty)
-```
-
-**Examples:**
-- 0 violations → 10/10
-- 1 critical → 8/10
-- 2 critical, 3 high → 3/10
-- 5 critical, 10 high → 0/10
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 
-Return JSON to coordinator:
-```json
-{
-  "category": "Security",
-  "score": 7,
-  "total_issues": 5,
-  "critical": 1,
-  "high": 2,
-  "medium": 2,
-  "low": 0,
-  "findings": [
-    {
-      "severity": "CRITICAL",
-      "location": "src/api/auth.ts:45",
-      "issue": "Hardcoded API key in production code",
-      "principle": "Secrets Management (OWASP A02:2021 Cryptographic Failures)",
-      "recommendation": "Move API_KEY to environment variable (.env file)",
-      "effort": "S"
-    },
-    {
-      "severity": "HIGH",
-      "location": "src/db/queries.ts:112",
-      "issue": "SQL injection via string concatenation",
-      "principle": "Input Validation (OWASP A03:2021 Injection)",
-      "recommendation": "Use parameterized queries or ORM to prevent SQL injection",
-      "effort": "M"
-    }
-  ]
-}
-```
+**MANDATORY READ:** Load `shared/references/audit_output_schema.md` for JSON structure.
+
+Return JSON with `category: "Security"` and checks: hardcoded_secrets, sql_injection, xss_vulnerabilities, insecure_dependencies, missing_input_validation.
 
 ## Critical Rules
 
@@ -196,6 +143,8 @@ Return JSON to coordinator:
 
 ## Reference Files
 
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 - Security audit rules: [references/security_rules.md](references/security_rules.md)
 
 ---

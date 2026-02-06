@@ -18,13 +18,11 @@ Specialized worker auditing database transaction patterns for correctness, scope
 
 ## Inputs (from Coordinator)
 
-Receives `contextStore` with:
-- `tech_stack` - detected tech stack (languages, frameworks, ORM)
-- `best_practices` - researched best practices from MCP (SQLAlchemy transactions, PostgreSQL NOTIFY)
-- `db_config` - database type, ORM settings, trigger/notify patterns found in migrations
-- `codebase_root` - root path of codebase
-- `domain_mode`: `"domain-aware"` | `"global"` (optional, defaults to "global")
-- `current_domain`: `{name, path}` when domain_mode="domain-aware"
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+
+Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (database type, ORM settings, trigger/notify patterns), `codebase_root`.
+
+**Domain-aware:** Supports `domain_mode` + `current_domain`.
 
 ## Workflow
 
@@ -142,10 +140,7 @@ Receives `contextStore` with:
 
 ## Scoring Algorithm
 
-```
-penalty = (critical * 2.0) + (high * 1.0) + (medium * 0.5) + (low * 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 ## Output Format
 

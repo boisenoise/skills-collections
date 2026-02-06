@@ -18,36 +18,15 @@ Specialized worker identifying missing tests for critical business logic.
 
 ## Inputs (from Coordinator)
 
-Receives `contextStore` with critical paths classification, codebase structure, test file list.
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
 
-**Domain-aware fields (NEW):**
-- `domain_mode`: `"domain-aware"` | `"global"` (optional, defaults to "global")
-- `current_domain`: `{name, path}` when domain_mode="domain-aware"
+Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`.
 
-**Example contextStore (domain-aware):**
-```json
-{
-  "tech_stack": {...},
-  "best_practices": {...},
-  "testFilesMetadata": [...],
-  "codebase_root": "/project",
-  "domain_mode": "domain-aware",
-  "current_domain": {
-    "name": "orders",
-    "path": "src/orders"
-  }
-}
-```
+**Domain-aware:** Supports `domain_mode` + `current_domain` (see `audit_output_schema.md#domain-aware-worker-output`).
 
 ## Workflow
 
-1) **Parse context from contextStore**
-   - Extract tech_stack, best_practices, testFilesMetadata
-   - **Determine scan_path (NEW):**
-     ```
-     IF domain_mode == "domain-aware":
-       scan_path = codebase_root + "/" + current_domain.path
-       domain_name = current_domain.name
+1) **Parse context** — extract fields, determine `scan_path` (domain-aware if specified)
      ELSE:
        scan_path = codebase_root
        domain_name = null
@@ -166,11 +145,7 @@ Receives `contextStore` with critical paths classification, codebase structure, 
 
 ## Scoring Algorithm
 
-**Unified formula (same as ln-650):**
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+See `shared/references/audit_scoring.md` for unified formula and score interpretation.
 
 **Severity mapping by Priority:**
 - Priority 20+ (Money, Security) missing test → CRITICAL
@@ -190,6 +165,12 @@ score = max(0, 10 - penalty)
   "high": 4,
   "medium": 2,
   "low": 1,
+  "checks": [
+    {"id": "line_coverage", "name": "Line Coverage", "status": "passed", "details": "85% coverage (threshold: 80%)"},
+    {"id": "branch_coverage", "name": "Branch Coverage", "status": "warning", "details": "72% coverage (threshold: 75%)"},
+    {"id": "function_coverage", "name": "Function Coverage", "status": "passed", "details": "90% coverage (threshold: 80%)"},
+    {"id": "critical_gaps", "name": "Critical Gaps", "status": "failed", "details": "3 Money flows, 2 Security flows untested"}
+  ],
   "domain": "orders",
   "scan_path": "src/orders",
   "findings": [
@@ -231,6 +212,11 @@ score = max(0, 10 - penalty)
 - Missing tests collected with severity, priority, justification, domain
 - Score calculated
 - JSON returned to coordinator with domain metadata
+
+## Reference Files
+
+- **Audit scoring formula:** `shared/references/audit_scoring.md`
+- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0
