@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-06 06:27 UTC*
+*Last updated: 2026-02-07 06:20 UTC*
 
-Total skills: **969**
+Total skills: **1049**
 
 ## Skills by Source
 
@@ -48,6 +48,7 @@ Total skills: **969**
 | `composio-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |
 | `composio-coda-automation` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions... |
 | `composio-competitive-ads-extractor` | Extracts and analyzes competitors' ads from ad libraries (Facebook, LinkedIn, etc.) to understand wh... |
+| `composio-composio-sdk` | Build AI agents and apps with Composio - access 200+ external tools with Tool Router or direct execu... |
 | `composio-confluence-automation` | Automate Confluence page creation, content search, space management, labels, and hierarchy navigatio... |
 | `composio-connect` | Connect Claude to any app. Send emails, create issues, post messages, update databases - take real a... |
 | `composio-connect-apps` | Connect Claude to external apps like Gmail, Slack, GitHub. Use this skill when the user wants to sen... |
@@ -410,6 +411,7 @@ Total skills: **969**
 | `antigravity-ab-test-setup` | Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and executio... |
 | `antigravity-accessibility-compliance-accessibility-audit` | You are an accessibility expert specializing in WCAG compliance, inclusive design, and assistive tec... |
 | `antigravity-active-directory-attacks` | This skill should be used when the user asks to "attack Active Directory", "exploit AD", "Kerberoast... |
+| `antigravity-activecampaign-automation` | Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, au... |
 | `antigravity-address-github-comments` | Use when you need to address review or issue comments on an open GitHub Pull Request using the gh CL... |
 | `antigravity-agent-evaluation` | Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability... |
 | `antigravity-agent-manager-skill` | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly sc... |
@@ -423,8 +425,10 @@ Total skills: **969**
 | `antigravity-ai-product` | Every product will be AI-powered. The question is whether you'll build it right or ship a demo that ... |
 | `antigravity-ai-wrapper-product` | Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people wi... |
 | `antigravity-airflow-dag-patterns` | Build production Apache Airflow DAGs with best practices for operators, sensors, testing, and deploy... |
+| `antigravity-airtable-automation` | Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always searc... |
 | `antigravity-algolia-search` | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and rel... |
 | `antigravity-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
+| `antigravity-amplitude-automation` | Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identificatio... |
 | `antigravity-analytics-tracking` | Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. Us... |
 | `antigravity-angular` | Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applica... |
 | `antigravity-angular-best-practices` | Angular performance optimization and best practices guide. Use when writing, reviewing, or refactori... |
@@ -447,6 +451,7 @@ Total skills: **969**
 | `antigravity-architecture-decision-records` | Write and maintain Architecture Decision Records (ADRs) following best practices for technical decis... |
 | `antigravity-architecture-patterns` | Implement proven backend architecture patterns including Clean Architecture, Hexagonal Architecture,... |
 | `antigravity-arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M m... |
+| `antigravity-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
 | `antigravity-async-python-patterns` | Master Python asyncio, concurrent programming, and async/await patterns for high-performance applica... |
 | `antigravity-attack-tree-construction` | Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, ident... |
 | `antigravity-audio-transcriber` | Transform audio recordings into professional Markdown documentation with intelligent summaries using... |
@@ -466,6 +471,8 @@ Total skills: **969**
 | `antigravity-backend-development-feature-development` | Orchestrate end-to-end backend feature development from requirements to deployment. Use when coordin... |
 | `antigravity-backend-security-coder` | Expert in secure backend coding practices specializing in input validation, authentication, and API ... |
 | `antigravity-backtesting-frameworks` | Build robust backtesting systems for trading strategies with proper handling of look-ahead bias, sur... |
+| `antigravity-bamboohr-automation` | Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee... |
+| `antigravity-basecamp-automation` | Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube... |
 | `antigravity-bash-defensive-patterns` | Master defensive Bash programming techniques for production-grade scripts. Use when writing robust s... |
 | `antigravity-bash-linux` | Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working... |
 | `antigravity-bash-pro` | Master of defensive Bash scripting for production automation, CI/CD pipelines, and system utilities.... |
@@ -475,11 +482,14 @@ Total skills: **969**
 | `antigravity-behavioral-modes` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt ... |
 | `antigravity-billing-automation` | Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunni... |
 | `antigravity-binary-analysis-patterns` | Master binary analysis patterns including disassembly, decompilation, control flow analysis, and cod... |
+| `antigravity-bitbucket-automation` | Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube ... |
 | `antigravity-blockchain-developer` | Build production-ready Web3 applications, smart contracts, and decentralized systems. Implements DeF... |
 | `antigravity-blockrun` | Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explic... |
+| `antigravity-box-automation` | Automate Box cloud storage operations including file upload/download, search, folder management, sha... |
 | `antigravity-brainstorming` | Use this skill before any creative or constructive work (features, components, architecture, behavio... |
 | `antigravity-brand-guidelines-anthropic` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
 | `antigravity-brand-guidelines-community` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
+| `antigravity-brevo-automation` | Automate Brevo (Sendinblue) tasks via Rube MCP (Composio): manage email campaigns, create/edit templ... |
 | `antigravity-broken-authentication` | This skill should be used when the user asks to "test for broken authentication vulnerabilities", "a... |
 | `antigravity-browser-automation` | Browser automation powers web testing, scraping, and AI agent interactions. The difference between a... |
 | `antigravity-browser-extension-builder` | Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser ... |
@@ -494,6 +504,9 @@ Total skills: **969**
 | `antigravity-c4-component` | Expert C4 Component-level documentation specialist. Synthesizes C4 Code-level documentation into Com... |
 | `antigravity-c4-container` | Expert C4 Container-level documentation specialist. Synthesizes Component-level documentation into C... |
 | `antigravity-c4-context` | Expert C4 Context-level documentation specialist. Creates high-level system context diagrams, docume... |
+| `antigravity-cal-com-automation` | Automate Cal.com tasks via Rube MCP (Composio): manage bookings, check availability, configure webho... |
+| `antigravity-calendly-automation` | Automate Calendly scheduling, event management, invitee tracking, availability checks, and organizat... |
+| `antigravity-canva-automation` | Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. ... |
 | `antigravity-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
 | `antigravity-cc-skill-backend-patterns` | Backend architecture patterns, API design, database optimization, and server-side best practices for... |
 | `antigravity-cc-skill-clickhouse-io` | ClickHouse database patterns, query optimization, analytics, and data engineering best practices for... |
@@ -505,6 +518,7 @@ Total skills: **969**
 | `antigravity-cc-skill-strategic-compact` | Development skill from everything-claude-code |
 | `antigravity-changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use... |
 | `antigravity-cicd-automation-workflow-automate` | You are a workflow automation expert specializing in creating efficient CI/CD pipelines, GitHub Acti... |
+| `antigravity-circleci-automation` | Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve... |
 | `antigravity-clarity-gate` | Pre-ingestion verification for epistemic quality in RAG systems with 9-point verification and Two-Ro... |
 | `antigravity-claude-ally-health` | A health assistant skill for medical information analysis, symptom tracking, and wellness guidance. |
 | `antigravity-claude-code-guide` | Master guide for using Claude Code effectively. Includes configuration templates, prompting strategi... |
@@ -514,8 +528,11 @@ Total skills: **969**
 | `antigravity-claude-win11-speckit-update-skill` | Windows 11 system management |
 | `antigravity-clean-code` | Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments |
 | `antigravity-clerk-auth` | Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync Us... |
+| `antigravity-clickup-automation` | Automate ClickUp project management including tasks, spaces, folders, lists, comments, and team oper... |
+| `antigravity-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |
 | `antigravity-cloud-architect` | Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC... |
 | `antigravity-cloud-penetration-testing` | This skill should be used when the user asks to "perform cloud penetration testing", "assess Azure o... |
+| `antigravity-coda-automation` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions... |
 | `antigravity-code-documentation-code-explain` | You are a code education expert specializing in explaining complex code through clear narratives, vi... |
 | `antigravity-code-documentation-doc-generate` | You are a documentation expert specializing in creating comprehensive, maintainable documentation fr... |
 | `antigravity-code-refactoring-context-restore` | Use when working with code refactoring context restore |
@@ -544,6 +561,7 @@ Total skills: **969**
 | `antigravity-conductor-setup` | Initialize project with Conductor artifacts (product definition, tech stack, workflow, style guides) |
 | `antigravity-conductor-status` | Display project status, active tracks, and next actions |
 | `antigravity-conductor-validator` | Validates Conductor project artifacts for completeness, consistency, and correctness. Use after setu... |
+| `antigravity-confluence-automation` | Automate Confluence page creation, content search, space management, labels, and hierarchy navigatio... |
 | `antigravity-content-creator` | Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, S... |
 | `antigravity-content-marketer` | Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribu... |
 | `antigravity-context-compression` | Design and evaluate compression strategies for long-running sessions |
@@ -557,6 +575,7 @@ Total skills: **969**
 | `antigravity-context-window-management` | Strategies for managing LLM context windows including summarization, trimming, routing, and avoiding... |
 | `antigravity-context7-auto-research` | Automatically fetch latest library/framework documentation for Claude Code via Context7 API |
 | `antigravity-conversation-memory` | Persistent memory systems for LLM conversations including short-term, long-term, and entity-based me... |
+| `antigravity-convertkit-automation` | Automate ConvertKit (Kit) tasks via Rube MCP (Composio): manage subscribers, tags, broadcasts, and b... |
 | `antigravity-copy-editing` | When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment... |
 | `antigravity-copywriting` | Use this skill when writing, rewriting, or improving marketing copy for any page (homepage, landing ... |
 | `antigravity-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
@@ -583,6 +602,7 @@ Total skills: **969**
 | `antigravity-database-migrations-migration-observability` | Migration monitoring, CDC, and observability infrastructure |
 | `antigravity-database-migrations-sql-migrations` | SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, SQL Server |
 | `antigravity-database-optimizer` | Expert database optimizer specializing in modern performance tuning, query optimization, and scalabl... |
+| `antigravity-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
 | `antigravity-dbt-transformation-patterns` | Master dbt (data build tool) for analytics engineering with model organization, testing, documentati... |
 | `antigravity-debugger` | Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encoun... |
 | `antigravity-debugging-strategies` | Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently trac... |
@@ -598,6 +618,7 @@ Total skills: **969**
 | `antigravity-design-md` | Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files |
 | `antigravity-design-orchestration` | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and executi... |
 | `antigravity-devops-troubleshooter` | Expert DevOps troubleshooter specializing in rapid incident response, advanced debugging, and modern... |
+| `antigravity-discord-automation` | Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Alwa... |
 | `antigravity-discord-bot-architect` | Specialized skill for building production-ready Discord bots. Covers Discord.js (JavaScript) and Pyc... |
 | `antigravity-dispatching-parallel-agents` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential depend... |
 | `antigravity-distributed-debugging-debug-trace` | You are a debugging expert specializing in setting up comprehensive debugging environments, distribu... |
@@ -608,9 +629,12 @@ Total skills: **969**
 | `antigravity-docs-architect` | Creates comprehensive technical documentation from existing codebases. Analyzes architecture, design... |
 | `antigravity-documentation-generation-doc-generate` | You are a documentation expert specializing in creating comprehensive, maintainable documentation fr... |
 | `antigravity-documentation-templates` | Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly d... |
+| `antigravity-docusign-automation` | Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document manageme... |
 | `antigravity-docx` | Comprehensive document creation, editing, and analysis with support for tracked changes, comments, f... |
 | `antigravity-dotnet-architect` | Expert .NET backend architect specializing in C#, ASP.NET Core, Entity Framework, Dapper, and enterp... |
+| `antigravity-dotnet-backend` | Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patte... |
 | `antigravity-dotnet-backend-patterns` | Master C#/.NET backend development patterns for building robust APIs, MCP servers, and enterprise ap... |
+| `antigravity-dropbox-automation` | Automate Dropbox file management, sharing, search, uploads, downloads, and folder operations via Rub... |
 | `antigravity-dx-optimizer` | Developer Experience specialist. Improves tooling, setup, and workflows. Use PROACTIVELY when settin... |
 | `antigravity-e2e-testing-patterns` | Master end-to-end testing with Playwright and Cypress to build reliable test suites that catch bugs,... |
 | `antigravity-elixir-pro` | Write idiomatic Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. Masters conc... |
@@ -643,6 +667,7 @@ Total skills: **969**
 | `antigravity-fastapi-pro` | Build high-performance async APIs with FastAPI, SQLAlchemy 2.0, and Pydantic V2. Master microservice... |
 | `antigravity-fastapi-templates` | Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensiv... |
 | `antigravity-ffuf-claude-skill` | Web fuzzing with ffuf |
+| `antigravity-figma-automation` | Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. A... |
 | `antigravity-file-organizer` | Intelligently organizes files and folders by understanding context, finding duplicates, and suggesti... |
 | `antigravity-file-path-traversal` | This skill should be used when the user asks to "test for directory traversal", "exploit path traver... |
 | `antigravity-file-uploads` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, multipa... |
@@ -661,6 +686,8 @@ Total skills: **969**
 | `antigravity-framework-migration-deps-upgrade` | You are a dependency management expert specializing in safe, incremental upgrades of project depende... |
 | `antigravity-framework-migration-legacy-modernize` | Orchestrate a comprehensive legacy system modernization using the strangler fig pattern, enabling gr... |
 | `antigravity-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
+| `antigravity-freshdesk-automation` | Automate Freshdesk helpdesk operations including tickets, contacts, companies, notes, and replies vi... |
+| `antigravity-freshservice-automation` | Automate Freshservice ITSM tasks via Rube MCP (Composio): create/update tickets, bulk operations, se... |
 | `antigravity-frontend-design` | Create distinctive, production-grade frontend interfaces with intentional aesthetics, high craft, an... |
 | `antigravity-frontend-dev-guidelines` | Opinionated frontend development standards for modern React + TypeScript applications. Covers Suspen... |
 | `antigravity-frontend-developer` | Build React components, implement responsive layouts, and handle client-side state management. Maste... |
@@ -679,19 +706,28 @@ Total skills: **969**
 | `antigravity-git-pr-workflows-pr-enhance` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate... |
 | `antigravity-git-pushing` | Stage, commit, and push git changes with conventional commit messages. Use when user wants to commit... |
 | `antigravity-github-actions-templates` | Create production-ready GitHub Actions workflows for automated testing, building, and deploying appl... |
+| `antigravity-github-automation` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (... |
 | `antigravity-github-workflow-automation` | Automate GitHub workflows with AI assistance. Includes PR reviews, issue triage, CI/CD integration, ... |
+| `antigravity-gitlab-automation` | Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations... |
 | `antigravity-gitlab-ci-patterns` | Build GitLab CI/CD pipelines with multi-stage workflows, caching, and distributed runners for scalab... |
 | `antigravity-gitops-workflow` | Implement GitOps workflows with ArgoCD and Flux for automated, declarative Kubernetes deployments wi... |
+| `antigravity-gmail-automation` | Automate Gmail tasks via Rube MCP (Composio): send/reply, search, labels, drafts, attachments. Alway... |
 | `antigravity-go-concurrency-patterns` | Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building con... |
 | `antigravity-godot-gdscript-patterns` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use wh... |
 | `antigravity-golang-pro` | Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production... |
+| `antigravity-google-analytics-automation` | Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn... |
+| `antigravity-google-calendar-automation` | Automate Google Calendar events, scheduling, availability checks, and attendee management via Rube M... |
+| `antigravity-google-drive-automation` | Automate Google Drive file operations (upload, download, search, share, organize) via Rube MCP (Comp... |
+| `antigravity-googlesheets-automation` | Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (C... |
 | `antigravity-grafana-dashboards` | Create and manage production Grafana dashboards for real-time visualization of system and applicatio... |
 | `antigravity-graphql` | GraphQL gives clients exactly the data they need - no more, no less. One endpoint, typed schema, int... |
 | `antigravity-graphql-architect` | Master modern GraphQL with federation, performance optimization, and enterprise security. Build scal... |
 | `antigravity-haskell-pro` | Expert Haskell engineer specializing in advanced type systems, pure functional design, and high-reli... |
 | `antigravity-helm-chart-scaffolding` | Design, organize, and manage Helm charts for templating and packaging Kubernetes applications with r... |
+| `antigravity-helpdesk-automation` | Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, a... |
 | `antigravity-hr-pro` | Professional, ethical HR partner for hiring, onboarding/offboarding, PTO and leave, performance, com... |
 | `antigravity-html-injection-testing` | This skill should be used when the user asks to "test for HTML injection", "inject HTML into web pag... |
+| `antigravity-hubspot-automation` | Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using... |
 | `antigravity-hubspot-integration` | Expert patterns for HubSpot CRM integration including OAuth authentication, CRM objects, association... |
 | `antigravity-hugging-face-cli` | Execute Hugging Face Hub operations using the `hf` CLI. Use when the user needs to download models/d... |
 | `antigravity-hugging-face-jobs` | This skill should be used when users want to run any workload on Hugging Face Jobs infrastructure. C... |
@@ -707,7 +743,9 @@ Total skills: **969**
 | `antigravity-incident-runbook-templates` | Create structured incident response runbooks with step-by-step procedures, escalation paths, and rec... |
 | `antigravity-infinite-gratitude` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case ... |
 | `antigravity-inngest` | Inngest expert for serverless-first background jobs, event-driven workflows, and durable execution w... |
+| `antigravity-instagram-automation` | Automate Instagram tasks via Rube MCP (Composio): create posts, carousels, manage media, get insight... |
 | `antigravity-interactive-portfolio` | Expert in building portfolios that actually land jobs and clients - not just showing work, but creat... |
+| `antigravity-intercom-automation` | Automate Intercom tasks via Rube MCP (Composio): conversations, contacts, companies, segments, admin... |
 | `antigravity-internal-comms-anthropic` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
 | `antigravity-internal-comms-community` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
 | `antigravity-ios-developer` | Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core... |
@@ -718,10 +756,12 @@ Total skills: **969**
 | `antigravity-javascript-pro` | Master modern JavaScript with ES6+, async patterns, and Node.js APIs. Handles promises, event loops,... |
 | `antigravity-javascript-testing-patterns` | Implement comprehensive testing strategies using Jest, Vitest, and Testing Library for unit tests, i... |
 | `antigravity-javascript-typescript-typescript-scaffold` | You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.j... |
+| `antigravity-jira-automation` | Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw... |
 | `antigravity-julia-pro` | Master Julia 1.10+ with modern features, performance optimization, multiple dispatch, and production... |
 | `antigravity-k8s-manifest-generator` | Create production-ready Kubernetes manifests for Deployments, Services, ConfigMaps, and Secrets foll... |
 | `antigravity-k8s-security-policies` | Implement Kubernetes security policies including NetworkPolicy, PodSecurityPolicy, and RBAC for prod... |
 | `antigravity-kaizen` | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user ... |
+| `antigravity-klaviyo-automation` | Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign message... |
 | `antigravity-kpi-dashboard-design` | Design effective KPI dashboards with metrics selection, visualization best practices, and real-time ... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
 | `antigravity-langchain-architecture` | Design LLM applications using the LangChain framework with agents, memory, and tool integration patt... |
@@ -731,7 +771,9 @@ Total skills: **969**
 | `antigravity-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `antigravity-legacy-modernizer` | Refactor legacy codebases, migrate outdated frameworks, and implement gradual modernization. Handles... |
 | `antigravity-legal-advisor` | Draft privacy policies, terms of service, disclaimers, and legal notices. Creates GDPR-compliant tex... |
+| `antigravity-linear-automation` | Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always searc... |
 | `antigravity-linear-claude-skill` | Manage Linear issues, projects, and teams |
+| `antigravity-linkedin-automation` | Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comment... |
 | `antigravity-linkerd-patterns` | Implement Linkerd service mesh patterns for lightweight, security-focused service mesh deployments. ... |
 | `antigravity-lint-and-validate` | Automatic quality control, linting, and static analysis procedures. Use after every code modificatio... |
 | `antigravity-linux-privilege-escalation` | This skill should be used when the user asks to "escalate privileges on Linux", "find privesc vector... |
@@ -743,6 +785,8 @@ Total skills: **969**
 | `antigravity-llm-evaluation` | Implement comprehensive evaluation strategies for LLM applications using automated metrics, human fe... |
 | `antigravity-loki-mode` | Multi-agent autonomous startup system for Claude Code. Triggers on "Loki Mode". Orchestrates 100+ sp... |
 | `antigravity-machine-learning-ops-ml-pipeline` | Design and implement a complete ML pipeline for: $ARGUMENTS |
+| `antigravity-mailchimp-automation` | Automate Mailchimp email marketing including campaigns, audiences, subscribers, segments, and analyt... |
+| `antigravity-make-automation` | Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone l... |
 | `antigravity-makepad-skills` | Makepad UI development skills for Rust apps: setup, patterns, shaders, packaging, and troubleshootin... |
 | `antigravity-malware-analyst` | Expert malware analyst specializing in defensive malware research, threat intelligence, and incident... |
 | `antigravity-market-sizing-analysis` | This skill should be used when the user asks to "calculate TAM", "determine SAM", "estimate SOM", "s... |
@@ -756,7 +800,10 @@ Total skills: **969**
 | `antigravity-metasploit-framework` | This skill should be used when the user asks to "use Metasploit for penetration testing", "exploit v... |
 | `antigravity-micro-saas-launcher` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profit... |
 | `antigravity-microservices-patterns` | Design microservices architectures with service boundaries, event-driven communication, and resilien... |
+| `antigravity-microsoft-teams-automation` | Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meeti... |
 | `antigravity-minecraft-bukkit-pro` | Master Minecraft server plugin development with Bukkit, Spigot, and Paper APIs. Specializes in event... |
+| `antigravity-miro-automation` | Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connector... |
+| `antigravity-mixpanel-automation` | Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profil... |
 | `antigravity-ml-engineer` | Build production ML systems with PyTorch 2.x, TensorFlow, and modern ML frameworks. Implements model... |
 | `antigravity-ml-pipeline-workflow` | Build end-to-end MLOps pipelines from data preparation through model training, validation, and produ... |
 | `antigravity-mlops-engineer` | Build comprehensive ML pipelines, experiment tracking, and model registries with MLflow, Kubeflow, a... |
@@ -764,6 +811,7 @@ Total skills: **969**
 | `antigravity-mobile-developer` | Develop React Native, Flutter, or native mobile apps with modern architecture patterns. Masters cros... |
 | `antigravity-mobile-security-coder` | Expert in secure mobile coding practices specializing in input validation, WebView security, and mob... |
 | `antigravity-modern-javascript-patterns` | Master ES6+ features including async/await, destructuring, spread operators, arrow functions, promis... |
+| `antigravity-monday-automation` | Automate Monday.com work management including boards, items, columns, groups, subitems, and updates ... |
 | `antigravity-monorepo-architect` | Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turb... |
 | `antigravity-monorepo-management` | Master monorepo management with Turborepo, Nx, and pnpm workspaces to build efficient, scalable mult... |
 | `antigravity-moodle-external-api-development` | Create custom external web service APIs for Moodle LMS. Use when implementing web services for cours... |
@@ -788,6 +836,7 @@ Total skills: **969**
 | `antigravity-nodejs-best-practices` | Node.js development principles and decision-making. Framework selection, async patterns, security, a... |
 | `antigravity-nosql-expert` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, que... |
 | `antigravity-notebooklm` | Use this skill to query your Google NotebookLM notebooks directly from Claude Code for source-ground... |
+| `antigravity-notion-automation` | Automate Notion tasks via Rube MCP (Composio): pages, databases, blocks, comments, users. Always sea... |
 | `antigravity-notion-template-business` | Expert in building and selling Notion templates as a business - not just making templates, but build... |
 | `antigravity-nx-workspace-patterns` | Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundarie... |
 | `antigravity-observability-engineer` | Build production-ready monitoring, logging, and tracing systems. Implements comprehensive observabil... |
@@ -797,9 +846,13 @@ Total skills: **969**
 | `antigravity-obsidian-clipper-template-creator` | Guide for creating templates for the Obsidian Web Clipper. Use when you want to create a new clippin... |
 | `antigravity-on-call-handoff-patterns` | Master on-call shift handoffs with context transfer, escalation procedures, and documentation. Use w... |
 | `antigravity-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
+| `antigravity-one-drive-automation` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder oper... |
 | `antigravity-openapi-spec-generation` | Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patte... |
 | `antigravity-oss-hunter` | Automatically hunt for high-impact OSS contribution opportunities in trending repositories. |
+| `antigravity-outlook-automation` | Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Al... |
+| `antigravity-outlook-calendar-automation` | Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeti... |
 | `antigravity-page-cro` | Analyze and optimize individual pages for conversion performance. Use when the user wants to improve... |
+| `antigravity-pagerduty-automation` | Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation ... |
 | `antigravity-paid-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
 | `antigravity-parallel-agents` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domai... |
 | `antigravity-payment-integration` | Integrate Stripe, PayPal, and payment processors. Handles checkout flows, subscriptions, webhooks, a... |
@@ -815,6 +868,7 @@ Total skills: **969**
 | `antigravity-performance-testing-review-multi-agent-review` | Use when working with performance testing review multi agent review |
 | `antigravity-personal-tool-builder` | Expert in building custom tools that solve your own problems first. The best products often start as... |
 | `antigravity-php-pro` | Write idiomatic PHP code with generators, iterators, SPL data structures, and modern OOP features. U... |
+| `antigravity-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
 | `antigravity-planning-with-files` | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and... |
@@ -823,6 +877,8 @@ Total skills: **969**
 | `antigravity-posix-shell-pro` | Expert in strict POSIX sh scripting for maximum portability across Unix-like systems. Specializes in... |
 | `antigravity-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
 | `antigravity-postgresql` | Design a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, perfo... |
+| `antigravity-posthog-automation` | Automate PostHog tasks via Rube MCP (Composio): events, feature flags, projects, user profiles, anno... |
+| `antigravity-postmark-automation` | Automate Postmark email delivery tasks via Rube MCP (Composio): send templated emails, manage templa... |
 | `antigravity-postmortem-writing` | Write effective blameless postmortems with root cause analysis, timelines, and action items. Use whe... |
 | `antigravity-powershell-windows` | PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling. |
 | `antigravity-pptx` | Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx fi... |
@@ -861,9 +917,11 @@ Total skills: **969**
 | `antigravity-receiving-code-review` | Use when receiving code review feedback, before implementing suggestions, especially if feedback see... |
 | `antigravity-red-team-tactics` | Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting. |
 | `antigravity-red-team-tools` | This skill should be used when the user asks to "follow red team methodology", "perform bug bounty h... |
+| `antigravity-reddit-automation` | Automate Reddit tasks via Rube MCP (Composio): search subreddits, create posts, manage comments, and... |
 | `antigravity-reference-builder` | Creates exhaustive technical references and API documentation. Generates comprehensive parameter lis... |
 | `antigravity-referral-program` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
 | `antigravity-remotion-best-practices` | Best practices for Remotion - Video creation in React |
+| `antigravity-render-automation` | Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools ... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-research-engineer` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objective cri... |
 | `antigravity-reverse-engineer` | Expert reverse engineer specializing in binary analysis, disassembly, decompilation, and software an... |
@@ -874,6 +932,7 @@ Total skills: **969**
 | `antigravity-rust-pro` | Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready sy... |
 | `antigravity-saga-orchestration` | Implement saga patterns for distributed transactions and cross-aggregate workflows. Use when coordin... |
 | `antigravity-sales-automator` | Draft cold emails, follow-ups, and proposal templates. Creates pricing pages, case studies, and sale... |
+| `antigravity-salesforce-automation` | Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL qu... |
 | `antigravity-salesforce-development` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex t... |
 | `antigravity-sast-configuration` | Configure Static Application Security Testing (SAST) tools for automated vulnerability detection in ... |
 | `antigravity-scala-pro` | Master enterprise-grade Scala development with functional programming, distributed systems, and big ... |
@@ -891,9 +950,12 @@ Total skills: **969**
 | `antigravity-security-scanning-security-dependencies` | You are a security expert specializing in dependency vulnerability analysis, SBOM generation, and su... |
 | `antigravity-security-scanning-security-hardening` | Coordinate multi-layer security scanning and hardening across application, infrastructure, and compl... |
 | `antigravity-security-scanning-security-sast` | Static Application Security Testing (SAST) for code vulnerability analysis across multiple languages... |
+| `antigravity-segment-automation` | Automate Segment tasks via Rube MCP (Composio): track events, identify users, manage groups, page vi... |
 | `antigravity-segment-cdp` | Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tra... |
+| `antigravity-sendgrid-automation` | Automate SendGrid email operations including sending emails, managing contacts/lists, sender identit... |
 | `antigravity-senior-architect` | Comprehensive software architecture skill for designing scalable, maintainable systems using ReactJS... |
 | `antigravity-senior-fullstack` | Comprehensive fullstack development skill for building complete web applications with React, Next.js... |
+| `antigravity-sentry-automation` | Automate Sentry tasks via Rube MCP (Composio): manage issues/events, configure alerts, track release... |
 | `antigravity-seo-audit` | Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance.... |
 | `antigravity-seo-authority-builder` | Analyzes content for E-E-A-T signals and suggests improvements to build authority and trust. Identif... |
 | `antigravity-seo-cannibalization-detector` | Analyzes multiple provided pages to identify keyword overlap and potential cannibalization issues. S... |
@@ -913,6 +975,7 @@ Total skills: **969**
 | `antigravity-shellcheck-configuration` | Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting... |
 | `antigravity-shodan-reconnaissance` | This skill should be used when the user asks to "search for exposed devices on the internet," "perfo... |
 | `antigravity-shopify-apps` | Expert patterns for Shopify app development including Remix/React Router apps, embedded apps with Ap... |
+| `antigravity-shopify-automation` | Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections.... |
 | `antigravity-shopify-development` | Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid.... |
 | `antigravity-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
@@ -920,6 +983,7 @@ Total skills: **969**
 | `antigravity-skill-developer` | Create and manage Claude Code skills following Anthropic best practices. Use when creating new skill... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
 | `antigravity-skill-seekers` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills i... |
+| `antigravity-slack-automation` | Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Composio)... |
 | `antigravity-slack-bot-builder` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for ... |
 | `antigravity-slack-gif-creator` | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, valida... |
 | `antigravity-slo-implementation` | Define and implement Service Level Indicators (SLIs) and Service Level Objectives (SLOs) with error ... |
@@ -932,6 +996,7 @@ Total skills: **969**
 | `antigravity-sql-optimization-patterns` | Master SQL query optimization, indexing strategies, and EXPLAIN analysis to dramatically improve dat... |
 | `antigravity-sql-pro` | Master modern SQL with cloud-native databases, OLTP/OLAP optimization, and advanced query techniques... |
 | `antigravity-sqlmap-database-pentesting` | This skill should be used when the user asks to "automate SQL injection testing," "enumerate databas... |
+| `antigravity-square-automation` | Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search ... |
 | `antigravity-ssh-penetration-testing` | This skill should be used when the user asks to "pentest SSH services", "enumerate SSH configuration... |
 | `antigravity-startup-analyst` | Expert startup business analyst specializing in market sizing, financial modeling, competitive analy... |
 | `antigravity-startup-business-analyst-business-case` | Generate comprehensive investor-ready business case document with market, solution, financials, and ... |
@@ -941,8 +1006,10 @@ Total skills: **969**
 | `antigravity-startup-metrics-framework` | This skill should be used when the user asks about "key startup metrics", "SaaS metrics", "CAC and L... |
 | `antigravity-stitch-ui-design` | Expert guide for creating effective prompts for Google Stitch AI UI design tool. Use when user wants... |
 | `antigravity-stride-analysis-patterns` | Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, con... |
+| `antigravity-stripe-automation` | Automate Stripe tasks via Rube MCP (Composio): customers, charges, subscriptions, invoices, products... |
 | `antigravity-stripe-integration` | Implement Stripe payment processing for robust, PCI-compliant payment flows including checkout, subs... |
 | `antigravity-subagent-driven-development` | Use when executing implementation plans with independent tasks in the current session |
+| `antigravity-supabase-automation` | Automate Supabase database queries, table management, project administration, storage, edge function... |
 | `antigravity-superpowers-lab` | Lab environment for Claude superpowers |
 | `antigravity-swiftui-expert-skill` | Write, review, or improve SwiftUI code following best practices for state management, view compositi... |
 | `antigravity-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
@@ -959,6 +1026,7 @@ Total skills: **969**
 | `antigravity-team-collaboration-issue` | You are a GitHub issue resolution expert specializing in systematic bug investigation, feature imple... |
 | `antigravity-team-collaboration-standup-notes` | You are an expert team communication specialist focused on async-first standup practices, AI-assiste... |
 | `antigravity-team-composition-analysis` | This skill should be used when the user asks to "plan team structure", "determine hiring needs", "de... |
+| `antigravity-telegram-automation` | Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents... |
 | `antigravity-telegram-bot-builder` | Expert in building Telegram bots that solve real problems - from simple automation to complex AI-pow... |
 | `antigravity-telegram-mini-app` | Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-like exp... |
 | `antigravity-temporal-python-pro` | Master Temporal workflow orchestration with Python SDK. Implements durable workflows, saga patterns,... |
@@ -974,13 +1042,17 @@ Total skills: **969**
 | `antigravity-threat-mitigation-mapping` | Map identified threats to appropriate security controls and mitigations. Use when prioritizing secur... |
 | `antigravity-threat-modeling-expert` | Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters ... |
 | `antigravity-threejs-skills` | Three.js skills for creating 3D elements and interactive experiences |
+| `antigravity-tiktok-automation` | Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a... |
+| `antigravity-todoist-automation` | Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (C... |
 | `antigravity-tool-design` | Build tools that agents can use effectively, including architectural reduction patterns |
 | `antigravity-top-web-vulnerabilities` | This skill should be used when the user asks to "identify web application vulnerabilities", "explain... |
 | `antigravity-track-management` | Use this skill when creating, managing, or working with Conductor tracks - the logical work units fo... |
+| `antigravity-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `antigravity-trigger-dev` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent de... |
 | `antigravity-turborepo-caching` | Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up... |
 | `antigravity-tutorial-engineer` | Creates step-by-step tutorials and educational content from code. Transforms complex concepts into p... |
 | `antigravity-twilio-communications` | Build communication features with Twilio: SMS messaging, voice calls, WhatsApp Business API, and use... |
+| `antigravity-twitter-automation` | Automate Twitter/X tasks via Rube MCP (Composio): posts, search, users, bookmarks, lists, media. Alw... |
 | `antigravity-typescript-advanced-types` | Master TypeScript's advanced type system including generics, conditional types, mapped types, templa... |
 | `antigravity-typescript-expert` | TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimiza... |
 | `antigravity-typescript-pro` | Master TypeScript with advanced types, generics, and strict type safety. Handles complex type system... |
@@ -1001,6 +1073,7 @@ Total skills: **969**
 | `antigravity-varlock-claude-skill` | Secure environment variable management ensuring secrets are never exposed in Claude sessions, termin... |
 | `antigravity-vector-database-engineer` | Expert in vector databases, embedding strategies, and semantic search implementation. Masters Pineco... |
 | `antigravity-vector-index-tuning` | Optimize vector index performance for latency, recall, and memory. Use when tuning HNSW parameters, ... |
+| `antigravity-vercel-automation` | Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects,... |
 | `antigravity-vercel-deploy-claimable` | Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions... |
 | `antigravity-vercel-deployment` | Expert knowledge for deploying to Vercel with Next.js Use when: vercel, deploy, deployment, hosting,... |
 | `antigravity-verification-before-completion` | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - req... |
@@ -1016,19 +1089,26 @@ Total skills: **969**
 | `antigravity-web-performance-optimization` | Optimize website and web application performance including loading speed, Core Web Vitals, bundle si... |
 | `antigravity-web3-testing` | Test smart contracts comprehensively using Hardhat and Foundry with unit tests, integration tests, a... |
 | `antigravity-webapp-testing` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying... |
+| `antigravity-webflow-automation` | Automate Webflow CMS collections, site publishing, page management, asset uploads, and ecommerce ord... |
+| `antigravity-whatsapp-automation` | Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload me... |
 | `antigravity-windows-privilege-escalation` | This skill should be used when the user asks to "escalate privileges on Windows," "find Windows priv... |
 | `antigravity-wireshark-analysis` | This skill should be used when the user asks to "analyze network traffic with Wireshark", "capture p... |
 | `antigravity-wordpress-penetration-testing` | This skill should be used when the user asks to "pentest WordPress sites", "scan WordPress for vulne... |
 | `antigravity-workflow-automation` | Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, ... |
 | `antigravity-workflow-orchestration-patterns` | Design durable workflows with Temporal for distributed systems. Covers workflow vs activity separati... |
 | `antigravity-workflow-patterns` | Use this skill when implementing tasks according to Conductor's TDD workflow, handling phase checkpo... |
+| `antigravity-wrike-automation` | Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, as... |
 | `antigravity-writing-plans` | Use when you have a spec or requirements for a multi-step task, before touching code |
 | `antigravity-writing-skills` | Use when creating, updating, or improving agent skills. |
 | `antigravity-x-article-publisher-skill` | Publish articles to X/Twitter |
 | `antigravity-xlsx` | Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, dat... |
 | `antigravity-xss-html-injection` | This skill should be used when the user asks to "test for XSS vulnerabilities", "perform cross-site ... |
+| `antigravity-youtube-automation` | Automate YouTube tasks via Rube MCP (Composio): upload videos, manage playlists, search content, get... |
 | `antigravity-youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelli... |
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
+| `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
+| `antigravity-zoho-crm-automation` | Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage lead... |
+| `antigravity-zoom-automation` | Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube ... |
 
 ### vercel-labs/agent-skills
 
