@@ -57,7 +57,7 @@ graph TD
 
     Phase3 --> Phase4
 
-    subgraph Phase4 [Phase 4: Auto-Fix 17 Criteria in 6 Groups]
+    subgraph Phase4 [Phase 4: Auto-Fix 19 Criteria in 7 Groups]
         P4A[Group 1: Structural #1-#4<br/>Story + Tasks structure]
         P4A --> P4B[Group 2: Standards #5<br/>RFC/OWASP compliance FIRST]
         P4B --> P4C[Group 3: Solution #6<br/>Library versions]
@@ -69,18 +69,38 @@ graph TD
 
     Phase4 --> Phase5
 
-    subgraph Phase5 [Phase 5: Approve & Notify]
-        P5A[Story + Tasks -> Todo<br/>Update Linear status]
-        P5A --> P5B[Update kanban_board.md<br/>Add APPROVED marker]
-        P5B --> P5C[Add Linear comment<br/>Penalty table + fixes + docs]
-        P5C --> P5D[Display summary table<br/>Before -> 0 After]
+    subgraph Phase5 [Phase 5: Agent Review - Parallel Aggregation]
+        P5A[Prepare prompt<br/>story_review.md + Story/Tasks]
+        P5A --> P5B[codex-review<br/>gpt-5.3-codex]
+        P5A --> P5C[gemini-review<br/>gemini-3-pro-preview]
+        P5B --> P5D[Aggregate suggestions<br/>Dedup by area+issue]
+        P5C --> P5D
+        P5D --> P5E{Both<br/>failed?}
+        P5E -->|Yes| P5F[Self-Review fallback<br/>Claude Self-Audit Protocol]
+        P5F --> P5G[Filter: conf>=90%<br/>impact>10%]
+        P5E -->|No| P5G
+        P5G --> P5H{Suggestions?}
+        P5H -->|None| P5I[Proceed unchanged]
+        P5H -->|Yes| P5J[Claude validates each<br/>ACCEPT / REJECT]
+        P5J --> P5K[Apply accepted<br/>to Story/Tasks]
+        P5K --> P5I
     end
 
-    Phase5 --> End([End: Story Approved<br/>Penalty Points = 0])
+    Phase5 --> Phase6
+
+    subgraph Phase6 [Phase 6: Approve & Notify]
+        P6A[Story + Tasks -> Todo<br/>Update Linear status]
+        P6A --> P6B[Update kanban_board.md<br/>Add APPROVED marker]
+        P6B --> P6C[Add Linear comment<br/>Penalty table + fixes + docs]
+        P6C --> P6D[Display summary table<br/>Before -> 0 After]
+    end
+
+    Phase6 --> End([End: Story Approved<br/>Penalty Points = 0])
 
     classDef discovery fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
     classDef research fill:#FFF3E0,stroke:#E65100,stroke-width:2px
     classDef decision fill:#FFF9C4,stroke:#F57C00,stroke-width:2px
+    classDef cascade fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px
     classDef fix fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
     classDef approve fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px
 
@@ -88,7 +108,8 @@ graph TD
     class P2A,P2B,P2C,P2D,P2E,P2F research
     class P3A,P3B,P3C,P3D decision
     class P4A,P4B,P4C,P4D,P4E,P4F,P4G fix
-    class P5A,P5B,P5C,P5D approve
+    class P5A,P5B,P5C,P5D,P5E,P5F,P5G,P5H,P5I,P5J,P5K cascade
+    class P6A,P6B,P6C,P6D approve
             </div>
         </div>
         <div class="info-box">
@@ -122,7 +143,7 @@ graph TD
             </table>
         </div>
         <footer>
-            <p>ln-310-story-validator v5.0.0 | 5 phases | 17 criteria (6 groups) | Penalty Points system | Plan Mode support</p>
+            <p>ln-310-story-validator v7.0.0 | 6 phases | 19 criteria (7 groups) | Penalty Points system | Plan Mode support</p>
         </footer>
     </div>
     <script>

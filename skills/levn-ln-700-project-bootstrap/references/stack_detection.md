@@ -272,7 +272,10 @@ Microsoft.Data.Sqlite (C#)
 
 ## Structure Detection
 
-### Monolith (Replit Default)
+### Monolith (Prototype/Platform Export)
+
+**Indicators:** Flat structure with client/ + server/ folders, single root package.json.
+**Common in:** Replit exports, StackBlitz projects, CodeSandbox downloads, early-stage prototypes.
 
 ```
 project/
@@ -280,7 +283,7 @@ project/
 ├── server/           # Backend
 ├── shared/           # Shared types
 ├── package.json      # Root package
-└── .replit           # Replit config
+└── [.replit]         # Optional platform config
 ```
 
 ### Clean Architecture
@@ -360,8 +363,16 @@ def detect_stack(project_path):
         stack["orm"] = "prisma"
 
     # 4. Structure detection
-    if exists(".replit"):
-        stack["structure"] = "replit-monolith"
+    if exists(".replit") or exists(".stackblitzrc") or exists("sandbox.config.json") or exists("glitch.json"):
+        stack["structure"] = "monolith-prototype"
+        # Detect platform origin
+        if exists(".replit"): stack["origin"] = "replit"
+        elif exists(".stackblitzrc"): stack["origin"] = "stackblitz"
+        elif exists("sandbox.config.json"): stack["origin"] = "codesandbox"
+        elif exists("glitch.json"): stack["origin"] = "glitch"
+    elif exists("client/") and exists("server/"):
+        stack["structure"] = "monolith-prototype"
+        stack["origin"] = "custom"
     elif exists("pnpm-workspace.yaml"):
         stack["structure"] = "monorepo"
     elif glob("src/*/*.csproj"):
@@ -402,7 +413,8 @@ Stack Detection Result:
       target: efcore
 
   structure:
-    current: replit-monolith
+    current: monolith-prototype
+    origin: replit | stackblitz | codesandbox | glitch | custom
     target: clean-architecture
 
   devtools:
@@ -414,5 +426,5 @@ Stack Detection Result:
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2026-01-10
+**Version:** 2.0.0
+**Last Updated:** 2026-02-07

@@ -182,7 +182,7 @@ Stack Detection → Identify → Ref Research → Existing Guides → Standards 
 - [guide_path.md](guide_path.md) - Brief description
 ```
 
-**Return Standards Research** to calling skill (ln-220, ln-310, ln-350)
+**Return Standards Research** to calling skill (ln-220, ln-310, ln-510)
 
 **Output:** Standards Research (Markdown string) for insertion into Story Technical Notes subsection
 

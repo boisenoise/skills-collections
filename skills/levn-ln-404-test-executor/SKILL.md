@@ -38,6 +38,7 @@ Runs a single Story final test task (label "tests") through implementation/execu
 - Keep language (EN/RU) consistent with task.
 - No framework/library/DB/performance/load tests; focus on business logic correctness (not infrastructure throughput).
 - Respect limits and priority; if violated, stop and return with findings.
+- **Do NOT commit.** Leave all changes uncommitted — ln-402 reviews and commits with task ID reference.
 
 ## Definition of Done
 - Task identified as test task and set to In Progress; kanban updated.

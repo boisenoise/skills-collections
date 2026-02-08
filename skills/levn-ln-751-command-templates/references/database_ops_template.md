@@ -171,8 +171,8 @@ docker-compose exec -T postgres psql -U postgres {{PROJECT_NAME}} < seed.sql
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `{{PROJECT_NAME}}` | Project name / database name | "kehai-os" |
-| `{{BACKEND_ROOT}}` | Backend path | "src/Kehai.Api" |
+| `{{PROJECT_NAME}}` | Project name / database name | "my-app" |
+| `{{BACKEND_ROOT}}` | Backend path | "src/MyApp.Api" |
 | `{{TIMESTAMP}}` | Generation time | "2026-01-10" |
 
 ---

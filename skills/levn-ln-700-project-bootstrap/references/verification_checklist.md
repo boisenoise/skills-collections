@@ -19,7 +19,7 @@ cd src/frontend && npm run build
 # Expected: Exit code 0, dist/ folder created
 
 # Backend (.NET)
-cd src/Kehai.Api && dotnet build
+cd src/MyApp.Api && dotnet build
 # Expected: Exit code 0, no errors
 ```
 

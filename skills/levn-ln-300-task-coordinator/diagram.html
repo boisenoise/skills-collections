@@ -17,11 +17,11 @@
             <h3>📋 Overview</h3>
             <ul>
                 <li><strong>Purpose:</strong> Orchestrator for task operations (create/replan) with automatic decomposition</li>
-                <li><strong>Pattern:</strong> Orchestrator v6.1.0 - Delegates to workers (ln-311-task-creator, ln-312-task-replanner) via Skill tool</li>
+                <li><strong>Pattern:</strong> Orchestrator v6.1.0 - Delegates to workers (ln-301-task-creator, ln-302-task-replanner) via Skill tool</li>
                 <li><strong>Decompose-First:</strong> Build IDEAL plan ALWAYS (1-6 tasks), then check existing and delegate to workers</li>
-                <li><strong>Modes:</strong> CREATE (no tasks → ln-311-task-creator) or REPLAN (has tasks → ln-312-task-replanner)</li>
+                <li><strong>Modes:</strong> CREATE (no tasks → ln-301-task-creator) or REPLAN (has tasks → ln-302-task-replanner)</li>
                 <li><strong>Ordering:</strong> Foundation-First execution order (Database → Repository → Service → API)</li>
-                <li><strong>Next Step:</strong> ln-320-story-validator ONLY (обязательная верификация перед выполнением)</li>
+                <li><strong>Next Step:</strong> ln-310-story-validator ONLY (обязательная верификация перед выполнением)</li>
             </ul>
         </div>
         <div class="diagram-container">
@@ -40,15 +40,15 @@ graph TD
     Phase3 -->|Count = 0| CreateMode[CREATE MODE<br/>No existing tasks]
     Phase3 -->|Count ≥ 1| ReplanMode[REPLAN MODE<br/>Has existing tasks]
 
-    CreateMode --> Phase4a[Phase 4a: Delegate to ln-311-task-creator<br/>Skill tool with:<br/>taskType: "implementation"<br/>+ IDEAL plan + guide links]
-    Phase4a --> WorkerCreate[ln-311-task-creator WORKER:<br/>• Generate 7-section docs<br/>• Validate NO tests<br/>• Show preview<br/>• User confirms<br/>• Create in Linear<br/>• Update kanban_board.md]
+    CreateMode --> Phase4a[Phase 4a: Delegate to ln-301-task-creator<br/>Skill tool with:<br/>taskType: "implementation"<br/>+ IDEAL plan + guide links]
+    Phase4a --> WorkerCreate[ln-301-task-creator WORKER:<br/>• Generate 7-section docs<br/>• Validate NO tests<br/>• Show preview<br/>• User confirms<br/>• Create in Linear<br/>• Update kanban_board.md]
     WorkerCreate --> Phase5[Phase 5: Post-Execution<br/>Receive Summary from worker<br/>Return to user]
 
-    ReplanMode --> Phase4b[Phase 4b: Delegate to ln-312-task-replanner<br/>Skill tool with:<br/>taskType: "implementation"<br/>+ IDEAL plan + existing IDs]
-    Phase4b --> WorkerReplan[ln-312-task-replanner WORKER:<br/>• Load existing tasks<br/>• Compare IDEAL vs existing<br/>• Show operations + diffs<br/>• User confirms<br/>• Execute operations<br/>• Update kanban_board.md]
+    ReplanMode --> Phase4b[Phase 4b: Delegate to ln-302-task-replanner<br/>Skill tool with:<br/>taskType: "implementation"<br/>+ IDEAL plan + existing IDs]
+    Phase4b --> WorkerReplan[ln-302-task-replanner WORKER:<br/>• Load existing tasks<br/>• Compare IDEAL vs existing<br/>• Show operations + diffs<br/>• User confirms<br/>• Execute operations<br/>• Update kanban_board.md]
     WorkerReplan --> Phase5
 
-    Phase5 --> End([End: Return to user<br/>Summary + Linear URLs<br/><br/>Next Step ONLY:<br/>→ ln-320-story-validator])
+    Phase5 --> End([End: Return to user<br/>Summary + Linear URLs<br/><br/>Next Step ONLY:<br/>→ ln-310-story-validator])
 
     %% Styling
     classDef orchestrator fill:#e1f5fe,stroke:#0277bd,stroke-width:3px

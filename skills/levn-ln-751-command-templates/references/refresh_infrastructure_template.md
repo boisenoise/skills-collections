@@ -129,9 +129,9 @@ cp .env.example .env
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `{{PROJECT_NAME}}` | Project name | "kehai-os" |
+| `{{PROJECT_NAME}}` | Project name | "my-app" |
 | `{{FRONTEND_ROOT}}` | Frontend path | "src/frontend" |
-| `{{BACKEND_ROOT}}` | Backend path | "src/Kehai.Api" |
+| `{{BACKEND_ROOT}}` | Backend path | "src/MyApp.Api" |
 | `{{FRONTEND_PORT}}` | Frontend port | "3000" |
 | `{{BACKEND_PORT}}` | Backend port | "5000" |
 | `{{TIMESTAMP}}` | Generation time | "2026-01-10" |

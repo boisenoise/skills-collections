@@ -3,9 +3,74 @@
 <!-- SCOPE: Bootstrap transformation plan structure ONLY. Contains project info, detected stack, phases, verification checklist. -->
 <!-- DO NOT add here: bootstrap logic → ln-700-project-bootstrap SKILL.md, phase details → L2/L3 worker skills -->
 
-Template for generating bootstrap transformation plans.
+Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TRANSFORM (from existing project).
 
 ---
+
+## Mode Selection
+
+| Mode | When | Template | Key Differences |
+|------|------|----------|-----------------|
+| **CREATE** | Empty dir or user requests new project | [CREATE Template](#create-mode-template) | No Source Analysis, ln-710 SKIP, ln-724 SKIP, ln-721 SCAFFOLD |
+| **TRANSFORM** | Existing codebase detected | [TRANSFORM Template](#transform-mode-template) | Full source analysis, all workers run |
+
+---
+
+## CREATE Mode Template
+
+```markdown
+# Bootstrap Plan (CREATE Mode)
+
+**Project:** {{PROJECT_NAME}}
+**Generated:** {{DATE}}
+**Mode:** CREATE (New Project)
+**Estimated Duration:** {{DURATION}}
+
+---
+
+## Target Stack
+
+| Layer | Framework | Version |
+|-------|-----------|---------|
+| Frontend | {{FRONTEND_FRAMEWORK}} | {{FRONTEND_VERSION}} |
+| Backend | {{BACKEND_FRAMEWORK}} | {{BACKEND_VERSION}} |
+| Database | {{DATABASE}} | {{DATABASE_VERSION}} |
+
+## Entities (Seed Data)
+
+{{#if ENTITIES}}
+{{#each ENTITIES}}
+- {{name}} ({{fields_count}} fields)
+{{/each}}
+{{else}}
+- User, Role (starter template)
+{{/if}}
+
+## Generation Steps
+
+### Step 1: Dependencies (ln-710)
+**Action:** SKIP (nothing to upgrade)
+
+### Step 2: Structure (ln-720)
+- Scaffold frontend (ln-721 SCAFFOLD mode)
+- Generate backend (ln-722)
+- Generate seed data (ln-723 GENERATE mode)
+- Artifact cleanup: SKIP (CREATE mode)
+
+### Step 3-7: DevOps, Quality, Commands, Security, Crosscutting
+(Same as TRANSFORM mode)
+
+### Step 8: Verification (ln-780)
+(Same as TRANSFORM mode)
+
+## Estimated Outcome
+- Files created: ~{{FILE_COUNT}}
+- Duration: ~15-20 minutes
+```
+
+---
+
+## TRANSFORM Mode Template
 
 ## Template Structure
 
@@ -235,7 +300,7 @@ If bootstrap fails:
 
 | Variable | Source | Example |
 |----------|--------|---------|
-| PROJECT_NAME | package.json name or folder | kehai-os |
+| PROJECT_NAME | package.json name or folder | my-app |
 | FRONTEND_CURRENT | Detection | React 18 + Vite |
 | BACKEND_CURRENT | Detection | Express + Drizzle |
 | BACKEND_TARGET | User preference | .NET 10 |
@@ -251,7 +316,7 @@ If bootstrap fails:
 ```markdown
 # Bootstrap Transformation Plan
 
-**Project:** kehai-os
+**Project:** my-app
 **Generated:** 2026-01-10
 **Estimated Duration:** 25-30 minutes
 
@@ -271,7 +336,7 @@ If bootstrap fails:
 ### Current Structure
 
 ```
-kehai-os/
+my-app/
 ├── client/
 │   └── src/
 │       └── App.tsx (monolithic)
@@ -285,7 +350,7 @@ kehai-os/
 ### Target Structure
 
 ```
-kehai-os/
+my-app/
 ├── src/
 │   ├── frontend/
 │   │   └── src/
@@ -293,10 +358,10 @@ kehai-os/
 │   │       ├── pages/
 │   │       ├── hooks/
 │   │       └── lib/
-│   ├── Kehai.Api/
-│   ├── Kehai.Domain/
-│   ├── Kehai.Services/
-│   └── Kehai.Repositories/
+│   ├── MyApp.Api/
+│   ├── MyApp.Domain/
+│   ├── MyApp.Services/
+│   └── MyApp.Repositories/
 ├── docker-compose.yml
 └── .github/workflows/
 ```
@@ -304,5 +369,5 @@ kehai-os/
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2026-01-10
+**Version:** 2.0.0
+**Last Updated:** 2026-02-07

@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-02-07 06:20 UTC*
+*Last updated: 2026-02-08 06:25 UTC*
 
 Total skills: **1049**
 
@@ -281,16 +281,16 @@ Total skills: **1049**
 | `levn-ln-651-query-efficiency-auditor` | Query efficiency audit worker (L3). Checks redundant entity fetches, N-UPDATE/DELETE loops, unnecess... |
 | `levn-ln-652-transaction-correctness-auditor` | Transaction correctness audit worker (L3). Checks missing intermediate commits, transaction scope (t... |
 | `levn-ln-653-runtime-performance-auditor` | Runtime performance audit worker (L3). Checks blocking IO in async, unnecessary allocations, sync sl... |
-| `levn-ln-700-project-bootstrap` | Orchestrates full project bootstrap from Replit export to production-ready structure |
+| `levn-ln-700-project-bootstrap` | Universal project bootstrapper: CREATE new or TRANSFORM existing project to production-ready structu... |
 | `levn-ln-710-dependency-upgrader` | Coordinates dependency upgrades across all detected package managers |
 | `levn-ln-711-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling |
 | `levn-ln-712-nuget-upgrader` | Upgrades .NET NuGet packages with breaking change handling |
 | `levn-ln-713-pip-upgrader` | Upgrades Python pip/poetry/pipenv dependencies with breaking change handling |
-| `levn-ln-720-structure-migrator` | Coordinates project structure migration to Clean Architecture |
-| `levn-ln-721-frontend-restructure` | Restructures React frontend from monolith to component-based architecture |
+| `levn-ln-720-structure-migrator` | Coordinates project structure: SCAFFOLD new or RESTRUCTURE existing to Clean Architecture |
+| `levn-ln-721-frontend-restructure` | Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-... |
 | `levn-ln-722-backend-generator` | Generates .NET Clean Architecture backend structure from entity definitions |
-| `levn-ln-723-mockdata-migrator` | Migrates mock data from Drizzle ORM schemas to C# MockData classes |
-| `levn-ln-724-replit-cleaner` | Removes all Replit artifacts from exported projects (configs, packages, code comments) |
+| `levn-ln-723-seed-data-generator` | Universal seed data generator: MIGRATE from ORM schemas or GENERATE from entity definitions to any t... |
+| `levn-ln-724-artifact-cleaner` | Universal platform artifact cleaner: Replit, StackBlitz, CodeSandbox, Glitch |
 | `levn-ln-730-devops-setup` | Coordinates Docker, CI/CD, and environment configuration setup via auto-detection |
 | `levn-ln-731-docker-generator` | Generates Docker and docker-compose configuration for multi-container development |
 | `levn-ln-732-cicd-generator` | Generates GitHub Actions CI workflow configuration |

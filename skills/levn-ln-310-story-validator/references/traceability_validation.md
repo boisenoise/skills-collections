@@ -200,8 +200,8 @@ As a user, I want to log in with OAuth so that I can access protected resources.
 
 **Sequence:**
 ```
-Phase 4 Groups 1-5 complete -> All Tasks/ACs finalized
--> Group 6: Traceability (#16-#17) runs
+Phase 4 Groups 1-6 complete -> All Tasks/ACs finalized
+-> Group 7: Traceability (#16-#17) runs
 -> Verifies final alignment and coverage
 ```
 

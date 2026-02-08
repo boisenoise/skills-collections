@@ -23,7 +23,7 @@ Complete list of variables extracted by ln-750 for command generation.
 | Variable | Description | Detection | Example |
 |----------|-------------|-----------|---------|
 | `{{FRONTEND_ROOT}}` | Frontend source path | package.json location | "src/frontend" |
-| `{{BACKEND_ROOT}}` | Backend source path | .csproj location | "src/Kehai.Api" |
+| `{{BACKEND_ROOT}}` | Backend source path | .csproj location | "src/MyApp.Api" |
 
 ---
 

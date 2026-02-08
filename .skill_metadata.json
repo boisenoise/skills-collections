@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-07T06:20:50.971444",
+  "last_updated": "2026-02-08T06:25:55.334153",
   "skill_count": 1049,
   "sources_processed": 19,
   "skills": [
@@ -7142,7 +7142,7 @@
     {
       "name": "levn-ln-720-structure-migrator",
       "original_name": "ln-720-structure-migrator",
-      "description": "Coordinates project structure migration to Clean Architecture",
+      "description": "Coordinates project structure: SCAFFOLD new or RESTRUCTURE existing to Clean Architecture",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7158,7 +7158,7 @@
     {
       "name": "levn-ln-700-project-bootstrap",
       "original_name": "ln-700-project-bootstrap",
-      "description": "Orchestrates full project bootstrap from Replit export to production-ready structure",
+      "description": "Universal project bootstrapper: CREATE new or TRANSFORM existing project to production-ready structure",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7215,6 +7215,14 @@
       "name": "levn-ln-300-task-coordinator",
       "original_name": "ln-300-task-coordinator",
       "description": "Orchestrates task operations. Analyzes Story, builds optimal plan (1-6 implementation tasks), delegates to ln-301-task-creator (CREATE/ADD) or ln-302-task-replanner (REPLAN). Auto-discovers team ID.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-724-artifact-cleaner",
+      "original_name": "ln-724-artifact-cleaner",
+      "description": "Universal platform artifact cleaner: Replit, StackBlitz, CodeSandbox, Glitch",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7326,7 +7334,7 @@
     {
       "name": "levn-ln-721-frontend-restructure",
       "original_name": "ln-721-frontend-restructure",
-      "description": "Restructures React frontend from monolith to component-based architecture",
+      "description": "Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-based architecture",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7492,14 +7500,6 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-723-mockdata-migrator",
-      "original_name": "ln-723-mockdata-migrator",
-      "description": "Migrates mock data from Drizzle ORM schemas to C# MockData classes",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-783-container-launcher",
       "original_name": "ln-783-container-launcher",
       "description": "Builds and launches Docker containers with health verification using best practices",
@@ -7628,14 +7628,6 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-724-replit-cleaner",
-      "original_name": "ln-724-replit-cleaner",
-      "description": "Removes all Replit artifacts from exported projects (configs, packages, code comments)",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-772-error-handler-setup",
       "original_name": "ln-772-error-handler-setup",
       "description": "Configures global exception handling middleware",
@@ -7727,6 +7719,14 @@
       "name": "levn-ln-511-test-researcher",
       "original_name": "ln-511-test-researcher",
       "description": "Researches real-world problems, competitor solutions, and customer complaints before test planning. Posts findings as Linear comment for ln-512 and ln-513.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-723-seed-data-generator",
+      "original_name": "ln-723-seed-data-generator",
+      "description": "Universal seed data generator: MIGRATE from ORM schemas or GENERATE from entity definitions to any target format",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

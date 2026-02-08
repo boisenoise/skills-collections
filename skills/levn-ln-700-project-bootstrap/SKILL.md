@@ -1,6 +1,6 @@
 ---
 name: ln-700-project-bootstrap
-description: Orchestrates full project bootstrap from Replit export to production-ready structure
+description: "Universal project bootstrapper: CREATE new or TRANSFORM existing project to production-ready structure"
 ---
 
 # ln-700-project-bootstrap
@@ -8,7 +8,20 @@ description: Orchestrates full project bootstrap from Replit export to productio
 **Type:** L1 Top Orchestrator
 **Category:** 7XX Project Bootstrap
 
-Transforms a prototype project (Replit export or early-stage repo) into a production-ready codebase with Clean Architecture, Docker, CI/CD, and development tooling.
+Universal project bootstrapper with two modes: CREATE (generate production-ready project from scratch) or TRANSFORM (migrate existing prototype from any platform to production structure). Output: Clean Architecture, Docker, CI/CD, quality tooling.
+
+---
+
+## Mode Selection
+
+| Aspect | CREATE | TRANSFORM |
+|--------|--------|-----------|
+| **Input** | Empty directory or target stack config | Existing project (Replit, StackBlitz, CodeSandbox, Glitch, custom) |
+| **Detection** | No source files found | Source files + optional platform config detected |
+| **ln-710** | SKIP (no deps to upgrade) | RUN (upgrade existing deps) |
+| **ln-720** | SCAFFOLD + GENERATE | RESTRUCTURE + MIGRATE |
+| **ln-724** | SKIP (no artifacts) | CONDITIONAL (if platform detected) |
+| **ln-730–780** | RUN (same for both modes) | RUN (same for both modes) |
 
 ---
 
@@ -16,10 +29,9 @@ Transforms a prototype project (Replit export or early-stage repo) into a produc
 
 | Aspect | Details |
 |--------|---------|
-| **Input** | Source project directory |
+| **Input** | Empty directory (CREATE) or source project (TRANSFORM) |
 | **Output** | Production-ready project with all infrastructure |
-| **Delegations** | ln-710 -> ln-720 -> ln-730 -> ln-740 -> ln-750 -> ln-760 -> ln-770 -> ln-780 |
-| **Duration** | ~30 minutes (vs 4+ hours manual) |
+| **Delegations** | ln-710 (conditional) -> ln-720 -> ln-730 -> ln-740 -> ln-750 -> ln-760 -> ln-770 -> ln-780 |
 
 ---
 
@@ -53,6 +65,33 @@ Phase 4: Report (Summary of Changes)
 ---
 
 ## Phase 0: Technology Detection
+
+### Step 0.0: Mode Detection
+
+| Condition | Mode | Action |
+|-----------|------|--------|
+| Empty directory (no source files) | CREATE | Ask user for target stack, project name, entities |
+| Source files found | TRANSFORM | Auto-detect stack, scan for platform artifacts |
+| Ambiguous (few files, unclear) | ASK | Present both options, let user choose |
+
+### Step 0.1: CREATE Mode — User Input
+
+| Parameter | Required | Default | Example |
+|-----------|----------|---------|---------|
+| Project name | Yes | — | MyApp |
+| Target backend | Yes | — | .NET / Node.js / Python |
+| Target frontend | Yes | — | React / Vue / Angular / Svelte |
+| Database | Yes | — | PostgreSQL / MongoDB / MySQL |
+| Main entities | No | User, Role (starter) | User, Product, Order |
+
+### Step 0.2: Idempotency Pre-flight
+
+If target directory contains existing files:
+1. Detect existing structure (package.json, .csproj, etc.)
+2. **Warn user:** "Target directory is not empty. Existing files may be overwritten."
+3. Ask: **Overwrite** (replace all) / **Merge** (keep existing, add missing) / **Abort**
+
+### Step 0.3: Technology Detection (TRANSFORM mode) / Stack Config (CREATE mode)
 
 Analyze project to detect tech stack before delegations.
 
@@ -124,7 +163,8 @@ Detected Stack:
     Version: 17
 
   Structure:
-    Type: Monolith (Replit default)
+    Type: Monolith (Prototype)
+    Origin: replit | stackblitz | codesandbox | glitch | custom
     Target: Clean Architecture
 ```
 
@@ -151,7 +191,7 @@ Based on detected stack, create detailed plan:
 
 ### 2. Structure (ln-720)
 - Move frontend to src/frontend/
-- Create .NET backend: Kehai.Api, Kehai.Domain, etc.
+- Create .NET backend: MyApp.Api, MyApp.Domain, etc.
 - Migrate mock data from Drizzle to MockData classes
 
 ### 3. DevOps (ln-730)
@@ -222,16 +262,16 @@ If user declines, ask for modifications.
 
 Sequential delegation to L2 coordinators:
 
-| Order | Skill | Purpose | Depends On |
-|-------|-------|---------|------------|
-| 1 | ln-710 | Upgrade dependencies | - |
-| 2 | ln-720 | Restructure project | ln-710 |
-| 3 | ln-730 | Setup Docker/CI | ln-720 |
-| 4 | ln-740 | Configure quality tools | ln-720 |
-| 5 | ln-750 | Generate .claude/commands | ln-720 |
-| 6 | ln-760 | Security scanning | ln-710 |
-| 7 | ln-770 | Crosscutting concerns | ln-720 |
-| 8 | ln-780 | Build and verify | All above |
+| Order | Skill | Purpose | CREATE mode | TRANSFORM mode | Depends On |
+|-------|-------|---------|-------------|----------------|------------|
+| 1 | ln-710 | Upgrade dependencies | **SKIP** | RUN | — |
+| 2 | ln-720 | Structure (SCAFFOLD/RESTRUCTURE) | RUN (SCAFFOLD) | RUN (RESTRUCTURE) | ln-710 |
+| 3 | ln-730 | Setup Docker/CI | RUN | RUN | ln-720 |
+| 4 | ln-740 | Configure quality tools | RUN | RUN | ln-720 |
+| 5 | ln-750 | Generate .claude/commands | RUN | RUN | ln-720 |
+| 6 | ln-760 | Security scanning | RUN | RUN | ln-710 |
+| 7 | ln-770 | Crosscutting concerns | RUN | RUN | ln-720 |
+| 8 | ln-780 | Build and verify | RUN | RUN | All above |
 
 ### Delegation Protocol
 
@@ -247,7 +287,7 @@ For each L2 coordinator:
    Paths:
      root: /project
      frontend: /project/src/frontend
-     backend: /project/src/Kehai.Api
+     backend: /project/src/MyApp.Api
 
    Options:
      skipTests: false
@@ -350,11 +390,13 @@ Next Steps:
 
 ### Fatal Errors
 
-| Error | Action |
-|-------|--------|
-| No package.json | Abort: "Not a Node.js project" |
-| Unsupported stack | Abort: "Stack not supported: {stack}" |
-| Permission denied | Abort: "Cannot write to {path}" |
+| Error | Action | Mode |
+|-------|--------|------|
+| No package.json (TRANSFORM) | Abort: "Not a Node.js project" | TRANSFORM |
+| Unsupported stack | Abort: "Stack not supported: {stack}" | Both |
+| Permission denied | Abort: "Cannot write to {path}" | Both |
+| No stack selected | Abort: "Target stack required for CREATE mode" | CREATE |
+| Conflicting files | Abort if user chose "Abort" in pre-flight | CREATE |
 
 ---
 
@@ -425,5 +467,5 @@ SKIP_TESTS=false
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2026-01-10
+**Version:** 2.0.0
+**Last Updated:** 2026-02-07

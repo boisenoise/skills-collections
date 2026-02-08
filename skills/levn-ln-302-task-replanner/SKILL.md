@@ -74,7 +74,8 @@ Worker that re-syncs existing tasks to the latest requirements for any task type
 - **Kanban update algorithm:** `shared/references/kanban_update_algorithm.md`
 - **Template loading:** `shared/references/template_loading_pattern.md`
 - **Linear creation workflow:** `shared/references/linear_creation_workflow.md`
-- **Replan algorithm:** `shared/references/replan_algorithm.md`
+- **Replan algorithm (universal):** `shared/references/replan_algorithm.md`
+- **Task-specific replan algorithm:** `references/replan_algorithm.md` (5 scenarios, comparison logic)
 - **Storage mode detection:** `shared/references/storage_mode_detection.md`
 - Templates (centralized): `shared/templates/task_template_implementation.md`, `shared/templates/refactoring_task_template.md`, `shared/templates/test_task_template.md`
 - Local copies: `docs/templates/*.md` (in target project)

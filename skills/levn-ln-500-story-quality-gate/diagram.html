@@ -49,7 +49,7 @@ graph TD
     P1_Phase6 --> CheckTestTask{Test task<br/>exists?}
     CheckTestTask -->|Yes & Done| Pass2Entry[Continue to Pass 2]
     CheckTestTask -->|Yes & NOT Done| ReportStatus[Report test task status<br/>Exit]
-    CheckTestTask -->|NOT exists| InvokeFinalizer[✅ Delegate to ln-350-story-test-planner<br/>via Skill tool<br/>Worker creates test task]
+    CheckTestTask -->|NOT exists| InvokeFinalizer[✅ Delegate to ln-510-test-planner<br/>via Skill tool<br/>Worker creates test task]
     InvokeFinalizer --> NextSteps[Next steps:<br/>ln-334-test-executor executes test task<br/>ln-332-task-reviewer reviews<br/>Auto-invoke Pass 2 when Done]
     NextSteps --> End
 

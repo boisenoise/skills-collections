@@ -34,7 +34,7 @@ Validate Stories/Tasks with explicit GO/NO-GO verdict, Readiness Score, and Anti
 | LOW | 1 | Structural/cosmetic issues |
 
 **Workflow:**
-1. Audit: Calculate penalty points for all 17 criteria
+1. Audit: Calculate penalty points for all 19 criteria
 2. Fix: Auto-fix and zero out points
 3. Report: Total Before -> 0 After
 
@@ -45,10 +45,10 @@ Detect operating mode at startup:
 **Plan Mode Active:**
 - Phase 1-2: Full audit (discovery + research + penalty calculation)
 - Phase 3: Show results + fix plan -> WAIT for user approval
-- Phase 4-5: After approval -> execute fixes
+- Phase 4-6: After approval -> execute fixes
 
 **Normal Mode:**
-- Phase 1-5: Standard workflow without stopping
+- Phase 1-6: Standard workflow without stopping
 - Automatically fix and approve
 
 ## Workflow Overview
@@ -84,14 +84,14 @@ Detect operating mode at startup:
 - Query Context7 for library versions: `resolve-library-id` + `query-docs`
 - Extract: standards (RFC numbers, OWASP rules), library versions, patterns
 
-**Step 3.5: Anti-Hallucination Verification**
+**Step 4: Anti-Hallucination Verification**
 - Scan Story/Tasks for technical claims (RFC references, library versions, security requirements)
 - Verify each claim has MCP Ref/Context7 evidence
 - Flag unverified claims for correction
 - Status: VERIFIED (all sourced) or FLAGGED (list unverified)
 
-**Step 4: Penalty Points Calculation**
-- Evaluate all 17 criteria against Story/Tasks
+**Step 5: Penalty Points Calculation**
+- Evaluate all 19 criteria against Story/Tasks
 - Assign penalty points per violation (CRITICAL=10, HIGH=5, MEDIUM=3, LOW=1)
 - Calculate total penalty points
 - Build fix plan for each violation
@@ -123,7 +123,14 @@ Detect operating mode at startup:
 - Zero out penalty points as fixes applied
 - Test Strategy section must exist but remain empty (testing handled separately)
 
-### Phase 5: Approve & Notify
+### Phase 5: Agent Review
+
+Per `shared/references/agent_delegation_pattern.md` §Parallel Aggregation.
+- **Template:** `story_review.md` with `{story_content}` + `{tasks_content}` from Phase 4.
+- **Apply:** ACCEPTED suggestions modify Story/Tasks text. No suggestions → proceed to Phase 6 unchanged.
+- **Display:** `"Agent Review: codex ({duration}s, {N} suggestions), gemini ({duration}s, {N} suggestions). Validated: {accepted}/{total} accepted, {rejected} rejected"`
+
+### Phase 6: Approve & Notify
 
 - Set Story + all Tasks to Todo (Linear); update `kanban_board.md` with APPROVED marker
 - **Add Linear comment** with full validation summary:
@@ -150,7 +157,7 @@ Detect operating mode at startup:
 
 | # | Criterion | What it checks | Penalty | Auto-fix actions |
 |---|-----------|----------------|---------|------------------|
-| 5 | Standards Compliance | RFC, OWASP, REST, Security | CRITICAL (10) | Query MCP Ref; update Technical Notes with compliant approach |
+| 5 | Standards Compliance | Each technical decision references specific RFC/OWASP/REST standard by number | CRITICAL (10) | Query MCP Ref; update Technical Notes with compliant approach |
 
 ### Solution (#6)
 
@@ -166,8 +173,8 @@ Detect operating mode at startup:
 | 8 | Documentation Integration | No standalone doc tasks | MEDIUM (3) | Remove doc-only tasks; fold into implementation DoD |
 | 9 | Story Size | 3-8 tasks; 3-5h each | MEDIUM (3) | If <3 or >8, add TODO; flag task size issues |
 | 10 | Test Task Cleanup | No premature test tasks | MEDIUM (3) | Remove test tasks before final; testing appears later |
-| 11 | YAGNI | No premature features | MEDIUM (3) | Move speculative items to Out of Scope unless standards require |
-| 12 | KISS | Simplest solution | MEDIUM (3) | Simplify unless standards require complexity |
+| 11 | YAGNI | Each Task maps to ≥1 Story AC; no tasks without AC justification | MEDIUM (3) | Move speculative items to Out of Scope unless standards require |
+| 12 | KISS | No task requires >3 new abstractions; if >3 → split or simplify | MEDIUM (3) | Simplify unless standards require complexity |
 | 13 | Task Order | DB→Service→API→UI | MEDIUM (3) | Reorder Tasks foundation-first |
 
 ### Quality (#14-#15)
@@ -181,8 +188,8 @@ Detect operating mode at startup:
 
 | # | Criterion | What it checks | Penalty | Auto-fix actions |
 |---|-----------|----------------|---------|------------------|
-| 16 | Story-Task Alignment | Tasks implement Story statement | MEDIUM (3) | Add TODO to misaligned Tasks; warn user |
-| 17 | AC-Task Coverage | Each AC has implementing Task | MEDIUM (3) | Add TODO for uncovered ACs; suggest missing Tasks |
+| 16 | Story-Task Alignment | Each Task title contains keyword from Story AC; grep verification | MEDIUM (3) | Add TODO to misaligned Tasks; warn user |
+| 17 | AC-Task Coverage | Coverage matrix: each AC row has ≥1 Task; no empty rows | MEDIUM (3) | Add TODO for uncovered ACs; suggest missing Tasks |
 
 ### Dependencies (#18-#19)
 
@@ -248,48 +255,16 @@ Output explicit mapping:
 
 ## Self-Audit Protocol (Mandatory)
 
-Before marking any criterion as complete, provide concrete evidence (doc path, MCP result, Linear update).
-
-| # | Self-Audit Question | Required Evidence |
-|---|---------------------|-------------------|
-| 1 | Validated all 8 Story sections? | Section list |
-| 2 | Loaded full description for each Task? | Task validation count |
-| 3 | Statement in As a/I want/So that? | Quoted statement |
-| 4 | AC are G/W/T and testable? | AC count and format |
-| 5 | Verified RFC/OWASP/REST compliance? | Standards list + MCP result |
-| 6 | Checked library versions via Context7? | Context7 result |
-| 7 | Test Strategy kept empty? | Note that testing deferred |
-| 8 | Docs integrated, no standalone tasks? | Integration evidence |
-| 9 | Task count 3-8 and 3-5h? | Task count/sizes |
-| 10 | No premature test tasks? | Search result |
-| 11 | Only current-scope features (YAGNI)? | Scope review |
-| 12 | Simplest approach within standards (KISS)? | Simplicity justification |
-| 13 | Tasks ordered Foundation-First? | Task order list |
-| 14 | All pattern docs exist and referenced? | Doc paths from ln-002 |
-| 15 | Hardcoded values handled? | TODO/config evidence |
-| 16 | Each Task aligns with Story statement? | Alignment check result |
-| 17 | Each AC has implementing Task? | Coverage matrix |
+Verify all 19 criteria (#1-#19) from Auto-Fix Actions pass with concrete evidence (doc path, MCP result, Linear update) before proceeding to Phase 6.
 
 ## Definition of Done
 
-- **Phase 1:** Auto-discovery done; Story + Tasks metadata loaded; task count checked
-- **Phase 2:** Domain extraction complete; ln-002 delegated for docs; MCP research done; Anti-Hallucination verification done; Penalty Points calculated
-- **Phase 3:** Audit results shown; IF Plan Mode: user approved
-- **Phase 4:** All 17 criteria auto-fixed; Penalty Points = 0; Test Strategy empty; test tasks removed
-- **Phase 5:** Final Assessment output:
-  ```yaml
-  gate: GO | NO-GO
-  readiness_score: {1-10}
-  penalty_points: 0 (was {N})
-  anti_hallucination: VERIFIED | FLAGGED
-  ac_coverage: "{N}/{M} (100%)"
-  ac_matrix:
-    - ac: "AC1"
-      tasks: ["T-001", "T-002"]
-      status: covered
-  ```
-- Story/Tasks set to Todo; `kanban_board.md` updated; Linear comment with Final Assessment added
-- **Optional:** If `--execute` flag, ln-400-story-executor invoked after approval
+- Phases 1-6 completed: metadata loaded, research done, penalties calculated, fixes applied, agent review done, Story approved.
+- Penalty Points = 0 (all 19 criteria fixed). Readiness Score ≥ 5.
+- Anti-Hallucination: VERIFIED (all claims sourced via MCP).
+- AC Coverage: 100% (each AC mapped to ≥1 Task).
+- Agent Review: suggestions aggregated, validated, accepted applied.
+- Story/Tasks set to Todo; kanban updated; Linear comment with Final Assessment posted.
 
 ## Example Workflow
 
@@ -311,7 +286,8 @@ Before marking any criterion as complete, provide concrete evidence (doc path, M
    - Fix #13: Add Guide-05, Guide-06 references
    - Fix #17: Docs already created by ln-002
    - All fixes applied, Penalty Points = 0
-5. **Phase 5:** Story -> Todo, tabular report
+5. **Phase 5:** Agent review (codex-review + gemini-review parallel → validate → apply accepted)
+6. **Phase 6:** Story -> Todo, tabular report
 
 ## Template Loading
 
@@ -340,7 +316,6 @@ Before marking any criterion as complete, provide concrete evidence (doc path, M
 - **Templates (centralized):** `shared/templates/story_template.md`, `shared/templates/task_template_implementation.md`
 - **Local copies:** `docs/templates/` (in target project)
 - **Validation Checklists (Progressive Disclosure):**
-  - `references/verification_checklist_template.md` (overview of 7 categories)
   - `references/structural_validation.md` (criteria #1-#4)
   - `references/standards_validation.md` (criterion #5)
   - `references/solution_validation.md` (criterion #6)

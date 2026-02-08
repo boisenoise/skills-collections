@@ -49,10 +49,10 @@ Generates `.claude/commands/` with project-specific Claude Code commands.
 
 | Variable | Source | Example |
 |----------|--------|---------|
-| `{{PROJECT_NAME}}` | package.json / .csproj | "kehai-os" |
+| `{{PROJECT_NAME}}` | package.json / .csproj | "my-app" |
 | `{{TECH_STACK}}` | Auto-detected | "React + .NET + PostgreSQL" |
 | `{{FRONTEND_ROOT}}` | Directory scan | "src/frontend" |
-| `{{BACKEND_ROOT}}` | Directory scan | "src/Kehai.Api" |
+| `{{BACKEND_ROOT}}` | Directory scan | "src/MyApp.Api" |
 | `{{FRONTEND_PORT}}` | vite.config / package.json | "3000" |
 | `{{BACKEND_PORT}}` | launchSettings.json | "5000" |
 

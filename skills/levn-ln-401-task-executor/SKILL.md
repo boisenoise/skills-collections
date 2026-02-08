@@ -43,6 +43,7 @@ Executes a single implementation (or refactor) task from Todo to To Review using
 - No new test creation; only update existing tests if required.
 - Preserve Foundation-First ordering from orchestrator; do not reorder tasks.
 - Add Task ID comments to new code blocks for traceability (`// See PROJ-123` or `# See PROJ-123`).
+- **Do NOT commit.** Leave all changes uncommitted — ln-402 reviews and commits with task ID reference.
 
 ## Definition of Done
 - Task selected and set to In Progress; kanban updated accordingly.

@@ -129,9 +129,9 @@ kubectl rollout undo deployment/{{PROJECT_NAME}}
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `{{PROJECT_NAME}}` | Project name | "kehai-os" |
+| `{{PROJECT_NAME}}` | Project name | "my-app" |
 | `{{FRONTEND_ROOT}}` | Frontend path | "src/frontend" |
-| `{{BACKEND_ROOT}}` | Backend path | "src/Kehai.Api" |
+| `{{BACKEND_ROOT}}` | Backend path | "src/MyApp.Api" |
 | `{{TIMESTAMP}}` | Generation time | "2026-01-10" |
 
 ---

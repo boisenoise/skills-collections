@@ -34,6 +34,7 @@ Executes rework for a single task marked To Rework and hands it back for review.
 - Do not mark Done; only To Review (ln-402 decides Done).
 - Keep language (EN/RU) consistent with task.
 - No new tests/tasks created here; only update existing tests if impacted.
+- **Do NOT commit.** Leave all changes uncommitted — ln-402 reviews and commits with task ID reference.
 
 ## Definition of Done
 - Task and review feedback fully read; actions mapped.

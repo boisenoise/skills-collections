@@ -30,13 +30,13 @@ description: L3 Worker. Reviews task implementation for quality, code standards,
 1) **Receive task (isolated context):** Get task ID from orchestrator (ln-400)—NO other context passed. Load all information independently from Linear. Detect type (label "tests" -> test task, else implementation/refactor).
 2) **Read context:** Full task + parent Story; load affected components/docs; review diffs if available.
 3) **Review checks:**
-   - Approach matches Technical Approach or better (documented rationale).
+   - Approach: diff aligned with Technical Approach in Story. If different → rationale documented in code comments.
    - No hardcoded creds/URLs/magic numbers; config in env/config.
-   - Error handling sane; layering respected; reuse existing components.
-   - Logging: critical paths logged (errors, business events); correct log levels (DEBUG/INFO/WARNING/ERROR).
+   - Error handling: all external calls (API, DB, file I/O) wrapped in try/catch or equivalent. No swallowed exceptions. Layering respected; reuse existing components.
+   - Logging: errors at ERROR; auth/payment events at INFO; debug data at DEBUG. No sensitive data in logs.
    - Comments: explain WHY not WHAT; no commented-out code; docstrings on public methods; Task ID present in new code blocks (`// See PROJ-123`).
-   - Naming: consistent conventions; descriptive names; no single-letter variables (except loops).
-   - Docs updated where required.
+   - Naming: follows project's existing convention (check 3+ similar files). No abbreviations except domain terms. No single-letter variables (except loops).
+   - Docs: if public API changed → API docs updated. If new env var → .env.example updated. If new concept → README/architecture doc updated.
    - Tests updated/run: for impl/refactor ensure affected tests adjusted; for test tasks verify risk-based limits and priority (≤15) per planner template.
 4) **AC Validation (MANDATORY for implementation tasks):**
    Load parent Story AC and verify implementation against 4 criteria (see `references/ac_validation_checklist.md`):
@@ -58,39 +58,40 @@ description: L3 Worker. Reviews task implementation for quality, code standards,
    - Title: `[BUG] {Short description}`
    - Description: Location, issue, suggested fix
    - Label: `bug`, `discovered-in-review`
-   - Priority: based on severity (security=1 Urgent, logic=2 High, style=4 Low)
+   - Priority: based on severity (security → 1 Urgent, logic → 2 High, style → 4 Low)
    - **Do NOT defer** — create task immediately, reviewer catches what executor missed
 
-6) **Decision (for current task only):**
-   - If only nits: apply minor fixes and set Done.
-   - If issues remain: set To Rework with comment explaining why (best-practice ref) and how to fix.
+6) **Agent Review:** Per `shared/references/agent_delegation_pattern.md` §Parallel Aggregation.
+   - **Template:** `code_review.md` with `{task_content}` + `{story_content}` from Step 2.
+   - **Verdict escalation:** Agent findings with area=security|correctness can escalate Done → To Rework.
+   - **Display:** `"Agent Review: codex ({duration}s, {N}), gemini ({duration}s, {N}). Validated: {accepted}/{total}"`
+7) **Decision (for current task only):**
+   - If only nits and no critical agent findings: apply minor fixes and set Done.
+   - If issues remain (own review OR accepted agent suggestions with security/correctness area): set To Rework with comment explaining why (best-practice ref) and how to fix.
    - Side-effect bugs do NOT block current task's Done status (they are separate tasks).
-7) **Update:** Set task status in Linear; update kanban: if Done → **remove task from kanban** (Done section tracks Stories only, not individual Tasks); if To Rework → move task to To Rework section; add review comment with findings/actions. If side-effect bugs created, mention them in comment.
+   - **If Done:** commit all uncommitted changes with message referencing task ID: `git add -A && git commit -m "Implement {task_id}: {task_title}"`
+8) **Update:** Set task status in Linear; update kanban: if Done → **remove task from kanban** (Done section tracks Stories only, not individual Tasks); if To Rework → move task to To Rework section; add review comment with findings/actions. If side-effect bugs created, mention them in comment. Include agent review summary in comment.
 
 ## Critical Rules
-- One task reviewed at a time; side-effect bugs become separate tasks.
-- Zero tolerance: no deferring issues; either fix now or send back with guidance.
-- **Side-effect bugs: fix ALL issues found, not just task scope.** Reviewer's fresh eyes catch what executor missed. Create tasks for every bug found, regardless of whether it's "in scope". This is a feature, not scope creep.
-- Keep language of the task (EN/RU) in comments/edits.
-- If test-task limits/priority violated -> To Rework with guidance.
-- Never leave task Done if any unresolved issue exists **in that task's scope**.
-- **Kanban Done section:** Contains Stories only, NOT Tasks. When Task → Done, remove it from kanban entirely.
-- **Independent review isolation:** This skill runs as subagent with fresh context. Do NOT rely on any data from orchestrator except task ID. Load everything from Linear to maintain objectivity. This emulates external code review by developer who wasn't involved in implementation.
-- **Mandatory invocation (ZERO COMPROMISE):** This skill MUST be invoked after EVERY task execution. No task can be marked Done without passing through ln-402 review. Orchestrator (ln-400) enforces this—if you're running standalone, enforce it yourself.
+- One task at a time; side-effect bugs → separate [BUG] tasks (not scope creep).
+- Zero tolerance: fix now or send back with guidance. Never mark Done with unresolved in-scope issues.
+- Test-task violations (limits/priority ≤15) → To Rework.
+- Keep task language (EN/RU) in edits/comments.
 
 ## Definition of Done
-- Task and parent Story fully read; type identified.
-- Review checklist completed; docs/tests/config verified.
-- **Side-effect bugs scanned:** Any bugs found outside task scope → created as new tasks with `[BUG]` prefix.
-- Decision applied: Done (minor fixes applied) or To Rework (issues + fix guidance).
-- Linear status updated; kanban updated (if Done → task removed from kanban; if To Rework → task moved to To Rework section); review comment posted (including list of any side-effect bug tasks created).
+- Steps 1-8 completed: context loaded, review checks passed, AC validated, side-effect bugs created, agent review done, decision applied.
+- If Done: changes committed with task ID; task removed from kanban. If To Rework: task moved with fix guidance.
+- Review comment posted (findings + agent summary + [BUG] list if any).
 
 ## Reference Files
 - **[MANDATORY] Problem-solving approach:** `shared/references/problem_solving.md`
 - **AC validation rules:** `shared/references/ac_validation_rules.md`
-- AC Validation Checklist: `references/ac_validation_checklist.md` (criteria #4, #9, #17, #19 from ln-310)
+- AC Validation Checklist: `references/ac_validation_checklist.md` (4 criteria: Completeness, Specificity, Dependencies, DB Creation)
+- Agent review prompt: `shared/agents/prompt_templates/code_review.md`
+- Agent review schema: `shared/agents/schemas/code_review_schema.json`
+- Agent delegation: `shared/references/agent_delegation_pattern.md`
 - Kanban format: `docs/tasks/kanban_board.md`
 
 ---
-**Version:** 4.0.0 (BREAKING: Added AC Validation step 4 with 4 criteria from ln-310 - AC completeness/specificity, Task dependencies, Database Creation Principle. Closes validation-execution gap per BMAD Method best practices.)
-**Last Updated:** 2026-02-03
+**Version:** 5.0.0 (BREAKING: Added Agent Review step 6 with parallel codex+gemini aggregation. Commit on Done. AC Validation step 4.)
+**Last Updated:** 2026-02-07

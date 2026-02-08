@@ -51,7 +51,7 @@ Before delegating a Todo task, verify its plan against current codebase:
 ### Phase 4: Task Loop
 For each task by priority (To Review > To Rework > Todo):
 1. Delegate to worker via Task tool (see Worker Invocation table)
-2. Reload metadata after subagent completes
+2. Reload metadata after subagent completes (task count may increase — ln-402 creates [BUG] tasks)
 3. If worker sets status != To Review → STOP and report
 4. **After ln-401/ln-403/ln-404:** Immediately invoke ln-402 on same task
 
@@ -71,7 +71,7 @@ When all implementation tasks Done:
 
 | Status | Worker | Notes |
 |--------|--------|-------|
-| To Review | ln-402-task-reviewer | Pass task ID only. Add: "CRITICAL: Load ALL context independently via get_issue(). Fresh eyes review." |
+| To Review | ln-402-task-reviewer | Pass task ID only. Add: "CRITICAL: Load ALL context independently via get_issue(). Fresh eyes review." Note: ln-402 runs parallel agent review (codex+gemini) which may escalate verdict. Re-check status after return. |
 | To Rework | ln-403-task-rework | Then immediate ln-402 on same task |
 | Todo (tests) | ln-404-test-executor | Then immediate ln-402 on same task |
 | Todo (impl) | ln-401-task-executor | Then immediate ln-402 on same task |
@@ -98,6 +98,8 @@ Before each task, add BOTH steps:
 4. **Only ln-402 sets Done:** Stop and report if any worker leaves task Done or In Progress
 5. **Source of truth:** Trust Linear metadata (Linear Mode) or task files (File Mode)
 6. **Story status:** ln-400 handles Todo→In Progress→To Review; ln-500 handles To Review→Done
+7. **Commit policy:** Only ln-402 commits code. Workers (ln-401/ln-403/ln-404) leave changes uncommitted for ln-402 to review and commit with task ID reference.
+8. **[BUG] tasks:** ln-402 may create new [BUG] tasks mid-review. After metadata reload, reprioritize — new tasks processed in next loop iteration.
 
 ## Anti-Patterns
 - ❌ Running `mypy`/`ruff`/`pytest` directly instead of skill invocation
