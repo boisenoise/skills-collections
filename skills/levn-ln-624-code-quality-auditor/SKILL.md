@@ -205,7 +205,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 ## Output Format
 

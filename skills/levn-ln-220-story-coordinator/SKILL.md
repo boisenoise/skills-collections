@@ -27,6 +27,10 @@ Use when:
 
 **MANDATORY READ:** Load `shared/references/numbering_conventions.md` for Story numbering rules (US001 sequential across Epics, no Story 0).
 
+## Quality Criteria
+
+**MANDATORY READ:** Load `shared/references/creation_quality_checklist.md` §Story Creation Checklist for validation criteria that ln-310 will enforce.
+
 ## How It Works
 
 ### Phase 1: Context Assembly
@@ -143,7 +147,7 @@ Each Story = ONE vertical slice of user capability (end-to-end: UI → API → S
 - ❌ "User registration API endpoint" (API layer only, not vertical)
 - ❌ "Registration UI form" (frontend only, not vertical)
 
-**Rule:** 1 Story = 1 user capability = 3-5 AC = 6-20 hours = 10-28 tests
+**Rule:** 1 Story = 1 user capability (size limits per `creation_quality_checklist.md` #9)
 
 **Database Creation Principle (Incremental Schema Evolution):**
 
@@ -169,51 +173,27 @@ Each Story creates ONLY the tables it needs (not all tables upfront).
    - Complex Epic (8+ features): 8-10 Stories
    - **Max 10 Stories per Epic**
 
-3. **Story Size Guidelines:**
-
-| Criterion | Min | Max | Under-decomposed | Over-decomposed |
-|-----------|-----|-----|------------------|-----------------|
-| **AC** | 3 | 5 | >5 AC (split) | <3 AC (merge) |
-| **Duration** | 6h | 20h | >20h (split) | <6h (merge) |
-| **Tests** | 10 | 28 | >28 tests (split) | <10 tests (merge) |
+3. **Story Size:** Limits per `creation_quality_checklist.md` #9. Outside range → split or merge.
 
 **Over-decomposition indicators:**
-- ❌ <3 AC, <6 hours, <10 tests
 - ❌ Purely technical (no user value)
 - ❌ Title starts with "Add", "Create", "Update" (likely Task)
 - ❌ Crosses only 1-2 layers (not vertical)
 
 4. **Build IDEAL Plan "in mind":**
    - Each Story: persona + capability + business value
-   - Each Story: 3-5 testable AC (Given-When-Then)
-   - Stories ordered by dependency
+   - Each Story: testable AC per checklist #4
+   - Stories ordered by dependency (no forward deps per checklist #18)
    - Each Story: Test Strategy section exists but is **empty** (tests planned later by ln-510-test-planner)
    - Each Story: Technical Notes (architecture, integrations, **Standards Research from Phase 2**, guide links)
 
-5. **AC Quality Validation (CRITICAL - delegates to workers):**
+5. **AC Quality Validation:** Rules per `creation_quality_checklist.md` #4. Workers (ln-221, ln-222) must validate.
 
-Workers (ln-221, ln-222) must validate AC quality:
-
-**Completeness Check (3 scenario types required):**
-- ✅ **Happy Path** (1-2 AC): main success scenarios
-- ✅ **Error Handling** (1-2 AC): invalid inputs, auth failures, system errors
-- ✅ **Edge Cases** (1 AC): boundary conditions, special states, race conditions
-
-**Example:**
-❌ BAD: "User can login" (only happy path)
-✅ GOOD:
-  - AC1: Valid credentials → login success (happy path)
-  - AC2: Invalid password → 401 error (error handling)
-  - AC3: Account locked → 403 error (edge case)
-
-**Specificity Check (measurable outcomes required):**
-- ✅ HTTP status codes (200, 401, 403, 404)
-- ✅ Measurable performance (<200ms, 99% uptime)
-- ✅ Exact error messages ("Invalid credentials")
-
-**Example:**
-❌ BAD: "Login should be fast" (vague)
-✅ GOOD: "Then receive token <200ms" (measurable)
+**Examples:**
+- ❌ BAD: "User can login" (only happy path, no error/edge cases)
+- ✅ GOOD: AC1: login success + AC2: 401 invalid password + AC3: 403 locked
+- ❌ BAD: "Login should be fast" (vague, not measurable)
+- ✅ GOOD: "Then receive token <200ms" (specific, measurable)
 
 **INVEST Checklist:**
 
@@ -222,8 +202,8 @@ Workers (ln-221, ln-222) must validate AC quality:
 | **Independent** | Can develop/deploy without blocking others + NO forward dependencies | "Request OAuth token" (Story N uses only N-1) | "Validate token depends on Story N+2 refresh flow" (forward dependency!) |
 | **Negotiable** | AC focus on WHAT, not HOW | "User gets valid token" (what) | "Use authlib 1.3.0, store in Redis" (how) |
 | **Valuable** | Clear business value | "User refreshes expired token to maintain session" | "Add token_refresh table" (no user value) |
-| **Estimable** | Can estimate 6-20h | Clear scope, known patterns, researched standards | "Implement authentication" (too vague) |
-| **Small** | Fits 1-2 sprints | 3-5 AC, 6-20h | "Full OAuth flow" (>5 AC, >20h) |
+| **Estimable** | Size within checklist #9 range | Clear scope, known patterns, researched standards | "Implement authentication" (too vague) |
+| **Small** | AC/hours/tests per checklist #9 | Within limits | Exceeds limits → split |
 | **Testable** | AC measurable | "Given valid refresh token, Then receive token <200ms" | "Token refresh should be fast" (not measurable) |
 
 **Output:** IDEAL Story plan (5-10 Stories) with titles, statements, core AC, ordering

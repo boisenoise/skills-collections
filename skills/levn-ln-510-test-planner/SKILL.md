@@ -22,7 +22,7 @@ This skill should be used when:
 
 **Prerequisites:**
 - All implementation Tasks in Story status = Done
-- Regression tests passed (ln-502)
+- Regression tests passed (ln-503)
 - Code quality checked (ln-501)
 
 ## Pipeline Overview

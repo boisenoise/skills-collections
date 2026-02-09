@@ -1,11 +1,11 @@
 ---
 name: ln-400-story-executor
-description: Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404, hands Story quality to ln-500. Metadata-only loading up front.
+description: Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404. Sets Story to To Review when all tasks Done (NOT Done — ln-500 handles that). Metadata-only loading up front.
 ---
 
 # Story Execution Orchestrator
 
-Executes a Story end-to-end by looping through its tasks in priority order and delegating quality gates to ln-500-story-quality-gate.
+Executes a Story end-to-end by looping through its tasks in priority order. Sets Story to **To Review** when all tasks Done (quality gate ln-500 decides Done).
 
 ## Purpose & Scope
 - Load Story + task metadata (no descriptions) and drive execution
@@ -19,7 +19,7 @@ Executes a Story end-to-end by looping through its tasks in priority order and d
 
 ## When to Use
 - Story is Todo or In Progress and has implementation/refactor/test tasks to finish
-- Need automated orchestration through To Review and quality gates
+- Need automated orchestration through To Review
 
 ## Workflow
 
@@ -57,31 +57,36 @@ For each task by priority (To Review > To Rework > Todo):
 
 > **Execute → Review → Next.** Never skip review. Never batch reviews.
 
-### Phase 5: Quality Gate
-When all implementation tasks Done:
-1. Invoke ln-500-story-quality-gate Pass 1 via Task tool
-2. If creates tasks → return to Phase 4
-3. When test task Done → invoke Pass 2
-4. If Pass 2 fails and creates tasks → return to Phase 4
-5. If Pass 2 passes → Story Done
+### Phase 5: Completion
+When all tasks Done:
+1. **Set Story status to To Review** (Linear: `update_issue(id, state: "To Review")`; File: `Edit` the `**Status:**` line)
+2. Update kanban: move Story to To Review section
+3. Report final status with task counts
+- **⚠️ NEVER set Story to Done.** Only ln-500-story-quality-gate can mark Story as Done after full quality check.
+- **Recommended next step:** `ln-500-story-quality-gate` for code quality and regression checks
 
 ## Worker Invocation
 
-> **CRITICAL:** All delegations use Task tool with subagent_type: "general-purpose" for context isolation.
+> **CRITICAL:** Executors (ln-401/ln-403/ln-404) use Task tool for context isolation. Reviewer (ln-402) runs inline via Skill tool in main flow.
 
 | Status | Worker | Notes |
 |--------|--------|-------|
-| To Review | ln-402-task-reviewer | Pass task ID only. Add: "CRITICAL: Load ALL context independently via get_issue(). Fresh eyes review." Note: ln-402 runs parallel agent review (codex+gemini) which may escalate verdict. Re-check status after return. |
+| To Review | ln-402-task-reviewer | **Inline (Skill tool).** Load task by ID, review in main flow. No subagent. |
 | To Rework | ln-403-task-rework | Then immediate ln-402 on same task |
 | Todo (tests) | ln-404-test-executor | Then immediate ln-402 on same task |
 | Todo (impl) | ln-401-task-executor | Then immediate ln-402 on same task |
-| Quality Gate | ln-500-story-quality-gate | "Pass 1" or "Pass 2" in prompt |
+**Prompt templates:**
 
-**Prompt template:**
+Executors (ln-401/ln-403/ln-404) — Task tool (isolated context):
 ```
 Task(description: "[Action] task {ID}",
      prompt: "Execute {skill-name} for task {ID}. Read skill from {skill-name}/SKILL.md.",
      subagent_type: "general-purpose")
+```
+
+Reviewer (ln-402) — Skill tool (main flow):
+```
+Skill(skill: "ln-402-task-reviewer", args: "{task-ID}")
 ```
 
 ## Formats
@@ -97,7 +102,7 @@ Before each task, add BOTH steps:
 3. **One task at a time:** Pick → delegate → review → next. No bulk operations
 4. **Only ln-402 sets Done:** Stop and report if any worker leaves task Done or In Progress
 5. **Source of truth:** Trust Linear metadata (Linear Mode) or task files (File Mode)
-6. **Story status:** ln-400 handles Todo→In Progress→To Review; ln-500 handles To Review→Done
+6. **Story status:** ln-400 handles Todo→In Progress→**To Review**. NEVER set Story to Done — only ln-500-story-quality-gate can do that after full quality check
 7. **Commit policy:** Only ln-402 commits code. Workers (ln-401/ln-403/ln-404) leave changes uncommitted for ln-402 to review and commit with task ID reference.
 8. **[BUG] tasks:** ln-402 may create new [BUG] tasks mid-review. After metadata reload, reprioritize — new tasks processed in next loop iteration.
 
@@ -106,9 +111,9 @@ Before each task, add BOTH steps:
 - ❌ "Minimal quality check" then asking "Want me to run full skill?"
 - ❌ Skipping/batching reviews
 - ❌ Self-setting Done status without ln-402
-- ❌ Any execution bypassing Task tool subagent
+- ❌ Executors bypassing Task tool subagent (ln-402 is exception — runs inline)
 
-**ZERO TOLERANCE:** If running commands directly instead of invoking skills via Task tool, STOP and correct.
+**ZERO TOLERANCE:** If running commands directly instead of invoking skills, STOP and correct.
 
 ## Plan Mode Support
 
@@ -116,8 +121,7 @@ When invoked in Plan Mode (agent cannot execute), generate execution plan instea
 
 1. Build task execution sequence by priority
 2. For each task show: ID, Title, Status, Worker, expected status after
-3. Include Quality Gate phases
-4. Write plan to plan file, call ExitPlanMode
+3. Write plan to plan file, call ExitPlanMode
 
 **Plan Output Format:**
 ```
@@ -131,7 +135,6 @@ When invoked in Plan Mode (agent cannot execute), generate execution plan instea
 1. [Execute] {Task-1} via ln-401-task-executor
 2. [Review] {Task-1} via ln-402-task-reviewer
 ...
-N. [Quality Gate Pass 1/2] via ln-500-story-quality-gate
 ```
 
 ## Definition of Done
@@ -139,9 +142,8 @@ N. [Quality Gate Pass 1/2] via ln-500-story-quality-gate
 - Story and task metadata loaded; counts shown
 - Context Review performed for Todo tasks (or skipped with justification)
 - Loop executed: all tasks delegated with immediate review after each
-- ln-500 Pass 1/Pass 2 invoked; result handled
-- Story status transitions applied; kanban updated by workers
-- Final report with task counts
+- Story set to **To Review** (NOT Done); kanban updated
+- Final report with task counts and recommended next step (ln-500)
 
 ## Reference Files
 - **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`

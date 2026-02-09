@@ -135,7 +135,7 @@ Decision: REVIEW (if E2E covers, remove; else keep)
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 **Severity mapping by Usefulness Score:**
 - Score <5 → CRITICAL (test wastes significant maintenance effort)

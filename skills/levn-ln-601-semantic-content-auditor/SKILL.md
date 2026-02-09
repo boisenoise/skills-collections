@@ -163,7 +163,7 @@ Return JSON to coordinator:
 
 ## Verification Rules by Document Type
 
-See [references/verification_rules.md](references/verification_rules.md) for detailed per-document verification patterns.
+**MANDATORY READ:** Load [references/verification_rules.md](references/verification_rules.md) for per-document verification patterns.
 
 ## Critical Rules
 

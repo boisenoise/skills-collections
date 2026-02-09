@@ -42,6 +42,8 @@ The skill follows a **7-phase workflow**: READ DOCS → VALIDATE SOURCE EXISTS �
 **Phase 6: INJECT CONTENT** - Parse MD docs → replace placeholders in tab files → delete example blocks
 **Phase 7: BUILD HTML** - Assemble modular components into standalone presentation_final.html
 
+**MANDATORY READ:** Load [references/phases_detailed.md](references/phases_detailed.md) for detailed workflow of each phase.
+
 ---
 
 ## Phase 1: Read Documentation
@@ -186,7 +188,7 @@ Log summary:
 
 **Output**: Content quality report with warnings
 
-📖 **Detailed workflow**: See [references/phases_detailed.md](references/phases_detailed.md#phase-3-validate-source-content-quality)
+📖 **Detailed workflow**: per `phases_detailed.md` §Phase 3
 
 ---
 
@@ -297,7 +299,7 @@ Log summary:
 
 **Output**: Clean, project-specific tab files ready for build
 
-📖 **Placeholder reference & example transformation**: See [references/phases_detailed.md](references/phases_detailed.md#phase-6-content-injection--example-cleanup)
+📖 **Placeholder reference & example transformation**: per `phases_detailed.md` §Phase 6
 
 ---
 

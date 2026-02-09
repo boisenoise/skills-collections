@@ -51,6 +51,54 @@ Detect operating mode at startup:
 - Phase 1-6: Standard workflow without stopping
 - Automatically fix and approve
 
+## Plan Mode: Progress Tracking with TodoWrite
+
+When operating in any mode, skill MUST create detailed todo checklist tracking ALL phases and steps.
+
+**Rules:**
+1. Create todos IMMEDIATELY before Phase 1
+2. Each phase step = separate todo item
+3. Mark `in_progress` before starting step, `completed` after finishing
+
+**Todo Template (~21 items):**
+
+```
+Phase 1: Discovery & Loading
+  - Auto-discover configuration (Team ID, docs)
+  - Load Story metadata (ID, title, status, labels)
+  - Load Tasks metadata (3-8 implementation tasks)
+
+Phase 2: Research & Audit
+  - Extract technical domains from Story/Tasks
+  - Delegate documentation creation to ln-002
+  - Research via MCP Ref (RFC, OWASP, library versions)
+  - Verify technical claims (Anti-Hallucination)
+  - Calculate Penalty Points (19 criteria)
+
+Phase 3: Audit Results & Fix Plan
+  - Display Penalty Points table and fix plan
+  - Wait for user approval (Plan Mode only)
+
+Phase 4: Auto-Fix (7 groups)
+  - Fix Structural violations (#1-#4)
+  - Fix Standards violations (#5)
+  - Fix Solution violations (#6)
+  - Fix Workflow violations (#7-#13)
+  - Fix Quality violations (#14-#15)
+  - Fix Dependencies violations (#18-#19)
+  - Fix Traceability violations (#16-#17)
+
+Phase 5: Agent Review (delegated to ln-311)
+  - Invoke ln-311-agent-reviewer with story_ref + tasks_ref
+  - Apply accepted suggestions to Story/Tasks
+
+Phase 6: Approve & Notify
+  - Set Story/Tasks to Todo status in Linear
+  - Update kanban_board.md with APPROVED marker
+  - Add Linear comment with validation summary
+  - Display tabular output to terminal
+```
+
 ## Workflow Overview
 
 ### Phase 1: Discovery & Loading
@@ -123,12 +171,13 @@ Detect operating mode at startup:
 - Zero out penalty points as fixes applied
 - Test Strategy section must exist but remain empty (testing handled separately)
 
-### Phase 5: Agent Review
+### Phase 5: Agent Review (Delegated)
 
-Per `shared/references/agent_delegation_pattern.md` §Parallel Aggregation.
-- **Template:** `story_review.md` with `{story_content}` + `{tasks_content}` from Phase 4.
-- **Apply:** ACCEPTED suggestions modify Story/Tasks text. No suggestions → proceed to Phase 6 unchanged.
-- **Display:** `"Agent Review: codex ({duration}s, {N} suggestions), gemini ({duration}s, {N} suggestions). Validated: {accepted}/{total} accepted, {rejected} rejected"`
+Invoke `Skill(skill="ln-311-agent-reviewer", args="{storyId}")`.
+- ln-311 loads Story/Tasks from Linear, materializes content to `.agent-review/` files, runs agents, cleans up.
+- If verdict = `SUGGESTIONS` → apply ACCEPTED suggestions to Story/Tasks text.
+- If verdict = `SKIPPED` (no agents or all failed) → proceed to Phase 6 unchanged.
+- **Display:** agent stats from ln-311 output: `"Agent Review: {agent_stats summary}"`
 
 ### Phase 6: Approve & Notify
 
@@ -140,7 +189,7 @@ Per `shared/references/agent_delegation_pattern.md` §Parallel Aggregation.
   - Standards Compliance Evidence table
 - **Display tabular output** (Unicode box-drawing) to terminal
 - Final: Total Penalty Points = 0
-- **Optional:** If `--execute` flag provided, delegate to ln-400-story-executor to start execution immediately after approval
+- **Recommended next step:** `ln-400-story-executor` to start Story execution
 
 ## Auto-Fix Actions Reference
 
@@ -263,7 +312,7 @@ Verify all 19 criteria (#1-#19) from Auto-Fix Actions pass with concrete evidenc
 - Penalty Points = 0 (all 19 criteria fixed). Readiness Score ≥ 5.
 - Anti-Hallucination: VERIFIED (all claims sourced via MCP).
 - AC Coverage: 100% (each AC mapped to ≥1 Task).
-- Agent Review: suggestions aggregated, validated, accepted applied.
+- Agent Review: ln-311 invoked; suggestions aggregated, validated, accepted applied (or SKIPPED if no agents).
 - Story/Tasks set to Todo; kanban updated; Linear comment with Final Assessment posted.
 
 ## Example Workflow
@@ -286,7 +335,7 @@ Verify all 19 criteria (#1-#19) from Auto-Fix Actions pass with concrete evidenc
    - Fix #13: Add Guide-05, Guide-06 references
    - Fix #17: Docs already created by ln-002
    - All fixes applied, Penalty Points = 0
-5. **Phase 5:** Agent review (codex-review + gemini-review parallel → validate → apply accepted)
+5. **Phase 5:** Agent review (delegated to ln-311-agent-reviewer → apply accepted suggestions)
 6. **Phase 6:** Story -> Todo, tabular report
 
 ## Template Loading

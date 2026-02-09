@@ -13,6 +13,7 @@ Specialized worker auditing API contracts, method signatures at service boundari
 - **Worker in ln-640 coordinator pipeline** - invoked by ln-640-pattern-evolution-auditor
 - Audit **API contracts** at architecture level (service boundaries, layer separation)
 - Check layer leakage, DTO patterns, error contract consistency
+- **Overlap resolution:** SKIP findings owned by ln-623 per overlap matrix
 - Return structured analysis with 4 scores (compliance, completeness, quality, implementation)
 
 ## Input (from ln-640 coordinator)
@@ -22,75 +23,94 @@ Specialized worker auditing API contracts, method signatures at service boundari
 - locations: string[]          # Service/API directories
 - adr_reference: string        # Path to related ADR
 - bestPractices: object        # Best practices from MCP Ref/Context7
+
+# Domain-aware (optional, from coordinator)
+- domain_mode: "global" | "domain-aware"   # Default: "global"
+- current_domain: string                   # e.g., "users", "billing" (only if domain-aware)
+- scan_path: string                        # e.g., "src/users/" (only if domain-aware)
 ```
 
 ## Workflow
 
+### Phase 0: Load References
+
+**MANDATORY READ:** Load the following files before starting analysis:
+- `references/detection_patterns.md` — language-specific Grep patterns for all 5 rules
+- `shared/references/audit_overlap_matrix.md` — ln-623 vs ln-643 ownership boundaries
+
 ### Phase 1: Discover Service Boundaries
 
 ```
-1. Find API layer: Glob("**/api/**/*.py", "**/routes/**/*.ts", "**/controllers/**/*.ts")
-2. Find service layer: Glob("**/services/**/*.py", "**/services/**/*.ts")
-3. Find domain layer: Glob("**/domain/**/*.py", "**/models/**/*.py")
+scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
+
+1. Find API layer: Glob("**/api/**/*.py", "**/routes/**/*.ts", "**/controllers/**/*.ts", root=scan_root)
+2. Find service layer: Glob("**/services/**/*.py", "**/services/**/*.ts", root=scan_root)
+3. Find domain layer: Glob("**/domain/**/*.py", "**/models/**/*.py", root=scan_root)
 4. Map: which services are called by which API endpoints
 ```
 
-### Phase 2: Analyze Contracts
+### Phase 2: Analyze Contracts (5 Rules)
 
-```
-FOR EACH service file:
-  Extract public method signatures (name, params, return type)
-  Check each audit rule
-  Collect findings
-```
+**MANDATORY READ:** Use detection_patterns.md for language-specific Grep patterns per rule.
+
+| # | Rule | Severity | What to Check |
+|---|------|----------|---------------|
+| 1 | Layer Leakage | HIGH/MEDIUM | Service/domain accepts HTTP types (Request, parsed_body, headers) |
+| 2 | Missing DTO | MEDIUM/LOW | 4+ params repeated in 2+ methods without grouping DTO |
+| 3 | Entity Leakage | HIGH/MEDIUM | ORM entity returned from API without response DTO |
+| 4 | Error Contracts | MEDIUM/LOW | Mixed error patterns (raise + return None) in same service |
+| 5 | Redundant Overloads | LOW/MEDIUM | Method pairs with `_with_`/`_and_` suffix differing by 1-2 params |
+
+**Overlap resolution (per audit_overlap_matrix.md):**
+- SKIP findings that are DUPLICATION issues (owned by ln-623)
+- REPORT only ARCHITECTURE BOUNDARY findings
 
 ### Phase 3: Calculate 4 Scores
 
 **Compliance Score (0-100):**
-```
-IF no layer leakage (HTTP types in service): +35
-IF consistent error handling pattern: +25
-IF follows project naming conventions: +20
-IF no entity leakage to API: +20
-```
+
+| Criterion | Points |
+|-----------|--------|
+| No layer leakage (HTTP types in service) | +35 |
+| Consistent error handling pattern | +25 |
+| Follows project naming conventions | +20 |
+| No entity leakage to API | +20 |
 
 **Completeness Score (0-100):**
-```
-IF all service methods have typed params: +30
-IF all service methods have typed returns: +30
-IF DTOs defined for complex data: +20
-IF error types documented/typed: +20
-```
+
+| Criterion | Points |
+|-----------|--------|
+| All service methods have typed params | +30 |
+| All service methods have typed returns | +30 |
+| DTOs defined for complex data | +20 |
+| Error types documented/typed | +20 |
 
 **Quality Score (0-100):**
-```
-IF no boolean flag params in service methods: +25
-IF no methods with >5 params without DTO: +25
-IF consistent naming across module: +25
-IF no redundant overloads: +25
-```
+
+| Criterion | Points |
+|-----------|--------|
+| No boolean flag params in service methods | +25 |
+| No methods with >5 params without DTO | +25 |
+| Consistent naming across module | +25 |
+| No redundant overloads | +25 |
 
 **Implementation Score (0-100):**
-```
-IF DTOs/schemas exist and are used: +30
-IF type annotations present (Python) or interfaces (TS): +25
-IF validation at boundaries (Pydantic, Zod, etc.): +25
-IF API response DTOs separate from domain models: +20
-```
 
-### Phase 4: Calculate Overall Score
+| Criterion | Points |
+|-----------|--------|
+| DTOs/schemas exist and are used | +30 |
+| Type annotations present | +25 |
+| Validation at boundaries (Pydantic, Zod) | +25 |
+| API response DTOs separate from domain | +20 |
 
-```
-overall_score = average(compliance, completeness, quality, implementation) / 10
-Example: (65 + 70 + 55 + 80) / 4 / 10 = 6.75
-```
-
-### Phase 5: Return Result
+### Phase 4: Return Result
 
 ```json
 {
   "pattern": "API Contracts",
   "overall_score": 6.75,
+  "domain": "users",
+  "scan_path": "src/users/",
   "scores": {
     "compliance": 65,
     "completeness": 70,
@@ -98,127 +118,55 @@ Example: (65 + 70 + 55 + 80) / 4 / 10 = 6.75
     "implementation": 80
   },
   "checks": [
-    {"id": "layer_leakage", "name": "Layer Leakage", "status": "failed", "details": "Service accepts parsed_body: dict in 3 methods"},
-    {"id": "missing_dto", "name": "Missing DTO", "status": "warning", "details": "4 params repeated in 2 methods without grouping DTO"},
-    {"id": "entity_leakage", "name": "Entity Leakage", "status": "passed", "details": "All API endpoints use response DTOs"},
-    {"id": "error_contracts", "name": "Error Contracts", "status": "warning", "details": "Mixed patterns: raise + return None in UserService"},
-    {"id": "redundant_overloads", "name": "Redundant Overloads", "status": "passed", "details": "No redundant method pairs found"}
+    {"id": "layer_leakage", "name": "Layer Leakage", "status": "failed", "details": "..."},
+    {"id": "missing_dto", "name": "Missing DTO", "status": "warning", "details": "..."},
+    {"id": "entity_leakage", "name": "Entity Leakage", "status": "passed", "details": "..."},
+    {"id": "error_contracts", "name": "Error Contracts", "status": "warning", "details": "..."},
+    {"id": "redundant_overloads", "name": "Redundant Overloads", "status": "passed", "details": "..."}
   ],
   "codeReferences": ["app/services/translation/", "app/api/v1/"],
-  "issues": [...],
-  "gaps": {...},
-  "recommendations": [...]
+  "issues": [
+    {
+      "severity": "HIGH",
+      "location": "app/services/user/service.py:23",
+      "issue": "Service accepts parsed_body: dict (HTTP layer leak)",
+      "principle": "API Contract / Layer Leakage",
+      "recommendation": "Create UserCreateDTO, accept typed params",
+      "effort": "M",
+      "domain": "users"
+    }
+  ],
+  "gaps": {},
+  "recommendations": []
 }
 ```
-
-## Audit Rules
-
-### 1. Layer Leakage in Signatures
-**What:** Service/domain method accepts HTTP-layer types (Request, parsed body dict, headers)
-
-**Detection:**
-- Grep for service/domain methods accepting `parsed_body: dict`, `request: Request`, `form_data: dict`
-- Pattern: `def translate(self, parsed_body: dict)` in service layer
-- Pattern: `from fastapi import Request` imported in service/domain files
-- Check: service methods should accept domain-typed params, not HTTP artifacts
-
-**Severity:**
-- **HIGH:** Service method accepts raw HTTP dict (tight coupling to transport layer)
-- **MEDIUM:** Service method accepts `Request` object (should receive extracted fields)
-
-**Recommendation:** Create domain DTO (dataclass/Pydantic model) accepted by service; API layer extracts and maps
-
-**Effort:** M (create DTO, update service signature, update callers)
-
-### 2. Missing DTO for Grouped Parameters
-**What:** >=4 related parameters always passed together across multiple methods
-
-**Detection:**
-- Find parameter groups: same 4+ params appear in >=2 method signatures
-- Example: `(account_id, engine, source_lang, target_lang, ...)` repeated across methods
-- Pattern: params that logically form a "context" or "request" but are passed individually
-
-**Severity:**
-- **MEDIUM:** 4-6 related params in >=2 methods (DTO recommended)
-- **LOW:** 4-6 related params in single method (borderline)
-
-**Recommendation:** Create dataclass/NamedTuple grouping related params: `TranslationContext(engine, source_lang, target_lang, ...)`
-
-**Effort:** M (create DTO, refactor signatures, update callers)
-
-### 3. Entity Leakage to API
-**What:** ORM/domain entity returned directly from API endpoint without response DTO
-
-**Detection:**
-- API endpoint returns ORM model object directly
-- Pattern: `return user` in endpoint where `user` is SQLAlchemy model
-- Pattern: `return {"user": user.__dict__}` (manual serialization of ORM entity)
-- Check: look for Pydantic `response_model` or explicit serialization schema
-
-**Severity:**
-- **HIGH:** ORM entity returned with all fields (exposes internal structure, password hashes, etc.)
-- **MEDIUM:** ORM entity returned with manual field selection (fragile, no schema)
-
-**Recommendation:** Create response DTO (Pydantic BaseModel) mapping only needed fields; use `response_model` in FastAPI
-
-**Effort:** M (create response DTO, update endpoint)
-
-### 4. Inconsistent Error Contracts
-**What:** Mixed error handling patterns within same service (some raise, some return None, some return Result)
-
-**Detection:**
-- Analyze all public methods in a service class
-- Check error handling: `raise Exception`, `return None`, `return {"error": ...}`, `return Result`
-- Flag if >1 pattern used within same service
-
-**Severity:**
-- **MEDIUM:** Mixed patterns within service (caller must guess error handling)
-- **LOW:** Inconsistency across different services (less critical if each is internally consistent)
-
-**Recommendation:** Standardize: either raise domain exceptions (recommended for Python) or use Result type throughout
-
-**Effort:** M (standardize error pattern across service methods)
-
-### 5. Redundant Method Overloads
-**What:** Two methods differ only in 1-2 parameters that could be optional
-
-**Detection:**
-- Find pairs: `get_user(id)` + `get_user_with_profile(id)` → could be `get_user(id, include_profile=False)`
-- Find pairs: `translate(text)` + `translate_with_qe(text)` → could be `translate(text, enable_qe=False)`
-- Pattern: method names with `_with_`, `_and_`, `_full` suffix duplicating base method
-
-**Severity:**
-- **LOW:** 1-2 redundant overload pairs (minor DRY violation)
-- **MEDIUM:** >3 redundant overload pairs in same service (maintenance burden)
-
-**Recommendation:** Merge into single method with optional parameters or strategy/config object
-
-**Effort:** S-M (merge methods, update callers)
 
 ## Critical Rules
 
 - **Architecture-level only:** Focus on service boundaries, not internal implementation
 - **Read before score:** Never score without reading actual service code
-- **Best practices comparison:** Use bestPractices from coordinator for framework-specific patterns
-- **Code references:** Include file paths for all findings
-- **One pattern only:** Analyze "API Contracts" pattern as a whole
+- **Overlap check:** SKIP duplication findings (owned by ln-623 per matrix)
+- **Detection patterns:** Use language-specific Grep from detection_patterns.md
+- **Domain-aware:** When domain_mode="domain-aware", scan only scan_path, tag findings with domain
 
 ## Definition of Done
 
 - Service boundaries discovered (API, service, domain layers)
 - Method signatures extracted and analyzed
-- All 5 checks completed:
-  - layer leakage, missing DTOs, entity leakage, error contracts, redundant overloads
+- All 5 rules checked using detection_patterns.md
+- Overlap matrix applied (no duplication with ln-623)
 - 4 scores calculated with justification
-- Issues identified with severity, category, suggestion, effort
-- Gaps documented
+- Issues identified with severity, location, suggestion, effort
+- If domain-aware: findings tagged with domain field
 - Structured result returned to coordinator
 
 ## Reference Files
 
+- Detection patterns: `references/detection_patterns.md`
+- Overlap matrix: `shared/references/audit_overlap_matrix.md`
 - Scoring rules: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
 - Common patterns: `../ln-640-pattern-evolution-auditor/references/common_patterns.md`
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-02-04
+**Version:** 2.0.0
+**Last Updated:** 2026-02-08

@@ -58,7 +58,7 @@ Common variables:
 - `{{BACKEND_PORT}}` — Backend API port
 - `{{TECH_STACK}}` — Technology stack summary
 
-See individual templates in `references/` for full variable lists.
+**MANDATORY READ:** Load templates from `references/` for full variable lists.
 
 ---
 

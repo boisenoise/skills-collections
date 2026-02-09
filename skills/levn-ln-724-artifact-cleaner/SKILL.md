@@ -111,7 +111,7 @@ Code:
   - Grep: "^\.replit$" line
 ```
 
-**StackBlitz/CodeSandbox/Glitch:** See [platform_artifacts.md](references/platform_artifacts.md) for detection rules.
+**StackBlitz/CodeSandbox/Glitch:** **MANDATORY READ:** Load [platform_artifacts.md](references/platform_artifacts.md) for detection rules.
 
 ### Scan Output Format
 

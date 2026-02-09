@@ -96,7 +96,7 @@ FOR doc IN [CLAUDE.md, docs/README.md, docs/project/*.md]:
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 **Severity mapping:**
 

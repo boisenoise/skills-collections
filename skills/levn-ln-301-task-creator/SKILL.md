@@ -30,6 +30,10 @@ Worker that generates task documents and creates Linear issues for implementatio
 - Refactoring: codeQualityIssues, refactoringPlan, affectedComponents.
 - Test: manualTestResults, testPlan (E2E 2-5, Integration 0-8, Unit 0-15, Priority ≤15), infra/doc/cleanup items.
 
+## Quality Criteria
+
+**MANDATORY READ:** Load `shared/references/creation_quality_checklist.md` §Task Creation Checklist for validation criteria that ln-310 will enforce.
+
 ## Workflow (concise)
 1) **DRY Check (Codebase Scan):** For EACH Task in plan:
    - Extract keywords: function type, component name, domain from Task description

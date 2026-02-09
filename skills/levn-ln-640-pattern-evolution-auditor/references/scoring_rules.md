@@ -15,78 +15,91 @@
 
 Measures adherence to industry standards and project conventions.
 
-| Criterion | Points | How to Check |
-|-----------|--------|--------------|
-| Follows industry standard (MADR, Nygard, etc.) | +30 | Compare structure with known patterns |
-| Has ADR documentation | +20 | Check docs/adrs/ for related ADR |
-| Consistent naming conventions | +15 | Variable/function names match project style |
-| Follows tech stack conventions | +15 | Uses standard libraries for stack |
-| No anti-patterns detected | +20 | No god objects, no circular deps |
+| Criterion | Points | Detection |
+|-----------|--------|-----------|
+| Follows industry standard | +30 | Grep for pattern-specific structures (see common_patterns.md Detection Keywords) |
+| Has ADR documentation | +20 | `Glob("docs/adr/*{pattern}*.md")` OR `Glob("docs/architecture/*.md")` containing pattern name |
+| Consistent naming conventions | +15 | `Grep("class.*{Pattern}(Service\|Handler\|Worker\|Processor)")` + file names match (`*_processor.py`, `*Handler.ts`) |
+| Follows tech stack conventions | +15 | `Grep("{standard_lib}")` — e.g., Bull/BullMQ for Node.js jobs, Celery for Python |
+| No anti-patterns detected | +20 | All anti-pattern checks below return 0 matches |
 
-**Anti-patterns to check:**
-- God class (>500 lines handling pattern)
-- Circular dependencies between pattern components
-- Mixed concerns (e.g., job processor also does HTTP calls)
-- Hardcoded configuration
+**Anti-pattern detection:**
+
+| Anti-pattern | Detection Grep | Threshold |
+|--------------|----------------|-----------|
+| God class | File length >500 lines containing pattern keywords | Any match = -5 |
+| Circular deps | `Grep("import.*{moduleA}")` in moduleB AND `Grep("import.*{moduleB}")` in moduleA | Any match = -10 |
+| Mixed concerns | `Grep("httpx\|requests\|fetch")` in job/worker files | Any match = -5 |
+| Hardcoded config | `Grep("localhost\|:5432\|:6379\|password.*=.*['\"]")` in pattern files | Any match = -5 |
 
 ## Completeness Score (0-100)
 
 Measures whether all necessary components are present.
 
-| Criterion | Points | How to Check |
-|-----------|--------|--------------|
-| All required components present | +40 | Compare with pattern checklist |
-| Error handling implemented | +20 | Try/catch, error events, DLQ |
-| Logging/observability | +15 | Log statements, metrics, tracing |
-| Tests exist | +15 | Unit/integration tests for pattern |
-| Documentation complete | +10 | README, inline comments, ADR |
+| Criterion | Points | Detection |
+|-----------|--------|-----------|
+| All required components present | +40 | Per-pattern component table below (each component has Grep) |
+| Error handling implemented | +20 | `Grep("try\|catch\|except\|Error\|Exception\|\.catch\\(")` + `Grep("retry\|backoff\|dlq\|dead.?letter")` |
+| Logging/observability | +15 | `Grep("logger\|logging\|log\\.\|structlog\|winston")` + `Grep("metrics\|prometheus\|statsd\|trace\|opentelemetry")` |
+| Tests exist | +15 | `Glob("**/test*{pattern}*")` OR `Glob("**/*{pattern}*.test.*")` OR `Glob("**/*{pattern}*.spec.*")` |
+| Documentation complete | +10 | `Grep("docstring\|@param\|@returns\|\\\"\\\"\\\"")` in pattern files + ADR exists |
 
-**Required components by pattern:**
+**Required components by pattern (with detection):**
 
-| Pattern | Required Components |
-|---------|---------------------|
-| Job Processing | Queue, Worker, DLQ, Retry config |
-| Event-Driven | Publisher, Subscriber, Event schema |
-| Caching | Cache client, Invalidation, TTL config |
-| Resilience | Circuit breaker, Timeout, Fallback |
-| Repository | Interface, Implementation, Unit of Work |
+| Pattern | Component | Detection Grep | Weight |
+|---------|-----------|----------------|--------|
+| Job Processing | Queue | `Queue\|createQueue\|add_task\|enqueue` | 10 |
+| Job Processing | Worker | `Worker\|process\|consume\|on_message` | 10 |
+| Job Processing | DLQ | `dlq\|dead.?letter\|failed.?queue\|on_failed` | 10 |
+| Job Processing | Retry config | `retry\|attempts\|backoff\|maxRetries` | 10 |
+| Event-Driven | Publisher | `publish\|emit\|dispatch\|produce` | 10 |
+| Event-Driven | Subscriber | `subscribe\|on\\(\|listen\|consume\|handler` | 10 |
+| Event-Driven | Event schema | `EventSchema\|event_type\|EventType\|schema.*event` | 10 |
+| Event-Driven | Event versioning | `version\|schema_version\|v[0-9]` in event files | 10 |
+| Caching | Cache client | `Cache\|Redis\|createClient\|cache_client` | 10 |
+| Caching | Invalidation | `invalidate\|evict\|delete.*cache\|bust.*cache` | 15 |
+| Caching | TTL config | `ttl\|expire\|maxAge\|time.?to.?live` | 15 |
+| Resilience | Circuit breaker | `CircuitBreaker\|circuit.?breaker\|breaker` | 10 |
+| Resilience | Timeout | `timeout\|Timeout\|deadline\|time_limit` | 10 |
+| Resilience | Fallback | `fallback\|Fallback\|default.*response\|graceful` | 10 |
+| Resilience | Retry | `retry\|Retry\|with_retries\|retryWhen` | 10 |
+| Repository | Interface | `interface.*Repository\|Protocol.*Repository\|ABC.*Repository` | 15 |
+| Repository | Implementation | `class.*Repository.*implements\|class.*Repository\\(` | 15 |
+| Repository | Unit of Work | `UnitOfWork\|unit.?of.?work\|commit\|transaction` | 10 |
 
 ## Quality Score (0-100)
 
 Measures code quality and maintainability.
 
-| Criterion | Points | How to Check |
-|-----------|--------|--------------|
-| Code readable (short methods, clear names) | +25 | Methods <30 lines, descriptive names |
-| Maintainable (low complexity) | +25 | Cyclomatic complexity <10 |
-| No code smells | +20 | No duplicate code, no magic numbers |
-| Follows SOLID | +15 | Single responsibility, DI used |
-| Performance optimized | +15 | No N+1, proper indexing |
+| Criterion | Points | Detection |
+|-----------|--------|-----------|
+| Code readable (short methods) | +25 | Average method length <30 lines; `Grep("def \|function \|=>")` count vs file length |
+| Maintainable (low complexity) | +25 | No deep nesting: `Grep("if.*if.*if\|for.*for.*for")` returns 0 matches |
+| No code smells | +20 | All smell checks below return 0 matches |
+| Follows SOLID | +15 | `Grep("interface\|abstract\|Protocol\|ABC\|@inject\|Depends\\(")` present |
+| Performance optimized | +15 | `Grep("async\|await\|Promise\|cache\|memoize\|lru_cache")` present |
 
-**Code smells to detect:**
-- Duplicate code (>10 lines similar)
-- Magic numbers/strings
-- Long parameter lists (>4 params)
-- Deep nesting (>3 levels)
-- Large files (>300 lines)
+**Code smell detection:**
+
+| Smell | Detection Grep | Threshold |
+|-------|----------------|-----------|
+| TODO/FIXME markers | `Grep("TODO\|FIXME\|HACK\|XXX\|REFACTOR")` | Any = -3 per |
+| Magic numbers | `Grep("[^0-9][0-9]{2,}[^0-9]")` outside config/const files | >3 = -5 |
+| Long params | `Grep("def.*,.*,.*,.*,.*,")` (5+ comma-separated) | Any = -3 per |
+| Deep nesting | `Grep("^\\s{16,}(if\|for\|while)")` (4+ indent levels) | Any = -5 per |
+| Large files | Pattern files >300 lines | Any = -5 per |
 
 ## Implementation Score (0-100)
 
 Measures whether the pattern actually works in production.
 
-| Criterion | Points | How to Check |
-|-----------|--------|--------------|
-| Code exists and compiles | +30 | Build passes, no syntax errors |
-| Used in production paths | +25 | Called from main app, not dead code |
-| No dead/unused implementations | +15 | All exports used somewhere |
-| Integrated with other patterns | +15 | Connected to logging, config, etc. |
-| Monitored/observable | +15 | Metrics, health checks, logs |
-
-**How to verify production usage:**
-- Grep for imports/requires of pattern modules
-- Check if pattern classes are instantiated
-- Look for configuration in env files
-- Check monitoring dashboards
+| Criterion | Points | Detection |
+|-----------|--------|-----------|
+| Code exists and compiles | +30 | `Bash("npm run build")` or `Bash("python -m py_compile {file}")` — no errors |
+| Used in production paths | +25 | `Grep("from.*{module}\|import.*{module}\|require.*{module}")` outside test files, >0 matches |
+| No dead/unused implementations | +15 | `Grep("export\|__all__")` in pattern files → verify each export imported elsewhere |
+| Integrated with other patterns | +15 | `Grep("@inject\|Depends\\(\|container\|config\|settings\|env")` in pattern files |
+| Monitored/observable | +15 | `Grep("health.?check\|readiness\|liveness\|/health\|metrics\|prometheus")` in pattern files |
 
 ## Thresholds and Actions
 
@@ -174,4 +187,4 @@ For cross-audit reporting between ln-620 (X/10) and ln-640 (0-100%):
 **Formula:** `x_10 = round(percent / 10)`
 
 ---
-**Version:** 1.2.0
+**Version:** 1.3.0

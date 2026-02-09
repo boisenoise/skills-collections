@@ -16,6 +16,7 @@ L3 Worker that analyzes a single architectural pattern against best practices an
 - Return structured analysis result to coordinator
 
 ## Input (from ln-640 coordinator)
+
 ```
 - pattern: string          # Pattern name (e.g., "Job Processing")
 - locations: string[]      # Known file paths/directories
@@ -26,186 +27,68 @@ L3 Worker that analyzes a single architectural pattern against best practices an
 ## Workflow
 
 ### Phase 1: Find Implementations
+
+**MANDATORY READ:** Load `../ln-640-pattern-evolution-auditor/references/common_patterns.md` — use "Pattern Detection (Grep)" table for detection keywords per pattern.
+
 ```
-# Use locations from coordinator + additional search
-files = []
-files.append(Glob(locations))
+files = Glob(locations)
 
-# Expand search using common_patterns.md grep patterns
-IF pattern == "Job Processing":
-  files.append(Grep("Queue|Worker|Job|Bull|BullMQ", "**/*.{ts,js,py}"))
-IF pattern == "Event-Driven":
-  files.append(Grep("EventEmitter|publish|subscribe|on\\(", "**/*.{ts,js,py}"))
-# ... etc
-
-deduplicate(files)
+# Expand using common_patterns.md Detection Keywords column
+additional = Grep("{pattern_keywords}", "**/*.{ts,js,py,rb,cs,java}")
+files = deduplicate(files + additional)
 ```
 
 ### Phase 2: Read and Analyze Code
+
 ```
 FOR EACH file IN files (limit: 10 key files):
   Read(file)
-  Extract:
-    - Components implemented
-    - Patterns used
-    - Error handling approach
-    - Logging/observability
-    - Tests coverage
+  Extract: components, patterns, error handling, logging, tests
 ```
 
 ### Phase 3: Calculate 4 Scores
 
-**Compliance Score (0-100):**
-```
-score = 0
+**MANDATORY READ:** Load `../ln-640-pattern-evolution-auditor/references/scoring_rules.md` — follow Detection column for each criterion.
 
-# Detection: ADR documentation exists
-IF Glob("docs/adr/*{pattern}*.md") OR Glob("docs/architecture/*.md" contains pattern):
-  +20
+| Score | Source in scoring_rules.md | Max |
+|-------|---------------------------|-----|
+| Compliance | "Compliance Score" section — ADR, naming, conventions, anti-patterns | 100 |
+| Completeness | "Completeness Score" section — required components table (per pattern), error handling, tests | 100 |
+| Quality | "Quality Score" section — method length, complexity, code smells, SOLID | 100 |
+| Implementation | "Implementation Score" section — compiles, production usage, integration, monitoring | 100 |
 
-# Detection: Standard naming conventions
-IF Grep("class.*{Pattern}(Service|Handler|Worker|Processor)", files):
-  +15
-IF file names follow pattern (e.g., job_processor.py, event_handler.ts):
-  +15
-
-# Detection: No anti-patterns
-IF NOT Grep("(callback hell|Promise\.all without error|global state)", files):
-  +20
-
-# Detection: Industry standard structure
-IF pattern == "Job Processing":
-  IF Grep("(queue|worker|job|processor)", files) AND Grep("(retry|backoff|dlq)", files):
-    +30
-IF pattern == "Event-Driven":
-  IF Grep("(EventEmitter|publish|subscribe|emit)", files) AND Grep("(schema|validate)", files):
-    +30
-```
-
-**Completeness Score (0-100):**
-```
-score = 0
-
-# Detection: Required components present
-component_patterns = bestPractices[pattern].required_components  # from coordinator
-FOR EACH component IN component_patterns:
-  IF Grep(component.grep_pattern, files):
-    +component.weight  # Total: 40 points
-
-# Detection: Error handling
-IF Grep("(try|catch|except|error|Error|Exception)", files):
-  +10
-IF Grep("(retry|backoff|circuit.?breaker)", files):
-  +10
-
-# Detection: Logging/observability
-IF Grep("(logger|logging|log\\.|console\\.log|structlog)", files):
-  +10
-IF Grep("(metrics|prometheus|statsd|trace)", files):
-  +5
-
-# Detection: Tests exist
-IF Glob("**/test*{pattern}*") OR Glob("**/*{pattern}*.test.*"):
-  +15
-
-# Detection: Documentation
-IF Grep("docstring|@param|@returns|\"\"\"", files):
-  +10
-```
-
-**Quality Score (0-100):**
-```
-score = 0
-
-# Detection: Short methods (<50 lines)
-method_lengths = analyze_method_lengths(files)
-IF average(method_lengths) < 30: +25
-ELIF average(method_lengths) < 50: +15
-
-# Detection: Low cyclomatic complexity
-IF NOT Grep("(if.*if.*if|for.*for.*for|switch.*case.*case.*case)", files):
-  +25
-
-# Detection: No code smells
-IF NOT Grep("(TODO|FIXME|HACK|XXX|REFACTOR)", files):
-  +10
-IF NOT Grep("(magic number|hardcoded)", files):
-  +10
-
-# Detection: SOLID principles
-IF Grep("(interface|abstract|Protocol|ABC)", files):  # Dependency Inversion
-  +15
-
-# Detection: Performance patterns
-IF Grep("(async|await|asyncio|Promise)", files):  # Non-blocking
-  +10
-IF Grep("(cache|memoize|lru_cache)", files):
-  +5
-```
-
-**Implementation Score (0-100):**
-```
-score = 0
-
-# Detection: Code compiles/runs
-IF no syntax errors in files:
-  +30
-
-# Detection: Used in production (imported elsewhere)
-imports = Grep("from.*{pattern}|import.*{pattern}", codebase_root, exclude=files)
-IF len(imports) > 0:
-  +25
-
-# Detection: No dead code
-unused_exports = find_unused_exports(files)
-IF len(unused_exports) == 0:
-  +15
-
-# Detection: Integrated with other patterns
-IF Grep("(dependency.?injection|@inject|container)", files):
-  +10
-IF Grep("(config|settings|env)", files):
-  +5
-
-# Detection: Monitored
-IF Grep("(health.?check|readiness|liveness|/health)", files):
-  +10
-IF Grep("(alert|alarm|notification)", files):
-  +5
-```
+**Scoring process for each criterion:**
+1. Run the Detection Grep/Glob from scoring_rules.md
+2. If matches found → add points per criterion
+3. If anti-pattern/smell detected → subtract per deduction table
+4. Document evidence: file path + line for each score justification
 
 ### Phase 4: Identify Issues and Gaps
+
 ```
-issues = []
-FOR EACH bestPractice IN bestPractices:
-  IF NOT implemented:
-    issues.append({
-      severity: "HIGH" | "MEDIUM" | "LOW",
-      category: "compliance" | "completeness" | "quality" | "implementation",
-      issue: description,
-      suggestion: how to fix,
-      effort: estimate ("2h", "4h", "1d", "3d")
-    })
+FOR EACH bestPractice NOT implemented:
+  issues.append({
+    severity: "HIGH" | "MEDIUM" | "LOW",
+    category: "compliance" | "completeness" | "quality" | "implementation",
+    issue: description,
+    suggestion: how to fix,
+    effort: "S" | "M" | "L"
+  })
 
 gaps = {
-  undocumented: aspects not in ADR,
-  unimplemented: ADR decisions not in code
+  undocumented: aspects found in code but not in ADR,
+  unimplemented: ADR decisions not found in code
 }
-
-recommendations = [
-  "Create ADR for X",
-  "Update existing ADR with Y",
-  "Refactor Z to match pattern"
-]
 ```
 
 ### Phase 5: Calculate Overall Score
+
 ```
 overall_score = average(compliance, completeness, quality, implementation) / 10
-Example: (72 + 85 + 68 + 90) / 4 / 10 = 7.9
 ```
 
 ### Phase 6: Return Result
+
 ```json
 {
   "pattern": "Job Processing",
@@ -217,54 +100,52 @@ Example: (72 + 85 + 68 + 90) / 4 / 10 = 7.9
     "implementation": 90
   },
   "checks": [
-    {"id": "compliance_check", "name": "Compliance Check", "status": "passed", "details": "ADR exists, standard naming, no anti-patterns"},
-    {"id": "completeness_check", "name": "Completeness Check", "status": "warning", "details": "Missing retry logic documentation"},
-    {"id": "quality_check", "name": "Quality Check", "status": "failed", "details": "Average method length 45 lines, TODO comments found"},
-    {"id": "implementation_check", "name": "Implementation Check", "status": "passed", "details": "Code compiles, used in production, integrated with DI"}
+    {"id": "compliance_check", "name": "Compliance", "status": "passed|warning|failed", "details": "..."},
+    {"id": "completeness_check", "name": "Completeness", "status": "...", "details": "..."},
+    {"id": "quality_check", "name": "Quality", "status": "...", "details": "..."},
+    {"id": "implementation_check", "name": "Implementation", "status": "...", "details": "..."}
   ],
-  "codeReferences": [
-    "src/jobs/processor.ts",
-    "src/workers/base.ts"
-  ],
+  "codeReferences": ["src/jobs/processor.ts", "src/workers/base.ts"],
   "issues": [
     {
       "severity": "HIGH",
-      "category": "quality",
+      "category": "completeness",
       "issue": "No dead letter queue",
       "suggestion": "Add Bull DLQ configuration",
-      "effort": "4h"
+      "effort": "M"
     }
   ],
   "gaps": {
     "undocumented": ["Error recovery strategy"],
     "unimplemented": ["Job prioritization from ADR"]
   },
-  "recommendations": [
-    "Create ADR for dead letter queue strategy"
-  ]
+  "recommendations": ["Create ADR for dead letter queue strategy"]
 }
 ```
 
 ## Critical Rules
+
 - **One pattern only:** Analyze only the pattern passed by coordinator
 - **Read before score:** Never score without reading actual code
-- **Effort estimates:** Always provide realistic effort for each issue
-- **Best practices comparison:** Use bestPractices from coordinator, not assumptions
+- **Detection-based scoring:** Use Grep/Glob patterns from scoring_rules.md, not assumptions
+- **Effort estimates:** Always provide S/M/L for each issue
 - **Code references:** Always include file paths for findings
 
 ## Definition of Done
-- All implementations found via Glob/Grep
+
+- All implementations found via Glob/Grep (using common_patterns.md keywords)
 - Key files read and analyzed
-- 4 scores calculated with justification
+- 4 scores calculated using scoring_rules.md Detection patterns
 - Issues identified with severity, category, suggestion, effort
 - Gaps documented (undocumented, unimplemented)
 - Recommendations provided
 - Structured result returned to coordinator
 
 ## Reference Files
+
 - Scoring rules: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
 - Common patterns: `../ln-640-pattern-evolution-auditor/references/common_patterns.md`
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-01-29
+**Version:** 2.0.0
+**Last Updated:** 2026-02-08

@@ -66,7 +66,7 @@ for each story_id:
 
 ### Phase 2: Compare IDEAL vs Existing
 
-**Algorithm:** See [replan_algorithm_stories.md](references/replan_algorithm_stories.md)
+**MANDATORY READ:** Load [replan_algorithm_stories.md](references/replan_algorithm_stories.md) for replan algorithm.
 
 **Match by goal, persona, capability:**
 

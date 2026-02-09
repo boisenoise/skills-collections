@@ -26,7 +26,14 @@ L3 Worker that audits architectural layer boundaries and detects violations.
 - architecture_path: string    # Path to docs/architecture.md
 - codebase_root: string        # Root directory to scan
 - skip_violations: string[]    # Files to skip (legacy)
+
+# Domain-aware (optional, from coordinator)
+- domain_mode: "global" | "domain-aware"   # Default: "global"
+- current_domain: string                   # e.g., "users", "billing" (only if domain-aware)
+- scan_path: string                        # e.g., "src/users/" (only if domain-aware)
 ```
+
+**When domain_mode="domain-aware":** Use `scan_path` instead of `codebase_root` for all Grep/Glob operations. Tag all findings with `domain` field.
 
 ## Workflow
 
@@ -54,11 +61,13 @@ Build ruleset:
 ### Phase 2: Detect Layer Violations
 
 ```
+scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
+
 FOR EACH violation_type IN common_patterns.md I/O Pattern Boundary Rules:
   grep_pattern = violation_type.detection_grep
   forbidden_dirs = violation_type.forbidden_in
 
-  matches = Grep(grep_pattern, codebase_root, include="*.py,*.ts,*.js")
+  matches = Grep(grep_pattern, scan_root, include="*.py,*.ts,*.js")
 
   FOR EACH match IN matches:
     IF match.path NOT IN skip_violations:
@@ -220,7 +229,7 @@ IF len(unique_files) > 2:
 
 ### Phase 3.5: Calculate Score
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 ### Phase 4: Return Result
 
@@ -228,6 +237,8 @@ See `shared/references/audit_scoring.md` for unified formula and score interpret
 {
   "category": "Layer Boundary",
   "score": 4.5,
+  "domain": "users",
+  "scan_path": "src/users/",
   "total_issues": 8,
   "critical": 1,
   "high": 3,
@@ -253,7 +264,8 @@ See `shared/references/audit_scoring.md` for unified formula and score interpret
       "issue": "Mixed UoW ownership: commit() found in repositories (3), services (2), api (4)",
       "principle": "Layer Boundary / Transaction Control",
       "recommendation": "Choose single UoW owner (service layer recommended), remove commit() from other layers",
-      "effort": "L"
+      "effort": "L",
+      "domain": "users"
     },
     {
       "severity": "HIGH",
@@ -310,6 +322,7 @@ See `shared/references/audit_scoring.md` for unified formula and score interpret
   - Fire-and-forget tasks analyzed (error handling)
 - Coverage calculated for HTTP abstraction + 4 consistency metrics
 - Violations list with severity, location, suggestion
+- If domain-aware: all Grep scoped to scan_path, findings tagged with domain
 - Summary counts returned to coordinator
 
 ## Reference Files
@@ -319,5 +332,5 @@ See `shared/references/audit_scoring.md` for unified formula and score interpret
 
 ---
 
-**Version:** 2.0.0
-**Last Updated:** 2026-02-04
+**Version:** 2.1.0
+**Last Updated:** 2026-02-08

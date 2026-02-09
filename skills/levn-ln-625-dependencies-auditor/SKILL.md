@@ -133,7 +133,7 @@ Receives `contextStore` with tech stack, package manifest paths, codebase root.
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 **Note:** When mode=vulnerabilities_only, score based only on vulnerability findings.
 

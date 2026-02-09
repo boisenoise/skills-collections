@@ -71,7 +71,7 @@ Audit code comments and docstrings quality. Universal for any tech stack.
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 **Severity mapping:**
 

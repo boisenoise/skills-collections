@@ -76,57 +76,104 @@ FOR EACH pattern WHERE last_audit > 30 days OR never:
   → Store: contextStore.bestPractices[pattern]
 ```
 
-### Phase 3: Layer Boundary Audit
+### Phase 3: Domain Discovery
 
 ```
-Task(ln-642-layer-boundary-auditor)
-  Input: architecture_path, codebase_root, skip_violations
-  Output: violations[], coverage{}
+# Detect project structure for domain-aware scanning
+domains = detect_domains(src_root)
+# e.g., [{name: "users", path: "src/users/"}, {name: "billing", path: "src/billing/"}]
 
-# Apply deductions to affected patterns (per scoring_rules.md)
-FOR EACH violation IN violations:
+IF len(domains) > 1:
+  domain_mode = "domain-aware"
+ELSE:
+  domain_mode = "global"
+```
+
+### Phase 4: Layer Boundary + API Contract Audit
+
+```
+IF domain_mode == "domain-aware":
+  # Per-domain invocation of ln-642 and ln-643
+  FOR EACH domain IN domains (parallel):
+    Task(ln-642-layer-boundary-auditor)
+      Input: architecture_path, codebase_root, skip_violations,
+             domain_mode="domain-aware", current_domain=domain.name, scan_path=domain.path
+    Task(ln-643-api-contract-auditor)
+      Input: pattern="API Contracts", locations=[domain.path], bestPractices,
+             domain_mode="domain-aware", current_domain=domain.name, scan_path=domain.path
+ELSE:
+  Task(ln-642-layer-boundary-auditor)
+    Input: architecture_path, codebase_root, skip_violations
+  Task(ln-643-api-contract-auditor)
+    Input: pattern="API Contracts", locations=[service_dirs, api_dirs], bestPractices
+
+# Apply layer deductions to affected patterns (per scoring_rules.md)
+FOR EACH violation IN ln642_violations:
   affected_pattern = match_violation_to_pattern(violation)
   affected_pattern.issues.append(violation)
   affected_pattern.compliance_deduction += get_deduction(violation)
 ```
 
-### Phase 4: Pattern Analysis Loop
+### Phase 5: Pattern Analysis Loop
 
 ```
-# Analyze individual patterns
+# ln-641 stays GLOBAL (patterns are cross-cutting, not per-domain)
 FOR EACH pattern IN catalog:
   Task(ln-641-pattern-analyzer)
     Input: pattern, locations, adr_reference, bestPractices
     Output: scores{}, issues[], gaps{}
 
-# Analyze API contracts (always, in parallel with patterns)
-Task(ln-643-api-contract-auditor)
-  Input: pattern="API Contracts", locations=[service_dirs, api_dirs], bestPractices
-  Output: scores{}, issues[], gaps{}
-
   **Worker Output Contract:**
-  - ln-641 returns: `{overall_score: X.X, scores: {compliance, completeness, quality, implementation}, issues: [], gaps: {}}`
-  - ln-642 returns: `{category, score, total_issues, critical, high, medium, low, findings: []}`
-  - ln-643 returns: `{overall_score: X.X, scores: {compliance, completeness, quality, implementation}, issues: [], gaps: {}}`
+  - ln-641 returns: `{overall_score, scores: {compliance, completeness, quality, implementation}, issues: [], gaps: {}}`
+  - ln-642 returns: `{category, score, total_issues, critical, high, medium, low, findings: [], domain, scan_path}`
+  - ln-643 returns: `{overall_score, scores: {compliance, completeness, quality, implementation}, issues: [], domain, scan_path}`
 
-  # Merge layer violations from Phase 3
+  # Merge layer violations from Phase 4
   pattern.issues += layer_violations.filter(v => v.pattern == pattern)
   pattern.scores.compliance -= compliance_deduction
   pattern.scores.quality -= quality_deduction
 ```
 
-### Phase 5: Gap Analysis
+### Phase 5.5: Cross-Domain Aggregation
+
+```
+IF domain_mode == "domain-aware":
+  # Group ln-642 findings by issue type across domains
+  FOR EACH issue_type IN unique(ln642_findings.issue):
+    domains_with_issue = ln642_findings.filter(f => f.issue == issue_type).map(f => f.domain)
+    IF len(domains_with_issue) >= 2:
+      systemic_findings.append({
+        severity: "CRITICAL",
+        issue: f"Systemic layer violation: {issue_type} in {len(domains_with_issue)} domains",
+        domains: domains_with_issue,
+        recommendation: "Address at architecture level, not per-domain"
+      })
+
+  # Group ln-643 findings by rule across domains
+  FOR EACH rule IN unique(ln643_issues.principle):
+    domains_with_issue = ln643_issues.filter(i => i.principle == rule).map(i => i.domain)
+    IF len(domains_with_issue) >= 2:
+      systemic_findings.append({
+        severity: "HIGH",
+        issue: f"Systemic API contract issue: {rule} in {len(domains_with_issue)} domains",
+        domains: domains_with_issue,
+        recommendation: "Create cross-cutting architectural fix"
+      })
+```
+
+### Phase 6: Gap Analysis
 
 ```
 gaps = {
   undocumentedPatterns: found in code but not in catalog,
   implementationGaps: ADR decisions not implemented,
   layerViolations: code in wrong architectural layers,
-  consistencyIssues: conflicting patterns
+  consistencyIssues: conflicting patterns,
+  systemicIssues: systemic_findings from Phase 5.5
 }
 ```
 
-### Phase 6: Story Creation (via ln-220)
+### Phase 7: Story Creation (via ln-220)
 
 **REFACTORING PRINCIPLE (MANDATORY):**
 > Stories MUST include: **"Zero Legacy / Zero Backward Compatibility"** — no compatibility hacks, clean architecture is priority.
@@ -163,7 +210,7 @@ architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
 # < 70: "critical"
 ```
 
-### Phase 7: Report + Trend Analysis
+### Phase 8: Report + Trend Analysis
 
 ```
 1. Update patterns_catalog.md:
@@ -177,7 +224,7 @@ architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
 3. Output summary (see Return Result below)
 ```
 
-### Phase 7: Return Result
+### Phase 9: Return Result
 
 ```json
 {
@@ -207,6 +254,14 @@ architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
   "requires_attention": [
     {"pattern": "Event-Driven", "avg_score": 58, "critical_issues": ["No DLQ", "No schema versioning"]}
   ],
+  "cross_domain_issues": [
+    {
+      "severity": "CRITICAL",
+      "issue": "Systemic layer violation: HTTP client in domain layer in 3 domains",
+      "domains": ["users", "billing", "orders"],
+      "recommendation": "Address at architecture level"
+    }
+  ],
   "stories_created": ["LIN-123", "LIN-124"]
 }
 ```
@@ -225,9 +280,12 @@ architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
 
 - Pattern catalog loaded or created
 - Best practices researched for all patterns needing audit
+- Domain discovery completed (global or domain-aware mode selected)
 - Layer boundaries audited via ln-642 (violations detected, coverage calculated)
+- API contracts audited via ln-643 (with overlap matrix applied)
 - All patterns analyzed via ln-641 (4 scores with layer deductions applied)
-- Gaps identified (undocumented, unimplemented, layer violations, inconsistent)
+- If domain-aware: cross-domain aggregation completed (systemic issues identified)
+- Gaps identified (undocumented, unimplemented, layer violations, inconsistent, systemic)
 - Stories created via ln-220 for patterns with score < 70%
 - Catalog updated with scores, dates, Layer Boundary Status, Story links
 - Trend analysis completed
@@ -239,11 +297,12 @@ architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
 - Pattern catalog template: `shared/templates/patterns_template.md`
 - Common patterns detection: `references/common_patterns.md`
 - Scoring rules: `references/scoring_rules.md`
+- Overlap matrix (ln-623 vs ln-643): `shared/references/audit_overlap_matrix.md`
 - Pattern analysis: `../ln-641-pattern-analyzer/SKILL.md`
 - Layer boundary audit: `../ln-642-layer-boundary-auditor/SKILL.md`
 - API contract audit: `../ln-643-api-contract-auditor/SKILL.md`
 - Story creation: `../ln-220-story-coordinator/SKILL.md`
 
 ---
-**Version:** 1.1.0
-**Last Updated:** 2026-01-29
+**Version:** 2.0.0
+**Last Updated:** 2026-02-08

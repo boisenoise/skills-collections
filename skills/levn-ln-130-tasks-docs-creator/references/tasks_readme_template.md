@@ -238,6 +238,7 @@ Single hierarchical view: **Status → Epic → User Story → Tasks**
 | | ln-220-story-coordinator | Decompose Epic → 5-10 Stories (with Phase 3 Library Research) |
 | | ln-300-task-coordinator | Decompose Story → 1-6 Implementation Tasks |
 | | ln-510-test-planner | Plan Story Finalizer test task (after manual testing) |
+| | ln-311-agent-reviewer | External agent review for Stories (Codex + Gemini) |
 | **Validation** | ln-310-story-validator | Auto-fix Stories/Tasks → Approve (Backlog → Todo) |
 | **Execution** | ln-400-story-executor | Orchestrate Story execution (delegates to ln-401/ln-404/ln-402) |
 | | ln-401-task-executor | Execute implementation tasks (Todo → In Progress → To Review) |
@@ -246,7 +247,8 @@ Single hierarchical view: **Status → Epic → User Story → Tasks**
 | | ln-403-task-rework | Fix tasks after review (To Rework → To Review) |
 | **Quality** | ln-500-story-quality-gate | Two-pass review (Code Quality → Regression → Manual Testing) |
 | | ln-501-code-quality-checker | Analyze code for DRY/KISS/YAGNI violations |
-| | ln-502-regression-checker | Run existing test suite |
+| | ln-502-agent-reviewer | External agent review (Codex + Gemini) |
+| | ln-503-regression-checker | Run existing test suite |
 | | ln-512-manual-tester | Perform manual testing via curl/puppeteer |
 | **Documentation** | ln-111-project-docs-creator | Create project docs (requirements, architecture, specs) |
 | | ln-002-best-practices-researcher | Create ADRs, guides, manuals (doc_type parameter) |

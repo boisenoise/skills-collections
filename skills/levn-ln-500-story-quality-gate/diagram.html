@@ -40,18 +40,12 @@ graph TD
     RegressionPass -->|FAIL| RegressionFail[❌ Regression detected<br/>Create fix task<br/>STOP Pass 1]
     RegressionPass -->|PASS| P1_Phase5
 
-    P1_Phase5[Phase 5: Delegate to<br/>ln-343-manual-tester<br/>Worker tests AC via curl/puppeteer<br/>Creates scripts/tmp_[story_id].sh<br/>Documents in Linear Format v1.0<br/>FAIL FAST THIRD]
-    P1_Phase5 --> ManualTestCheck{Worker verdict:<br/>PASS or<br/>FAIL?}
-    ManualTestCheck -->|FAIL| ManualTestFail[❌ Manual testing failed<br/>Create fix task<br/>STOP Pass 1]
-    ManualTestCheck -->|PASS| P1_Phase6
-
-    P1_Phase6[Phase 6: Verdict and Next Steps<br/>All quality gates passed via delegation]
-    P1_Phase6 --> CheckTestTask{Test task<br/>exists?}
+    P1_Phase5[Phase 5: Verdict and Next Steps<br/>All quality gates passed via delegation]
+    P1_Phase5 --> CheckTestTask{Test task<br/>exists?}
     CheckTestTask -->|Yes & Done| Pass2Entry[Continue to Pass 2]
     CheckTestTask -->|Yes & NOT Done| ReportStatus[Report test task status<br/>Exit]
-    CheckTestTask -->|NOT exists| InvokeFinalizer[✅ Delegate to ln-510-test-planner<br/>via Skill tool<br/>Worker creates test task]
-    InvokeFinalizer --> NextSteps[Next steps:<br/>ln-334-test-executor executes test task<br/>ln-332-task-reviewer reviews<br/>Auto-invoke Pass 2 when Done]
-    NextSteps --> End
+    CheckTestTask -->|NOT exists| NoTestTask[⚠️ Test task missing<br/>Invoke ln-510-test-planner separately<br/>Exit]
+    NoTestTask --> End
 
     %% Pass 2
     PassCheck -->|Pass 2| Pass2Entry

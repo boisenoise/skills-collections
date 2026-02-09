@@ -287,6 +287,15 @@ ELSE:
 5. **Findings grouping:**
    - Global categories (Security, Build, etc.) → single table
    - Domain-aware categories → subtables per domain
+6. **Cross-Domain DRY Analysis** (post-aggregation):
+   - From ln-623 domain results, collect all findings that have `pattern_signature` field
+   - Group by `pattern_signature` across domains
+   - Same `pattern_signature` in 2+ domains → create Cross-Domain DRY finding:
+     - severity: HIGH
+     - principle: "Cross-Domain DRY Violation"
+     - list all affected domains and locations
+     - recommendation: "Extract to shared/ module accessible by all affected domains"
+   - Add findings to "Cross-Domain Issues" section in report
 
 ## Output Format
 
@@ -329,6 +338,13 @@ ELSE:
 | payments | 28 | 8/10 | 7/10 | 3 |
 | shared | 15 | 6/10 | 9/10 | 2 |
 | **Total** | **120** | **6.5/10** | **7.5/10** | **18** |
+
+### Cross-Domain Issues (if domain_mode="domain-aware" and pattern_signature matches found)
+
+| Signature | Domains | Locations | Issue | Recommendation | Effort |
+|-----------|---------|-----------|-------|----------------|--------|
+| validation_email | users, orders | users/validators/email.ts:12, orders/validators/email.ts:8 | Same email validation in 2 domains | Extract to shared/validators/email.ts | M |
+| middleware_auth_validate | users, orders, payments | 3 route files | Identical middleware chain in 3 domains | Create shared middleware group in shared/middleware/ | M |
 
 ### Strengths
 - [What's done well in this codebase]

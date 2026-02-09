@@ -29,6 +29,8 @@ Receives `contextStore` with tech stack, codebase root.
 
 ## Audit Rules
 
+**MANDATORY READ:** Load `shared/references/clean_code_checklist.md` for universal dead code patterns and severity definitions.
+
 ### 1. Unreachable Code
 **Detection:**
 - Linter rules: `no-unreachable` (ESLint)
@@ -92,7 +94,7 @@ Receives `contextStore` with tech stack, codebase root.
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 ## Output Format
 
@@ -134,6 +136,7 @@ See `shared/references/audit_scoring.md` for unified formula and score interpret
 
 ## Reference Files
 
+- **Clean code checklist:** `shared/references/clean_code_checklist.md`
 - **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 

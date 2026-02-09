@@ -50,7 +50,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 |--------|----------|------------------|---------|
 | SEC- | Security (auth, validation, secrets) | high | — |
 | PERF- | Performance (algorithms, configs, bottlenecks) | medium/high | ✓ Required |
-| MNT- | Maintainability (DRY, SOLID, complexity) | medium | — |
+| MNT- | Maintainability (DRY, SOLID, complexity, dead code) | medium | — |
 | ARCH- | Architecture (layers, boundaries, patterns) | medium | — |
 | BP- | Best Practices (implementation differs from recommended) | medium | ✓ Required |
 | OPT- | Optimality (better approach exists for this goal) | medium | ✓ Required |
@@ -64,10 +64,18 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 | PERF-PTN- | Architectural pattern performance | high |
 | PERF-DB- | Database queries, indexes | high |
 
+**MNT- subcategories:**
+
+| Prefix | Category | Severity |
+|--------|----------|----------|
+| MNT-DC- | Dead code: replaced implementations, unused exports/re-exports, backward-compat wrappers, deprecated aliases | medium (high if public API) |
+| MNT-DRY- | DRY violations: duplicate logic across files | medium |
+
 ## When to Use
 - **Invoked by ln-500-story-quality-gate** Pass 1 (first gate)
 - All implementation tasks in Story status = Done
-- Before regression testing (ln-502) and test planning (ln-510)
+- Before regression testing (ln-503) and test planning (ln-510)
+
 
 ## Workflow (concise)
 1) Load Story (full) and Done implementation tasks (full descriptions) via Linear; skip tasks with label "tests".
@@ -107,7 +115,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 
 4) **Analyze code for static issues (assign prefixes):**
    - SEC-: hardcoded creds, unvalidated input, SQL injection, race conditions
-   - MNT-: DRY violations, dead code, complex conditionals, poor naming
+   - MNT-: DRY violations (MNT-DRY: duplicate logic), dead code (MNT-DC: per `shared/references/clean_code_checklist.md` — 4 categories: unreachable, unused, commented-out, backward-compat), complex conditionals, poor naming
    - ARCH-: layer violations, circular dependencies, guide non-compliance
 
 5) **Calculate Code Quality Score:**
@@ -116,6 +124,13 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - Subtract issue penalties (see Issue penalties table)
 
 6) Output verdict with score and structured issues. Add Linear comment with findings.
+7) **Agent Review (Delegated to ln-502):**
+   Invoke `Skill(skill="ln-502-agent-reviewer", args="{storyId}")`.
+   - ln-502 loads Story/Done Tasks from Linear, materializes content to `.agent-review/` files, runs agents, cleans up.
+   - Merge returned suggestions into issues list (same prefixes: SEC-, PERF-, MNT-, ARCH-, BP-, OPT-).
+   - If verdict = `SUGGESTIONS` with `area=security` or `area=correctness` → escalate PASS → CONCERNS.
+   - If verdict = `SKIPPED` → Self-Review fallback (native Claude reviews code).
+   - **Display:** agent stats from ln-502 output.
 
 ## Critical Rules
 - Read guides mentioned in Story/Tasks before judging compliance.
@@ -133,6 +148,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
   - PERF-: Performance analyzed (algorithms, configs, patterns, DB)
 - Issues identified with prefixes and severity, sources from MCP Ref/Context7.
 - Code Quality Score calculated.
+- Agent review: ln-502 invoked; suggestions merged into issues (or SKIPPED/Self-Review fallback).
 - **Output format:**
   ```yaml
   verdict: PASS | CONCERNS | ISSUES_FOUND
@@ -188,8 +204,16 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
       solution: "Use eager loading: include: { posts: true }"
       source: "context7://prisma#eager-loading"
 
-    # MAINTAINABILITY
-    - id: "MNT-001"
+    # MAINTAINABILITY - Dead Code
+    - id: "MNT-DC-001"
+      severity: medium
+      file: "src/auth/legacy-adapter.ts"
+      finding: "Backward-compatibility wrapper kept after migration"
+      dead_code: "legacyLogin() wraps newLogin() — callers already migrated"
+      action: "Delete legacy-adapter.ts, remove re-export from index.ts"
+
+    # MAINTAINABILITY - DRY
+    - id: "MNT-DRY-001"
       severity: medium
       file: "src/service.ts:42"
       finding: "DRY violation: duplicate validation logic"
@@ -201,6 +225,10 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 - Code metrics: `references/code_metrics.md` (thresholds and penalties)
 - Guides: `docs/guides/`
 - Templates for context: `shared/templates/task_template_implementation.md`
+- Agent review prompt: `shared/agents/prompt_templates/code_review.md`
+- Agent review schema: `shared/agents/schemas/code_review_schema.json`
+- **Clean code checklist:** `shared/references/clean_code_checklist.md`
+- Agent delegation: `shared/references/agent_delegation_pattern.md`
 
 ---
 **Version:** 5.0.0 (Added 3-level MCP Ref validation: Optimality, Best Practices, Performance with PERF-ALG/CFG/PTN/DB subcategories)

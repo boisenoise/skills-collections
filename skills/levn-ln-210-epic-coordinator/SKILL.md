@@ -141,7 +141,7 @@ Use research context from Phase 1 Step 2:
 **Step 2: Build Epic List (inline)**
 
 **IF Infrastructure needed (from Phase 1 Step 3):**
-- **Epic 0: Infrastructure & Operations** — See `shared/references/numbering_conventions.md#epic-0-content-template`
+- **Epic 0: Infrastructure & Operations** — per `numbering_conventions.md` §Epic 0 Content Template
 - **Epic 1-N:** Business domains (from Step 1)
 
 **ELSE:**
@@ -380,7 +380,7 @@ Next Steps:
 
 **Trigger:** Phase 3 determined Count ≥ 1 (REPLAN MODE)
 
-**Full workflow:** See `references/replan_workflow.md` for complete REPLAN process.
+**Full workflow:** **MANDATORY READ:** Load `references/replan_workflow.md` for complete REPLAN process.
 
 **Summary:**
 1. Load existing Epics from Linear (full descriptions)
@@ -430,7 +430,7 @@ Before completing work, verify ALL checkpoints:
 - [ ] Summary displayed with all Epic URLs
 
 **✅ Epic Replan Complete (Phase 5b - REPLAN only):**
-- See `references/replan_workflow.md` for full checklist
+- **MANDATORY READ:** Load `references/replan_workflow.md` for full checklist
 
 **Output:** List of Linear Project URLs (Epic {N}: {Title}) + Next Epic Number value
 

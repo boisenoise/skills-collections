@@ -69,7 +69,7 @@ The skill follows a 7-phase orchestration workflow: **Legacy Migration (optional
 **0.2 Content Extraction**:
 - For each detected legacy file:
   - Parse markdown structure (headers, lists, code blocks)
-  - Apply type-specific extractor (see `legacy_detection_patterns.md`):
+  - Apply type-specific extractor (**MANDATORY READ:** Load `legacy_detection_patterns.md`):
     - `architecture_extractor` → { layers[], components[], diagrams[] }
     - `requirements_extractor` → { functional[], non_functional[] }
     - `tech_stack_extractor` → { frontend, backend, database, versions }

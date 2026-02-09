@@ -28,6 +28,52 @@ Executes a single implementation (or refactor) task from Todo to To Review using
 **Status:** In Progress | **Priority:** High | **Estimate:** 4h
 ```
 
+## Mode Detection
+
+Detect operating mode at startup:
+
+**Plan Mode Active:**
+- Steps 1-2: Load task context (read-only, OK in plan mode)
+- Generate EXECUTION PLAN (files to create/modify, approach) → write to plan file
+- Call ExitPlanMode → STOP. Do NOT implement.
+- Steps 3-6: After approval → execute implementation
+
+**Normal Mode:**
+- Steps 1-6: Standard workflow without stopping
+
+## Progress Tracking with TodoWrite
+
+When operating in any mode, skill MUST create detailed todo checklist tracking ALL steps.
+
+**Rules:**
+1. Create todos IMMEDIATELY before Step 1
+2. Each workflow step = separate todo item; implementation step gets sub-items
+3. Mark `in_progress` before starting step, `completed` after finishing
+
+**Todo Template (10 items):**
+
+```
+Step 1: Load Context
+  - Fetch full task description + linked guides/manuals/ADRs
+
+Step 2: Receive Task
+  - Get task ID from orchestrator, load full description
+
+Step 3: Start Work
+  - Set task to In Progress, update kanban
+
+Step 4: Implement
+  - Follow task plan/AC, apply KISS/YAGNI
+  - Update docs and existing tests if impacted
+
+Step 5: Quality
+  - Run typecheck and lint (or project equivalents)
+
+Step 6: Finish
+  - Set task to To Review, update kanban
+  - Add summary comment (changes, tests, docs)
+```
+
 ## Workflow (concise)
 1) **Load context:** Fetch full task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; auto-discover team/config if needed.
 2) **Receive task:** Get task ID from orchestrator (ln-400); load full task description.

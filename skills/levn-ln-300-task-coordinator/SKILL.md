@@ -25,6 +25,10 @@ Workers (ln-301, ln-302) handle the actual Linear/File operations based on detec
 - Story requirements changed and existing tasks must be updated
 - NOT for test tasks or refactoring tasks (created by other orchestrators)
 
+## Quality Criteria
+
+**MANDATORY READ:** Load `shared/references/creation_quality_checklist.md` §Task Creation Checklist for validation criteria that ln-310 will enforce.
+
 ## Workflow (concise)
 - **Phase 1 Discovery:** Auto-discover Team ID (docs/tasks/kanban_board.md); parse Story ID from request.
 - **Phase 2 Decompose (always):** Load Story (AC, Technical Notes, Context), assess complexity, build IDEAL plan (1-6 implementation tasks only), apply Foundation-First execution order, **validate Task Independence**, extract guide links.
@@ -34,20 +38,13 @@ Workers (ln-301, ln-302) handle the actual Linear/File operations based on detec
 
 ## Task Independence Validation
 
-**CRITICAL Check in Phase 2:**
-- Each Task N can be completed using ONLY Tasks 1 to N-1
-- NO forward dependencies (Task N requires Task N+1, N+2)
-- Foundation-First order naturally prevents most issues
+Rules per `creation_quality_checklist.md` #19 (dependencies) and #13 (Foundation-First order).
 
-**Validation:**
-- Check that Task N does NOT depend on Task N+1, N+2, etc.
+**Examples:**
 - ❌ WRONG: "Task 2: Validate token (requires Task 3 to generate keys)"
 - ✅ RIGHT: "Task 1: Generate keys" → "Task 2: Validate token (uses Task 1 keys)"
 
-**If forward dependency detected:**
-- Reorder Tasks to resolve dependency
-- OR refactor Task to remove dependency
-- OR split Task into sequential parts
+**If forward dependency detected:** Reorder, refactor to remove dependency, or split into sequential parts.
 
 ## Mode Matrix
 | Condition | Mode | Delegate | Payload |
@@ -80,7 +77,7 @@ Mark each as in_progress when starting, completed when done.
 
 ## Critical Rules
 - Decompose-first: always build IDEAL plan before looking at existing tasks.
-- Foundation-First execution order: DB -> Repository -> Service -> API -> Frontend.
+- Foundation-First execution order per `creation_quality_checklist.md` #13.
 - Task limits: 1-6 implementation tasks, 3-5h each; cap total at 6. Test task created later by test planner.
 - Linear creation must be sequential: create one task, confirm success, then create the next (no bulk) to catch errors early.
 - **HARD CONSTRAINT:** This skill creates ONLY implementation tasks (taskType=implementation). NEVER include test tasks, manual testing tasks, or refactoring tasks in the plan. Test tasks are created LATER by test planner (after manual testing passes). Refactoring tasks are created by quality gate when code quality issues found.

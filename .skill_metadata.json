@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-08T06:25:55.334153",
-  "skill_count": 1049,
+  "last_updated": "2026-02-09T06:35:37.118723",
+  "skill_count": 1051,
   "sources_processed": 19,
   "skills": [
     {
@@ -854,7 +854,7 @@
     {
       "name": "antigravity-clean-code",
       "original_name": "clean-code",
-      "description": "Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments",
+      "description": "Applies principles from Robert C. Martin's 'Clean Code'. Use this skill when writing, reviewing, or refactoring code to ensure high quality, readability, and maintainability. Covers naming, functions, comments, error handling, and class design.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7084,6 +7084,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-502-agent-reviewer",
+      "original_name": "ln-502-agent-reviewer",
+      "description": "Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Reference-based prompts. Returns filtered suggestions with confidence scoring.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-773-cors-configurator",
       "original_name": "ln-773-cors-configurator",
       "description": "Configures CORS policy for development and production",
@@ -7102,7 +7110,7 @@
     {
       "name": "levn-ln-402-task-reviewer",
       "original_name": "ln-402-task-reviewer",
-      "description": "L3 Worker. Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tasks for side-effect issues found outside task scope. Sets task Done or To Rework. Usually invoked by ln-400 with isolated context, can also review a specific task on user request.",
+      "description": "L3 Worker. Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tasks for side-effect issues found outside task scope. Sets task Done or To Rework. Runs inline (Skill tool) from ln-400 main flow.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7119,14 +7127,6 @@
       "name": "levn-ln-782-test-runner",
       "original_name": "ln-782-test-runner",
       "description": "Executes all test suites and reports results with coverage",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-502-regression-checker",
-      "original_name": "ln-502-regression-checker",
-      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7326,7 +7326,7 @@
     {
       "name": "levn-ln-623-code-principles-auditor",
       "original_name": "ln-623-code-principles-auditor",
-      "description": "Code principles audit worker (L3). Checks DRY (7 types), KISS/YAGNI, TODOs, error handling, DI patterns. Returns findings with severity, location, effort, recommendations.",
+      "description": "Code principles audit worker (L3). Checks DRY (10 types), KISS/YAGNI, TODOs, error handling, DI patterns. Returns findings with severity, location, effort, pattern_signature.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7422,7 +7422,7 @@
     {
       "name": "levn-ln-500-story-quality-gate",
       "original_name": "ln-500-story-quality-gate",
-      "description": "Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Pass 1: code quality -> regression -> manual testing. Pass 2: verify tests/coverage -> calculate NFR scores -> mark Story Done. Use when user requests quality gate for Story or when ln-400 delegates quality check.",
+      "description": "Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Pass 1: code quality -> regression -> check test task status. Pass 2: verify tests/coverage -> calculate NFR scores -> mark Story Done. Use when user requests quality gate for Story or when ln-400 delegates quality check.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7606,7 +7606,7 @@
     {
       "name": "levn-ln-400-story-executor",
       "original_name": "ln-400-story-executor",
-      "description": "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404, hands Story quality to ln-500. Metadata-only loading up front.",
+      "description": "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404. Sets Story to To Review when all tasks Done (NOT Done \u2014 ln-500 handles that). Metadata-only loading up front.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7716,6 +7716,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-503-regression-checker",
+      "original_name": "ln-503-regression-checker",
+      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-511-test-researcher",
       "original_name": "ln-511-test-researcher",
       "description": "Researches real-world problems, competitor solutions, and customer complaints before test planning. Posts findings as Linear comment for ln-512 and ln-513.",
@@ -7735,6 +7743,14 @@
       "name": "levn-ln-501-code-quality-checker",
       "original_name": "ln-501-code-quality-checker",
       "description": "Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates architectural decisions via MCP Ref: (1) Optimality - is chosen approach the best? (2) Compliance - does it follow best practices? (3) Performance - algorithms, configs, bottlenecks. Reports issues with SEC-, PERF-, MNT-, ARCH-, BP-, OPT- prefixes.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-311-agent-reviewer",
+      "original_name": "ln-311-agent-reviewer",
+      "description": "Worker that runs parallel external agent reviews (Codex + Gemini) on Story/Tasks. Reference-based prompts. Returns filtered suggestions for Story validation.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

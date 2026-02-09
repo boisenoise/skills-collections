@@ -20,57 +20,75 @@ Detection patterns and best practices reference for ln-640/ln-641.
 ## Key Best Practices by Pattern
 
 ### Job Processing
-- Dead Letter Queue (DLQ) for failed jobs
-- Exponential backoff for retries
-- Idempotency keys for duplicate prevention
-- Job prioritization and scheduling
-- Graceful shutdown handling
-- Concurrency control (per worker limits)
-- Job timeout configuration
-- Progress tracking and logging
+
+| Best Practice | Detection Grep | Severity if Missing |
+|---------------|----------------|---------------------|
+| Dead Letter Queue (DLQ) | `dlq\|dead.?letter\|failed.?queue\|on_failed\|failedJobsQueue` | HIGH |
+| Exponential backoff | `backoff\|exponential\|backoffDelay\|retry_backoff` | HIGH |
+| Idempotency keys | `idempoten\|dedup\|job.?id.*unique\|unique.?job` | MEDIUM |
+| Job prioritization | `priority\|PRIORITY\|prioritize\|urgent` in queue config | LOW |
+| Graceful shutdown | `SIGTERM\|SIGINT\|graceful.*shut\|beforeExit\|shutdown.*handler` | HIGH |
+| Concurrency control | `concurrency\|maxWorkers\|worker.?limit\|limiter\|rate.?limit` | MEDIUM |
+| Job timeout | `timeout\|jobTimeout\|time_limit\|TTL` in worker config | MEDIUM |
+| Progress tracking | `progress\|onProgress\|job.?status\|update_state` | LOW |
 
 ### Event-Driven
-- Event schema versioning
-- Dead letter queue for unprocessed events
-- Event correlation IDs for tracing
-- Idempotent event handlers
-- Event ordering guarantees (when needed)
-- Schema registry for validation
-- Replay capability
+
+| Best Practice | Detection Grep | Severity if Missing |
+|---------------|----------------|---------------------|
+| Event schema versioning | `version\|schema_version\|v[0-9].*event\|EventV[0-9]` | HIGH |
+| Dead letter queue | `dlq\|dead.?letter\|unprocessed\|failed.?event` | HIGH |
+| Correlation IDs | `correlation.?id\|trace.?id\|request.?id\|x-correlation` | MEDIUM |
+| Idempotent handlers | `idempoten\|already.?processed\|dedup\|event.?id.*check` | HIGH |
+| Ordering guarantees | `partition.?key\|ordering\|sequence\|ordered` | LOW |
+| Schema validation | `schema.*valid\|validate.*event\|EventSchema\|zod\|pydantic` | MEDIUM |
+| Replay capability | `replay\|reprocess\|re.?emit\|event.?store\|EventStore` | LOW |
 
 ### Caching
-- Cache invalidation strategy (TTL, event-based)
-- Cache-aside pattern implementation
-- Cache key naming conventions
-- Cache stampede prevention
-- Distributed cache consistency
-- Fallback to source on cache miss
-- Cache warming strategies
+
+| Best Practice | Detection Grep | Severity if Missing |
+|---------------|----------------|---------------------|
+| Invalidation strategy | `invalidate\|evict\|delete.*cache\|bust.*cache\|on_update.*cache` | HIGH |
+| Cache-aside pattern | `get.*cache.*miss.*fetch\|cache.?aside\|read.?through` | MEDIUM |
+| Key naming conventions | `cache.?key\|key.?prefix\|namespace.*cache\|key.*template` | LOW |
+| Stampede prevention | `lock\|mutex\|singleflight\|debounce.*cache\|cache.?lock` | MEDIUM |
+| Distributed consistency | `pub.?sub.*invalidat\|broadcast.*cache\|cluster.*cache` | LOW |
+| Fallback on miss | `fallback\|miss.*fetch\|cache.*miss.*return` | MEDIUM |
+| Cache warming | `warm\|preload\|prefetch\|prime.*cache\|startup.*cache` | LOW |
 
 ### Resilience
-- Circuit breaker with states (closed, open, half-open)
-- Bulkhead isolation
-- Timeout configuration per dependency
-- Fallback responses
-- Retry with jitter
-- Health checks for dependencies
-- Graceful degradation
+
+| Best Practice | Detection Grep | Severity if Missing |
+|---------------|----------------|---------------------|
+| Circuit breaker states | `CircuitBreaker\|circuit.?breaker\|OPEN\|HALF_OPEN\|CLOSED` in resilience code | HIGH |
+| Bulkhead isolation | `Bulkhead\|bulkhead\|semaphore\|concurrent.?limit\|isolation` | MEDIUM |
+| Timeout per dependency | `timeout\|Timeout\|deadline\|time_limit` per external call | HIGH |
+| Fallback responses | `fallback\|Fallback\|default.*response\|graceful.*degrade` | HIGH |
+| Retry with jitter | `jitter\|random.*delay\|backoff.*jitter\|retry.*random` | MEDIUM |
+| Health checks | `health.?check\|readiness\|liveness\|ping\|/health` | MEDIUM |
+| Graceful degradation | `degrade\|feature.?flag\|circuit.*open.*return\|fallback.*default` | LOW |
 
 ### CQRS
-- Command/Query separation
-- Eventually consistent read models
-- Projection update strategies
-- Event-driven updates
-- Read model rebuild capability
-- Separate data stores (optional)
+
+| Best Practice | Detection Grep | Severity if Missing |
+|---------------|----------------|---------------------|
+| Command/Query separation | `Command\|Query\|CommandHandler\|QueryHandler` in separate dirs | HIGH |
+| Eventually consistent reads | `eventual\|async.*project\|read.?model.*update` | MEDIUM |
+| Projection updates | `Projection\|project\|materialize\|ReadModel.*update` | MEDIUM |
+| Event-driven updates | `on.*Event\|EventHandler\|subscribe.*update` for projections | MEDIUM |
+| Read model rebuild | `rebuild\|reproject\|replay.*read.?model\|migrate.*projection` | LOW |
+| Separate data stores | `readDb\|writeDb\|read.*connection\|write.*connection` | LOW |
 
 ### Repository
-- Unit of Work pattern
-- Specification pattern for complex queries
-- Transaction management
-- Pagination support
-- Soft delete handling
-- Audit logging
+
+| Best Practice | Detection Grep | Severity if Missing |
+|---------------|----------------|---------------------|
+| Unit of Work | `UnitOfWork\|unit.?of.?work\|commit\|SaveChanges\|flush` | HIGH |
+| Specification pattern | `Specification\|specification\|criteria\|Criteria\|filter.*query` | LOW |
+| Transaction management | `transaction\|Transaction\|begin\|commit\|rollback\|@Transactional` | HIGH |
+| Pagination support | `paginate\|Pagination\|skip.*take\|offset.*limit\|cursor` | MEDIUM |
+| Soft delete | `soft.?delete\|is_deleted\|deleted_at\|IsDeleted\|paranoid` | LOW |
+| Audit logging | `audit\|created_at\|updated_at\|modified_by\|@Audit` | MEDIUM |
 
 ## MCP Ref Search Queries
 
@@ -188,4 +206,4 @@ api_commits = Grep("\\.commit\\(\\)\|\\.rollback\\(\\)", "**/api/**")
 - Explicit `.add_done_callback(handle_exception)`
 
 ---
-**Version:** 1.2.0
+**Version:** 1.3.0

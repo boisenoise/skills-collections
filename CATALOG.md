@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-08 06:25 UTC*
+*Last updated: 2026-02-09 06:35 UTC*
 
-Total skills: **1049**
+Total skills: **1051**
 
 ## Skills by Source
 
@@ -242,6 +242,7 @@ Total skills: **1049**
 | `levn-ln-301-task-creator` | Creates ALL task types (implementation, refactoring, test). Generates task documents from templates,... |
 | `levn-ln-302-task-replanner` | Updates ALL task types (implementation/refactoring/test). Compares IDEAL plan vs existing tasks, cat... |
 | `levn-ln-310-story-validator` | Validates Stories/Tasks with GO/NO-GO verdict, Readiness Score (1-10), Penalty Points, and Anti-Hall... |
+| `levn-ln-311-agent-reviewer` | Worker that runs parallel external agent reviews (Codex + Gemini) on Story/Tasks. Reference-based pr... |
 | `levn-ln-400-story-executor` | Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-... |
 | `levn-ln-401-task-executor` | Executes implementation tasks (Todo -> In Progress -> To Review). Follows KISS/YAGNI, guides, qualit... |
 | `levn-ln-402-task-reviewer` | L3 Worker. Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tas... |
@@ -249,7 +250,8 @@ Total skills: **1049**
 | `levn-ln-404-test-executor` | Executes Story Finalizer test tasks (label "tests") from Todo -> To Review. Enforces risk-based limi... |
 | `levn-ln-500-story-quality-gate` | Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Pa... |
 | `levn-ln-501-code-quality-checker` | Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Vali... |
-| `levn-ln-502-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
+| `levn-ln-502-agent-reviewer` | Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Reference-based p... |
+| `levn-ln-503-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
 | `levn-ln-510-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-511, ln-512, ln... |
 | `levn-ln-511-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
 | `levn-ln-512-manual-tester` | Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reus... |
@@ -260,7 +262,7 @@ Total skills: **1049**
 | `levn-ln-620-codebase-auditor` | Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, ... |
 | `levn-ln-621-security-auditor` | Security audit worker (L3). Scans codebase for hardcoded secrets, SQL injection, XSS, insecure depen... |
 | `levn-ln-622-build-auditor` | Build health audit worker (L3). Checks compiler/linter errors, deprecation warnings, type errors, fa... |
-| `levn-ln-623-code-principles-auditor` | Code principles audit worker (L3). Checks DRY (7 types), KISS/YAGNI, TODOs, error handling, DI patte... |
+| `levn-ln-623-code-principles-auditor` | Code principles audit worker (L3). Checks DRY (10 types), KISS/YAGNI, TODOs, error handling, DI patt... |
 | `levn-ln-624-code-quality-auditor` | Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classe... |
 | `levn-ln-625-dependencies-auditor` | Dependencies audit worker (L3). Checks outdated packages, unused deps, reinvented wheels, vulnerabil... |
 | `levn-ln-626-dead-code-auditor` | Dead code & legacy audit worker (L3). Checks unreachable code, unused imports/variables/functions, c... |
@@ -526,7 +528,7 @@ Total skills: **1049**
 | `antigravity-claude-scientific-skills` | Scientific research and analysis skills |
 | `antigravity-claude-speed-reader` | -Speed read Claude's responses at 600+ WPM using RSVP with Spritz-style ORP highlighting |
 | `antigravity-claude-win11-speckit-update-skill` | Windows 11 system management |
-| `antigravity-clean-code` | Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments |
+| `antigravity-clean-code` | Applies principles from Robert C. Martin's 'Clean Code'. Use this skill when writing, reviewing, or ... |
 | `antigravity-clerk-auth` | Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync Us... |
 | `antigravity-clickup-automation` | Automate ClickUp project management including tasks, spaces, folders, lists, comments, and team oper... |
 | `antigravity-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |

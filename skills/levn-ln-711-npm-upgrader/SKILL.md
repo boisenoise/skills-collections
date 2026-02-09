@@ -102,7 +102,7 @@ Read package.json and categorize dependencies for upgrade priority.
 
 ### Common Breaking Changes
 
-> See [breaking_changes_patterns.md](../ln-710-dependency-upgrader/references/breaking_changes_patterns.md) for full patterns.
+**MANDATORY READ:** Load [breaking_changes_patterns.md](../ln-710-dependency-upgrader/references/breaking_changes_patterns.md) for full patterns.
 
 | Package | Breaking Version | Key Changes |
 |---------|------------------|-------------|

@@ -1,6 +1,6 @@
 ---
 name: ln-623-code-principles-auditor
-description: Code principles audit worker (L3). Checks DRY (7 types), KISS/YAGNI, TODOs, error handling, DI patterns. Returns findings with severity, location, effort, recommendations.
+description: "Code principles audit worker (L3). Checks DRY (10 types), KISS/YAGNI, TODOs, error handling, DI patterns. Returns findings with severity, location, effort, pattern_signature."
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
@@ -12,8 +12,7 @@ Specialized worker auditing code principles (DRY, KISS, YAGNI) and design patter
 
 - **Worker in ln-620 coordinator pipeline** - invoked by ln-620-codebase-auditor
 - Audit **code principles** (DRY/KISS/YAGNI, error handling, DI)
-- Check DRY/KISS/YAGNI violations, TODO/FIXME, workarounds, error handling
-- Return structured findings with severity, location, effort, recommendations
+- Return structured findings with severity, location, effort, pattern_signature, recommendations
 - Calculate compliance score (X/10) for Code Principles category
 
 ## Inputs (from Coordinator)
@@ -27,331 +26,148 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 ## Workflow
 
 1) **Parse context** — extract fields, determine `scan_path` (domain-aware if specified)
-2) **Scan codebase for violations**
+2) **Load detection patterns**
+   - **MANDATORY READ:** Load `references/detection_patterns.md` for language-specific Grep/Glob patterns
+   - Select patterns matching project's `tech_stack`
+3) **Scan codebase for violations**
    - All Grep/Glob patterns use `scan_path` (not codebase_root)
-   - Example: `Grep(pattern="TODO", path=scan_path)`
-
-3) **Collect findings with severity, location, effort, recommendation**
+   - Follow step-by-step detection from `detection_patterns.md`
+   - Apply exclusions from `detection_patterns.md#exclusions`
+4) **Generate recommendations**
+   - **MANDATORY READ:** Load `references/refactoring_decision_tree.md` for pattern selection
+   - Match each finding to appropriate refactoring pattern via decision tree
+5) **Collect findings with severity, location, effort, pattern_id, pattern_signature, recommendation**
    - Tag each finding with `domain: domain_name` (if domain-aware)
-
-4) **Calculate score using penalty algorithm**
-
-5) **Return JSON result to coordinator**
+   - Assign `pattern_signature` for cross-domain matching by ln-620
+6) **Calculate score using penalty algorithm**
+7) **Return JSON result to coordinator**
    - Include `domain` and `scan_path` fields (if domain-aware)
 
-## Audit Rules (Priority: HIGH)
+## Audit Rules
 
 ### 1. DRY Violations (Don't Repeat Yourself)
-**What:** Duplicated logic, constants, or code blocks across files
 
-**Detection Categories:**
+**MANDATORY READ:** Load `references/detection_patterns.md` for detection steps per type.
 
-#### 1.1. Identical Code Duplication
-- Search for identical functions (use AST comparison or text similarity)
-- Find repeated constants: same value defined in multiple files
-- Detect copy-pasted code blocks (>10 lines identical)
+| Type | What | Severity | Default Recommendation | Effort |
+|------|------|----------|----------------------|--------|
+| **1.1** Identical Code | Same functions/constants/blocks (>10 lines) in multiple files | HIGH: business-critical (auth, payment). MEDIUM: utilities. LOW: simple constants <5x | Extract function → decide location by duplication scope | M |
+| **1.2** Duplicated Validation | Same validation patterns (email, password, phone, URL) across files | HIGH: auth/payment. MEDIUM: user input 3+x. LOW: format checks <3x | Extract to shared validators module | M |
+| **1.3** Repeated Error Messages | Hardcoded error strings instead of centralized catalog | MEDIUM: critical messages hardcoded or no error catalog. LOW: <3 places | Create constants/error-messages file | M |
+| **1.4** Similar Patterns | Functions with same call sequence/control flow but different names/entities | MEDIUM: business logic in critical paths. LOW: utilities <3x | Extract common logic (see decision tree for pattern) | M |
+| **1.5** Duplicated SQL/ORM | Same queries in different services | HIGH: payment/auth queries. MEDIUM: common 3+x. LOW: simple <3x | Extract to Repository layer | M |
+| **1.6** Copy-Pasted Tests | Identical setup/teardown/fixtures across test files | MEDIUM: setup in 5+ files. LOW: <5 files | Extract to test helpers | M |
+| **1.7** Repeated API Responses | Same response object shapes without DTOs | MEDIUM: in 5+ endpoints. LOW: <5 endpoints | Create DTO/Response classes | M |
+| **1.8** Duplicated Middleware Chains | Identical middleware/decorator stacks on multiple routes | MEDIUM: same chain on 5+ routes. LOW: <5 routes | Create named middleware group, apply at router level | M |
+| **1.9** Duplicated Type Definitions | Interfaces/structs/types with 80%+ same fields | MEDIUM: in 5+ files. LOW: 2-4 files | Create shared base type, extend where needed | M |
+| **1.10** Duplicated Mapping Logic | Same entity→DTO / DTO→entity transformations in multiple locations | MEDIUM: in 3+ locations. LOW: 2 locations | Create dedicated Mapper class/function | M |
 
-**Severity:**
-- **HIGH:** Critical business logic duplicated (payment, auth)
-- **MEDIUM:** Utility functions duplicated
-- **LOW:** Simple constants duplicated (<5 occurrences)
-
-#### 1.2. Duplicated Validation Logic
-**What:** Same validation patterns repeated across validators/controllers
-
-**Detection:**
-- Email validation: `/@.*\./` regex patterns in multiple files
-- Password validation: `/.{8,}/`, strength checks repeated
-- Phone validation: phone number regex duplicated
-- Common patterns: `isValid*`, `validate*`, `check*` functions with similar logic
-
-**Severity:**
-- **HIGH:** Auth/payment validation duplicated (inconsistency risk)
-- **MEDIUM:** User input validation duplicated (3+ occurrences)
-- **LOW:** Simple format checks duplicated (<3 occurrences)
-
-**Recommendation:** Extract to shared validators module (`validators/common.ts`)
-
-**Effort:** M (extract validators, update imports)
-
-#### 1.3. Repeated Error Messages
-**What:** Hardcoded error messages instead of centralized error catalog
-
-**Detection:**
-- Grep for hardcoded strings in `throw new Error("...")`, `res.status(400).json({ error: "..." })`
-- Find repeated messages: "User not found", "Invalid credentials", "Unauthorized access"
-- Check for missing error constants file: `errors.ts`, `error-messages.ts`, `constants/errors.ts`
-
-**Severity:**
-- **MEDIUM:** Critical error messages hardcoded (auth, payment) - inconsistency risk
-- **MEDIUM:** No centralized error messages file
-- **LOW:** Same error message in <3 places
-
-**Recommendation:**
-- Create central error messages file (`constants/error-messages.ts`)
-- Define error catalog: `const ERRORS = { USER_NOT_FOUND: "User not found", ... }`
-- Replace hardcoded strings with constants: `throw new Error(ERRORS.USER_NOT_FOUND)`
-
-**Effort:** M (create error catalog, replace hardcoded strings)
-
-#### 1.4. Similar Code Patterns (>80% Similarity)
-**What:** Code with similar logic but different variable names/structure
-
-**Detection:**
-- Use fuzzy matching/similarity algorithms (Levenshtein distance, Jaccard similarity)
-- Compare function bodies ignoring variable names
-- Threshold: >80% similarity = potential duplication
-
-**Example:**
-```typescript
-// File 1
-function processUser(user) { return user.name.toUpperCase(); }
-
-// File 2
-function formatUserName(u) { return u.name.toUpperCase(); }
-// ✅ Same logic, different names - DETECTED
-```
-
-**Severity:**
-- **MEDIUM:** Similar business logic (>80% similarity) in critical paths
-- **LOW:** Similar utility functions (<3 occurrences)
-
-**Recommendation:** Extract common logic, create shared helper function
-
-**Effort:** M (refactor to shared module)
-
-#### 1.5. Duplicated SQL Queries
-**What:** Same SQL queries/ORM calls in different controllers/services
-
-**Detection:**
-- Find repeated raw SQL strings: `SELECT * FROM users WHERE id = ?`
-- ORM duplicates: `User.findOne({ where: { email } })` in multiple files
-- Grep for common patterns: `SELECT`, `INSERT`, `UPDATE`, `DELETE` with similar structure
-
-**Severity:**
-- **HIGH:** Critical queries duplicated (payment, auth)
-- **MEDIUM:** Common queries duplicated (3+ occurrences)
-- **LOW:** Simple queries duplicated (<3 occurrences)
-
-**Recommendation:** Extract to Repository layer, create query methods
-
-**Effort:** M (create repository methods, update callers)
-
-#### 1.6. Copy-Pasted Tests
-**What:** Test files with identical structure (arrange-act-assert duplicated)
-
-**Detection:**
-- Find tests with >80% similar setup/teardown
-- Repeated test data: same fixtures defined in multiple test files
-- Pattern: `beforeEach`, `afterEach` with identical code
-
-**Severity:**
-- **MEDIUM:** Test setup duplicated in 5+ files
-- **LOW:** Similar test utilities duplicated (<5 files)
-
-**Recommendation:** Extract to test helpers (`tests/helpers/*`), use shared fixtures
-
-**Effort:** M (create test utilities, refactor tests)
-
-#### 1.7. Repeated API Response Structures
-**What:** Duplicated response objects instead of shared DTOs
-
-**Detection:**
-- Find repeated object structures in API responses:
-  ```typescript
-  return { id: user.id, name: user.name, email: user.email }
-  ```
-- Check for missing DTOs folder: `dtos/`, `responses/`, `models/`
-- Grep for common patterns: `return { ... }` in controllers
-
-**Severity:**
-- **MEDIUM:** Response structures duplicated in 5+ endpoints (inconsistency risk)
-- **LOW:** Simple response objects duplicated (<5 endpoints)
-
-**Recommendation:** Create DTOs/Response classes, use serializers
-
-**Effort:** M (create DTOs, update endpoints)
-
----
-
-**Overall Recommendation for DRY:**
-Extract to shared module, create utility function, centralize constants/messages/validators/DTOs
-
-**Overall Effort:** M (refactor + update imports, typically 1-4 hours per duplication type)
+**Recommendation selection:** Use `references/refactoring_decision_tree.md` to choose the right refactoring pattern based on duplication location (Level 1) and logic type (Level 2).
 
 ### 2. KISS Violations (Keep It Simple, Stupid)
-**What:** Over-engineered abstractions, unnecessary complexity
 
-**Detection:**
-- Abstract classes with single implementation
-- Factory patterns for 2 objects
-- Deep inheritance (>3 levels)
-- Generic types with excessive constraints
-
-**Severity:**
-- **HIGH:** Abstraction prevents understanding core logic
-- **MEDIUM:** Unnecessary pattern (factory for 2 types)
-- **LOW:** Over-generic types (acceptable tradeoff)
-
-**Recommendation:** Remove abstraction, inline implementation, flatten hierarchy
-
-**Effort:** L (requires careful refactoring)
+| Violation | Detection | Severity | Recommendation | Effort |
+|-----------|-----------|----------|---------------|--------|
+| Abstract class with 1 implementation | Grep `abstract class` → count subclasses | HIGH: prevents understanding core logic | Remove abstraction, inline | L |
+| Factory for <3 types | Grep factory patterns → count branches | MEDIUM: unnecessary pattern | Replace with direct construction | M |
+| Deep inheritance >3 levels | Trace extends chain | HIGH: fragile hierarchy | Flatten with composition | L |
+| Excessive generic constraints | Grep `<T extends ... & ...>` | LOW: acceptable tradeoff | Simplify constraints | M |
+| Wrapper-only classes | Read: all methods delegate to inner | MEDIUM: unnecessary indirection | Remove wrapper, use inner directly | M |
 
 ### 3. YAGNI Violations (You Aren't Gonna Need It)
-**What:** Unused extensibility, dead feature flags, premature optimization
 
-**Detection:**
-- Feature flags that are always true/false
-- Abstract methods never overridden
-- Config options never used
-- Interfaces with single implementation (no plans for more)
-
-**Severity:**
-- **MEDIUM:** Unused extensibility points adding complexity
-- **LOW:** Dead feature flags (cleanup needed)
-
-**Recommendation:** Remove unused code, simplify interfaces
-
-**Effort:** M (verify no future use, then delete)
+| Violation | Detection | Severity | Recommendation | Effort |
+|-----------|-----------|----------|---------------|--------|
+| Dead feature flags (always true/false) | Grep flags → verify never toggled | LOW: cleanup needed | Remove flag, keep active code path | M |
+| Abstract methods never overridden | Grep abstract → search implementations | MEDIUM: unused extensibility | Remove abstract, make concrete | M |
+| Unused config options | Grep config key → 0 references | LOW: dead config | Remove option | S |
+| Interface with 1 implementation | Grep interface → count implementors | MEDIUM: premature abstraction | Remove interface, use class directly | M |
+| Premature generics (used with 1 type) | Grep generic usage → count type params | LOW: over-engineering | Replace generic with concrete type | S |
 
 ### 4. TODO/FIXME/HACK Comments
-**What:** Unfinished work, temporary solutions
 
-**Detection:**
 - Grep for `TODO`, `FIXME`, `HACK`, `XXX`, `OPTIMIZE`
-- Check age (git blame) - old TODOs are higher severity
+- Check age (git blame) — old TODOs are higher severity
 
-**Severity:**
-- **HIGH:** TODO in critical path (auth, payment) >6 months old
-- **MEDIUM:** FIXME/HACK with explanation
-- **LOW:** Recent TODO (<1 month) with plan
-
-**Recommendation:** Complete TODO, remove HACK, refactor workaround
+| Severity | Criteria |
+|----------|----------|
+| **HIGH** | TODO in critical path (auth, payment) >6 months old |
+| **MEDIUM** | FIXME/HACK with explanation |
+| **LOW** | Recent TODO (<1 month) with plan |
 
 **Effort:** Varies (S for simple TODO, L for architectural HACK)
 
 ### 5. Missing Error Handling
-**What:** Critical paths without try-catch, error propagation
 
-**Detection:**
-- Find async functions without error handling
+- Find async functions without try-catch
 - Check API routes without error middleware
 - Verify database calls have error handling
 
-**Severity:**
-- **CRITICAL:** Payment/auth without error handling
-- **HIGH:** User-facing operations without error handling
-- **MEDIUM:** Internal operations without error handling
+| Severity | Criteria |
+|----------|----------|
+| **CRITICAL** | Payment/auth without error handling |
+| **HIGH** | User-facing operations without error handling |
+| **MEDIUM** | Internal operations without error handling |
 
-**Recommendation:** Add try-catch, implement error middleware, propagate errors properly
-
-**Effort:** M (add error handling logic)
+**Effort:** M
 
 ### 6. Centralized Error Handling
-**What:** Errors handled inconsistently across different contexts (web requests, cron jobs, background tasks)
 
-**Detection:**
-- Search for centralized error handler class/module: `ErrorHandler`, `errorHandler`, `error-handler.ts/js/py`
-- Check if error middleware delegates to handler: `errorHandler.handleError(err)` or similar
-- Verify all async routes use promises or async/await (Express 5+ auto-catches rejections)
-- Check for error transformation (sanitize stack traces for users in production)
-- **Anti-pattern check:** Look for `process.on("uncaughtException")` usage (BAD PRACTICE per Express docs)
+- Search for centralized error handler: `ErrorHandler`, `errorHandler`, `error-handler.*`
+- Check if middleware delegates to handler
+- Verify async routes use promises/async-await
+- **Anti-pattern:** `process.on("uncaughtException")` usage
 
-**Severity:**
-- **HIGH:** No centralized error handler (errors handled inconsistently in multiple places)
-- **HIGH:** Using `uncaughtException` listener instead of proper error propagation (Express anti-pattern)
-- **MEDIUM:** Error middleware handles errors directly (doesn't delegate to central handler)
-- **MEDIUM:** Async routes without proper error handling (not using promises/async-await)
-- **LOW:** Stack traces exposed in production responses (security/UX issue)
+| Severity | Criteria |
+|----------|----------|
+| **HIGH** | No centralized error handler |
+| **HIGH** | Using `uncaughtException` listener (Express anti-pattern) |
+| **MEDIUM** | Middleware handles errors directly (no delegation) |
+| **MEDIUM** | Async routes without proper error handling |
+| **LOW** | Stack traces exposed in production |
 
-**Recommendation:**
-- Create single ErrorHandler class/module for ALL error contexts
-- Middleware should only catch and forward to ErrorHandler (delegate pattern)
-- Use async/await for async routes (framework auto-forwards errors)
-- Transform errors for users: hide sensitive details (stack traces, internal paths) in production
-- **DO NOT use uncaughtException listeners** - use process managers (PM2, systemd) for restart instead
-- For unhandled rejections: log and restart process (use supervisor, not inline handler)
+**Recommendation:** Create single ErrorHandler class. Middleware catches and forwards. Use async/await. DO NOT use uncaughtException listeners.
 
-**Effort:** M-L (create error handler, refactor existing middleware)
+**Effort:** M-L
 
 ### 7. Dependency Injection / Centralized Init
-**What:** Direct imports/instantiation instead of dependency injection, scattered initialization
 
-**Detection:**
-- Check for DI container usage:
-  - Node.js: `inversify`, `awilix`, `tsyringe`, `typedi` packages
-  - Python: `dependency_injector`, `injector` packages
-  - Java: Spring `@Autowired`, `@Inject` annotations
-  - .NET: Built-in DI in ASP.NET Core, `IServiceCollection`
-- Grep for direct instantiations in business logic: `new SomeService()`, `new SomeRepository()`
-- Check for centralized Init/Bootstrap module: `bootstrap.ts`, `init.py`, `Startup.cs`, `app.module.ts`
-- Verify controllers/services receive dependencies via constructor/parameters, not direct imports
+- Check for DI container: `inversify`, `awilix`, `tsyringe` (Node), `dependency_injector` (Python), Spring `@Autowired` (Java), ASP.NET `IServiceCollection` (C#)
+- Grep for `new SomeService()` in business logic (direct instantiation)
+- Check for bootstrap module: `bootstrap.ts`, `init.py`, `Startup.cs`, `app.module.ts`
 
-**Severity:**
-- **MEDIUM:** No DI container (hard to test, tight coupling, difficult to swap implementations)
-- **MEDIUM:** Direct instantiation in business logic (`new Service()` in controllers/services)
-- **LOW:** Mixed DI and direct imports (inconsistent pattern)
+| Severity | Criteria |
+|----------|----------|
+| **MEDIUM** | No DI container (tight coupling) |
+| **MEDIUM** | Direct instantiation in business logic |
+| **LOW** | Mixed DI and direct imports |
 
-**Recommendation:**
-- Use DI container for dependency management (Inversify, Awilix, Spring, built-in .NET DI)
-- Centralize initialization in Init/Bootstrap module
-- Inject dependencies via constructor/parameters (dependency injection pattern)
-- Never use direct instantiation for business logic classes (only for DTOs, value objects)
+**Recommendation:** Use DI container. Centralize init in bootstrap module. Inject via constructor.
 
-**Effort:** L (refactor to DI pattern, add container, update all instantiations)
+**Effort:** L
 
 ### 8. Missing Best Practices Guide
-**What:** No architecture/design best practices documentation for developers
 
-**Detection:**
-- Check for architecture guide files:
-  - `docs/architecture.md`, `docs/best-practices.md`, `docs/design-patterns.md`
-  - `ARCHITECTURE.md`, `CONTRIBUTING.md` (architecture section)
-- Verify content includes: layering rules, error handling patterns, DI usage, coding conventions
+- Check for: `docs/architecture.md`, `docs/best-practices.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`
 
-**Severity:**
-- **LOW:** No architecture guide (harder for new developers to understand patterns and conventions)
+| Severity | Criteria |
+|----------|----------|
+| **LOW** | No architecture/best practices guide |
 
-**Recommendation:**
-- Create `docs/architecture.md` with project-specific patterns:
-  - Document layering: Controller→Service→Repository→DB
-  - Error handling: centralized ErrorHandler pattern
-  - Dependency Injection: how to add new services/repositories
-  - Coding conventions: naming, file organization, imports
-- Include examples from existing codebase
-- Keep framework-agnostic (principles, not specific implementations)
+**Recommendation:** Create `docs/architecture.md` with layering rules, error handling patterns, DI usage, coding conventions.
 
-**Effort:** S (create markdown file, ~1-2 hours documentation)
+**Effort:** S
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 ## Output Format
 
-Return JSON to coordinator:
+**MANDATORY READ:** Load `shared/references/audit_output_schema.md` for base JSON structure.
 
-**Global mode output:**
-```json
-{
-  "category": "Architecture & Design",
-  "score": 6,
-  "total_issues": 12,
-  "critical": 2,
-  "high": 4,
-  "medium": 4,
-  "low": 2,
-  "checks": [
-    {"id": "dry_violations", "name": "DRY Violations", "status": "failed", "details": "4 duplications found"},
-    {"id": "kiss_violations", "name": "KISS Violations", "status": "warning", "details": "1 over-engineered abstraction"},
-    {"id": "yagni_violations", "name": "YAGNI Violations", "status": "passed", "details": "No unused code"},
-    {"id": "solid_violations", "name": "SOLID Violations", "status": "failed", "details": "2 SRP violations"}
-  ],
-  "findings": [...]
-}
-```
+Return JSON with additional fields for DRY findings:
 
-**Domain-aware mode output (NEW):**
 ```json
 {
   "category": "Architecture & Design",
@@ -359,32 +175,24 @@ Return JSON to coordinator:
   "domain": "users",
   "scan_path": "src/users",
   "total_issues": 12,
-  "critical": 2,
-  "high": 4,
-  "medium": 4,
-  "low": 2,
+  "critical": 1,
+  "high": 3,
+  "medium": 5,
+  "low": 3,
   "checks": [
-    {"id": "dry_violations", "name": "DRY Violations", "status": "failed", "details": "4 duplications found"},
+    {"id": "dry_violations", "name": "DRY Violations", "status": "failed", "details": "6 duplications found (types 1.2, 1.5, 1.8)"},
     {"id": "kiss_violations", "name": "KISS Violations", "status": "warning", "details": "1 over-engineered abstraction"},
-    {"id": "yagni_violations", "name": "YAGNI Violations", "status": "passed", "details": "No unused code"},
-    {"id": "solid_violations", "name": "SOLID Violations", "status": "failed", "details": "2 SRP violations"}
+    {"id": "yagni_violations", "name": "YAGNI Violations", "status": "passed", "details": "No unused code"}
   ],
   "findings": [
     {
-      "severity": "CRITICAL",
-      "location": "src/users/controllers/UserController.ts:45",
-      "issue": "Controller directly uses Repository (layer boundary break)",
-      "principle": "Layer Separation (Clean Architecture)",
-      "recommendation": "Create UserService, inject into controller",
-      "effort": "L",
-      "domain": "users"
-    },
-    {
       "severity": "HIGH",
-      "location": "src/users/services/UserService.ts:45",
-      "issue": "DRY violation - duplicate validation logic",
+      "location": "src/users/validators/email.ts:12",
+      "issue": "Email validation regex duplicated in 3 files",
       "principle": "DRY Principle",
-      "recommendation": "Extract to shared validators module",
+      "pattern_id": "dry_1.2",
+      "pattern_signature": "validation_email",
+      "recommendation": "Extract to shared/validators/email.ts",
       "effort": "M",
       "domain": "users"
     }
@@ -392,31 +200,40 @@ Return JSON to coordinator:
 }
 ```
 
+**pattern_id:** DRY type identifier (`dry_1.1` through `dry_1.10`). Omit for non-DRY findings.
+
+**pattern_signature:** Normalized key for the detected pattern (e.g., `validation_email`, `sql_users_findByEmail`, `middleware_auth_validate_ratelimit`). Used by ln-620 coordinator for cross-domain matching — same signature in multiple domains triggers cross-domain DRY finding. See `detection_patterns.md` for format per DRY type.
+
 ## Critical Rules
 
 - **Do not auto-fix:** Report only
-- **Domain-aware scanning:** If `domain_mode="domain-aware"`, scan ONLY `scan_path` (not entire codebase)
+- **Domain-aware scanning:** If `domain_mode="domain-aware"`, scan ONLY `scan_path`
 - **Tag findings:** Include `domain` field in each finding when domain-aware
+- **Pattern signatures:** Include `pattern_id` + `pattern_signature` for every DRY finding
 - **Context-aware:** Use project's `principles.md` to define what's acceptable
 - **Age matters:** Old TODOs are higher severity than recent ones
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
+- **Exclusions:** Skip generated code, vendor, migrations (see `detection_patterns.md#exclusions`)
 
 ## Definition of Done
 
 - contextStore parsed (including domain_mode and current_domain)
 - scan_path determined (domain path or codebase root)
+- Detection patterns loaded from `references/detection_patterns.md`
 - All 8 checks completed (scoped to scan_path):
-  - DRY (7 subcategories), KISS, YAGNI, TODOs, Error Handling, Centralized Errors, DI/Init, Best Practices Guide
-- Findings collected with severity, location, effort, recommendation, domain
-- Score calculated
+  - DRY (10 subcategories: 1.1-1.10), KISS, YAGNI, TODOs, Error Handling, Centralized Errors, DI/Init, Best Practices Guide
+- Recommendations selected via `references/refactoring_decision_tree.md`
+- Findings collected with severity, location, effort, pattern_id, pattern_signature, recommendation, domain
+- Score calculated per `shared/references/audit_scoring.md`
 - JSON returned to coordinator with domain metadata
 
 ## Reference Files
 
+- **Detection patterns:** [references/detection_patterns.md](references/detection_patterns.md)
+- **Refactoring decision tree:** [references/refactoring_decision_tree.md](references/refactoring_decision_tree.md)
 - **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
-- Architecture rules: [references/architecture_rules.md](references/architecture_rules.md)
 
 ---
-**Version:** 4.1.0
-**Last Updated:** 2026-01-29
+**Version:** 5.0.0
+**Last Updated:** 2026-02-08

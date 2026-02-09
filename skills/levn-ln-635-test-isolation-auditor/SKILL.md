@@ -275,7 +275,7 @@ Receives `contextStore` with isolation checklist, anti-patterns catalog, test fi
 
 ## Scoring Algorithm
 
-See `shared/references/audit_scoring.md` for unified formula and score interpretation.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
 
 **Severity mapping:**
 - Flaky tests, External API not mocked, The Liar → HIGH

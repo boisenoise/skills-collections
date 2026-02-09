@@ -65,6 +65,10 @@ Invoked by ln-220-story-coordinator (Phase 5a for CREATE, Phase 5c for ADD).
 - **newStoryDescription**: User's request for new Story(s) to add
 - **NO idealPlan** - creates only what user requested (single Story or few)
 
+## Quality Criteria
+
+**MANDATORY READ:** Load `shared/references/creation_quality_checklist.md` §Story Creation Checklist for validation criteria that ln-310 will enforce.
+
 ## Workflow
 
 > [!NOTE]
@@ -102,8 +106,8 @@ For EACH Story, check:
 | **Independent** | No circular dependencies | ✅ | ❌ STOP |
 | **Negotiable** | AC focus on WHAT not HOW | ✅ | ❌ STOP |
 | **Valuable** | Clear "So that" value | ✅ | ❌ STOP |
-| **Estimable** | 6-20 hours | ✅ | ❌ STOP |
-| **Small** | 3-5 AC, 10-28 tests | ✅ | ❌ STOP |
+| **Estimable** | Size within checklist #9 range | ✅ | ❌ STOP |
+| **Small** | AC/hours/tests per checklist #9 | ✅ | ❌ STOP |
 | **Testable** | Measurable AC (GWT format) | ✅ | ❌ STOP |
 
 **Error if ANY Story fails** → Report to orchestrator, stop execution.

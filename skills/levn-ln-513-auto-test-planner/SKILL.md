@@ -82,7 +82,7 @@ Auto-discovers Team ID from `docs/tasks/kanban_board.md` (see CLAUDE.md "Configu
 
 ### Phase 4: Risk-Based Test Planning (Automated)
 
-**Reference:** See `references/risk_based_testing_guide.md` for complete methodology.
+**MANDATORY READ:** Load `references/risk_based_testing_guide.md` for complete methodology.
 
 **E2E-First Approach:** Prioritize by business risk (Priority = Impact x Probability), not coverage metrics.
 
