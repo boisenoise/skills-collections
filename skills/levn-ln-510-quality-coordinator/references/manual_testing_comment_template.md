@@ -1,11 +1,11 @@
 # Manual Testing Results Comment Template
 
 <!-- SCOPE: Linear comment format for manual testing results ONLY. Contains template structure, sections, parsing rules. -->
-<!-- DO NOT add here: testing logic → ln-512-manual-tester SKILL.md, test planning → ln-510-test-planner SKILL.md -->
+<!-- DO NOT add here: testing logic → ln-522-manual-tester SKILL.md, test planning → ln-520-test-planner SKILL.md -->
 
 ## Purpose
 
-This template defines the standardized format for Linear comments created by ln-512-manual-tester (invoked by ln-500-story-quality-gate Pass 1). The structured format ensures reliable parsing by ln-510-test-planner for E2E-first test design.
+This template defines the standardized format for Linear comments created by ln-522-manual-tester (invoked by ln-520-test-planner). The structured format ensures reliable parsing by ln-520-test-planner for E2E-first test design.
 
 ## Format Version
 
@@ -19,7 +19,7 @@ This template defines the standardized format for Linear comments created by ln-
 
 **Format Version:** 1.0
 **Story ID:** [Story identifier, e.g., US042]
-**Tested By:** ln-512-manual-tester
+**Tested By:** ln-522-manual-tester
 **Date:** [YYYY-MM-DD]
 **Status:** [✅ PASSED (X/Y AC) | ❌ FAILED (X/Y AC)]
 
@@ -114,13 +114,13 @@ This template defines the standardized format for Linear comments created by ln-
 - [X/Y] error scenarios verified [✅ | ⚠️]
 - Integration flow validated [✅ | ❌]
 
-**Recommendation:** [Proceed to test task creation via ln-510-test-planner | Create refactoring task for issues found]
+**Recommendation:** [Proceed to test task creation via ln-520-test-planner | Create refactoring task for issues found]
 
 ---
 
 ### Risk Assessment for Test Planning
 
-**Purpose:** Provide Priority scores for ln-510-test-planner to select tests based on business risk
+**Purpose:** Provide Priority scores for ln-520-test-planner to select tests based on business risk
 
 | Scenario | Type | Business Impact (1-5) | Probability (1-5) | Priority | Reason |
 |----------|------|----------------------|-------------------|----------|--------|
@@ -134,18 +134,18 @@ This template defines the standardized format for Linear comments created by ln-
 **Priority Calculation:** Priority = Business Impact (1-5) × Probability (1-5)
 
 **Decision Criteria:**
-- Priority ≥15 → MUST test (ln-510-test-planner will create automated tests)
+- Priority ≥15 → MUST test (ln-520-test-planner will create automated tests)
 - Priority 9-14 → SHOULD test if not already covered
 - Priority ≤8 → SKIP (manual testing sufficient)
 
-**Reference:** See `ln-510-test-planner/references/risk_based_testing_guide.md` for complete Business Impact/Probability scoring tables and methodology.
+**Reference:** See `shared/references/risk_based_testing_guide.md` for complete Business Impact/Probability scoring tables and methodology.
 
 **Total Scenarios:** [X scenarios], **Priority ≥15:** [Y scenarios] (will be tested)
 ```
 
 ## Usage Instructions
 
-### For ln-512-manual-tester (Phase 5 Step 1)
+### For ln-522-manual-tester (Phase 5 Step 1)
 
 1. **Copy template structure** (do NOT include this instruction section)
 2. **Fill required fields:**
@@ -171,9 +171,9 @@ This template defines the standardized format for Linear comments created by ln-
    - Note any transaction/rollback behavior
 8. **Write summary:**
    - Count passed AC vs total AC
-   - Recommend next action (ln-510-test-planner or refactoring task)
+   - Recommend next action (ln-520-test-planner or refactoring task)
 
-### For ln-510-test-planner (Phase 2 Step 1)
+### For ln-520-test-planner (Phase 2 Step 1)
 
 **Parsing strategy:**
 
@@ -208,7 +208,7 @@ This template defines the standardized format for Linear comments created by ln-
 
 **Format Version:** 1.0
 **Story ID:** US042
-**Tested By:** ln-512-manual-tester
+**Tested By:** ln-522-manual-tester
 **Date:** 2025-10-31
 **Status:** ✅ PASSED (3/3 AC)
 
@@ -325,7 +325,7 @@ This template defines the standardized format for Linear comments created by ln-
 - 7/8 error scenarios verified (1 requires failure injection) ✅
 - Integration flow validated ✅
 
-**Recommendation:** Proceed to test task creation via ln-510-test-planner
+**Recommendation:** Proceed to test task creation via ln-520-test-planner
 ```
 
 ### Example 2: UI Testing with Puppeteer
@@ -335,7 +335,7 @@ This template defines the standardized format for Linear comments created by ln-
 
 **Format Version:** 1.0
 **Story ID:** US045
-**Tested By:** ln-512-manual-tester
+**Tested By:** ln-522-manual-tester
 **Date:** 2025-10-31
 **Status:** ✅ PASSED (2/2 AC)
 
@@ -430,18 +430,18 @@ console.log(`Filtered to ${filteredProducts.length} electronics`);
 - 1/2 error scenarios verified ✅
 - Integration flow validated ✅
 
-**Recommendation:** Proceed to test task creation via ln-510-test-planner
+**Recommendation:** Proceed to test task creation via ln-520-test-planner
 ```
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.1 | 2025-10-31 | Added Risk Assessment section with Priority Matrix (Business Impact × Probability) for ln-510-test-planner |
+| 1.1 | 2025-10-31 | Added Risk Assessment section with Priority Matrix (Business Impact × Probability) for ln-520-test-planner |
 | 1.0 | 2025-10-31 | Initial structured format with AC, Test Results, Edge Cases, Errors, Integration |
 
 ## References
 
-- ln-500-story-quality-gate SKILL.md Phase 5 Step 3
-- ln-510-test-planner SKILL.md Phase 2 Step 1
+- ln-510-quality-coordinator SKILL.md Phase 5 Step 3
+- ln-520-test-planner SKILL.md Phase 2 Step 1
 - Story Template (story_template_universal.md) for AC format

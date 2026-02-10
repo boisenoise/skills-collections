@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-09 06:35 UTC*
+*Last updated: 2026-02-10 06:35 UTC*
 
-Total skills: **1051**
+Total skills: **1052**
 
 ## Skills by Source
 
@@ -248,14 +248,15 @@ Total skills: **1051**
 | `levn-ln-402-task-reviewer` | L3 Worker. Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tas... |
 | `levn-ln-403-task-rework` | Fixes tasks in To Rework and returns them to To Review. Applies reviewer feedback only for the selec... |
 | `levn-ln-404-test-executor` | Executes Story Finalizer test tasks (label "tests") from Todo -> To Review. Enforces risk-based limi... |
-| `levn-ln-500-story-quality-gate` | Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Pa... |
-| `levn-ln-501-code-quality-checker` | Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Vali... |
-| `levn-ln-502-agent-reviewer` | Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Reference-based p... |
-| `levn-ln-503-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
-| `levn-ln-510-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-511, ln-512, ln... |
-| `levn-ln-511-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
-| `levn-ln-512-manual-tester` | Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reus... |
-| `levn-ln-513-auto-test-planner` | Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Calculat... |
+| `levn-ln-500-story-quality-gate` | Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. De... |
+| `levn-ln-510-quality-coordinator` | Coordinates code quality checks: ln-511 code quality, ln-512 agent review, ln-513 regression. Single... |
+| `levn-ln-511-code-quality-checker` | Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Vali... |
+| `levn-ln-512-agent-reviewer` | Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Reference-based p... |
+| `levn-ln-513-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
+| `levn-ln-520-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-521, ln-522, ln... |
+| `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
+| `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reus... |
+| `levn-ln-523-auto-test-planner` | Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Calculat... |
 | `levn-ln-600-docs-auditor` | Audit project documentation quality across 8 categories (Hierarchy, SSOT, Compactness, Requirements,... |
 | `levn-ln-601-semantic-content-auditor` | Semantic content auditor (L3 Worker). Verifies document content matches stated SCOPE, aligns with pr... |
 | `levn-ln-610-code-comments-auditor` | Audit code comments and docstrings quality across 6 categories (WHY-not-WHAT, Density, Forbidden Con... |

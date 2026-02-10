@@ -118,9 +118,9 @@ Backlog/Postponed → Todo → In Progress → To Review → Done
 
 **Process**:
 1. Implementation tasks (1-6 tasks) → To Review → Done
-2. ln-500-story-quality-gate Pass 1 → Manual testing
-3. ln-510-test-planner → Creates Story Finalizer test task
-4. ln-404-test-executor → Implements all tests (E2E, Integration, Unit)
+2. Quality gate → Manual testing
+3. Test planner → Creates Story Finalizer test task
+4. Test executor → Implements all tests (E2E, Integration, Unit)
 
 **Rationale**: Atomic testing strategy, prevents test duplication, ensures comprehensive coverage.
 
@@ -237,7 +237,6 @@ Single hierarchical view: **Status → Epic → User Story → Tasks**
 | **Planning** | ln-210-epic-coordinator | Decompose scope → 3-7 Epics |
 | | ln-220-story-coordinator | Decompose Epic → 5-10 Stories (with Phase 3 Library Research) |
 | | ln-300-task-coordinator | Decompose Story → 1-6 Implementation Tasks |
-| | ln-510-test-planner | Plan Story Finalizer test task (after manual testing) |
 | | ln-311-agent-reviewer | External agent review for Stories (Codex + Gemini) |
 | **Validation** | ln-310-story-validator | Auto-fix Stories/Tasks → Approve (Backlog → Todo) |
 | **Execution** | ln-400-story-executor | Orchestrate Story execution (delegates to ln-401/ln-404/ln-402) |
@@ -245,11 +244,8 @@ Single hierarchical view: **Status → Epic → User Story → Tasks**
 | | ln-404-test-executor | Execute Story Finalizer test tasks (11 sections) |
 | | ln-402-task-reviewer | Review tasks (To Review → Done/Rework) |
 | | ln-403-task-rework | Fix tasks after review (To Rework → To Review) |
-| **Quality** | ln-500-story-quality-gate | Two-pass review (Code Quality → Regression → Manual Testing) |
-| | ln-501-code-quality-checker | Analyze code for DRY/KISS/YAGNI violations |
-| | ln-502-agent-reviewer | External agent review (Codex + Gemini) |
-| | ln-503-regression-checker | Run existing test suite |
-| | ln-512-manual-tester | Perform manual testing via curl/puppeteer |
+| **Quality** | Story quality gate | Quality checks, regression, test planning, verdict |
+| **Testing** | Test planner | Plan Story Finalizer test task (after manual testing) |
 | **Documentation** | ln-111-project-docs-creator | Create project docs (requirements, architecture, specs) |
 | | ln-002-best-practices-researcher | Create ADRs, guides, manuals (doc_type parameter) |
 

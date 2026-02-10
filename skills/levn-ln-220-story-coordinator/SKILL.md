@@ -184,7 +184,7 @@ Each Story creates ONLY the tables it needs (not all tables upfront).
    - Each Story: persona + capability + business value
    - Each Story: testable AC per checklist #4
    - Stories ordered by dependency (no forward deps per checklist #18)
-   - Each Story: Test Strategy section exists but is **empty** (tests planned later by ln-510-test-planner)
+   - Each Story: Test Strategy section exists but is **empty** (tests planned later by test planner)
    - Each Story: Technical Notes (architecture, integrations, **Standards Research from Phase 2**, guide links)
 
 5. **AC Quality Validation:** Rules per `creation_quality_checklist.md` #4. Workers (ln-221, ln-222) must validate.
@@ -462,7 +462,7 @@ Mark each as in_progress when starting, completed when done.
 - **Vertical Slicing:** Each Story delivers end-to-end functionality (UI → API → Service → DB)
 - **One capability per Story:** Clear, focused persona + capability + value
 - **Testable AC:** Given-When-Then, 3-5 AC, specific criteria ("<200ms" not "fast")
-- **Test Strategy:** Section exists but is **empty** at Story creation (tests planned later by ln-510-test-planner)
+- **Test Strategy:** Section exists but is **empty** at Story creation (tests planned later by test planner)
 - **Standards Research:** Include Phase 2 research in ALL Story Technical Notes
 
 **Story Decomposition:**

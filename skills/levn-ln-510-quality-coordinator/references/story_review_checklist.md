@@ -368,7 +368,7 @@ Problem 3:
 
 ## Summary Checklist
 
-Quick checklist for ln-500-story-quality-gate Pass 1:
+Quick checklist for ln-510-quality-coordinator Pass 1:
 
 - [ ] 1. Story statement fulfilled
 - [ ] 2. All Story AC satisfied

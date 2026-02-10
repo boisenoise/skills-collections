@@ -562,7 +562,7 @@ project_root/
 4. **ln-300-task-coordinator** - Break down Stories into implementation tasks (automatic decomposition + replan)
 5. **ln-310-story-validator** - Verify Stories before development
 6. **ln-400-story-executor** - Orchestrate Story implementation
-7. **ln-500-story-quality-gate** - Review completed Stories
+7. **Story quality gate** - Review completed Stories
 
 ---
 

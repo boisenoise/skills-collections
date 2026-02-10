@@ -80,13 +80,13 @@ cd tests/manual
 ./NN-feature/test-*.sh          # Run specific test suite
 ```
 
-**See:** ln-512-manual-tester for full documentation of Test Design Principles.
+**See:** manual-tester skill for full documentation of Test Design Principles.
 
 ---
 
 ## Story-Level Test Task Pattern
 
-**Rule**: All tests (E2E/Integration/Unit) are written in the **final Story test task** (created by ln-510-test-planner after manual testing).
+**Rule**: All tests (E2E/Integration/Unit) are written in the **final Story test task** (created by test planner after manual testing).
 
 **Why**:
 - **Single source of truth**: All Story tests in one place
@@ -96,8 +96,8 @@ cd tests/manual
 
 **Workflow**:
 1. Implementation tasks completed → Manual testing → Bugs fixed
-2. ln-510-test-planner creates Story Finalizer test task
-3. ln-404-test-executor implements all tests (E2E/Integration/Unit) in final task
+2. Test planner creates Story Finalizer test task
+3. Test executor implements all tests (E2E/Integration/Unit) in final task
 4. All tests pass → Story marked Done
 
 ---

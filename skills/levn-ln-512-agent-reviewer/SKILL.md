@@ -1,22 +1,22 @@
 ---
-name: ln-311-agent-reviewer
-description: "Worker that runs parallel external agent reviews (Codex + Gemini) on Story/Tasks. Reference-based prompts. Returns filtered suggestions for Story validation."
+name: ln-512-agent-reviewer
+description: "Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Reference-based prompts. Returns filtered suggestions with confidence scoring."
 ---
 
-# Agent Reviewer (Story)
+# Agent Reviewer (Code)
 
-Runs parallel external agent reviews on validated Story and Tasks, returns editorial suggestions.
+Runs parallel external agent reviews on code implementation, returns filtered suggestions.
 
 ## Purpose & Scope
-- Worker in ln-310 validation pipeline (invoked in Phase 5)
-- Run codex-review + gemini-review in parallel on Story/Tasks
-- Return filtered, deduplicated suggestions for Story/Tasks improvement
+- Worker in ln-510 quality coordinator pipeline (invoked by ln-511 Step 7)
+- Run codex-review + gemini-review in parallel on code changes
+- Return filtered, deduplicated suggestions with confidence scoring
 - Health check + prompt execution in single invocation (minimal timing gap between availability check and actual API call)
 
 ## When to Use
-- **Invoked by ln-310-story-validator** Phase 5 (Agent Review)
-- After Phase 4 auto-fixes applied, Penalty Points = 0
-- Story and Tasks are in their final form before approval
+- **Invoked by ln-511-code-quality-checker** Step 7 (Agent Review)
+- All implementation tasks in Story status = Done
+- Code quality analysis (Steps 1-6) already completed by ln-511
 
 ## Inputs (from parent skill)
 - `storyId`: Linear Story identifier (e.g., "PROJ-123")
@@ -26,20 +26,20 @@ Runs parallel external agent reviews on validated Story and Tasks, returns edito
 **MANDATORY READ:** Load `shared/references/agent_delegation_pattern.md` for Reference Passing Pattern and Review Persistence Pattern.
 
 1) **Health check:** `python shared/agents/agent_runner.py --health-check`
-   - Filter output by `skill_groups` containing "311"
+   - Filter output by `skill_groups` containing "512"
    - If 0 agents available -> return `{verdict: "SKIPPED", reason: "no agents available"}`
-   - Display: `"Agent Health: codex-review OK, gemini-review OK"` (or similar)
-2) **Get references:** Call Linear MCP `get_issue(storyId)` -> extract URL + identifier. Call `list_issues(filter: {parent: {id: storyId}})` -> extract child Task URLs/identifiers.
+   - Display: `"Agent Health: codex-review OK, gemini-review UNAVAILABLE"` (or similar)
+2) **Get references:** Call Linear MCP `get_issue(storyId)` -> extract URL + identifier. Call `list_issues(filter: {parent: {id: storyId}, status: "Done"})` -> extract Done implementation Task URLs/identifiers (exclude label "tests").
    - If project stores tasks locally (e.g., `docs/tasks/`) -> use local file paths instead of Linear URLs.
 3) **Ensure .agent-review/:** Create `.agent-review/{agent}/` dirs for each available agent (e.g., `codex/`, `gemini/`). Create `.agent-review/.gitignore` with content `*` + `!.gitignore`. Add `.agent-review/` to project root `.gitignore` if missing.
-4) **Build prompt:** Read template `shared/agents/prompt_templates/story_review.md`.
+4) **Build prompt:** Read template `shared/agents/prompt_templates/code_review.md`.
    - Replace `{story_ref}` with `- Linear: {url}` or `- File: {path}`
    - Replace `{task_refs}` with bullet list: `- {identifier}: {url_or_path}` per task
-   - Save to `.agent-review/{agent}/{identifier}_storyreview_prompt.md` (one copy per agent — identical content)
+   - Save to `.agent-review/{agent}/{identifier}_codereview_prompt.md` (one copy per agent — identical content)
 5) **Run agents in parallel** (two Bash calls simultaneously):
-   - `python shared/agents/agent_runner.py --agent codex-review --prompt-file .agent-review/codex/{identifier}_storyreview_prompt.md --cwd {cwd}`
-   - `python shared/agents/agent_runner.py --agent gemini-review --prompt-file .agent-review/gemini/{identifier}_storyreview_prompt.md --cwd {cwd}`
-6) **Save results:** Save each agent's raw response to `.agent-review/{agent}/{identifier}_storyreview_result.md`
+   - `python shared/agents/agent_runner.py --agent codex-review --prompt-file .agent-review/codex/{identifier}_codereview_prompt.md --cwd {cwd}`
+   - `python shared/agents/agent_runner.py --agent gemini-review --prompt-file .agent-review/gemini/{identifier}_codereview_prompt.md --cwd {cwd}`
+6) **Save results:** Save each agent's raw response to `.agent-review/{agent}/{identifier}_codereview_result.md`
 7) **Aggregate + Return:** Collect suggestions from all successful responses. Deduplicate by `(area, issue)` — keep higher confidence.
    **Filter:** `confidence >= 90` AND `impact_percent > 2`.
    **Return** JSON with suggestions + agent stats to parent skill. **NO cleanup/deletion.**
@@ -47,17 +47,17 @@ Runs parallel external agent reviews on validated Story and Tasks, returns edito
 ## Output Format
 
 ```yaml
-verdict: STORY_ACCEPTABLE | SUGGESTIONS | SKIPPED
+verdict: CODE_ACCEPTABLE | SUGGESTIONS | SKIPPED
 suggestions:
-  - area: "security | performance | architecture | feasibility | best_practices"
-    issue: "What is wrong or could be improved"
-    suggestion: "Specific change to Story or Tasks"
+  - area: "security | performance | architecture | correctness | best_practices"
+    issue: "What is wrong"
+    suggestion: "Specific fix"
     confidence: 95
     impact_percent: 15
 agent_stats:
   - name: "codex-review"
-    duration_s: 8.2
-    suggestion_count: 2
+    duration_s: 12.4
+    suggestion_count: 3
     status: "success | failed | timeout"
 ```
 
@@ -68,11 +68,11 @@ agent_stats:
 | Both agents succeed | Aggregate suggestions from both |
 | One agent fails | Use successful agent's suggestions, log failure |
 | Both agents fail | Return `{verdict: "SKIPPED", reason: "agents failed"}` |
-| Parent skill (ln-310) | Falls back to Self-Review (native Claude) |
+| Parent skill (ln-511) | Falls back to Self-Review (native Claude) |
 
 ## Verdict Escalation
-- **No escalation.** Suggestions are editorial only — they modify Story/Tasks text.
-- Parent skill (ln-310) Gate verdict remains unchanged by agent suggestions.
+- Findings with `area=security` or `area=correctness` -> parent skill can escalate PASS -> CONCERNS
+- This skill returns raw suggestions; escalation decision is made by ln-511
 
 ## Critical Rules
 - Read-only review — agents must NOT modify files (enforced by prompt CRITICAL CONSTRAINTS)
@@ -84,7 +84,7 @@ agent_stats:
 
 ## Reference Files
 - **Agent delegation pattern:** `shared/references/agent_delegation_pattern.md`
-- **Prompt template:** `shared/agents/prompt_templates/story_review.md`
+- **Prompt template:** `shared/agents/prompt_templates/code_review.md`
 - **Agent registry:** `shared/agents/agent_registry.json`
 - **Agent runner:** `shared/agents/agent_runner.py`
 

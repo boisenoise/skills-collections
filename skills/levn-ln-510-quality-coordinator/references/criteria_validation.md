@@ -127,17 +127,17 @@ action: "Remove Products/Orders tables from migration - they belong to future St
 
 ## Execution in Pass 1.5
 
-**Placement:** After ln-501 code quality check, BEFORE linters
+**Placement:** After ln-511 code quality check, BEFORE linters
 
 **Order:**
-1. ln-501-code-quality-checker (existing)
+1. ln-511-code-quality-checker (existing)
 2. **Pass 1.5 Criteria Validation** (NEW):
    - Check #1: Story Dependencies
    - Check #2: AC-Task Coverage Quality
    - Check #3: Database Creation Principle
 3. Run linters from tech_stack.md (existing)
-4. ln-503-regression-checker (existing)
-5. ln-510-test-planner (existing)
+4. ln-513-regression-checker (existing)
+5. ln-520-test-planner (existing)
 
 **Fail Fast Logic:**
 - If Check #1 (Story Dependencies) FAIL → Create [DEP-] task, STOP Pass 1

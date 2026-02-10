@@ -328,7 +328,7 @@ tests/
 
 ## Reference Files Used
 
-- **Risk-based testing methodology:** `shared/references/risk_based_testing.md`
+- **Risk-based testing methodology:** `shared/references/risk_based_testing_guide.md`
 
 ### Templates
 
@@ -373,7 +373,7 @@ tests/
 - **Auto-discovery first**: Scan test frameworks and directory structure before using defaults
 - **Idempotent**: ✅ Can run multiple times safely (checks existence before creation, re-validates on each run)
 - **Separation of concerns**: CREATE → VALIDATE STRUCTURE → VALIDATE CONTENT
-- **Story-Level Test Task Pattern**: Tests consolidated in final Story task (ln-510-test-planner creates task, ln-420-test-executor implements)
+- **Story-Level Test Task Pattern**: Tests consolidated in final Story task (test planner creates task, test executor implements)
 - **Value-Based Testing**: 2-5 E2E, 3-8 Integration, 5-15 Unit per Story (10-28 total max), Priority ≥15 MUST be tested
 - **No test code**: This skill creates DOCUMENTATION only, NOT actual tests
 

@@ -54,7 +54,7 @@ Coordinates comprehensive test suite audit across 6 quality categories using 5 s
 
 **Actions:**
 1. Use MCP Ref/Context7 to research testing best practices for detected tech stack
-2. Load [../ln-513-auto-test-planner/references/risk_based_testing_guide.md](../ln-513-auto-test-planner/references/risk_based_testing_guide.md)
+2. Load [../shared/references/risk_based_testing_guide.md](../shared/references/risk_based_testing_guide.md)
 3. Build `contextStore` with:
    - Testing philosophy (E2E primary, Unit supplementary)
    - Usefulness Score formulas (Impact × Probability)
@@ -354,7 +354,7 @@ Each worker:
 ## Reference Files
 
 - **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
-- **Risk-based testing methodology:** `shared/references/risk_based_testing.md`
+- **Risk-based testing methodology:** `shared/references/risk_based_testing_guide.md`
 - **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
 - **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
@@ -369,7 +369,7 @@ Each worker:
   - [ln-635-test-isolation-auditor](../ln-635-test-isolation-auditor/) — Isolation + Anti-Patterns
 
 - **Reference:**
-  - [../ln-513-auto-test-planner](../ln-513-auto-test-planner/) — Risk-Based Testing Guide
+  - [../shared/references/risk_based_testing_guide.md](../shared/references/risk_based_testing_guide.md) — Risk-Based Testing Guide
   - [../ln-620-codebase-auditor](../ln-620-codebase-auditor/) — Codebase audit coordinator (similar pattern)
 
 ---

@@ -20,7 +20,7 @@
                 <li><strong>Purpose:</strong> Orchestrate complete Story execution from tasks through quality gates to Story Done (FULL AUTOMATION)</li>
                 <li><strong>Priority Order:</strong> 🔴 To Review → 🟡 To Rework → 🟢 Todo (Phase 3 loop)</li>
                 <li><strong>Loop Control:</strong> Explicit LoopEntry/ReturnToLoop points with thick arrows (==>) for cycle clarity</li>
-                <li><strong>Phase 4 Delegation:</strong> ln-500-story-quality-gate Pass 1 (auto-verifies new tasks) → Pass 2 (auto-invoked after test task Done) → Story Done</li>
+                <li><strong>Phase 4 Delegation:</strong> Quality Gate Pass 1 (auto-verifies new tasks) → Pass 2 (auto-invoked after test task Done) → Story Done</li>
                 <li><strong>Key Feature:</strong> Lazy loading (metadata only in Phase 2, saves 10,000+ tokens)</li>
                 <li><strong>Self-Healing:</strong> Pass 1 creates fix/refactor/test task → auto-verifies (Backlog → Todo) → loops back to Phase 3</li>
                 <li><strong>Full Automation:</strong> Todo → In Progress → To Review → Done (no manual intervention)</li>
@@ -97,7 +97,7 @@ graph TD
 
         Phase4Start[All implementation tasks Done]
 
-        Phase4Start --> InvokePass1[Invoke ln-500-story-quality-gate Pass 1<br/>via Skill tool]
+        Phase4Start --> InvokePass1[Invoke Quality Gate Pass 1<br/>via Skill tool]
         InvokePass1 --> Pass1Execution[Pass 1 executes:<br/>Code Quality → Regression → Manual Testing]
 
         Pass1Execution --> Pass1Verdict{Pass 1 Verdict?}
@@ -110,7 +110,7 @@ graph TD
         LoopBackTest -.->|Test task Done| InvokePass2
         LoopBackFix -.->|Fix Done| InvokePass1
 
-        InvokePass2[Update Story: In Progress → To Review<br/>Invoke ln-500-story-quality-gate Pass 2<br/>via Skill tool]
+        InvokePass2[Update Story: In Progress → To Review<br/>Invoke Quality Gate Pass 2<br/>via Skill tool]
         InvokePass2 --> Pass2Execution[Pass 2 executes:<br/>Test verification Priority ≥15]
 
         Pass2Execution --> Pass2Verdict{Pass 2 Verdict?}
@@ -159,10 +159,10 @@ graph TD
         <div class="info-box">
             <h3>🔍 Phase 4: Story Quality Delegation (Orchestrator-Worker Pattern)</h3>
             <ul>
-                <li><strong>Pass 1 Invocation:</strong> ln-400-story-executor delegates to ln-500-story-quality-gate Pass 1 (Code Quality → Regression → Manual Testing with Early Exit)</li>
-                <li><strong>Task Creation:</strong> New tasks (test/fix/refactor) created by ln-500 in Backlog are moved to Todo for execution</li>
+                <li><strong>Pass 1 Invocation:</strong> ln-400-story-executor delegates to Quality Gate Pass 1 (Code Quality → Regression → Manual Testing with Early Exit)</li>
+                <li><strong>Task Creation:</strong> New tasks (test/fix/refactor) created by Quality Gate in Backlog are moved to Todo for execution</li>
                 <li><strong>Loop Back:</strong> After auto-verification moves tasks to Todo, orchestration loop continues via Priority 2 (Todo execution)</li>
-                <li><strong>Pass 2 Invocation:</strong> When test task Done, Story status updates to To Review and ln-500-story-quality-gate Pass 2 is invoked automatically</li>
+                <li><strong>Pass 2 Invocation:</strong> When test task Done, Story status updates to To Review and Quality Gate Pass 2 is invoked automatically</li>
                 <li><strong>Story Done:</strong> Pass 2 verifies tests (Priority ≥15, 10-28 total), updates Story status to Done, workflow complete</li>
                 <li><strong>Self-Healing:</strong> Pass 2 failures create fix tasks in Backlog → loop back to Phase 3 for execution</li>
             </ul>

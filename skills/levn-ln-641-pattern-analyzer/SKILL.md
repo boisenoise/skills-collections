@@ -15,6 +15,11 @@ L3 Worker that analyzes a single architectural pattern against best practices an
 - Identify gaps and issues with severity and effort estimates
 - Return structured analysis result to coordinator
 
+**Out of Scope** (owned by ln-624-code-quality-auditor):
+- Cyclomatic complexity thresholds (>10, >20)
+- Method/class length thresholds (>50, >100, >500 lines)
+- Quality Score focuses on pattern-specific quality (SOLID within pattern, pattern-level smells), not generic code metrics
+
 ## Input (from ln-640 coordinator)
 
 ```
@@ -28,14 +33,18 @@ L3 Worker that analyzes a single architectural pattern against best practices an
 
 ### Phase 1: Find Implementations
 
-**MANDATORY READ:** Load `../ln-640-pattern-evolution-auditor/references/common_patterns.md` — use "Pattern Detection (Grep)" table for detection keywords per pattern.
+**MANDATORY READ:** Load `../ln-640-pattern-evolution-auditor/references/pattern_library.md` — use "Pattern Detection (Grep)" table for detection keywords per pattern.
 
 ```
-files = Glob(locations)
-
-# Expand using common_patterns.md Detection Keywords column
-additional = Grep("{pattern_keywords}", "**/*.{ts,js,py,rb,cs,java}")
-files = deduplicate(files + additional)
+IF pattern.source == "adaptive":
+  # Pattern discovered by coordinator Phase 1b — evidence already provided
+  files = pattern.evidence.files
+  SKIP detection keyword search (already done in Phase 1b)
+ELSE:
+  # Baseline pattern — use library detection keywords
+  files = Glob(locations)
+  additional = Grep("{pattern_keywords}", "**/*.{ts,js,py,rb,cs,java}")
+  files = deduplicate(files + additional)
 ```
 
 ### Phase 2: Read and Analyze Code
@@ -133,7 +142,7 @@ overall_score = average(compliance, completeness, quality, implementation) / 10
 
 ## Definition of Done
 
-- All implementations found via Glob/Grep (using common_patterns.md keywords)
+- All implementations found via Glob/Grep (using pattern_library.md keywords or adaptive evidence)
 - Key files read and analyzed
 - 4 scores calculated using scoring_rules.md Detection patterns
 - Issues identified with severity, category, suggestion, effort
@@ -144,7 +153,7 @@ overall_score = average(compliance, completeness, quality, implementation) / 10
 ## Reference Files
 
 - Scoring rules: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
-- Common patterns: `../ln-640-pattern-evolution-auditor/references/common_patterns.md`
+- Pattern library: `../ln-640-pattern-evolution-auditor/references/pattern_library.md`
 
 ---
 **Version:** 2.0.0

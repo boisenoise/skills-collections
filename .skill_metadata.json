@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-09T06:35:37.118723",
-  "skill_count": 1051,
+  "last_updated": "2026-02-10T06:35:19.520576",
+  "skill_count": 1052,
   "sources_processed": 19,
   "skills": [
     {
@@ -7044,6 +7044,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-523-auto-test-planner",
+      "original_name": "ln-523-auto-test-planner",
+      "description": "Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Calculates priorities, delegates to ln-301-task-creator. Worker for ln-520.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-770-crosscutting-setup",
       "original_name": "ln-770-crosscutting-setup",
       "description": "Coordinates logging, error handling, CORS, health checks, and API docs",
@@ -7070,7 +7078,7 @@
     {
       "name": "levn-ln-642-layer-boundary-auditor",
       "original_name": "ln-642-layer-boundary-auditor",
-      "description": "L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ownership), session ownership (DI vs local), async consistency (sync I/O in async), fire-and-forget tasks.",
+      "description": "L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ownership), session ownership (DI vs local).",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7079,14 +7087,6 @@
       "name": "levn-ln-626-dead-code-auditor",
       "original_name": "ln-626-dead-code-auditor",
       "description": "Dead code & legacy audit worker (L3). Checks unreachable code, unused imports/variables/functions, commented-out code, backward compatibility shims, deprecated patterns. Returns findings.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-502-agent-reviewer",
-      "original_name": "ln-502-agent-reviewer",
-      "description": "Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Reference-based prompts. Returns filtered suggestions with confidence scoring.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7196,6 +7196,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-513-regression-checker",
+      "original_name": "ln-513-regression-checker",
+      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-100-documents-pipeline",
       "original_name": "ln-100-documents-pipeline",
       "description": "Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs via 5 L3 workers) + ln-120-150 workers. Phase 4: global cleanup. Idempotent.",
@@ -7279,14 +7287,6 @@
       "name": "levn-ln-774-healthcheck-setup",
       "original_name": "ln-774-healthcheck-setup",
       "description": "Configures health check endpoints for Kubernetes readiness/liveness/startup",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-512-manual-tester",
-      "original_name": "ln-512-manual-tester",
-      "description": "Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reusable test suites per Story. Worker for ln-510.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7422,7 +7422,7 @@
     {
       "name": "levn-ln-500-story-quality-gate",
       "original_name": "ln-500-story-quality-gate",
-      "description": "Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Pass 1: code quality -> regression -> check test task status. Pass 2: verify tests/coverage -> calculate NFR scores -> mark Story Done. Use when user requests quality gate for Story or when ln-400 delegates quality check.",
+      "description": "Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Delegates to ln-510 (quality) and ln-520 (tests), calculates final verdict.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7436,9 +7436,25 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-521-test-researcher",
+      "original_name": "ln-521-test-researcher",
+      "description": "Researches real-world problems, competitor solutions, and customer complaints before test planning. Posts findings as Linear comment for ln-522 and ln-523.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-114-frontend-docs-creator",
       "original_name": "ln-114-frontend-docs-creator",
       "description": "Creates design_guidelines.md for frontend projects. L3 Worker invoked CONDITIONALLY when hasFrontend detected.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-512-agent-reviewer",
+      "original_name": "ln-512-agent-reviewer",
+      "description": "Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Reference-based prompts. Returns filtered suggestions with confidence scoring.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7500,6 +7516,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-520-test-planner",
+      "original_name": "ln-520-test-planner",
+      "description": "Orchestrates test planning pipeline (research \u2192 manual \u2192 auto tests). Coordinates ln-521, ln-522, ln-523. Invoked by ln-500-story-quality-gate.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-783-container-launcher",
       "original_name": "ln-783-container-launcher",
       "description": "Builds and launches Docker containers with health verification using best practices",
@@ -7519,6 +7543,14 @@
       "name": "levn-ln-742-precommit-setup",
       "original_name": "ln-742-precommit-setup",
       "description": "Configures Husky, lint-staged, commitlint, and Python pre-commit",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-511-code-quality-checker",
+      "original_name": "ln-511-code-quality-checker",
+      "description": "Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates architectural decisions via MCP Ref: (1) Optimality - is chosen approach the best? (2) Compliance - does it follow best practices? (3) Performance - algorithms, configs, bottlenecks. Reports issues with SEC-, PERF-, MNT-, ARCH-, BP-, OPT- prefixes.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7606,7 +7638,7 @@
     {
       "name": "levn-ln-400-story-executor",
       "original_name": "ln-400-story-executor",
-      "description": "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404. Sets Story to To Review when all tasks Done (NOT Done \u2014 ln-500 handles that). Metadata-only loading up front.",
+      "description": "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404. Sets Story to To Review when all tasks Done (NOT Done \u2014 quality gate handles that). Metadata-only loading up front.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7614,15 +7646,15 @@
     {
       "name": "levn-ln-620-codebase-auditor",
       "original_name": "ln-620-codebase-auditor",
-      "description": "Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, dead code, observability, concurrency, lifecycle). Researches best practices, delegates parallel audits, aggregates results into single Linear task in Epic 0.",
+      "description": "Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, dead code, observability, concurrency, lifecycle). Researches best practices, delegates parallel audits, aggregates results into docs/project/codebase_audit.md.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
     },
     {
-      "name": "levn-ln-513-auto-test-planner",
-      "original_name": "ln-513-auto-test-planner",
-      "description": "Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Calculates priorities, delegates to ln-301-task-creator. Worker for ln-510.",
+      "name": "levn-ln-522-manual-tester",
+      "original_name": "ln-522-manual-tester",
+      "description": "Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reusable test suites per Story. Worker for ln-520.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7655,6 +7687,14 @@
       "name": "levn-ln-301-task-creator",
       "original_name": "ln-301-task-creator",
       "description": "Creates ALL task types (implementation, refactoring, test). Generates task documents from templates, validates type rules, creates in Linear, updates kanban. Invoked by orchestrators.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-510-quality-coordinator",
+      "original_name": "ln-510-quality-coordinator",
+      "description": "Coordinates code quality checks: ln-511 code quality, ln-512 agent review, ln-513 regression. Single-pass, returns results to ln-500.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7710,23 +7750,7 @@
     {
       "name": "levn-ln-640-pattern-evolution-auditor",
       "original_name": "ln-640-pattern-evolution-auditor",
-      "description": "Audits architectural patterns against best practices (MCP Ref, Context7, WebSearch). Maintains patterns catalog, calculates 4 scores, creates refactor Stories via ln-220. Use when user asks to: (1) Check architecture health, (2) Audit patterns before refactoring, (3) Find undocumented patterns in codebase.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-503-regression-checker",
-      "original_name": "ln-503-regression-checker",
-      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-511-test-researcher",
-      "original_name": "ln-511-test-researcher",
-      "description": "Researches real-world problems, competitor solutions, and customer complaints before test planning. Posts findings as Linear comment for ln-512 and ln-513.",
+      "description": "Audits architectural patterns against best practices (MCP Ref, Context7, WebSearch). Maintains patterns catalog, calculates 4 scores. Output: docs/project/patterns_catalog.md. Use when user asks to: (1) Check architecture health, (2) Audit patterns before refactoring, (3) Find undocumented patterns in codebase.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -7740,25 +7764,9 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-501-code-quality-checker",
-      "original_name": "ln-501-code-quality-checker",
-      "description": "Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates architectural decisions via MCP Ref: (1) Optimality - is chosen approach the best? (2) Compliance - does it follow best practices? (3) Performance - algorithms, configs, bottlenecks. Reports issues with SEC-, PERF-, MNT-, ARCH-, BP-, OPT- prefixes.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-311-agent-reviewer",
       "original_name": "ln-311-agent-reviewer",
       "description": "Worker that runs parallel external agent reviews (Codex + Gemini) on Story/Tasks. Reference-based prompts. Returns filtered suggestions for Story validation.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-510-test-planner",
-      "original_name": "ln-510-test-planner",
-      "description": "Orchestrates test planning pipeline (research \u2192 manual \u2192 auto tests). Coordinates ln-511, ln-512, ln-513. Invoked by ln-500-story-quality-gate.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

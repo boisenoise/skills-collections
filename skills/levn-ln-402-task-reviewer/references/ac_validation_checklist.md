@@ -27,7 +27,7 @@ AC validation criteria for task review. For 4 Core Criteria definitions (Complet
 
 ## Skip Validation When
 
-- Task type = test (label "tests") - tested by ln-404/ln-510, not AC validation
+- Task type = test (label "tests") - tested by test executor/test planner, not AC validation
 - Task has no parent Story (orphan) - warn user, skip validation
 - Story has no AC section - warn user, suggest fixing Story first
 

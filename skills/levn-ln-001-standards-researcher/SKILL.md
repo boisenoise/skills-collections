@@ -13,12 +13,11 @@ This skill should be used when:
 - Need to research standards and patterns BEFORE Story generation (ensures tasks follow industry best practices)
 - Epic Technical Notes mention specific standards requiring documentation (OAuth, OpenAPI, WebSocket)
 - Prevent situations where tasks use outdated patterns or violate RFC compliance
-- Reusable for ANY skill requiring standards research (ln-220-story-coordinator, ln-300-task-coordinator, ln-510-test-planner, ln-002-best-practices-researcher)
+- Reusable for ANY skill requiring standards research (ln-220-story-coordinator, ln-300-task-coordinator, ln-002-best-practices-researcher)
 
 **Who calls this skill:**
 - **ln-220-story-coordinator** (Phase 3) - research for Story creation
 - **ln-300-task-coordinator** (optional) - research for complex Stories
-- **ln-510-test-planner** (optional) - research for test task planning
 - **Manual** - user can invoke directly for Epic/Story research
 
 ## How It Works
@@ -182,7 +181,7 @@ Stack Detection → Identify → Ref Research → Existing Guides → Standards 
 - [guide_path.md](guide_path.md) - Brief description
 ```
 
-**Return Standards Research** to calling skill (ln-220, ln-310, ln-510)
+**Return Standards Research** to calling skill (ln-220, ln-310)
 
 **Output:** Standards Research (Markdown string) for insertion into Story Technical Notes subsection
 
@@ -199,7 +198,6 @@ Stack Detection → Identify → Ref Research → Existing Guides → Standards 
 **Called by:**
 - **ln-220-story-coordinator** (Phase 2) - research for ALL Stories in Epic
 - **ln-300-task-coordinator** (optional) - research for complex technical Stories
-- **ln-510-test-planner** (optional) - research for test infrastructure
 
 **Dependencies:**
 - MCP Ref (ref_search_documentation) - industry standards and patterns

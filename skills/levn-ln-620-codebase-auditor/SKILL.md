@@ -1,7 +1,7 @@
 ---
 name: ln-620-codebase-auditor
-description: Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, dead code, observability, concurrency, lifecycle). Researches best practices, delegates parallel audits, aggregates results into single Linear task in Epic 0.
-allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, mcp__linear-server, Skill
+description: "Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, dead code, observability, concurrency, lifecycle). Researches best practices, delegates parallel audits, aggregates results into docs/project/codebase_audit.md."
+allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill
 ---
 
 # Codebase Auditor (L2 Coordinator)
@@ -14,7 +14,7 @@ Coordinates 9 specialized audit workers to perform comprehensive codebase qualit
 - Research current best practices for detected tech stack via MCP tools ONCE
 - Pass shared context to all workers (token-efficient)
 - Aggregate worker results into single consolidated report
-- Create single refactoring task in Linear under Epic 0 with all findings
+- Write report to `docs/project/codebase_audit.md` (file-based, no task creation)
 - Manual invocation by user; not part of Story pipeline
 
 ## Workflow
@@ -26,7 +26,7 @@ Coordinates 9 specialized audit workers to perform comprehensive codebase qualit
 5) **Delegate:** Two-stage delegation - global workers + domain-aware workers (UPDATED)
 6) **Aggregate:** Collect worker results, group by domain, calculate scores
 7) **Generate Report:** Build consolidated report with Domain Health Summary, Findings by Domain
-8) **Create Task:** Create Linear task in Epic 0 titled "Codebase Refactoring: [YYYY-MM-DD]"
+8) **Write Report:** Save to `docs/project/codebase_audit.md`
 
 ## Phase 1: Discovery
 
@@ -299,131 +299,22 @@ ELSE:
 
 ## Output Format
 
-```markdown
-## Codebase Audit Report - [DATE]
+**MANDATORY READ:** Load `shared/templates/codebase_audit_template.md` for full report structure.
 
-### Executive Summary
-[2-3 sentences on overall codebase health, major risks, and key strengths]
+Report is written to `docs/project/codebase_audit.md` using the template. Key sections:
+- Executive Summary, Compliance Score (9 categories), Severity Summary
+- Domain Health Summary + Cross-Domain Issues (if domain-aware)
+- Strengths, Findings by Category (global + domain-grouped), Recommended Actions
+- Sources Consulted
 
-### Compliance Score
+## Phase 6: Write Report
 
-| Category | Score | Notes |
-|----------|-------|-------|
-| Security | X/10 | ... |
-| Build Health | X/10 | ... |
-| Architecture & Design | X/10 | ... |
-| Code Quality | X/10 | ... |
-| Dependencies & Reuse | X/10 | ... |
-| Dead Code | X/10 | ... |
-| Observability | X/10 | ... |
-| Concurrency | X/10 | ... |
-| Lifecycle | X/10 | ... |
-| **Overall** | **X/10** | |
+**MANDATORY READ:** Load `shared/templates/codebase_audit_template.md` for report format.
 
-### Severity Summary
-
-| Severity | Count |
-|----------|-------|
-| Critical | X |
-| High | X |
-| Medium | X |
-| Low | X |
-
-### Domain Health Summary (NEW - if domain_mode="domain-aware")
-
-| Domain | Files | Arch Score | Quality Score | Issues |
-|--------|-------|------------|---------------|--------|
-| users | 45 | 7/10 | 8/10 | 5 |
-| orders | 32 | 5/10 | 6/10 | 8 |
-| payments | 28 | 8/10 | 7/10 | 3 |
-| shared | 15 | 6/10 | 9/10 | 2 |
-| **Total** | **120** | **6.5/10** | **7.5/10** | **18** |
-
-### Cross-Domain Issues (if domain_mode="domain-aware" and pattern_signature matches found)
-
-| Signature | Domains | Locations | Issue | Recommendation | Effort |
-|-----------|---------|-----------|-------|----------------|--------|
-| validation_email | users, orders | users/validators/email.ts:12, orders/validators/email.ts:8 | Same email validation in 2 domains | Extract to shared/validators/email.ts | M |
-| middleware_auth_validate | users, orders, payments | 3 route files | Identical middleware chain in 3 domains | Create shared middleware group in shared/middleware/ | M |
-
-### Strengths
-- [What's done well in this codebase]
-- [Good patterns and practices identified]
-
-### Findings by Category
-
-#### 1. Security (Global)
-
-| Severity | Location | Issue | Principle Violated | Recommendation | Effort |
-|----------|----------|-------|-------------------|----------------|--------|
-| CRITICAL | src/api/auth.ts:45 | Hardcoded API key | Secrets Management | Move to .env | S |
-
-#### 2. Build Health (Global)
-
-| Severity | Location | Issue | Principle Violated | Recommendation | Effort |
-|----------|----------|-------|-------------------|----------------|--------|
-| CRITICAL | Multiple files | TypeScript strict errors | Type Safety | Fix types | S |
-
-#### 3. Architecture & Design (Domain-Grouped)
-
-##### Domain: users (src/users/)
-
-| Severity | Location | Issue | Principle Violated | Recommendation | Effort |
-|----------|----------|-------|-------------------|----------------|--------|
-| CRITICAL | UserController.ts:12 | Controller→Repository bypass | Layer Separation | Add Service layer | L |
-
-##### Domain: orders (src/orders/)
-
-| Severity | Location | Issue | Principle Violated | Recommendation | Effort |
-|----------|----------|-------|-------------------|----------------|--------|
-| HIGH | OrderService.ts:45 | DRY violation (duplicate validation) | DRY Principle | Extract to validators/ | M |
-
-##### Domain: shared (src/shared/)
-
-| Severity | Location | Issue | Principle Violated | Recommendation | Effort |
-|----------|----------|-------|-------------------|----------------|--------|
-| MEDIUM | utils.ts:78 | TODO older than 6 months | Code Hygiene | Complete or remove | S |
-
-#### 4. Code Quality (Domain-Grouped)
-
-##### Domain: users (src/users/)
-
-| Severity | Location | Issue | Principle Violated | Recommendation | Effort |
-|----------|----------|-------|-------------------|----------------|--------|
-| HIGH | UserService.ts:120 | Complexity 25 | Maintainability | Split function | M |
-
-... (continue for remaining global categories: 5-9)
-
-### Recommended Actions (Priority-Sorted)
-
-| Priority | Category | Domain | Location | Issue | Recommendation | Effort |
-|----------|----------|--------|----------|-------|----------------|--------|
-| CRITICAL | Security | - | src/api/auth.ts:45 | Hardcoded API key | Move to .env | S |
-| CRITICAL | Architecture | users | UserController.ts:12 | Controller→Repository bypass | Add Service layer | L |
-| CRITICAL | Build | - | Multiple files | TypeScript strict errors | Fix types | S |
-| HIGH | Architecture | orders | OrderService.ts:45 | DRY violation | Extract to validators/ | M |
-| HIGH | Code Quality | users | UserService.ts:120 | Complexity 25 | Split function | M |
-
-### Priority Actions
-1. Fix all Critical issues before next release
-2. Address High issues within current sprint
-3. Plan Medium issues for technical debt sprint
-4. Track Low issues in backlog
-
-### Sources Consulted
-- [Framework] best practices: [URL from MCP Ref]
-- [Library] documentation: [URL from Context7]
-```
-
-## Phase 6: Create Linear Task
-
-Create task in Epic 0:
-- Title: `Codebase Refactoring: [YYYY-MM-DD]`
-- Description: Full report from Phase 5 (markdown format)
-- Team: Auto-discovered from kanban_board.md
-- Epic: 0 (technical debt / refactoring epic)
-- Labels: `refactoring`, `technical-debt`, `audit`
-- Priority: Based on highest severity findings (Critical → Urgent, High → High, etc.)
+Write consolidated report to `docs/project/codebase_audit.md`:
+- Use template structure from codebase_audit_template.md
+- Fill all sections with aggregated worker data
+- Overwrite previous report (each audit is a full snapshot)
 
 ## Critical Rules
 
@@ -433,8 +324,7 @@ Create task in Epic 0:
 - **Single context gathering:** Research best practices ONCE, pass contextStore to all workers
 - **Metadata-only loading:** Coordinator loads metadata only; workers load full file contents
 - **Domain-grouped output:** Architecture & Code Quality findings grouped by domain
-- **Language preservation:** Task description in project's language (EN/RU from kanban_board.md)
-- **Single task:** Create ONE task with all findings; do not create multiple tasks
+- **File output only:** Write results to codebase_audit.md, no task/story creation
 - **Do not audit:** Coordinator orchestrates only; audit logic lives in workers
 
 ## Definition of Done
@@ -449,7 +339,7 @@ Create task in Epic 0:
 - Domain Health Summary built (if domain_mode="domain-aware")
 - Compliance score (X/10) calculated per category + overall
 - Executive Summary and Strengths sections included
-- Linear task created in Epic 0 with full report
+- Report written to `docs/project/codebase_audit.md`
 - Sources consulted listed with URLs
 
 ## Workers
@@ -471,6 +361,7 @@ See individual worker SKILL.md files for detailed audit rules:
 - **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
 - **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
+- **Report template:** `shared/templates/codebase_audit_template.md`
 - Principles: `docs/principles.md`
 - Tech stack: `docs/project/tech_stack.md`
 - Kanban board: `docs/tasks/kanban_board.md`

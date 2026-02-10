@@ -1,6 +1,6 @@
 ---
 name: ln-642-layer-boundary-auditor
-description: "L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ownership), session ownership (DI vs local), async consistency (sync I/O in async), fire-and-forget tasks."
+description: "L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ownership), session ownership (DI vs local)."
 ---
 
 # Layer Boundary Auditor
@@ -14,11 +14,13 @@ L3 Worker that audits architectural layer boundaries and detects violations.
 - **Detect cross-layer consistency issues:**
   - Transaction boundaries (commit/rollback ownership)
   - Session ownership (DI vs local)
-  - Async consistency (sync I/O in async)
-  - Fire-and-forget tasks (unhandled exceptions)
 - Check pattern coverage (all HTTP calls use client abstraction)
 - Detect error handling duplication
 - Return violations list to coordinator
+
+**Out of Scope** (owned by ln-628-concurrency-auditor):
+- Blocking I/O in async functions (sync open/read in async def)
+- Fire-and-forget tasks (create_task without error handler)
 
 ## Input (from ln-640)
 
@@ -39,6 +41,8 @@ L3 Worker that audits architectural layer boundaries and detects violations.
 
 ### Phase 1: Discover Architecture
 
+**MANDATORY READ:** Load `../ln-640-pattern-evolution-auditor/references/layer_rules.md` — use Architecture Presets (fallback), I/O Pattern Boundary Rules (Phase 2), Coverage Checks (Phase 3), Cross-Layer Consistency rules (Phase 2.5).
+
 ```
 Read docs/architecture.md
 
@@ -50,7 +54,7 @@ Extract from Section 5.3 (Infrastructure Layer Components):
   - infrastructure_components: [{name, responsibility}]
 
 IF architecture.md not found:
-  Use fallback presets from common_patterns.md
+  Use fallback presets from layer_rules.md
 
 Build ruleset:
   FOR EACH layer:
@@ -63,7 +67,7 @@ Build ruleset:
 ```
 scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
 
-FOR EACH violation_type IN common_patterns.md I/O Pattern Boundary Rules:
+FOR EACH violation_type IN layer_rules.md I/O Pattern Boundary Rules:
   grep_pattern = violation_type.detection_grep
   forbidden_dirs = violation_type.forbidden_in
 
@@ -139,60 +143,6 @@ local_in_repo = Grep("AsyncSessionLocal\(\)", "**/repositories/**/*.py")
 
 **Effort:** M
 
-#### 2.5.3 Async Consistency Violations
-
-**What:** Synchronous blocking I/O inside async functions
-
-**Detection:**
-```
-# For each file with "async def":
-sync_file_io = Grep("\.read_bytes\(\)|\.read_text\(\)|\.write_bytes\(\)|\.write_text\(\)", file)
-sync_open = Grep("(?<!aiofiles\.)open\(", file)  # open() not preceded by aiofiles.
-
-# Safe patterns (not violations):
-# - "asyncio.to_thread(" wrapping the call
-# - "await aiofiles.open("
-# - "run_in_executor(" wrapping the call
-```
-
-**Violation Rules:**
-
-| Pattern | Severity | Issue |
-|---------|----------|-------|
-| Path.read_bytes() in async def | HIGH | Blocking file read in async context |
-| open() without aiofiles in async def | HIGH | Blocking file operation |
-| time.sleep() in async def | HIGH | Blocking sleep (use asyncio.sleep) |
-
-**Recommendation:** Use `asyncio.to_thread()` or `aiofiles` for file I/O in async functions
-
-**Effort:** S-M
-
-#### 2.5.4 Fire-and-Forget Violations
-
-**What:** asyncio.create_task() without error handling
-
-**Detection:**
-```
-all_tasks = Grep("create_task\(", codebase)
-
-# For each match, check context:
-# - Has .add_done_callback() → OK
-# - Assigned to variable with later await → OK
-# - Has "# fire-and-forget" comment → OK (documented intent)
-# - None of above → VIOLATION
-```
-
-**Violation Rules:**
-
-| Pattern | Severity | Issue |
-|---------|----------|-------|
-| create_task() without handler or comment | MEDIUM | Unhandled task exception possible |
-| create_task() in loop without error collection | HIGH | Multiple silent failures possible |
-
-**Recommendation:** Add `task.add_done_callback(handle_exception)` or document intent with comment
-
-**Effort:** S
-
 ---
 
 ### Phase 3: Check Pattern Coverage
@@ -253,9 +203,7 @@ IF len(unique_files) > 2:
     {"id": "http_abstraction", "name": "HTTP Abstraction", "status": "warning", "details": "75% coverage, 3 direct calls outside infrastructure"},
     {"id": "error_centralization", "name": "Error Centralization", "status": "failed", "details": "HTTP error handlers in 4 files, should be centralized"},
     {"id": "transaction_boundary", "name": "Transaction Boundary", "status": "failed", "details": "commit() in repos (3), services (2), api (4) - mixed UoW ownership"},
-    {"id": "session_ownership", "name": "Session Ownership", "status": "passed", "details": "DI-based sessions used consistently"},
-    {"id": "async_consistency", "name": "Async Consistency", "status": "failed", "details": "Blocking I/O in async functions detected"},
-    {"id": "fire_and_forget", "name": "Fire-and-Forget Handling", "status": "warning", "details": "2 tasks without error handlers"}
+    {"id": "session_ownership", "name": "Session Ownership", "status": "passed", "details": "DI-based sessions used consistently"}
   ],
   "findings": [
     {
@@ -269,36 +217,18 @@ IF len(unique_files) > 2:
     },
     {
       "severity": "HIGH",
-      "location": "app/services/job/service.py:45",
-      "issue": "Blocking file I/O in async: Path.read_bytes() inside async def process_job()",
-      "principle": "Layer Boundary / Async Consistency",
-      "recommendation": "Use asyncio.to_thread(path.read_bytes) or aiofiles",
-      "effort": "S"
-    },
-    {
-      "severity": "HIGH",
       "location": "app/domain/pdf/parser.py:45",
       "issue": "Layer violation: HTTP client used in domain layer",
       "principle": "Layer Boundary / I/O Isolation",
       "recommendation": "Move httpx.AsyncClient to infrastructure/http/clients/",
       "effort": "M"
     },
-    {
-      "severity": "MEDIUM",
-      "location": "app/api/v1/jobs.py:78",
-      "issue": "Fire-and-forget task without error handler: create_task(notify_user())",
-      "principle": "Layer Boundary / Task Error Handling",
-      "recommendation": "Add task.add_done_callback(handle_exception) or document with # fire-and-forget comment",
-      "effort": "S"
-    }
   ],
   "coverage": {
     "http_abstraction": 75,
     "error_centralization": false,
     "transaction_boundary_consistent": false,
-    "session_ownership_consistent": true,
-    "async_io_consistent": false,
-    "fire_and_forget_handled": false
+    "session_ownership_consistent": true
   }
 }
 ```
@@ -314,20 +244,18 @@ IF len(unique_files) > 2:
 ## Definition of Done
 
 - Architecture discovered from docs/architecture.md (or fallback used)
-- All violation types from common_patterns.md checked
+- All violation types from layer_rules.md checked
 - **Cross-layer consistency checked:**
   - Transaction boundaries analyzed (commit/rollback distribution)
   - Session ownership analyzed (DI vs local)
-  - Async consistency analyzed (sync I/O in async functions)
-  - Fire-and-forget tasks analyzed (error handling)
-- Coverage calculated for HTTP abstraction + 4 consistency metrics
+- Coverage calculated for HTTP abstraction + 2 consistency metrics
 - Violations list with severity, location, suggestion
 - If domain-aware: all Grep scoped to scan_path, findings tagged with domain
 - Summary counts returned to coordinator
 
 ## Reference Files
 
-- Layer rules: `../ln-640-pattern-evolution-auditor/references/common_patterns.md`
+- Layer rules: `../ln-640-pattern-evolution-auditor/references/layer_rules.md`
 - Scoring impact: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
 
 ---

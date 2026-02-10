@@ -17,7 +17,7 @@ Measures adherence to industry standards and project conventions.
 
 | Criterion | Points | Detection |
 |-----------|--------|-----------|
-| Follows industry standard | +30 | Grep for pattern-specific structures (see common_patterns.md Detection Keywords) |
+| Follows industry standard | +30 | Grep for pattern-specific structures (see pattern_library.md Detection Keywords) |
 | Has ADR documentation | +20 | `Glob("docs/adr/*{pattern}*.md")` OR `Glob("docs/architecture/*.md")` containing pattern name |
 | Consistent naming conventions | +15 | `Grep("class.*{Pattern}(Service\|Handler\|Worker\|Processor)")` + file names match (`*_processor.py`, `*Handler.ts`) |
 | Follows tech stack conventions | +15 | `Grep("{standard_lib}")` — e.g., Bull/BullMQ for Node.js jobs, Celery for Python |
@@ -66,6 +66,79 @@ Measures whether all necessary components are present.
 | Repository | Interface | `interface.*Repository\|Protocol.*Repository\|ABC.*Repository` | 15 |
 | Repository | Implementation | `class.*Repository.*implements\|class.*Repository\\(` | 15 |
 | Repository | Unit of Work | `UnitOfWork\|unit.?of.?work\|commit\|transaction` | 10 |
+| Singleton | Instance control | `_instance\|__new__\|getInstance\|SingletonMeta` | 15 |
+| Singleton | Thread safety | `Lock\|threading\|synchronized\|Mutex` | 15 |
+| Singleton | Lazy init | `if.*_instance.*None\|if.*instance.*null\|lazy` | 10 |
+| Factory | Creator method | `create\|create_.*instance\|factory_method\|build` | 10 |
+| Factory | Product interface | `Protocol\|ABC\|interface\|abstract.*class` | 15 |
+| Factory | Registration | `register\|_creators\|_factory_map\|factory_registry` | 15 |
+| Builder | Build method | `\.build()\|build_result\|construct\|to_.*()` | 10 |
+| Builder | Setter chain | `return.*self\|return.*this\|with_\|set_` | 15 |
+| Builder | Validation | `validate\|assert\|raise\|throw` in build | 15 |
+| Adapter | Port/interface | `Protocol\|ABC\|Port\|interface.*Adapter` | 15 |
+| Adapter | Implementation | `class.*Adapter.*:\|implements.*Port\|Adapter.*Protocol` | 15 |
+| Adapter | Error translation | `except.*:.*raise\|catch.*throw\|map.*error` | 10 |
+| Pipeline | Stage interface | `Protocol\|ABC\|Stage\|PipelineStep\|BaseStep` | 10 |
+| Pipeline | Composition | `add_stage\|pipe\|compose\|chain\|>>` | 15 |
+| Pipeline | Context | `context\|PipelineContext\|state\|pipe_data` | 15 |
+| Strategy | Interface | `Protocol\|ABC\|interface.*Strategy\|abstract.*Strategy` | 15 |
+| Strategy | Selection | `select.*strategy\|get_strategy\|strategy_map\|match` | 15 |
+| Strategy | Implementation | `class.*Strategy.*:\|class.*Handler.*:` (2+ concrete) | 10 |
+| Template Method | Abstract steps | `@abstractmethod\|abstract.*def\|pure.*virtual` | 15 |
+| Template Method | Template method | `def.*process\|def.*execute\|def.*run` calling abstract steps | 15 |
+| Template Method | Hook methods | `def.*hook\|on_before\|on_after\|pre_.*\|post_.*` | 10 |
+| Registry | Registry storage | `_registry\|_handlers\|_map\|registry_dict` | 15 |
+| Registry | Register method | `def.*register\|register(` | 15 |
+| Registry | Lookup method | `def.*get\|get_handler\|resolve\|lookup` | 10 |
+| Orchestrator | Step execution | `execute.*step\|run.*step\|step.*execute` | 10 |
+| Orchestrator | State tracking | `workflow.*state\|execution.*log\|step.*status` | 10 |
+| Orchestrator | Error recovery | `retry.*step\|compensate\|rollback\|on_error` | 10 |
+| Orchestrator | Step definition | `add_step\|define.*step\|Step\|WorkflowStep` | 10 |
+| Service Layer | Service class | `class.*Service.*:\|ServiceLayer\|ApplicationService` | 10 |
+| Service Layer | DI constructor | `__init__.*repository\|@inject\|Depends(` | 10 |
+| Service Layer | Transaction | `transaction\|commit\|UnitOfWork\|@Transactional` | 10 |
+| Service Layer | DTO usage | `Schema\|DTO\|Input\|Output\|Request.*Model` | 10 |
+| Dependency Injection | Container | `Container\|Injector\|Module\|Provider` | 10 |
+| Dependency Injection | Binding | `bind\|provide\|register\|to_class\|to_value` | 10 |
+| Dependency Injection | Injection point | `@inject\|Depends(\|@Inject\|constructor.*inject` | 10 |
+| Dependency Injection | Scope | `Scope\|Singleton\|Transient\|Scoped\|Request.*scope` | 10 |
+| CQRS | Command handler | `CommandHandler\|handle_command\|command.*handler` | 10 |
+| CQRS | Query handler | `QueryHandler\|handle_query\|query.*handler` | 10 |
+| CQRS | Read model | `ReadModel\|read_model\|Projection\|materialized` | 10 |
+| CQRS | Write model | `WriteModel\|write_model\|Aggregate\|command.*model` | 10 |
+| Event Sourcing | Event store | `EventStore\|event_store\|append_events\|get_events` | 10 |
+| Event Sourcing | Aggregate root | `AggregateRoot\|aggregate_root\|apply_event` | 10 |
+| Event Sourcing | Event schema | `DomainEvent\|event_type\|event.*schema\|EventBase` | 10 |
+| Event Sourcing | Snapshot | `snapshot\|Snapshot\|create_snapshot\|load_snapshot` | 10 |
+| Saga | Step definition | `SagaStep\|step.*define\|saga.*step\|add_step` | 10 |
+| Saga | Compensation | `compensate\|rollback\|undo\|revert.*step` | 15 |
+| Saga | State tracking | `saga.*state\|step.*status\|saga.*log` | 15 |
+| API Gateway | Routing | `route\|proxy\|forward\|upstream\|gateway.*route` | 10 |
+| API Gateway | Rate limiting | `rate.?limit\|throttle\|RateLimit` | 10 |
+| API Gateway | Authentication | `auth\|token.*verify\|jwt.*verify\|middleware.*auth` | 10 |
+| API Gateway | Error handling | `error.*handler\|global.*error\|exception.*filter` | 10 |
+| Message Queue | Producer | `produce\|publish\|send_message\|enqueue` | 10 |
+| Message Queue | Consumer | `consume\|subscribe\|on_message\|handle_message` | 10 |
+| Message Queue | DLQ | `dlq\|dead.?letter\|rejected\|nack` | 10 |
+| Message Queue | Ack/Nack | `ack\|acknowledge\|nack\|reject\|basic_ack` | 10 |
+| HTTP Client | Client class | `HttpClient\|ApiClient\|RestClient\|AsyncClient` | 10 |
+| HTTP Client | Timeout config | `timeout\|Timeout\|connect_timeout\|read_timeout` | 10 |
+| HTTP Client | Error handling | `raise_for_status\|status_code\|HTTPError\|check.*response` | 10 |
+| HTTP Client | Retry/pool | `retry\|pool\|max_connections\|limits\|Retry` | 10 |
+| Rate Limiting | Limiter setup | `RateLimit\|Limiter\|rate_limit\|@rate_limit` | 10 |
+| Rate Limiting | Storage backend | `Redis\|Memcached\|in_memory\|rate_limit.*store` | 10 |
+| Rate Limiting | Response handling | `429\|TooManyRequests\|rate.*exceeded\|Retry-After` | 10 |
+| Rate Limiting | Per-route config | `limit.*route\|per_endpoint\|route.*limit` | 10 |
+| Parameter Object | Typed fields | `@dataclass\|BaseModel\|NamedTuple\|TypedDict` | 15 |
+| Parameter Object | Immutability | `frozen=True\|readonly\|Readonly\|immutable` | 15 |
+| Parameter Object | Validation | `validator\|__post_init__\|validate\|field_validator` | 10 |
+| Fail-Fast Validation | Schema definition | `BaseModel\|Schema\|@dataclass\|validate.*schema` | 10 |
+| Fail-Fast Validation | Validation at entry | `@validator\|field_validator\|@validate\|ValidationError` | 15 |
+| Fail-Fast Validation | Error response | `ValidationError\|422\|validation.*error\|errors()` | 15 |
+| Client Notification | Send mechanism | `notify\|send.*webhook\|callback\|push.*notification` | 10 |
+| Client Notification | Retry | `retry\|backoff\|max_attempts\|retry.*notify` | 10 |
+| Client Notification | Security | `hmac\|signature\|secret\|sign.*payload\|webhook.*secret` | 10 |
+| Client Notification | Delivery tracking | `delivered\|acknowledged\|delivery.*log\|callback.*status` | 10 |
 
 ## Quality Score (0-100)
 
@@ -186,5 +259,26 @@ For cross-audit reporting between ln-620 (X/10) and ln-640 (0-100%):
 
 **Formula:** `x_10 = round(percent / 10)`
 
+## Generic Scoring (Adaptive Discovery Patterns)
+
+For patterns discovered via Phase 1b heuristics that have no predefined components above, use these universal criteria:
+
+| Score | Generic Criterion | Points | Detection |
+|-------|------------------|--------|-----------|
+| Compliance | Has ADR/Guide documentation | +30 | `Glob("docs/**/adr*{pattern}*")` or `Glob("docs/**/guide*{pattern}*")` |
+| Compliance | Consistent naming | +30 | Class/file names contain pattern name |
+| Compliance | No anti-patterns | +40 | Same anti-pattern table as above |
+| Completeness | Core implementation exists | +30 | Files with pattern evidence (from discovery) |
+| Completeness | Error handling | +25 | `Grep("try\|catch\|except\|Error")` in pattern files |
+| Completeness | Tests exist | +25 | `Glob("**/test*{pattern}*")` |
+| Completeness | Documented | +20 | Docstrings or comments in pattern files |
+| Quality | Short methods (<30 lines) | +25 | Same detection as Quality section |
+| Quality | No code smells | +25 | Same smell table as above |
+| Quality | Follows SOLID | +25 | Interfaces/abstractions present |
+| Quality | Low complexity | +25 | No deep nesting |
+| Implementation | Used in production paths | +35 | Imported outside test files |
+| Implementation | Integrated with DI/config | +35 | `@inject\|Depends\|config\|settings` |
+| Implementation | Monitored | +30 | `logger\|metrics\|health` in pattern files |
+
 ---
-**Version:** 1.3.0
+**Version:** 2.0.0

@@ -13,8 +13,11 @@ Specialized worker auditing API contracts, method signatures at service boundari
 - **Worker in ln-640 coordinator pipeline** - invoked by ln-640-pattern-evolution-auditor
 - Audit **API contracts** at architecture level (service boundaries, layer separation)
 - Check layer leakage, DTO patterns, error contract consistency
-- **Overlap resolution:** SKIP findings owned by ln-623 per overlap matrix
 - Return structured analysis with 4 scores (compliance, completeness, quality, implementation)
+
+**Out of Scope** (owned by ln-623-code-principles-auditor):
+- Code duplication (same DTO shape repeated, same mapping logic, same validation)
+- Report only ARCHITECTURE BOUNDARY findings (wrong layer, missing contract)
 
 ## Input (from ln-640 coordinator)
 
@@ -34,9 +37,7 @@ Specialized worker auditing API contracts, method signatures at service boundari
 
 ### Phase 0: Load References
 
-**MANDATORY READ:** Load the following files before starting analysis:
-- `references/detection_patterns.md` — language-specific Grep patterns for all 5 rules
-- `shared/references/audit_overlap_matrix.md` — ln-623 vs ln-643 ownership boundaries
+**MANDATORY READ:** Load `references/detection_patterns.md` — language-specific Grep patterns for all 5 rules.
 
 ### Phase 1: Discover Service Boundaries
 
@@ -61,9 +62,7 @@ scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
 | 4 | Error Contracts | MEDIUM/LOW | Mixed error patterns (raise + return None) in same service |
 | 5 | Redundant Overloads | LOW/MEDIUM | Method pairs with `_with_`/`_and_` suffix differing by 1-2 params |
 
-**Overlap resolution (per audit_overlap_matrix.md):**
-- SKIP findings that are DUPLICATION issues (owned by ln-623)
-- REPORT only ARCHITECTURE BOUNDARY findings
+**Scope boundary:** SKIP DUPLICATION findings (owned by ln-623), REPORT only ARCHITECTURE BOUNDARY findings.
 
 ### Phase 3: Calculate 4 Scores
 
@@ -145,7 +144,7 @@ scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
 
 - **Architecture-level only:** Focus on service boundaries, not internal implementation
 - **Read before score:** Never score without reading actual service code
-- **Overlap check:** SKIP duplication findings (owned by ln-623 per matrix)
+- **Scope boundary:** SKIP duplication findings (owned by ln-623)
 - **Detection patterns:** Use language-specific Grep from detection_patterns.md
 - **Domain-aware:** When domain_mode="domain-aware", scan only scan_path, tag findings with domain
 
@@ -154,7 +153,7 @@ scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
 - Service boundaries discovered (API, service, domain layers)
 - Method signatures extracted and analyzed
 - All 5 rules checked using detection_patterns.md
-- Overlap matrix applied (no duplication with ln-623)
+- Scope boundary applied (no duplication with ln-623)
 - 4 scores calculated with justification
 - Issues identified with severity, location, suggestion, effort
 - If domain-aware: findings tagged with domain field
@@ -163,9 +162,8 @@ scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
 ## Reference Files
 
 - Detection patterns: `references/detection_patterns.md`
-- Overlap matrix: `shared/references/audit_overlap_matrix.md`
 - Scoring rules: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
-- Common patterns: `../ln-640-pattern-evolution-auditor/references/common_patterns.md`
+- Pattern library: `../ln-640-pattern-evolution-auditor/references/pattern_library.md`
 
 ---
 **Version:** 2.0.0
