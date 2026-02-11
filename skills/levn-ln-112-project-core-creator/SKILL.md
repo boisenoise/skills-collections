@@ -142,6 +142,7 @@ Tables > Mermaid/ASCII diagrams > Lists > Text
 - ADR links populated
 - Patterns auto-detected and added to catalog
 - Self-validation passed (SCOPE, sections, format)
+- **Actuality verified:** all document facts match current code (paths, functions, APIs, configs exist and are accurate)
 - Status returned to coordinator
 
 ## Reference Files
@@ -150,5 +151,5 @@ Tables > Mermaid/ASCII diagrams > Lists > Text
 - Questions: `references/questions_core.md` (Q23-Q38)
 
 ---
-**Version:** 2.2.0 (Added Stack Adaptation and Format Priority rules)
+**Version:** 2.2.0
 **Last Updated:** 2025-01-12

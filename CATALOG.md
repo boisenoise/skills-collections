@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-10 06:35 UTC*
+*Last updated: 2026-02-11 06:34 UTC*
 
-Total skills: **1052**
+Total skills: **1054**
 
 ## Skills by Source
 
@@ -263,7 +263,7 @@ Total skills: **1052**
 | `levn-ln-620-codebase-auditor` | Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, ... |
 | `levn-ln-621-security-auditor` | Security audit worker (L3). Scans codebase for hardcoded secrets, SQL injection, XSS, insecure depen... |
 | `levn-ln-622-build-auditor` | Build health audit worker (L3). Checks compiler/linter errors, deprecation warnings, type errors, fa... |
-| `levn-ln-623-code-principles-auditor` | Code principles audit worker (L3). Checks DRY (10 types), KISS/YAGNI, TODOs, error handling, DI patt... |
+| `levn-ln-623-code-principles-auditor` | Code principles audit worker (L3). Checks DRY (10 types), KISS/YAGNI, error handling, DI patterns. R... |
 | `levn-ln-624-code-quality-auditor` | Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classe... |
 | `levn-ln-625-dependencies-auditor` | Dependencies audit worker (L3). Checks outdated packages, unused deps, reinvented wheels, vulnerabil... |
 | `levn-ln-626-dead-code-auditor` | Dead code & legacy audit worker (L3). Checks unreachable code, unused imports/variables/functions, c... |
@@ -439,6 +439,7 @@ Total skills: **1052**
 | `antigravity-angular-state-management` | Master modern Angular state management with Signals, NgRx, and RxJS. Use when setting up global stat... |
 | `antigravity-angular-ui-patterns` | Modern Angular UI patterns for loading states, error handling, and data display. Use when building U... |
 | `antigravity-anti-reversing-techniques` | Understand anti-reversing, obfuscation, and protection techniques encountered during software analys... |
+| `antigravity-antigravity-workflows` | Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, security aud... |
 | `antigravity-api-design-principles` | Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs th... |
 | `antigravity-api-documentation-generator` | Generate comprehensive, developer-friendly API documentation from code, including endpoints, paramet... |
 | `antigravity-api-documenter` | Master API documentation with OpenAPI 3.1, AI-powered tools, and modern developer experience practic... |
@@ -716,6 +717,7 @@ Total skills: **1052**
 | `antigravity-gitops-workflow` | Implement GitOps workflows with ArgoCD and Flux for automated, declarative Kubernetes deployments wi... |
 | `antigravity-gmail-automation` | Automate Gmail tasks via Rube MCP (Composio): send/reply, search, labels, drafts, attachments. Alway... |
 | `antigravity-go-concurrency-patterns` | Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building con... |
+| `antigravity-go-playwright` | Expert capability for robust, stealthy, and efficient browser automation using Playwright Go. |
 | `antigravity-godot-gdscript-patterns` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use wh... |
 | `antigravity-golang-pro` | Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production... |
 | `antigravity-google-analytics-automation` | Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn... |

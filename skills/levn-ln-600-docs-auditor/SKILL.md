@@ -113,6 +113,15 @@ FOR doc IN [CLAUDE.md, docs/README.md, docs/project/*.md]:
 - Size limits and targets: [references/size_limits.md](references/size_limits.md)
 - Detailed checklist: [references/audit_checklist.md](references/audit_checklist.md)
 
+## Definition of Done
+
+- All .md files in project scanned and hierarchy tree built from CLAUDE.md
+- Categories 1-7 (structural) audited with score X/10 each
+- Category 8 (semantic) delegated to ln-601 for each target document; scores collected
+- Overall Compliance Score calculated (average of 8 categories)
+- Critical Findings listed with file:line, category, and fix suggestion
+- Recommended Actions table generated with priority, action, location, category
+
 ## Critical Notes
 
 - **Fix content, not rules:** NEVER modify standards/rules files (*_standards.md, *_rules.md, *_limits.md) to make violations pass. Always fix the violating files instead.
@@ -126,6 +135,7 @@ FOR doc IN [CLAUDE.md, docs/README.md, docs/project/*.md]:
 - **Format Priority:** Tables/ASCII > Lists (enumerations only) > Text (last resort)
 - **Stack adaptation:** Verify all documentation references match project stack. .NET project must not have Python examples. Check official doc links point to correct platform (Microsoft docs for C#, MDN for JS, etc.)
 - **Code is truth:** When docs contradict code, always update docs. Never "fix" code to match documentation.
+- **SSOT re-verification after fixes:** After making ANY documentation change, re-check that the fix maintains Single Source of Truth. If content exists in multiple files, keep it in the canonical source only and replace other occurrences with a link to that source (e.g., `See [section](path#anchor)`). Never duplicate content inline — always link. Canonical source hierarchy: CLAUDE.md → docs/README.md → docs/project/*.md → docs/reference/*.md.
 - **Delete, don't archive:** Legacy content should be removed, not moved to "archive"
 - **No history:** Documents describe current state only; git tracks history
 

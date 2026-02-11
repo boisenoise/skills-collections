@@ -96,6 +96,7 @@ Tables (colors, typography, spacing) > Lists (component inventory) > Text
 - Document created if applicable
 - Design system, typography, colors documented
 - WCAG references included
+- **Actuality verified:** all document facts match current code (paths, functions, APIs, configs exist and are accurate)
 - Status returned to coordinator
 
 ## Reference Files
@@ -103,5 +104,5 @@ Tables (colors, typography, spacing) > Lists (component inventory) > Text
 - Questions: `references/questions_frontend.md` (Q43-Q45)
 
 ---
-**Version:** 1.1.0 (Added NO_CODE, Stack Adaptation, Format Priority rules)
+**Version:** 1.1.0
 **Last Updated:** 2025-01-12

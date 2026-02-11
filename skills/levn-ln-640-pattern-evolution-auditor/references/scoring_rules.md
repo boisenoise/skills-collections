@@ -17,11 +17,10 @@ Measures adherence to industry standards and project conventions.
 
 | Criterion | Points | Detection |
 |-----------|--------|-----------|
-| Follows industry standard | +30 | Grep for pattern-specific structures (see pattern_library.md Detection Keywords) |
-| Has ADR documentation | +20 | `Glob("docs/adr/*{pattern}*.md")` OR `Glob("docs/architecture/*.md")` containing pattern name |
-| Consistent naming conventions | +15 | `Grep("class.*{Pattern}(Service\|Handler\|Worker\|Processor)")` + file names match (`*_processor.py`, `*Handler.ts`) |
-| Follows tech stack conventions | +15 | `Grep("{standard_lib}")` — e.g., Bull/BullMQ for Node.js jobs, Celery for Python |
-| No anti-patterns detected | +20 | All anti-pattern checks below return 0 matches |
+| Follows industry standard | +35 | Grep for pattern-specific structures (see pattern_library.md Detection Keywords) |
+| Consistent naming conventions | +20 | `Grep("class.*{Pattern}(Service\|Handler\|Worker\|Processor)")` + file names match (`*_processor.py`, `*Handler.ts`) |
+| Follows tech stack conventions | +20 | `Grep("{standard_lib}")` — e.g., Bull/BullMQ for Node.js jobs, Celery for Python |
+| No anti-patterns detected | +25 | All anti-pattern checks below return 0 matches |
 
 **Anti-pattern detection:**
 
@@ -38,11 +37,10 @@ Measures whether all necessary components are present.
 
 | Criterion | Points | Detection |
 |-----------|--------|-----------|
-| All required components present | +40 | Per-pattern component table below (each component has Grep) |
+| All required components present | +45 | Per-pattern component table below (each component has Grep) |
 | Error handling implemented | +20 | `Grep("try\|catch\|except\|Error\|Exception\|\.catch\\(")` + `Grep("retry\|backoff\|dlq\|dead.?letter")` |
-| Logging/observability | +15 | `Grep("logger\|logging\|log\\.\|structlog\|winston")` + `Grep("metrics\|prometheus\|statsd\|trace\|opentelemetry")` |
+| Logging/observability | +20 | `Grep("logger\|logging\|log\\.\|structlog\|winston")` + `Grep("metrics\|prometheus\|statsd\|trace\|opentelemetry")` |
 | Tests exist | +15 | `Glob("**/test*{pattern}*")` OR `Glob("**/*{pattern}*.test.*")` OR `Glob("**/*{pattern}*.spec.*")` |
-| Documentation complete | +10 | `Grep("docstring\|@param\|@returns\|\\\"\\\"\\\"")` in pattern files + ADR exists |
 
 **Required components by pattern (with detection):**
 
@@ -156,7 +154,6 @@ Measures code quality and maintainability.
 
 | Smell | Detection Grep | Threshold |
 |-------|----------------|-----------|
-| TODO/FIXME markers | `Grep("TODO\|FIXME\|HACK\|XXX\|REFACTOR")` | Any = -3 per |
 | Magic numbers | `Grep("[^0-9][0-9]{2,}[^0-9]")` outside config/const files | >3 = -5 |
 | Long params | `Grep("def.*,.*,.*,.*,.*,")` (5+ comma-separated) | Any = -3 per |
 | Deep nesting | `Grep("^\\s{16,}(if\|for\|while)")` (4+ indent levels) | Any = -5 per |
@@ -187,7 +184,6 @@ Measures whether the pattern actually works in production.
 
 | Issue Type | Typical Effort |
 |------------|----------------|
-| Add missing documentation | 2h |
 | Add error handling | 4h |
 | Add tests | 4-8h |
 | Refactor for SOLID | 1-2d |
@@ -265,13 +261,11 @@ For patterns discovered via Phase 1b heuristics that have no predefined componen
 
 | Score | Generic Criterion | Points | Detection |
 |-------|------------------|--------|-----------|
-| Compliance | Has ADR/Guide documentation | +30 | `Glob("docs/**/adr*{pattern}*")` or `Glob("docs/**/guide*{pattern}*")` |
-| Compliance | Consistent naming | +30 | Class/file names contain pattern name |
-| Compliance | No anti-patterns | +40 | Same anti-pattern table as above |
-| Completeness | Core implementation exists | +30 | Files with pattern evidence (from discovery) |
-| Completeness | Error handling | +25 | `Grep("try\|catch\|except\|Error")` in pattern files |
-| Completeness | Tests exist | +25 | `Glob("**/test*{pattern}*")` |
-| Completeness | Documented | +20 | Docstrings or comments in pattern files |
+| Compliance | Consistent naming | +45 | Class/file names contain pattern name |
+| Compliance | No anti-patterns | +55 | Same anti-pattern table as above |
+| Completeness | Core implementation exists | +35 | Files with pattern evidence (from discovery) |
+| Completeness | Error handling | +35 | `Grep("try\|catch\|except\|Error")` in pattern files |
+| Completeness | Tests exist | +30 | `Glob("**/test*{pattern}*")` |
 | Quality | Short methods (<30 lines) | +25 | Same detection as Quality section |
 | Quality | No code smells | +25 | Same smell table as above |
 | Quality | Follows SOLID | +25 | Interfaces/abstractions present |

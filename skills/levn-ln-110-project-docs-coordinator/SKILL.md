@@ -204,11 +204,12 @@ ln-110-project-docs-coordinator (this skill)
 - Project type flags determined
 - All applicable workers invoked
 - Results aggregated
+- **Actuality verified:** all document facts match current code (paths, functions, APIs, configs exist and are accurate)
 - Summary returned to ln-100
 
 ## Reference Files
 - Guides: `references/guides/automatic_analysis_guide.md`, `critical_questions.md`, `troubleshooting.md`
 
 ---
-**Version:** 2.1.0 (Added Documentation Standards passed to workers)
+**Version:** 2.1.0
 **Last Updated:** 2025-01-12

@@ -112,6 +112,7 @@ Tables/ASCII > Lists (enumerations only) > Text (last resort)
 - 4 root documents created (or skipped if exist)
 - All placeholders replaced (or marked TBD)
 - Self-validation passed (SCOPE, sections, Maintenance, POSIX)
+- **Actuality verified:** all document facts match current code (paths, functions, APIs, configs exist and are accurate)
 - Status returned to coordinator
 
 ## Reference Files
@@ -119,5 +120,5 @@ Tables/ASCII > Lists (enumerations only) > Text (last resort)
 - Questions: `references/questions_root.md` (Q1-Q22)
 
 ---
-**Version:** 2.1.0 (Added NO_CODE, Stack Adaptation, Format Priority rules to Critical Notes)
+**Version:** 2.1.0
 **Last Updated:** 2025-01-12
