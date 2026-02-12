@@ -83,11 +83,19 @@ def function_b():
     return function_a()
 ```
 
-**Detection:** Build dependency graph, check for cycles
+**Detection:**
 
-**Fix:** Extract shared code to third module or use dependency injection
+| Scope | Method | Detects |
+|-------|--------|---------|
+| Story-level (ln-511) | Parse imports in changed files, check pairwise | A <-> B cycles in touched files |
+| Codebase-level (ln-644) | Full dependency graph + DFS | Pairwise, transitive (A->B->C->A), folder-level cycles |
 
-**Severity:** HIGH
+**Fix strategies** (Clean Architecture Ch14):
+1. **DIP** — extract interface in depended-upon module, implement in depending module
+2. **Extract Shared Component** — move shared code to new module both depend on
+3. **Domain Events** — for cross-domain cycles, decouple via async communication
+
+**Severity:** HIGH (pairwise), CRITICAL (transitive)
 
 ---
 
@@ -111,6 +119,24 @@ def create_user(data):
 ```
 
 **Fix:** Move business logic to Service layer
+
+---
+
+### 4. Dependency Direction (SDP)
+
+Per Clean Architecture Ch14: "Depend in the direction of stability."
+
+**Rule:** A stable module (low Instability) MUST NOT depend on an unstable module (high Instability). Changes to unstable modules would force changes to stable modules, cascading through all their dependents.
+
+| Metric | Formula | Description |
+|--------|---------|-------------|
+| I (Instability) | Ce / (Ca + Ce) | 0 = stable (many dependents), 1 = unstable (no dependents) |
+
+**Detection:** Full dependency graph via ln-644-dependency-graph-auditor (invoked by ln-640)
+
+**Fix:** Apply DIP — extract interface in the stable module, let the unstable module implement it
+
+**Severity:** HIGH
 
 ---
 

@@ -72,7 +72,7 @@ graph TD
     subgraph Phase5 [Phase 5: Agent Review - Parallel Aggregation]
         P5A[Prepare prompt<br/>story_review.md + Story/Tasks]
         P5A --> P5B[codex-review<br/>gpt-5.3-codex]
-        P5A --> P5C[gemini-review<br/>gemini-3-pro-preview]
+        P5A --> P5C[gemini-review<br/>gemini-3-flash-preview]
         P5B --> P5D[Aggregate suggestions<br/>Dedup by area+issue]
         P5C --> P5D
         P5D --> P5E{Both<br/>failed?}
@@ -143,7 +143,7 @@ graph TD
             </table>
         </div>
         <footer>
-            <p>ln-310-story-validator v7.0.0 | 6 phases | 19 criteria (7 groups) | Penalty Points system | Plan Mode support</p>
+            <p>ln-310-story-validator v7.0.0 | 6 phases | 20 criteria (8 groups) | Penalty Points system | Plan Mode support</p>
         </footer>
     </div>
     <script>

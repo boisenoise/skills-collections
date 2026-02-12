@@ -73,7 +73,7 @@ graph TD
     subgraph S6 [Step 6: Agent Review - Parallel Aggregation]
         S6A[Prepare prompt<br/>code_review.md + task/story]
         S6A --> S6B[codex-review<br/>gpt-5.3-codex]
-        S6A --> S6C[gemini-review<br/>gemini-3-pro-preview]
+        S6A --> S6C[gemini-review<br/>gemini-3-flash-preview]
         S6B --> S6D[Aggregate suggestions<br/>Dedup by area+issue]
         S6C --> S6D
         S6D --> S6E{Both<br/>failed?}

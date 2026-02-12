@@ -4,7 +4,7 @@
 
 Details that expand on SKILL.md: multiple violations, report format, edge cases.
 
-For severity levels (CRITICAL/HIGH/MEDIUM/LOW) and 19-criteria mapping, see [SKILL.md §Penalty Points System](../SKILL.md#penalty-points-system) and [§Auto-Fix Actions Reference](../SKILL.md#auto-fix-actions-reference).
+For severity levels (CRITICAL/HIGH/MEDIUM/LOW) and 20-criteria mapping, see [SKILL.md §Penalty Points System](../SKILL.md#penalty-points-system) and [§Auto-Fix Actions Reference](../SKILL.md#auto-fix-actions-reference).
 
 ---
 
@@ -23,6 +23,7 @@ Some criteria can have multiple violations (points multiply):
 | #17 AC-Task Coverage | Per uncovered AC | 3 points * uncovered_ac_count (max 3x = 9) |
 | #18 Story Dependencies | Per forward dep | 10 points * forward_dep_count |
 | #19 Task Dependencies | Per forward dep | 3 points * forward_dep_count (max 3x = 9) |
+| #20 Risk Analysis | Per unmitigated risk | 5 points * risk_count (Priority >= 15) or 3 points (Priority 9-14), max 15 |
 | Others | Single | Fixed points per criterion |
 
 **Examples:**
@@ -96,7 +97,7 @@ Story approved: Backlog -> Todo
 
 ### Maximum Violations
 
-If total > 30 points, add warning:
+If total > 30 points (max possible: 75 with criterion #20), add warning:
 
 ```
 WARNING: High violation count (42 points)

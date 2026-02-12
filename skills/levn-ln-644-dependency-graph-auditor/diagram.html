@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Graph Auditor Workflow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dependency Graph Auditor</h1>
+            <p class="subtitle">ln-644 L3 Worker v1.0.0</p>
+        </header>
+
+        <div class="info-box">
+            <h3>Overview</h3>
+            <p><strong>Purpose:</strong> Build module dependency graph, detect cycles, validate boundaries, calculate coupling metrics</p>
+            <p><strong>Type:</strong> L3 Worker (invoked by ln-640-pattern-evolution-auditor)</p>
+            <p><strong>Checks:</strong> Circular deps (pairwise + transitive DFS), boundary rules (forbidden/allowed/required), SDP, metrics (Ca/Ce/I, CCD/NCCD)</p>
+            <p><strong>Key feature:</strong> Adaptive architecture detection (custom rules > docs > auto-detect). Supports hybrid architectures.</p>
+        </div>
+
+        <h2>Main Workflow (7 Phases)</h2>
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    P1[Phase 1: Discover Architecture<br/>Adaptive 3-tier priority] --> P2[Phase 2: Build<br/>Dependency Graph]
+    P2 --> P3[Phase 3: Detect<br/>Cycles - ADP]
+    P3 --> P4[Phase 4: Validate<br/>Boundary Rules]
+    P4 --> P5[Phase 5: Calculate<br/>Graph Metrics]
+    P5 --> P6[Phase 6: Apply<br/>Baseline]
+    P6 --> P7[Phase 7: Score<br/>+ Return]
+
+    style P1 fill:#E3F2FD
+    style P2 fill:#E3F2FD
+    style P3 fill:#FFCDD2
+    style P4 fill:#FFE0B2
+    style P5 fill:#FFF9C4
+    style P6 fill:#C8E6C9
+    style P7 fill:#C8E6C9
+            </div>
+        </div>
+
+        <h2>Phase 1: Adaptive Architecture Detection</h2>
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    START[Start] --> CHECK1{docs/project/<br/>dependency_rules.yaml?}
+    CHECK1 -->|Yes| CUSTOM[Load Custom Rules<br/>Skip presets]
+    CHECK1 -->|No| CHECK2{docs/architecture.md<br/>exists?}
+    CHECK2 -->|Yes| DOCS[Read Section 4.2 + 6.4<br/>Map to presets]
+    CHECK2 -->|No| AUTO[Auto-detect from<br/>directory structure]
+
+    AUTO --> HEUR{Signals<br/>detected?}
+    HEUR -->|None| SAFE[Custom mode<br/>Cycles + metrics only<br/>LOW confidence]
+    HEUR -->|One style| PRESET[Apply matching preset<br/>HIGH confidence]
+    HEUR -->|Multiple| HYBRID[Hybrid mode<br/>Different presets per zone<br/>MEDIUM confidence]
+
+    CUSTOM --> RULES[Boundary Rules Ready]
+    DOCS --> RULES
+    SAFE --> RULES
+    PRESET --> RULES
+    HYBRID --> RULES
+
+    style CHECK1 fill:#FFE0B2
+    style CHECK2 fill:#FFE0B2
+    style HEUR fill:#FFE0B2
+    style CUSTOM fill:#C8E6C9
+    style DOCS fill:#C8E6C9
+    style SAFE fill:#FFF9C4
+    style PRESET fill:#C8E6C9
+    style HYBRID fill:#E3F2FD
+            </div>
+        </div>
+
+        <h2>Phase 3: Cycle Detection</h2>
+        <div class="diagram-container">
+            <div class="mermaid">
+graph LR
+    subgraph "Cycle Types"
+        PAIR[Pairwise<br/>A ↔ B<br/>Severity: HIGH]
+        TRANS[Transitive<br/>A → B → C → A<br/>Severity: CRITICAL]
+        FOLDER[Folder-level<br/>pkg1/ ↔ pkg2/<br/>Severity: HIGH]
+    end
+
+    subgraph "Fix Strategies"
+        DIP[1. DIP<br/>Extract interface]
+        EXTRACT[2. Extract Shared<br/>New module]
+        EVENTS[3. Domain Events<br/>Async decoupling]
+    end
+
+    PAIR --> DIP
+    TRANS --> EXTRACT
+    TRANS --> EVENTS
+
+    style PAIR fill:#ef5350,color:#fff
+    style TRANS fill:#c62828,color:#fff
+    style FOLDER fill:#ef5350,color:#fff
+    style DIP fill:#66bb6a,color:#fff
+    style EXTRACT fill:#66bb6a,color:#fff
+    style EVENTS fill:#66bb6a,color:#fff
+            </div>
+        </div>
+
+        <h2>Phase 4: Boundary Rule Types</h2>
+        <div class="diagram-container">
+            <div class="mermaid">
+graph LR
+    subgraph "3 Rule Types"
+        FORB[forbidden<br/>MUST NOT exist<br/>domain → infra]
+        ALLOW[allowed<br/>Whitelist mode<br/>ctrl → svc → repo]
+        REQ[required<br/>MUST exist<br/>ctrl → base_ctrl]
+    end
+
+    FORB -->|violated| ERR1[Per-rule severity]
+    ALLOW -->|not listed| ERR2[MEDIUM severity]
+    REQ -->|missing| ERR3[MEDIUM severity]
+
+    style FORB fill:#ef5350,color:#fff
+    style ALLOW fill:#42a5f5,color:#fff
+    style REQ fill:#ffa726
+            </div>
+        </div>
+
+        <h2>Integration with ln-640</h2>
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TB
+    LN640[ln-640 Coordinator] -->|Phase 4 parallel| LN642[ln-642<br/>Layer Boundaries]
+    LN640 -->|Phase 4 parallel| LN643[ln-643<br/>API Contracts]
+    LN640 -->|Phase 4 parallel| LN644[ln-644<br/>Dependency Graph]
+    LN640 -->|Phase 5| LN641[ln-641<br/>Pattern Analyzer]
+
+    LN644 -->|score + cycles + metrics| LN640
+
+    style LN640 fill:#1565c0,color:#fff
+    style LN644 fill:#6a1b9a,color:#fff
+    style LN641 fill:#ff8f00,color:#fff
+    style LN642 fill:#ff8f00,color:#fff
+    style LN643 fill:#ff8f00,color:#fff
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-color color-discovery"></div>Discovery</div>
+            <div class="legend-item"><div class="legend-color color-loop"></div>Metrics</div>
+            <div class="legend-item"><div class="legend-color color-decision"></div>Validation</div>
+            <div class="legend-item"><div class="legend-color color-action"></div>Output</div>
+            <div class="legend-item"><div class="legend-color color-critical"></div>Critical checks</div>
+        </div>
+
+        <footer>
+            <p>ln-644-dependency-graph-auditor v1.0.0 | Module dependency graph analysis with adaptive architecture detection</p>
+        </footer>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>
