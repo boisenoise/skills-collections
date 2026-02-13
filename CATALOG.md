@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-12 06:34 UTC*
+*Last updated: 2026-02-13 06:30 UTC*
 
-Total skills: **1998**
+Total skills: **1999**
 
 ## Skills by Source
 
@@ -1052,6 +1052,7 @@ Total skills: **1998**
 |-------|-------------|
 | `levn-ln-001-standards-researcher` | Research standards/patterns via MCP Ref. Generates Standards Research for Story Technical Notes subs... |
 | `levn-ln-002-best-practices-researcher` | Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/re... |
+| `levn-ln-003-push-all` | Commit and push ALL changes (staged + unstaged + untracked) to the remote repository |
 | `levn-ln-100-documents-pipeline` | Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs via 5 L3 wor... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
 | `levn-ln-111-root-docs-creator` | Creates 4 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
@@ -1070,7 +1071,7 @@ Total skills: **1998**
 | `levn-ln-221-story-creator` | Creates Stories from IDEAL plan (CREATE) or appends user-requested Stories (ADD). Generates 8-sectio... |
 | `levn-ln-222-story-replanner` | Replans Stories when Epic requirements change. Compares IDEAL vs existing, categorizes operations (K... |
 | `levn-ln-230-story-prioritizer` | RICE prioritization per Story with market research. Generates consolidated prioritization table in d... |
-| `levn-ln-300-task-coordinator` | Orchestrates task operations. Analyzes Story, builds optimal plan (1-6 implementation tasks), delega... |
+| `levn-ln-300-task-coordinator` | Orchestrates task operations. Analyzes Story, builds optimal plan (1-8 implementation tasks), delega... |
 | `levn-ln-301-task-creator` | Creates ALL task types (implementation, refactoring, test). Generates task documents from templates,... |
 | `levn-ln-302-task-replanner` | Updates ALL task types (implementation/refactoring/test). Compares IDEAL plan vs existing tasks, cat... |
 | `levn-ln-310-story-validator` | Validates Stories/Tasks with GO/NO-GO verdict, Readiness Score (1-10), Penalty Points, and Anti-Hall... |

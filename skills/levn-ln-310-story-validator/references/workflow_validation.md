@@ -68,16 +68,17 @@ Unit tests:
 
 ---
 
-## Criterion #9: Story Size (3-8 Tasks)
+## Criterion #9: Story Size (1-8 Tasks)
 
-**Check:** Story has 3-8 implementation Tasks (optimal decomposition)
+**Check:** Story has 1-8 implementation Tasks (3-5 optimal)
 
 **Penalty:** MEDIUM (3 points)
 
-**Optimal Task Count:**
+**Task Count by Complexity:**
 
 | Complexity | Task Count | Example |
 |------------|------------|---------|
+| Trivial | 1-2 | Add health check, config endpoint |
 | Simple | 3-4 | Add single endpoint with validation |
 | Medium | 5-6 | Integrate external service (OAuth, Stripe) |
 | Complex | 7-8 | Implement multi-step workflow |
@@ -90,8 +91,7 @@ Unit tests:
 
 **Auto-fix actions:**
 1. Count implementation Tasks (exclude final test Task)
-2. IF <3 Tasks -> Add warning: "Story may need splitting"
-3. IF >8 Tasks -> Consolidate related Tasks
+2. IF >8 Tasks -> Consolidate related Tasks
 4. **Scan first Story in Epic for database setup indicators:**
    - Keywords: "Setup Database", "Create all tables", "Database schema", "Initialize DB"
    - Check Implementation Tasks for table creation count
