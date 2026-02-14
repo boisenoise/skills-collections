@@ -1,9 +1,9 @@
-# Criteria Validation (Pass 1.5)
+# Criteria Validation (Phase 3)
 
 <!-- SCOPE: Story-level validation criteria for quality gate (#17, #18, Database schema). References ln-310. -->
 <!-- DO NOT add here: Task-level AC validation → ln-402, NFR dimensions → gate_levels.md -->
 
-Story-level validation checks executed in Pass 1.5 (after code quality, before linters).
+Story-level validation checks executed in Phase 3 (after code quality, before linters).
 
 ---
 
@@ -14,7 +14,7 @@ Validate Story against criteria from ln-310-story-validator that require **aggre
 - AC-Task Coverage Quality (criterion #17) - STRONG/WEAK/MISSING scoring across all AC
 - Database Creation Principle (criterion #9) - schema scope matches Story
 
-**Why Pass 1.5 (not Pass 2)?**
+**Why Phase 3 (not after linters)?**
 - Structural issues should block testing (fail fast)
 - AC coverage quality affects test planning (ln-510 needs STRONG coverage)
 - Database schema issues are architectural (detected early)
@@ -34,7 +34,7 @@ Validate Story against criteria from ln-310-story-validator that require **aggre
 4. Keywords: "Story {N+1}", "requires Story", "depends on", "after Story"
 
 **Verdict:**
-- **FAIL** if forward dependency detected → Create [DEP-] refactor task to reorder Stories or remove dependency
+- **FAIL** if forward dependency detected → Report DEP- issue (reorder Stories or remove dependency)
 - **PASS** otherwise
 
 **Issue Format:**
@@ -69,8 +69,8 @@ action: "Refactor Story 1.2 to use only Stories 1.1, or reorder Stories"
 - **MISSING:** No Task for AC
 
 **Verdict:**
-- **FAIL** if ANY AC has MISSING coverage → Create [BUG-] task to implement missing AC
-- **CONCERNS** if ANY AC has WEAK coverage → Create [COV-] refactor task to strengthen implementation
+- **FAIL** if ANY AC has MISSING coverage → Report BUG- issue (implement missing AC)
+- **CONCERNS** if ANY AC has WEAK coverage → Report COV- issue (strengthen implementation)
 - **PASS** if ALL AC have STRONG coverage
 
 **Issue Format (WEAK):**
@@ -112,7 +112,7 @@ Actual tables: Users, Products, Orders ← VIOLATION (Products/Orders not in Sto
 ```
 
 **Verdict:**
-- **FAIL** if Task creates tables for FUTURE Stories → Create [DB-] refactor task to remove premature tables
+- **FAIL** if Task creates tables for FUTURE Stories → Report DB- issue (remove premature tables)
 - **PASS** if schema matches Story scope
 
 **Issue Format:**
@@ -125,24 +125,23 @@ action: "Remove Products/Orders tables from migration - they belong to future St
 
 ---
 
-## Execution in Pass 1.5
+## Execution in Phase 3
 
 **Placement:** After ln-511 code quality check, BEFORE linters
 
 **Order:**
 1. ln-511-code-quality-checker (existing)
-2. **Pass 1.5 Criteria Validation** (NEW):
+2. **Phase 3 Criteria Validation** (NEW):
    - Check #1: Story Dependencies
    - Check #2: AC-Task Coverage Quality
    - Check #3: Database Creation Principle
 3. Run linters from tech_stack.md (existing)
 4. ln-513-regression-checker (existing)
-5. ln-520-test-planner (existing)
 
 **Fail Fast Logic:**
-- If Check #1 (Story Dependencies) FAIL → Create [DEP-] task, STOP Pass 1
-- If Check #2 (AC Coverage) FAIL → Create [BUG-]/[COV-] tasks, STOP Pass 1
-- If Check #3 (Database Creation) FAIL → Create [DB-] task, STOP Pass 1
+- If Check #1 (Story Dependencies) FAIL → Report DEP- issue to ln-500, STOP
+- If Check #2 (AC Coverage) FAIL → Report BUG-/COV- issues to ln-500, STOP
+- If Check #3 (Database Creation) FAIL → Report DB- issue to ln-500, STOP
 - If ALL checks PASS → Continue to linters
 
 ---
@@ -156,7 +155,7 @@ action: "Remove Products/Orders tables from migration - they belong to future St
 | **DB-** | Database Schema | HIGH | Task creates tables for future Stories |
 | **AC-** | AC Validation | HIGH | AC incomplete (missing error/edge cases) |
 
-**Note:** AC- prefix reserved for future ln-500 expansion (AC completeness/specificity validation if needed at Story level).
+**Note:** AC- prefix used by ln-500 for AC completeness/specificity validation at Story level.
 
 ---
 

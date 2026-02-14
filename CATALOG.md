@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-13 06:30 UTC*
+*Last updated: 2026-02-14 06:22 UTC*
 
-Total skills: **1999**
+Total skills: **2011**
 
 ## Skills by Source
 
@@ -1054,6 +1054,7 @@ Total skills: **1999**
 | `levn-ln-002-best-practices-researcher` | Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/re... |
 | `levn-ln-003-push-all` | Commit and push ALL changes (staged + unstaged + untracked) to the remote repository |
 | `levn-ln-100-documents-pipeline` | Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs via 5 L3 wor... |
+| `levn-ln-1000-pipeline-orchestrator` | Meta-orchestrator (L0): reads kanban board, drives Stories through pipeline 300->310->400->500 in pa... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
 | `levn-ln-111-root-docs-creator` | Creates 4 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
 | `levn-ln-112-project-core-creator` | Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). ... |
@@ -1305,6 +1306,9 @@ Total skills: **1999**
 | `antigravity-aws-penetration-testing` | This skill should be used when the user asks to "pentest AWS", "test AWS security", "enumerate IAM",... |
 | `antigravity-aws-serverless` | Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functi... |
 | `antigravity-aws-skills` | AWS development with infrastructure automation and cloud architecture patterns |
+| `antigravity-azd-deployment` | Deploy containerized applications to Azure Container Apps using Azure Developer CLI (azd). Use when ... |
+| `antigravity-azure-ai-agents-persistent-dotnet` | Azure AI Agents Persistent SDK for .NET. Low-level SDK for creating and managing AI agents with thre... |
+| `antigravity-azure-ai-agents-persistent-java` | Azure AI Agents Persistent SDK for Java. Low-level SDK for creating and managing AI agents with thre... |
 | `antigravity-azure-ai-anomalydetector-java` | Build anomaly detection applications with Azure AI Anomaly Detector SDK for Java. Use when implement... |
 | `antigravity-azure-ai-contentsafety-java` | Build content moderation applications with Azure AI Content Safety SDK for Java. Use when implementi... |
 | `antigravity-azure-ai-contentsafety-py` | Azure AI Content Safety SDK for Python. Use for detecting harmful content in text and images with mu... |
@@ -1516,6 +1520,7 @@ Trigger... |
 | `antigravity-context7-auto-research` | Automatically fetch latest library/framework documentation for Claude Code via Context7 API |
 | `antigravity-conversation-memory` | Persistent memory systems for LLM conversations including short-term, long-term, and entity-based me... |
 | `antigravity-convertkit-automation` | Automate ConvertKit (Kit) tasks via Rube MCP (Composio): manage subscribers, tags, broadcasts, and b... |
+| `antigravity-copilot-sdk` | Build applications powered by GitHub Copilot using the Copilot SDK. Use when creating programmatic i... |
 | `antigravity-copy-editing` | When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment... |
 | `antigravity-copywriting` | Use this skill when writing, rewriting, or improving marketing copy for any page (homepage, landing ... |
 | `antigravity-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
@@ -1605,6 +1610,7 @@ Trigger... |
 | `antigravity-fal-upscale` | Upscale and enhance image and video resolution using AI |
 | `antigravity-fal-workflow` | Generate workflow JSON files for chaining AI models |
 | `antigravity-fastapi-pro` | Build high-performance async APIs with FastAPI, SQLAlchemy 2.0, and Pydantic V2. Master microservice... |
+| `antigravity-fastapi-router-py` | Create FastAPI routers with CRUD operations, authentication dependencies, and proper response models... |
 | `antigravity-fastapi-templates` | Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensiv... |
 | `antigravity-ffuf-claude-skill` | Web fuzzing with ffuf |
 | `antigravity-figma-automation` | Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. A... |
@@ -1649,6 +1655,7 @@ Trigger... |
 | `antigravity-git-pushing` | Stage, commit, and push git changes with conventional commit messages. Use when user wants to commit... |
 | `antigravity-github-actions-templates` | Create production-ready GitHub Actions workflows for automated testing, building, and deploying appl... |
 | `antigravity-github-automation` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (... |
+| `antigravity-github-issue-creator` | Convert raw notes, error logs, voice dictation, or screenshots into crisp GitHub-flavored markdown i... |
 | `antigravity-github-workflow-automation` | Automate GitHub workflows with AI assistance. Includes PR reviews, issue triage, CI/CD integration, ... |
 | `antigravity-gitlab-automation` | Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations... |
 | `antigravity-gitlab-ci-patterns` | Build GitLab CI/CD pipelines with multi-stage workflows, caching, and distributed runners for scalab... |
@@ -1668,6 +1675,8 @@ Trigger... |
 | `antigravity-haskell-pro` | Expert Haskell engineer specializing in advanced type systems, pure functional design, and high-reli... |
 | `antigravity-helm-chart-scaffolding` | Design, organize, and manage Helm charts for templating and packaging Kubernetes applications with r... |
 | `antigravity-helpdesk-automation` | Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, a... |
+| `antigravity-hosted-agents-v2-py` | Build hosted agents using Azure AI Projects SDK with ImageBasedHostedAgentDefinition.
+Use when creat... |
 | `antigravity-hr-pro` | Professional, ethical HR partner for hiring, onboarding/offboarding, PTO and leave, performance, com... |
 | `antigravity-html-injection-testing` | This skill should be used when the user asks to "test for HTML injection", "inject HTML into web pag... |
 | `antigravity-hubspot-automation` | Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using... |
@@ -1738,6 +1747,7 @@ Trigger... |
 | `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
 | `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
 | `antigravity-mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
+| `antigravity-mcp-builder-ms` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
 | `antigravity-memory-forensics` | Master memory forensics techniques including memory acquisition, process analysis, and artifact extr... |
 | `antigravity-memory-safety-patterns` | Implement memory-safe programming with RAII, ownership, smart pointers, and resource management acro... |
 | `antigravity-memory-systems` | Design short-term, long-term, and graph-based memory architectures |
@@ -1819,6 +1829,7 @@ Trigger... |
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
 | `antigravity-planning-with-files` | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and... |
 | `antigravity-playwright-skill` | Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to ... |
+| `antigravity-podcast-generation` | Generate AI-powered podcast-style audio narratives using Azure OpenAI's GPT Realtime Mini model via ... |
 | `antigravity-popup-cro` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without... |
 | `antigravity-posix-shell-pro` | Expert in strict POSIX sh scripting for maximum portability across Unix-like systems. Specializes in... |
 | `antigravity-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
@@ -1842,6 +1853,7 @@ Trigger... |
 | `antigravity-prompt-engineering-patterns` | Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controll... |
 | `antigravity-prompt-library` | Curated collection of high-quality prompts for various use cases. Includes role-based prompts, task-... |
 | `antigravity-protocol-reverse-engineering` | Master network protocol reverse engineering including packet analysis, protocol dissection, and cust... |
+| `antigravity-pydantic-models-py` | Create Pydantic models following the multi-model pattern with Base, Create, Update, Response, and In... |
 | `antigravity-pypict-skill` | Pairwise test generation |
 | `antigravity-python-development-python-scaffold` | You are a Python project architecture expert specializing in scaffolding production-ready Python app... |
 | `antigravity-python-packaging` | Create distributable Python packages with proper project structure, setup.py/pyproject.toml, and pub... |
@@ -1927,6 +1939,7 @@ Trigger... |
 | `antigravity-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
 | `antigravity-skill-creator` | This skill should be used when the user asks to create a new skill, build a skill, make a custom ski... |
+| `antigravity-skill-creator-ms` | Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Found... |
 | `antigravity-skill-developer` | Create and manage Claude Code skills following Anthropic best practices. Use when creating new skill... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
 | `antigravity-skill-seekers` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills i... |
@@ -1988,7 +2001,7 @@ Trigger... |
 | `antigravity-theme-factory` | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML la... |
 | `antigravity-threat-mitigation-mapping` | Map identified threats to appropriate security controls and mitigations. Use when prioritizing secur... |
 | `antigravity-threat-modeling-expert` | Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters ... |
-| `antigravity-threejs-skills` | Three.js skills for creating 3D elements and interactive experiences |
+| `antigravity-threejs-skills` | Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user requests... |
 | `antigravity-tiktok-automation` | Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a... |
 | `antigravity-todoist-automation` | Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (C... |
 | `antigravity-tool-design` | Build tools that agents can use effectively, including architectural reduction patterns |
