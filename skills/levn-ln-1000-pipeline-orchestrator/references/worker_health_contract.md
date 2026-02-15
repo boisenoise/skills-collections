@@ -63,6 +63,71 @@ ON TeammateIdle again WITHOUT response:
     ESCALATE: "Story {id} worker crashed twice at Stage {N}. Manual intervention required."
 ```
 
+## Lost Message Recovery Protocol
+
+Complements crash detection by actively verifying done-flags on each heartbeat. Handles race condition where `done.flag` created before `SendMessage` causes lost message to suppress TeammateIdle event.
+
+**Problem:** Worker creates `done.flag` before `SendMessage` (see `worker_prompts.md:95`). If message is lost (network issue, context overflow, crash), TeammateIdle hook returns `exit 0` (allows idle), suppressing TeammateIdle event. Reactive crash detection (3-step protocol) never triggers because the event never fires.
+
+**Solution:** Proactive verification in heartbeat loop (SKILL.md Phase 4, Step 2.5).
+
+```
+ON HEARTBEAT (every ~60 seconds):
+  FOR EACH active story (STAGE_0..STAGE_3):
+    IF done.flag exists AND story_state NOT advanced:
+      # Lost message detected: worker signaled completion but lead never processed it
+
+      # Try 1: Synthetic recovery from checkpoint
+      checkpoint = read(".pipeline/checkpoint-{id}.json")
+      IF checkpoint.stage matches current stage:
+        # Verify completion via kanban/Linear API
+        Re-read kanban board
+        IF work verified complete (tasks exist, status changed, etc.):
+          SYNTHESIZE appropriate "Stage N COMPLETE" message
+          Process through normal ON handler (Phase 4, Step 2)
+        ELSE:
+          SYNTHESIZE error message
+          Process through error handler
+
+      # Try 2: Fallback to probe protocol
+      ELSE:
+        # Checkpoint missing/invalid — cannot verify completion
+        suspicious_idle[id] = true
+        SendMessage(recipient: worker_name,
+                   content: "Status check: are you still working on Stage {N} for {id}?",
+                   summary: "{id} health check")
+        # Wait for worker response or next TeammateIdle (handled by existing 3-step protocol)
+```
+
+**Trigger Conditions:**
+
+| Condition | Meaning | Action |
+|-----------|---------|--------|
+| `done.flag` exists, state advanced | Normal: message received, handler processed | No action (cleanup happens in completion handler) |
+| `done.flag` exists, state NOT advanced | Lost message: worker signaled but lead never received | Synthetic recovery OR probe |
+| `done.flag` absent, no COMPLETE message | Crash or still working | Existing crash detection handles this (3-step protocol) |
+
+**Recovery Verification (by stage):**
+
+| Stage | Verification Method | Success Indicator | Failure Indicator |
+|-------|---------------------|-------------------|-------------------|
+| 0 | Re-read kanban board | Tasks exist under Story | Tasks missing despite done.flag |
+| 1 | Re-read kanban board | Story status = Todo (GO) | Story still Backlog (NO-GO) |
+| 2 | Re-read kanban board | Story status = To Review | Story not in To Review |
+| 3 | Re-read kanban board + checkpoint.verdict | Story status = Done (PASS/CONCERNS/WAIVED) | Story status = To Rework (FAIL) |
+
+**Advantages:**
+- Detects lost messages within 1 heartbeat cycle (~60s) vs manual discovery
+- Uses existing checkpoint infrastructure (no new state)
+- Preserves reactive crash detection for genuine crashes (orthogonal mechanisms)
+- No changes to worker protocol (backward compatible)
+- Handles network issues, context overflow, worker crashes
+
+**Defense-in-Depth:**
+- **Reactive (3-step crash detection):** Handles crashes that prevent done.flag creation
+- **Proactive (lost message recovery):** Handles lost messages after done.flag creation
+- Together: comprehensive coverage of all failure modes
+
 ## Respawn Rules (Resume + Checkpoint)
 
 When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpoint schema.
@@ -110,6 +175,35 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
 
 **Rationale:** Single respawn handles transient failures (context overflow, network glitch). Double crash = systematic issue requiring human input.
 
+## Zombie Workers (Expected Behavior)
+
+When a worker crashes and is respawned (crash recovery protocol), the old crashed worker may remain in the team as a "zombie" — an agent that doesn't respond to shutdown requests but stays in the team roster.
+
+**Why zombies occur:**
+1. Lead sends `shutdown_request` to crashed worker (best-effort cleanup)
+2. Crashed worker cannot respond (already dead/hung)
+3. Lead proceeds with respawn (cannot wait indefinitely)
+4. Old worker remains in `~/.claude/teams/pipeline-{date}/members`
+
+**Impact (minimal):**
+- Old worker listed in team roster but inactive
+- May receive broadcast messages (wasted delivery, but broadcasts are rare)
+- Does NOT consume active context (crashed workers don't process turns)
+- Does NOT block progress (lead continues with new worker)
+
+**Cleanup strategy:**
+- **During pipeline:** Zombies persist (acceptable tradeoff for responsiveness)
+- **At Phase 5 (Final Cleanup):** `TeamDelete` removes entire team including all zombies
+- **Manual cleanup (if needed):** User can inspect `~/.claude/teams/pipeline-{date}/` and remove zombie agents
+
+**Why not force-remove during pipeline:**
+- Adds complexity to mid-pipeline coordination
+- Risk of removing wrong worker (race conditions with team membership)
+- Zombies have minimal impact on ongoing work
+- Batch cleanup at Phase 5 is simpler and safer
+
+**Design decision:** Accept temporary zombies during pipeline execution, clean all at Phase 5. Prioritizes pipeline robustness and simplicity over perfect team hygiene.
+
 ## Graceful Shutdown Protocol
 
 Lead-initiated shutdown sequence:
@@ -145,16 +239,18 @@ Two hooks prevent premature termination. Installed by lead in Phase 3 from `refe
 ```
 SPAWNED   → lead creates .pipeline/worker-{name}-active.flag
 EXECUTING → active.flag exists, done.flag absent → TeammateIdle returns exit 2
-REPORTING → worker writes .pipeline/worker-{name}-done.flag after SendMessage
+REPORTING → worker writes .pipeline/worker-{name}-done.flag BEFORE SendMessage
             → TeammateIdle returns exit 0 → worker goes idle (can receive shutdown_request)
-SHUTDOWN  → lead removes both flags, sends shutdown_request → worker approves and exits
+PROCESSED → lead receives completion message, removes both flags AT START of handler
+            → lead processes message (state transitions, spawn next worker)
+SHUTDOWN  → lead sends shutdown_request → worker approves and exits
 ```
 
 **Lead responsibilities:**
 - Write `.pipeline/state.json` with `complete: false` at pipeline start (Phase 3)
 - Write `.pipeline/lead-session.id` with current session_id (Phase 3) — Stop hook only keeps lead alive
 - Create `.pipeline/worker-{name}-active.flag` when assigning stage
-- Remove both `active.flag` and `done.flag` when worker reports stage completion
+- Remove both `active.flag` and `done.flag` AT START of completion message handler (before state transitions)
 - Set `complete: true` in Phase 5 before cleanup
 
 ## Lead Heartbeat Loop

@@ -12,26 +12,34 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 
 ## Checkpoint Schema
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `storyId` | string | Story identifier (e.g., "PROJ-42") |
-| `stage` | number | Current stage (0-3) |
-| `agentId` | string | Worker's agent ID for Task resume |
-| `tasksCompleted` | string[] | Task IDs already finished |
-| `tasksRemaining` | string[] | Task IDs still pending |
-| `lastAction` | string | Description of last completed action |
-| `timestamp` | string | ISO 8601 timestamp |
+| Field | Type | Stage | Description |
+|-------|------|-------|-------------|
+| `storyId` | string | All | Story identifier (e.g., "PROJ-42") |
+| `stage` | number | All | Current stage (0-3) |
+| `agentId` | string | All | Worker's agent ID for Task resume |
+| `tasksCompleted` | string[] | All | Task IDs already finished |
+| `tasksRemaining` | string[] | All | Task IDs still pending |
+| `lastAction` | string | All | Description of last completed action |
+| `timestamp` | string | All | ISO 8601 timestamp |
+| `planScore` | number | 0 | Task plan quality score from ln-300 (0-4) |
+| `readiness` | number | 1 | Story readiness score from ln-310 (1-10) |
+| `verdict` | string | 1, 3 | GO/NO-GO (Stage 1) or PASS/CONCERNS/WAIVED/FAIL (Stage 3) |
+| `reason` | string | 1 | NO-GO reason from ln-310 (optional, only if verdict=NO-GO) |
+| `qualityScore` | number | 3 | Quality gate score from ln-500 (0-100) |
+| `issues` | string | 3 | Quality issues if FAIL (optional, only if verdict=FAIL) |
 
-**Example:**
+**Example (Stage 3 checkpoint with all relevant fields):**
 ```json
 {
   "storyId": "PROJ-42",
-  "stage": 2,
+  "stage": 3,
   "agentId": "abc-123-def",
-  "tasksCompleted": ["PROJ-101", "PROJ-102", "PROJ-103"],
-  "tasksRemaining": ["PROJ-104", "PROJ-105"],
-  "lastAction": "PROJ-103 completed, moved to To Review",
-  "timestamp": "2026-02-13T14:30:00Z"
+  "tasksCompleted": ["PROJ-101", "PROJ-102", "PROJ-103", "PROJ-104", "PROJ-105"],
+  "tasksRemaining": [],
+  "lastAction": "Quality gate completed, verdict: PASS",
+  "timestamp": "2026-02-14T14:30:00Z",
+  "verdict": "PASS",
+  "qualityScore": 92
 }
 ```
 
@@ -105,15 +113,21 @@ Continue from remaining tasks only.
 
 Workers write checkpoints at these points:
 
-| Stage | When to Write | Key Fields |
-|-------|--------------|------------|
-| 0 (ln-300) | After tasks created | tasksCompleted=[], tasksRemaining=[created task IDs] |
-| 1 (ln-310) | After validation | tasksCompleted=[], tasksRemaining=[] (validation is atomic) |
-| 2 (ln-400) | After EACH task completes | Move task ID from remaining to completed |
-| 3 (ln-500) | After quality gate | tasksCompleted=[all], tasksRemaining=[] |
+| Stage | When to Write | Required Fields | Stage-Specific Fields |
+|-------|--------------|----------------|----------------------|
+| 0 (ln-300) | After tasks created | storyId, stage, agentId, timestamp, lastAction | **planScore** (0-4), tasksCompleted=[], tasksRemaining=[created task IDs] |
+| 1 (ln-310) | After validation | storyId, stage, agentId, timestamp, lastAction | **readiness** (1-10), **verdict** (GO/NO-GO), **reason** (if NO-GO), tasksCompleted=[], tasksRemaining=[] |
+| 2 (ln-400) | After EACH task completes | storyId, stage, agentId, timestamp, lastAction | Move task ID from remaining to completed |
+| 3 (ln-500) | After quality gate | storyId, stage, agentId, timestamp, lastAction | **verdict** (PASS/CONCERNS/WAIVED/FAIL), **qualityScore** (0-100), **issues** (if FAIL), tasksCompleted=[all], tasksRemaining=[] |
+
+**Stage-Specific Field Requirements:**
+- **Stage 0:** MUST write `planScore` (task plan quality from ln-300)
+- **Stage 1:** MUST write `readiness`, `verdict`; MUST write `reason` if verdict=NO-GO
+- **Stage 2:** No stage-specific fields (task progress only)
+- **Stage 3:** MUST write `verdict`, `qualityScore`; MUST write `issues` if verdict=FAIL
 
 **Stage 2 is critical** — most work happens here, checkpoints after each task prevent losing progress.
 
 ---
 **Version:** 1.0.0
-**Last Updated:** 2026-02-13
+**Last Updated:** 2026-02-14

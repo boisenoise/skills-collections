@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-14 06:22 UTC*
+*Last updated: 2026-02-15 06:25 UTC*
 
-Total skills: **2011**
+Total skills: **2030**
 
 ## Skills by Source
 
@@ -1312,25 +1312,31 @@ Total skills: **2011**
 | `antigravity-azure-ai-anomalydetector-java` | Build anomaly detection applications with Azure AI Anomaly Detector SDK for Java. Use when implement... |
 | `antigravity-azure-ai-contentsafety-java` | Build content moderation applications with Azure AI Content Safety SDK for Java. Use when implementi... |
 | `antigravity-azure-ai-contentsafety-py` | Azure AI Content Safety SDK for Python. Use for detecting harmful content in text and images with mu... |
+| `antigravity-azure-ai-contentsafety-ts` | Analyze text and images for harmful content using Azure AI Content Safety (@azure-rest/ai-content-sa... |
 | `antigravity-azure-ai-contentunderstanding-py` | Azure AI Content Understanding SDK for Python. Use for multimodal content extraction from documents,... |
 | `antigravity-azure-ai-document-intelligence-dotnet` | Azure AI Document Intelligence SDK for .NET. Extract text, tables, and structured data from document... |
+| `antigravity-azure-ai-document-intelligence-ts` | Extract text, tables, and structured data from documents using Azure Document Intelligence (@azure-r... |
 | `antigravity-azure-ai-formrecognizer-java` | Build document analysis applications with Azure Document Intelligence (Form Recognizer) SDK for Java... |
 | `antigravity-azure-ai-ml-py` | Azure Machine Learning SDK v2 for Python. Use for ML workspaces, jobs, models, datasets, compute, an... |
 | `antigravity-azure-ai-openai-dotnet` | Azure OpenAI SDK for .NET. Client library for Azure OpenAI and OpenAI services. Use for chat complet... |
 | `antigravity-azure-ai-projects-dotnet` | Azure AI Projects SDK for .NET. High-level client for Azure AI Foundry projects including agents, co... |
 | `antigravity-azure-ai-projects-java` | Azure AI Projects SDK for Java. High-level SDK for Azure AI Foundry project management including con... |
 | `antigravity-azure-ai-projects-py` | Build AI applications using the Azure AI Projects Python SDK (azure-ai-projects). Use when working w... |
+| `antigravity-azure-ai-projects-ts` | Build AI applications using Azure AI Projects SDK for JavaScript (@azure/ai-projects). Use when work... |
 | `antigravity-azure-ai-textanalytics-py` | Azure AI Text Analytics SDK for sentiment analysis, entity recognition, key phrases, language detect... |
 | `antigravity-azure-ai-transcription-py` | Azure AI Transcription SDK for Python. Use for real-time and batch speech-to-text transcription with... |
 | `antigravity-azure-ai-translation-document-py` | Azure AI Document Translation SDK for batch translation of documents with format preservation. Use f... |
 | `antigravity-azure-ai-translation-text-py` | Azure AI Text Translation SDK for real-time text translation, transliteration, language detection, a... |
+| `antigravity-azure-ai-translation-ts` | Build translation applications using Azure Translation SDKs for JavaScript (@azure-rest/ai-translati... |
 | `antigravity-azure-ai-vision-imageanalysis-java` | Build image analysis applications with Azure AI Vision SDK for Java. Use when implementing image cap... |
 | `antigravity-azure-ai-vision-imageanalysis-py` | Azure AI Vision Image Analysis SDK for captions, tags, objects, OCR, people detection, and smart cro... |
 | `antigravity-azure-ai-voicelive-dotnet` | Azure AI Voice Live SDK for .NET. Build real-time voice AI applications with bidirectional WebSocket... |
 | `antigravity-azure-ai-voicelive-java` | Azure AI VoiceLive SDK for Java. Real-time bidirectional voice conversations with AI assistants usin... |
 | `antigravity-azure-ai-voicelive-py` | Build real-time voice AI applications using Azure AI Voice Live SDK (azure-ai-voicelive). Use this s... |
+| `antigravity-azure-ai-voicelive-ts` | Azure AI Voice Live SDK for JavaScript/TypeScript. Build real-time voice AI applications with bidire... |
 | `antigravity-azure-appconfiguration-java` | Azure App Configuration SDK for Java. Centralized application configuration management with key-valu... |
 | `antigravity-azure-appconfiguration-py` | Azure App Configuration SDK for Python. Use for centralized configuration management, feature flags,... |
+| `antigravity-azure-appconfiguration-ts` | Build applications using Azure App Configuration SDK for JavaScript (@azure/app-configuration). Use ... |
 | `antigravity-azure-communication-callautomation-java` | Build call automation workflows with Azure Communication Services Call Automation Java SDK. Use when... |
 | `antigravity-azure-communication-callingserver-java` | Azure Communication Services CallingServer (legacy) Java SDK. Note - This SDK is deprecated. Use azu... |
 | `antigravity-azure-communication-chat-java` | Build real-time chat applications with Azure Communication Services Chat Java SDK. Use when implemen... |
@@ -1342,6 +1348,7 @@ Total skills: **2011**
 | `antigravity-azure-cosmos-java` | Azure Cosmos DB SDK for Java. NoSQL database operations with global distribution, multi-model suppor... |
 | `antigravity-azure-cosmos-py` | Azure Cosmos DB SDK for Python (NoSQL API). Use for document CRUD, queries, containers, and globally... |
 | `antigravity-azure-cosmos-rust` | Azure Cosmos DB SDK for Rust (NoSQL API). Use for document CRUD, queries, containers, and globally d... |
+| `antigravity-azure-cosmos-ts` | Azure Cosmos DB JavaScript/TypeScript SDK (@azure/cosmos) for data plane operations. Use for CRUD op... |
 | `antigravity-azure-data-tables-java` | Build table storage applications with Azure Tables SDK for Java. Use when working with Azure Table S... |
 | `antigravity-azure-data-tables-py` | Azure Tables SDK for Python (Storage and Cosmos DB). Use for NoSQL key-value storage, entity CRUD, a... |
 | `antigravity-azure-eventgrid-dotnet` | Azure Event Grid SDK for .NET. Client library for publishing and consuming events with Azure Event G... |
@@ -1352,17 +1359,21 @@ Total skills: **2011**
 | `antigravity-azure-eventhub-py` | Azure Event Hubs SDK for Python streaming. Use for high-throughput event ingestion, producers, consu... |
 | `antigravity-azure-eventhub-rust` | Azure Event Hubs SDK for Rust. Use for sending and receiving events, streaming data ingestion.
 Trigg... |
+| `antigravity-azure-eventhub-ts` | Build event streaming applications using Azure Event Hubs SDK for JavaScript (@azure/event-hubs). Us... |
 | `antigravity-azure-functions` | Expert patterns for Azure Functions development including isolated worker model, Durable Functions o... |
 | `antigravity-azure-identity-dotnet` | Azure Identity SDK for .NET. Authentication library for Azure SDK clients using Microsoft Entra ID. ... |
 | `antigravity-azure-identity-java` | Azure Identity Java SDK for authentication with Azure services. Use when implementing DefaultAzureCr... |
 | `antigravity-azure-identity-py` | Azure Identity SDK for Python authentication. Use for DefaultAzureCredential, managed identity, serv... |
 | `antigravity-azure-identity-rust` | Azure Identity SDK for Rust authentication. Use for DeveloperToolsCredential, ManagedIdentityCredent... |
+| `antigravity-azure-identity-ts` | Authenticate to Azure services using Azure Identity SDK for JavaScript (@azure/identity). Use when c... |
 | `antigravity-azure-keyvault-certificates-rust` | Azure Key Vault Certificates SDK for Rust. Use for creating, importing, and managing certificates.
 T... |
 | `antigravity-azure-keyvault-keys-rust` | Azure Key Vault Keys SDK for Rust. Use for creating, managing, and using cryptographic keys.
 Trigger... |
+| `antigravity-azure-keyvault-keys-ts` | Manage cryptographic keys using Azure Key Vault Keys SDK for JavaScript (@azure/keyvault-keys). Use ... |
 | `antigravity-azure-keyvault-py` | Azure Key Vault SDK for Python. Use for secrets, keys, and certificates management with secure stora... |
 | `antigravity-azure-keyvault-secrets-rust` | Azure Key Vault Secrets SDK for Rust. Use for storing and retrieving secrets, passwords, and API key... |
+| `antigravity-azure-keyvault-secrets-ts` | Manage secrets using Azure Key Vault Secrets SDK for JavaScript (@azure/keyvault-secrets). Use when ... |
 | `antigravity-azure-maps-search-dotnet` | Azure Maps SDK for .NET. Location-based services including geocoding, routing, rendering, geolocatio... |
 | `antigravity-azure-messaging-webpubsub-java` | Build real-time web applications with Azure Web PubSub SDK for Java. Use when implementing WebSocket... |
 | `antigravity-azure-messaging-webpubsubservice-py` | Azure Web PubSub Service SDK for Python. Use for real-time messaging, WebSocket connections, and pub... |
@@ -1385,6 +1396,7 @@ Trigger... |
 | `antigravity-azure-monitor-opentelemetry-exporter-java` | Azure Monitor OpenTelemetry Exporter for Java. Export OpenTelemetry traces, metrics, and logs to Azu... |
 | `antigravity-azure-monitor-opentelemetry-exporter-py` | Azure Monitor OpenTelemetry Exporter for Python. Use for low-level OpenTelemetry export to Applicati... |
 | `antigravity-azure-monitor-opentelemetry-py` | Azure Monitor OpenTelemetry Distro for Python. Use for one-line Application Insights setup with auto... |
+| `antigravity-azure-monitor-opentelemetry-ts` | Instrument applications with Azure Monitor and OpenTelemetry for JavaScript (@azure/monitor-opentele... |
 | `antigravity-azure-monitor-query-java` | Azure Monitor Query SDK for Java. Execute Kusto queries against Log Analytics workspaces and query m... |
 | `antigravity-azure-monitor-query-py` | Azure Monitor Query SDK for Python. Use for querying Log Analytics workspaces and Azure Monitor metr... |
 | `antigravity-azure-postgres-ts` | Connect to Azure Database for PostgreSQL Flexible Server from Node.js/TypeScript using the pg (node-... |
@@ -1397,19 +1409,25 @@ Trigger... |
 | `antigravity-azure-resource-manager-sql-dotnet` | Azure Resource Manager SDK for Azure SQL in .NET. Use for MANAGEMENT PLANE operations: creating/mana... |
 | `antigravity-azure-search-documents-dotnet` | Azure AI Search SDK for .NET (Azure.Search.Documents). Use for building search applications with ful... |
 | `antigravity-azure-search-documents-py` | Azure AI Search SDK for Python. Use for vector search, hybrid search, semantic ranking, indexing, an... |
+| `antigravity-azure-search-documents-ts` | Build search applications using Azure AI Search SDK for JavaScript (@azure/search-documents). Use wh... |
 | `antigravity-azure-security-keyvault-keys-dotnet` | Azure Key Vault Keys SDK for .NET. Client library for managing cryptographic keys in Azure Key Vault... |
 | `antigravity-azure-security-keyvault-keys-java` | Azure Key Vault Keys Java SDK for cryptographic key management. Use when creating, managing, or usin... |
 | `antigravity-azure-security-keyvault-secrets-java` | Azure Key Vault Secrets Java SDK for secret management. Use when storing, retrieving, or managing pa... |
 | `antigravity-azure-servicebus-dotnet` | Azure Service Bus SDK for .NET. Enterprise messaging with queues, topics, subscriptions, and session... |
 | `antigravity-azure-servicebus-py` | Azure Service Bus SDK for Python messaging. Use for queues, topics, subscriptions, and enterprise me... |
+| `antigravity-azure-servicebus-ts` | Build messaging applications using Azure Service Bus SDK for JavaScript (@azure/service-bus). Use wh... |
 | `antigravity-azure-speech-to-text-rest-py` | Azure Speech to Text REST API for short audio (Python). Use for simple speech recognition of audio f... |
 | `antigravity-azure-storage-blob-java` | Build blob storage applications with Azure Storage Blob SDK for Java. Use when uploading, downloadin... |
 | `antigravity-azure-storage-blob-py` | Azure Blob Storage SDK for Python. Use for uploading, downloading, listing blobs, managing container... |
 | `antigravity-azure-storage-blob-rust` | Azure Blob Storage SDK for Rust. Use for uploading, downloading, and managing blobs and containers.
 ... |
+| `antigravity-azure-storage-blob-ts` | Azure Blob Storage JavaScript/TypeScript SDK (@azure/storage-blob) for blob operations. Use for uplo... |
 | `antigravity-azure-storage-file-datalake-py` | Azure Data Lake Storage Gen2 SDK for Python. Use for hierarchical file systems, big data analytics, ... |
 | `antigravity-azure-storage-file-share-py` | Azure Storage File Share SDK for Python. Use for SMB file shares, directories, and file operations i... |
+| `antigravity-azure-storage-file-share-ts` | Azure File Share JavaScript/TypeScript SDK (@azure/storage-file-share) for SMB file share operations... |
 | `antigravity-azure-storage-queue-py` | Azure Queue Storage SDK for Python. Use for reliable message queuing, task distribution, and asynchr... |
+| `antigravity-azure-storage-queue-ts` | Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue) for message queue operations. U... |
+| `antigravity-azure-web-pubsub-ts` | Build real-time messaging applications using Azure Web PubSub SDKs for JavaScript (@azure/web-pubsub... |
 | `antigravity-backend-architect` | Expert backend architect specializing in scalable API design, microservices architecture, and distri... |
 | `antigravity-backend-dev-guidelines` | Opinionated backend development standards for Node.js + Express + TypeScript microservices. Covers l... |
 | `antigravity-backend-development-feature-development` | Orchestrate end-to-end backend feature development from requirements to deployment. Use when coordin... |
@@ -1738,6 +1756,7 @@ Use when creat... |
 | `antigravity-loki-mode` | Multi-agent autonomous startup system for Claude Code. Triggers on "Loki Mode". Orchestrates 100+ sp... |
 | `antigravity-m365-agents-dotnet` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.... |
 | `antigravity-m365-agents-py` | Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with ai... |
+| `antigravity-m365-agents-ts` | Microsoft 365 Agents SDK for TypeScript/Node.js. Build multichannel agents for Teams/M365/Copilot St... |
 | `antigravity-machine-learning-ops-ml-pipeline` | Design and implement a complete ML pipeline for: $ARGUMENTS |
 | `antigravity-mailchimp-automation` | Automate Mailchimp email marketing including campaigns, audiences, subscribers, segments, and analyt... |
 | `antigravity-make-automation` | Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone l... |
