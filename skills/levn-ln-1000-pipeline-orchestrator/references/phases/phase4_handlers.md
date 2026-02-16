@@ -24,9 +24,13 @@ Before processing ANY stage completion, verify story is in expected state:
 - Stage 3 COMPLETE → story_state[id] must be "STAGE_3"
 
 ```
-IF mismatch: LOG "Duplicate/stale message for {id} (state={story_state[id]})"; SKIP handler
+IF mismatch:
+  # Duplicate — re-send ACK (worker may be retrying), do NOT reprocess
+  SendMessage(recipient: worker_map[id],
+    content: "ACK Stage {N} for {id}", summary: "{id} ACK (dup)")
+  LOG "Duplicate/stale message for {id} (state={story_state[id]})"; SKIP handler
 ```
-This prevents double-spawn when same completion message is delivered across heartbeats.
+This prevents double-spawn when same completion message is delivered across heartbeats. Re-sending ACK ensures retrying workers get confirmation.
 
 ## Stage 0 Handlers (Task Planning)
 
@@ -37,13 +41,18 @@ Re-read kanban board
 ASSERT tasks exist under Story {id}         # Guard: verify ln-300 output
 IF tasks missing: story_state[id] = "PAUSED"; ESCALATE; CONTINUE
 story_state[id] = "STAGE_1"
+stage_timestamps[id].stage_0_end = now()
+stage_timestamps[id].stage_1_start = now()
 # Shutdown old worker, spawn fresh for Stage 1
+# ACK: confirm receipt before shutdown
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 0 for {id}", summary: "{id} Stage 0 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 next_worker = "story-{id}-s1"
 Task(name: next_worker, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
-     prompt: worker_prompt(story, 1, business_answers, worktree_map[id]))
+     prompt: worker_prompt(story, 1, business_answers, worktree_map[id], project_root))
 worker_map[id] = next_worker
 Write .pipeline/worker-{next_worker}-active.flag
 story_results[id].stage0 = "{N} tasks, {score}/4"
@@ -54,11 +63,12 @@ story_results[id].stage0 = "{N} tasks, {score}/4"
 ```
 story_state[id] = "PAUSED"
 active_workers--
+# ACK: confirm receipt before shutdown (prevents worker retry latency)
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 0 for {id}", summary: "{id} Stage 0 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
-# Cleanup worktree if exists (prevents orphaned worktrees)
-IF worktree_map[id]:
-  Bash: git worktree remove .worktrees/story-{id} --force
-  worktree_map[id] = null
+Bash: git worktree remove .worktrees/story-{id} --force
+worktree_map[id] = null
 ESCALATE to user: "Cannot create tasks for Story {id}: {details}"
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 story_results[id].stage0 = "ERROR: {details}"
@@ -73,22 +83,31 @@ Append story report section to docs/tasks/reports/pipeline-{date}.md (PAUSED)
 Re-read kanban board
 ASSERT Story {id} status = Todo              # Guard: verify ln-310 output
 story_state[id] = "STAGE_2"
+stage_timestamps[id].stage_1_end = now()
+stage_timestamps[id].stage_2_start = now()
 # Shutdown old worker, spawn fresh for Stage 2
+# ACK: confirm receipt before shutdown
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 1 for {id}", summary: "{id} Stage 1 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 next_worker = "story-{id}-s2"
 Task(name: next_worker, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",      # Stage 2 medium effort
-     prompt: worker_prompt(story, 2, business_answers, worktree_map[id]))
+     prompt: worker_prompt(story, 2, business_answers, worktree_map[id], project_root))
 worker_map[id] = next_worker
 Write .pipeline/worker-{next_worker}-active.flag
 story_results[id].stage1 = "GO, {score}"
+readiness_scores[id] = {score}            # Preserve for Stage 3 fast-track decision
 ```
 
 ### ON "Stage 1 COMPLETE for {id}. Verdict: NO-GO. Readiness: {score}. Reason: {reason}"
 
 ```
 validation_retries[id]++
+# ACK: confirm receipt before shutdown (prevents worker retry latency)
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 1 for {id}", summary: "{id} Stage 1 ACK")
 IF validation_retries[id] <= 1:
   # Shutdown old worker, spawn fresh for Stage 1 retry
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
@@ -96,17 +115,15 @@ IF validation_retries[id] <= 1:
   next_worker = "story-{id}-s1-retry"
   Task(name: next_worker, team_name: "pipeline-{date}",
        model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",    # Stage 1 = review
-       prompt: worker_prompt(story, 1, business_answers, worktree_map[id]))
+       prompt: worker_prompt(story, 1, business_answers, worktree_map[id], project_root))
   worker_map[id] = next_worker
   Write .pipeline/worker-{next_worker}-active.flag
 ELSE:
   story_state[id] = "PAUSED"
   active_workers--
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
-  # Cleanup worktree if exists (prevents orphaned worktrees)
-  IF worktree_map[id]:
-    Bash: git worktree remove .worktrees/story-{id} --force
-    worktree_map[id] = null
+  Bash: git worktree remove .worktrees/story-{id} --force
+  worktree_map[id] = null
   ESCALATE to user: "Story {id} failed validation twice: {reason}"
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
   story_results[id].stage1 = "NO-GO, {score}, {reason} (retries exhausted)"
@@ -120,11 +137,12 @@ ELSE:
 ```
 story_state[id] = "PAUSED"
 active_workers--
+# ACK: confirm receipt before shutdown (prevents worker retry latency)
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 2 for {id}", summary: "{id} Stage 2 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
-# Cleanup worktree if exists (prevents orphaned worktrees)
-IF worktree_map[id]:
-  Bash: git worktree remove .worktrees/story-{id} --force
-  worktree_map[id] = null
+Bash: git worktree remove .worktrees/story-{id} --force
+worktree_map[id] = null
 ESCALATE to user: "Story {id} execution failed: {details}"
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 story_results[id].stage2 = "ERROR: {details}"
@@ -137,13 +155,18 @@ Append story report section to docs/tasks/reports/pipeline-{date}.md (PAUSED)
 Re-read kanban board
 ASSERT Story {id} status = To Review         # Guard: verify ln-400 output
 story_state[id] = "STAGE_3"
+stage_timestamps[id].stage_2_end = now()
+stage_timestamps[id].stage_3_start = now()
 # Shutdown old worker, spawn fresh for Stage 3
+# ACK: confirm receipt before shutdown
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 2 for {id}", summary: "{id} Stage 2 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 next_worker = "story-{id}-s3"
 Task(name: next_worker, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",      # Stage 3 = QA
-     prompt: worker_prompt(story, 3, business_answers, worktree_map[id]))
+     prompt: worker_prompt(story, 3, business_answers, worktree_map[id], project_root))
 worker_map[id] = next_worker
 Write .pipeline/worker-{next_worker}-active.flag
 story_results[id].stage2 = "Done"
@@ -154,13 +177,19 @@ story_results[id].stage2 = "Done"
 ### ON "Stage 3 COMPLETE for {id}. Verdict: PASS|CONCERNS|WAIVED. Quality Score: {score}/100."
 
 ```
-story_state[id] = "DONE"
+# ACK: confirm receipt before shutdown
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 3 for {id}", summary: "{id} Stage 3 ACK")
+stage_timestamps[id].stage_3_end = now()
 active_workers--
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
-Update .pipeline/state.json: active_workers, stories_remaining, last_check
-Squash merge (see phase4a_git_merge.md)
-Update kanban: Story → Done
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
+# Squash merge BEFORE marking DONE (crash between merge and DONE = recoverable)
+Squash merge (see phase4a_git_merge.md)
+# Only set DONE after successful merge (phase4a sets PAUSED on conflict)
+story_state[id] = "DONE"
+Update kanban: Story → Done
+Update .pipeline/state.json: active_workers, stories_remaining, last_check
 story_results[id].stage3 = "{verdict} {score}/100"
 ```
 
@@ -168,25 +197,28 @@ story_results[id].stage3 = "{verdict} {score}/100"
 
 ```
 quality_cycles[id]++
+# ACK: confirm receipt before shutdown (prevents worker retry latency)
+SendMessage(recipient: worker_map[id],
+  content: "ACK Stage 3 for {id}", summary: "{id} Stage 3 ACK")
+stage_timestamps[id].stage_3_end = now()
 IF quality_cycles[id] < 2:
   story_state[id] = "STAGE_2"
+  stage_timestamps[id].stage_2_start = now()    # Rework: restart Stage 2 timer
   # Shutdown old worker, spawn fresh for Stage 2 re-entry (fix tasks)
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
   next_worker = "story-{id}-s2-fix{quality_cycles[id]}"
   Task(name: next_worker, team_name: "pipeline-{date}",
        model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",    # Stage 2 medium effort (fix)
-       prompt: worker_prompt(story, 2, business_answers, worktree_map[id]))
+       prompt: worker_prompt(story, 2, business_answers, worktree_map[id], project_root))
   worker_map[id] = next_worker
   Write .pipeline/worker-{next_worker}-active.flag
 ELSE:
   story_state[id] = "PAUSED"
   active_workers--
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
-  # Cleanup worktree if exists (prevents orphaned worktrees)
-  IF worktree_map[id]:
-    Bash: git worktree remove .worktrees/story-{id} --force
-    worktree_map[id] = null
+  Bash: git worktree remove .worktrees/story-{id} --force
+  worktree_map[id] = null
   ESCALATE to user: "Story {id} failed quality gate {quality_cycles[id]} times"
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
   story_results[id].stage3 = "FAIL {score}/100 (cycles exhausted)"
@@ -221,7 +253,7 @@ ON TeammateIdle again WITHOUT response:
     IF checkpoint.agentId exists:
       Task(resume: checkpoint.agentId)          # Try 1: full context resume
     ELSE:
-      new_prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id]) + CHECKPOINT_RESUME block
+      new_prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id], project_root) + CHECKPOINT_RESUME block
       Task(name: "story-{id}-s{checkpoint.stage}-retry", team_name: "pipeline-{date}",
            model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
            prompt: new_prompt)                  # Try 2: Opus for crash recovery/troubleshooting
@@ -230,11 +262,10 @@ ON TeammateIdle again WITHOUT response:
   ELSE:
     story_state[id] = "PAUSED"
     active_workers--
-    # Cleanup worktree if exists (prevents orphaned worktrees)
-    IF worktree_map[id]:
-      Bash: git worktree remove .worktrees/story-{id} --force
-      worktree_map[id] = null
+    Bash: git worktree remove .worktrees/story-{id} --force
+    worktree_map[id] = null
     ESCALATE: "Story {id} worker crashed twice at Stage {N}"
+    story_results[id].crash = "Crashed at Stage {N} (crash_count={crash_count[id]})"
 ```
 
 ## Related Files

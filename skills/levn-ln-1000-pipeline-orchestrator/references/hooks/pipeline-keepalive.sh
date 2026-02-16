@@ -19,7 +19,23 @@ if [ "$COMPLETE" = "false" ]; then
     WORKERS=$(echo "$PIPELINE_STATE" | jq -r '.active_workers // 0')
     REMAINING=$(echo "$PIPELINE_STATE" | jq -r '.stories_remaining // 0')
     LAST=$(echo "$PIPELINE_STATE" | jq -r '.last_check // "unknown"')
-    echo "HEARTBEAT: ${WORKERS} active workers, ${REMAINING} stories remaining. Last check: ${LAST}. Process any queued worker messages now." >&2
+    STORY_STATE=$(echo "$PIPELINE_STATE" | jq -c '.story_state // {}')
+    WORKER_MAP=$(echo "$PIPELINE_STATE" | jq -c '.worker_map // {}')
+    SKILL_REPO=$(echo "$PIPELINE_STATE" | jq -r '.skill_repo_path // ""')
+    TEAM_NAME=$(echo "$PIPELINE_STATE" | jq -r '.team_name // ""')
+    PROJECT_TECH=$(echo "$PIPELINE_STATE" | jq -r '.project_brief.tech // "unknown"')
+
+    cat >&2 <<RECOVERY_EOF
+HEARTBEAT: ${WORKERS} active workers, ${REMAINING} stories remaining. Last check: ${LAST}.
+---PIPELINE RECOVERY CONTEXT---
+You are pipeline lead (ln-1000-pipeline-orchestrator). Team: ${TEAM_NAME}. Project tech: ${PROJECT_TECH}
+STATE: story_state=${STORY_STATE} worker_map=${WORKER_MAP}
+RECOVER: 1) Read .pipeline/state.json (ALL state + team_name + business_answers)
+2) Read ${SKILL_REPO}/ln-1000-pipeline-orchestrator/SKILL.md (FULL)
+3) Read references/phases/phase4_handlers.md + phase4_heartbeat.md + references/known_issues.md
+4) ToolSearch("+hashline-edit") for MCP tools
+5) Resume event loop: process messages → verify flags → persist state → end turn
+RECOVERY_EOF
     sleep 60
     exit 2
   fi

@@ -2,7 +2,36 @@
 
 Bidirectional health monitoring combining reactive message processing (phase4_handlers.md) with proactive done-flag verification.
 
-## Active Done-Flag Verification (Step 2.5)
+## Context Recovery (Compression Detection)
+
+When Claude Code compresses conversation history during long pipelines, the lead loses SKILL.md instructions and in-memory state. The Stop hook includes `---PIPELINE RECOVERY CONTEXT---` in every heartbeat to enable self-healing.
+
+### Detection
+
+Lead detects context loss when:
+- It sees `---PIPELINE RECOVERY CONTEXT---` in heartbeat stderr
+- It cannot recall pipeline state variables or ON handlers
+- The recovery block contains inline compact state for immediate situational awareness
+
+### Recovery Steps
+
+1. **Read** `.pipeline/state.json` → restore ALL state variables including team_name, business_answers, storage_mode
+2. **Read** SKILL.md (FULL) → restore all phases, rules, error handling, anti-patterns
+3. **Read** `references/phases/phase4_handlers.md` → restore all ON message handlers
+4. **Read** `references/phases/phase4_heartbeat.md` → restore verification + heartbeat output
+5. **Read** `references/known_issues.md` → restore self-diagnostic patterns
+6. **Set** ephemeral variables: `suspicious_idle = {}`, `heartbeat_count = 0`. Run `ToolSearch("+hashline-edit")` for MCP tools
+7. **Resume** event loop: process messages → verify flags → persist state → end turn
+
+### Token Cost
+
+| Scenario | Files Read | Approx Tokens |
+|----------|-----------|---------------|
+| Normal heartbeat (no compression) | 0 | 0 |
+| After compression (one-time recovery) | 4 files | ~2500 |
+| Recovery block in stderr (every heartbeat) | -- | ~120 |
+
+## Active Done-Flag Verification (Step 3)
 
 Detects lost completion messages by checking for done-flags without state transitions. Complements reactive crash detection (ON TeammateIdle) with proactive polling every heartbeat cycle.
 
@@ -108,16 +137,22 @@ FOR EACH story_id in story_state WHERE state in ["STAGE_0", "STAGE_1", "STAGE_2"
         # ON worker responds: handled by existing Step 2 handlers (see phase4_handlers.md)
 ```
 
-## Heartbeat State Persistence (Step 3)
+## Heartbeat State Persistence (Step 4)
 
 ```
 ON HEARTBEAT (Stop hook stderr: "HEARTBEAT: N workers, M stories..."):
   Write .pipeline/state.json with ALL state variables:
-    complete, active_workers, stories_remaining, last_check=now,
+    complete, active_workers,
+    stories_remaining = count(story_state[id] NOT IN ("DONE", "PAUSED")),
+    last_check=now,
     story_state, worker_map, quality_cycles, validation_retries,
     crash_count, priority_queue_ids, story_results, infra_issues,
-    worktree_map, depends_on
+    worktree_map, depends_on, stage_timestamps, git_stats,
+    pipeline_start_time, readiness_scores, team_name,
+    business_answers, storage_mode, status_cache, skill_repo_path,
+    project_brief, story_briefs
   # Full state write enables Phase 0 recovery if lead crashes between heartbeats
+  # ALL fields from checkpoint_format.md Pipeline State Schema must be persisted
 ```
 
 ## Structured Heartbeat Output
@@ -176,7 +211,7 @@ ON NO NEW MESSAGES (heartbeat cycle with no worker updates):
 | {worker.story} | {worker.stage} | {worker.activity} | {worker.progress} | {worker.status} |
 {END FOR}
 
-Active Workers: {active_workers}/2
+Active Workers: {active_workers}/3
 Stories Remaining: {stories_remaining}
 
 Next Steps:

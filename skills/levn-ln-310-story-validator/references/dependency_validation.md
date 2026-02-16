@@ -237,6 +237,51 @@ Task 4: Add validation middleware
 
 ---
 
+## Criterion #19b: Parallel Group Validity (Within-Story)
+
+**Check:** Parallel Groups assigned correctly (no intra-group dependencies, sequential numbering)
+
+**Penalty:** MEDIUM (3 points)
+
+**What it checks:**
+- Tasks in the same Parallel Group do NOT reference each other
+- All dependencies of group N tasks point to groups 1..N-1 only
+- Group numbers are sequential (1, 2, 3...) with no gaps
+- Every task has a `**Parallel Group:**` field (or all tasks lack it — backward compatible)
+
+**Skip When:**
+- No tasks have `**Parallel Group:**` field (backward compatible — each task = own group)
+- Story has only 1 task (no parallelism possible)
+
+---
+
+### Examples #19b
+
+**GOOD:**
+```
+Task 1 (Group 1): DB migration — no deps
+Task 2 (Group 2): UserRepo — depends on Task 1 ✅ (group 1 < group 2)
+Task 3 (Group 2): ProductRepo — depends on Task 1 ✅ (group 1 < group 2)
+Task 4 (Group 3): UserService — depends on Task 2 ✅ (group 2 < group 3)
+```
+
+**BAD:**
+```
+Task 2 (Group 2): UserRepo — depends on Task 1 ✅
+Task 3 (Group 2): ProductRepo — depends on Task 2 ❌ (same group = mutual dependency!)
+```
+
+### Auto-fix Actions #19b
+
+1. Parse `**Parallel Group:**` from each task description
+2. Build group→tasks mapping
+3. For each group, verify no task references another task in same group
+4. Verify all deps point to earlier groups
+5. If violation: reassign task to next group (increment)
+6. If gaps in numbering: renumber sequentially
+
+---
+
 ## Dependency Detection Patterns
 
 **Story Dependencies (Criterion #18):**
@@ -297,9 +342,10 @@ Phase 4 Groups 1-5 complete:
   - Workflow (#7-#13) → Task order finalized (Foundation-First)
   - Quality (#14-#15) → Documentation complete
 
-→ Group 6: Dependencies (#18-#19) runs
+→ Group 6: Dependencies (#18-#19, #19b) runs
   - Check Story forward dependencies
   - Check Task forward dependencies
+  - Check Parallel Group validity (if groups assigned)
 
 → Group 7: Traceability (#16-#17) runs
   - Verify final alignment and coverage
@@ -346,10 +392,16 @@ Phase 4 Groups 1-5 complete:
 - #18 checks Stories align sequentially in Epic
 - Both ensure traceability at different levels
 
+**Criterion #19b (Parallel Groups):**
+- #19b checks tasks in same group don't reference each other
+- #19 checks no forward dependencies (sequential order)
+- Both ensure correct task execution flow (sequential + parallel)
+
 **Example:**
 ```
 Criterion #13: "Tasks are ordered DB → Service → API" ✅
 Criterion #19: "Task 2 (Service) doesn't depend on Task 4 (future)" ✅
+Criterion #19b: "Tasks 2,3 (Group 2) don't reference each other" ✅
 
 Result: Tasks can execute sequentially without blockers
 ```

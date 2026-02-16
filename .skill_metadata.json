@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-15T06:25:59.041380",
-  "skill_count": 2030,
+  "last_updated": "2026-02-16T06:34:38.634590",
+  "skill_count": 2033,
   "sources_processed": 19,
   "skills": [
     {
@@ -1231,6 +1231,14 @@
       "name": "antigravity-azure-appconfiguration-java",
       "original_name": "azure-appconfiguration-java",
       "description": "Azure App Configuration SDK for Java. Centralized application configuration management with key-value settings, feature flags, and snapshots.\nTriggers: \"ConfigurationClient java\", \"app configuration java\", \"feature flag java\", \"configuration setting java\", \"azure config java\".\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-go-rod-master",
+      "original_name": "go-rod-master",
+      "description": "Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) including stealth anti-bot-detection patterns.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14910,7 +14918,7 @@
     {
       "name": "levn-ln-510-quality-coordinator",
       "original_name": "ln-510-quality-coordinator",
-      "description": "Coordinates code quality checks: ln-511 code quality, ln-512 agent review, ln-513 regression. Single-pass, returns results to ln-500.",
+      "description": "Coordinates code quality checks: ln-511 code quality, ln-512 tech debt cleanup, ln-513 agent review, ln-514 regression. Sequential pipeline, returns results to ln-500.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15054,7 +15062,7 @@
     {
       "name": "levn-ln-200-scope-decomposer",
       "original_name": "ln-200-scope-decomposer",
-      "description": "Orchestrates full decomposition (scope \u2192 Epics \u2192 Stories) by delegating ln-210 \u2192 ln-220. Sequential Story decomposition per Epic. Epic 0 for Infrastructure.",
+      "description": "Orchestrates full decomposition (scope \u2192 Epics \u2192 Stories \u2192 RICE prioritization) by delegating ln-210 \u2192 ln-220 \u2192 ln-230. Sequential processing. Epic 0 for Infrastructure.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15071,6 +15079,14 @@
       "name": "levn-ln-003-push-all",
       "original_name": "ln-003-push-all",
       "description": "Commit and push ALL changes (staged + unstaged + untracked) to the remote repository",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-512-tech-debt-cleaner",
+      "original_name": "ln-512-tech-debt-cleaner",
+      "description": "Automated tech debt cleanup worker (L3). Reads codebase audit findings, applies safe auto-fixes for low-risk issues (unused imports, dead code, commented-out code, deprecated aliases). Confidence >=90% only. Creates single commit with summary.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15212,6 +15228,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-514-regression-checker",
+      "original_name": "ln-514-regression-checker",
+      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-730-devops-setup",
       "original_name": "ln-730-devops-setup",
       "description": "Coordinates Docker, CI/CD, and environment configuration setup via auto-detection",
@@ -15252,17 +15276,17 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-721-frontend-restructure",
-      "original_name": "ln-721-frontend-restructure",
-      "description": "Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-based architecture",
+      "name": "levn-ln-513-agent-reviewer",
+      "original_name": "ln-513-agent-reviewer",
+      "description": "Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Background tasks, process-as-arrive, critical verification with debate. Returns filtered suggestions with confidence scoring.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
     },
     {
-      "name": "levn-ln-513-regression-checker",
-      "original_name": "ln-513-regression-checker",
-      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
+      "name": "levn-ln-721-frontend-restructure",
+      "original_name": "ln-721-frontend-restructure",
+      "description": "Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-based architecture",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15342,7 +15366,7 @@
     {
       "name": "levn-ln-1000-pipeline-orchestrator",
       "original_name": "ln-1000-pipeline-orchestrator",
-      "description": "Meta-orchestrator (L0): reads kanban board, drives Stories through pipeline 300->310->400->500 in parallel via TeamCreate. Max 2 concurrent Stories. Auto squash-merge to develop on quality gate PASS.",
+      "description": "Meta-orchestrator (L0): reads kanban board, drives Stories through pipeline 300->310->400->500 in parallel via TeamCreate. Max 3 concurrent Stories. Auto squash-merge to develop on quality gate PASS.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15446,7 +15470,7 @@
     {
       "name": "levn-ln-511-code-quality-checker",
       "original_name": "ln-511-code-quality-checker",
-      "description": "Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates architectural decisions via MCP Ref: (1) Optimality - is chosen approach the best? (2) Compliance - does it follow best practices? (3) Performance - algorithms, configs, bottlenecks. Reports issues with SEC-, PERF-, MNT-, ARCH-, BP-, OPT- prefixes.",
+      "description": "Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates architectural decisions via MCP Ref: (1) Optimality (2) Compliance (3) Performance. Reports issues with SEC-, PERF-, MNT-, ARCH-, BP-, OPT- prefixes.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15532,6 +15556,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-004-agent-sync",
+      "original_name": "ln-004-agent-sync",
+      "description": "Sync skills (symlinks) and MCP settings from Claude to Gemini CLI and Codex CLI",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-770-crosscutting-setup",
       "original_name": "ln-770-crosscutting-setup",
       "description": "Coordinates logging, error handling, CORS, health checks, and API docs",
@@ -15567,14 +15599,6 @@
       "name": "levn-ln-624-code-quality-auditor",
       "original_name": "ln-624-code-quality-auditor",
       "description": "Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classes, method signature quality, O(n\u00b2) algorithms, N+1 queries, magic numbers/constants. Returns findings with severity, location, effort, recommendations.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-512-agent-reviewer",
-      "original_name": "ln-512-agent-reviewer",
-      "description": "Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Background tasks, process-as-arrive, critical verification with debate. Returns filtered suggestions with confidence scoring.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

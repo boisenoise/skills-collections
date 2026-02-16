@@ -252,12 +252,12 @@
 <!-- DOCUMENT_START: docs/documentation_standards.md -->
 ## docs/documentation_standards.md
 
-**File:** docs/documentation_standards.md (60 universal requirements)
+**File:** docs/documentation_standards.md (count defined in template SCOPE tag)
 **Target Sections:** Quick Reference, 12 main sections, Maintenance
 
 **Rules:**
 - Must have SCOPE tag in first 10 lines
-- 60+ universal documentation requirements
+- Requirements count matches template's SCOPE tag and Quick Reference heading
 - 12 main sections covering industry standards
 - References to ISO/IEC/IEEE, DIATAXIS, arc42
 
@@ -266,11 +266,11 @@
 <!-- QUESTION_START: 14 -->
 ### Question 14: What are the comprehensive documentation requirements?
 
-**Expected Answer:** Quick Reference table with 60+ requirements in 12 categories
+**Expected Answer:** Quick Reference table with all requirements from template, organized in 12 categories
 **Target Section:** ## Quick Reference
 
 **Validation Heuristics:**
-- Has table with 60+ rows across categories
+- Has table with row count matching template's "Total:" line
 
 **Auto-Discovery:** None (use template as-is)
 <!-- QUESTION_END: 14 -->

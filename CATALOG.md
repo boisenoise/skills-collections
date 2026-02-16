@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-15 06:25 UTC*
+*Last updated: 2026-02-16 06:34 UTC*
 
-Total skills: **2030**
+Total skills: **2033**
 
 ## Skills by Source
 
@@ -1053,6 +1053,7 @@ Total skills: **2030**
 | `levn-ln-001-standards-researcher` | Research standards/patterns via MCP Ref. Generates Standards Research for Story Technical Notes subs... |
 | `levn-ln-002-best-practices-researcher` | Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/re... |
 | `levn-ln-003-push-all` | Commit and push ALL changes (staged + unstaged + untracked) to the remote repository |
+| `levn-ln-004-agent-sync` | Sync skills (symlinks) and MCP settings from Claude to Gemini CLI and Codex CLI |
 | `levn-ln-100-documents-pipeline` | Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs via 5 L3 wor... |
 | `levn-ln-1000-pipeline-orchestrator` | Meta-orchestrator (L0): reads kanban board, drives Stories through pipeline 300->310->400->500 in pa... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
@@ -1065,7 +1066,7 @@ Total skills: **2030**
 | `levn-ln-130-tasks-docs-creator` | Creates task management documentation (docs/tasks/README.md + kanban_board.md). L2 Worker in ln-100-... |
 | `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md + tests/README.md). Establishes testing philosophy a... |
 | `levn-ln-150-presentation-creator` | Builds interactive HTML presentation with 6 tabs (Overview, Requirements, Architecture/C4, Tech Spec... |
-| `levn-ln-200-scope-decomposer` | Orchestrates full decomposition (scope → Epics → Stories) by delegating ln-210 → ln-220. Sequential ... |
+| `levn-ln-200-scope-decomposer` | Orchestrates full decomposition (scope → Epics → Stories → RICE prioritization) by delegating ln-210... |
 | `levn-ln-201-opportunity-discoverer` | Traffic-First opportunity discovery. KILL funnel filters ideas by traffic channel, demand, competiti... |
 | `levn-ln-210-epic-coordinator` | CREATE/REPLAN Epics from scope (3-7 Epics). Batch Preview + Auto-extraction. Decompose-First Pattern... |
 | `levn-ln-220-story-coordinator` | CREATE/REPLAN Stories for Epic (5-10 Stories). Delegates ln-001-standards-researcher for standards r... |
@@ -1083,10 +1084,11 @@ Total skills: **2030**
 | `levn-ln-403-task-rework` | Fixes tasks in To Rework and returns them to To Review. Applies reviewer feedback only for the selec... |
 | `levn-ln-404-test-executor` | Executes Story Finalizer test tasks (label "tests") from Todo -> To Review. Enforces risk-based limi... |
 | `levn-ln-500-story-quality-gate` | Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. De... |
-| `levn-ln-510-quality-coordinator` | Coordinates code quality checks: ln-511 code quality, ln-512 agent review, ln-513 regression. Single... |
+| `levn-ln-510-quality-coordinator` | Coordinates code quality checks: ln-511 code quality, ln-512 tech debt cleanup, ln-513 agent review,... |
 | `levn-ln-511-code-quality-checker` | Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Vali... |
-| `levn-ln-512-agent-reviewer` | Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Background tasks,... |
-| `levn-ln-513-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
+| `levn-ln-512-tech-debt-cleaner` | Automated tech debt cleanup worker (L3). Reads codebase audit findings, applies safe auto-fixes for ... |
+| `levn-ln-513-agent-reviewer` | Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Background tasks,... |
+| `levn-ln-514-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
 | `levn-ln-520-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-521, ln-522, ln... |
 | `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
 | `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reus... |
@@ -1681,6 +1683,7 @@ Trigger... |
 | `antigravity-gmail-automation` | Automate Gmail tasks via Rube MCP (Composio): send/reply, search, labels, drafts, attachments. Alway... |
 | `antigravity-go-concurrency-patterns` | Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building con... |
 | `antigravity-go-playwright` | Expert capability for robust, stealthy, and efficient browser automation using Playwright Go. |
+| `antigravity-go-rod-master` | Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) i... |
 | `antigravity-godot-gdscript-patterns` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use wh... |
 | `antigravity-golang-pro` | Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production... |
 | `antigravity-google-analytics-automation` | Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn... |

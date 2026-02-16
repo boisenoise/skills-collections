@@ -136,7 +136,7 @@ action: "Remove Products/Orders tables from migration - they belong to future St
    - Check #2: AC-Task Coverage Quality
    - Check #3: Database Creation Principle
 3. Run linters from tech_stack.md (existing)
-4. ln-513-regression-checker (existing)
+4. ln-514-regression-checker (existing)
 
 **Fail Fast Logic:**
 - If Check #1 (Story Dependencies) FAIL → Report DEP- issue to ln-500, STOP

@@ -29,7 +29,7 @@ STAGE_1 --[GO verdict]--> STAGE_2
 STAGE_1 --[NO-GO, retry exhausted]--> PAUSED
 
 STAGE_2 --[all tasks Done]--> STAGE_3
-STAGE_2 --[task stuck 3+ reworks]--> PAUSED
+STAGE_2 --[task stuck 3+ reworks]--> PAUSED    # Handled by ln-400 internally — escalated as Stage 2 ERROR
 
 STAGE_3 --[PASS/CONCERNS/WAIVED]--> DONE
 STAGE_3 --[FAIL, cycles < 2]--> STAGE_2

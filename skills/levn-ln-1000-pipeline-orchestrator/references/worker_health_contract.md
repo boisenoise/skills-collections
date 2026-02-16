@@ -65,11 +65,11 @@ ON TeammateIdle again WITHOUT response:
 
 ## Lost Message Recovery Protocol
 
-Complements crash detection by actively verifying done-flags on each heartbeat. Handles race condition where `done.flag` created before `SendMessage` causes lost message to suppress TeammateIdle event.
+Complements crash detection by actively verifying done-flags on each heartbeat. Handles edge case where worker writes `done.flag` after ACK but message delivery fails on subsequent heartbeat.
 
-**Problem:** Worker creates `done.flag` before `SendMessage` (see `worker_prompts.md:95`). If message is lost (network issue, context overflow, crash), TeammateIdle hook returns `exit 0` (allows idle), suppressing TeammateIdle event. Reactive crash detection (3-step protocol) never triggers because the event never fires.
+**Problem:** Worker writes `done.flag` after receiving ACK from lead (see `worker_prompts.md`). In rare cases, done.flag exists but worker's shutdown was not processed (e.g., lead crashed between ACK and shutdown). TeammateIdle hook returns `exit 0` (allows idle), so crash detection never triggers.
 
-**Solution:** Proactive verification in heartbeat loop (SKILL.md Phase 4, Step 2.5).
+**Solution:** Proactive verification in heartbeat loop (SKILL.md Phase 4, Step 3).
 
 ```
 ON HEARTBEAT (every ~60 seconds):
@@ -153,7 +153,7 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
 4. **Fallback: new worker with checkpoint context** (if resume fails or no checkpoint):
    ```
    new_worker = "story-{id}-s{checkpoint.stage}-retry"
-   new_prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id]) + """
+   new_prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id], project_root) + """
      CHECKPOINT RESUME — DO NOT re-execute completed work.
      Tasks already completed: {checkpoint.tasksCompleted}
      Tasks remaining: {checkpoint.tasksRemaining}
@@ -239,10 +239,11 @@ Two hooks prevent premature termination. Installed by lead in Phase 3 from `refe
 ```
 SPAWNED   → lead creates .pipeline/worker-{name}-active.flag
 EXECUTING → active.flag exists, done.flag absent → TeammateIdle returns exit 2
-REPORTING → worker writes .pipeline/worker-{name}-done.flag BEFORE SendMessage
+REPORTING → worker sends "Stage N COMPLETE/ERROR" via SendMessage
+            → TeammateIdle returns exit 2 (still working, no done.flag yet)
+ACK       → lead sends "ACK Stage N for {id}" → worker writes .pipeline/worker-{name}-done.flag
             → TeammateIdle returns exit 0 → worker goes idle (can receive shutdown_request)
-PROCESSED → lead receives completion message, removes both flags AT START of handler
-            → lead processes message (state transitions, spawn next worker)
+PROCESSED → lead sends ACK, removes both flags, processes message (state transitions, spawn next worker)
 SHUTDOWN  → lead sends shutdown_request → worker approves and exits
 ```
 
@@ -302,6 +303,17 @@ Lead writes ALL state variables to `.pipeline/state.json` on **every heartbeat c
 | `depends_on` | Yes | Story → prerequisite IDs mapping |
 | `story_results` | Yes | Per-story stage results for report |
 | `infra_issues` | Yes | Infrastructure problems list |
+| `stage_timestamps` | Yes | Per-stage start/end times for duration tracking |
+| `git_stats` | Yes | Lines added/deleted/files changed per story |
+| `pipeline_start_time` | Yes | Pipeline start for wall-clock duration |
+| `readiness_scores` | Yes | From Stage 1 GO, for Stage 3 fast-track |
+| `team_name` | Yes | Team name for Task() spawns |
+| `business_answers` | Yes | Phase 2 answers passed to worker prompts |
+| `storage_mode` | Yes | "file" or "linear" task backend |
+| `status_cache` | Yes | Linear status name→UUID mapping |
+| `skill_repo_path` | Yes | Skills repository path for recovery |
+| `project_brief` | Yes | Project context (name, tech, type, key_rules) from CLAUDE.md |
+| `story_briefs` | Yes | Per-story orchestrator briefs from Linear ORCHESTRATOR_BRIEF markers |
 | `suspicious_idle` | No (ephemeral) | Reset to false on recovery |
 
 ### Recovery Sequence

@@ -63,7 +63,7 @@ From **docker-compose.test.yml**:
 ## Section 2: Researching Best Practices 2025
 
 ### When to Research
-During **Phase 2, Stage 2** for questions Q9, Q11-Q13.
+During **Phase 3** for questions Q9, Q11-Q13.
 
 Ask user first: *"Research best practices automatically? (Y/N)"*
 
@@ -185,14 +185,14 @@ Rationale:
 
 ## Section 5: Execution Flow
 
-### Phase 1.5: Material Analysis
+### Phase 2: Material Analysis
 ```
 User provides materials? (Y/N)
 ├─ Y: Glob + Read files → Extract info → Report findings
-└─ N: Skip to Phase 2
+└─ N: Skip to Phase 3
 ```
 
-### Phase 2, Stage 2: Research & Design
+### Phase 3: Research & Design
 ```
 Stage 1 complete (Q1-Q8 answered)
   ↓

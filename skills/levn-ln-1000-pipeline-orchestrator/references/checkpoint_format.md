@@ -61,14 +61,25 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `priority_queue_ids` | string[] | Remaining story IDs in priority order |
 | `story_results` | object | `{storyId: {stage0: "...", stage1: "...", ...}}` — per-stage results for report |
 | `infra_issues` | array | `[{phase, type, message}]` — infrastructure issues for report |
-| `worktree_map` | object | `{storyId: worktree_dir \| null}` — story → worktree mapping |
+| `worktree_map` | object | `{storyId: worktree_dir}` — story → worktree mapping (every story has a worktree) |
 | `depends_on` | object | `{storyId: [prerequisite IDs]}` — dependency graph |
+| `status_cache` | object | `{statusName: statusUUID}` — Linear status name→UUID mapping (empty if file mode) |
+| `stage_timestamps` | object | `{storyId: {stage_N_start: ISO, stage_N_end: ISO}}` — per-stage duration tracking |
+| `git_stats` | object | `{storyId: {lines_added, lines_deleted, files_changed}}` — code output metrics |
+| `pipeline_start_time` | string | ISO 8601 timestamp of pipeline start — for wall-clock duration |
+| `readiness_scores` | object | `{storyId: readiness_score}` — from Stage 1 GO, for Stage 3 fast-track decision |
+| `team_name` | string | Team name for Task() spawns (e.g., "pipeline-2026-02-15") |
+| `business_answers` | object | `{question: answer}` from Phase 2 — passed to worker prompts |
+| `storage_mode` | string | `"file"` or `"linear"` — task storage backend |
+| `skill_repo_path` | string | Skills repository absolute path (for recovery hook) |
+| `project_brief` | object | `{name, tech, type, key_rules}` — project context from CLAUDE.md |
+| `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — per-story orchestrator briefs from Linear |
 
 **Example:**
 ```json
 {
   "complete": false,
-  "active_workers": 2,
+  "active_workers": 3,
   "stories_remaining": 3,
   "last_check": "2026-02-13T14:30:00Z",
   "story_state": { "API-427": "STAGE_2", "API-428": "STAGE_1" },
@@ -79,8 +90,11 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
   "priority_queue_ids": ["API-429", "API-430", "API-431"],
   "story_results": { "API-427": { "stage0": "skip", "stage1": "skip", "stage2": "Done" } },
   "infra_issues": [],
-  "worktree_map": { "API-427": ".worktrees/story-API-427", "API-428": null },
-  "depends_on": { "API-429": ["API-427"], "API-430": [] }
+  "worktree_map": { "API-427": ".worktrees/story-API-427", "API-428": ".worktrees/story-API-428" },
+  "depends_on": { "API-429": ["API-427"], "API-430": [] },
+  "stage_timestamps": { "API-427": { "stage_0_start": "2026-02-13T13:00:00Z", "stage_0_end": "2026-02-13T13:12:00Z" } },
+  "git_stats": { "API-427": { "lines_added": 245, "lines_deleted": 12, "files_changed": 5 } },
+  "pipeline_start_time": "2026-02-13T12:55:00Z"
 }
 ```
 
@@ -96,8 +110,10 @@ Lead executes on confirmed crash (3-step protocol passed):
    IF resume succeeds → worker continues where it left off → DONE
 
 3. Fallback — new worker with checkpoint context:
-   prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id]) + CHECKPOINT_RESUME block
-   Task(name: "story-{id}-s{N}-retry", model: "opus", prompt: prompt, mode: "bypassPermissions", ...)
+   prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id], project_root) + CHECKPOINT_RESUME block
+   Task(name: "story-{id}-s{N}-retry", team_name: "pipeline-{date}",
+        model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
+        prompt: prompt)
 ```
 
 **CHECKPOINT_RESUME block** (appended to worker prompt):

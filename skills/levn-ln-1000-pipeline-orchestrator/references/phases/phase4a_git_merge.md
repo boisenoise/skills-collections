@@ -2,11 +2,9 @@
 
 Git operations for merging completed Stories into develop branch. Executed after Stage 3 PASS verdict from ln-500-story-quality-gate.
 
-## Worktree vs Solo Mode
+## Git Context
 
-All git commands use `git -C {dir}` where `dir = worktree_map[id] || "."`:
-- **Worktree mode:** `dir = .worktrees/story-{id}/` (parallel development)
-- **Solo mode:** `dir = .` (single-threaded, no worktrees)
+All git commands use `git -C {worktree_map[id]}`. Every worker operates in its own worktree with a named feature branch (`feature/{id}-{slug}`).
 
 ## Merge Procedure
 
@@ -15,7 +13,7 @@ All git commands use `git -C {dir}` where `dir = worktree_map[id] || "."`:
 Pull latest changes from origin/develop into feature branch.
 
 ```
-dir = worktree_map[id] || "."
+dir = worktree_map[id]
 
 git -C {dir} fetch origin develop
 git -C {dir} rebase origin/develop
@@ -27,10 +25,8 @@ IF rebase conflict:
   IF merge conflict:
     ESCALATE to user: "Merge conflict in Story {id}. Manual resolution required."
     story_state[id] = "PAUSED"
-    # Cleanup worktree if exists (prevents orphaned worktrees)
-    IF worktree_map[id]:
-      git worktree remove .worktrees/story-{id} --force
-      worktree_map[id] = null
+    git worktree remove .worktrees/story-{id} --force
+    worktree_map[id] = null
     CONTINUE                           # Skip merge, move to next story
 ```
 
@@ -40,6 +36,16 @@ IF rebase conflict:
 - On merge conflict → PAUSED, escalate to user, cleanup worktree
 - Continue pipeline with remaining stories
 
+### Step 1a: Collect Code Metrics
+
+Capture diff statistics before squash merge for pipeline report.
+
+```
+diff_output = git -C {dir} diff --stat develop...HEAD
+git_stats[id] = parse_diff_stat(diff_output)
+# Result: {lines_added: N, lines_deleted: N, files_changed: N}
+# parse_diff_stat extracts numbers from git's "N files changed, N insertions(+), N deletions(-)" summary line
+```
 ### Step 2: Squash Merge into Develop
 
 Merge all feature branch commits into single commit on develop.
@@ -60,14 +66,12 @@ Example: `API-457: Implement user authentication endpoint`
 
 ### Step 3: Cleanup Worktree
 
-Remove feature branch worktree after successful merge.
+Remove worktree directory after successful merge. Feature branch is preserved for history.
 
 ```
-IF worktree_map[id]:
-  git worktree remove .worktrees/story-{id} --force
-  worktree_map[id] = null
-ELSE:
-  # Solo mode — already on develop after checkout above
+git worktree remove .worktrees/story-{id} --force
+worktree_map[id] = null
+# NOTE: Feature branch feature/{id}-{slug} is NOT deleted — preserved for git history and audit.
 ```
 
 ### Step 4: Context Refresh
@@ -76,28 +80,28 @@ ELSE:
 
 Large merges can shift codebase context significantly. Re-reading ensures accurate state for next Story processing.
 
-### Step 5: Append Story Report
+### Step 5: Append Story Report (with duration data)
 
 Document Story completion in pipeline report.
 
 ```
 Append to docs/tasks/reports/pipeline-{date}.md:
   ### {storyId}: {storyTitle} — DONE
-  | Stage | Result | Details |
-  |-------|--------|---------|
-  | 0 | {story_results[id].stage0 or "skip"} | |
-  | 1 | {story_results[id].stage1 or "skip"} | retries: {validation_retries[id]} |
-  | 2 | {story_results[id].stage2 or "skip"} | rework cycles: {quality_cycles[id]} |
-  | 3 | {story_results[id].stage3 or "skip"} | crashes: {crash_count[id]} |
+  | Stage | Result | Duration | Details |
+  |-------|--------|----------|---------|
+  | 0 | {story_results[id].stage0 or "skip"} | {stage_duration(id, 0) or "—"} | |
+  | 1 | {story_results[id].stage1 or "skip"} | {stage_duration(id, 1) or "—"} | retries: {validation_retries[id]} |
+  | 2 | {story_results[id].stage2 or "skip"} | {stage_duration(id, 2) or "—"} | rework cycles: {quality_cycles[id]} |
+  | 3 | {story_results[id].stage3 or "skip"} | {stage_duration(id, 3) or "—"} | crashes: {crash_count[id]} |
   **Branch:** feature/{id}-{slug}
+  **Code:** +{git_stats[id].lines_added} / -{git_stats[id].lines_deleted} ({git_stats[id].files_changed} files)
   **Problems:** {list from counters, or "None"}
 ```
 
 **Report Fields:**
-- **stage0:** Task creation result (`"4 tasks, 4/4"` or `"ERROR: {details}"`)
-- **stage1:** Validation result (`"GO, 8"` or `"NO-GO, 5, {reason}"`)
-- **stage2:** Execution result (`"Done"` or `"ERROR: {details}"`)
-- **stage3:** Quality gate result (`"PASS 92/100"` or `"FAIL 65/100"`)
+- **stage0-3:** Stage result (same as before)
+- **Duration:** `stage_timestamps[id]["stage_N_end"] - stage_timestamps[id]["stage_N_start"]` formatted as Xm Ys
+- **Code:** Lines added/deleted and files changed from `git_stats[id]`
 - **Details:** Retry/rework/crash counters (0 if smooth execution)
 - **Problems:** Aggregated list from all counters (e.g., "1 validation retry, 1 quality cycle")
 

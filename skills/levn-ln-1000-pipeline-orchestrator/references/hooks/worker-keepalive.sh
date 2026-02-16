@@ -2,7 +2,7 @@
 # TeammateIdle hook — prevents workers from going idle while they have active stage assignments.
 # Exit code 2 = "don't idle, keep working" (Claude Code hooks protocol).
 # Lead creates .pipeline/worker-{name}-active.flag when assigning a stage.
-# Worker creates .pipeline/worker-{name}-done.flag BEFORE reporting completion to lead.
+# Worker creates .pipeline/worker-{name}-done.flag AFTER receiving ACK from lead.
 # Lead removes both flags after processing worker's stage completion report.
 
 INPUT=$(cat)
