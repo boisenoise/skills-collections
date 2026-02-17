@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-16 06:34 UTC*
+*Last updated: 2026-02-17 06:30 UTC*
 
-Total skills: **2033**
+Total skills: **2036**
 
 ## Skills by Source
 
@@ -1167,7 +1167,7 @@ Total skills: **2033**
 | `context-eng-evaluation` | This skill should be used when the user asks to "evaluate agent performance", "build test framework"... |
 | `context-eng-filesystem-context` | This skill should be used when the user asks to "offload context to files", "implement dynamic conte... |
 | `context-eng-hosted-agents` | This skill should be used when the user asks to "build background agent", "create hosted coding agen... |
-| `context-eng-memory-systems` | This skill should be used when the user asks to "implement agent memory", "persist state across sess... |
+| `context-eng-memory-systems` | Guides implementation of agent memory systems, compares production frameworks (Mem0, Zep/Graphiti, L... |
 | `context-eng-multi-agent-patterns` | This skill should be used when the user asks to "design multi-agent system", "implement supervisor p... |
 | `context-eng-project-development` | This skill should be used when the user asks to "start an LLM project", "design batch pipeline", "ev... |
 | `context-eng-tool-design` | This skill should be used when the user asks to "design agent tools", "create tool descriptions", "r... |
@@ -1740,6 +1740,8 @@ Use when creat... |
 | `antigravity-langchain-architecture` | Design LLM applications using the LangChain framework with agents, memory, and tool integration patt... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |
 | `antigravity-langgraph` | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applicati... |
+| `antigravity-laravel-expert` | Senior Laravel Engineer role for production-grade, maintainable, and idiomatic Laravel solutions. Fo... |
+| `antigravity-laravel-security-audit` | Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and... |
 | `antigravity-last30days` | Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-r... |
 | `antigravity-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `antigravity-legacy-modernizer` | Refactor legacy codebases, migrate outdated frameworks, and implement gradual modernization. Handles... |
@@ -1888,6 +1890,7 @@ Use when creat... |
 | `antigravity-rag-engineer` | Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector database... |
 | `antigravity-rag-implementation` | Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases and se... |
 | `antigravity-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be ... |
+| `antigravity-react-flow-architect` | Expert ReactFlow architect for building interactive graph applications with hierarchical node-edge s... |
 | `antigravity-react-flow-node-ts` | Create React Flow node components with TypeScript types, handles, and Zustand integration. Use when ... |
 | `antigravity-react-modernization` | Upgrade React applications to latest versions, migrate from class components to hooks, and adopt con... |
 | `antigravity-react-native-architecture` | Build production React Native apps with Expo, navigation, native modules, offline sync, and cross-pl... |

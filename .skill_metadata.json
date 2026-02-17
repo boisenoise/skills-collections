@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-16T06:34:38.634590",
-  "skill_count": 2033,
+  "last_updated": "2026-02-17T06:30:14.982492",
+  "skill_count": 2036,
   "sources_processed": 19,
   "skills": [
     {
@@ -1524,6 +1524,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-laravel-expert",
+      "original_name": "laravel-expert",
+      "description": "Senior Laravel Engineer role for production-grade, maintainable, and idiomatic Laravel solutions. Focuses on clean architecture, security, performance, and modern standards (Laravel 10/11+).",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-planning-with-files",
       "original_name": "planning-with-files",
       "description": "Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and progress.md. Use when starting complex multi-step tasks, research projects, or any task requiring >5 tool calls.",
@@ -2951,6 +2959,14 @@
       "name": "antigravity-sqlmap-database-pentesting",
       "original_name": "SQLMap Database Penetration Testing",
       "description": "This skill should be used when the user asks to \"automate SQL injection testing,\" \"enumerate database structure,\" \"extract database credentials using sqlmap,\" \"dump tables and columns from a vulnerable database,\" or \"perform automated database penetration testing.\" It provides comprehensive guidance for using SQLMap to detect and exploit SQL injection vulnerabilities.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-react-flow-architect",
+      "original_name": "react-flow-architect",
+      "description": "Expert ReactFlow architect for building interactive graph applications with hierarchical node-edge systems, performance optimization, and auto-layout integration. Use when Claude needs to create or optimize ReactFlow applications for: (1) Interactive process graphs with expand/collapse navigation, (2) Hierarchical tree structures with drag & drop, (3) Performance-optimized large datasets with incremental rendering, (4) Auto-layout integration with Dagre, (5) Complex state management for nodes and edges, or any advanced ReactFlow visualization requirements.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6791,6 +6807,14 @@
       "name": "antigravity-observe-whatsapp",
       "original_name": "observe-whatsapp",
       "description": "Observe and troubleshoot WhatsApp in Kapso: debug message delivery, inspect webhook deliveries/retries, triage API errors, and run health checks. Use when investigating production issues, message failures, or webhook delivery problems.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-laravel-security-audit",
+      "original_name": "laravel-security-audit",
+      "description": "Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and insecure practices using OWASP standards and Laravel security best practices.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15718,7 +15742,7 @@
     {
       "name": "context-eng-memory-systems",
       "original_name": "memory-systems",
-      "description": "This skill should be used when the user asks to \"implement agent memory\", \"persist state across sessions\", \"build knowledge graph\", \"track entities\", or mentions memory architecture, temporal knowledge graphs, vector stores, entity memory, or cross-session persistence.",
+      "description": "Guides implementation of agent memory systems, compares production frameworks (Mem0, Zep/Graphiti, Letta, LangMem), and designs persistence architectures for cross-session knowledge retention. Use when the user asks to \"implement agent memory\", \"persist state across sessions\", \"build knowledge graph for agents\", \"track entities over time\", \"add long-term memory\", \"choose a memory framework\", or mentions temporal knowledge graphs, vector stores, entity memory, or memory benchmarks (LoCoMo, LongMemEval).\n",
       "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
       "license": "MIT"
