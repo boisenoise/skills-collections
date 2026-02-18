@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-17 06:30 UTC*
+*Last updated: 2026-02-18 06:32 UTC*
 
-Total skills: **2036**
+Total skills: **2041**
 
 ## Skills by Source
 
@@ -999,6 +999,7 @@ Total skills: **2036**
 |-------|-------------|
 | `marketing-ab-test-setup` | When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user ... |
 | `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
+| `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
 | `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
 | `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
 | `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment... |
@@ -1549,6 +1550,7 @@ Trigger... |
 | `antigravity-cqrs-implementation` | Implement Command Query Responsibility Segregation for scalable architectures. Use when separating r... |
 | `antigravity-create-pr` | Create pull requests following Sentry conventions. Use when opening PRs, writing PR descriptions, or... |
 | `antigravity-crewai` | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies... |
+| `antigravity-crypto-bd-agent` | Autonomous crypto business development patterns — multi-chain token discovery, 100-point scoring wit... |
 | `antigravity-csharp-pro` | Write modern C# code with advanced features like records, pattern matching, and async/await. Optimiz... |
 | `antigravity-culture-index` | Index and search culture documentation |
 | `antigravity-customer-support` | Elite AI-powered customer support specialist mastering conversational AI, automated ticketing, senti... |
@@ -1568,6 +1570,9 @@ Trigger... |
 | `antigravity-database-migrations-sql-migrations` | SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, SQL Server |
 | `antigravity-database-optimizer` | Expert database optimizer specializing in modern performance tuning, query optimization, and scalabl... |
 | `antigravity-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
+| `antigravity-dbos-golang` | DBOS Go SDK for building reliable, fault-tolerant applications with durable workflows. Use this skil... |
+| `antigravity-dbos-python` | DBOS Python SDK for building reliable, fault-tolerant applications with durable workflows. Use this ... |
+| `antigravity-dbos-typescript` | DBOS TypeScript SDK for building reliable, fault-tolerant applications with durable workflows. Use t... |
 | `antigravity-dbt-transformation-patterns` | Master dbt (data build tool) for analytics engineering with model organization, testing, documentati... |
 | `antigravity-debugger` | Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encoun... |
 | `antigravity-debugging-strategies` | Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently trac... |
