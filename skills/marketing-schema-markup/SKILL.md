@@ -174,4 +174,5 @@ You can combine multiple schema types on one page using `@graph`:
 ## Related Skills
 
 - **seo-audit**: For overall SEO including schema review
+- **ai-seo**: For AI search optimization (schema helps AI understand content)
 - **programmatic-seo**: For templated schema at scale

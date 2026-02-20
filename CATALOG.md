@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-19 06:31 UTC*
+*Last updated: 2026-02-20 06:28 UTC*
 
-Total skills: **1962**
+Total skills: **1969**
 
 ## Skills by Source
 
@@ -919,7 +919,10 @@ Total skills: **1962**
 | Skill | Description |
 |-------|-------------|
 | `marketing-ab-test-setup` | When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user ... |
+| `marketing-ad-creative` | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary te... |
+| `marketing-ai-seo` | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-ge... |
 | `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
+| `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
 | `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
 | `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
 | `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
@@ -1495,6 +1498,9 @@ Trigger... |
 | `antigravity-dbos-python` | DBOS Python SDK for building reliable, fault-tolerant applications with durable workflows. Use this ... |
 | `antigravity-dbos-typescript` | DBOS TypeScript SDK for building reliable, fault-tolerant applications with durable workflows. Use t... |
 | `antigravity-dbt-transformation-patterns` | Master dbt (data build tool) for analytics engineering with model organization, testing, documentati... |
+| `antigravity-ddd-context-mapping` | Map relationships between bounded contexts and define integration contracts using DDD context mappin... |
+| `antigravity-ddd-strategic-design` | Design DDD strategic artifacts including subdomains, bounded contexts, and ubiquitous language for c... |
+| `antigravity-ddd-tactical-patterns` | Apply DDD tactical patterns in code using entities, value objects, aggregates, repositories, and dom... |
 | `antigravity-debugger` | Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encoun... |
 | `antigravity-debugging-strategies` | Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently trac... |
 | `antigravity-debugging-toolkit-smart-debug` | Use when working with debugging toolkit smart debug |
@@ -1522,6 +1528,7 @@ Trigger... |
 | `antigravity-documentation-templates` | Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly d... |
 | `antigravity-docusign-automation` | Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document manageme... |
 | `antigravity-docx` | Comprehensive document creation, editing, and analysis with support for tracked changes, comments, f... |
+| `antigravity-domain-driven-design` | Plan and route Domain-Driven Design work from strategic modeling to tactical implementation and even... |
 | `antigravity-dotnet-architect` | Expert .NET backend architect specializing in C#, ASP.NET Core, Entity Framework, Dapper, and enterp... |
 | `antigravity-dotnet-backend` | Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patte... |
 | `antigravity-dotnet-backend-patterns` | Master C#/.NET backend development patterns for building robust APIs, MCP servers, and enterprise ap... |

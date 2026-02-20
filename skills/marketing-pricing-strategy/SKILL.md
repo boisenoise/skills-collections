@@ -222,6 +222,7 @@ Identifies which features customers value most:
 
 ## Related Skills
 
+- **churn-prevention**: For cancel flows, save offers, and reducing revenue churn
 - **page-cro**: For optimizing pricing page conversion
 - **copywriting**: For pricing page copy
 - **marketing-psychology**: For pricing psychology principles

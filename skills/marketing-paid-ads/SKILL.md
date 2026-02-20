@@ -1,6 +1,6 @@
 ---
 name: paid-ads
-description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization."
+description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, audience targeting, and optimization. For bulk ad creative generation and iteration, see ad-creative."
 metadata:
   version: 1.0.0
 ---
@@ -308,6 +308,7 @@ For tracking, see also: [ga4.md](../../tools/integrations/ga4.md), [segment.md](
 
 ## Related Skills
 
+- **ad-creative**: For generating and iterating ad headlines, descriptions, and creative at scale
 - **copywriting**: For landing page copy that converts ad traffic
 - **analytics-tracking**: For proper conversion tracking setup
 - **ab-test-setup**: For landing page testing to improve ROAS

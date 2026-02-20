@@ -368,7 +368,7 @@ Same format as above
 ## References
 
 - [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
-- [AEO & GEO Patterns](references/aeo-geo-patterns.md): Content patterns optimized for answer engines and AI citation
+- For AI search optimization (AEO, GEO, LLMO, AI Overviews), see the **ai-seo** skill
 
 ---
 
@@ -404,6 +404,7 @@ Same format as above
 
 ## Related Skills
 
+- **ai-seo**: For optimizing content for AI search engines (AEO, GEO, LLMO)
 - **programmatic-seo**: For building SEO pages at scale
 - **schema-markup**: For implementing structured data
 - **page-cro**: For optimizing pages for conversion (not just ranking)

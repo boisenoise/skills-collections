@@ -221,6 +221,7 @@ What you've accomplished:
 
 ## Related Skills
 
+- **churn-prevention**: For cancel flows, save offers, and reducing churn post-upgrade
 - **page-cro**: For public pricing page optimization
 - **onboarding-cro**: For driving to aha moment before upgrade
 - **ab-test-setup**: For testing paywall variations

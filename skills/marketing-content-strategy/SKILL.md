@@ -352,6 +352,7 @@ Visual or structured representation of how content interconnects.
 
 - **copywriting**: For writing individual content pieces
 - **seo-audit**: For technical SEO and on-page optimization
+- **ai-seo**: For optimizing content for AI search engines and getting cited by LLMs
 - **programmatic-seo**: For scaled content generation
 - **email-sequence**: For email-based content
 - **social-content**: For social media content
