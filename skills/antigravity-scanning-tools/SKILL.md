@@ -1,9 +1,11 @@
 ---
-name: Security Scanning Tools
-description: This skill should be used when the user asks to "perform vulnerability scanning", "scan networks for open ports", "assess web application security", "scan wireless networks", "detect malware", "check cloud security", or "evaluate system compliance". It provides comprehensive guidance on security scanning tools and methodologies.
+name: scanning-tools
+description: "This skill should be used when the user asks to \"perform vulnerability scanning\", \"scan networks for open ports\", \"assess web application security\", \"scan wireless networks\", \"detec..."
 metadata:
   author: zebbern
   version: "1.1"
+risk: unknown
+source: community
 ---
 
 # Security Scanning Tools
@@ -587,3 +589,6 @@ gvm-cli socket --xml '<get_reports report_id="<id>" format_id="<pdf_format>"/>'
 3. Add custom injection points
 4. Use multiple tools for coverage
 5. Perform manual testing
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

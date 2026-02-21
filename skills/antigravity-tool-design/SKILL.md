@@ -98,7 +98,7 @@ The question to ask: are your tools enabling new capabilities, or are they const
 **Build for Future Models**
 Models improve faster than tooling can keep up. An architecture optimized for today's model may be over-constrained for tomorrow's. Build minimal architectures that can benefit from model improvements rather than sophisticated architectures that lock in current limitations.
 
-See [Architectural Reduction Case Study](./references/architectural_reduction.md) for production evidence.
+See Architectural Reduction Case Study for production evidence.
 
 ### Tool Description Engineering
 
@@ -295,8 +295,8 @@ This skill connects to:
 ## References
 
 Internal references:
-- [Best Practices Reference](./references/best_practices.md) - Detailed tool design guidelines
-- [Architectural Reduction Case Study](./references/architectural_reduction.md) - Production evidence for tool minimalism
+- Best Practices Reference - Detailed tool design guidelines
+- Architectural Reduction Case Study - Production evidence for tool minimalism
 
 Related skills in this collection:
 - context-fundamentals - Tool context interactions

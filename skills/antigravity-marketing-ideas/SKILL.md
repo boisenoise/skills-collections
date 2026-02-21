@@ -1,6 +1,8 @@
 ---
 name: marketing-ideas
-description: Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system.
+description: "Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system."
+risk: unknown
+source: community
 ---
 # Marketing Ideas for SaaS (with Feasibility Scoring)
 
@@ -219,3 +221,6 @@ Use these biases when scoring:
 * **programmatic-seo** – Scale SEO ideas
 * **ab-test-setup** – Test ideas rigorously
 
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

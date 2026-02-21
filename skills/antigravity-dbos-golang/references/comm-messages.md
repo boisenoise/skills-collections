@@ -21,7 +21,7 @@ ch := make(chan string) // Not durable!
 ```go
 func checkoutWorkflow(ctx dbos.DBOSContext, orderID string) (string, error) {
 	// Wait for payment notification (timeout 120 seconds)
-	notification, err := dbos.Recv[string](ctx, "payment_status", 120*time.Second)
+	notification, err := dbos.Recvstring
 	if err != nil {
 		return "", err
 	}

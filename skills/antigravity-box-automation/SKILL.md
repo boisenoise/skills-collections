@@ -1,8 +1,10 @@
 ---
 name: box-automation
-description: "Automate Box cloud storage operations including file upload/download, search, folder management, sharing, collaborations, and metadata queries via Rube MCP (Composio). Always search tools first for current schemas."
+description: "Automate Box cloud storage operations including file upload/download, search, folder management, sharing, collaborations, and metadata queries via Rube MCP (Composio). Always search tools first for..."
 requires:
   mcp: [rube]
+risk: unknown
+source: community
 ---
 
 # Box Automation via Rube MCP
@@ -231,3 +233,6 @@ Box tools use double underscore notation for nested objects:
 | Cancel sign request | `BOX_CANCEL_BOX_SIGN_REQUEST` | `sign_request_id` |
 | Recent items | `BOX_LIST_RECENTLY_ACCESSED_ITEMS` | (none) |
 | Create zip download | `BOX_CREATE_ZIP_DOWNLOAD` | item IDs |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

@@ -647,7 +647,7 @@ Then configure:
 
 ## 📖 Learn More
 
-- **[Skill Development Guide](../../resources/skills-development.md)** - Learn how to create your own skills
+- **Skill Development Guide** - Learn how to create your own skills
 - **[SKILL.md](./SKILL.md)** - Full technical specification of this skill
 - **[Repository README](../../README.md)** - Overview of all available skills
 

@@ -1,6 +1,8 @@
 ---
 name: security-scanning-security-hardening
 description: "Coordinate multi-layer security scanning and hardening across application, infrastructure, and compliance controls."
+risk: unknown
+source: community
 ---
 
 Implement comprehensive security hardening with defense-in-depth strategy through coordinated multi-agent orchestration:

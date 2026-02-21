@@ -1,6 +1,8 @@
 ---
 name: context-management-context-restore
 description: "Use when working with context management context restore"
+risk: unknown
+source: community
 ---
 
 # Context Restoration: Advanced Semantic Memory Rehydration

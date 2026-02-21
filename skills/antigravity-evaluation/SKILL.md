@@ -216,7 +216,7 @@ This skill connects to all other skills as a cross-cutting concern:
 ## References
 
 Internal reference:
-- [Metrics Reference](./references/metrics.md) - Detailed evaluation metrics and implementation
+- Metrics Reference - Detailed evaluation metrics and implementation
 
 ## References
 

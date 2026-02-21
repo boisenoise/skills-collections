@@ -53,7 +53,7 @@ func main() {
 Retrieve a handle later by workflow ID:
 
 ```go
-handle, err := dbos.RetrieveWorkflow[string](ctx, workflowID)
+handle, err := dbos.RetrieveWorkflowstring
 result, err := handle.GetResult()
 ```
 

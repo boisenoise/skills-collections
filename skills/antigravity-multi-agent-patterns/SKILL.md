@@ -239,7 +239,7 @@ This skill builds on context-fundamentals and context-degradation. It connects t
 ## References
 
 Internal reference:
-- [Frameworks Reference](./references/frameworks.md) - Detailed framework implementation patterns
+- Frameworks Reference - Detailed framework implementation patterns
 
 Related skills in this collection:
 - context-fundamentals - Context basics

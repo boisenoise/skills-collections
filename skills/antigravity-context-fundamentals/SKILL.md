@@ -171,7 +171,7 @@ This skill provides foundational context that all other skills build upon. It sh
 ## References
 
 Internal reference:
-- [Context Components Reference](./references/context-components.md) - Detailed technical reference
+- Context Components Reference - Detailed technical reference
 
 Related skills in this collection:
 - context-degradation - Understanding context failure patterns

@@ -1,6 +1,8 @@
 ---
 name: comprehensive-review-full-review
 description: "Use when working with comprehensive review full review"
+risk: unknown
+source: community
 ---
 
 ## Use this skill when

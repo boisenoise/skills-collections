@@ -3,6 +3,8 @@ name: zendesk-automation
 description: "Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always search tools first for current schemas."
 requires:
   mcp: [rube]
+risk: unknown
+source: community
 ---
 
 # Zendesk Automation via Rube MCP
@@ -213,3 +215,6 @@ new -> open -> pending -> solved -> closed
 | Create org | ZENDESK_CREATE_ZENDESK_ORGANIZATION | name |
 | Update org | ZENDESK_UPDATE_ZENDESK_ORGANIZATION | organization_id, name |
 | Count orgs | ZENDESK_COUNT_ZENDESK_ORGANIZATIONS | (none) |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

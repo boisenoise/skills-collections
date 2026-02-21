@@ -9,6 +9,7 @@ platforms: [github-copilot-cli, claude-code, codex]
 category: content
 tags: [audio, transcription, whisper, meeting-minutes, speech-to-text]
 risk: safe
+source: community
 ---
 
 ## Purpose

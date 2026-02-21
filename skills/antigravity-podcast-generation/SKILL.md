@@ -1,6 +1,8 @@
 ---
 name: podcast-generation
-description: Generate AI-powered podcast-style audio narratives using Azure OpenAI's GPT Realtime Mini model via WebSocket. Use when building text-to-speech features, audio narrative generation, podcast creation from content, or integrating with Azure OpenAI Realtime API for real audio output. Covers full-stack implementation from React frontend to Python FastAPI backend with WebSocket streaming.
+description: "Generate AI-powered podcast-style audio narratives using Azure OpenAI's GPT Realtime Mini model via WebSocket. Use when building text-to-speech features, audio narrative generation, podcast creatio..."
+risk: unknown
+source: community
 ---
 
 # Podcast Generation with GPT Realtime Mini
@@ -116,6 +118,9 @@ new Audio(audioUrl).play();
 
 ## References
 
-- **Full architecture**: See [references/architecture.md](references/architecture.md) for complete stack design
-- **Code examples**: See [references/code-examples.md](references/code-examples.md) for production patterns
-- **PCM conversion**: Use [scripts/pcm_to_wav.py](scripts/pcm_to_wav.py) for audio format conversion
+- **Full architecture**: See references/architecture.md for complete stack design
+- **Code examples**: See references/code-examples.md for production patterns
+- **PCM conversion**: Use scripts/pcm_to_wav.py for audio format conversion
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

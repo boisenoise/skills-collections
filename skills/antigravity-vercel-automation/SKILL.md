@@ -3,6 +3,8 @@ name: vercel-automation
 description: "Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects, and teams. Always search tools first for current schemas."
 requires:
   mcp: [rube]
+risk: unknown
+source: community
 ---
 
 # Vercel Automation via Rube MCP
@@ -224,3 +226,6 @@ Automate Vercel platform operations through Composio's Vercel toolkit via Rube M
 | List teams | VERCEL_LIST_TEAMS | (none) |
 | Get team | VERCEL_GET_TEAM | teamId |
 | Get team members | VERCEL_GET_TEAM_MEMBERS | teamId, limit |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

@@ -1,6 +1,8 @@
 ---
 name: copilot-sdk
-description: Build applications powered by GitHub Copilot using the Copilot SDK. Use when creating programmatic integrations with Copilot across Node.js/TypeScript, Python, Go, or .NET. Covers session management, custom tools, streaming, hooks, MCP servers, BYOK providers, session persistence, and custom agents. Requires GitHub Copilot CLI installed and a GitHub Copilot subscription (unless using BYOK).
+description: "Build applications powered by GitHub Copilot using the Copilot SDK. Use when creating programmatic integrations with Copilot across Node.js/TypeScript, Python, Go, or .NET. Covers session managemen..."
+risk: unknown
+source: community
 ---
 
 # GitHub Copilot SDK
@@ -508,3 +510,6 @@ const client = new CopilotClient({ logLevel: "debug" });
 - [GitHub Copilot SDK](https://github.com/github/copilot-sdk)
 - [Copilot CLI Installation](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)
 - [MCP Protocol Specification](https://modelcontextprotocol.io)
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

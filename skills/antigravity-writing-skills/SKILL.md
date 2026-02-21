@@ -1,6 +1,6 @@
 ---
 name: writing-skills
-description: Use when creating, updating, or improving agent skills.
+description: "Use when creating, updating, or improving agent skills."
 metadata:
   category: meta
   author: ozy
@@ -8,6 +8,8 @@ metadata:
     agent skill, writing skill
   references: anti-rationalization, cso, standards, templates, testing, tier-1-simple,
     tier-2-expanded, tier-3-platform
+risk: unknown
+source: community
 ---
 
 # Writing Skills (Excellence)
@@ -106,7 +108,7 @@ Before deploying any skill:
 
 ## 🔗 Related Skills
 
-- **[opencode-expert](skill://opencode-expert)**: For OpenCode environment configuration
+- **opencode-expert**: For OpenCode environment configuration
 - Use `/write-skill` command for guided skill creation
 
 ## Examples

@@ -1,6 +1,8 @@
 ---
 name: tdd-workflows-tdd-refactor
 description: "Use when working with tdd workflows tdd refactor"
+risk: unknown
+source: community
 ---
 
 ## Use this skill when

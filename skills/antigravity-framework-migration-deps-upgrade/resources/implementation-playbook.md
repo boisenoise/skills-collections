@@ -292,9 +292,9 @@ git branch -D upgrade/{package_name}-{target_version}
 
 ## Resources
 
-- [Official Migration Guide]({get_official_guide_url(package_name, target_version)})
-- [Changelog]({get_changelog_url(package_name, target_version)})
-- [Community Discussions]({get_community_url(package_name)})
+- Official Migration Guide})
+- Changelog})
+- Community Discussions})
 """
     
     return guide

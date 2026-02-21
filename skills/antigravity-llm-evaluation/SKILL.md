@@ -1,6 +1,8 @@
 ---
 name: llm-evaluation
-description: Implement comprehensive evaluation strategies for LLM applications using automated metrics, human feedback, and benchmarking. Use when testing LLM performance, measuring AI application quality, or establishing evaluation frameworks.
+description: "Implement comprehensive evaluation strategies for LLM applications using automated metrics, human feedback, and benchmarking. Use when testing LLM performance, measuring AI application quality, or ..."
+risk: unknown
+source: community
 ---
 
 # LLM Evaluation

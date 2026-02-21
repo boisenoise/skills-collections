@@ -1,6 +1,8 @@
 ---
 name: github-issue-creator
-description: Convert raw notes, error logs, voice dictation, or screenshots into crisp GitHub-flavored markdown issue reports. Use when the user pastes bug info, error messages, or informal descriptions and wants a structured GitHub issue. Supports images/GIFs for visual evidence.
+description: "Convert raw notes, error logs, voice dictation, or screenshots into crisp GitHub-flavored markdown issue reports. Use when the user pastes bug info, error messages, or informal descriptions and wan..."
+risk: unknown
+source: community
 ---
 
 # GitHub Issue Creator
@@ -64,7 +66,7 @@ Transform messy input (error logs, voice notes, screenshots) into clean, actiona
 - Medium: Feature impaired, workaround exists
 - Low: Minor inconvenience, cosmetic
 
-**Image/GIF handling**: Reference attachments inline. Format: `![Description](attachment-name.png)`
+**Image/GIF handling**: Reference attachments inline. Format: `!Description`
 
 ## Examples
 
@@ -135,3 +137,6 @@ Code: 403
 ## Additional Context
 Was working yesterday - possible permission/config change or service regression
 ```
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

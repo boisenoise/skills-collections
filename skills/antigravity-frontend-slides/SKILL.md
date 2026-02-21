@@ -1,6 +1,6 @@
 ---
 name: frontend-slides
-description: Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.
+description: "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a..."
 source: https://github.com/zarazhangrui/frontend-slides
 risk: safe
 ---
@@ -768,3 +768,6 @@ class TiltEffect {
 6. User picks a style
 7. Skill generates HTML presentation with preserved assets
 8. Final presentation delivered
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

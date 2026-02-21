@@ -1,9 +1,11 @@
 ---
-name: Metasploit Framework
-description: This skill should be used when the user asks to "use Metasploit for penetration testing", "exploit vulnerabilities with msfconsole", "create payloads with msfvenom", "perform post-exploitation", "use auxiliary modules for scanning", or "develop custom exploits". It provides comprehensive guidance for leveraging the Metasploit Framework in security assessments.
+name: metasploit-framework
+description: "This skill should be used when the user asks to \"use Metasploit for penetration testing\", \"exploit vulnerabilities with msfconsole\", \"create payloads with msfvenom\", \"perform post-exp..."
 metadata:
   author: zebbern
   version: "1.1"
+risk: unknown
+source: community
 ---
 
 # Metasploit Framework
@@ -476,3 +478,6 @@ exploit/multi/http/jenkins_script_console
 | Exploit fails/no session | Run `check`; verify payload architecture; check firewall; try different payloads |
 | Session dies immediately | Migrate to stable process; use stageless payload; check AV; use AutoRunScript |
 | Payload detected by AV | Use encoding `-e x86/shikata_ga_nai -i 10`; use evasion modules; custom templates |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

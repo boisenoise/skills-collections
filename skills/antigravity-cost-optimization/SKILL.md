@@ -1,6 +1,8 @@
 ---
 name: cost-optimization
-description: Optimize cloud costs through resource rightsizing, tagging strategies, reserved instances, and spending analysis. Use when reducing cloud expenses, analyzing infrastructure costs, or implementing cost governance policies.
+description: "Optimize cloud costs through resource rightsizing, tagging strategies, reserved instances, and spending analysis. Use when reducing cloud expenses, analyzing infrastructure costs, or implementing c..."
+risk: unknown
+source: community
 ---
 
 # Cloud Cost Optimization

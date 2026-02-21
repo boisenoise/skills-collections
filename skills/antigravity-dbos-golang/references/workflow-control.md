@@ -24,7 +24,7 @@ handle, _ := dbos.RunWorkflow(ctx, processTask, "data")
 err := dbos.CancelWorkflow(ctx, workflowID)
 
 // Resume from the last completed step
-handle, err := dbos.ResumeWorkflow[string](ctx, workflowID)
+handle, err := dbos.ResumeWorkflowstring
 result, err := handle.GetResult()
 ```
 
@@ -39,12 +39,7 @@ Fork a workflow from a specific step:
 steps, err := dbos.GetWorkflowSteps(ctx, workflowID)
 
 // Fork from a specific step
-forkHandle, err := dbos.ForkWorkflow[string](ctx, dbos.ForkWorkflowInput{
-	OriginalWorkflowID: workflowID,
-	StartStep:          2, // Fork from step 2
-	ForkedWorkflowID:   "new-wf-id",       // Optional
-	ApplicationVersion: "2.0.0",            // Optional
-})
+forkHandle, err := dbos.ForkWorkflowstring
 result, err := forkHandle.GetResult()
 ```
 

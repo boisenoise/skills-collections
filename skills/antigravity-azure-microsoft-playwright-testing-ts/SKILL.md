@@ -1,7 +1,9 @@
 ---
 name: azure-microsoft-playwright-testing-ts
-description: Run Playwright tests at scale using Azure Playwright Workspaces (formerly Microsoft Playwright Testing). Use when scaling browser tests across cloud-hosted browsers, integrating with CI/CD pipelines, or publishing test results to the Azure portal.
+description: "Run Playwright tests at scale using Azure Playwright Workspaces (formerly Microsoft Playwright Testing). Use when scaling browser tests across cloud-hosted browsers, integrating with CI/CD pipeline..."
 package: "@azure/playwright"
+risk: unknown
+source: community
 ---
 
 # Azure Playwright Workspaces SDK for TypeScript
@@ -300,3 +302,6 @@ export default defineConfig(
 4. **Scale workers** — Use `--workers=20` or higher for parallel execution
 5. **Region selection** — Choose region closest to your test targets
 6. **HTML reporter first** — When using Azure reporter, list HTML reporter before Azure reporter
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

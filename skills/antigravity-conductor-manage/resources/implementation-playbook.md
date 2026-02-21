@@ -299,7 +299,7 @@ Type 'YES' to proceed, or anything else to cancel:
 
      **Reason:** {reason}
      **Archived:** YYYY-MM-DD
-     **Folder:** [./tracks/\_archive/{track-id}/](./tracks/_archive/{track-id}/)
+     **Folder:** ./tracks/\_archive/{track-id}/
      ```
 
 5. Git commit:

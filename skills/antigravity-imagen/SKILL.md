@@ -1,6 +1,6 @@
 ---
 name: imagen
-description: |
+description: "|"
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen"
 risk: safe
 ---

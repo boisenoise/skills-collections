@@ -9,6 +9,7 @@ platforms: [github-copilot-cli, claude-code, codex]
 category: content
 tags: [video, summarization, transcription, youtube, content-analysis]
 risk: safe
+source: community
 ---
 
 # youtube-summarizer

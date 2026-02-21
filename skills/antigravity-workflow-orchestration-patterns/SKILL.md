@@ -1,6 +1,8 @@
 ---
 name: workflow-orchestration-patterns
-description: Design durable workflows with Temporal for distributed systems. Covers workflow vs activity separation, saga patterns, state management, and determinism constraints. Use when building long-running processes, distributed transactions, or microservice orchestration.
+description: "Design durable workflows with Temporal for distributed systems. Covers workflow vs activity separation, saga patterns, state management, and determinism constraints. Use when building long-running ..."
+risk: unknown
+source: community
 ---
 
 # Workflow Orchestration Patterns

@@ -1,7 +1,9 @@
 ---
 name: powershell-windows
-description: PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling.
+description: "PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling."
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+risk: unknown
+source: community
 ---
 
 # PowerShell Windows Patterns
@@ -165,3 +167,6 @@ catch {
 ---
 
 > **Remember:** PowerShell has unique syntax rules. Parentheses, ASCII-only, and null checks are non-negotiable.
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

@@ -1,9 +1,11 @@
 ---
-name: Broken Authentication Testing
-description: This skill should be used when the user asks to "test for broken authentication vulnerabilities", "assess session management security", "perform credential stuffing tests", "evaluate password policies", "test for session fixation", or "identify authentication bypass flaws". It provides comprehensive techniques for identifying authentication and session management weaknesses in web applications.
+name: broken-authentication
+description: "This skill should be used when the user asks to \"test for broken authentication vulnerabilities\", \"assess session management security\", \"perform credential stuffing tests\", \"evaluate ..."
 metadata:
   author: zebbern
   version: "1.1"
+risk: unknown
+source: community
 ---
 
 # Broken Authentication Testing
@@ -474,3 +476,6 @@ https://target.com/reset?token=a1b2c3d4e5f6&email=admin@example.com
 | Session analysis inconclusive | Collect 1000+ tokens; use statistical tools; check for timestamps; compare accounts |
 | MFA cannot be bypassed | Document as secure; test backup/recovery mechanisms; check MFA fatigue; verify enrollment |
 | Account lockout prevents testing | Request multiple test accounts; test threshold first; use slower timing |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

@@ -1,7 +1,8 @@
 ---
 name: gcp-cloud-run
-description: "Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run services (containerized), Cloud Run Functions (event-driven), cold start optimization, and event-driven architecture with Pub/Sub."
+description: "Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run services (containerized), Cloud Run Functions (event-driven), cold start optimization, and event-dri..."
 source: vibeship-spawner-skills (Apache 2.0)
+risk: unknown
 ---
 
 # GCP Cloud Run
@@ -286,3 +287,6 @@ requests. Background tasks will be extremely slow or stall.
 | Issue | high | ## Enable startup CPU boost |
 | Issue | medium | ## Explicitly set execution environment |
 | Issue | medium | ## Set consistent timeouts |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

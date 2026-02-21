@@ -216,7 +216,7 @@ This skill builds on context-fundamentals and should be studied after understand
 ## References
 
 Internal reference:
-- [Degradation Patterns Reference](./references/patterns.md) - Detailed technical reference
+- Degradation Patterns Reference - Detailed technical reference
 
 Related skills in this collection:
 - context-fundamentals - Context basics

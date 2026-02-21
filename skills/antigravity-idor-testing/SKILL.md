@@ -1,9 +1,11 @@
 ---
-name: IDOR Vulnerability Testing
-description: This skill should be used when the user asks to "test for insecure direct object references," "find IDOR vulnerabilities," "exploit broken access control," "enumerate user IDs or object references," or "bypass authorization to access other users' data." It provides comprehensive guidance for detecting, exploiting, and remediating IDOR vulnerabilities in web applications.
+name: idor-testing
+description: "This skill should be used when the user asks to \"test for insecure direct object references,\" \"find IDOR vulnerabilities,\" \"exploit broken access control,\" \"enumerate user IDs or obje..."
 metadata:
   author: zebbern
   version: "1.1"
+risk: unknown
+source: community
 ---
 
 # IDOR Vulnerability Testing
@@ -440,3 +442,6 @@ def download_receipt(request, receipt_id):
     
     return FileResponse(receipt.file)
 ```
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

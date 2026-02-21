@@ -207,7 +207,7 @@ This skill builds on context-fundamentals. It connects to:
 ## References
 
 Internal reference:
-- [Implementation Reference](./references/implementation.md) - Detailed implementation patterns
+- Implementation Reference - Detailed implementation patterns
 
 Related skills in this collection:
 - context-fundamentals - Context basics

@@ -40,8 +40,8 @@ func processData(ctx dbos.DBOSContext, input string) (string, error) {
 }
 
 // Read events from outside the workflow
-status, err := dbos.GetEvent[string](ctx, workflowID, "status", 60*time.Second)
-progress, err := dbos.GetEvent[int](ctx, workflowID, "progress", 60*time.Second)
+status, err := dbos.GetEventstring
+progress, err := dbos.GetEventint
 ```
 
 Events are useful for interactive workflows. For example, a checkout workflow can publish a payment URL for the caller to redirect to:
@@ -61,7 +61,7 @@ func checkoutWorkflow(ctx dbos.DBOSContext, order Order) (string, error) {
 
 // HTTP handler starts workflow and reads the payment URL
 handle, _ := dbos.RunWorkflow(ctx, checkoutWorkflow, order)
-url, _ := dbos.GetEvent[string](ctx, handle.GetWorkflowID(), "paymentURL", 300*time.Second)
+url, _ := dbos.GetEventstring, "paymentURL", 300*time.Second)
 ```
 
 `GetEvent` blocks until the event is set or the timeout expires. It returns the zero value of the type if the timeout is reached.

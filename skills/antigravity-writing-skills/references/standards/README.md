@@ -127,8 +127,8 @@ Reference from SKILL.md:
 ```markdown
 ## Detailed Reference
 
-- [Patterns](patterns.md) - Common usage patterns
-- [Examples](examples.md) - Code samples
+- Patterns - Common usage patterns
+- Examples - Code samples
 ```
 
 ## Skill Types

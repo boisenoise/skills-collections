@@ -1,8 +1,10 @@
 ---
-name: clickhouse-io
-description: ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads.
+name: cc-skill-clickhouse-io
+description: "ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads."
 author: affaan-m
 version: "1.0"
+risk: unknown
+source: community
 ---
 
 # ClickHouse Analytics Patterns
@@ -429,3 +431,6 @@ pgClient.on('notification', async (msg) => {
 - Review slow query log
 
 **Remember**: ClickHouse excels at analytical workloads. Design tables for your query patterns, batch inserts, and leverage materialized views for real-time aggregations.
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

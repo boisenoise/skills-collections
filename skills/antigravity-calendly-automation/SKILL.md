@@ -3,6 +3,8 @@ name: calendly-automation
 description: "Automate Calendly scheduling, event management, invitee tracking, availability checks, and organization administration via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+risk: unknown
+source: community
 ---
 
 # Calendly Automation via Rube MCP
@@ -209,3 +211,6 @@ Most Calendly list endpoints use token-based pagination:
 | List org invitations | `CALENDLY_LIST_ORGANIZATION_INVITATIONS` | `uuid`, `status` |
 | Revoke org invitation | `CALENDLY_REVOKE_USER_S_ORGANIZATION_INVITATION` | org UUID, invitation UUID |
 | Remove from org | `CALENDLY_REMOVE_USER_FROM_ORGANIZATION` | membership UUID |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

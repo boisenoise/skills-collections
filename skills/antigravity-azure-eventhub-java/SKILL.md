@@ -1,7 +1,9 @@
 ---
 name: azure-eventhub-java
-description: Build real-time streaming applications with Azure Event Hubs SDK for Java. Use when implementing event streaming, high-throughput data ingestion, or building event-driven architectures.
+description: "Build real-time streaming applications with Azure Event Hubs SDK for Java. Use when implementing event streaming, high-throughput data ingestion, or building event-driven architectures."
 package: com.azure:azure-messaging-eventhubs
+risk: unknown
+source: community
 ---
 
 # Azure Event Hubs SDK for Java
@@ -354,3 +356,6 @@ STORAGE_CONNECTION_STRING=<for-checkpointing>
 - "EventProcessorClient"
 - "event hub producer consumer"
 - "partition processing"
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

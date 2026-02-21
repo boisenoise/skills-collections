@@ -31,5 +31,5 @@ another example
 ## Detailed Docs
 
 For more options, run `--help` or see:
-- [patterns.md](patterns.md)
-- [examples.md](examples.md)
+- patterns.md
+- examples.md

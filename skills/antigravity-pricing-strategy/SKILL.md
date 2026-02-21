@@ -1,6 +1,8 @@
 ---
 name: pricing-strategy
-description: Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives.
+description: "Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives."
+risk: unknown
+source: community
 ---
 
 # Pricing Strategy
@@ -354,3 +356,6 @@ analytics-tracking – Measure impact
 ab-test-setup – Safe experimentation
 
 marketing-psychology – Behavioral pricing effects
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

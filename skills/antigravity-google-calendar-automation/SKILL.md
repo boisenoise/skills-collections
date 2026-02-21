@@ -1,8 +1,10 @@
 ---
 name: google-calendar-automation
-description: "Automate Google Calendar events, scheduling, availability checks, and attendee management via Rube MCP (Composio). Create events, find free slots, manage attendees, and list calendars programmatically."
+description: "Automate Google Calendar events, scheduling, availability checks, and attendee management via Rube MCP (Composio). Create events, find free slots, manage attendees, and list calendars programmatica..."
 requires:
   mcp: [rube]
+risk: unknown
+source: community
 ---
 
 # Google Calendar Automation via Rube MCP
@@ -174,3 +176,6 @@ Automate Google Calendar workflows including event creation, scheduling, availab
 | Remove attendee | `GOOGLECALENDAR_REMOVE_ATTENDEE` | `event_id`, `attendee_email` |
 | Get current time | `GOOGLECALENDAR_GET_CURRENT_DATE_TIME` | `timezone` |
 | Get calendar | `GOOGLECALENDAR_GET_CALENDAR` | `calendar_id` |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

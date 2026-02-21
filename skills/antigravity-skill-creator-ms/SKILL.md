@@ -1,6 +1,8 @@
 ---
-name: skill-creator
-description: Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Foundry services. Use when creating new skills or updating existing skills.
+name: skill-creator-ms
+description: "Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Foundry services. Use when creating new skills or updating existing skills."
+risk: unknown
+source: community
 ---
 
 # Skill Creator
@@ -225,8 +227,8 @@ client.delete_item(item_id)
 
 | File | Contents |
 |------|----------|
-| [references/tools.md](references/tools.md) | Tool integrations |
-| [references/streaming.md](references/streaming.md) | Event streaming patterns |
+| references/tools.md | Tool integrations |
+| references/streaming.md | Event streaming patterns |
 ```
 
 ---
@@ -525,8 +527,8 @@ After creating the skill:
 [Minimal example]
 
 ## Advanced Features
-- **Streaming**: See [references/streaming.md](references/streaming.md)
-- **Tools**: See [references/tools.md](references/tools.md)
+- **Streaming**: See references/streaming.md
+- **Tools**: See references/tools.md
 ```
 
 ### Pattern 2: Language Variants
@@ -611,3 +613,6 @@ Before completing a skill:
 **Documentation:**
 - [ ] README.md skill catalog updated
 - [ ] Instructs to search `microsoft-docs` MCP for current APIs
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

@@ -1,6 +1,8 @@
 ---
 name: popup-cro
-description: Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without harming user experience or brand trust.
+description: "Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without harming user experience or brand trust."
+risk: unknown
+source: community
 ---
 # Popup CRO
 
@@ -344,3 +346,6 @@ Multiple CTAs or mixed goals destroy performance.
 * **page-cro** – Optimize the surrounding page
 * **email-sequence** – Post-conversion follow-up
 * **ab-test-setup** – Test popup variants safely
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

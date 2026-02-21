@@ -3,6 +3,8 @@ name: circleci-automation
 description: "Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve artifacts and test metadata. Always search tools first for current schemas."
 requires:
   mcp: [rube]
+risk: unknown
+source: community
 ---
 
 # CircleCI Automation via Rube MCP
@@ -175,3 +177,6 @@ Format: {vcs_type}/{org_name}/{repo_name}
 | Get job details | CIRCLECI_GET_JOB_DETAILS | project_slug, job_number |
 | Get job artifacts | CIRCLECI_GET_JOB_ARTIFACTS | project_slug, job_number |
 | Get test metadata | CIRCLECI_GET_TEST_METADATA | project_slug, job_number |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

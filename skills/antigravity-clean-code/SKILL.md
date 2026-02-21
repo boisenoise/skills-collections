@@ -1,6 +1,6 @@
 ---
 name: clean-code
-description: "Applies principles from Robert C. Martin's 'Clean Code'. Use this skill when writing, reviewing, or refactoring code to ensure high quality, readability, and maintainability. Covers naming, functions, comments, error handling, and class design."
+description: "Applies principles from Robert C. Martin's 'Clean Code'. Use this skill when writing, reviewing, or refactoring code to ensure high quality, readability, and maintainability. Covers naming, functio..."
 user-invocable: true
 risk: safe
 source: "ClawForge (https://github.com/jackjin1997/ClawForge)"

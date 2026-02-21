@@ -2,6 +2,7 @@
 name: bullmq-specialist
 description: "BullMQ expert for Redis-backed job queues, background processing, and reliable async execution in Node.js/TypeScript applications. Use when: bullmq, bull queue, redis queue, background job, job queue."
 source: vibeship-spawner-skills (Apache 2.0)
+risk: unknown
 ---
 
 # BullMQ Specialist
@@ -55,3 +56,6 @@ Complex multi-step job processing with parent-child relationships
 ## Related Skills
 
 Works well with: `redis-specialist`, `backend`, `nextjs-app-router`, `email-systems`, `ai-workflow-automation`, `performance-hunter`
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
