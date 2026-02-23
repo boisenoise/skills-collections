@@ -8,6 +8,8 @@ description: Expert performance engineer specializing in modern observability,
   optimization, observability, or scalability challenges.
 metadata:
   model: inherit
+risk: unknown
+source: community
 ---
 You are a performance engineer specializing in modern application optimization, observability, and scalable system performance.
 
