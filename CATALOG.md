@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-23 06:35 UTC*
+*Last updated: 2026-02-24 06:31 UTC*
 
-Total skills: **1810**
+Total skills: **1812**
 
 ## Skills by Source
 
@@ -1231,6 +1231,8 @@ Total skills: **1810**
 | `antigravity-avalonia-viewmodels-zafiro` | Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI. |
 | `antigravity-avalonia-zafiro-development` | Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro too... |
 | `antigravity-aws-compliance-checker` | Automated compliance checking against CIS, PCI-DSS, HIPAA, and SOC 2 benchmarks |
+| `antigravity-aws-cost-cleanup` | Automated cleanup of unused AWS resources to reduce costs |
+| `antigravity-aws-cost-optimizer` | Comprehensive AWS cost analysis and optimization recommendations using AWS CLI and Cost Explorer |
 | `antigravity-aws-iam-best-practices` | IAM policy review, hardening, and least privilege implementation |
 | `antigravity-aws-penetration-testing` | This skill should be used when the user asks to "pentest AWS", "test AWS security", "enumerate IAM",... |
 | `antigravity-aws-secrets-rotation` | Automate AWS secrets rotation for RDS, API keys, and credentials |

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-23T06:35:07.140469",
-  "skill_count": 1810,
+  "last_updated": "2026-02-24T06:31:14.409890",
+  "skill_count": 1812,
   "sources_processed": 19,
   "skills": [
     {
@@ -828,6 +828,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-aws-cost-optimizer",
+      "original_name": "aws-cost-optimizer",
+      "description": "Comprehensive AWS cost analysis and optimization recommendations using AWS CLI and Cost Explorer",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-server-management",
       "original_name": "server-management",
       "description": "Server management principles and decision-making. Process management, monitoring strategy, and scaling decisions. Teaches thinking, not commands.",
@@ -1111,6 +1119,14 @@
       "name": "antigravity-azure-ai-formrecognizer-java",
       "original_name": "azure-ai-formrecognizer-java",
       "description": "Build document analysis applications with Azure Document Intelligence (Form Recognizer) SDK for Java. Use when extracting text, tables, key-value pairs from documents, receipts, invoices, or buildi...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-aws-cost-cleanup",
+      "original_name": "aws-cost-cleanup",
+      "description": "Automated cleanup of unused AWS resources to reduce costs",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
