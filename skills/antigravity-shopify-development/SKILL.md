@@ -5,6 +5,8 @@ description: |
   TRIGGER: "shopify", "shopify app", "checkout extension", "admin extension", "POS extension",
   "shopify theme", "liquid template", "polaris", "shopify graphql", "shopify webhook",
   "shopify billing", "app subscription", "metafields", "shopify functions"
+risk: unknown
+source: community
 ---
 
 # Shopify Development Skill
@@ -364,3 +366,6 @@ For detailed implementation guides, read these files:
 - Polaris Design System: https://polaris.shopify.com
 
 API Version: 2026-01 (quarterly releases, 12-month deprecation window)
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

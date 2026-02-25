@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-24 06:31 UTC*
+*Last updated: 2026-02-25 06:33 UTC*
 
-Total skills: **1812**
+Total skills: **1816**
 
 ## Skills by Source
 
@@ -899,7 +899,7 @@ Total skills: **1812**
 | `anthropic-frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill wh... |
 | `anthropic-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
 | `anthropic-mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
-| `anthropic-skill-creator` | Guide for creating effective skills. This skill should be used when users want to create a new skill... |
+| `anthropic-skill-creator` | Create new skills, modify and improve existing skills, and measure skill performance. Use when users... |
 | `anthropic-slack-gif-creator` | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, valida... |
 | `anthropic-theme-factory` | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML la... |
 | `anthropic-web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern fronten... |
@@ -1321,6 +1321,7 @@ Total skills: **1812**
 | `antigravity-cc-skill-project-guidelines-example` | Project Guidelines Skill (Example) |
 | `antigravity-cc-skill-security-review` | Use this skill when adding authentication, handling user input, working with secrets, creating API e... |
 | `antigravity-cc-skill-strategic-compact` | Development skill from everything-claude-code |
+| `antigravity-cdk-patterns` | Common AWS CDK patterns and constructs for building cloud infrastructure with TypeScript, Python, or... |
 | `antigravity-changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use... |
 | `antigravity-cicd-automation-workflow-automate` | You are a workflow automation expert specializing in creating efficient CI/CD pipelines, GitHub Acti... |
 | `antigravity-circleci-automation` | Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve... |
@@ -1337,6 +1338,7 @@ Total skills: **1812**
 | `antigravity-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |
 | `antigravity-cloud-devops` | Cloud infrastructure and DevOps workflow covering AWS, Azure, GCP, Kubernetes, Terraform, CI/CD, mon... |
 | `antigravity-cloud-penetration-testing` | This skill should be used when the user asks to "perform cloud penetration testing", "assess Azure o... |
+| `antigravity-cloudformation-best-practices` | CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns.... |
 | `antigravity-coda-automation` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions... |
 | `antigravity-code-documentation-code-explain` | You are a code education expert specializing in explaining complex code through clear narratives, vi... |
 | `antigravity-code-documentation-doc-generate` | You are a documentation expert specializing in creating comprehensive, maintainable documentation fr... |
@@ -1743,6 +1745,7 @@ Total skills: **1812**
 | `antigravity-shodan-reconnaissance` | This skill should be used when the user asks to "search for exposed devices on the internet," "perfo... |
 | `antigravity-shopify-apps` | Expert patterns for Shopify app development including Remix/React Router apps, embedded apps with Ap... |
 | `antigravity-shopify-automation` | Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections.... |
+| `antigravity-shopify-development` | Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid.... |
 | `antigravity-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
 | `antigravity-skill-creator` | This skill should be used when the user asks to create a new skill, build a skill, make a custom ski... |
@@ -1788,6 +1791,7 @@ Total skills: **1812**
 | `antigravity-telegram-bot-builder` | Expert in building Telegram bots that solve real problems - from simple automation to complex AI-pow... |
 | `antigravity-telegram-mini-app` | Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-like exp... |
 | `antigravity-temporal-python-testing` | Test Temporal workflows with pytest, time-skipping, and mocking strategies. Covers unit testing, int... |
+| `antigravity-terraform-aws-modules` | Terraform module creation for AWS — reusable modules, state management, and HCL best practices. Use ... |
 | `antigravity-terraform-infrastructure` | Terraform infrastructure as code workflow for provisioning cloud resources, creating reusable module... |
 | `antigravity-terraform-module-library` | Build reusable Terraform modules for AWS, Azure, and GCP infrastructure following infrastructure-as-... |
 | `antigravity-terraform-skill` | Terraform infrastructure as code best practices |

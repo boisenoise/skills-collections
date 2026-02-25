@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-24T06:31:14.409890",
-  "skill_count": 1812,
+  "last_updated": "2026-02-25T06:33:31.737165",
+  "skill_count": 1816,
   "sources_processed": 19,
   "skills": [
     {
@@ -38,10 +38,10 @@
     {
       "name": "anthropic-skill-creator",
       "original_name": "skill-creator",
-      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
       "source": "anthropics/skills",
       "source_url": "https://github.com/anthropics/skills",
-      "license": "Complete terms in LICENSE.txt"
+      "license": "Apache-2.0"
     },
     {
       "name": "anthropic-webapp-testing",
@@ -879,6 +879,14 @@
       "name": "antigravity-bitbucket-automation",
       "original_name": "bitbucket-automation",
       "description": "Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube MCP (Composio). Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cloudformation-best-practices",
+      "original_name": "cloudformation-best-practices",
+      "description": "CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns. Use when writing or reviewing CF templates.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2463,6 +2471,14 @@
       "name": "antigravity-api-security-testing",
       "original_name": "api-security-testing",
       "description": "API security testing workflow for REST and GraphQL APIs covering authentication, authorization, rate limiting, input validation, and security best practices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cdk-patterns",
+      "original_name": "cdk-patterns",
+      "description": "Common AWS CDK patterns and constructs for building cloud infrastructure with TypeScript, Python, or Java. Use when designing reusable CDK stacks and L3 constructs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4108,6 +4124,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-shopify-development",
+      "original_name": "shopify-development",
+      "description": "Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid.\nTRIGGER: \"shopify\", \"shopify app\", \"checkout extension\", \"admin extension\", \"POS extension\",\n\"shopify theme\", \"liquid template\", \"polaris\", \"shopify graphql\", \"shopify webhook\",\n\"shopify billing\", \"app subscription\", \"metafields\", \"shopify functions\"\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-freshservice-automation",
       "original_name": "freshservice-automation",
       "description": "Automate Freshservice ITSM tasks via Rube MCP (Composio): create/update tickets, bulk operations, service requests, and outbound emails. Always search tools first for current schemas.",
@@ -4727,6 +4751,14 @@
       "name": "antigravity-azure-ai-translation-ts",
       "original_name": "azure-ai-translation-ts",
       "description": "Build translation applications using Azure Translation SDKs for JavaScript (@azure-rest/ai-translation-text, @azure-rest/ai-translation-document). Use when implementing text translation, transliter...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-terraform-aws-modules",
+      "original_name": "terraform-aws-modules",
+      "description": "Terraform module creation for AWS \u2014 reusable modules, state management, and HCL best practices. Use when building or reviewing Terraform AWS infrastructure.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
