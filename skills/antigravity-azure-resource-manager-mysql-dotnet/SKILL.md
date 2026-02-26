@@ -3,6 +3,8 @@ name: azure-resource-manager-mysql-dotnet
 description: |
   Azure MySQL Flexible Server SDK for .NET. Database management for MySQL Flexible Server deployments. Use for creating servers, databases, firewall rules, configurations, backups, and high availability. Triggers: "MySQL", "MySqlFlexibleServer", "MySQL Flexible Server", "Azure Database for MySQL", "MySQL database management", "MySQL firewall", "MySQL backup".
 package: Azure.ResourceManager.MySql
+risk: unknown
+source: community
 ---
 
 # Azure.ResourceManager.MySql (.NET)
@@ -390,3 +392,6 @@ string connectionString = $"Server={server.Data.FullyQualifiedDomainName};" +
 | API Reference | https://learn.microsoft.com/dotnet/api/azure.resourcemanager.mysql |
 | Product Documentation | https://learn.microsoft.com/azure/mysql/flexible-server/ |
 | GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql/Azure.ResourceManager.MySql |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

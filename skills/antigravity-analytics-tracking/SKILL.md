@@ -6,6 +6,8 @@ description: >
   analytics tracking (GA4, GTM, product analytics, events, conversions, UTMs).
   This skill focuses on measurement strategy, signal quality, and validation—
   not just firing events.
+risk: unknown
+source: community
 ---
 
 # Analytics Tracking & Measurement Strategy
@@ -402,3 +404,6 @@ Analytics that violate trust undermine optimization.
 * **programmatic-seo** – Scale requires reliable signals
 
 ---
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

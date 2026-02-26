@@ -1,9 +1,12 @@
 ---
 name: conductor-setup
-description: Initialize project with Conductor artifacts (product definition,
+description: |
+  Initialize project with Conductor artifacts (product definition,
   tech stack, workflow, style guides)
 metadata:
   argument-hint: "[--resume]"
+risk: unknown
+source: community
 ---
 
 # Conductor Setup
@@ -308,11 +311,11 @@ Navigation hub for project context.
 
 ## Quick Links
 
-- [Product Definition](./product.md)
-- [Product Guidelines](./product-guidelines.md)
-- [Tech Stack](./tech-stack.md)
-- [Workflow](./workflow.md)
-- [Tracks](./tracks.md)
+- Product Definition
+- Product Guidelines
+- Tech Stack
+- Workflow
+- Tracks
 
 ## Active Tracks
 

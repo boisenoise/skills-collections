@@ -290,23 +290,22 @@ Lead writes ALL state variables to `.pipeline/state.json` on **every heartbeat c
 | Variable | Persisted in state.json | Recovery Notes |
 |----------|------------------------|----------------|
 | `complete` | Yes | Core pipeline flag |
-| `active_workers` | Yes | May be stale if workers crashed during lead downtime |
-| `stories_remaining` | Yes | Recalculate from story_state on recovery |
+| `selected_story_id` | Yes | User-selected story for this run |
+| `stories_remaining` | Yes | 1 or 0 (single story mode) |
 | `last_check` | Yes | Timestamp of last heartbeat |
-| `story_state` | Yes | Per-story stage mapping |
-| `worker_map` | Yes | Worker names — validate against team config |
-| `quality_cycles` | Yes | FAIL→retry counters |
-| `validation_retries` | Yes | NO-GO retry counters |
-| `crash_count` | Yes | Respawn counters |
-| `priority_queue_ids` | Yes | Remaining queue order |
-| `worktree_map` | Yes | Story → worktree directory mapping |
-| `depends_on` | Yes | Story → prerequisite IDs mapping |
-| `story_results` | Yes | Per-story stage results for report |
+| `story_state` | Yes | Story stage mapping (single entry) |
+| `worker_map` | Yes | Worker name — validate against team config |
+| `quality_cycles` | Yes | FAIL->retry counter |
+| `validation_retries` | Yes | NO-GO retry counter |
+| `crash_count` | Yes | Respawn counter |
+| `worktree_map` | Yes | Story -> worktree directory mapping |
+| `story_results` | Yes | Per-stage results for report |
 | `infra_issues` | Yes | Infrastructure problems list |
 | `stage_timestamps` | Yes | Per-stage start/end times for duration tracking |
-| `git_stats` | Yes | Lines added/deleted/files changed per story |
+| `git_stats` | Yes | Lines added/deleted/files changed |
 | `pipeline_start_time` | Yes | Pipeline start for wall-clock duration |
 | `readiness_scores` | Yes | From Stage 1 GO, for Stage 3 fast-track |
+| `merge_status` | Yes | "pending" / "merged" / "declined" |
 | `team_name` | Yes | Team name for Task() spawns |
 | `business_answers` | Yes | Phase 2 answers passed to worker prompts |
 | `storage_mode` | Yes | "file" or "linear" task backend |

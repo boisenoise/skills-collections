@@ -4,6 +4,8 @@ description: |
   Azure Cosmos DB SDK for Java. NoSQL database operations with global distribution, multi-model support, and reactive patterns.
   Triggers: "CosmosClient java", "CosmosAsyncClient", "cosmos database java", "cosmosdb java", "document database java".
 package: azure-cosmos
+risk: unknown
+source: community
 ---
 
 # Azure Cosmos DB SDK for Java
@@ -256,3 +258,6 @@ try {
 | Samples | https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples |
 | Performance Guide | https://learn.microsoft.com/azure/cosmos-db/performance-tips-java-sdk-v4-sql |
 | Troubleshooting | https://learn.microsoft.com/azure/cosmos-db/troubleshoot-java-sdk-v4-sql |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

@@ -5,6 +5,8 @@ description: >
   capture, contact, demo request, application, survey, quote, and checkout forms.
   Use when the goal is to increase form completion rate, reduce friction, or
   improve lead quality without breaking compliance or downstream workflows.
+risk: unknown
+source: community
 ---
 
 # Form Conversion Rate Optimization (Form CRO)
@@ -439,3 +441,6 @@ Do **not** test:
 * **ab-test-setup** – Testing form changes
 
 ---
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

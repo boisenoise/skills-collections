@@ -1,11 +1,14 @@
 ---
 name: quant-analyst
-description: Build financial models, backtest trading strategies, and analyze
+description: |
+  Build financial models, backtest trading strategies, and analyze
   market data. Implements risk metrics, portfolio optimization, and statistical
   arbitrage. Use PROACTIVELY for quantitative finance, trading algorithms, or
   risk analysis.
 metadata:
   model: inherit
+risk: unknown
+source: community
 ---
 
 ## Use this skill when

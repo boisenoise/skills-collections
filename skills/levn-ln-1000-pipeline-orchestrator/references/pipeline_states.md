@@ -1,17 +1,18 @@
 # Pipeline State Machine
 
-Transition rules and guards for the 4-stage pipeline.
+Transition rules and guards for the 4-stage pipeline. Single Story mode — one story selected by user per run.
 
 ## States
 
 | State | Description | Entry Condition |
 |-------|------------|----------------|
-| **QUEUED** | Story in priority queue, no worker assigned | Kanban parsing found actionable Story |
+| **QUEUED** | Story selected by user, worker not yet spawned | User selected story from available list |
 | **STAGE_0** | ln-300-task-coordinator running | Story status = Backlog, NO tasks |
 | **STAGE_1** | ln-310-story-validator running | Story status = Backlog, tasks exist |
 | **STAGE_2** | ln-400-story-executor running | Story status = Todo or To Rework |
 | **STAGE_3** | ln-500-story-quality-gate running | Story status = To Review |
-| **DONE** | Pipeline complete, merged to develop | Quality gate PASS/CONCERNS/WAIVED |
+| **PENDING_MERGE** | Quality gate passed, synced with develop, awaiting user merge confirmation | Quality gate PASS/CONCERNS/WAIVED + sync complete |
+| **DONE** | Story processing complete | User confirmed or declined merge |
 | **PAUSED** | Waiting for user input | Escalation triggered |
 
 ## Transitions
@@ -31,13 +32,14 @@ STAGE_1 --[NO-GO, retry exhausted]--> PAUSED
 STAGE_2 --[all tasks Done]--> STAGE_3
 STAGE_2 --[task stuck 3+ reworks]--> PAUSED    # Handled by ln-400 internally — escalated as Stage 2 ERROR
 
-STAGE_3 --[PASS/CONCERNS/WAIVED]--> DONE
+STAGE_3 --[PASS/CONCERNS/WAIVED]--> PENDING_MERGE
 STAGE_3 --[FAIL, cycles < 2]--> STAGE_2
 STAGE_3 --[FAIL, cycles >= 2]--> PAUSED
 
-PAUSED --[user resolves]--> (appropriate stage)
+PENDING_MERGE --[user confirms merge]--> DONE (merged to develop)
+PENDING_MERGE --[user declines merge]--> DONE (branch preserved)
 
-DONE --[merged to develop]--> (worker shutdown, next Story from queue)
+PAUSED --[user resolves]--> (appropriate stage)
 ```
 
 ## Guards
@@ -49,8 +51,9 @@ DONE --[merged to develop]--> (worker shutdown, next Story from queue)
 | STAGE_0 -> STAGE_1 | ln-300 created 1-8 tasks successfully | If error, PAUSE |
 | STAGE_1 -> STAGE_2 | ln-310 verdict = GO, Readiness >= 5 | Retry once, then PAUSE |
 | STAGE_2 -> STAGE_3 | All tasks status = Done | Wait for remaining tasks |
-| STAGE_3 -> DONE | Quality Score >= 70 | If FAIL, create fix tasks |
+| STAGE_3 -> PENDING_MERGE | Quality Score >= 70, sync with develop successful | If FAIL, create fix tasks |
 | STAGE_3 -> STAGE_2 | quality_cycles < 2 | If >= 2, PAUSE and escalate |
+| PENDING_MERGE -> DONE | User explicitly confirms or declines merge | N/A — user always decides |
 
 ## Counters (per Story)
 

@@ -181,16 +181,20 @@ story_results[id].stage2 = "Done"
 SendMessage(recipient: worker_map[id],
   content: "ACK Stage 3 for {id}", summary: "{id} Stage 3 ACK")
 stage_timestamps[id].stage_3_end = now()
-active_workers--
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
-# Squash merge BEFORE marking DONE (crash between merge and DONE = recoverable)
-Squash merge (see phase4a_git_merge.md)
-# Only set DONE after successful merge (phase4a sets PAUSED on conflict)
-story_state[id] = "DONE"
-Update kanban: Story → Done
-Update .pipeline/state.json: active_workers, stories_remaining, last_check
 story_results[id].stage3 = "{verdict} {score}/100"
+
+# Sync with develop + generate report (Phase 4a Section A)
+Execute phase4a_git_merge.md Section A: sync_and_report(id)
+# If sync failed (merge conflict) → story_state already set to PAUSED, RETURN
+
+# Transition to PENDING_MERGE — event loop exits
+story_state[id] = "PENDING_MERGE"
+Update .pipeline/state.json
+
+# User confirmation happens AFTER event loop (Phase 4a Section B)
+# See SKILL.md Phase 4 POST-LOOP for merge confirmation flow
 ```
 
 ### ON "Stage 3 COMPLETE for {id}. Verdict: FAIL. Quality Score: {score}/100. Issues: {issues}"

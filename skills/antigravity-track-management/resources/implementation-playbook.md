@@ -315,20 +315,20 @@ Example:
 
 | Track ID                                         | Type    | Status      | Phase | Started    | Assignee   |
 | ------------------------------------------------ | ------- | ----------- | ----- | ---------- | ---------- |
-| [user-auth_20250115](tracks/user-auth_20250115/) | feature | in-progress | 2/3   | 2025-01-15 | @developer |
-| [fix-login_20250114](tracks/fix-login_20250114/) | bug     | pending     | 0/2   | 2025-01-14 | -          |
+| user-auth_20250115 | feature | in-progress | 2/3   | 2025-01-15 | @developer |
+| fix-login_20250114 | bug     | pending     | 0/2   | 2025-01-14 | -          |
 
 ## Completed Tracks
 
 | Track ID                                       | Type  | Completed  | Duration |
 | ---------------------------------------------- | ----- | ---------- | -------- |
-| [setup-ci_20250110](tracks/setup-ci_20250110/) | chore | 2025-01-12 | 2 days   |
+| setup-ci_20250110 | chore | 2025-01-12 | 2 days   |
 
 ## Archived Tracks
 
 | Track ID                                             | Reason     | Archived   |
 | ---------------------------------------------------- | ---------- | ---------- |
-| [old-feature_20241201](tracks/old-feature_20241201/) | Superseded | 2025-01-05 |
+| old-feature_20241201 | Superseded | 2025-01-05 |
 ```
 
 ## Metadata (metadata.json) Fields

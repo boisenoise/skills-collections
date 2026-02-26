@@ -5,6 +5,8 @@ description: |
   Triggers: "AzureMonitorExporter java", "opentelemetry azure java", "application insights java otel", "azure monitor tracing java".
   Note: This package is DEPRECATED. Migrate to azure-monitor-opentelemetry-autoconfigure.
 package: com.azure:azure-monitor-opentelemetry-exporter
+risk: unknown
+source: community
 ---
 
 # Azure Monitor OpenTelemetry Exporter for Java
@@ -282,3 +284,6 @@ The `azure-monitor-opentelemetry-autoconfigure` package provides:
 | Autoconfigure Package | https://central.sonatype.com/artifact/com.azure/azure-monitor-opentelemetry-autoconfigure |
 | OpenTelemetry Java | https://opentelemetry.io/docs/languages/java/ |
 | Application Insights | https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

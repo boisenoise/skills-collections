@@ -4,6 +4,8 @@ description: |
   Azure Tables SDK for Python (Storage and Cosmos DB). Use for NoSQL key-value storage, entity CRUD, and batch operations.
   Triggers: "table storage", "TableServiceClient", "TableClient", "entities", "PartitionKey", "RowKey".
 package: azure-data-tables
+risk: unknown
+source: community
 ---
 
 # Azure Tables SDK for Python
@@ -241,3 +243,6 @@ asyncio.run(table_operations())
 5. **Use parameterized queries** to prevent injection
 6. **Keep entities small** — max 1MB per entity
 7. **Use async client** for high-throughput scenarios
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

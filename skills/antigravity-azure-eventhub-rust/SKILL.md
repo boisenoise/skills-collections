@@ -4,6 +4,8 @@ description: |
   Azure Event Hubs SDK for Rust. Use for sending and receiving events, streaming data ingestion.
   Triggers: "event hubs rust", "ProducerClient rust", "ConsumerClient rust", "send event rust", "streaming rust".
 package: azure_messaging_eventhubs
+risk: unknown
+source: community
 ---
 
 # Azure Event Hubs SDK for Rust
@@ -125,3 +127,6 @@ cargo add azure_messaging_eventhubs_checkpointstore_blob
 | API Reference | https://docs.rs/azure_messaging_eventhubs |
 | Source Code | https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/eventhubs/azure_messaging_eventhubs |
 | crates.io | https://crates.io/crates/azure_messaging_eventhubs |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

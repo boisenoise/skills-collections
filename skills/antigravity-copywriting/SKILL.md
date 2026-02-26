@@ -5,6 +5,8 @@ description: >
   for any page (homepage, landing page, pricing, feature, product, or about page).
   This skill produces clear, compelling, and testable copy while enforcing
   alignment, honesty, and conversion best practices.
+risk: unknown
+source: community
 ---
 
 # Copywriting
@@ -223,3 +225,6 @@ It persuades **the right person** to take **the right action**.
 
 If the copy feels clever but unclear,  
 rewrite it until it feels obvious.
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

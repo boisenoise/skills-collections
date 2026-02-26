@@ -63,45 +63,21 @@ For each Story, capture its parent Epic:
 
 The Epic header appears at 0-indent above the Story. Multiple Stories can share one Epic.
 
-## Dependency Extraction
-
-After building priority queue, extract dependencies from each Story file to enable dependency-aware scheduling.
-
-**Source:** Story files have a `## Dependencies` section with `### Depends On` subsection (see `shared/templates/story_template.md`).
-
-**Extraction steps:**
-```
-FOR EACH story in priority_queue:
-  1. Read Story file (from story.url or docs/tasks/stories/{id}.md)
-  2. Find "## Dependencies" section → "### Depends On" subsection
-  3. Parse Story IDs from lines matching: \[([A-Z]+-\d+)
-  4. Build: depends_on[story.id] = [extracted prerequisite IDs]
-```
-
-**Validation rules:**
-
-| Prerequisite State | Action |
-|-------------------|--------|
-| In queue (not yet DONE) | Dependency is **active** — story must wait |
-| Already Done/Canceled | Dependency **satisfied** — ignore |
-| Not found anywhere | WARN user, treat as no dependency |
-| Circular (A→B→A) | ESCALATE to user |
-
-**Circular detection:** Before scheduling, check for cycles. For each story, follow depends_on chain. If any chain revisits a story → circular dependency found.
-
 ## Output Format
 
-After parsing and dependency extraction, build priority queue as array of objects:
+After parsing, build available stories list as array of objects:
 
 ```
 [
-  { id: "PROJ-42", title: "User Auth", status: "To Review", hasTasks: true, epic: "Epic 1: User Management", stage: 3, url: "...", dependsOn: [] },
-  { id: "PROJ-38", title: "Payment Flow", status: "To Rework", hasTasks: true, epic: "Epic 2: Payments", stage: 2, url: "...", dependsOn: [] },
-  { id: "PROJ-45", title: "Dashboard", status: "Todo", hasTasks: true, epic: "Epic 3: UI", stage: 2, url: "...", dependsOn: ["PROJ-42"] },
-  { id: "PROJ-50", title: "Email Service", status: "Backlog", hasTasks: true, epic: "Epic 4: Notifications", stage: 1, url: "...", dependsOn: [] },
-  { id: "PROJ-55", title: "Push Notifications", status: "Backlog", hasTasks: false, epic: "Epic 4: Notifications", stage: 0, url: "...", dependsOn: ["PROJ-50"] }
+  { id: "PROJ-42", title: "User Auth", status: "To Review", hasTasks: true, epic: "Epic 1: User Management", stage: 3, url: "..." },
+  { id: "PROJ-38", title: "Payment Flow", status: "To Rework", hasTasks: true, epic: "Epic 2: Payments", stage: 2, url: "..." },
+  { id: "PROJ-45", title: "Dashboard", status: "Todo", hasTasks: true, epic: "Epic 3: UI", stage: 2, url: "..." },
+  { id: "PROJ-50", title: "Email Service", status: "Backlog", hasTasks: true, epic: "Epic 4: Notifications", stage: 1, url: "..." },
+  { id: "PROJ-55", title: "Push Notifications", status: "Backlog", hasTasks: false, epic: "Epic 4: Notifications", stage: 0, url: "..." }
 ]
 ```
+
+This list is presented to the user for story selection (see SKILL.md Phase 1 step 8).
 
 ## Linear Mode Alternative
 

@@ -11,6 +11,8 @@ category: framework
 bundle: [typescript-type-expert, typescript-build-expert]
 displayName: TypeScript
 color: blue
+risk: unknown
+source: community
 ---
 
 # TypeScript Expert
@@ -427,3 +429,6 @@ Slow language server? → Exclude node_modules, limit files in tsconfig
 - [tsd](https://github.com/tsdjs/tsd) - Standalone type testing
 
 Always validate changes don't break existing functionality before considering the issue resolved.
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

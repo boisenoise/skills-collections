@@ -1,11 +1,14 @@
 ---
 name: startup-metrics-framework
-description: This skill should be used when the user asks about "key startup
+description: |
+  This skill should be used when the user asks about \\\"key startup
   metrics", "SaaS metrics", "CAC and LTV", "unit economics", "burn multiple",
   "rule of 40", "marketplace metrics", or requests guidance on tracking and
   optimizing business performance metrics.
 metadata:
   version: 1.0.0
+risk: unknown
+source: community
 ---
 
 # Startup Metrics Framework

@@ -7,6 +7,8 @@ description: >
   comparison pages, integration pages, or keyword-pattern page generation.
   This skill focuses on feasibility, strategy, and page system design—not execution
   unless explicitly requested.
+risk: unknown
+source: community
 ---
 
 ---
@@ -349,3 +351,6 @@ If triggered, **halt indexing or roll back**:
 - **schema-markup** – Add structured data to templates
 - **copywriting** – Improve non-templated sections
 - **analytics-tracking** – Measure performance and validate value
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

@@ -17,15 +17,14 @@
         <div class="info-box">
             <h3>Workflow Overview</h3>
             <ul>
-                <li><strong>Purpose:</strong> Read kanban board, drive Stories through 4-stage pipeline (300 -> 310 -> 400 -> 500) in parallel via TeamCreate</li>
-                <li><strong>Concurrency:</strong> Max 3 Stories processed simultaneously (fresh worker per stage)</li>
+                <li><strong>Purpose:</strong> Read kanban board, let user pick ONE Story, drive it through 4-stage pipeline (300 -> 310 -> 400 -> 500) via TeamCreate</li>
+                <li><strong>Single Story:</strong> User selects which Story to process. One worker at a time (fresh per stage)</li>
                 <li><strong>Model Routing:</strong> All stages = Opus 4.6. Effort: Stage 0,3 = high | Stage 1,2 = medium</li>
-                <li><strong>Lead Role:</strong> Delegate mode only - coordination, kanban updates, squash-merge. No code writing</li>
-                <li><strong>Auto Merge:</strong> After quality gate PASS, squash-merge to develop</li>
+                <li><strong>Lead Role:</strong> Delegate mode only - coordination, kanban updates, sync + merge confirmation. No code writing</li>
+                <li><strong>User-Confirmed Merge:</strong> After quality gate PASS, sync with develop, generate report, ask user before merging</li>
                 <li><strong>Error Recovery:</strong> Quality cycle limit (2), validation retry (1), rework escalation (3), crash resume via checkpoint</li>
                 <li><strong>Lead Recovery:</strong> Phase 0 restores all state from .pipeline/state.json on restart (full schema persisted every heartbeat)</li>
-                <li><strong>Git Worktree:</strong> Every worker gets its own worktree with named feature branch (feature/{id}-{slug})</li>
-                <li><strong>Dependencies:</strong> Stories with Depends On fields are scheduled after prerequisites complete (dependency guard in Phase 4)</li>
+                <li><strong>Git Worktree:</strong> Worker gets its own worktree with named feature branch (feature/{id}-{slug})</li>
                 <li><strong>Keepalive:</strong> Stop hook prevents lead exit, TeammateIdle hook prevents worker idle during stages</li>
                 <li><strong>Fresh Per Stage:</strong> Each stage = new worker with clean context. Prevents context exhaustion in long pipelines</li>
                 <li><strong>Project Awareness:</strong> Lead reads CLAUDE.md (project_brief) + Story ORCHESTRATOR_BRIEF markers (story_briefs) for tech context</li>

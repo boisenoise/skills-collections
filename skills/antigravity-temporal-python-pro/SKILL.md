@@ -1,11 +1,14 @@
 ---
 name: temporal-python-pro
-description: Master Temporal workflow orchestration with Python SDK. Implements
+description: |
+  Master Temporal workflow orchestration with Python SDK. Implements
   durable workflows, saga patterns, and distributed transactions. Covers
   async/await, testing strategies, and production deployment. Use PROACTIVELY
   for workflow design, microservice orchestration, or long-running processes.
 metadata:
   model: inherit
+risk: unknown
+source: community
 ---
 
 ## Use this skill when

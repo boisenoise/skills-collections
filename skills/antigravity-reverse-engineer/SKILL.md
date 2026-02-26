@@ -1,6 +1,7 @@
 ---
 name: reverse-engineer
-description: Expert reverse engineer specializing in binary analysis,
+description: |
+  Expert reverse engineer specializing in binary analysis,
   disassembly, decompilation, and software analysis. Masters IDA Pro, Ghidra,
   radare2, x64dbg, and modern RE toolchains. Handles executable analysis,
   library inspection, protocol extraction, and vulnerability research. Use
@@ -8,6 +9,8 @@ description: Expert reverse engineer specializing in binary analysis,
   understanding undocumented software.
 metadata:
   model: opus
+risk: unknown
+source: community
 ---
 
 # Common RE scripting environments

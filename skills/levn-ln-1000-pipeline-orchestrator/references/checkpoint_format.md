@@ -50,20 +50,18 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | Field | Type | Description |
 |-------|------|-------------|
 | `complete` | boolean | `false` while pipeline running, `true` before cleanup |
-| `active_workers` | number | Current worker count |
-| `stories_remaining` | number | Stories not yet DONE/PAUSED |
+| `selected_story_id` | string | Story ID selected by user for this pipeline run |
+| `stories_remaining` | number | 1 if story not yet DONE/PAUSED/PENDING_MERGE, else 0 |
 | `last_check` | string | ISO 8601 timestamp of last state update |
-| `story_state` | object | `{storyId: "STAGE_0"\|"STAGE_1"\|...\|"DONE"\|"PAUSED"}` |
-| `worker_map` | object | `{storyId: worker_name}` — assigned worker per story |
-| `quality_cycles` | object | `{storyId: count}` — FAIL→retry counter (limit 2) |
+| `story_state` | object | `{storyId: "STAGE_0"\|"STAGE_1"\|...\|"PENDING_MERGE"\|"DONE"\|"PAUSED"}` |
+| `worker_map` | object | `{storyId: worker_name}` — assigned worker |
+| `quality_cycles` | object | `{storyId: count}` — FAIL->retry counter (limit 2) |
 | `validation_retries` | object | `{storyId: count}` — NO-GO retry counter (limit 1) |
 | `crash_count` | object | `{storyId: count}` — crash respawn counter (limit 1) |
-| `priority_queue_ids` | string[] | Remaining story IDs in priority order |
 | `story_results` | object | `{storyId: {stage0: "...", stage1: "...", ...}}` — per-stage results for report |
 | `infra_issues` | array | `[{phase, type, message}]` — infrastructure issues for report |
-| `worktree_map` | object | `{storyId: worktree_dir}` — story → worktree mapping (every story has a worktree) |
-| `depends_on` | object | `{storyId: [prerequisite IDs]}` — dependency graph |
-| `status_cache` | object | `{statusName: statusUUID}` — Linear status name→UUID mapping (empty if file mode) |
+| `worktree_map` | object | `{storyId: worktree_dir}` — story -> worktree mapping |
+| `status_cache` | object | `{statusName: statusUUID}` — Linear status name->UUID mapping (empty if file mode) |
 | `stage_timestamps` | object | `{storyId: {stage_N_start: ISO, stage_N_end: ISO}}` — per-stage duration tracking |
 | `git_stats` | object | `{storyId: {lines_added, lines_deleted, files_changed}}` — code output metrics |
 | `pipeline_start_time` | string | ISO 8601 timestamp of pipeline start — for wall-clock duration |
@@ -73,28 +71,28 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `storage_mode` | string | `"file"` or `"linear"` — task storage backend |
 | `skill_repo_path` | string | Skills repository absolute path (for recovery hook) |
 | `project_brief` | object | `{name, tech, type, key_rules}` — project context from CLAUDE.md |
-| `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — per-story orchestrator briefs from Linear |
+| `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — orchestrator brief from Linear |
+| `merge_status` | string | `"pending"` \| `"merged"` \| `"declined"` — merge confirmation result |
 
 **Example:**
 ```json
 {
   "complete": false,
-  "active_workers": 3,
-  "stories_remaining": 3,
+  "selected_story_id": "API-427",
+  "stories_remaining": 1,
   "last_check": "2026-02-13T14:30:00Z",
-  "story_state": { "API-427": "STAGE_2", "API-428": "STAGE_1" },
-  "worker_map": { "API-427": "story-API-427-s2", "API-428": "story-API-428-s1" },
-  "quality_cycles": { "API-427": 0, "API-428": 0 },
-  "validation_retries": { "API-427": 0, "API-428": 0 },
-  "crash_count": { "API-427": 0, "API-428": 0 },
-  "priority_queue_ids": ["API-429", "API-430", "API-431"],
-  "story_results": { "API-427": { "stage0": "skip", "stage1": "skip", "stage2": "Done" } },
+  "story_state": { "API-427": "STAGE_2" },
+  "worker_map": { "API-427": "story-API-427-s2" },
+  "quality_cycles": { "API-427": 0 },
+  "validation_retries": { "API-427": 0 },
+  "crash_count": { "API-427": 0 },
+  "story_results": { "API-427": { "stage0": "skip", "stage1": "skip" } },
   "infra_issues": [],
-  "worktree_map": { "API-427": ".worktrees/story-API-427", "API-428": ".worktrees/story-API-428" },
-  "depends_on": { "API-429": ["API-427"], "API-430": [] },
-  "stage_timestamps": { "API-427": { "stage_0_start": "2026-02-13T13:00:00Z", "stage_0_end": "2026-02-13T13:12:00Z" } },
-  "git_stats": { "API-427": { "lines_added": 245, "lines_deleted": 12, "files_changed": 5 } },
-  "pipeline_start_time": "2026-02-13T12:55:00Z"
+  "worktree_map": { "API-427": ".worktrees/story-API-427" },
+  "stage_timestamps": { "API-427": { "stage_2_start": "2026-02-13T13:00:00Z" } },
+  "git_stats": {},
+  "pipeline_start_time": "2026-02-13T12:55:00Z",
+  "merge_status": "pending"
 }
 ```
 
@@ -145,5 +143,5 @@ Workers write checkpoints at these points:
 **Stage 2 is critical** — most work happens here, checkpoints after each task prevent losing progress.
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-02-14
+**Version:** 2.0.0
+**Last Updated:** 2026-02-25

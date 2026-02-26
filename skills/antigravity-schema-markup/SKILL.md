@@ -7,6 +7,8 @@ description: >
   whether schema should be implemented, what types are valid, and how to deploy
   safely according to Google guidelines.
 allowed-tools: Read, Glob, Grep
+risk: unknown
+source: community
 ---
 
 ---
@@ -358,3 +360,6 @@ Where and how to add it
 - **seo-audit** – Full SEO review including schema
 - **programmatic-seo** – Templated schema at scale
 - **analytics-tracking** – Measure rich result impact
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
