@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-02-26 06:30 UTC*
+*Last updated: 2026-02-27 06:26 UTC*
 
-Total skills: **2048**
+Total skills: **2049**
 
 ## Skills by Source
 
@@ -1043,6 +1043,7 @@ Total skills: **2048**
 | `levn-ln-642-layer-boundary-auditor` | L3 Worker. Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries... |
 | `levn-ln-643-api-contract-auditor` | API contract audit worker (L3). Checks layer leakage in method signatures, missing DTOs, entity leak... |
 | `levn-ln-644-dependency-graph-auditor` | L3 Worker. Builds module dependency graph, detects transitive cycles (DFS), validates boundary rules... |
+| `levn-ln-645-open-source-replacer` | L3 Worker. Goal-based open-source replacement auditor: discovers custom modules (>100 LOC), analyzes... |
 | `levn-ln-650-persistence-performance-auditor` | Coordinates 3 specialized audit workers (query efficiency, transaction correctness, runtime performa... |
 | `levn-ln-651-query-efficiency-auditor` | Query efficiency audit worker (L3). Checks redundant entity fetches, N-UPDATE/DELETE loops, unnecess... |
 | `levn-ln-652-transaction-correctness-auditor` | Transaction correctness audit worker (L3). Checks missing intermediate commits, transaction scope (t... |
@@ -1062,7 +1063,7 @@ Total skills: **2048**
 | `levn-ln-732-cicd-generator` | Generates GitHub Actions CI workflow configuration |
 | `levn-ln-733-env-configurator` | Configures environment variables and secrets protection |
 | `levn-ln-740-quality-setup` | Coordinates linters, pre-commit hooks, and test infrastructure setup |
-| `levn-ln-741-linter-configurator` | Configures ESLint, Prettier, Ruff, and .NET analyzers |
+| `levn-ln-741-linter-configurator` | Configures ESLint, Prettier, Ruff, mypy, and .NET analyzers |
 | `levn-ln-742-precommit-setup` | Configures Husky, lint-staged, commitlint, and Python pre-commit |
 | `levn-ln-743-test-infrastructure` | Creates test infrastructure with Vitest, xUnit, and pytest |
 | `levn-ln-750-commands-generator` | Generates project-specific .claude/commands for Claude Code |

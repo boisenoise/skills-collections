@@ -64,7 +64,7 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 2 penalty calcu
 | # | Criterion | What it checks | Penalty | Auto-fix actions |
 |---|-----------|----------------|---------|------------------|
 | 6 | Library & Version | Libraries are latest stable | HIGH (5) | Query Context7; update to recommended versions |
-| 21 | Alternative Solutions | Story approach is optimal vs modern alternatives | MEDIUM (3) | Search MCP Ref + web for alternatives; if better option found — add "Alternative Considered" note to Technical Notes with trade-off comparison |
+| 21 | Alternative Solutions | Story approach is optimal vs modern alternatives; cross-ref ln-645 audit if `docs/project/.audit/645-open-source-replacer*.md` available | MEDIUM (3) | Search MCP Ref + web for alternatives; if better option found — add "Alternative Considered" note. If ln-645 report exists AND HIGH-confidence replacement touches Story's affected files — add advisory note to Technical Notes with package name + migration effort. If Effort=L — recommend creating separate [REFACTOR] Story instead of blocking current implementation |
 
 ## Workflow (#7-#13)
 

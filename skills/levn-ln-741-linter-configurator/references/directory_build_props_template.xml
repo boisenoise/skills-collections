@@ -27,11 +27,14 @@
     <!-- <NoWarn>CS1591</NoWarn> -->
   </PropertyGroup>
 
-  <ItemGroup>
-    <!-- .NET Code Analyzers (included in SDK 5+) -->
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+  <!-- .NET Code Analyzers are included in SDK 5+ by default.
+       No separate PackageReference needed unless you require a newer analyzer
+       version than what ships with your SDK. In that case, add:
+       <ItemGroup>
+         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="*">
+           <PrivateAssets>all</PrivateAssets>
+           <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+         </PackageReference>
+       </ItemGroup>
+  -->
 </Project>
