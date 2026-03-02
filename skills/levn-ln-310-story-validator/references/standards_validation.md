@@ -65,7 +65,7 @@ and returns a session cookie.
 1. Read docs created by ln-002 in Phase 2 (guides/manuals/ADRs/research)
 2. Query MCP Ref for additional standards:
    ```
-   ref_search_documentation(query="[domain] RFC OWASP best practices 2025")
+   ref_search_documentation(query="[domain] RFC OWASP best practices {current_year}")
    ```
 3. Extract standards/patterns (RFC numbers, OWASP rules, do/don't patterns)
 4. Compare Story Technical Notes with standards

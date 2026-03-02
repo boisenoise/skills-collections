@@ -3,7 +3,7 @@
 <!-- SCOPE: Automatic project analysis guidelines ONLY. Contains file search patterns, information extraction rules, MCP research workflow. -->
 <!-- DO NOT add here: Phase coordination → ln-110-project-docs-coordinator SKILL.md -->
 
-Guide for automatic analysis of project materials and researching 2025 best practices.
+Guide for automatic analysis of project materials and researching current best practices.
 
 ---
 
@@ -60,7 +60,7 @@ From **docker-compose.test.yml**:
 
 ---
 
-## Section 2: Researching Best Practices 2025
+## Section 2: Researching Best Practices
 
 ### When to Research
 During **Phase 3** for questions Q9, Q11-Q13.
@@ -70,28 +70,28 @@ Ask user first: *"Research best practices automatically? (Y/N)"*
 ### Research Tools
 
 **MCP Ref** (`mcp__Ref__ref_search_documentation`):
-- Query: `"[framework] latest version 2025"`
+- Query: `"[framework] latest version {current_year}"`
 - Use for: Official docs, version numbers, features
 - Then Read: `mcp__Ref__ref_read_url` for details
 
 **WebSearch**:
 - Query patterns:
-  - `"[Tech A] vs [Tech B] 2025 comparison"`
-  - `"best practices [technology] 2025"`
-  - `"[pattern] architecture pros cons 2025"`
+  - `"[Tech A] vs [Tech B] {current_year} comparison"`
+  - `"best practices [technology] {current_year}"`
+  - `"[pattern] architecture pros cons {current_year}"`
 - Use for: Comparisons, best practices, trends
 
 ### Research Strategy by Question
 
 **Q9: Technology Decisions**
-1. Check analyzed versions vs 2025 latest
+1. Check analyzed versions vs latest stable
 2. MCP Ref: latest stable versions
 3. WebSearch: security vulnerabilities, release notes
 4. Recommend upgrades if: EOL, security issues, LTS available
 
 **Q11: Architectural Patterns**
 1. Identify project type + scale from Stage 1
-2. WebSearch: `"[project type] architecture patterns 2025"`
+2. WebSearch: `"[project type] architecture patterns {current_year}"`
 3. Consider scale:
    - Small (< 10K users) → Monolith
    - Medium (10K-100K) → Microservices
@@ -107,10 +107,10 @@ Ask user first: *"Research best practices automatically? (Y/N)"*
 **Q13: Integrations**
 1. Identify needs from Q5 (IN SCOPE)
 2. WebSearch comparisons:
-   - Payments: `"Stripe vs PayPal 2025"`
-   - Email: `"SendGrid vs AWS SES 2025"`
-   - Auth: `"Auth0 vs Clerk 2025"`
-   - Storage: `"AWS S3 vs Cloudinary 2025"`
+   - Payments: `"Stripe vs PayPal {current_year}"`
+   - Email: `"SendGrid vs AWS SES {current_year}"`
+   - Auth: `"Auth0 vs Clerk {current_year}"`
+   - Storage: `"AWS S3 vs Cloudinary {current_year}"`
 3. Consider: pricing, DX, compliance, popularity
 
 ### Dockerfile Generation
@@ -157,7 +157,7 @@ If no materials OR user declines research → ask all Q9-Q19 interactively
 ## Section 4: Quality Guidelines
 
 ### Verification Checklist
-- [ ] Version is 2025-current (< 1 year old)
+- [ ] Version is current (< 1 year old)
 - [ ] Stable release (not beta)
 - [ ] No critical security vulnerabilities
 - [ ] Compatible with other tech

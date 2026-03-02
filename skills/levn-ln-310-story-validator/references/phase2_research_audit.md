@@ -22,7 +22,7 @@ Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `d
 
 ## Step 3: Research via MCP
 
-- Query MCP Ref for industry standards: `ref_search_documentation(query="[topic] RFC OWASP best practices 2025")`
+- Query MCP Ref for industry standards: `ref_search_documentation(query="[topic] RFC OWASP best practices {current_year}")`
 - Query Context7 for library versions: `resolve-library-id` + `query-docs`
 - Extract: standards (RFC numbers, OWASP rules), library versions, patterns
 
@@ -35,7 +35,7 @@ Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `d
 
 ## Step 5: Penalty Points Calculation
 
-- Evaluate all 21 criteria against Story/Tasks (see Auto-Fix Actions Reference below)
+- Evaluate all 23 criteria against Story/Tasks (see Auto-Fix Actions Reference below)
 - Assign penalty points per violation (CRITICAL=10, HIGH=5, MEDIUM=3, LOW=1)
 - Calculate total penalty points
 - Build fix plan for each violation
@@ -64,7 +64,7 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 2 penalty calcu
 | # | Criterion | What it checks | Penalty | Auto-fix actions |
 |---|-----------|----------------|---------|------------------|
 | 6 | Library & Version | Libraries are latest stable | HIGH (5) | Query Context7; update to recommended versions |
-| 21 | Alternative Solutions | Story approach is optimal vs modern alternatives; cross-ref ln-645 audit if `docs/project/.audit/645-open-source-replacer*.md` available | MEDIUM (3) | Search MCP Ref + web for alternatives; if better option found — add "Alternative Considered" note. If ln-645 report exists AND HIGH-confidence replacement touches Story's affected files — add advisory note to Technical Notes with package name + migration effort. If Effort=L — recommend creating separate [REFACTOR] Story instead of blocking current implementation |
+| 21 | Alternative Solutions | Story approach is optimal vs modern alternatives; cross-ref ln-645 audit if `docs/project/.audit/ln-640/*/645-open-source-replacer*.md` available (glob across dates, take latest) | MEDIUM (3) | Search MCP Ref + web for alternatives; if better option found — add "Alternative Considered" note. If ln-645 report exists AND HIGH-confidence replacement touches Story's affected files — add advisory note to Technical Notes with package name + migration effort. If Effort=L — recommend creating separate [REFACTOR] Story instead of blocking current implementation |
 
 ## Workflow (#7-#13)
 
@@ -111,7 +111,13 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 2 penalty calcu
 |---|-----------|----------------|---------|------------------|
 | 22 | AC Verify Methods | Every task AC has `verify:` method (test/command/inspect); at least 1 non-inspect per task | MEDIUM (3) | Generate `verify:` methods based on AC content: HTTP endpoints → command, DB operations → inspect, business logic → test; update Linear |
 
-**Maximum Penalty:** 88 points (sum of all 22 criteria; #20 capped at 15)
+## AI-Readiness (#23)
+
+| # | Criterion | What it checks | Penalty | Auto-fix actions |
+|---|-----------|----------------|---------|------------------|
+| 23 | Architecture Considerations Complete | Story has: layers affected, side-effect boundary, orchestration depth | MEDIUM (3) | Add Architecture Considerations section from story_template.md with placeholder fields; update Linear |
+
+**Maximum Penalty:** 91 points (sum of all 23 criteria; #20 capped at 15)
 
 ---
 **Version:** 1.0.0

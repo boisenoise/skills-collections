@@ -34,6 +34,7 @@ Patterns below are a **baseline seed** — ln-640 Phase 1b uses Discovery Heuris
 | Communication | Client Notification | `notify\|callback_url\|webhook\|SSE\|EventSource\|WebSocket.*send` | *.py, *.ts, *.js |
 | Data | Parameter Object | `@dataclass.*frozen\|NamedTuple\|TypedDict\|ValueObject\|@value_object` | *.py, *.ts, *.js, *.java, *.cs |
 | Data | Fail-Fast Validation | `ValidationError\|@validator\|@validate\|pydantic.BaseModel\|field_validator` | *.py, *.ts, *.js |
+| Architecture | Flat Orchestration | `Orchestrator\|Coordinator\|Workflow\|UseCase\|CommandHandler` | *.py, *.ts, *.js, *.java, *.cs |
 
 ---
 
@@ -119,6 +120,15 @@ Patterns below are a **baseline seed** — ln-640 Phase 1b uses Discovery Heuris
 | Error recovery | `retry.*step\|compensate\|rollback\|on_error` | HIGH |
 | Timeout per step | `timeout\|deadline\|step.*timeout` | MEDIUM |
 | Parallel execution | `gather\|Promise.all\|parallel\|concurrent\|asyncio.gather` | LOW |
+
+#### Flat Orchestration (AI-Ready variant)
+
+> "Flat Orchestration" = sequential step orchestration at single level. NOT the "cascading pipe" anti-pattern.
+
+| Best Practice | Detection | Severity |
+|---------------|-----------|----------|
+| No service→service→service chains (3+ levels) | Service importing 3+ other services | HIGH |
+| Each step is a sink (side-effect depth <= 1) | Side-effect markers in called functions (per `shared/references/ai_ready_architecture.md`) | MEDIUM |
 
 ### Service Layer
 

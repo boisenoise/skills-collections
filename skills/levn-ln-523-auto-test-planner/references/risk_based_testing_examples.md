@@ -42,7 +42,7 @@ This file contains detailed examples of applying Minimum Viable Testing philosop
 **Unit Tests (1 - OUR business logic only):**
 1. `validatePasswordStrength()` - OUR custom regex (12+ chars, special symbols, numbers) with 5 edge cases
 
-**Total: 3 tests (within realistic goal 2-7)**
+**Total: 3 tests (all Priority ≥15, pass Usefulness Criteria)**
 
 ---
 
@@ -90,7 +90,7 @@ This file contains detailed examples of applying Minimum Viable Testing philosop
 2. `calculateTax()` - OUR tax rules: different rates by country/state, special product categories (5 edge cases)
 3. `applyDiscount()` - OUR discount logic: percentage discount, fixed amount discount, minimum order threshold (5 edge cases)
 
-**Total: 5 tests (within realistic goal 2-7)**
+**Total: 5 tests (all Priority ≥15, pass Usefulness Criteria)**
 
 ---
 

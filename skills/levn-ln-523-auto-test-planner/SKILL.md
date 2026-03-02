@@ -84,7 +84,7 @@ Auto-discovers Team ID from `docs/tasks/kanban_board.md` (see CLAUDE.md "Configu
 
 ### Phase 4: Risk-Based Test Planning (Automated)
 
-**MANDATORY READ:** Load `references/risk_based_testing_guide.md` for complete methodology.
+**MANDATORY READ:** Load `shared/references/risk_based_testing_guide.md` for complete methodology.
 
 **E2E-First Approach:** Prioritize by business risk (Priority = Impact x Probability), not coverage metrics.
 
@@ -107,9 +107,9 @@ Priority = Business Impact (1-5) x Probability (1-5)
 
 **Step 3: Unit Test Selection (0-15):** DEFAULT 0. Add ONLY for complex business logic (Priority >=15): financial, security, algorithms
 
-**Step 4: Integration Test Selection (0-8):** DEFAULT 0. Add ONLY if E2E gaps AND Priority >=15: rollback, concurrency, external API errors
+**Step 4: Integration Test Selection:** DEFAULT 0. Add ONLY if E2E gaps AND Priority >=15: rollback, concurrency, external API errors
 
-**Step 5: Validation:** Limits 2-28 total (realistic goal: 2-7). Auto-trim if >7 (keep 2 baseline + top 5 by Priority)
+**Step 5: Validation:** Each test passes Usefulness Criteria (Priority ≥15, Confidence ROI, Behavioral, Predictive, Specific, Non-Duplicative)
 
 ### Phase 5: Test Task Generation (Automated)
 
@@ -178,10 +178,10 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 
 **Risk-Based Test Plan Generated:**
 - [ ] Risk Priority Matrix calculated for all scenarios
-- [ ] E2E tests (2-5): Baseline 2 + additional 0-3 with Priority >=15
-- [ ] Integration tests (0-8): ONLY if E2E doesn't cover AND Priority >=15
-- [ ] Unit tests (0-15): ONLY complex business logic with Priority >=15
-- [ ] **Total tests: 2-7 realistic goal** (hard limit: 2-28)
+- [ ] E2E tests: Baseline positive + negative, additional only if Priority ≥15
+- [ ] Integration tests: ONLY if E2E doesn't cover AND Priority ≥15
+- [ ] Unit tests: ONLY complex business logic with Priority ≥15
+- [ ] Each test passes all 6 Usefulness Criteria
 - [ ] No framework/library testing: Each test validates OUR business logic only
 
 **Test Task Description Complete (11 sections):**
@@ -207,7 +207,7 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 
 **Purpose**: Risk-Based Testing methodology (detailed guide)
 
-**Location**: [references/risk_based_testing_guide.md](references/risk_based_testing_guide.md)
+**Location**: [shared/references/risk_based_testing_guide.md](shared/references/risk_based_testing_guide.md)
 
 ### test_task_template.md (CENTRALIZED)
 
@@ -220,12 +220,12 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 - **Manual results required:** Never plan tests without ln-522 manual testing results — guessing coverage is worse than no tests
 - **E2E-first, not unit-first:** Baseline is always 2 E2E (positive + negative); unit/integration added only for Priority >= 15
 - **No framework testing:** Every test must validate OUR business logic; never test library/framework behavior
-- **Auto-trim enforcement:** If total tests exceed 7, auto-trim to baseline 2 + top 5 by Priority score
+- **Usefulness enforcement:** Every test beyond baseline must pass all 6 Usefulness Criteria (see risk_based_testing_guide.md)
 - **Delegate, don't create:** Task creation goes through ln-301/ln-302 workers; this skill generates the plan only
 
 ## Best Practices
 
-**Minimum Viable Testing:** Start with 2 E2E tests (positive + negative). Add more ONLY with critical justification. Realistic goal: 2-7 tests per Story.
+**Minimum Viable Testing:** Start with baseline E2E (positive + negative). Each additional test must pass all 6 Usefulness Criteria.
 
 **Risk-Based Testing:** Prioritize by Business Impact x Probability. E2E-first from ACTUAL manual testing results. Priority >=15 scenarios covered by tests.
 

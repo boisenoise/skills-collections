@@ -143,7 +143,7 @@ IF exists(done_flag_path):
 ON HEARTBEAT (Stop hook stderr: "HEARTBEAT: ..."):
   Write .pipeline/state.json with ALL state variables:
     complete, selected_story_id,
-    stories_remaining = (1 if story_state[selected_story_id] NOT IN ("DONE", "PAUSED", "PENDING_MERGE") else 0),
+    stories_remaining = (1 if story_state[selected_story_id] NOT IN ("DONE", "PAUSED") else 0),
     last_check=now,
     story_state, worker_map, quality_cycles, validation_retries,
     crash_count, story_results, infra_issues,

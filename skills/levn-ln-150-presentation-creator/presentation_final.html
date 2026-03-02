@@ -1635,12 +1635,12 @@ erDiagram
 
     <h4>Test Pyramid</h4>
     <ul>
-        <li><strong>E2E Tests (2-5 per Story):</strong> Critical user flows (checkout, payment, registration)</li>
-        <li><strong>Integration Tests (3-8 per Story):</strong> API endpoints, database interactions</li>
-        <li><strong>Unit Tests (5-15 per Story):</strong> Business logic, validators, utilities</li>
+        <li><strong>E2E Tests:</strong> Critical user flows (checkout, payment, registration)</li>
+        <li><strong>Integration Tests:</strong> API endpoints, database interactions</li>
+        <li><strong>Unit Tests:</strong> Business logic, validators, utilities</li>
     </ul>
 
-    <p><strong>Total:</strong> 10-28 tests per Story (max)</p>
+    <p><strong>Each test must pass Usefulness Criteria</strong> (Priority ≥15, Confidence ROI, Behavioral, Non-Duplicative)</p>
 
     <h4>Priority Matrix</h4>
     <p>Test scenarios with <strong>Priority ≥ 15</strong> MUST be tested:</p>
@@ -2068,9 +2068,9 @@ npm run dev</code></pre>
     <h4>Testing Approach</h4>
     <ul>
         <li>Follow Risk-Based Testing (Priority ≥ 15 scenarios MUST be tested)</li>
-        <li>E2E tests (2-5 per Story): Critical user flows</li>
-        <li>Integration tests (3-8 per Story): API endpoints</li>
-        <li>Unit tests (5-15 per Story): Business logic only</li>
+        <li>E2E tests: Critical user flows (Priority ≥15)</li>
+        <li>Integration tests: API endpoints (Priority ≥15)</li>
+        <li>Unit tests: Business logic only (Priority ≥15)</li>
         <li>Test OUR code, not frameworks (Express already tested)</li>
     </ul>
 

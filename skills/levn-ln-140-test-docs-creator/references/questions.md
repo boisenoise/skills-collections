@@ -68,14 +68,14 @@
 <!-- QUESTION_START: 2 -->
 ### Question 2: What are the test level targets?
 
-**Expected Answer:** E2E tests 2-5 per Story, Integration tests 3-8 per Story, Unit tests 5-15 per Story, rationale for each level
+**Expected Answer:** E2E (baseline: positive + negative per endpoint), Integration (only when E2E insufficient), Unit (only complex business logic Priority ≥15), rationale for each level
 **Target Section:** ## Test Levels
 
 **Validation Heuristics:**
 - ✅ Lists 3 levels: E2E, Integration, Unit
-- ✅ Has numeric ranges: "2-5" for E2E, "3-8" for Integration, "5-15" for Unit
+- ✅ Describes Usefulness Criteria for each test level
 - ✅ Explains purpose/rationale for each level
-- ✅ Total mentions "10-28 tests per Story"
+- ✅ No numerical targets — test count driven by risk, not volume
 - ✅ Length > 150 words
 
 **Auto-Discovery:**
@@ -166,7 +166,7 @@
    - Log: "⚠️ Test directory structure created (will be populated during Story test task execution)"
 
 **MCP Ref Hints:**
-- Research: "[detected_framework] best practices" (e.g., "jest best practices 2024")
+- Research: "[detected_framework] best practices" (e.g., "jest best practices {current_year}")
 - Research: "[detected_framework] naming conventions" (if need to explain patterns)
 <!-- QUESTION_END: 3 -->
 

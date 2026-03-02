@@ -12,10 +12,9 @@
 This directory contains all tests for the project, following the **Story-Level Test Task Pattern** where tests are consolidated in the final Story test task (NOT scattered across implementation tasks).
 
 **Test organization:**
-- **E2E tests** (End-to-End) - 2-5 per Story - Priority ≥15 scenarios MUST be tested
-- **Integration tests** - 3-8 per Story - Multi-component interactions
-- **Unit tests** - 5-15 per Story - Individual component logic
-- **Total**: 10-28 tests per Story (Value-Based Testing)
+- **E2E tests** (End-to-End) — Priority ≥15 scenarios MUST be tested
+- **Integration tests** — Multi-component interactions not covered by E2E
+- **Unit tests** — Complex business logic only (Priority ≥15)
 
 ---
 
@@ -23,7 +22,7 @@ This directory contains all tests for the project, following the **Story-Level T
 
 **Test YOUR code, not frameworks.** Focus on business logic and integration usage. Avoid testing database constraints, ORM internals, or framework validation.
 
-**Risk-based testing:** Automate only Priority ≥15 scenarios (Business Impact × Probability). Test caps prevent bloat: 2-5 E2E, 3-8 Integration, 5-15 Unit (10-28 total per Story). No minimum limits - can be 0 if no high-priority scenarios exist.
+**Risk-based testing:** Automate only Priority ≥15 scenarios (Business Impact × Probability). Each test must pass Usefulness Criteria (see testing-strategy.md).
 
 **Rule of thumb:** If deleting your code wouldn't fail the test, you're testing someone else's code.
 
@@ -35,15 +34,15 @@ This directory contains all tests for the project, following the **Story-Level T
 
 ```
 tests/
-├── e2e/                        # End-to-End tests (2-5 per Story)
+├── e2e/                        # End-to-End tests (Priority ≥15)
 │   ├── auth/
 │   ├── user-flows/
 │   └── critical-paths/
-├── integration/                # Integration tests (3-8 per Story)
+├── integration/                # Integration tests (when E2E insufficient)
 │   ├── api/
 │   ├── database/
 │   └── services/
-├── unit/                       # Unit tests (5-15 per Story)
+├── unit/                       # Unit tests (complex business logic only)
 │   ├── components/
 │   ├── utils/
 │   └── services/

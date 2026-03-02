@@ -48,14 +48,13 @@ Each worker receives exactly ONE `Execute Stage` command per lifetime. Stage tra
 Lead extracts structured data from worker messages:
 
 ```
-# Stage completion (all stages)
-^Stage (\d) (COMPLETE|ERROR) for ([A-Z]+-\d+)\.\s*(.*)$
+# Stage completion — COMPLETE uses "." separator, ERROR uses ":" separator
+^Stage (\d) COMPLETE for ([A-Z]+-\d+)\.\s*(.*)$
+^Stage (\d) ERROR for ([A-Z]+-\d+):\s*(.*)$
 # NOTE: Story ID pattern [A-Z]+-\d+ requires uppercase prefix (e.g., PROJ-42). Non-standard formats will fail parsing.
 
-# Group 1: stage number
-# Group 2: COMPLETE or ERROR
-# Group 3: story ID
-# Group 4: details (parsed further per stage)
+# COMPLETE regex groups: 1=stage, 2=story ID, 3=details (parsed further per stage)
+# ERROR regex groups:   1=stage, 2=story ID, 3=error details
 
 # Stage 0 details
 (\d+) tasks created\. Plan score: (\d)/4

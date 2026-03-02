@@ -114,5 +114,26 @@ Two methods differ only in 1-2 params that could be optional.
 | `process_X` + `process_X_and_notify` | `process_X(notify=False)` |
 | `create_X` + `create_X_with_defaults` | `create_X(use_defaults=True)` |
 
+## Rule 6: Architectural Honesty
+
+Read-named function contains write side-effects (architecturally dishonest interface).
+
+### Detection
+
+**MANDATORY READ:** `shared/references/ai_ready_architecture.md` for complete side-effect marker patterns and false positive exclusions.
+
+| Step | Tool | Pattern |
+|------|------|---------|
+| 1. Find read-named functions | Grep | `(def\|function\|async)\s+(get_\|find_\|check_\|validate_\|is_\|has_)` in service files |
+| 2. Check body for write markers | Grep | Side-effect markers per reference (DB writes, HTTP calls, notifications, events) |
+| 3. Apply exclusions | Logic | Skip get_or_create, @cache decorators, CQRS handlers, check_and_* (per reference) |
+
+### Severity
+
+| Condition | Severity |
+|-----------|----------|
+| Read-named function in auth/payment service with write side-effects | HIGH |
+| Read-named function in other services with write side-effects | MEDIUM |
+
 ---
-**Version:** 1.0.0
+**Version:** 1.1.0

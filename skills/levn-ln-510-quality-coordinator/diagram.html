@@ -18,7 +18,7 @@
             <ul>
                 <li><strong>Purpose:</strong> Two-pass review - Pass 1 (Early Exit Pattern) + Pass 2 (verify tests + Story Done)</li>
                 <li><strong>Pass 1 (6 phases):</strong> Discovery → Preparation → **Code Quality (FAIL FAST)** → **Regression Check (FAIL FAST)** → **Manual Testing (FAIL FAST)** → Verdict</li>
-                <li><strong>Pass 2 (3 phases):</strong> Prerequisites check → Test verification (10-28 tests, Priority ≥15) → Verdict and Story closure</li>
+                <li><strong>Pass 2 (3 phases):</strong> Prerequisites check → Test verification (Priority ≥15, Usefulness Criteria) → Verdict and Story closure</li>
                 <li><strong>Early Exit Pattern:</strong> Each Pass 1 phase can stop execution and create fix/refactor task</li>
             </ul>
         </div>
@@ -53,7 +53,7 @@ graph TD
     P2_Phase1 --> P2_PrereqCheck{Test task<br/>Done?}
     P2_PrereqCheck -->|No| P2_Error[Error: Test task missing or NOT Done<br/>Exit]
     P2_PrereqCheck -->|Yes| P2_Phase2
-    P2_Phase2[Pass 2 Phase 2: Test Verification<br/>All tests pass 2-5 E2E 3-8 Integration<br/>5-15 Unit 10-28 total Priority ≥15<br/>NO performance/load tests<br/>Infrastructure updated]
+    P2_Phase2[Pass 2 Phase 2: Test Verification<br/>All tests pass Priority ≥15<br/>Each test passes Usefulness Criteria<br/>NO performance/load tests<br/>Infrastructure updated]
     P2_Phase2 --> P2_Phase3[Pass 2 Phase 3: Verdict and Story Closure]
     P2_Phase3 --> P2_Verdict{Verdict?}
     P2_Verdict -->|Pass| StoryDone[Mark Story Done<br/>Update kanban_board.md<br/>Minimal cleanup]

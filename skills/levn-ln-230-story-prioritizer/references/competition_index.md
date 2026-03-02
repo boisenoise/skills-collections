@@ -58,7 +58,7 @@ Blue Ocean / Red Ocean classification for ln-230-story-prioritizer.
 ### Step 1: Search for Competitors
 
 ```
-WebSearch: "[feature] competitors 2025"
+WebSearch: "[feature] competitors {current_year}"
 WebSearch: "[feature] alternatives comparison"
 ```
 

@@ -62,7 +62,6 @@ story_results[id].stage0 = "{N} tasks, {score}/4"
 
 ```
 story_state[id] = "PAUSED"
-active_workers--
 # ACK: confirm receipt before shutdown (prevents worker retry latency)
 SendMessage(recipient: worker_map[id],
   content: "ACK Stage 0 for {id}", summary: "{id} Stage 0 ACK")
@@ -120,7 +119,6 @@ IF validation_retries[id] <= 1:
   Write .pipeline/worker-{next_worker}-active.flag
 ELSE:
   story_state[id] = "PAUSED"
-  active_workers--
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
   Bash: git worktree remove .worktrees/story-{id} --force
   worktree_map[id] = null
@@ -136,7 +134,6 @@ ELSE:
 
 ```
 story_state[id] = "PAUSED"
-active_workers--
 # ACK: confirm receipt before shutdown (prevents worker retry latency)
 SendMessage(recipient: worker_map[id],
   content: "ACK Stage 2 for {id}", summary: "{id} Stage 2 ACK")
@@ -187,7 +184,7 @@ story_results[id].stage3 = "{verdict} {score}/100"
 
 # Sync with develop + generate report (Phase 4a Section A)
 Execute phase4a_git_merge.md Section A: sync_and_report(id)
-# If sync failed (merge conflict) → story_state already set to PAUSED, RETURN
+IF story_state[id] == "PAUSED": RETURN   # Merge conflict detected by sync_and_report
 
 # Transition to PENDING_MERGE — event loop exits
 story_state[id] = "PENDING_MERGE"
@@ -219,7 +216,6 @@ IF quality_cycles[id] < 2:
   Write .pipeline/worker-{next_worker}-active.flag
 ELSE:
   story_state[id] = "PAUSED"
-  active_workers--
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
   Bash: git worktree remove .worktrees/story-{id} --force
   worktree_map[id] = null
@@ -237,7 +233,7 @@ ELSE:
 
 ```
 # Step 1: Flag suspicious
-suspicious_idle[id] = true
+suspicious_idle = true
 
 # Step 2: Probe
 SendMessage(recipient: worker_map[id],
@@ -246,26 +242,25 @@ SendMessage(recipient: worker_map[id],
 
 # Step 3: Evaluate
 ON worker responds with parseable status:
-  suspicious_idle[id] = false           # False alarm, continue
+  suspicious_idle = false                # False alarm, continue
 
 ON TeammateIdle again WITHOUT response:
   crash_count[id]++
   IF crash_count[id] <= 1:
-    active_workers--
     # Resume protocol (see checkpoint_format.md):
     checkpoint = read(".pipeline/checkpoint-{id}.json")
     IF checkpoint.agentId exists:
       Task(resume: checkpoint.agentId)          # Try 1: full context resume
+      # worker_map[id] remains unchanged (same agent, resumed)
     ELSE:
+      next_worker = "story-{id}-s{checkpoint.stage}-retry"
       new_prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id], project_root) + CHECKPOINT_RESUME block
-      Task(name: "story-{id}-s{checkpoint.stage}-retry", team_name: "pipeline-{date}",
+      Task(name: next_worker, team_name: "pipeline-{date}",
            model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
            prompt: new_prompt)                  # Try 2: Opus for crash recovery/troubleshooting
-    worker_map[id] = new_worker_name
-    active_workers++
+      worker_map[id] = next_worker
   ELSE:
     story_state[id] = "PAUSED"
-    active_workers--
     Bash: git worktree remove .worktrees/story-{id} --force
     worktree_map[id] = null
     ESCALATE: "Story {id} worker crashed twice at Stage {N}"

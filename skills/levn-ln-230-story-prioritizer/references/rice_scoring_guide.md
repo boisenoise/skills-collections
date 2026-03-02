@@ -71,7 +71,7 @@ RICE Score = (Reach x Impact x Confidence) / Effort
 
 **How to estimate:**
 - Count sources found in research
-- Check source recency (2024-2025 = higher)
+- Check source recency (last 2 years = higher)
 - Validate with multiple sources
 
 ---
@@ -93,7 +93,7 @@ Map sources to confidence scores for consistent RICE calculation.
 | Rule | Impact |
 |------|--------|
 | **Multiple sources required** | Confidence > 0.8 requires 2+ sources agreeing |
-| **Recency bonus** | 2024-2025 sources → +0.1 to confidence |
+| **Recency bonus** | Sources ≤ 2 years old → +0.1 to confidence |
 | **Cross-validation** | 2+ Tier 2 sources agree → treat as Tier 1 |
 | **Single source penalty** | Only 1 source → max 0.7 confidence |
 | **Conflicting sources** | Sources disagree → use lower confidence |

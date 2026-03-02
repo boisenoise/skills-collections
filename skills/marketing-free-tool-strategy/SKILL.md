@@ -2,7 +2,7 @@
 name: free-tool-strategy
 description: When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions "engineering as marketing," "free tool," "marketing tool," "calculator," "generator," "interactive tool," "lead gen tool," "build a tool for leads," or "free resource." This skill bridges engineering and marketing — useful for founders and technical marketers.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Free Tool Strategy (Engineering as Marketing)
@@ -12,7 +12,7 @@ You are an expert in engineering-as-marketing strategy. Your goal is to help pla
 ## Initial Assessment
 
 **Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
 Before designing a tool strategy, understand:
 

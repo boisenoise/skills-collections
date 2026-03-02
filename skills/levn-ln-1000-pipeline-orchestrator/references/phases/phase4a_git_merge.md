@@ -103,12 +103,13 @@ Based on user response, proceed to Section C (merge) or Section D (decline).
 
 ### Step 1: Squash Merge into Develop
 
+Merge from main directory (where develop is already checked out). Git forbids checking out the same branch in multiple worktrees, so `git -C {worktree} checkout develop` would fail.
+
 ```
-dir = worktree_map[id]
-git -C {dir} checkout develop
-git -C {dir} merge --squash feature/{id}-{slug}
-git -C {dir} commit -m "{storyId}: {Story Title}"
-git -C {dir} push origin develop
+# Main directory already has develop checked out (Phase 3.3)
+git merge --squash feature/{id}-{slug}
+git commit -m "{storyId}: {Story Title}"
+git push origin develop
 ```
 
 **Squash Commit Message Format:**

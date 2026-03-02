@@ -68,7 +68,7 @@ WebSearch: "[problem] where people ask for help"
 
 ```
 WebSearch: "[idea] search volume monthly"
-WebSearch: "[idea] Google Trends 2025"
+WebSearch: "[idea] Google Trends {current_year}"
 WebSearch: "how to [problem] reddit"
 WebSearch: "[competitor] monthly traffic"
 ```
@@ -101,7 +101,7 @@ WebSearch: "[competitor] monthly traffic"
 ### Research Queries
 
 ```
-WebSearch: "[idea] competitors 2025"
+WebSearch: "[idea] competitors {current_year}"
 WebSearch: "[idea] alternatives comparison"
 WebSearch: "[idea] vs"
 WebSearch: "best [idea] tools"

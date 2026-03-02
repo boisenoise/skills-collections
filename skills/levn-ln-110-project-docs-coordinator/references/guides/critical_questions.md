@@ -264,8 +264,8 @@ Assistant: "Researching 2025 best practices...
   - Q12: Verified 2025 versions (Express 5.0, Prisma 6.0, Jest 30.0, Tailwind 4.0)
 
 ✓ Researched via WebSearch:
-  - Q11: Microservices best practices 2025 (event-driven, API Gateway patterns)
-  - Q13: Stripe API 2025 best practices (webhook security, idempotency)
+  - Q11: Microservices best practices {current_year} (event-driven, API Gateway patterns)
+  - Q13: Stripe API {current_year} best practices (webhook security, idempotency)
 
 Total gathered in Stage 0: 21/23 questions"
 ```

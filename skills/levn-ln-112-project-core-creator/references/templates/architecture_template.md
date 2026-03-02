@@ -45,7 +45,7 @@
 
 ### 2.3 Conventions
 {{CONVENTIONS}}
-<!-- Example: Code: ESLint+Prettier (CI enforced), Git: GitHub Flow, API: RESTful+JSON+semantic versioning, Testing: Risk-Based (2-5 E2E, 3-8 Integration, 5-15 Unit, Priority ≥15) -->
+<!-- Example: Code: ESLint+Prettier (CI enforced), Git: GitHub Flow, API: RESTful+JSON+semantic versioning, Testing: Risk-Based (Priority ≥15, Usefulness Criteria) -->
 
 ---
 

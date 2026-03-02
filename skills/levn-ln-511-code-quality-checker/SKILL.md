@@ -73,6 +73,9 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 | ARCH-DI- | Dependency Injection: direct instantiation in business logic, mixed DI+imports | medium |
 | ARCH-CEH- | Centralized Error Handling: no global handler, stack traces in prod, uncaughtException | medium (high if no handler at all) |
 | ARCH-SES- | Session Ownership: DI session + local session in same module | medium |
+| ARCH-AI-SEB | Side-Effect Breadth: 3+ side-effect categories in one function | medium |
+| ARCH-AI-AH | Architectural Honesty: read-named function with write side-effects | medium |
+| ARCH-AI-FO | Flat Orchestration: service imports 3+ other services | medium |
 
 **PERF- subcategories:**
 
@@ -142,7 +145,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - MNT-: DRY violations (MNT-DRY-: duplicate logic), dead code (MNT-DC-: per checklist), complex conditionals, poor naming
    - **MNT-DRY- cross-story hotspot scan:** Grep for common pattern signatures (error handlers: `catch.*Error|handleError`, validators: `validate|isValid`, config access: `getSettings|getConfig`) across ALL `src/` files (count mode). If any pattern appears in 5+ files, sample 3 files (Read 50 lines each) and check structural similarity. If >80% similar → MNT-DRY-CROSS (medium, -10 points): `Pattern X duplicated in N files — extract to shared module.`
    - **MNT-DC- cross-story unused export scan:** For each file modified by Story, count `export` declarations. Then Grep across ALL `src/` for import references to those exports. Exports with 0 import references → MNT-DC-CROSS (medium, -10 points): `{export} in {file} exported but never imported — remove or mark internal.`
-   - **OPT-OSS- cross-reference ln-645 (static, fast-track safe):** IF `docs/project/.audit/645-open-source-replacer*.md` exists, check if any HIGH-confidence replacement matches files changed in current Story. IF match found → create OPT-OSS-{N} issue with module path, goal, recommended package, confidence, stars, license from ln-645 report. Severity: high if >200 LOC, medium otherwise. This check reads local files only — no MCP calls — runs even with `--skip-mcp-ref`.
+   - **OPT-OSS- cross-reference ln-645 (static, fast-track safe):** IF `docs/project/.audit/ln-640/*/645-open-source-replacer*.md` exists (glob across dates, take latest), check if any HIGH-confidence replacement matches files changed in current Story. IF match found → create OPT-OSS-{N} issue with module path, goal, recommended package, confidence, stars, license from ln-645 report. Severity: high if >200 LOC, medium otherwise. This check reads local files only — no MCP calls — runs even with `--skip-mcp-ref`.
    - ARCH-: layer violations, circular dependencies, guide non-compliance
    - ARCH-LB-: layer boundary violations (HTTP/DB/FS calls outside infrastructure layer)
    - ARCH-TX-: transaction boundary violations (commit() across multiple layers)
@@ -150,6 +153,9 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - ARCH-DI-: direct instantiation in business logic (no DI container or mixed patterns)
    - ARCH-CEH-: centralized error handling absent or bypassed
    - ARCH-SES-: session ownership conflicts (DI + local session in same module)
+   - ARCH-AI-SEB: side-effect breadth (3+ categories in one function)
+   - ARCH-AI-AH: architectural honesty (read-named function with hidden writes)
+   - ARCH-AI-FO: flat orchestration (service importing 3+ services)
    - MNT-GOD-: god classes (>15 methods or >500 lines per class)
    - MNT-SIG-: method signature quality (boolean flags, unclear returns)
    - MNT-ERR-: error contract inconsistency (mixed raise/return patterns in same service)

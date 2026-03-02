@@ -19,15 +19,18 @@ Specialized worker auditing tests for Business Logic Focus (Category 1).
 
 ## Inputs (from Coordinator)
 
-Receives `contextStore` with framework detection patterns, tech stack, test file list.
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+
+Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`, `output_dir`.
 
 ## Workflow
 
-1) Parse context
-2) Scan test files for framework/library tests
-3) Collect findings
-4) Calculate score
-5) Return JSON
+1) **Parse Context:** Extract tech stack, framework detection patterns, test file list, output_dir from contextStore
+2) **Scan Codebase:** Scan test files for framework/library tests (see Audit Rules below)
+3) **Collect Findings:** Record each violation with severity, location (file:line), effort estimate (S/M/L), recommendation
+4) **Calculate Score:** Count violations by severity, calculate compliance score (X/10)
+5) **Write Report:** Build full markdown report in memory per `shared/templates/audit_worker_report_template.md`, write to `{output_dir}/631-business-logic.md` in single Write call
+6) **Return Summary:** Return minimal summary to coordinator (see Output Format)
 
 ## Audit Rules
 
@@ -121,40 +124,14 @@ Receives `contextStore` with framework detection patterns, tech stack, test file
 
 ## Output Format
 
-**Return JSON to coordinator:**
-```json
-{
-  "category": "Business Logic Focus",
-  "score": 7,
-  "total_issues": 12,
-  "critical": 0,
-  "high": 0,
-  "medium": 10,
-  "low": 2,
-  "checks": [
-    {"id": "framework_tests", "name": "Framework Tests Detection", "status": "failed", "details": "Found 6 tests validating Express/Fastify behavior"},
-    {"id": "orm_tests", "name": "ORM Library Tests", "status": "warning", "details": "Found 4 Prisma validation tests"},
-    {"id": "business_logic_coverage", "name": "Business Logic Coverage", "status": "passed", "details": "Core business logic properly tested"}
-  ],
-  "findings": [
-    {
-      "severity": "MEDIUM",
-      "location": "auth.test.ts:45-52",
-      "issue": "Test 'bcrypt hashes password' validates library behavior, not OUR code",
-      "principle": "Business Logic Focus / Framework Testing",
-      "recommendation": "Delete test — bcrypt already tested by maintainers",
-      "effort": "S"
-    },
-    {
-      "severity": "MEDIUM",
-      "location": "db.test.ts:78-85",
-      "issue": "Test 'Prisma findMany returns array' validates ORM behavior, not OUR query logic",
-      "principle": "Business Logic Focus / ORM Testing",
-      "recommendation": "Delete test — Prisma already tested",
-      "effort": "S"
-    }
-  ]
-}
+**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+
+Write report to `{output_dir}/631-business-logic.md` with `category: "Business Logic Focus"` and checks: framework_tests, orm_tests, crypto_tests, jwt_tests, http_client_tests, react_hooks_tests.
+
+Return summary to coordinator:
+```
+Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/631-business-logic.md
+Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
 ## Critical Rules
@@ -167,14 +144,16 @@ Receives `contextStore` with framework detection patterns, tech stack, test file
 
 ## Definition of Done
 
-- contextStore parsed (tech_stack, framework detection patterns, test file list)
+- contextStore parsed successfully (including output_dir)
 - All 6 checks completed (framework, ORM, crypto, JWT, HTTP client, React hooks)
 - Findings collected with severity, location, effort, recommendation
-- Score calculated per `shared/references/audit_scoring.md`
-- JSON returned to coordinator
+- Score calculated using penalty algorithm
+- Report written to `{output_dir}/631-business-logic.md` (atomic single Write call)
+- Summary returned to coordinator
 
 ## Reference Files
 
+- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 

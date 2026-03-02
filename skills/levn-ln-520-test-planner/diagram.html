@@ -17,8 +17,8 @@
             <h3>📋 Overview</h3>
             <ul>
                 <li><strong>Purpose:</strong> Create final Story task after manual testing passes (invoked by ln-340-story-quality-gate Pass 1)</li>
-                <li><strong>Philosophy:</strong> Minimum Viable Testing - Start with 2 baseline E2E tests (positive + negative), add more ONLY with critical justification</li>
-                <li><strong>Realistic Goal:</strong> 2-7 tests per Story (hard limit: 28)</li>
+                <li><strong>Philosophy:</strong> Minimum Viable Testing - Start with baseline E2E (positive + negative), each additional test passes Usefulness Criteria</li>
+                <li><strong>Priority:</strong> Risk-Based (Priority ≥15), no numerical targets</li>
                 <li><strong>Output:</strong> Comprehensive task with 11 sections: E2E-first Risk-Based Testing (Priority ≥15, tests OUR logic ONLY)</li>
                 <li><strong>Risk Priority:</strong> Business Impact × Probability, Priority ≥15 MUST be tested</li>
                 <li><strong>Critical Justification:</strong> Each test beyond baseline 2 requires documented answer: "Why does this test OUR business logic (not framework/library/database)?"</li>
@@ -45,15 +45,15 @@ graph TD
 
     subgraph RiskPlanning [Minimum Viable Testing - Risk-Based]
         Risk1[Step 1: Risk Assessment<br/>Priority = Business Impact × Probability]
-        Risk1 --> Risk2[Step 2: E2E Test Selection<br/>2 baseline ALWAYS + 0-3 additional Priority ≥15]
+        Risk1 --> Risk2[Step 2: E2E Test Selection<br/>Baseline positive + negative ALWAYS<br/>Additional only if Priority ≥15]
         Risk2 --> Risk2_5{Step 2.5: Critical Justification<br/>Tests OUR business logic?<br/>Not framework/library/database?}
-        Risk2_5 -->|Pass| Risk3[Step 3: Unit Test Selection<br/>0-15 tests ONLY complex logic Priority ≥15]
+        Risk2_5 -->|Pass| Risk3[Step 3: Unit Test Selection<br/>ONLY complex logic Priority ≥15]
         Risk2_5 -->|Fail| Risk2
         Risk3 --> Risk3_5{Critical Justification<br/>Tests OUR logic?}
-        Risk3_5 -->|Pass| Risk4[Step 4: Integration Test Selection<br/>0-8 tests ONLY if E2E doesn't cover Priority ≥15]
+        Risk3_5 -->|Pass| Risk4[Step 4: Integration Test Selection<br/>ONLY if E2E doesn't cover Priority ≥15]
         Risk3_5 -->|Fail| Risk3
         Risk4 --> Risk4_5{Critical Justification<br/>Tests OUR logic?}
-        Risk4_5 -->|Pass| Risk5[Step 5: Validation<br/>2-7 realistic goal max 28 auto-trim]
+        Risk4_5 -->|Pass| Risk5[Step 5: Validation<br/>Each test passes Usefulness Criteria]
         Risk4_5 -->|Fail| Risk4
     end
 

@@ -2,7 +2,7 @@
 name: pricing-strategy
 description: "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Pricing Strategy
@@ -12,7 +12,7 @@ You are an expert in SaaS pricing and monetization strategy. Your goal is to hel
 ## Before Starting
 
 **Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
 Gather this context (ask if not provided):
 
@@ -227,3 +227,5 @@ Identifies which features customers value most:
 - **copywriting**: For pricing page copy
 - **marketing-psychology**: For pricing psychology principles
 - **ab-test-setup**: For testing pricing changes
+- **revops**: For deal desk processes and pipeline pricing
+- **sales-enablement**: For proposal templates and pricing presentations

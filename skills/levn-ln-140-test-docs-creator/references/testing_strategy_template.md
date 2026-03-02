@@ -45,21 +45,25 @@ Universal testing philosophy and strategy for modern software projects: principl
 | **10-14** | Consider testing | Edge cases with moderate impact |
 | **<10** | Skip automated tests | Low-probability edge cases, framework behavior |
 
-### Test Caps (per Story)
+### Test Usefulness Criteria
 
-**Enforce caps to prevent test bloat:**
+**No numerical targets.** Test count driven by risk assessment, not volume goals.
 
-- **E2E:** 2-5 tests
-- **Integration:** 3-8 tests
-- **Unit:** 5-15 tests
-- **Total:** 10-28 tests per Story
+Every test must pass ALL 6 Usefulness Criteria:
+
+| # | Criterion | Question |
+|---|-----------|----------|
+| 1 | **Risk Priority ≥15** | Business Impact × Probability ≥15? |
+| 2 | **Confidence ROI** | Meaningful confidence vs maintenance cost? |
+| 3 | **Behavioral** | Tests behavior, not implementation? |
+| 4 | **Predictive** | Passing test = works in production? |
+| 5 | **Specific** | Failed → cause immediately obvious? |
+| 6 | **Non-Duplicative** | Unique value not covered by other tests? |
 
 **Key principles:**
-- **No minimum limits** - Can be 0 tests if no Priority ≥15 scenarios exist
 - **No test pyramids** - Test distribution based on risk, not arbitrary ratios
 - **Every test must add value** - Each test should validate unique Priority ≥15 scenario
-
-**Exception:** ML/GPU/Hardware-dependent workloads may favor more E2E (5-10), fewer Integration (2-5), minimal Unit (1-3) because behavior is hardware-dependent and mocks lack fidelity. Same 10-28 total cap applies.
+- **Baseline** - Positive + negative E2E per endpoint (methodology, not count target)
 
 ---
 
@@ -424,8 +428,7 @@ guest_user = build_user(role="guest")
 ### Strategy
 
 - [ ] Risk-based selection (Priority ≥15)
-- [ ] Test caps enforced (E2E 2-5, Integration 3-8, Unit 5-15)
-- [ ] Total 10-28 tests per Story
+- [ ] Each test passes all 6 Usefulness Criteria
 - [ ] Tests target YOUR code, not framework internals
 - [ ] E2E smoke tests for critical integrations
 

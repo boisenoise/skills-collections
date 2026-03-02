@@ -94,7 +94,7 @@ Skipped workers are NOT delegated. They get score "N/A" in report and are exclud
   "best_practices": {...},
   "principles": {...},
   "codebase_root": "...",
-  "output_dir": "docs/project/.audit"
+  "output_dir": "docs/project/.audit/ln-620/{YYYY-MM-DD}"
 }
 ```
 
@@ -152,9 +152,8 @@ Skipped workers are NOT delegated. They get score "N/A" in report and are exclud
 
 Before delegating to workers:
 ```
-1. Delete docs/project/.audit/ if exists (clean previous run)
-2. Create docs/project/.audit/ directory
-3. Add output_dir to contextStore (already set in Phase 3)
+1. mkdir -p {output_dir}   # No deletion — date folders preserve history
+2. output_dir already set in contextStore (Phase 3)
 ```
 
 **Prompt template:**
@@ -170,11 +169,11 @@ Task(description: "Audit via ln-62X",
 
 **Worker Output Contract (File-Based):**
 
-Workers write full report to `docs/project/.audit/{worker_id}.md` per `shared/templates/audit_worker_report_template.md`.
+Workers write full report to `{output_dir}/{worker_id}.md` per `shared/templates/audit_worker_report_template.md`.
 
 Workers return **minimal summary** in-context (~50 tokens):
 ```
-Report written: docs/project/.audit/621-security.md
+Report written: docs/project/.audit/ln-620/{YYYY-MM-DD}/621-security.md
 Score: 7.5/10 | Issues: 5 (C:0 H:2 M:2 L:1)
 ```
 
@@ -188,7 +187,7 @@ score = max(0, 10 - penalty)
 
 ### Phase 5a: Global Workers (PARALLEL)
 
-**Global workers** scan entire codebase (not domain-aware). Each writes report to `docs/project/.audit/`.
+**Global workers** scan entire codebase (not domain-aware). Each writes report to `{output_dir}/`.
 
 | # | Worker | Priority | What It Audits | Output File |
 |---|--------|----------|----------------|-------------|
@@ -252,7 +251,7 @@ ELSE:
 
 ## Phase 6: Aggregate Results (File-Based)
 
-Workers wrote reports to `docs/project/.audit/` and returned minimal summaries. Aggregation uses **return values for numbers** and **file reads for findings tables**.
+Workers wrote reports to `{output_dir}/` and returned minimal summaries. Aggregation uses **return values for numbers** and **file reads for findings tables**.
 
 ### Step 6.1: Parse Return Values
 
@@ -299,7 +298,7 @@ FOR EACH domain:
 
 Read **only** ln-623 report files to extract `FINDINGS-EXTENDED` JSON block:
 ```
-principle_files = Glob("docs/project/.audit/623-principles-*.md")
+principle_files = Glob("{output_dir}/623-principles-*.md")
 FOR EACH file IN principle_files:
   Read file → extract <!-- FINDINGS-EXTENDED [...] --> JSON
   Filter findings with pattern_signature field
@@ -316,13 +315,50 @@ Group by pattern_signature across domains:
 
 Read each worker report file and copy Findings table into corresponding report section:
 ```
-FOR EACH report_file IN Glob("docs/project/.audit/6*.md"):
+FOR EACH report_file IN Glob("{output_dir}/6*.md"):
   Read file → extract "## Findings" table rows
   Insert into matching category section in final report
 ```
 
 **Global categories** (Security, Build, etc.) → single Findings table per category.
 **Domain-aware categories** → subtables per domain (one per file).
+
+### Step 6.7: Context Validation (Post-Filter)
+
+**MANDATORY READ:** Load `shared/references/context_validation.md`
+
+Apply Rules 1-5 to assembled findings. Uses data already in context:
+- ADR list (loaded in Phase 1 from `docs/reference/adrs/` or `docs/decisions/`)
+- tech_stack metadata (Phase 1)
+- Worker report files (already read in Step 6.6)
+
+```
+FOR EACH finding IN assembled_findings WHERE severity IN (HIGH, MEDIUM):
+  # Rule 1: ADR/Planned Override
+  IF finding matches ADR title/description → advisory "[Planned: ADR-XXX]"
+
+  # Rule 2: Trivial DRY
+  IF DRY finding AND duplicated_lines < 5 → remove finding
+
+  # Rule 3: Cohesion (god_classes, long_methods, large_file)
+  IF size-based finding:
+    Read flagged file ONCE, check 4 cohesion indicators
+    IF cohesion >= 3 → advisory "[High cohesion module]"
+
+  # Rule 4: Already-Latest
+  IF dependency finding: cross-check ln-622 audit output
+    IF latest + 0 CVEs → remove finding
+
+  # Rule 5: Locality/Single-Consumer
+  IF DRY/schema finding: Grep import count
+    IF import_count == 1 → advisory "[Single consumer, locality correct]"
+    IF import_count <= 3 with different API contracts → advisory "[API contract isolation]"
+
+Downgraded findings → "Advisory Findings" section in report.
+Recalculate category scores excluding advisory findings from penalty.
+```
+
+**Exempt:** Security (ln-621), N+1 queries, CRITICAL build errors, concurrency (ln-628).
 
 ## Output Format
 
@@ -341,6 +377,7 @@ Report is written to `docs/project/codebase_audit.md` using the template. Key se
 Write consolidated report to `docs/project/codebase_audit.md`:
 - Use template structure from codebase_audit_template.md
 - Fill all sections with aggregated worker data
+- Include "Advisory Findings" section with context-validated downgrades
 - Overwrite previous report (each audit is a full snapshot)
 
 ## Critical Rules
@@ -361,17 +398,19 @@ Write consolidated report to `docs/project/codebase_audit.md`:
 - Best practices researched via MCP tools for major dependencies
 - Domain discovery completed (domain_mode determined)
 - contextStore built with tech stack + best practices + domain info + output_dir
-- `docs/project/.audit/` directory cleaned and created
-- Applicable global workers invoked in PARALLEL; each wrote report to `.audit/`
-- Domain-aware workers (2 × N domains) invoked in PARALLEL; each wrote report to `.audit/`
+- `docs/project/.audit/ln-620/{YYYY-MM-DD}/` directory created (no deletion of previous runs)
+- Applicable global workers invoked in PARALLEL; each wrote report to `{output_dir}/`
+- Domain-aware workers (2 × N domains) invoked in PARALLEL; each wrote report to `{output_dir}/`
 - All workers completed successfully (or reported errors); return values parsed for scores/counts
 - Worker report files verified via Glob (expected count matches actual)
 - Results aggregated from return values (scores) + file reads (findings tables)
 - Domain Health Summary built (if domain_mode="domain-aware")
 - Cross-Domain DRY analysis completed from ln-623 FINDINGS-EXTENDED blocks (if domain-aware)
-- Compliance score (X/10) calculated per category + overall (skipped workers excluded from average)
+- Context validation (Step 6.7) applied: ADR matches, cohesion checks, locality, trivial DRY filtered
+- Advisory findings separated from penalty-scored findings
+- Compliance score (X/10) calculated per category + overall (skipped workers + advisory excluded)
 - Executive Summary and Strengths sections included
-- Report written to `docs/project/codebase_audit.md`
+- Report written to `docs/project/codebase_audit.md` with Advisory Findings section
 - Sources consulted listed with URLs
 
 ## Workers

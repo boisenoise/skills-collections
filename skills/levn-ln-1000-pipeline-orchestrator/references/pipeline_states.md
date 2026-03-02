@@ -51,7 +51,7 @@ PAUSED --[user resolves]--> (appropriate stage)
 | STAGE_0 -> STAGE_1 | ln-300 created 1-8 tasks successfully | If error, PAUSE |
 | STAGE_1 -> STAGE_2 | ln-310 verdict = GO, Readiness >= 5 | Retry once, then PAUSE |
 | STAGE_2 -> STAGE_3 | All tasks status = Done | Wait for remaining tasks |
-| STAGE_3 -> PENDING_MERGE | Quality Score >= 70, sync with develop successful | If FAIL, create fix tasks |
+| STAGE_3 -> PENDING_MERGE | Verdict IN (PASS, CONCERNS, WAIVED), sync with develop successful | If FAIL, create fix tasks |
 | STAGE_3 -> STAGE_2 | quality_cycles < 2 | If >= 2, PAUSE and escalate |
 | PENDING_MERGE -> DONE | User explicitly confirms or declines merge | N/A — user always decides |
 

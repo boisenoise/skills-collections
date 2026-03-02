@@ -16,7 +16,6 @@ COMPLETE=$(echo "$PIPELINE_STATE" | jq -r '.complete')
 if [ "$COMPLETE" = "false" ]; then
   LEAD_SESSION=$(cat .pipeline/lead-session.id 2>/dev/null || echo "")
   if [ "$SESSION_ID" = "$LEAD_SESSION" ] || [ -z "$LEAD_SESSION" ]; then
-    WORKERS=$(echo "$PIPELINE_STATE" | jq -r '.active_workers // 0')
     REMAINING=$(echo "$PIPELINE_STATE" | jq -r '.stories_remaining // 0')
     LAST=$(echo "$PIPELINE_STATE" | jq -r '.last_check // "unknown"')
     STORY_STATE=$(echo "$PIPELINE_STATE" | jq -c '.story_state // {}')
@@ -26,7 +25,7 @@ if [ "$COMPLETE" = "false" ]; then
     PROJECT_TECH=$(echo "$PIPELINE_STATE" | jq -r '.project_brief.tech // "unknown"')
 
     cat >&2 <<RECOVERY_EOF
-HEARTBEAT: ${WORKERS} active workers, ${REMAINING} stories remaining. Last check: ${LAST}.
+HEARTBEAT: story_state=${STORY_STATE}, ${REMAINING} stories remaining. Last check: ${LAST}.
 ---PIPELINE RECOVERY CONTEXT---
 You are pipeline lead (ln-1000-pipeline-orchestrator). Team: ${TEAM_NAME}. Project tech: ${PROJECT_TECH}
 STATE: story_state=${STORY_STATE} worker_map=${WORKER_MAP}

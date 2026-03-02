@@ -23,12 +23,12 @@ Structured approach to market sizing (inspired by McKinsey/BCG methodology).
 
 | Level | Query Template | Expected Result |
 |-------|----------------|-----------------|
-| **TAM** | "[domain] total addressable market 2025" | $XB total market |
+| **TAM** | "[domain] total addressable market {current_year}" | $XB total market |
 | **TAM** | "[domain] global market size forecast" | Market projections |
-| **SAM** | "[domain] [segment] market size 2025" | $XB segment |
+| **SAM** | "[domain] [segment] market size {current_year}" | $XB segment |
 | **SAM** | "[product type] API market size" | API-specific market |
 | **SOM** | "[domain] market share new entrant" | X% typical capture |
-| **SOM** | "[competitor] market share 2025" | Competitor benchmarks |
+| **SOM** | "[competitor] market share {current_year}" | Competitor benchmarks |
 
 ### Recording Format for Market Column
 
@@ -58,10 +58,10 @@ When detailed research unavailable, use these multipliers:
 
 | Purpose | Query Template | Expected Data |
 |---------|----------------|---------------|
-| TAM (Total Addressable Market) | "[domain] market size TAM 2025" | $XB total market |
-| SAM (Serviceable Market) | "[domain] [segment] market size 2025" | $XB segment |
-| Growth Rate | "[domain] market CAGR forecast 2025-2030" | X% annual growth |
-| Industry Report | "[domain] industry analysis report 2025" | Market overview |
+| TAM (Total Addressable Market) | "[domain] market size TAM {current_year}" | $XB total market |
+| SAM (Serviceable Market) | "[domain] [segment] market size {current_year}" | $XB segment |
+| Growth Rate | "[domain] market CAGR forecast" | X% annual growth |
+| Industry Report | "[domain] industry analysis report {current_year}" | Market overview |
 
 ### MCP Ref Templates
 
@@ -75,12 +75,12 @@ When detailed research unavailable, use these multipliers:
 
 | Domain | Market Query | Competition Query |
 |--------|--------------|-------------------|
-| **Translation API** | "machine translation API market size 2025" | "DeepL Google Translate API alternatives" |
-| **Document Processing** | "document parsing PDF market 2025" | "PDF parsing API competitors" |
-| **Authentication** | "identity management IAM market 2025" | "Auth0 Okta alternatives comparison" |
-| **Payments** | "payment processing API market 2025" | "Stripe PayPal alternatives" |
-| **AI/ML** | "AI API platform market size 2025" | "OpenAI Claude API competitors" |
-| **Storage** | "cloud storage API market 2025" | "AWS S3 alternatives comparison" |
+| **Translation API** | "machine translation API market size {current_year}" | "DeepL Google Translate API alternatives" |
+| **Document Processing** | "document parsing PDF market {current_year}" | "PDF parsing API competitors" |
+| **Authentication** | "identity management IAM market {current_year}" | "Auth0 Okta alternatives comparison" |
+| **Payments** | "payment processing API market {current_year}" | "Stripe PayPal alternatives" |
+| **AI/ML** | "AI API platform market size {current_year}" | "OpenAI Claude API competitors" |
+| **Storage** | "cloud storage API market {current_year}" | "AWS S3 alternatives comparison" |
 
 ---
 
@@ -90,9 +90,9 @@ When detailed research unavailable, use these multipliers:
 
 | Purpose | Query Template | Expected Data |
 |---------|----------------|---------------|
-| Direct Competitors | "[feature] competitors 2025" | Company names |
+| Direct Competitors | "[feature] competitors {current_year}" | Company names |
 | Alternatives | "[feature] alternatives comparison" | Feature matrix |
-| Market Leaders | "[domain] market leaders 2025" | Top players |
+| Market Leaders | "[domain] market leaders {current_year}" | Top players |
 | Reviews | "[feature] best solutions G2 Capterra" | User reviews |
 
 ### Counting Methodology
@@ -150,7 +150,7 @@ When detailed research unavailable, use these multipliers:
 
 Run these in parallel for each Story:
 ```
-WebSearch: "[customer problem] market size 2025"
+WebSearch: "[customer problem] market size {current_year}"
 WebSearch: "[feature] competitors alternatives"
 mcp__Ref: "[domain] industry analysis"
 ```
@@ -161,7 +161,7 @@ If primary query fails:
 
 | Primary | Fallback 1 | Fallback 2 |
 |---------|------------|------------|
-| "[feature] market size" | "[domain] market size" | "[industry] market 2025" |
+| "[feature] market size" | "[domain] market size" | "[industry] market {current_year}" |
 | "[feature] competitors" | "[feature] alternatives" | "[feature] vs" |
 
 ### Time-Saving Tips
@@ -169,7 +169,7 @@ If primary query fails:
 1. **Reuse domain context** - Same industry report works for multiple Stories
 2. **Skip obvious Red Ocean** - If >10 results immediately, index = 5
 3. **Cache competitor lists** - Same competitors appear across Stories
-4. **Use date filters** - Add "2024" or "2025" to queries
+4. **Use date filters** - Add current year to queries
 
 ---
 
@@ -179,7 +179,7 @@ If primary query fails:
 
 ### Step 1: Market Size Query
 ```
-WebSearch: "PDF translation API market size 2025"
+WebSearch: "PDF translation API market size {current_year}"
 ```
 **Result:** Document translation market $10B+ (Statista 2024)
 

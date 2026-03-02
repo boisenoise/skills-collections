@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ln-170-code-comments-auditor - State Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💬 ln-170-code-comments-auditor</h1>
+            <p class="subtitle">Code Comments Quality Auditor - State Diagram</p>
+        </header>
+
+        <div class="info-box">
+            <h3>📋 Workflow Overview</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Audit code comments and docstrings quality across 6 categories</li>
+                <li><strong>Output:</strong> Compliance Score X/10 per category + Findings + Recommended Actions</li>
+                <li><strong>Categories:</strong> WHY-not-WHAT, Density, Forbidden, Docstrings, Actuality, Legacy</li>
+                <li><strong>Invocation:</strong> Direct user call or via ln-100-documents-pipeline (Phase 5)</li>
+                <li><strong>Universal:</strong> Works with any programming language</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-discovery"></div>
+                <span>Discovery</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-processing"></div>
+                <span>Audit Checks</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-action"></div>
+                <span>Output</span>
+            </div>
+        </div>
+
+        <div class="diagram-container">
+            <div class="mermaid">
+graph TD
+    Start([Start: Comments Audit]) --> Scan[Phase 1: Scan<br/>Find source files, detect language]
+
+    Scan --> Extract[Phase 2: Extract<br/>Parse inline comments + docstrings]
+
+    Extract --> Cat1[Category 1: WHY not WHAT<br/>Check comment intent vs code restatement]
+
+    Cat1 --> Cat2[Category 2: Density 15-20%<br/>Calculate comment-to-code ratio]
+
+    Cat2 --> Cat3[Category 3: No Forbidden Content<br/>Epic IDs, Task IDs, dates, history]
+
+    Cat3 --> Cat4[Category 4: Docstrings Quality<br/>Match signatures, params, returns]
+
+    Cat4 --> Cat5[Category 5: Actuality<br/>Comments vs code, stale references]
+
+    Cat5 --> Cat6[Category 6: Legacy Cleanup<br/>TODO, commented code, deprecated]
+
+    Cat6 --> Score[Phase 3: Calculate Scores<br/>X/10 per category]
+
+    Score --> Report[Phase 4: Generate Report<br/>Findings + Recommended Actions]
+
+    Report --> Output([Output: Audit Report])
+
+    classDef discovery fill:#e1f5fe,stroke:#01579b
+    classDef processing fill:#fff3e0,stroke:#e65100
+    classDef action fill:#e8f5e9,stroke:#2e7d32
+
+    class Start,Scan,Extract discovery
+    class Cat1,Cat2,Cat3,Cat4,Cat5,Cat6 processing
+    class Score,Report,Output action
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>📊 Key Metrics</h3>
+            <table>
+                <tr><th>Metric</th><th>Target</th></tr>
+                <tr><td>Comment Density</td><td>15-20%</td></tr>
+                <tr><td>WHY Comments</td><td>100%</td></tr>
+                <tr><td>Forbidden IDs</td><td>0</td></tr>
+                <tr><td>Stale Comments</td><td>0</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</body>
+</html>

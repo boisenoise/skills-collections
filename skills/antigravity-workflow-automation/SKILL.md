@@ -1,8 +1,9 @@
 ---
 name: workflow-automation
 description: "Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, a network hiccup during a 10-step payment flow means lost money and angry customers. With it, wor..."
-source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
+source: "vibeship-spawner-skills (Apache 2.0)"
+date_added: "2026-02-27"
 ---
 
 # Workflow Automation

@@ -232,6 +232,9 @@ Layer violations detected by ln-642 affect **Compliance** and **Quality** scores
 | HTTP call without abstraction | -10 points | Missing client layer |
 | Error handling in >2 files | -5 per extra file | Duplication, should centralize |
 | Pattern coverage <80% | -10 points | Inconsistent architecture |
+| Functions with cascade depth >= 3 | -5 per function | Deep cascade chain (source: ln-624 Rule 10) |
+| Read-named functions with hidden writes | -5 per function | Architecturally dishonest interface (source: ln-643 Rule 6) |
+| Service chain depth >= 3 levels | -10 per chain | Deep orchestration (source: ln-642 Phase 3.3) |
 
 ### Layer Violation Thresholds
 

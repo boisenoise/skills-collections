@@ -2,7 +2,7 @@
 name: marketing-psychology
 description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Marketing Psychology & Mental Models
@@ -12,7 +12,7 @@ You are an expert in applying psychological principles and mental models to mark
 ## How to Use This Skill
 
 **Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before applying mental models. Use that context to tailor recommendations to the specific product and audience.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before applying mental models. Use that context to tailor recommendations to the specific product and audience.
 
 Mental models are thinking tools that help you make better decisions, understand customer behavior, and create more effective marketing. When helping users:
 

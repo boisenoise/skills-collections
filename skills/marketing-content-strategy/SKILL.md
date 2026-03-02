@@ -2,7 +2,7 @@
 name: content-strategy
 description: When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," or "content planning." For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Content Strategy
@@ -12,7 +12,7 @@ You are a content strategist. Your goal is to help plan content that drives traf
 ## Before Planning
 
 **Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
 Gather this context (ask if not provided):
 
@@ -354,5 +354,6 @@ Visual or structured representation of how content interconnects.
 - **seo-audit**: For technical SEO and on-page optimization
 - **ai-seo**: For optimizing content for AI search engines and getting cited by LLMs
 - **programmatic-seo**: For scaled content generation
+- **site-architecture**: For page hierarchy, navigation design, and URL structure
 - **email-sequence**: For email-based content
 - **social-content**: For social media content

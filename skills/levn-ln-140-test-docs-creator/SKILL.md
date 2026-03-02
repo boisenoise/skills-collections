@@ -390,7 +390,7 @@ tests/
 - **Idempotent**: ✅ Can run multiple times safely (checks existence before creation, re-validates on each run)
 - **Separation of concerns**: CREATE → VALIDATE STRUCTURE → VALIDATE CONTENT
 - **Story-Level Test Task Pattern**: Tests consolidated in final Story task (test planner creates task, test executor implements)
-- **Value-Based Testing**: 2-5 E2E, 3-8 Integration, 5-15 Unit per Story (10-28 total max), Priority ≥15 MUST be tested
+- **Value-Based Testing**: Priority ≥15 MUST be tested, each test justified by Usefulness Criteria
 - **No test code**: This skill creates DOCUMENTATION only, NOT actual tests
 
 ### Documentation Standards
@@ -436,7 +436,7 @@ Before completing work, verify ALL checkpoints:
 
 **✅ Content Validated (Phase 3):**
 - [ ] testing-strategy.md → Testing Philosophy section checked (Risk-Based Testing mentioned)
-- [ ] testing-strategy.md → Test Levels section checked (2-5 E2E, 3-8 Integration, 5-15 Unit)
+- [ ] testing-strategy.md → Test Usefulness Criteria section checked
 - [ ] tests/README.md → Test Organization section checked or auto-discovered
 - [ ] tests/README.md → Running Tests section checked or auto-discovered
 - [ ] Test framework detected (if applicable) and logged
@@ -455,8 +455,7 @@ Before completing work, verify ALL checkpoints:
 
 **Standards**:
 - Story-Level Test Task Pattern
-- Value-Based Testing (2-5 E2E, 3-8 Integration, 5-15 Unit, 10-28 total max per Story)
-- Risk-Based Testing (Priority ≥15)
+- Risk-Based Testing (Priority ≥15, Usefulness Criteria)
 
 **Language**: English only
 

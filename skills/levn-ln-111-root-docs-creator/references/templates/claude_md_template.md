@@ -23,7 +23,7 @@
 **Key Principles:**
 - **Standards First**: Industry standards (ISO, RFC, OWASP, WCAG 2.1 AA) override development principles
 - **Token Efficiency**: Progressive Disclosure Pattern (tables > paragraphs), no duplication
-- **Quality**: Risk-Based Testing (2-5 E2E, 3-8 Integration, 5-15 Unit per Story)
+- **Quality**: Risk-Based Testing (Priority ≥15, Usefulness Criteria)
 - **No Legacy Code**: Remove backward compatibility shims immediately
 
 ---

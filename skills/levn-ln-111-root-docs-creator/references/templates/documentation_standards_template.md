@@ -1,6 +1,6 @@
 # Documentation Standards
 
-**Comprehensive Requirements for Claude Code Skills Documentation (2024-2025)**
+**Comprehensive Requirements for Claude Code Skills Documentation (2024-2026)**
 
 **Last Updated:** {{DATE}}
 

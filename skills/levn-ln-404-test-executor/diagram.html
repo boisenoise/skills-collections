@@ -18,7 +18,7 @@
             <ul>
                 <li><strong>Purpose:</strong> Execute Story Finalizer test tasks (11 sections)</li>
                 <li><strong>6 Steps:</strong> Fix existing tests → New tests → Infrastructure → Docs → Cleanup → Verify</li>
-                <li><strong>Testing:</strong> E2E-first Risk-Based (2-5 E2E, 3-8 Integration, 5-15 Unit, Priority ≥15)</li>
+                <li><strong>Testing:</strong> E2E-first Risk-Based (Priority ≥15, Usefulness Criteria)</li>
             </ul>
         </div>
         <div class="diagram-container">
@@ -37,7 +37,7 @@ graph TD
     end
     Phase3 --> Step1
     Step6 --> Phase4
-    Phase4[Phase 4: Quality Gates<br/>All tests pass 10-28 total<br/>Priority ≥15 tested]
+    Phase4[Phase 4: Quality Gates<br/>All tests pass<br/>Priority ≥15, Usefulness Criteria]
     Phase4 --> QualityPass{Quality gates<br/>pass?}
     QualityPass -->|No| Phase3
     QualityPass -->|Yes| Phase5

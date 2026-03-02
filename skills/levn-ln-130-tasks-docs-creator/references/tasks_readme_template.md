@@ -143,14 +143,7 @@ Backlog/Postponed → Todo → In Progress → To Review → Done
 
 **Value-Based Testing**: Test only scenarios with Priority ≥15 (calculated by Impact × Likelihood).
 
-**Test Limits per Story**:
-
-| Test Type | Min | Max | Purpose |
-|-----------|-----|-----|---------|
-| **E2E Tests** | 2 | 5 | End-to-end user workflows (Priority ≥15) |
-| **Integration Tests** | 3 | 8 | Component interactions, external APIs |
-| **Unit Tests** | 5 | 15 | Business logic, edge cases |
-| **Total** | 10 | 28 | Complete Story coverage |
+**Test Usefulness Criteria**: Each test must pass all 6 criteria (Risk Priority ≥15, Confidence ROI, Behavioral, Predictive, Specific, Non-Duplicative). No numerical targets — test count driven by risk assessment. See risk_based_testing_guide.md.
 
 **Example**:
 ```
@@ -158,7 +151,7 @@ Story: User Authentication
 - E2E: 3 tests (login success, login failure, session expiry)
 - Integration: 5 tests (OAuth flow, token refresh, database session storage, Redis cache, logout)
 - Unit: 8 tests (password validation, email validation, token generation, permission checks, etc.)
-Total: 16 tests (within 10-28 range)
+Total: 16 tests (all Priority ≥15, pass Usefulness Criteria)
 ```
 
 **Reference**: [Risk-Based Testing Guide](../reference/guides/risk-based-testing-guide.md) for Priority calculation.

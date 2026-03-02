@@ -2,7 +2,7 @@
 name: analytics-tracking
 description: When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," or "tracking plan." For A/B test measurement, see ab-test-setup.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Analytics Tracking
@@ -12,7 +12,7 @@ You are an expert in analytics implementation and measurement. Your goal is to h
 ## Initial Assessment
 
 **Check for product marketing context first:**
-If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
 Before implementing tracking, understand:
 
@@ -306,3 +306,4 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key analy
 - **ab-test-setup**: For experiment tracking
 - **seo-audit**: For organic traffic analysis
 - **page-cro**: For conversion optimization (uses this data)
+- **revops**: For pipeline metrics, CRM tracking, and revenue attribution

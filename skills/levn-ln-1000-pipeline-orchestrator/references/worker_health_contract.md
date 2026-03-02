@@ -39,8 +39,8 @@ Each worker handles exactly ONE stage. No IDLE→EXECUTING transition between st
 ```
 # Step 1: Flag suspicious
 ON TeammateIdle for worker_map[id] WITHOUT "Stage N COMPLETE/ERROR":
-  suspicious_idle[id] = true
-  last_known_stage[id] = story_state[id]
+  suspicious_idle = true
+  last_known_stage = story_state[id]
 
 # Step 2: Probe
 SendMessage(recipient: worker_map[id],
@@ -49,7 +49,7 @@ SendMessage(recipient: worker_map[id],
 
 # Step 3: Evaluate response
 ON worker responds with parseable status:
-  suspicious_idle[id] = false              # False alarm, worker alive
+  suspicious_idle = false                   # False alarm, worker alive
   # Continue normal operation
 
 ON TeammateIdle again WITHOUT response:
@@ -59,7 +59,6 @@ ON TeammateIdle again WITHOUT response:
     Respawn (see Respawn Rules below)
   ELSE:
     story_state[id] = "PAUSED"
-    active_workers--
     ESCALATE: "Story {id} worker crashed twice at Stage {N}. Manual intervention required."
 ```
 
@@ -73,8 +72,8 @@ Complements crash detection by actively verifying done-flags on each heartbeat. 
 
 ```
 ON HEARTBEAT (every ~60 seconds):
-  FOR EACH active story (STAGE_0..STAGE_3):
-    IF done.flag exists AND story_state NOT advanced:
+  id = selected_story_id
+  IF done.flag exists AND story_state[id] NOT advanced:
       # Lost message detected: worker signaled completion but lead never processed it
 
       # Try 1: Synthetic recovery from checkpoint
@@ -92,7 +91,7 @@ ON HEARTBEAT (every ~60 seconds):
       # Try 2: Fallback to probe protocol
       ELSE:
         # Checkpoint missing/invalid — cannot verify completion
-        suspicious_idle[id] = true
+        suspicious_idle = true
         SendMessage(recipient: worker_name,
                    content: "Status check: are you still working on Stage {N} for {id}?",
                    summary: "{id} health check")
@@ -137,12 +136,7 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
    SendMessage(type: "shutdown_request", recipient: worker_map[id])
    ```
 
-2. **Decrement counter:**
-   ```
-   active_workers--
-   ```
-
-3. **Try resume with agentId** (preserves full conversation context):
+2. **Try resume with agentId** (preserves full conversation context):
    ```
    checkpoint = read(".pipeline/checkpoint-{id}.json")
    IF checkpoint.agentId exists:
@@ -150,7 +144,7 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
      # If resume succeeds → worker continues exactly where it left off
    ```
 
-4. **Fallback: new worker with checkpoint context** (if resume fails or no checkpoint):
+3. **Fallback: new worker with checkpoint context** (if resume fails or no checkpoint):
    ```
    new_worker = "story-{id}-s{checkpoint.stage}-retry"
    new_prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id], project_root) + """
@@ -164,7 +158,6 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
         model: "opus", mode: "bypassPermissions",              # Opus high effort for crash recovery
         subagent_type: "general-purpose", prompt: new_prompt)
    worker_map[id] = new_worker
-   active_workers++
    ```
 
 ## Respawn Limits
@@ -243,7 +236,7 @@ REPORTING → worker sends "Stage N COMPLETE/ERROR" via SendMessage
             → TeammateIdle returns exit 2 (still working, no done.flag yet)
 ACK       → lead sends "ACK Stage N for {id}" → worker writes .pipeline/worker-{name}-done.flag
             → TeammateIdle returns exit 0 → worker goes idle (can receive shutdown_request)
-PROCESSED → lead sends ACK, removes both flags, processes message (state transitions, spawn next worker)
+PROCESSED → lead removes active.flag (done.flag created by worker after ACK, lives until Phase 5 cleanup)
 SHUTDOWN  → lead sends shutdown_request → worker approves and exits
 ```
 
@@ -273,7 +266,7 @@ Lead turn ends → Stop event → pipeline-keepalive.sh → exit 2
 - Lead MUST NOT output "waiting for messages" and stop — the heartbeat keeps it running
 - If no worker messages: output brief status (`"Heartbeat: N workers active"`), let turn end
 - Frequency: ~60 seconds per cycle (throttled by `sleep 60` in Stop hook)
-- Stage transitions = shutdown old worker + spawn fresh (net-zero active_workers)
+- Stage transitions = shutdown old worker + spawn fresh (single worker at any time)
 
 **Anti-pattern:** Lead says "I'm waiting for workers" and sits idle. This breaks the pipeline because the lead's turn has ended and it cannot process future messages.
 
@@ -322,7 +315,7 @@ Lead writes ALL state variables to `.pipeline/state.json` on **every heartbeat c
 2. Read .pipeline/checkpoint-*.json → validate story_state matches checkpoints
 3. Re-read kanban board → verify consistency with story_state
 4. Read team config → verify worker_map members still exist
-5. For each active story (STAGE_0..STAGE_3):
+5. For active story (selected_story_id):
    a. Try Task(resume: checkpoint.agentId) — preserves full context
    b. Fallback: respawn with checkpoint context (see Respawn Rules)
 6. Resume Phase 4 event loop
