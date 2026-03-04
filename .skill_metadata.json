@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-03T06:26:17.844313",
-  "skill_count": 2076,
+  "last_updated": "2026-03-04T06:24:18.388791",
+  "skill_count": 2079,
   "sources_processed": 19,
   "skills": [
     {
@@ -1807,6 +1807,14 @@
       "name": "antigravity-pricing-strategy",
       "original_name": "pricing-strategy",
       "description": "Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agentmail",
+      "original_name": "agentmail",
+      "description": "Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check karma balance via the AgentMail API.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7271,6 +7279,14 @@
       "name": "antigravity-threejs-skills",
       "original_name": "threejs-skills",
       "description": "Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user requests 3D graphics, WebGL experiences, 3D visualizations, animations, or interactive 3D elements.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-videodb",
+      "original_name": "videodb",
+      "description": "Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spoken indexes, search with timestamps, edit timelines, add overlays/subtitles, generate media, and create real-time alerts.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15220,6 +15236,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-654-resource-lifecycle-auditor",
+      "original_name": "ln-654-resource-lifecycle-auditor",
+      "description": "Resource lifecycle audit worker (L3). Checks session scope mismatch, streaming resource holding, missing cleanup, pool config, error path leaks, factory vs injection anti-patterns.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-645-open-source-replacer",
       "original_name": "ln-645-open-source-replacer",
       "description": "L3 Worker. Goal-based open-source replacement auditor: discovers custom modules (>100 LOC), analyzes PURPOSE via code reading, searches OSS alternatives via MCP Research (WebSearch, Context7, Ref), evaluates quality (stars, maintenance, license, CVE, API compatibility), generates migration plan.",
@@ -15334,7 +15358,7 @@
     {
       "name": "levn-ln-650-persistence-performance-auditor",
       "original_name": "ln-650-persistence-performance-auditor",
-      "description": "Coordinates 3 specialized audit workers (query efficiency, transaction correctness, runtime performance). Researches DB/ORM/async best practices, delegates parallel audits, aggregates results into docs/project/persistence_audit.md.",
+      "description": "Coordinates 4 specialized audit workers (query efficiency, transaction correctness, runtime performance, resource lifecycle). Researches DB/ORM/async best practices, delegates parallel audits, aggregates results into docs/project/persistence_audit.md.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-03 06:26 UTC*
+*Last updated: 2026-03-04 06:24 UTC*
 
-Total skills: **2076**
+Total skills: **2079**
 
 ## Skills by Source
 
@@ -1049,10 +1049,11 @@ Total skills: **2076**
 | `levn-ln-644-dependency-graph-auditor` | L3 Worker. Builds dependency graph, detects cycles (DFS), validates boundary rules, calculates coupl... |
 | `levn-ln-645-open-source-replacer` | L3 Worker. Goal-based open-source replacement auditor: discovers custom modules (>100 LOC), analyzes... |
 | `levn-ln-646-project-structure-auditor` | L3 Worker. Audits project physical structure: file hygiene, ignore file quality, framework conventio... |
-| `levn-ln-650-persistence-performance-auditor` | Coordinates 3 specialized audit workers (query efficiency, transaction correctness, runtime performa... |
+| `levn-ln-650-persistence-performance-auditor` | Coordinates 4 specialized audit workers (query efficiency, transaction correctness, runtime performa... |
 | `levn-ln-651-query-efficiency-auditor` | Query efficiency audit worker (L3). Checks redundant entity fetches, N-UPDATE/DELETE loops, unnecess... |
 | `levn-ln-652-transaction-correctness-auditor` | Transaction correctness audit worker (L3). Checks missing intermediate commits, transaction scope (t... |
 | `levn-ln-653-runtime-performance-auditor` | Runtime performance audit worker (L3). Checks blocking IO in async, unnecessary allocations, sync sl... |
+| `levn-ln-654-resource-lifecycle-auditor` | Resource lifecycle audit worker (L3). Checks session scope mismatch, streaming resource holding, mis... |
 | `levn-ln-700-project-bootstrap` | Universal project bootstrapper: CREATE new or TRANSFORM existing project to production-ready structu... |
 | `levn-ln-710-dependency-upgrader` | Coordinates dependency upgrades across all detected package managers |
 | `levn-ln-711-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling |
@@ -1197,6 +1198,7 @@ Total skills: **2076**
 | `antigravity-agent-orchestration-multi-agent-optimize` | Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orche... |
 | `antigravity-agent-tool-builder` | Tools are how AI agents interact with the world. A well-designed tool is the difference between an a... |
 | `antigravity-agentfolio` | Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFol... |
+| `antigravity-agentmail` | Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check... |
 | `antigravity-agents-v2-py` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). U... |
 | `antigravity-ai-agent-development` | AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchest... |
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
@@ -2103,6 +2105,7 @@ calculations
 | `antigravity-verification-before-completion` | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - req... |
 | `antigravity-vexor` | Vector-powered CLI for semantic file search with a Claude/Codex skill |
 | `antigravity-vibe-code-auditor` | Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks. |
+| `antigravity-videodb` | Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spok... |
 | `antigravity-videodb-skills` | Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK. |
 | `antigravity-viral-generator-builder` | Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar cr... |
 | `antigravity-voice-agents` | Voice agents represent the frontier of AI interaction - humans speaking naturally with AI systems. T... |

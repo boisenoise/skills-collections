@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Lifecycle Auditor Workflow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="../shared/css/diagram.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Resource Lifecycle Auditor</h1>
+            <p class="subtitle">ln-654 L3 Worker v1.0.0</p>
+        </header>
+
+        <div class="info-box">
+            <h3>Overview</h3>
+            <p><strong>Purpose:</strong> Audits resource acquisition/release patterns, scope mismatches, and connection pool hygiene</p>
+            <p><strong>Type:</strong> L3 Worker (part of ln-650 coordinator)</p>
+            <p><strong>Coordinator:</strong> ln-650-persistence-performance-auditor</p>
+            <p><strong>Checks:</strong> 6 (scope mismatch, streaming holding, cleanup, pool config, error paths, factory vs injection)</p>
+        </div>
+
+        <h2>Main Workflow</h2>
+        <div class="mermaid">
+graph TD
+    A[Parse contextStore] --> B[Detect DI Framework]
+    B --> C[Discover Resource Infrastructure]
+    C --> D[Scan for Violations]
+    D --> E[Collect Findings]
+    E --> F[Calculate Score]
+    F --> G[Write Report]
+    G --> H[Return Summary]
+
+    B --> B1[FastAPI Depends]
+    B --> B2[Spring @Autowired]
+    B --> B3[Express middleware]
+
+    C --> C1[Session factories]
+    C --> C2[DI registrations]
+    C --> C3[Streaming endpoints]
+
+    style A fill:#e8f5e9
+    style B fill:#e3f2fd
+    style C fill:#e3f2fd
+    style D fill:#fff3e0
+    style E fill:#fff3e0
+    style F fill:#f3e5f5
+    style G fill:#fce4ec
+    style H fill:#fce4ec
+        </div>
+
+        <h2>Audit Checks (6)</h2>
+        <div class="mermaid">
+graph LR
+    WORKER[ln-654<br/>Resource Lifecycle] --> C1[1. Scope Mismatch<br/>DI session used in<br/>less than 20% of body]
+    WORKER --> C2[2. Streaming Holding<br/>SSE/WebSocket holds<br/>DB session for stream]
+    WORKER --> C3[3. Missing Cleanup<br/>No context manager<br/>no try-finally-close]
+    WORKER --> C4[4. Pool Config<br/>Missing pre_ping<br/>recycle, overflow]
+    WORKER --> C5[5. Error Path Leak<br/>Exception re-raise<br/>without cleanup]
+    WORKER --> C6[6. Factory vs DI<br/>Session injected into<br/>long-lived context]
+
+    style WORKER fill:#1565c0,color:#fff
+    style C1 fill:#ffcdd2
+    style C2 fill:#ffcdd2
+    style C3 fill:#fff9c4
+    style C4 fill:#fff9c4
+    style C5 fill:#ffcdd2
+    style C6 fill:#ffcdd2
+        </div>
+
+        <h2>Boundary with Neighboring Auditors</h2>
+        <div class="mermaid">
+graph TB
+    subgraph "ln-650 Persistence Coordinator"
+        W1[ln-651<br/>Query Efficiency]
+        W2[ln-652<br/>Transaction Scope]
+        W3[ln-653<br/>Blocking IO]
+        W4[ln-654<br/>Resource Lifecycle]
+    end
+
+    subgraph "ln-620 Codebase Coordinator"
+        W5[ln-628<br/>Concurrency]
+        W6[ln-629<br/>App Lifecycle]
+    end
+
+    W2 -.->|txn begin/commit<br/>NOT session lifetime| W4
+    W3 -.->|sync blocking<br/>NOT idle holding| W4
+    W5 -.->|runtime contention<br/>NOT pool setup| W4
+    W6 -.->|shutdown cleanup<br/>NOT per-request| W4
+
+    style W4 fill:#e65100,color:#fff
+    style W1 fill:#ff8f00,color:#fff
+    style W2 fill:#ff8f00,color:#fff
+    style W3 fill:#ff8f00,color:#fff
+    style W5 fill:#2e7d32,color:#fff
+    style W6 fill:#2e7d32,color:#fff
+        </div>
+
+        <footer>
+            <p>ln-654-resource-lifecycle-auditor v1.0.0 | Audits resource acquisition, scope, and release patterns</p>
+        </footer>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' } });
+    </script>
+</body>
+</html>
