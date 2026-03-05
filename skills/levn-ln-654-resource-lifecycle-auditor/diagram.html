@@ -70,34 +70,6 @@ graph LR
     style C6 fill:#ffcdd2
         </div>
 
-        <h2>Boundary with Neighboring Auditors</h2>
-        <div class="mermaid">
-graph TB
-    subgraph "ln-650 Persistence Coordinator"
-        W1[ln-651<br/>Query Efficiency]
-        W2[ln-652<br/>Transaction Scope]
-        W3[ln-653<br/>Blocking IO]
-        W4[ln-654<br/>Resource Lifecycle]
-    end
-
-    subgraph "ln-620 Codebase Coordinator"
-        W5[ln-628<br/>Concurrency]
-        W6[ln-629<br/>App Lifecycle]
-    end
-
-    W2 -.->|txn begin/commit<br/>NOT session lifetime| W4
-    W3 -.->|sync blocking<br/>NOT idle holding| W4
-    W5 -.->|runtime contention<br/>NOT pool setup| W4
-    W6 -.->|shutdown cleanup<br/>NOT per-request| W4
-
-    style W4 fill:#e65100,color:#fff
-    style W1 fill:#ff8f00,color:#fff
-    style W2 fill:#ff8f00,color:#fff
-    style W3 fill:#ff8f00,color:#fff
-    style W5 fill:#2e7d32,color:#fff
-    style W6 fill:#2e7d32,color:#fff
-        </div>
-
         <footer>
             <p>ln-654-resource-lifecycle-auditor v1.0.0 | Audits resource acquisition, scope, and release patterns</p>
         </footer>

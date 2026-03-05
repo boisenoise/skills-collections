@@ -1,6 +1,6 @@
 ---
 name: sales-enablement
-description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'ROI calculator,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' or 'buyer persona card.' For competitor battle cards and comparison pages, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email."
+description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For competitor comparison pages and battle cards, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email."
 metadata:
   version: 1.1.0
 ---
@@ -205,7 +205,7 @@ For each objection, document:
 
 ### Key Principles
 
-- **Never demo without discovery.** If you don't know their pain, you're guessing which features matter.
+- **Demo after discovery, not before.** If you don't know their pain, you're guessing which features matter.
 - **Customize to their use case.** Use their terminology, their data (if possible), their workflow.
 - **Leave time for questions.** A demo where the prospect doesn't talk is a demo that doesn't close.
 

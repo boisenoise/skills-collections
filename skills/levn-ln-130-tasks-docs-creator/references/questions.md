@@ -14,7 +14,7 @@
 | [kanban_board.md](#kanban_boardmd) | 2 | Placeholder Detection | Critical | L110 |
 
 **Priority Legend:**
-- **Critical:** Must answer all questions (Linear Configuration required for workflow)
+- **Critical:** Must answer all questions (Provider configuration required for workflow)
 - **High:** Strongly recommended (standard workflow content)
 
 **Auto-Discovery Legend:**
@@ -27,36 +27,34 @@
 ## tasks/README.md
 
 **File:** docs/tasks/README.md
-**Target Sections:** Linear Integration, Task Workflow, Task Templates
+**Target Sections:** Task Provider Integration, Task Workflow, Task Templates
 
 **Rules for this document:**
 - Must have SCOPE tag in first 10 lines
-- Must explain Linear MCP integration
+- Must explain task provider integration (per docs/tools_config.md)
 - Must document state transitions and review criteria
 - Must list available task templates
 
 ---
 
 <!-- QUESTION_START: 1 -->
-### Question 1: How is Linear integrated into the task management system?
+### Question 1: How is the task provider integrated into the task management system?
 
-**Expected Answer:** Team ID location, issue statuses (Backlog, Todo, In Progress, To Review, Done), label conventions, Linear MCP methods reference, workflow configuration
+**Expected Answer:** Provider configuration (per docs/tools_config.md), issue statuses (Backlog, Todo, In Progress, To Review, Done), label conventions, task provider operations reference, workflow configuration
 
-**Target Section:** ## Core Concepts, ## Critical Rules, ## Linear MCP Methods Reference
+**Target Section:** ## Core Concepts, ## Critical Rules, ## Task Provider Operations Reference
 
 **Validation Heuristics:**
-- ✅ Contains "Linear" or "MCP" → pass
-- ✅ Mentions team ID or team UUID → pass
+- ✅ Contains "task provider" or "tools_config" → pass
 - ✅ Has workflow states: Backlog, Todo, In Progress, To Review, Done → pass
-- ✅ Has "Linear MCP Methods" section with examples → pass
+- ✅ Has "Task Provider Operations" section with operation tables → pass
 - ✅ Length > 100 words → pass
 
 **Auto-Discovery:**
 - None needed (standardized workflow provided by template)
 
 **MCP Ref Hints:**
-- Research "Linear API MCP integration"
-- Search "Linear issue workflow states"
+- None needed (operations defined in template)
 <!-- QUESTION_END: 1 -->
 
 ---
@@ -121,22 +119,22 @@
 ## kanban_board.md
 
 **File:** docs/tasks/kanban_board.md
-**Target Sections:** Linear Configuration, Work in Progress (Epic Tracking)
+**Target Sections:** Provider Configuration, Work in Progress (Epic Tracking)
 
 **Rules for this document:**
 - Must have SCOPE tag in first 10 lines
-- Must have Linear Configuration section with Team Name, Team UUID, Team Key
+- Must have Provider Configuration section (Linear: Team Name, UUID, Key; File: no config needed)
 - Must have Epic tracking table or placeholder
 - Single Source of Truth for Next Epic/Story Numbers
 
 ---
 
 <!-- QUESTION_START: 1 -->
-### Question 1: What is the Linear team configuration?
+### Question 1: What is the task provider configuration?
 
-**Expected Answer:** Team Name, Team UUID (valid format), Team Key (2-4 uppercase letters), Workspace URL, Next Epic Number (≥1), Next Story Number (≥1)
+**Expected Answer:** Provider type (linear/file per tools_config.md). If Linear: Team Name, Team UUID, Team Key, Workspace URL. Always: Next Epic Number (≥1), Next Story Number (≥1)
 
-**Target Section:** ## Linear Configuration, ## Epic Story Counters
+**Target Section:** ## Provider Configuration, ## Epic Story Counters
 
 **Validation Heuristics:**
 - ✅ Has Team Name (not placeholder `[TEAM_NAME]`) → pass
@@ -154,86 +152,32 @@
 
 **Special Handling (Phase 3 VALIDATE CONTENT):**
 
-**Placeholder Detection:**
+**Provider Detection:**
 ```
-Pattern: [TEAM_NAME], [TEAM_UUID], [TEAM_KEY]
-If ANY placeholder present → Interactive Setup Mode
-If NO placeholders → Validation Mode
+1. Read docs/tools_config.md → task_provider
+2. IF task_provider == "linear":
+   - Check for placeholders: [TEAM_NAME], [TEAM_UUID], [TEAM_KEY]
+   - If ANY placeholder → Interactive Setup Mode (Linear)
+   - If real values → Validation Mode (Linear)
+3. IF task_provider == "file":
+   - Skip Linear Configuration validation
+   - Validate Epic Story Counters only
 ```
 
-**Interactive Setup Mode (if placeholders detected):**
+**Interactive Setup Mode (Linear only, if placeholders detected):**
 
-1. **Prompt user for Team Name:**
-   - Question: "What is your Linear Team Name?"
-   - Validation: Non-empty string
-   - Example: "My Project Team"
+1. **Prompt user for Team Name, Team UUID, Team Key** (validate formats)
+2. **Replace placeholders** in kanban_board.md
+3. **Set initial counters:** Next Epic Number → 1, Next Story Number → 1
+4. **Update Last Updated date**
 
-2. **Prompt user for Team UUID:**
-   - Question: "What is your Linear Team UUID?"
-   - Format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-   - Validation Regex: `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`
-   - If invalid → Re-prompt with error: "Invalid UUID format. Expected: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (lowercase hex)"
-   - Example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+**Validation Mode (Linear only, if real values present):**
 
-3. **Prompt user for Team Key:**
-   - Question: "What is your Linear Team Key (2-4 uppercase letters)?"
-   - Format: 2-4 uppercase letters
-   - Validation Regex: `/^[A-Z]{2,4}$/`
-   - If invalid → Re-prompt with error: "Invalid Team Key format. Expected: 2-4 uppercase letters (e.g., PROJ, WEB, API)"
-   - Example: "PROJ"
-
-4. **Replace placeholders:**
-   - Replace `[TEAM_NAME]` → `{user_team_name}`
-   - Replace `[TEAM_UUID]` → `{user_team_uuid}`
-   - Replace `[TEAM_KEY]` → `{user_team_key}`
-   - Replace `[WORKSPACE_URL]` → `https://linear.app/{workspace_slug}` (if placeholder exists)
-
-5. **Set initial counters:**
-   - Set "Next Epic Number" → 1
-   - Set "Next Story Number" → 1
-
-6. **Update Last Updated date:**
-   - Replace `[YYYY-MM-DD]` → `{current_date}`
-
-7. **Save updated kanban_board.md**
-
-8. **Log success:**
-   ```
-   ✓ Linear configuration updated:
-     - Team Name: {user_team_name}
-     - Team UUID: {user_team_uuid}
-     - Team Key: {user_team_key}
-     - Next Epic Number: 1
-     - Next Story Number: 1
-   ```
-
-**Validation Mode (if real values present):**
-
-1. **Extract existing values:**
-   - Extract Team UUID from line matching: `Team UUID: {value}`
-   - Extract Team Key from line matching: `Team Key: {value}`
-
-2. **Validate formats:**
-   - UUID: `/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/`
-   - Team Key: `/^[A-Z]{2,4}$/`
-
-3. **If validation fails:**
-   ```
-   ⚠ Invalid format detected in Linear Configuration:
-     - Team UUID: {uuid} (expected: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
-     - Team Key: {key} (expected: 2-4 uppercase letters)
-
-   Fix manually or re-run skill to replace with correct values.
-   ```
-
-4. **If validation passes:**
-   ```
-   ✓ Linear Configuration valid (Team: {name}, UUID: {uuid}, Key: {key})
-   ```
+1. **Validate formats:** UUID (`/^[0-9a-f]{8}-...-[0-9a-f]{12}$/`), Team Key (`/^[A-Z]{2,4}$/`)
+2. **Report** pass/fail
 
 **MCP Ref Hints:**
-- Research "Linear team UUID format"
-- Search "Linear workspace configuration"
+- None needed
 <!-- QUESTION_END: 1 -->
 
 ---
@@ -261,8 +205,8 @@ If NO placeholders → Validation Mode
 ---
 
 **Overall File Validation:**
-- ✅ Has SCOPE tag in first 10 lines: `<!-- SCOPE: Quick navigation to active tasks in Linear -->`
-- ✅ Has Linear Configuration section with valid Team Name, UUID, Key
+- ✅ Has SCOPE tag in first 10 lines: `<!-- SCOPE: Quick navigation to active tasks -->`
+- ✅ Has Provider Configuration section (Linear: valid Team Name, UUID, Key; File: section may be absent)
 - ✅ Has Epic Story Counters table
 - ✅ Has Maintenance section at end
 

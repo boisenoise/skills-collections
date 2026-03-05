@@ -16,7 +16,7 @@ This documentation system provides comprehensive technical and operational docum
 **Documentation is organized into three main areas:**
 - **Project Documentation** - Requirements, architecture, technical specifications
 - **Reference Documentation** - Architecture decisions (ADRs), reusable patterns (Guides), API references (Manuals)
-- **Task Management** - Linear workflow, task tracking rules, kanban board
+- **Task Management** - Task workflow, tracking rules, kanban board
 
 ---
 
@@ -149,9 +149,9 @@ Reusable knowledge base and architecture decisions:
 
 ### 3. [Task Management System](tasks/README.md)
 
-Linear integration and workflow rules:
+Task provider integration and workflow rules:
 
-- **[README.md](tasks/README.md)** - Task lifecycle, Linear integration rules, workflow skills
+- **[README.md](tasks/README.md)** - Task lifecycle, provider integration rules, workflow skills
 - **[kanban_board.md](tasks/kanban_board.md)** - Live navigation to active tasks
 
 **Purpose**: Define HOW we track and manage work.

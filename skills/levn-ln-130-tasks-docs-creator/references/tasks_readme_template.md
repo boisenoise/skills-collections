@@ -14,12 +14,12 @@ This folder contains the project's task management system, organizing all develo
 ```
 docs/tasks/
 ├── README.md           # This file - Task tracking workflow and rules
-└── kanban_board.md     # Live navigation to active tasks in Linear
+└── kanban_board.md     # Live navigation to active tasks
 ```
 
 > [!NOTE]
 
-> All task tracking (Epics, User Stories, tasks) is handled in Linear. Linear is the single source of truth.
+> All task tracking (Epics, User Stories, Tasks) follows the provider configured in docs/tools_config.md. The task provider is the single source of truth.
 
 **Live Navigation**: [Kanban Board](kanban_board.md)
 
@@ -49,10 +49,10 @@ Backlog/Postponed → Todo → In Progress → To Review → Done
 
 ### Epic Structure
 
-**Organization in Linear:**
-- **Epic** = Linear Project (contains all User Stories and tasks for epic)
-- **User Story** = Linear Issue with `label: user-story` and `parentId: null`
-- **Task** = Linear Issue with `parentId: <UserStoryId>`
+**Organization:**
+- **Epic** = Project (Linear) or folder `docs/tasks/epics/epic-{N}-{slug}/` (File Mode)
+- **User Story** = Issue with `label: user-story` (Linear) or `stories/us{NNN}-{slug}/story.md` (File Mode)
+- **Task** = Child issue of Story (Linear) or `tasks/T{NNN}-{slug}.md` (File Mode)
 
 **Epic Fields:** Name, description, start date, target date, project lead
 **User Story Format:** "As a... I want... So that..." + Given-When-Then acceptance criteria
@@ -87,22 +87,19 @@ Backlog/Postponed → Todo → In Progress → To Review → Done
 
 ## Critical Rules
 
-### Rule 1: Linear Integration (MCP Methods ONLY)
+### Rule 1: Task Provider Integration
 
-**CRITICAL**: Use ONLY `mcp__linear-server__*` methods for all Linear operations.
+**CRITICAL**: Use the task provider configured in `docs/tools_config.md` for all task operations.
 
-**PROHIBITED**:
-- `gh` command (GitHub CLI)
-- GitHub API calls
-- Direct Linear API calls
-- Manual task creation in Linear UI (for automated workflows)
+**Linear Mode** (`provider: linear`):
+- Use ONLY `mcp__linear-server__*` methods
+- Prohibited: `gh` command, GitHub API, direct Linear API
 
-**Rationale**:
-- MCP Linear provides type-safe, validated operations
-- Prevents data inconsistencies
-- Ensures proper error handling
+**File Mode** (`provider: file`):
+- Use Read/Write/Edit/Glob for task files in `docs/tasks/epics/` structure
+- Status tracked via `**Status:**` line in markdown files
 
-**See**: [Linear MCP Methods Reference](#linear-mcp-methods-reference) below
+**See**: [Task Provider Operations Reference](#task-provider-operations-reference) below
 
 ---
 
@@ -175,13 +172,13 @@ Single hierarchical view: **Status → Epic → User Story → Tasks**
 **Format Rules:**
 
 **User Story:**
-- Format: `📖 [{{TEAM_KEY}}-XX: USYYY Title](link)` + optional `✅ APPROVED`
+- Format: `📖 [US{NNN} Title](link-or-path)` + optional `✅ APPROVED`
 - 2-space indent from Epic
 - Always shows parent epic context
 - Can exist without tasks ONLY in Backlog status (with note: `_(tasks not created yet)_`)
 
 **Task:**
-- Format: `  - [{{TEAM_KEY}}-XX: EPYY_ZZ Title](link)` (2-space indent + dash)
+- Format: `  - [T{NNN} Title](link-or-path)` (2-space indent + dash)
 - 4-space total indent (2-space base from Story + 2-space for dash)
 - Always nested under parent User Story
 - Cannot exist without parent story
@@ -281,7 +278,7 @@ Core documentation:
 
 **Type Labels**: `user-story`, `implementation-task`, `test-task`
 
-**Status Labels** (auto-managed by Linear): `backlog`, `todo`, `in-progress`, `to-review`, `to-rework`, `done`, `canceled`
+**Status Labels** (auto-managed by task provider): `backlog`, `todo`, `in-progress`, `to-review`, `to-rework`, `done`, `canceled`
 
 ### Test Audit History (Optional)
 
@@ -289,221 +286,64 @@ Core documentation:
 
 ---
 
-## Linear MCP Methods Reference
+## Task Provider Operations Reference
 
-### Core Operations
+> Operations vary by provider configured in `docs/tools_config.md`. See `shared/references/storage_mode_detection.md` for complete operation tables.
 
-**Issues**:
+### Epic Operations
 
-```python
-# List issues
-mcp__linear-server__list_issues(
-    team="TeamName",           # Team name or ID
-    state="In Progress",       # State name or ID
-    assignee="me",             # User ID, name, email, or "me"
-    limit=50                   # Max 250
-)
+| Operation | Linear Mode | File Mode |
+|-----------|-------------|-----------|
+| **List** | `list_projects(team=teamId)` | `Glob("docs/tasks/epics/*/epic.md")` |
+| **Get** | `get_project(query="Epic N")` | `Read("docs/tasks/epics/epic-{N}-*/epic.md")` |
+| **Create** | `save_project({name, description, team, state: "planned"})` | `mkdir + Write("docs/tasks/epics/epic-{N}-{slug}/epic.md")` |
+| **Update** | `save_project({id, state, description})` | `Edit epic.md` |
 
-# Get issue details
-mcp__linear-server__get_issue(
-    id="PROJ-123"              # Issue ID
-)
+### Story Operations
 
-# Create issue
-mcp__linear-server__create_issue(
-    team="TeamName",           # Required: Team name or ID
-    title="Task title",        # Required: Issue title
-    description="...",         # Markdown description
-    state="Todo",              # State name or ID
-    assignee="me",             # User ID, name, email, or "me"
-    parentId="parent-uuid",    # For tasks (parent Story UUID)
-    labels=["feature", "backend"]  # Label names or IDs
-)
+| Operation | Linear Mode | File Mode |
+|-----------|-------------|-----------|
+| **List** | `list_issues(project=epicId, label="user-story")` | `Glob("docs/tasks/epics/epic-{N}-*/stories/*/story.md")` |
+| **Get** | `get_issue(id=storyId)` | `Read("docs/tasks/.../stories/us{NNN}-*/story.md")` |
+| **Create** | `save_issue({title: "US{NNN}: Title", project: epicId, team, labels: ["user-story"], state: "Backlog"})` | `mkdir + Write(".../stories/us{NNN}-{slug}/story.md")` |
+| **Update status** | `save_issue({id, state: "In Progress"})` | `Edit story.md -> **Status:** In Progress` |
 
-# Update issue
-mcp__linear-server__update_issue(
-    id="PROJ-123",             # Required: Issue ID
-    state="Done",              # State name or ID
-    description="...",         # Updated description
-    assignee="me"              # Reassign
-)
+### Task Operations
+
+| Operation | Linear Mode | File Mode |
+|-----------|-------------|-----------|
+| **List** | `list_issues(parentId=storyId)` | `Glob("docs/tasks/.../tasks/T*.md")` |
+| **Get** | `get_issue(id=taskId)` | `Read("docs/tasks/.../tasks/T{NNN}-{slug}.md")` |
+| **Create** | `save_issue({title: "T{NNN}: Title", parentId: storyId, team, labels: ["implementation"], state: "Backlog"})` | `Write(".../tasks/T{NNN}-{slug}.md")` |
+| **Update status** | `save_issue({id, state: "Done"})` | `Edit task.md -> **Status:** Done` |
+
+### Comment Operations
+
+| Operation | Linear Mode | File Mode |
+|-----------|-------------|-----------|
+| **List** | `list_comments(issueId=id)` | `Glob("docs/tasks/.../comments/*.md")` |
+| **Create** | `create_comment({issueId, body})` | `Write("comments/{timestamp}.md")` |
+
+### Common Parameters (Linear Mode)
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `team` | string | Team name or ID |
+| `state` | string | Status name: Backlog, Todo, In Progress, To Review, To Rework, Done |
+| `assignee` | string | User ID, name, email, or "me" |
+| `labels` | string[] | Label names: user-story, implementation, tests, refactoring, bug |
+| `limit` | number | Max results (default 50, max 250) |
+
+### File Mode Headers
+
+Every file mode document includes metadata headers:
+
 ```
-
-**Projects** (Epics):
-
-```python
-# List projects
-mcp__linear-server__list_projects(
-    team="TeamName",           # Filter by team
-    state="started",           # Filter by state
-    limit=50
-)
-
-# Get project
-mcp__linear-server__get_project(
-    query="Epic 1"             # ID or name
-)
-
-# Create project (Epic)
-mcp__linear-server__create_project(
-    team="TeamName",           # Required
-    name="Epic 1: Auth",       # Required
-    description="...",         # Epic description
-    state="planned"            # Epic state
-)
-
-# Update project
-mcp__linear-server__update_project(
-    id="project-uuid",         # Required
-    state="started",           # Update state
-    description="..."          # Update description
-)
-```
-
-**Teams**:
-
-```python
-# List teams
-mcp__linear-server__list_teams()
-
-# Get team
-mcp__linear-server__get_team(
-    query="TeamName"           # UUID, key, or name
-)
-```
-
-**Labels**:
-
-```python
-# List labels
-mcp__linear-server__list_issue_labels(
-    team="TeamName"            # Optional: filter by team
-)
-
-# Create label
-mcp__linear-server__create_issue_label(
-    name="backend",            # Required
-    color="#FF5733",           # Hex color
-    teamId="team-uuid"         # Optional: team-specific label
-)
-```
-
-**Comments**:
-
-```python
-# List comments
-mcp__linear-server__list_comments(
-    issueId="issue-uuid"       # Required
-)
-
-# Create comment
-mcp__linear-server__create_comment(
-    issueId="issue-uuid",      # Required
-    body="Comment text"        # Required: Markdown
-)
-```
-
-### Parameter Patterns
-
-**Common Filters**:
-
-```python
-# By assignee
-assignee="me"                  # Current user
-assignee="user@example.com"    # By email
-assignee="user-uuid"           # By UUID
-
-# By state
-state="Todo"                   # By name
-state="state-uuid"             # By UUID
-
-# By team
-team="TeamName"                # By name
-team="team-uuid"               # By UUID
-
-# By label
-label="feature"                # By name
-label="label-uuid"             # By UUID
-```
-
-**Pagination**:
-
-```python
-# Limit results
-limit=50                       # Default: 50, Max: 250
-
-# Pagination
-after="cursor-id"              # Start from cursor
-before="cursor-id"             # End at cursor
-```
-
-**Date Filters**:
-
-```python
-# ISO-8601 date-time
-createdAt="2025-01-01T00:00:00Z"
-
-# Duration (relative)
-createdAt="-P1D"               # Created in last 1 day
-updatedAt="-P7D"               # Updated in last 7 days
-```
-
-### Examples
-
-**Example 1: Get all In Progress tasks for current user**
-
-```python
-issues = mcp__linear-server__list_issues(
-    team="ProjectTeam",
-    state="In Progress",
-    assignee="me",
-    limit=100
-)
-```
-
-**Example 2: Create Story (User Story)**
-
-```python
-story = mcp__linear-server__create_issue(
-    team="ProjectTeam",
-    title="US001 User Login",
-    description="User story description...",
-    state="Backlog",
-    labels=["user-story", "feature"]
-)
-```
-
-**Example 3: Create Task (child of Story)**
-
-```python
-task = mcp__linear-server__create_issue(
-    team="ProjectTeam",
-    title="EP1_01 Implement JWT tokens",
-    description="Task description...",
-    state="Todo",
-    parentId="story-uuid",      # Link to parent Story
-    labels=["implementation-task", "backend"]
-)
-```
-
-**Example 4: Move task to Done**
-
-```python
-mcp__linear-server__update_issue(
-    id="PROJ-123",
-    state="Done"
-)
-```
-
-**Example 5: Create Epic (Project)**
-
-```python
-epic = mcp__linear-server__create_project(
-    team="ProjectTeam",
-    name="Epic 1: Authentication System",
-    description="Epic description...",
-    state="planned"
-)
+**Status:** Backlog
+**Epic:** Epic {N}
+**Labels:** implementation
+**Created:** {date}
+**Updated:** {date}
 ```
 
 ---
@@ -514,11 +354,11 @@ epic = mcp__linear-server__create_project(
 - When adding new workflow skills
 - When changing task lifecycle statuses
 - When updating Critical Rules
-- When modifying Linear integration patterns
+- When modifying task provider integration patterns
 - When changing test strategy limits
 
 **Verification**:
-- All Linear MCP method examples are valid
+- All task provider operation examples are valid
 - Workflow skills table matches available skills
 - Critical Rules align with current development principles
 - Test limits match risk-based testing guide

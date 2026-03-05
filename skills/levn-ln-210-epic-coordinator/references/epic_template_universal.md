@@ -1,6 +1,6 @@
 # Epic N: Epic Title
 
-**Linear Project:** [Epic Title](https://linear.app/workspace/project/...)
+**Project:** [Epic Title](link-or-path)
 **Priority:** High | Medium | Low
 
 <!-- SCOPE: Epic document structure ONLY. Contains goal, scope definition, success criteria, Stories list. -->

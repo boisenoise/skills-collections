@@ -3,6 +3,8 @@ name: ln-404-test-executor
 description: Executes Story Finalizer test tasks (label "tests") from Todo -> To Review. Enforces risk-based limits and priority.
 ---
 
+> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root.
+
 # Test Task Executor
 
 Runs a single Story final test task (label "tests") through implementation/execution to To Review.
@@ -13,25 +15,44 @@ Runs a single Story final test task (label "tests") through implementation/execu
 - Enforce risk-based constraints: Priority ≥15 scenarios covered; each test passes Usefulness Criteria; no framework/DB/library/performance tests.
 - Update Linear/kanban for this task only: Todo -> In Progress -> To Review.
 
+## Inputs
+
+| Input | Required | Source | Description |
+|-------|----------|--------|-------------|
+| `taskId` | Yes | args, parent Story, kanban, user | Test task to execute |
+
+**Resolution:** Per `shared/references/input_resolution_pattern.md` — Task Resolution Chain.
+**Status filter:** Todo (label: tests)
+
 ## Task Storage Mode
+
+**MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
+
+Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
+Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 | Aspect | Linear Mode | File Mode |
 |--------|-------------|-----------|
 | **Load task** | `get_issue(task_id)` | `Read("docs/tasks/epics/.../tasks/T{NNN}-*.md")` |
 | **Load Story** | `get_issue(parent_id)` | `Read("docs/tasks/epics/.../story.md")` |
-| **Update status** | `update_issue(id, state)` | `Edit` the `**Status:**` line in file |
-| **Test results** | Linear comment | Append to task file |
+| **Update status** | `save_issue(id, state)` | `Edit` the `**Status:**` line in file |
+| **Test results** | `create_comment({issueId, body})` | `Write` comment to `.../comments/{ISO-timestamp}.md` |
 
 **File Mode transitions:** Todo → In Progress → To Review
 
 ## Workflow (concise)
-1) **Receive task:** Get task ID from orchestrator (ln-400); fetch full test task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; review parent Story and manual test results if provided.
-1b) **Goal gate:** **MANDATORY READ:** `shared/references/goal_articulation_gate.md` — State REAL GOAL of these tests (which business behavior must be verified, not "write tests"). NOT THE GOAL: testing infrastructure or framework behavior instead of business logic. HIDDEN CONSTRAINT: which existing tests might break from implementation changes.
-2) **Read runbook:** **Read `docs/project/runbook.md`** — understand test environment setup, Docker commands, test execution prerequisites. Use exact commands from runbook.
-3) **Validate plan:** Check Priority ≥15 coverage and Usefulness Criteria; ensure focus on business flows (no infra-only tests).
-4) **Start work:** Set task In Progress (Linear: update_issue; File: Edit status line); move in kanban.
-5) **Implement & run:** Author/update tests per plan; reuse existing fixtures/helpers; run tests; fix failing existing tests; update infra/doc sections as required.
-6) **Complete:** Ensure counts/priority still within limits; set task To Review; move in kanban; add comment summarizing coverage, commands run, and any deviations.
+1) **Resolve taskId** (per input_resolution_pattern.md):
+   - IF args provided → use args
+   - ELSE IF Story context available → list Todo tasks (label: tests) under Story, suggest if 1
+   - ELSE IF kanban has exactly 1 test Task in [Todo] → suggest
+   - ELSE → AskUserQuestion: show Todo test Tasks from kanban
+2) **Load task:** Fetch full test task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; review parent Story and manual test results if provided.
+2b) **Goal gate:** **MANDATORY READ:** `shared/references/goal_articulation_gate.md` — State REAL GOAL of these tests (which business behavior must be verified, not "write tests"). NOT THE GOAL: testing infrastructure or framework behavior instead of business logic. HIDDEN CONSTRAINT: which existing tests might break from implementation changes.
+3) **Read runbook:** **Read `docs/project/runbook.md`** — understand test environment setup, Docker commands, test execution prerequisites. Use exact commands from runbook.
+4) **Validate plan:** Check Priority ≥15 coverage and Usefulness Criteria; ensure focus on business flows (no infra-only tests).
+5) **Start work:** Set task In Progress (Linear: update_issue; File: Edit status line); move in kanban.
+6) **Implement & run:** Author/update tests per plan; reuse existing fixtures/helpers; run tests; fix failing existing tests; update infra/doc sections as required.
+7) **Complete:** Ensure counts/priority still within limits; set task To Review; move in kanban; add comment summarizing coverage, commands run, and any deviations.
 
 ## Critical Rules
 - Single-task only; no bulk updates.
@@ -106,7 +127,10 @@ Runs a single Story final test task (label "tests") through implementation/execu
 **Forbidden:** Using loose assertions to "make test pass" when exact value is known.
 
 ## Reference Files
+- **Tools config:** `shared/references/tools_config_guide.md`
+- **Storage mode operations:** `shared/references/storage_mode_detection.md`
 - Kanban format: `docs/tasks/kanban_board.md`
+- **MANDATORY READ:** `shared/references/research_tool_fallback.md`
 
 ---
 **Version:** 3.2.0

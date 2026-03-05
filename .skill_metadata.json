@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-04T06:24:18.388791",
-  "skill_count": 2079,
+  "last_updated": "2026-03-05T06:26:31.058357",
+  "skill_count": 2088,
   "sources_processed": 19,
   "skills": [
     {
@@ -15,6 +15,14 @@
       "name": "anthropic-theme-factory",
       "original_name": "theme-factory",
       "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "source": "anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills",
+      "license": "Complete terms in LICENSE.txt"
+    },
+    {
+      "name": "anthropic-claude-api",
+      "original_name": "claude-api",
+      "description": "Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use Claude API, Anthropic SDKs, or Agent SDK. DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or ML/data-science tasks.",
       "source": "anthropics/skills",
       "source_url": "https://github.com/anthropics/skills",
       "license": "Complete terms in LICENSE.txt"
@@ -1628,6 +1636,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-lightning-factory-explainer",
+      "original_name": "lightning-factory-explainer",
+      "description": "Explain Bitcoin Lightning channel factories and the SuperScalar protocol \u2014 scalable Lightning onboarding using shared UTXOs, Decker-Wattenhofer trees, timeout-signature trees, MuSig2, and Taproot. No soft fork required.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-web-pubsub-ts",
       "original_name": "azure-web-pubsub-ts",
       "description": "Build real-time messaging applications using Azure Web PubSub SDKs for JavaScript (@azure/web-pubsub, @azure/web-pubsub-client). Use when implementing WebSocket-based real-time features, pub/sub me...",
@@ -2383,6 +2399,14 @@
       "name": "antigravity-makepad-skills",
       "original_name": "makepad-skills",
       "description": "Makepad UI development skills for Rust apps: setup, patterns, shaders, packaging, and troubleshooting.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-professional-proofreader",
+      "original_name": "professional-proofreader",
+      "description": "Use when a user asks to \"proofread\", \"review and correct\", \"fix grammar\", \"improve readability while keeping my voice\", and to proofread a document file and save an updated version.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3812,6 +3836,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-skill-router",
+      "original_name": "skill-router",
+      "description": "Use when the user is unsure which skill to use or where to start. Interviews the user with targeted questions and recommends the best skill(s) from the installed library for their goal.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-compute-batch-java",
       "original_name": "azure-compute-batch-java",
       "description": "Azure Batch SDK for Java. Run large-scale parallel and HPC batch jobs with pools, jobs, tasks, and compute nodes.",
@@ -4132,6 +4164,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-lightning-channel-factories",
+      "original_name": "lightning-channel-factories",
+      "description": "Technical reference on Lightning Network channel factories, multi-party channels, LSP architectures, and Bitcoin Layer 2 scaling without soft forks. Covers Decker-Wattenhofer, timeout trees, MuSig2 key aggregation, HTLC/PTLC forwarding, and watchtower breach detection.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-sharp-edges",
       "original_name": "sharp-edges",
       "description": "Identify error-prone APIs and dangerous configurations",
@@ -4175,6 +4215,14 @@
       "name": "antigravity-azure-data-tables-java",
       "original_name": "azure-data-tables-java",
       "description": "Build table storage applications with Azure Tables SDK for Java. Use when working with Azure Table Storage or Cosmos DB Table API for NoSQL key-value data, schemaless storage, or structured data at...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-saas-mvp-launcher",
+      "original_name": "saas-mvp-launcher",
+      "description": "Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech stack, architecture, auth, payments, and launch checklist.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4964,6 +5012,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-lightning-architecture-review",
+      "original_name": "lightning-architecture-review",
+      "description": "Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze Layer 2 scaling tradeoffs. Covers trust models, on-chain footprint, consensus requirements, HTLC/PTLC compatibility, liveness, and watchtower support.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-threat-mitigation-mapping",
       "original_name": "threat-mitigation-mapping",
       "description": "Map identified threats to appropriate security controls and mitigations. Use when prioritizing security investments, creating remediation plans, or validating control effectiveness.",
@@ -5391,6 +5447,14 @@
       "name": "antigravity-accessibility-compliance-accessibility-audit",
       "original_name": "accessibility-compliance-accessibility-audit",
       "description": "You are an accessibility expert specializing in WCAG compliance, inclusive design, and assistive technology compatibility. Conduct audits, identify barriers, and provide remediation guidance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-llm-prompt-optimizer",
+      "original_name": "llm-prompt-optimizer",
+      "description": "Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost output quality, reduce hallucinations, and cut token usage.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8127,6 +8191,14 @@
       "name": "antigravity-quality-nonconformance",
       "original_name": "quality-nonconformance",
       "description": "Codified expertise for quality control, non-conformance investigation, root cause analysis, corrective action, and supplier quality management in regulated manufacturing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-gemini-api-integration",
+      "original_name": "gemini-api-integration",
+      "description": "Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, streaming, function calling, and production best practices.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15198,7 +15270,7 @@
     {
       "name": "levn-ln-628-concurrency-auditor",
       "original_name": "ln-628-concurrency-auditor",
-      "description": "Concurrency audit worker (L3). Checks race conditions, missing async/await, resource contention, thread safety, deadlock potential. Returns findings with severity, location, effort, recommendations.",
+      "description": "Concurrency audit worker (L3). Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention, cross-process races. Two-layer detection: grep + agent reasoning.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15318,7 +15390,7 @@
     {
       "name": "levn-ln-622-build-auditor",
       "original_name": "ln-622-build-auditor",
-      "description": "Build health audit worker (L3). Checks compiler/linter errors, deprecation warnings, type errors, failed tests, build configuration issues. Returns findings with severity (Critical/High/Medium/Low), location, effort, and recommendations.",
+      "description": "Build health audit worker (L3). Checks compiler/linter errors, deprecation warnings, type errors, failed tests, build config issues. Returns findings with severity, location, effort, recommendations.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15390,7 +15462,7 @@
     {
       "name": "levn-ln-621-security-auditor",
       "original_name": "ln-621-security-auditor",
-      "description": "Security audit worker (L3). Scans codebase for hardcoded secrets, SQL injection, XSS, insecure dependencies, missing input validation. Returns findings with severity (Critical/High/Medium/Low), location, effort, and recommendations.",
+      "description": "Security audit worker (L3). Checks hardcoded secrets, SQL injection, XSS, insecure dependencies, missing input validation. Returns findings with severity, location, effort, recommendations.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15582,7 +15654,7 @@
     {
       "name": "levn-ln-111-root-docs-creator",
       "original_name": "ln-111-root-docs-creator",
-      "description": "Creates 4 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principles.md). L3 Worker invoked by ln-110-project-docs-coordinator.",
+      "description": "Creates 5 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principles.md, tools_config.md). L3 Worker invoked by ln-110-project-docs-coordinator.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15726,7 +15798,7 @@
     {
       "name": "levn-ln-629-lifecycle-auditor",
       "original_name": "ln-629-lifecycle-auditor",
-      "description": "Application lifecycle audit worker (L3). Checks bootstrap initialization order, graceful shutdown, resource cleanup, signal handling, liveness/readiness probes. Returns findings with severity, location, effort, recommendations.",
+      "description": "Application lifecycle audit worker (L3). Checks bootstrap initialization order, graceful shutdown, resource cleanup, signal handling, liveness/readiness probes. Returns findings.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -15902,7 +15974,7 @@
     {
       "name": "levn-ln-624-code-quality-auditor",
       "original_name": "ln-624-code-quality-auditor",
-      "description": "Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classes, method signature quality, O(n\u00b2) algorithms, N+1 queries, magic numbers/constants. Returns findings with severity, location, effort, recommendations.",
+      "description": "Code quality audit worker (L3). Checks cyclomatic complexity, nesting, long methods, god classes, method signatures, O(n\u00b2), N+1 queries, constants management. Returns findings.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -16198,7 +16270,7 @@
     {
       "name": "marketing-form-cro",
       "original_name": "form-cro",
-      "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
+      "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" \"contact form,\" \"nobody fills out our form,\" \"form abandonment,\" \"too many fields,\" \"demo request form,\" or \"lead form isn't converting.\" Use this for any non-signup form that captures information. For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16206,7 +16278,7 @@
     {
       "name": "marketing-page-cro",
       "original_name": "page-cro",
-      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page \u2014 including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
+      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page \u2014 including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" \"why isn't this page working,\" \"my landing page sucks,\" \"nobody's converting,\" \"low conversion rate,\" \"bounce rate is too high,\" \"people leave without signing up,\" or \"this page needs work.\" Use this even if the user just shares a URL and asks for feedback \u2014 they probably want conversion help. For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16214,7 +16286,7 @@
     {
       "name": "marketing-ad-creative",
       "original_name": "ad-creative",
-      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' or 'ad performance optimization.' This skill covers generating ad creative at scale, iterating based on performance data, and enforcing platform character limits. For campaign strategy and targeting, see paid-ads. For landing page copy, see copywriting.",
+      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see paid-ads. For landing page copy, see copywriting.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16222,7 +16294,7 @@
     {
       "name": "marketing-product-marketing-context",
       "original_name": "product-marketing-context",
-      "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Creates `.agents/product-marketing-context.md` that other marketing skills reference.",
+      "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills \u2014 it creates `.agents/product-marketing-context.md` that all other skills reference for product, audience, and positioning context.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16230,7 +16302,7 @@
     {
       "name": "marketing-site-architecture",
       "original_name": "site-architecture",
-      "description": "When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions \"sitemap,\" \"site map,\" \"visual sitemap,\" \"site structure,\" \"page hierarchy,\" \"information architecture,\" \"IA,\" \"navigation design,\" \"URL structure,\" \"breadcrumbs,\" \"internal linking strategy,\" or \"website planning.\" NOT for XML sitemaps (that's technical SEO \u2014 see seo-audit). For SEO audits, see seo-audit. For structured data, see schema-markup.",
+      "description": "When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions \"sitemap,\" \"site map,\" \"visual sitemap,\" \"site structure,\" \"page hierarchy,\" \"information architecture,\" \"IA,\" \"navigation design,\" \"URL structure,\" \"breadcrumbs,\" \"internal linking strategy,\" \"website planning,\" \"what pages do I need,\" \"how should I organize my site,\" or \"site navigation.\" Use this whenever someone is planning what pages a website should have and how they connect. NOT for XML sitemaps (that's technical SEO \u2014 see seo-audit). For SEO audits, see seo-audit. For structured data, see schema-markup.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16238,7 +16310,7 @@
     {
       "name": "marketing-pricing-strategy",
       "original_name": "pricing-strategy",
-      "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy.",
+      "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much should I charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' or 'should I offer a free plan.' Use this whenever someone is figuring out what to charge or how to structure their plans. For in-app upgrade screens, see paywall-upgrade-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16246,7 +16318,7 @@
     {
       "name": "marketing-seo-audit",
       "original_name": "seo-audit",
-      "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" or \"SEO health check.\" For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup.",
+      "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" \"SEO health check,\" \"my traffic dropped,\" \"lost rankings,\" \"not showing up in Google,\" \"site isn't ranking,\" \"Google update hit me,\" \"page speed,\" \"core web vitals,\" \"crawl errors,\" or \"indexing issues.\" Use this even if the user just says something vague like \"my SEO is bad\" or \"help with SEO\" \u2014 start with an audit. For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup. For AI search optimization, see ai-seo.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16254,7 +16326,7 @@
     {
       "name": "marketing-ab-test-setup",
       "original_name": "ab-test-setup",
-      "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" or \"hypothesis.\" For tracking implementation, see analytics-tracking.",
+      "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\" \"which version is better,\" \"test two versions,\" \"statistical significance,\" or \"how long should I run this test.\" Use this whenever someone is comparing two approaches and wants to measure which performs better. For tracking implementation, see analytics-tracking. For page-level conversion optimization, see page-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16262,7 +16334,7 @@
     {
       "name": "marketing-copywriting",
       "original_name": "copywriting",
-      "description": "When the user wants to write, rewrite, or improve marketing copy for any page \u2014 including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro.",
+      "description": "When the user wants to write, rewrite, or improve marketing copy for any page \u2014 including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" \"CTA copy,\" \"value proposition,\" \"tagline,\" \"subheadline,\" \"hero section copy,\" \"above the fold,\" \"this copy is weak,\" \"make this more compelling,\" or \"help me describe my product.\" Use this whenever someone is working on website text that needs to persuade or convert. For email copy, see email-sequence. For popup copy, see popup-cro. For editing existing copy, see copy-editing.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16270,7 +16342,7 @@
     {
       "name": "marketing-free-tool-strategy",
       "original_name": "free-tool-strategy",
-      "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" or \"free resource.\" This skill bridges engineering and marketing \u2014 useful for founders and technical marketers.",
+      "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" \"free resource,\" \"ROI calculator,\" \"grader tool,\" \"audit tool,\" \"should I build a free tool,\" or \"tools for lead gen.\" Use this whenever someone wants to build something useful and give it away to attract leads or earn links. For content-based lead generation, see content-strategy.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16278,7 +16350,7 @@
     {
       "name": "marketing-paid-ads",
       "original_name": "paid-ads",
-      "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, audience targeting, and optimization. For bulk ad creative generation and iteration, see ad-creative.",
+      "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' 'Facebook ads,' 'LinkedIn ads,' 'ad budget,' 'cost per click,' 'ad spend,' or 'should I run ads.' Use this for campaign strategy, audience targeting, bidding, and optimization. For bulk ad creative generation and iteration, see ad-creative. For landing page optimization, see page-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16286,7 +16358,7 @@
     {
       "name": "marketing-signup-flow-cro",
       "original_name": "signup-flow-cro",
-      "description": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" or \"account creation flow.\" For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.",
+      "description": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" \"account creation flow,\" \"people aren't signing up,\" \"signup abandonment,\" \"trial conversion rate,\" \"nobody completes registration,\" \"too many steps to sign up,\" or \"simplify our signup.\" Use this whenever the user has a signup or registration flow that isn't performing. For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16294,7 +16366,7 @@
     {
       "name": "marketing-competitor-alternatives",
       "original_name": "competitor-alternatives",
-      "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' or 'competitive landing pages.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables.",
+      "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'battle card,' or 'competitor teardown.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For sales-specific competitor docs, see sales-enablement.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16302,7 +16374,7 @@
     {
       "name": "marketing-paywall-upgrade-cro",
       "original_name": "paywall-upgrade-cro",
-      "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" or \"in-app pricing.\" Distinct from public pricing pages (see page-cro) \u2014 this skill focuses on in-product upgrade moments where the user has already experienced value.",
+      "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" \"in-app pricing,\" \"free users won't upgrade,\" \"trial to paid conversion,\" or \"how do I get users to pay.\" Use this for any in-product moment where you're asking users to upgrade. Distinct from public pricing pages (see page-cro) \u2014 this focuses on in-product upgrade moments where the user has already experienced value. For pricing decisions, see pricing-strategy.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16310,7 +16382,7 @@
     {
       "name": "marketing-email-sequence",
       "original_name": "email-sequence",
-      "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" or \"lifecycle emails.\" For in-app onboarding, see onboarding-cro.",
+      "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" \"lifecycle emails,\" \"trigger-based emails,\" \"email funnel,\" \"email workflow,\" \"what emails should I send,\" \"welcome series,\" or \"email cadence.\" Use this for any multi-email automated flow. For cold outreach emails, see cold-email. For in-app onboarding, see onboarding-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16318,7 +16390,7 @@
     {
       "name": "marketing-marketing-ideas",
       "original_name": "marketing-ideas",
-      "description": "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' or 'ideas to grow.' This skill provides 139 proven marketing approaches organized by category.",
+      "description": "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' 'ideas to grow,' 'what else can I try,' 'I don't know how to market this,' 'brainstorm marketing,' or 'what marketing should I do.' Use this as a starting point whenever someone is stuck or looking for inspiration on how to grow. For specific channel execution, see the relevant skill (paid-ads, social-content, email-sequence, etc.).",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16326,7 +16398,7 @@
     {
       "name": "marketing-churn-prevention",
       "original_name": "churn-prevention",
-      "description": "When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies. Also use when the user mentions 'churn,' 'cancel flow,' 'offboarding,' 'save offer,' 'dunning,' 'failed payment recovery,' 'win-back,' 'retention,' 'exit survey,' 'pause subscription,' or 'involuntary churn.' This skill covers voluntary churn (cancel flows, save offers, exit surveys) and involuntary churn (dunning, payment recovery). For post-cancel win-back email sequences, see email-sequence. For in-app upgrade paywalls, see paywall-upgrade-cro.",
+      "description": "When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies. Also use when the user mentions 'churn,' 'cancel flow,' 'offboarding,' 'save offer,' 'dunning,' 'failed payment recovery,' 'win-back,' 'retention,' 'exit survey,' 'pause subscription,' 'involuntary churn,' 'people keep canceling,' 'churn rate is too high,' 'how do I keep users,' or 'customers are leaving.' Use this whenever someone is losing subscribers or wants to build systems to prevent it. For post-cancel win-back email sequences, see email-sequence. For in-app upgrade paywalls, see paywall-upgrade-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16334,7 +16406,7 @@
     {
       "name": "marketing-launch-strategy",
       "original_name": "launch-strategy",
-      "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' or 'product update.' This skill covers phased launches, channel strategy, and ongoing launch momentum.",
+      "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch this,' 'launch checklist,' 'GTM plan,' or 'we're about to ship.' Use this whenever someone is preparing to release something publicly. For ongoing marketing after launch, see marketing-ideas.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16342,7 +16414,7 @@
     {
       "name": "marketing-cold-email",
       "original_name": "cold-email",
-      "description": "Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails, prospecting emails, cold email campaigns, sales development emails, or SDR emails. Covers subject lines, opening lines, body copy, CTAs, personalization, and multi-touch follow-up sequences.",
+      "description": "Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails, prospecting emails, cold email campaigns, sales development emails, or SDR emails. Also use when the user mentions \"cold outreach,\" \"prospecting email,\" \"outbound email,\" \"email to leads,\" \"reach out to prospects,\" \"sales email,\" \"follow-up email sequence,\" \"nobody's replying to my emails,\" or \"how do I write a cold email.\" Covers subject lines, opening lines, body copy, CTAs, personalization, and multi-touch follow-up sequences. For warm/lifecycle email sequences, see email-sequence. For sales collateral beyond emails, see sales-enablement.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16350,7 +16422,7 @@
     {
       "name": "marketing-popup-cro",
       "original_name": "popup-cro",
-      "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" or \"overlay.\" For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.",
+      "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" \"overlay,\" \"collect emails with a popup,\" \"exit popup,\" \"scroll trigger,\" \"sticky bar,\" or \"notification bar.\" Use this for any overlay or interrupt-style conversion element. For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16358,7 +16430,7 @@
     {
       "name": "marketing-social-content",
       "original_name": "social-content",
-      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies.",
+      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' or 'grow my following.' Use this for any social media content creation, repurposing, or scheduling task. For broader content strategy, see content-strategy.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16366,7 +16438,7 @@
     {
       "name": "marketing-programmatic-seo",
       "original_name": "programmatic-seo",
-      "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" or \"building many pages for SEO.\" For auditing existing SEO issues, see seo-audit.",
+      "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" \"building many pages for SEO,\" \"pSEO,\" \"generate 100 pages,\" \"data-driven pages,\" or \"templated landing pages.\" Use this whenever someone wants to create many similar pages targeting different keywords or locations. For auditing existing SEO issues, see seo-audit. For content strategy planning, see content-strategy.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16374,7 +16446,7 @@
     {
       "name": "marketing-analytics-tracking",
       "original_name": "analytics-tracking",
-      "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" or \"tracking plan.\" For A/B test measurement, see ab-test-setup.",
+      "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" \"tracking plan,\" \"how do I measure this,\" \"track conversions,\" \"attribution,\" \"Mixpanel,\" \"Segment,\" \"are my events firing,\" or \"analytics isn't working.\" Use this whenever someone asks how to know if something is working or wants to measure marketing results. For A/B test measurement, see ab-test-setup.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16382,7 +16454,7 @@
     {
       "name": "marketing-schema-markup",
       "original_name": "schema-markup",
-      "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" or \"breadcrumb schema.\" For broader SEO issues, see seo-audit.",
+      "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" \"breadcrumb schema,\" \"Google rich results,\" \"knowledge panel,\" \"star ratings in search,\" or \"add structured data.\" Use this whenever someone wants their pages to show enhanced results in Google. For broader SEO issues, see seo-audit. For AI search optimization, see ai-seo.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16390,7 +16462,7 @@
     {
       "name": "marketing-content-strategy",
       "original_name": "content-strategy",
-      "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" or \"content planning.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit.",
+      "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content marketing,\" \"content roadmap,\" \"what content should I create,\" \"blog topics,\" \"content pillars,\" or \"I don't know what to write.\" Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social-content.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16398,7 +16470,7 @@
     {
       "name": "marketing-marketing-psychology",
       "original_name": "marketing-psychology",
-      "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application.",
+      "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavior,' 'anchoring,' 'social proof,' 'scarcity,' 'loss aversion,' 'framing,' or 'nudge.' Use this whenever someone wants to understand or leverage how people think and make decisions in a marketing context.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16406,7 +16478,7 @@
     {
       "name": "marketing-sales-enablement",
       "original_name": "sales-enablement",
-      "description": "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'ROI calculator,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' or 'buyer persona card.' For competitor battle cards and comparison pages, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email.",
+      "description": "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For competitor comparison pages and battle cards, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16414,7 +16486,7 @@
     {
       "name": "marketing-ai-seo",
       "original_name": "ai-seo",
-      "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' or 'zero-click search.' This skill covers content optimization for AI answer engines, monitoring AI visibility, and getting cited as a source. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup.",
+      "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' or 'optimize for Claude/Gemini.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16422,7 +16494,7 @@
     {
       "name": "marketing-revops",
       "original_name": "revops",
-      "description": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,' 'marketing-to-sales handoff,' or 'data hygiene.' For cold outreach emails, see cold-email. For email drip campaigns, see email-sequence. For pricing decisions, see pricing-strategy.",
+      "description": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,' 'marketing-to-sales handoff,' 'data hygiene,' 'leads aren't getting to sales,' 'pipeline management,' 'lead qualification,' or 'when should marketing hand off to sales.' Use this for anything involving the systems and processes that connect marketing to revenue. For cold outreach emails, see cold-email. For email drip campaigns, see email-sequence. For pricing decisions, see pricing-strategy.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16430,7 +16502,7 @@
     {
       "name": "marketing-copy-editing",
       "original_name": "copy-editing",
-      "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes.",
+      "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' 'copy sweep,' 'tighten this up,' 'this reads awkwardly,' 'clean up this text,' 'too wordy,' or 'sharpen the messaging.' Use this when the user already has copy and wants it improved rather than rewritten from scratch. For writing new copy, see copywriting.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16438,7 +16510,7 @@
     {
       "name": "marketing-referral-program",
       "original_name": "referral-program",
-      "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' or 'partner program.' This skill covers program design, incentive structure, and growth optimization.",
+      "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,' 'how to get referrals,' 'customers referring customers,' or 'affiliate payout.' Use this whenever someone wants existing users or partners to bring in new customers. For launch-specific virality, see launch-strategy.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -16446,7 +16518,7 @@
     {
       "name": "marketing-onboarding-cro",
       "original_name": "onboarding-cro",
-      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" or \"new user experience.\" For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence.",
+      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" \"new user experience,\" \"users aren't activating,\" \"nobody completes setup,\" \"low activation rate,\" \"users sign up but don't use the product,\" \"time to value,\" or \"first session experience.\" Use this whenever users are signing up but not sticking around. For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"

@@ -15,8 +15,8 @@
 | **Documentation** | Read README before folder work | Before creating/editing files | Understand structure and conventions |
 | **Documentation Navigation** | Read SCOPE tag first in each document | Before reading any doc | DAG structure - understand boundaries |
 | **Testing** | Read tests/README.md before tests | Before test work | Story-Level Test Task Pattern |
-| **Research** | Search MCP Ref before proposing changes | Before code changes | Official docs prevent reinventing wheel |
-| **Task Management** | Linear MCP only, NO gh command | All task operations | See docs/tasks/README.md |
+| **Research** | Use research tools per docs/tools_config.md | Before code changes | Official docs prevent reinventing wheel |
+| **Task Management** | Use task provider per docs/tools_config.md | All task operations | See docs/tasks/README.md |
 | **Skills** | Use built-in skills proactively | Documentation/Planning/Execution | Skills automate workflows |
 | **Language** | English for all content, Russian for chat | All project content | Code/docs/tasks/commits in English only |
 
@@ -55,6 +55,8 @@ Project documentation: [docs/README.md](docs/README.md)
 Documentation standards: [docs/documentation_standards.md](docs/documentation_standards.md)
 
 Development principles: [docs/principles.md](docs/principles.md)
+
+Tools configuration: [docs/tools_config.md](docs/tools_config.md)
 
 ## Development Commands
 

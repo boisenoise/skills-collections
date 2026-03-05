@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-04 06:24 UTC*
+*Last updated: 2026-03-05 06:26 UTC*
 
-Total skills: **2079**
+Total skills: **2088**
 
 ## Skills by Source
 
@@ -895,6 +895,7 @@ Total skills: **2079**
 | `anthropic-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `anthropic-brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
 | `anthropic-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
+| `anthropic-claude-api` | Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-... |
 | `anthropic-doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri... |
 | `anthropic-frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill wh... |
 | `anthropic-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
@@ -986,7 +987,7 @@ Total skills: **2079**
 | `levn-ln-100-documents-pipeline` | Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs via 5 L3 wor... |
 | `levn-ln-1000-pipeline-orchestrator` | Meta-orchestrator (L0): reads kanban board, lets user pick ONE Story, drives it through pipeline 300... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
-| `levn-ln-111-root-docs-creator` | Creates 4 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
+| `levn-ln-111-root-docs-creator` | Creates 5 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
 | `levn-ln-112-project-core-creator` | Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). ... |
 | `levn-ln-113-backend-docs-creator` | Creates 2 backend docs (api_spec.md, database_schema.md). L3 Worker invoked CONDITIONALLY when hasBa... |
 | `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md for frontend projects. L3 Worker invoked CONDITIONALLY when hasFrontend... |
@@ -1027,14 +1028,14 @@ Total skills: **2079**
 | `levn-ln-612-semantic-content-auditor` | Semantic content auditor (L3 Worker). Verifies document content matches stated SCOPE, aligns with pr... |
 | `levn-ln-613-code-comments-auditor` | Code comments audit worker (L3). Checks WHY-not-WHAT, density (15-20%), forbidden content, docstring... |
 | `levn-ln-620-codebase-auditor` | Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, ... |
-| `levn-ln-621-security-auditor` | Security audit worker (L3). Scans codebase for hardcoded secrets, SQL injection, XSS, insecure depen... |
+| `levn-ln-621-security-auditor` | Security audit worker (L3). Checks hardcoded secrets, SQL injection, XSS, insecure dependencies, mis... |
 | `levn-ln-622-build-auditor` | Build health audit worker (L3). Checks compiler/linter errors, deprecation warnings, type errors, fa... |
 | `levn-ln-623-code-principles-auditor` | Code principles audit worker (L3). Checks DRY (10 types), KISS/YAGNI, error handling, DI patterns. R... |
-| `levn-ln-624-code-quality-auditor` | Code quality audit worker (L3). Checks cyclomatic complexity, deep nesting, long methods, god classe... |
+| `levn-ln-624-code-quality-auditor` | Code quality audit worker (L3). Checks cyclomatic complexity, nesting, long methods, god classes, me... |
 | `levn-ln-625-dependencies-auditor` | Dependencies audit worker (L3). Checks outdated packages, unused deps, reinvented wheels, vulnerabil... |
 | `levn-ln-626-dead-code-auditor` | Dead code & legacy audit worker (L3). Checks unreachable code, unused imports/variables/functions, c... |
 | `levn-ln-627-observability-auditor` | Observability audit worker (L3). Checks structured logging, health check endpoints, metrics collecti... |
-| `levn-ln-628-concurrency-auditor` | Concurrency audit worker (L3). Checks race conditions, missing async/await, resource contention, thr... |
+| `levn-ln-628-concurrency-auditor` | Concurrency audit worker (L3). Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, r... |
 | `levn-ln-629-lifecycle-auditor` | Application lifecycle audit worker (L3). Checks bootstrap initialization order, graceful shutdown, r... |
 | `levn-ln-630-test-auditor` | Test suite audit coordinator (L2). Delegates to 5 workers (Business Logic, E2E, Value, Coverage, Iso... |
 | `levn-ln-631-test-business-logic-auditor` | Business Logic Focus audit worker (L3). Detects tests that validate framework/library behavior (Pris... |
@@ -1656,6 +1657,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gcp-cloud-run` | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run ser... |
 | `antigravity-gdpr-data-handling` | Implement GDPR-compliant data handling with consent management, data subject rights, and privacy by ... |
 | `antigravity-gemini-api-dev` | Use this skill when building applications with Gemini models, Gemini API, working with multimodal co... |
+| `antigravity-gemini-api-integration` | Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, str... |
 | `antigravity-geo-fundamentals` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
 | `antigravity-git-advanced-workflows` | Master advanced Git workflows including rebasing, cherry-picking, bisect, worktrees, and reflog to m... |
 | `antigravity-git-pr-workflows-git-workflow` | Orchestrate a comprehensive git workflow from code review through PR creation, leveraging specialize... |
@@ -1755,6 +1757,9 @@ behavior. Use proactively when encoun... |
 | `antigravity-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `antigravity-legacy-modernizer` | Refactor legacy codebases, migrate outdated frameworks, and implement gradual modernization. Handles... |
 | `antigravity-legal-advisor` | Draft privacy policies, terms of service, disclaimers, and legal notices. Creates GDPR-compliant tex... |
+| `antigravity-lightning-architecture-review` | Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze L... |
+| `antigravity-lightning-channel-factories` | Technical reference on Lightning Network channel factories, multi-party channels, LSP architectures,... |
+| `antigravity-lightning-factory-explainer` | Explain Bitcoin Lightning channel factories and the SuperScalar protocol — scalable Lightning onboar... |
 | `antigravity-linear-automation` | Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always searc... |
 | `antigravity-linear-claude-skill` | Manage Linear issues, projects, and teams |
 | `antigravity-linkedin-automation` | Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comment... |
@@ -1769,6 +1774,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-llm-application-dev-langchain-agent` | You are an expert LangChain agent developer specializing in production-grade AI systems using LangCh... |
 | `antigravity-llm-application-dev-prompt-optimize` | You are an expert prompt engineer specializing in crafting effective prompts for LLMs through advanc... |
 | `antigravity-llm-evaluation` | Implement comprehensive evaluation strategies for LLM applications using automated metrics, human fe... |
+| `antigravity-llm-prompt-optimizer` | Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost output... |
 | `antigravity-local-legal-seo-audit` | Audit and improve local SEO for law firms, attorneys, forensic experts and legal/professional servic... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
 | `antigravity-loki-mode` | Multi-agent autonomous startup system for Claude Code. Triggers on "Loki Mode". Orchestrates 100+ sp... |
@@ -1889,6 +1895,7 @@ structures, and modern OOP features. U... |
 | `antigravity-product-manager-toolkit` | Comprehensive toolkit for product managers including RICE prioritization, customer interview analysi... |
 | `antigravity-production-code-audit` | Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then syst... |
 | `antigravity-production-scheduling` | Codified expertise for production scheduling, job sequencing, line balancing, changeover optimisatio... |
+| `antigravity-professional-proofreader` | Use when a user asks to "proofread", "review and correct", "fix grammar", "improve readability while... |
 | `antigravity-programmatic-seo` | Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templat... |
 | `antigravity-projection-patterns` | Build read models and projections from event streams. Use when implementing CQRS read sides, buildin... |
 | `antigravity-prometheus-configuration` | Set up Prometheus for comprehensive metric collection, storage, and monitoring of infrastructure and... |
@@ -1939,6 +1946,7 @@ structures, and modern OOP features. U... |
 | `antigravity-ruby-pro` | Write idiomatic Ruby code with metaprogramming, Rails patterns, and performance optimization. Specia... |
 | `antigravity-rust-async-patterns` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns. Use... |
 | `antigravity-rust-pro` | Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready sy... |
+| `antigravity-saas-mvp-launcher` | Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech s... |
 | `antigravity-saga-orchestration` | Implement saga patterns for distributed transactions and cross-aggregate workflows. Use when coordin... |
 | `antigravity-sales-automator` | Draft cold emails, follow-ups, and proposal templates. Creates
 pricing pages, case studies, and sale... |
@@ -1999,6 +2007,7 @@ Plans content calendars and ident... |
 | `antigravity-skill-creator-ms` | Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Found... |
 | `antigravity-skill-developer` | Create and manage Claude Code skills following Anthropic best practices. Use when creating new skill... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
+| `antigravity-skill-router` | Use when the user is unsure which skill to use or where to start. Interviews the user with targeted ... |
 | `antigravity-skill-seekers` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills i... |
 | `antigravity-slack-automation` | Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Composio)... |
 | `antigravity-slack-bot-builder` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for ... |

@@ -5,6 +5,15 @@ description: "Orchestrates test planning pipeline (research → manual → auto 
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root.
 
+## Inputs
+
+| Input | Required | Source | Description |
+|-------|----------|--------|-------------|
+| `storyId` | Yes | args, git branch, kanban, user | Story to process |
+
+**Resolution:** Per `shared/references/input_resolution_pattern.md` — Story Resolution Chain.
+**Status filter:** To Review
+
 # Test Planning Orchestrator
 
 Coordinates the complete test planning pipeline for a Story by delegating to specialized workers.
@@ -44,12 +53,20 @@ ln-520-test-planner (Orchestrator)
 
 ## Workflow
 
+### Phase 0: Resolve Inputs
+
+**MANDATORY READ:** Load `shared/references/input_resolution_pattern.md`
+
+1. **Resolve storyId** (per input_resolution_pattern.md):
+   - IF args provided → use args
+   - ELSE IF git branch matches `feature/{id}-*` → extract id
+   - ELSE IF kanban has exactly 1 Story in [To Review] → suggest
+   - ELSE → AskUserQuestion: show Stories from kanban filtered by [To Review]
+
 ### Phase 1: Discovery
 
 1) Auto-discover Team ID from `docs/tasks/kanban_board.md`
-2) Validate Story ID provided by ln-500
-
-**Input:** Story ID from ln-500-story-quality-gate
+2) Validate Story ID
 
 ### Phase 2: Research Delegation
 
