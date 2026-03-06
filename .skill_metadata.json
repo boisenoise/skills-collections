@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-05T06:26:31.058357",
-  "skill_count": 2088,
+  "last_updated": "2026-03-06T06:24:52.242983",
+  "skill_count": 2116,
   "sources_processed": 19,
   "skills": [
     {
@@ -668,6 +668,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-hr-payroll-setup",
+      "original_name": "odoo-hr-payroll-setup",
+      "description": "Expert guide for Odoo HR and Payroll: salary structures, payslip rules, leave policies, employee contracts, and payroll journal entries.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-blockchain-developer",
       "original_name": "blockchain-developer",
       "description": "Build production-ready Web3 applications, smart contracts, and decentralized systems. Implements DeFi protocols, NFT platforms, DAOs, and enterprise blockchain integrations.",
@@ -1148,6 +1156,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-upgrade-advisor",
+      "original_name": "odoo-upgrade-advisor",
+      "description": "Step-by-step Odoo version upgrade advisor: pre-upgrade checklist, community vs enterprise upgrade path, OCA module compatibility, and post-upgrade validation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-miro-automation",
       "original_name": "miro-automation",
       "description": "Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connectors. Always search tools first for current schemas.",
@@ -1231,6 +1247,14 @@
       "name": "antigravity-freshservice-automation",
       "original_name": "freshservice-automation",
       "description": "Automate Freshservice ITSM tasks via Rube MCP (Composio): create/update tickets, bulk operations, service requests, and outbound emails. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-shopify-integration",
+      "original_name": "odoo-shopify-integration",
+      "description": "Connect Odoo with Shopify: sync products, inventory, orders, and customers using the Shopify API and Odoo's external API or connector modules.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1495,6 +1519,14 @@
       "name": "antigravity-tdd-workflows-tdd-refactor",
       "original_name": "tdd-workflows-tdd-refactor",
       "description": "Use when working with tdd workflows tdd refactor",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-sales-crm-expert",
+      "original_name": "odoo-sales-crm-expert",
+      "description": "Expert guide for Odoo Sales and CRM: pipeline stages, quotation templates, pricelists, sales teams, lead scoring, and forecasting.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1956,6 +1988,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-purchase-workflow",
+      "original_name": "odoo-purchase-workflow",
+      "description": "Expert guide for Odoo Purchase: RFQ \u2192 PO \u2192 Receipt \u2192 Vendor Bill workflow, purchase agreements, vendor price lists, and 3-way matching.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ui-skills",
       "original_name": "ui-skills",
       "description": "Opinionated, evolving constraints to guide agents when building interfaces",
@@ -2252,6 +2292,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-woocommerce-bridge",
+      "original_name": "odoo-woocommerce-bridge",
+      "description": "Sync Odoo with WooCommerce: products, inventory, orders, and customers via WooCommerce REST API and Odoo external API.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-commit",
       "original_name": "commit",
       "description": "Create commit messages following Sentry conventions. Use when committing code changes, writing commit messages, or formatting git history. Follows conventional commits with Sentry-specific issue re...",
@@ -2532,6 +2580,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-fda-food-safety-auditor",
+      "original_name": "fda-food-safety-auditor",
+      "description": "Expert AI auditor for FDA Food Safety (FSMA), HACCP, and PCQI compliance. Reviews food facility records and preventive controls.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-monitor-query-py",
       "original_name": "azure-monitor-query-py",
       "description": "Azure Monitor Query SDK for Python. Use for querying Log Analytics workspaces and Azure Monitor metrics.",
@@ -2612,6 +2668,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-automated-tests",
+      "original_name": "odoo-automated-tests",
+      "description": "Write and run Odoo automated tests using TransactionCase, HttpCase, and browser tour tests. Covers test data setup, mocking, and CI integration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ddd-context-mapping",
       "original_name": "ddd-context-mapping",
       "description": "Map relationships between bounded contexts and define integration contracts using DDD context mapping patterns.",
@@ -2679,6 +2743,14 @@
       "name": "antigravity-circleci-automation",
       "original_name": "circleci-automation",
       "description": "Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve artifacts and test metadata. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-rpc-api",
+      "original_name": "odoo-rpc-api",
+      "description": "Expert on Odoo's external JSON-RPC and XML-RPC APIs. Covers authentication, model calls, record CRUD, and real-world integration examples in Python, JavaScript, and curl.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2775,6 +2847,14 @@
       "name": "antigravity-frontend-developer",
       "original_name": "frontend-developer",
       "description": "Build React components, implement responsive layouts, and handle client-side state management. Masters React 19, Next.js 15, and modern frontend architecture.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-xml-views-builder",
+      "original_name": "odoo-xml-views-builder",
+      "description": "Expert at building Odoo XML views: Form, List, Kanban, Search, Calendar, and Graph. Generates correct XML for Odoo 14-17 with proper visibility syntax.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2943,6 +3023,14 @@
       "name": "antigravity-llm-application-dev-prompt-optimize",
       "original_name": "llm-application-dev-prompt-optimize",
       "description": "You are an expert prompt engineer specializing in crafting effective prompts for LLMs through advanced techniques including constitutional AI, chain-of-thought reasoning, and model-specific optimizati",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-edi-connector",
+      "original_name": "odoo-edi-connector",
+      "description": "Guide for implementing EDI (Electronic Data Interchange) with Odoo: X12, EDIFACT document mapping, partner onboarding, and automated order processing.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3191,6 +3279,14 @@
       "name": "antigravity-instagram-automation",
       "original_name": "instagram-automation",
       "description": "Automate Instagram tasks via Rube MCP (Composio): create posts, carousels, manage media, get insights, and publishing limits. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-inventory-optimizer",
+      "original_name": "odoo-inventory-optimizer",
+      "description": "Expert guide for Odoo Inventory: stock valuation (FIFO/AVCO), reordering rules, putaway strategies, routes, and multi-warehouse configuration.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3668,6 +3764,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-backup-strategy",
+      "original_name": "odoo-backup-strategy",
+      "description": "Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-microsoft-teams-automation",
       "original_name": "microsoft-teams-automation",
       "description": "Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meetings, handle chats, and search messages. Always search tools first for current schemas.",
@@ -3916,6 +4020,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-docker-deployment",
+      "original_name": "odoo-docker-deployment",
+      "description": "Production-ready Docker and docker-compose setup for Odoo with PostgreSQL, persistent volumes, environment-based configuration, and Nginx reverse proxy.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-risk-metrics-calculation",
       "original_name": "risk-metrics-calculation",
       "description": "Calculate portfolio risk metrics including VaR, CVaR, Sharpe, Sortino, and drawdown analysis. Use when measuring portfolio risk, implementing risk limits, or building risk monitoring systems.",
@@ -3943,6 +4055,14 @@
       "name": "antigravity-conductor-validator",
       "original_name": "conductor-validator",
       "description": "Validates Conductor project artifacts for completeness,\nconsistency, and correctness. Use after setup, when diagnosing issues, or\nbefore implementation to verify project context.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-qweb-templates",
+      "original_name": "odoo-qweb-templates",
+      "description": "Expert in Odoo QWeb templating for PDF reports, email templates, and website pages. Covers t-if, t-foreach, t-field, and report actions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4332,6 +4452,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-codebase-audit-pre-push",
+      "original_name": "codebase-audit-pre-push",
+      "description": "Deep audit before GitHub push: removes junk files, dead code, security holes, and optimization issues. Checks every file line-by-line for production readiness.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-basecamp-automation",
       "original_name": "basecamp-automation",
       "description": "Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube MCP (Composio). Always search tools first for current schemas.",
@@ -4383,6 +4511,14 @@
       "name": "antigravity-react-state-management",
       "original_name": "react-state-management",
       "description": "Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when setting up global state, managing server state, or choosing between state management solutions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-ecommerce-configurator",
+      "original_name": "odoo-ecommerce-configurator",
+      "description": "Expert guide for Odoo eCommerce and Website: product catalog, payment providers, shipping methods, SEO, and order-to-fulfillment workflow.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4596,6 +4732,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-orm-expert",
+      "original_name": "odoo-orm-expert",
+      "description": "Master Odoo ORM patterns: search, browse, create, write, domain filters, computed fields, and performance-safe query techniques.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-xlsx",
       "original_name": "xlsx-official",
       "description": "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, ....",
@@ -4772,6 +4916,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-migration-helper",
+      "original_name": "odoo-migration-helper",
+      "description": "Step-by-step guide for migrating Odoo custom modules between versions (v14\u2192v15\u2192v16\u2192v17). Covers API changes, deprecated methods, and view migration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hig-components-content",
       "original_name": "hig-components-content",
       "description": "Apple Human Interface Guidelines for content display components.",
@@ -4871,6 +5023,14 @@
       "name": "antigravity-local-legal-seo-audit",
       "original_name": "local-legal-seo-audit",
       "description": "Audit and improve local SEO for law firms, attorneys, forensic experts and legal/professional services sites with local presence, focusing on GBP, directories, E-E-A-T and practice/location pages.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-module-developer",
+      "original_name": "odoo-module-developer",
+      "description": "Expert guide for creating custom Odoo modules. Covers __manifest__.py, model inheritance, ORM patterns, and module structure best practices.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4983,6 +5143,14 @@
       "name": "antigravity-bash-linux",
       "original_name": "bash-linux",
       "description": "Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working on macOS or Linux systems.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-l10n-compliance",
+      "original_name": "odoo-l10n-compliance",
+      "description": "Country-specific Odoo localization: tax configuration, e-invoicing (CFDI, FatturaPA, SAF-T), fiscal reporting, and country chart of accounts setup.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6508,6 +6676,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-performance-tuner",
+      "original_name": "odoo-performance-tuner",
+      "description": "Expert guide for diagnosing and fixing Odoo performance issues: slow queries, worker configuration, memory limits, PostgreSQL tuning, and profiling tools.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-readme",
       "original_name": "readme",
       "description": "When the user wants to create or update a README.md file for a project. Also use when the user says 'write readme,' 'create readme,' 'document this project,' 'project documentation,' or asks for he...",
@@ -6519,6 +6695,14 @@
       "name": "antigravity-code-refactoring-refactor-clean",
       "original_name": "code-refactoring-refactor-clean",
       "description": "You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and modern software engineering best practices. Analyze and refactor the provided code to improve its...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-security-rules",
+      "original_name": "odoo-security-rules",
+      "description": "Expert in Odoo access control: ir.model.access.csv, record rules (ir.rule), groups, and multi-company security patterns.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7572,6 +7756,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-project-timesheet",
+      "original_name": "odoo-project-timesheet",
+      "description": "Expert guide for Odoo Project and Timesheets: task stages, billable time tracking, timesheet approval, budget alerts, and invoicing from timesheets.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-core-components",
       "original_name": "core-components",
       "description": "Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.",
@@ -7740,6 +7932,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-odoo-manufacturing-advisor",
+      "original_name": "odoo-manufacturing-advisor",
+      "description": "Expert guide for Odoo Manufacturing: Bills of Materials (BoM), Work Centers, routings, MRP planning, and production order workflows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-service-mesh-expert",
       "original_name": "service-mesh-expert",
       "description": "Expert service mesh architect specializing in Istio, Linkerd, and cloud-native networking patterns. Masters traffic management, security policies, observability integration, and multi-cluster mesh con",
@@ -7807,6 +8007,14 @@
       "name": "antigravity-security-scanning-security-dependencies",
       "original_name": "security-scanning-security-dependencies",
       "description": "You are a security expert specializing in dependency vulnerability analysis, SBOM generation, and supply chain security. Scan project dependencies across ecosystems to identify vulnerabilities, ass...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-odoo-accounting-setup",
+      "original_name": "odoo-accounting-setup",
+      "description": "Expert guide for configuring Odoo Accounting: chart of accounts, journals, fiscal positions, taxes, payment terms, and bank reconciliation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8148,6 +8356,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-drizzle-orm-expert",
+      "original_name": "drizzle-orm-expert",
+      "description": "Expert in Drizzle ORM for TypeScript \u2014 schema design, relational queries, migrations, and serverless database integration. Use when building type-safe database layers with Drizzle.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ai-wrapper-product",
       "original_name": "ai-wrapper-product",
       "description": "Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people will pay for. Not just 'ChatGPT but different' - products that solve specific problems with AI. Cov...",
@@ -8207,6 +8423,14 @@
       "name": "antigravity-aws-cost-optimizer",
       "original_name": "aws-cost-optimizer",
       "description": "Comprehensive AWS cost analysis and optimization recommendations using AWS CLI and Cost Explorer",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-fda-medtech-compliance-auditor",
+      "original_name": "fda-medtech-compliance-auditor",
+      "description": "Expert AI auditor for Medical Device (SaMD) compliance, IEC 62304, and 21 CFR Part 820. Reviews DHFs, technical files, and software validation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
