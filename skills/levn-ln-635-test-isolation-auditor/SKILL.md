@@ -1,7 +1,8 @@
 ---
 name: ln-635-test-isolation-auditor
-description: "Test Isolation + Anti-Patterns audit worker (L3). Checks isolation (APIs/DB/FS/Time/Random/Network), determinism (flaky, order-dependent), and 7 anti-patterns."
+description: "Checks isolation (APIs/DB/FS/Time/Random/Network), determinism (flaky, order-dependent), and 7 anti-patterns."
 allowed-tools: Read, Grep, Glob, Bash
+license: MIT
 ---
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root.

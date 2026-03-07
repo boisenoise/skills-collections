@@ -166,61 +166,32 @@ Documents describe algorithms and concepts in text, NOT code:
 
 ---
 
-## 5. Actuality (CRITICAL)
+## 5. Freshness Indicators
 
-**Outdated docs are worse than no docs** - they mislead and waste time.
-This category requires **active verification against code**, not passive reading.
+Detect staleness signals in documentation. Deep fact-checking (paths, versions, endpoints, configs) handled by dedicated worker.
 
-### Must Pass - Verify Against Code
-- [ ] **File paths** - every path in docs exists in codebase
-- [ ] **Function/class names** - match actual code signatures
-- [ ] **API endpoints** - exist and match described behavior
-- [ ] **Config keys** - exist in actual config files/schemas
-- [ ] **Environment variables** - match what code actually reads
-- [ ] **Command examples** - run successfully (test them!)
-- [ ] **Dependencies** - versions match package.json/requirements.txt
+### Must Pass
+- [ ] No inline dates older than 6 months (except CHANGELOG, version history)
+- [ ] No references to known deprecated tools/APIs (e.g., "Python 2", "jQuery 1.x", EOL frameworks)
+- [ ] No TODO/FIXME markers in published documentation
+- [ ] No placeholder text left in place ("Lorem ipsum", "TBD", "Coming soon", "XXX")
 
-### Verification Workflow
+### Should Pass
+- [ ] Last Updated date within 3 months (if present in document)
+- [ ] No references to tools/frameworks removed from package manifests
+- [ ] Maintenance section present in audit/operational docs
 
-For each doc, actively check:
-
-| Doc Content | How to Verify |
-|-------------|---------------|
-| File path `src/utils/helper.ts` | `ls src/utils/helper.ts` |
-| Function `processData(input)` | `grep -n "processData" src/` |
-| Endpoint `POST /api/users` | Check router/controller files |
-| Config `DATABASE_URL` | `grep -rn "DATABASE_URL" src/` |
-| Command `npm run build` | Check package.json scripts |
-
-### Fact-Check Patterns
-
-**High-risk areas** (check first):
-- Installation/setup instructions
-- API documentation
-- Configuration guides
-- Architecture diagrams
-- Dependency lists
-
-**Detection of stale content:**
-- Paths to deleted files
-- References to renamed functions/classes
-- Deprecated API endpoints still documented
-- Old env var names
-- Outdated version numbers
-
-### Code vs Docs Priority
-When mismatch found:
-1. **Code is truth** - always update doc, never "fix" code to match doc
-2. Report: "Doc says X, code does Y" with file:line reference
-3. Action: "Update doc to reflect current code behavior"
+### Detection Patterns
+- Dates in format YYYY-MM-DD or Month YYYY older than 6 months
+- Known deprecated tech: Python 2, Node 14/16, Angular.js, jQuery 1.x, Webpack 4
+- TODO/FIXME/XXX markers in non-task documentation
+- "TBD", "Coming soon", "placeholder", "Lorem ipsum"
 
 ### Scoring
-- 10/10: All facts verified against code; docs match reality
-- 8-9/10: Minor mismatches (typos in names, formatting)
-- 6-7/10: Some paths/names outdated but core info correct
-- 4-5/10: Functional mismatches (wrong behavior described)
-- 1-3/10: Critical mismatches (setup fails, API wrong, config broken)
-- -3 per critical mismatch (security, breaking changes)
+- 10/10: No staleness signals detected
+- -1 per stale date or deprecated reference
+- -2 per TODO/FIXME in published docs
+- -1 per missing Maintenance section in operational docs
 
 ---
 
@@ -256,20 +227,6 @@ When mismatch found:
 ## Quick Audit Commands
 
 ```bash
-# === ACTUALITY VERIFICATION (run these first!) ===
-
-# Extract all file paths from docs and check if they exist
-grep -roh 'src/[^)` ]*\|lib/[^)` ]*' docs/ | sort -u | while read f; do [ ! -e "$f" ] && echo "MISSING: $f"; done
-
-# Extract function/class names and verify they exist
-grep -roh '\b[A-Z][a-zA-Z]*\b' docs/ | sort -u | head -20  # then grep in src/
-
-# Check if documented env vars exist in code
-grep -roh '\$[A-Z_]*\|[A-Z_]*=' docs/ | sort -u | while read v; do grep -rq "$v" src/ || echo "NOT FOUND: $v"; done
-
-# Verify npm scripts mentioned in docs
-grep -oh 'npm run [a-z-]*' docs/*.md | sort -u  # compare with package.json
-
 # === STRUCTURE & LINKS ===
 
 # Find orphaned files (files not linked from any other)

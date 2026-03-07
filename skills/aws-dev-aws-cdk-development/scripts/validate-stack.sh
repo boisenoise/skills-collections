@@ -77,7 +77,7 @@ detect_language() {
         echo "python"
     elif [ -f "${PROJECT_ROOT}/pom.xml" ]; then
         echo "java"
-    elif [ -f "${PROJECT_ROOT}/cdk.csproj" ] || find "${PROJECT_ROOT}" -name "*.csproj" 2>/dev/null | grep -q .; then
+    elif [ -f "${PROJECT_ROOT}/cdk.csproj" ] || find "${PROJECT_ROOT}" -maxdepth 2 -name "*.csproj" -print -quit 2>/dev/null | grep -q .; then
         echo "csharp"
     elif [ -f "${PROJECT_ROOT}/go.mod" ]; then
         echo "go"
@@ -162,7 +162,7 @@ case "$CDK_LANGUAGE" in
         fi
         ;;
     csharp)
-        if find "${PROJECT_ROOT}" -name "*.csproj" -exec grep -l "CdkNag" {} \; 2>/dev/null | grep -q "."; then
+        if find "${PROJECT_ROOT}" -maxdepth 2 -name "*.csproj" -exec grep -l "CdkNag" {} \; 2>/dev/null | grep -q "."; then
             success "cdk-nag found in .csproj"
         else
             warning "cdk-nag not found - recommended for comprehensive CDK validation"
@@ -190,22 +190,24 @@ echo ""
 info "Checking synthesized templates..."
 
 # Get list of synthesized templates
-TEMPLATES=$(find "${PROJECT_ROOT}/cdk.out" -name "*.template.json" 2>/dev/null || echo "")
+TEMPLATES=()
+while IFS= read -r -d '' file; do
+    TEMPLATES+=("$file")
+done < <(find "${PROJECT_ROOT}/cdk.out" -name "*.template.json" -print0 2>/dev/null)
 
-if [ -z "$TEMPLATES" ]; then
+if [ ${#TEMPLATES[@]} -eq 0 ]; then
     error "No CloudFormation templates found in cdk.out/"
     exit 1
 fi
 
-TEMPLATE_COUNT=$(echo "$TEMPLATES" | wc -l)
-success "Found ${TEMPLATE_COUNT} CloudFormation template(s)"
+success "Found ${#TEMPLATES[@]} CloudFormation template(s)"
 
 # Validate each template
-for template in $TEMPLATES; do
-    STACK_NAME=$(basename "$template" .template.json)
+for template in "${TEMPLATES[@]}"; do
+    STACK_NAME="$(basename "$template" .template.json)"
 
     # Check template size
-    TEMPLATE_SIZE=$(wc -c < "$template")
+    TEMPLATE_SIZE="$(wc -c < "$template")"
     MAX_SIZE=51200 # 50KB warning threshold
 
     if [ "$TEMPLATE_SIZE" -gt "$MAX_SIZE" ]; then
@@ -214,7 +216,7 @@ for template in $TEMPLATES; do
     fi
 
     # Count resources
-    RESOURCE_COUNT=$(jq '.Resources | length' "$template" 2>/dev/null || echo 0)
+    RESOURCE_COUNT="$(jq '.Resources | length' "$template" 2>/dev/null || echo 0)"
 
     if [ "$RESOURCE_COUNT" -gt 200 ]; then
         warning "${STACK_NAME}: High resource count (${RESOURCE_COUNT})"

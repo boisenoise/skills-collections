@@ -1,7 +1,8 @@
 ---
 name: ln-632-test-e2e-priority-auditor
-description: E2E Critical Coverage audit worker (L3). Validates E2E coverage for critical paths (Money 20+, Security 20+, Data 15+). Pure risk-based - no pyramid percentages.
+description: E2E Critical Coverage audit worker. Validates E2E coverage for critical paths (Money 20+, Security 20+, Data 15+). Pure risk-based - no pyramid percentages.
 allowed-tools: Read, Grep, Glob, Bash
+license: MIT
 ---
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root.

@@ -2,7 +2,7 @@
 # AgentCore Gateway Multi-Environment Deployment Script
 # Template for deploying targets to multiple gateways
 
-set -e
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'
@@ -31,7 +31,7 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-ENV_FILE=$1
+ENV_FILE="$1"
 
 # Check if environment file exists
 if [ ! -f "$ENV_FILE" ]; then
@@ -41,8 +41,20 @@ fi
 
 print_info "Loading environment from: $ENV_FILE"
 
-# Load environment variables
-export $(cat $ENV_FILE | xargs)
+# Load environment variables safely (skip comments and blank lines, validate keys)
+while IFS='=' read -r key value; do
+    # Skip comments and blank lines
+    [[ -z "$key" || "$key" =~ ^[[:space:]]*# ]] && continue
+    # Strip leading/trailing whitespace
+    key="$(echo "$key" | xargs)"
+    value="$(echo "$value" | xargs)"
+    # Validate key is a safe variable name
+    if [[ ! "$key" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
+        print_warning "Skipping invalid variable name: $key"
+        continue
+    fi
+    export "$key=$value"
+done < "$ENV_FILE"
 
 # Validate required environment variables
 REQUIRED_VARS=("GATEWAY_IDENTIFIER" "CREDENTIAL_PROVIDER_NAME" "AWS_REGION")
@@ -53,11 +65,20 @@ for var in "${REQUIRED_VARS[@]}"; do
     fi
 done
 
+# Validate identifiers contain only safe characters
+for var in GATEWAY_IDENTIFIER CREDENTIAL_PROVIDER_NAME AWS_REGION; do
+    if [[ ! "${!var}" =~ ^[a-zA-Z0-9._:/-]+$ ]]; then
+        print_error "Invalid characters in $var: ${!var}"
+        exit 1
+    fi
+done
+
 # Get AWS account ID
 print_info "Getting AWS account ID..."
-export CDK_DEFAULT_ACCOUNT=$(aws sts get-caller-identity \
+CDK_DEFAULT_ACCOUNT="$(aws sts get-caller-identity \
   --query Account --output text \
-  --profile ${AWS_PROFILE:-default})
+  --profile "${AWS_PROFILE:-default}")"
+export CDK_DEFAULT_ACCOUNT
 
 if [ -z "$CDK_DEFAULT_ACCOUNT" ]; then
     print_error "Failed to get AWS account ID"
@@ -70,18 +91,16 @@ print_info "Credential Provider: $CREDENTIAL_PROVIDER_NAME"
 print_info "Region: $AWS_REGION"
 
 # Extract gateway name from identifier if not provided
-if [ -z "$GATEWAY_NAME" ]; then
+if [ -z "${GATEWAY_NAME:-}" ]; then
     # Extract prefix before first hyphen
-    GATEWAY_NAME=$(echo $GATEWAY_IDENTIFIER | cut -d'-' -f1)
+    GATEWAY_NAME="$(echo "$GATEWAY_IDENTIFIER" | cut -d'-' -f1)"
     export GATEWAY_NAME
     print_info "Auto-extracted gateway name: $GATEWAY_NAME"
 fi
 
 # Build project
 print_info "Building project..."
-npm run build
-
-if [ $? -ne 0 ]; then
+if ! npm run build; then
     print_error "Build failed!"
     exit 1
 fi
@@ -90,9 +109,7 @@ print_info "Build successful!"
 
 # Deploy to AWS
 print_info "Deploying to AWS..."
-cdk deploy --profile ${AWS_PROFILE:-default} --require-approval never
-
-if [ $? -eq 0 ]; then
+if cdk deploy --profile "${AWS_PROFILE:-default}" --require-approval never; then
     print_info "Deployment successful!"
 
     # Display deployment information
@@ -107,9 +124,9 @@ if [ $? -eq 0 ]; then
     # Get and display target information
     print_info "Fetching target details..."
     aws bedrock-agentcore-control list-gateway-targets \
-      --gateway-identifier $GATEWAY_IDENTIFIER \
-      --profile ${AWS_PROFILE:-default} \
-      --region $AWS_REGION
+      --gateway-identifier "$GATEWAY_IDENTIFIER" \
+      --profile "${AWS_PROFILE:-default}" \
+      --region "$AWS_REGION"
 
 else
     print_error "Deployment failed!"
