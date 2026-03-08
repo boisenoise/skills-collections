@@ -44,7 +44,7 @@ Use when:
 |-------|----------|--------|-------------|
 | `epicId` | Yes | args, kanban, user | Epic to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Epic Resolution Chain.
+**Resolution:** Epic Resolution Chain.
 **Status filter:** Active (planned/started)
 
 ## Workflow
@@ -53,7 +53,6 @@ Use when:
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, `shared/references/input_resolution_pattern.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider
 
 ### Phase 1: Context Assembly
@@ -233,22 +232,7 @@ Each Story creates ONLY the tables it needs (not all tables upfront).
 - ❌ BAD: "Login should be fast" (vague, not measurable)
 - ✅ GOOD: "Then receive token <200ms" (specific, measurable)
 
-**INVEST Score (0-6 per Story):**
-
-| # | Criterion | Check | +1 if PASS |
-|---|-----------|-------|------------|
-| 1 | **Independent** | No forward dependencies (Story N uses only 1..N-1) | ✅ |
-| 2 | **Negotiable** | AC focus on WHAT, not HOW (no library versions, no implementation details) | ✅ |
-| 3 | **Valuable** | Clear "So that [business value]" — not purely technical | ✅ |
-| 4 | **Estimable** | Size within checklist #9 range, known patterns | ✅ |
-| 5 | **Small** | 3-5 AC, 6-20 hours, vertical slice | ✅ |
-| 6 | **Testable** | AC measurable with Given/When/Then and specific values | ✅ |
-
-**Gate:** Score ≥ 4 → proceed. Score < 4 → rework Story before creation.
-
-**Examples:**
-- ❌ Score 2/6: "Create user table" (fails Independent, Valuable, Small, Testable)
-- ✅ Score 6/6: "User registration" with 4 GWT AC, 12h, full vertical slice
+**INVEST Score (0-6 per Story):** Validate per `creation_quality_checklist.md` INVEST criteria (loaded above). Gate: Score ≥ 4 → proceed, < 4 → rework.
 
 **Output:** IDEAL Story plan (5-10 Stories) with titles, statements, core AC, ordering
 
@@ -407,7 +391,7 @@ After worker completes (any mode: CREATE/REPLAN/ADD):
 Add phases to todos before starting:
 ```
 - Phase 1: Context Assembly (in_progress)
-- Phase 2: Standards Research via ln-221 (pending)
+- Phase 2: Standards Research via ln-001 (pending)
 - Phase 3: Build IDEAL Story Plan (pending)
 - Phase 4: Check Existing Stories (pending)
 - Phase 5: Delegate to ln-221/ln-222 (pending)
@@ -527,38 +511,6 @@ Mark each as in_progress when starting, completed when done.
 - **Numbering conventions:** `shared/references/numbering_conventions.md` (Story sequential across Epics)
 
 ---
-
-## Best Practices
-
-**Story Content:**
-- **Research-First:** Always perform Phase 2 research (standards/patterns) before Story generation
-  - **Story level:** STANDARDS/PATTERNS (OAuth RFC 6749, middleware pattern)
-  - **Task level:** LIBRARIES (authlib vs oauthlib) - delegated by ln-300
-- **Business-oriented Stories:** Each Story = USER JOURNEY (what user does, what they get), NOT technical tasks
-  - ✅ GOOD: "As API client, I want to refresh expired token, so that I maintain session without re-authentication"
-  - ❌ BAD: "Create token refresh endpoint in API" (Task, not Story)
-- **Vertical Slicing:** Each Story delivers end-to-end functionality (UI → API → Service → DB)
-- **One capability per Story:** Clear, focused persona + capability + value
-- **Testable AC:** Given-When-Then, 3-5 AC, specific criteria ("<200ms" not "fast")
-- **Test Strategy:** Section exists but is **empty** at Story creation (tests planned later by test planner)
-- **Standards Research:** Include Phase 2 research in ALL Story Technical Notes
-
-**Story Decomposition:**
-- **Decompose-First:** Build IDEAL plan before checking existing - prevents anchoring to suboptimal structure
-- **INVEST validation:** Validate every Story against INVEST criteria
-- **Size enforcement:** 3-5 AC, 6-20 hours
-- **Avoid over-decomposition:** <3 AC, <6 hours → Merge Stories
-
-**User Interaction:**
-- **Epic extraction:** Try to extract all planning info from Epic in Phase 1 Step 2 before asking user
-- **Frontend Research:** HTML forms/validation → AC scenarios (Phase 1 Step 3)
-- **Fallback search:** requirements.md, tech_stack.md if Epic incomplete (Phase 1 Step 4)
-- **Only ask user for missing info** after Epic extraction AND frontend AND fallback search fail
-
-**Delegation:**
-- **Orchestrator loads metadata only:** ID, title, status (~50 tokens per Story)
-- **Workers load full descriptions:** 8 sections (~5,000 tokens per Story)
-- **Token efficiency:** 10 Stories × 50 tokens = 500 tokens (orchestrator) vs 10 Stories × 5,000 tokens = 50,000 tokens (workers load when needed)
 
 ---
 

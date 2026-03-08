@@ -46,6 +46,8 @@ L3 Worker that builds and analyzes the module dependency graph to enforce archit
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 ### Phase 1: Discover Architecture (Adaptive)
 
 **MANDATORY READ:** Load `references/dependency_rules.md` — use 3-Tier Priority Chain, Architecture Presets, Auto-Detection Heuristics.
@@ -162,6 +164,8 @@ FOR EACH (A, B) WHERE B IN graph[A] AND A IN graph[B]:
     severity: "HIGH",
     fix: suggest_cycle_fix(A, B)
   })
+  # Layer 2: Test-only dependencies (devDependencies, test imports) → skip cycle
+  # Plugin/extension architecture with documented bidirectional design → downgrade to LOW
 
 # Transitive cycles via DFS (A -> B -> C -> A)
 visited = {}

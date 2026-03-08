@@ -1,6 +1,6 @@
 ---
 name: ln-512-tech-debt-cleaner
-description: "Reads codebase audit findings, applies safe auto-fixes for low-risk issues (unused imports, dead code, commented-out code, deprecated aliases). Confidence >=90% only. Creates single commit with summary."
+description: "Applies safe auto-fixes for low-risk audit findings (unused imports, dead code, commented-out code). Confidence >=90% only. Creates single commit with summary."
 license: MIT
 ---
 
@@ -81,7 +81,7 @@ Automated cleanup of safe, low-risk tech debt findings from codebase audits.
    - Track: file, lines removed, category, original finding ID
 
 5) **Verify build integrity:**
-   Per `shared/references/ci_tool_detection.md` discovery hierarchy: detect and run lint + typecheck commands.
+   **MANDATORY READ:** Load `shared/references/ci_tool_detection.md` for discovery hierarchy. Detect and run lint + typecheck commands.
    - If ANY check fails: revert ALL changes (`git checkout .`), report failure
    - If no lint/type commands detected: skip verification with warning
 

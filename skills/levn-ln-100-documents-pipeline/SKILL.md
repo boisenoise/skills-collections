@@ -12,7 +12,7 @@ This skill orchestrates the creation of a complete documentation system by invok
 
 ## Purpose
 
-Top-level orchestrator that creates a complete project documentation system in one invocation. Chains ln-110 coordinator + ln-120/130/140/150 workers sequentially, then runs global cleanup (deduplication, orphan archival, cross-link validation).
+Top-level orchestrator that creates a complete project documentation system in one invocation. Chains ln-110 coordinator + ln-120/130/140/150 workers sequentially, then runs global cleanup (deduplication, orphan reporting, cross-link validation).
 
 ## Architecture
 
@@ -28,7 +28,7 @@ ln-100-documents-pipeline (L1 Top Orchestrator - this skill)
 ├── ln-130-tasks-docs-creator (L2 Worker)
 ├── ln-140-test-docs-creator (L2 Worker - optional)
 ├── ln-150-presentation-creator (L2 Worker)
-└── ln-610-docs-auditor (L2 Coordinator - optional, delegates to ln-611/612/613)
+└── ln-610-docs-auditor (L2 Coordinator - optional, delegates to ln-611/612/613/614)
 ```
 
 ## When to Use This Skill
@@ -333,44 +333,17 @@ Quick quality check per created document:
    - "✓ Removed {count} duplicate sections"
    - List: "{section_name} removed from {file} (canonical: {canonical_file})"
 
-**4.2 Scan for orphaned files**
+**4.2 Report unexpected files (advisory)**
 
 1. **List all .md files in docs/**
    - Use Glob tool: `pattern: "docs/**/*.md"`
 
-2. **Check against expected structure:**
-   - Expected files (created by workers):
-     - docs/CLAUDE.md
-     - docs/README.md
-     - docs/documentation_standards.md
-     - docs/principles.md
-     - docs/project/requirements.md
-     - docs/project/architecture.md
-     - docs/project/tech_stack.md
-     - docs/project/api_spec.md (conditional)
-     - docs/project/database_schema.md (conditional)
-     - docs/project/design_guidelines.md (conditional)
-     - docs/project/runbook.md (conditional)
-     - docs/reference/README.md
-     - docs/reference/adrs/*.md (user-created)
-     - docs/reference/guides/*.md (user-created)
-     - docs/reference/manuals/*.md (user-created)
-     - docs/tasks/README.md
-     - docs/tasks/kanban_board.md
-     - docs/testing-strategy.md
-     - tests/README.md
-   - Any file NOT in this list = orphaned
+2. **Check against expected structure** (files created by workers + user-created reference docs)
 
-3. **Move orphaned files to archive:**
-   - Create `.archive/YYYY-MM-DD/` directory (current date)
-   - For each orphaned file:
-     - Use Bash tool: `mv {file_path} .archive/YYYY-MM-DD/`
-     - Log: "Archived {file_name} (not in expected structure)"
-   - Track count
-
-4. **Log results:**
-   - "✓ Archived {count} orphaned files to .archive/{date}/"
-   - List archived files
+3. **Report findings (DO NOT move/delete/archive):**
+   - List unexpected files with advisory message
+   - User decides what to do with them
+   - Log: "{count} unexpected files found (not in expected structure) — listed for user review"
 
 **4.3 Consolidate knowledge**
 
@@ -439,8 +412,7 @@ Quick quality check per created document:
 
 Structure:
 - Removed {N} duplicate sections (canonical: principles.md)
-- Archived {N} orphaned files to .archive/YYYY-MM-DD/
-  - list of archived files
+- Found {N} unexpected files (listed for user review)
 - Consolidated {N} scattered concepts
 
 Links:
@@ -449,7 +421,7 @@ Links:
   - list of added links
 ```
 
-**Output**: All documentation cleaned up, duplicates removed, orphaned files archived, knowledge consolidated, cross-links validated
+**Output**: All documentation cleaned up, duplicates removed, unexpected files reported, knowledge consolidated, cross-links validated
 
 ---
 
@@ -589,7 +561,7 @@ project_root/
 - ✅ Time-saving (one invocation vs 2-3 manual invocations)
 - ✅ **Idempotent**: Safe to run multiple times - preserves existing files, creates only missing ones
 - ✅ **Pre-flight check**: Shows file scan summary before execution
-- ✅ **Global cleanup**: Automatic deduplication, orphaned files archival, knowledge consolidation
+- ✅ **Global cleanup**: Automatic deduplication, orphan reporting, knowledge consolidation
 - ✅ **Validated cross-links**: No broken links in documentation
 
 **Trade-offs:**
@@ -643,7 +615,7 @@ If any invoked skill fails:
 - Uses **Glob** tool to find all .md files
 - Uses **Read** tool to analyze content
 - Uses **Edit** tool to remove duplicates and add links
-- Uses **Bash** tool to archive orphaned files
+- Reports unexpected files (advisory, no auto-archive)
 
 **Standards Compliance:**
 - All output follows same standards as underlying skills
@@ -657,7 +629,7 @@ If any invoked skill fails:
 
 - **Idempotent:** Creates only missing files; existing files are preserved without overwrite
 - **Sequential invocation:** Workers must be invoked in order (ln-110 -> ln-120 -> ln-130 -> ln-140 -> ln-150); each verified before next
-- **Global cleanup mandatory:** Phase 4 (deduplication, orphan archival, SSoT consolidation, cross-link validation) runs after all workers complete
+- **Global cleanup mandatory:** Phase 4 (deduplication, orphan reporting, SSoT consolidation, cross-link validation) runs after all workers complete
 - **User confirmation required:** Pre-flight check and explicit approval before any file creation
 - **NO_CODE Rule:** All generated documents use tables/ASCII/links; no code blocks >5 lines
 
@@ -665,7 +637,7 @@ If any invoked skill fails:
 
 - Legacy detection patterns: `references/legacy_detection_patterns.md`
 - Worker skills: `ln-110-project-docs-coordinator`, `ln-120-reference-docs-creator`, `ln-130-tasks-docs-creator`, `ln-140-test-docs-creator`, `ln-150-presentation-creator`
-- Audit skill (optional): `ln-610-docs-auditor` (coordinates ln-611/612/613)
+- Audit skill (optional): `ln-610-docs-auditor` (coordinates ln-611/612/613/614)
 
 ## Definition of Done
 
@@ -704,7 +676,7 @@ Before completing work, verify ALL checkpoints:
 **✅ Global Cleanup Complete (Phase 4):**
 - [ ] 4.1: Duplicate sections identified and removed (>80% similarity)
 - [ ] 4.1: Links added to canonical locations (principles.md, testing-strategy.md, kanban_board.md)
-- [ ] 4.2: Orphaned files archived to `.archive/YYYY-MM-DD/`
+- [ ] 4.2: Unexpected files reported (advisory, no auto-archive)
 - [ ] 4.3: Scattered concepts consolidated to Single Source of Truth (SSoT)
 - [ ] 4.4: Internal links validated (broken links fixed, critical links added)
 - [ ] 4.5: Final report generated (counts, lists, actions)
@@ -722,7 +694,7 @@ Before completing work, verify ALL checkpoints:
 **✅ Error Handling (if applicable):**
 - [ ] If any worker failed: User notified which worker failed, error message shown, manual invocation recommended, partial progress listed
 
-**Output:** Complete documentation system (CLAUDE.md + docs/ with README.md, documentation_standards.md, principles.md + presentation/ + optionally tests/) with global cleanup (no duplicates, no orphaned files, consolidated knowledge, validated cross-links)
+**Output:** Complete documentation system (CLAUDE.md + docs/ with README.md, documentation_standards.md, principles.md + presentation/ + optionally tests/) with global cleanup (no duplicates, orphaned files reported, consolidated knowledge, validated cross-links)
 
 ---
 

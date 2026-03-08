@@ -26,7 +26,7 @@ Runs parallel external agent reviews on arbitrary context, critically verifies s
 
 ## Plan Mode Support
 
-Follows `shared/references/plan_mode_pattern.md` (Workflow B) and `shared/references/agent_review_workflow.md` Plan Mode Behavior. Step 7e (Compare & Correct): output findings to chat, apply edits only after user approval.
+**MANDATORY READ:** Load `shared/references/plan_mode_pattern.md` (Workflow B). Step 7e (Compare & Correct): output findings to chat, apply edits only after user approval.
 
 ## Parameters
 
@@ -149,7 +149,7 @@ Output: `detected_stack = {query_prefix}` or empty (generic queries)
 
 #### 7e) MCP Ref Research
 
-Per `research_tool_fallback.md` chain: Ref -> Context7 -> WebSearch -> built-in knowledge.
+Research chain (per `research_tool_fallback.md`, loaded above): Ref -> Context7 -> WebSearch -> built-in knowledge.
 
 For each topic:
 - Query: `"{query_prefix} {topic} RFC standard best practices {current_year}"`

@@ -1,6 +1,6 @@
 ---
 name: ln-651-query-efficiency-auditor
-description: "Checks redundant entity fetches, N-UPDATE/DELETE loops, unnecessary resolves, over-fetching, missing bulk operations, wrong caching scope. Returns findings with severity, location, effort, recommendations."
+description: "Checks redundant fetches, N-UPDATE/DELETE loops, unnecessary resolves, over-fetching, missing bulk operations, wrong caching scope. Returns findings with severity."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -28,6 +28,8 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 **Domain-aware:** Supports `domain_mode` + `current_domain`.
 
 ## Workflow
+
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
 1) **Parse context from contextStore**
    - Extract tech_stack, best_practices, db_config, output_dir
@@ -63,6 +65,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 **Severity:**
 - **HIGH:** Redundant fetch in API request handler (adds latency per request)
 - **MEDIUM:** Redundant fetch in background job (less critical)
+- **Downgrade when:** Fetch in initialization/migration code (runs once) → LOW. Admin-only endpoint with low traffic → downgrade one level
 
 **Recommendation:** Pass entity object instead of ID, or remove second fetch when `expire_on_commit=False`
 
@@ -82,6 +85,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 **Severity:**
 - **HIGH:** Loop over >10 items (N separate round-trips to DB)
 - **MEDIUM:** Loop over <=10 items
+- **Downgrade when:** Loop in bootstrap/migration code (runs once) → LOW. Admin-only endpoint → downgrade one level
 
 **Recommendation:** Replace with single `UPDATE ... WHERE id IN (...)` or `session.execute(update(Model).where(Model.id.in_(ids)))`
 

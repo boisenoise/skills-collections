@@ -1,6 +1,6 @@
 ---
 name: ln-652-transaction-correctness-auditor
-description: "Checks missing intermediate commits, transaction scope (too wide/narrow), missing rollback handling, long-held transactions, trigger/notify interaction. Returns findings with severity, location, effort, recommendations."
+description: "Checks transaction scope, missing rollback handling, long-held transactions, trigger/notify interaction. Returns findings with severity, location, effort."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -28,6 +28,8 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 **Domain-aware:** Supports `domain_mode` + `current_domain`.
 
 ## Workflow
+
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
 1) **Parse context from contextStore**
    - Extract tech_stack, best_practices, db_config, output_dir
@@ -69,6 +71,8 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 **Severity:**
 - **CRITICAL:** Missing commit for NOTIFY/LISTEN-based real-time features (SSE, WebSocket)
 - **HIGH:** Missing commit for triggers that update materialized data
+
+**Exception:** Single atomic operation with no intermediate observable state → downgrade CRITICAL to MEDIUM. Transaction scope documented as intentional (ADR, architecture comment) → downgrade one level
 
 **Recommendation:**
 - Add `session.commit()` at progress milestones (throttled: every N%, every T seconds)

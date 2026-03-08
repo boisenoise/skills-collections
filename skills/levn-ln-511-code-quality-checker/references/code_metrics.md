@@ -94,6 +94,11 @@ Where:
 | Insecure deserialization | high |
 | Missing authentication | high |
 | Missing authorization | medium |
+| SEC-DESTR-DB: DROP/TRUNCATE/DELETE without WHERE, no confirmation gate | high |
+| SEC-DESTR-FS: rm/unlink with user-controlled or unbounded path | high |
+| SEC-DESTR-MIG: Migration without DOWN, DROP COLUMN without backup | medium |
+| SEC-DESTR-ENV: Destructive op without environment guard | high |
+| SEC-DESTR-FORCE: --force/--no-verify without justification | medium |
 
 ### PERF- (Performance)
 

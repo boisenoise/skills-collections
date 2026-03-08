@@ -22,14 +22,13 @@ Runs a single Story final test task (label "tests") through implementation/execu
 |-------|----------|--------|-------------|
 | `taskId` | Yes | args, parent Story, kanban, user | Test task to execute |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Task Resolution Chain.
+**Resolution:** Task Resolution Chain.
 **Status filter:** Todo (label: tests)
 
 ## Task Storage Mode
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 | Aspect | Linear Mode | File Mode |
@@ -57,11 +56,11 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ## Critical Rules
 - Single-task only; no bulk updates.
-- Do not mark Done; ln-402 approves. Task must end in To Review.
+- Do not mark Done; the reviewer approves. Task must end in To Review.
 - Keep language (EN/RU) consistent with task.
 - No framework/library/DB/performance/load tests; focus on business logic correctness (not infrastructure throughput).
 - Respect limits and priority; if violated, stop and return with findings.
-- **Do NOT commit.** Leave all changes uncommitted — ln-402 reviews and commits with task ID reference.
+- **Do NOT commit.** Leave all changes uncommitted — the reviewer reviews and commits.
 
 ## Definition of Done
 - Task identified as test task and set to In Progress; kanban updated.

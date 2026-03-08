@@ -1,6 +1,6 @@
 ---
 name: ln-311-agent-reviewer
-description: "Worker that runs parallel external agent reviews (Codex + Gemini) on Story/Tasks. Background tasks, process-as-arrive, critical verification with debate. Returns filtered suggestions for Story validation."
+description: "Runs parallel external agent reviews (Codex + Gemini) on Story/Tasks. Process-as-arrive, critical verification with debate. Returns filtered suggestions."
 license: MIT
 ---
 
@@ -20,7 +20,7 @@ Runs parallel external agent reviews on validated Story and Tasks, critically ve
 
 ## When to Use
 - **Invoked by ln-310-story-validator** Phase 5 (Agent Review)
-- After Phase 4 auto-fixes applied, Penalty Points = 0
+- After Phase 4 auto-fixes applied (Penalty Points reduced; Before/After per ln-310)
 - Story and Tasks are in their final form before approval
 
 ## Parameters
@@ -38,7 +38,7 @@ Runs parallel external agent reviews on validated Story and Tasks, critically ve
 |-------|----------|--------|-------------|
 | `storyId` | Yes | args, git branch, kanban, user | Story to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Story Resolution Chain.
+**Resolution:** Story Resolution Chain.
 **Status filter:** Backlog
 
 ## Workflow
@@ -53,8 +53,7 @@ Runs parallel external agent reviews on validated Story and Tasks, critically ve
    - ELSE IF kanban has exactly 1 Story in [Backlog] → suggest
    - ELSE → AskUserQuestion: show Stories from kanban filtered by [Backlog]
 
-2. Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
-   Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
+2. Extract: `task_provider` from `docs/tools_config.md` (per tools_config_guide.md).
 
 ### Unique Steps (before shared workflow)
 

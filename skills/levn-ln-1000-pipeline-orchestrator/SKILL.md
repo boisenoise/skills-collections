@@ -47,7 +47,6 @@ When `mcp__hashline-edit__*` tools are available, workers MUST prefer them over 
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md` and `shared/references/storage_mode_detection.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ## When to Use
@@ -327,12 +326,12 @@ git_stats = {}                               # {storyId: {lines_added, lines_del
 pipeline_start_time = now()                  # ISO 8601 — wall-clock start for duration metrics
 readiness_scores = {}                        # {storyId: readiness_score} — from Stage 1 GO
 
-# Helper functions — see phase4_heartbeat.md Helper Functions for full definitions
+# Helper functions — defined in phase4_heartbeat.md (loaded above)
 # skill_name_from_stage(stage), predict_next_step(stage), stage_duration(id, N)
 
 # --- SPAWN SINGLE WORKER ---
 id = selected_story.id
-target_stage = determine_stage(selected_story)    # See pipeline_states.md guards
+target_stage = determine_stage(selected_story)    # pipeline_states.md guards
 worker_name = "story-{id}-s{target_stage}"
 
 worktree_dir = ".worktrees/story-{id}"
@@ -409,7 +408,7 @@ WHILE story_state[id] NOT IN ("DONE", "PAUSED", "PENDING_MERGE"):
   #
   ON HEARTBEAT (Stop hook stderr: "HEARTBEAT: ..."):
     Write .pipeline/state.json with ALL state variables.
-    # See phase4_heartbeat.md for persistence details
+    # phase4_heartbeat.md persistence details (loaded above)
 
 # --- POST-LOOP: Handle PENDING_MERGE ---
 IF story_state[id] == "PENDING_MERGE":
@@ -431,7 +430,7 @@ IF story_state[id] == "PENDING_MERGE":
     # Sets story_state = "DONE", merge_status = "declined"
 ```
 
-**`determine_stage(story)` routing:** See `references/pipeline_states.md` Stage-to-Status Mapping table.
+**`determine_stage(story)` routing:** Stage-to-Status Mapping table in `references/pipeline_states.md` (loaded above).
 
 #### Phase 4a: Git Sync, Report & Merge Confirmation
 

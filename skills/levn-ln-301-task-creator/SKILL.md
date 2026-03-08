@@ -21,7 +21,6 @@ Worker that generates task documents and creates Linear issues for implementatio
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md` and `shared/references/storage_mode_detection.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ## Invocation (who/when)
@@ -38,7 +37,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ## Quality Criteria
 
-**MANDATORY READ:** Load `shared/references/creation_quality_checklist.md` §Task Creation Checklist for validation criteria that ln-310 will enforce.
+**MANDATORY READ:** Load `shared/references/creation_quality_checklist.md` §Task Creation Checklist for validation criteria that ln-310 will enforce. Load `shared/references/destructive_operation_safety.md` for destructive operation keywords and severity classification.
 
 ## Workflow (concise)
 1) **DRY Check (Codebase Scan):** For EACH Task in plan:
@@ -60,6 +59,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
    - Rationale: Prevents code duplication BEFORE implementation starts
 2) **Template select:** Load template based on taskType (see "Template Loading" section).
 3) **Generate docs:** Fill sections for each task in plan/request using provided data, guide links, and DRY warnings.
+   - **Destructive Op Detection:** For EACH task, scan Implementation Plan for keywords from destructive_operation_safety.md (loaded above). IF detected → include "Destructive Operation Safety" section from shared reference template (MANDATORY). Creator fills all 5 fields + severity. IF NOT detected → omit section.
 4) **Validate type rules:** Stop with error if violation (see table below).
 5) **Preview:** Show titles/goals/estimates/AC/components, DRY warnings count, and totals.
 6) **Confirmation required:** Proceed only after explicit confirm.
@@ -77,6 +77,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 ## Critical Notes
 - **MANDATORY:** Always pass `state: "Backlog"` when calling create_issue. Linear defaults to team's default status (often "Postponed") if not specified.
 - **DRY Check:** Scan codebase for EACH Task before generation. If similar code found (≥70% keyword match) → add `⚠️ DRY Warning` section with 3 options (reuse/extend/justify). Skip scan for test tasks (no implementation code).
+- **Destructive Op Detection:** Use keyword list from destructive_operation_safety.md (loaded above). If found in task plan → include Destructive Operation Safety section as MANDATORY.
 - Foundation-First order for implementation is preserved from orchestrator; do not reorder.
 - No code snippets; keep to approach, APIs, and pseudocode only.
 - Documentation updates must be included in Affected Components/Docs sections.

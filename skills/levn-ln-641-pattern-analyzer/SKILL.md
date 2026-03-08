@@ -1,6 +1,6 @@
 ---
 name: ln-641-pattern-analyzer
-description: Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, quality, implementation), identifies gaps and issues. Usually invoked by ln-640, can also analyze a specific pattern on user request.
+description: Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, quality, implementation), identifies gaps. Invoked by ln-640 or standalone.
 license: MIT
 ---
 
@@ -35,6 +35,8 @@ L3 Worker that analyzes a single architectural pattern against best practices an
 > **Note:** All patterns arrive pre-verified (passed ln-640 Phase 1d applicability gate with >= 2 structural components confirmed).
 
 ## Workflow
+
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
 ### Phase 1: Find Implementations
 
@@ -88,6 +90,11 @@ FOR EACH bestPractice NOT implemented:
     suggestion: how to fix,
     effort: "S" | "M" | "L"
   })
+
+# Layer 2 context check (MANDATORY):
+# Deviation documented in code comment or ADR? → downgrade to LOW
+# Pattern intentionally simplified for project scale? → skip
+
 
 gaps = {
   missingComponents: required components not found in code,

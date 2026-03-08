@@ -28,8 +28,14 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 1) **Parse Context:** Extract tech stack, critical paths, user journeys, test file list, output_dir from contextStore
-2) **Identify Critical Paths:** Scan codebase for critical paths (Money, Security, Data)
+2) **Identify Critical Paths (Layer 1):** Scan codebase for critical paths (Money, Security, Data)
+2b) **Context Analysis (Layer 2 — MANDATORY):** For each candidate critical path, ask:
+   - Is this a helper function called from an already-E2E-tested path? → **downgrade to MEDIUM**
+   - Is this already covered by integration test with real assertions? → **downgrade to LOW**
+   - Is keyword match a false positive (e.g., `calculateDiscount()` is pure math, already unit-tested)? → **skip**
 3) **Identify Core Journeys:** Identify core user journeys (multi-step flows)
 4) **Check Critical Path Coverage:** Check E2E coverage for critical paths (Priority >=20)
 5) **Check Journey Coverage:** Check E2E coverage for user journeys (Priority 15-19)
@@ -59,6 +65,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **Severity:**
 - **CRITICAL:** No E2E for Priority 25 (Money, Security)
 - **HIGH:** No E2E for Priority 20 (Data Export)
+- **Downgrade when:** Function is helper called from already-E2E-tested path → MEDIUM. Already covered by integration test → LOW
 
 **Recommendation:** Add E2E tests for critical paths immediately
 

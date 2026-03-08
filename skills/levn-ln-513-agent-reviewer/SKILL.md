@@ -1,6 +1,6 @@
 ---
 name: ln-513-agent-reviewer
-description: "Worker that runs parallel external agent reviews (Codex + Gemini) on code changes. Background tasks, process-as-arrive, critical verification with debate. Returns filtered suggestions with confidence scoring."
+description: "Runs parallel external agent reviews (Codex + Gemini) on code changes. Process-as-arrive, critical verification with debate. Returns filtered suggestions."
 license: MIT
 ---
 
@@ -38,7 +38,7 @@ Runs parallel external agent reviews on code implementation, critically verifies
 |-------|----------|--------|-------------|
 | `storyId` | Yes | args, git branch, kanban, user | Story to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Story Resolution Chain.
+**Resolution:** Story Resolution Chain.
 **Status filter:** In Progress, To Review
 
 ## Workflow
@@ -53,8 +53,7 @@ Runs parallel external agent reviews on code implementation, critically verifies
    - ELSE IF kanban has exactly 1 Story in [In Progress, To Review] → suggest
    - ELSE → AskUserQuestion: show Stories from kanban filtered by [In Progress, To Review]
 
-2. Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
-   Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
+2. Extract: `task_provider` from `docs/tools_config.md` (per tools_config_guide.md).
 
 ### Unique Steps (before shared workflow)
 

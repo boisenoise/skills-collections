@@ -29,6 +29,8 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 1) **Parse context** — extract fields, determine `scan_path` (domain-aware if specified)
      ELSE:
        scan_path = codebase_root
@@ -40,9 +42,13 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
    - All Grep/Glob patterns use `scan_path` (not codebase_root)
    - Example: `Grep(pattern="payment|refund|discount", path=scan_path)`
 
-3) **Check test coverage for each critical path**
+3) **Check test coverage for each critical path (Layer 1)**
    - Search ALL test files for coverage (tests may be in different location than production code)
    - Match by function name, module name, or test description
+3b) **Context Analysis (Layer 2 — MANDATORY):** For each gap candidate, ask:
+   - Is this function already covered by E2E/integration test? → **downgrade to LOW**
+   - Is this a helper function with <10 lines called from tested code? → **skip**
+   - Is keyword match a false positive (e.g., `paymentIcon()` is UI, not payment logic)? → **skip**
 
 4) **Collect missing tests**
    - Tag each finding with `domain: domain_name` (if domain-aware)
@@ -139,6 +145,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 - **CRITICAL:** Priority 20+ (Money, Security)
 - **HIGH:** Priority 15-19 (Data, Core Flows)
 - **MEDIUM:** Priority 10-14 (Important but not critical)
+- **Downgrade when:** Function already covered by E2E test → LOW. Helper with <10 lines called from tested code → skip
 
 ### 4. Provide Justification
 

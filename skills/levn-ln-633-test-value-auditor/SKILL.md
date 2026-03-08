@@ -27,8 +27,14 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 1) **Parse Context:** Extract tech stack, Impact/Probability matrices, test file list, output_dir from contextStore
-2) **Calculate Scores:** For each test: calculate Usefulness Score = Impact x Probability
+2) **Calculate Scores (Layer 1):** For each test: calculate Usefulness Score = Impact x Probability
+2b) **Context Analysis (Layer 2 — MANDATORY):** Before finalizing REMOVE decisions, ask:
+   - Is this a regression guard for a known past bug? → **KEEP** regardless of Score
+   - Does this test cover a critical business rule (payment, auth) even if Score<10? → **REVIEW**, not REMOVE
+   - Is this the only test covering an edge case in a critical flow? → **KEEP**
 3) **Classify Decisions:** KEEP (>=15), REVIEW (10-14), REMOVE (<10)
 4) **Collect Findings:** Record each REVIEW/REMOVE decision with severity, location (file:line), effort estimate (S/M/L), recommendation
 5) **Calculate Score:** Count violations by severity, calculate compliance score (X/10)
@@ -69,7 +75,7 @@ Usefulness Score = Business Impact (1-5) × Failure Probability (1-5)
 |-------------|----------|--------|
 | **≥15** | **KEEP** | Test is valuable, maintain it |
 | **10-14** | **REVIEW** | Consider if E2E already covers this |
-| **<10** | **REMOVE** | Delete test, not worth maintenance cost |
+| **<10** | **REMOVE** | Delete test, not worth maintenance cost. **Exception:** regression guards for known bugs → KEEP. Tests covering critical business rules (payment, auth) → REVIEW |
 
 ## Scoring Examples
 

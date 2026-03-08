@@ -21,14 +21,13 @@ Executes rework for a single task marked To Rework and hands it back for review.
 |-------|----------|--------|-------------|
 | `taskId` | Yes | args, parent Story, kanban, user | Task to rework |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Task Resolution Chain.
+**Resolution:** Task Resolution Chain.
 **Status filter:** To Rework
 
 ## Task Storage Mode
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 | Aspect | Linear Mode | File Mode |
@@ -55,10 +54,10 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ## Critical Rules
 - Single-task only; never bulk update.
-- Do not mark Done; only To Review (ln-402 decides Done).
+- Do not mark Done; only To Review (the reviewer decides Done).
 - Keep language (EN/RU) consistent with task.
 - No new tests/tasks created here; only update existing tests if impacted.
-- **Do NOT commit.** Leave all changes uncommitted — ln-402 reviews and commits with task ID reference.
+- **Do NOT commit.** Leave all changes uncommitted — the reviewer reviews and commits.
 
 ## Definition of Done
 - Task and review feedback fully read; actions mapped.

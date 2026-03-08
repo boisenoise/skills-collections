@@ -1,6 +1,6 @@
 ---
 name: ln-620-codebase-auditor
-description: "Coordinates 9 specialized audit workers (security, build, architecture, code quality, dependencies, dead code, observability, concurrency, lifecycle). Researches best practices, delegates parallel audits, aggregates results into docs/project/codebase_audit.md."
+description: "Coordinates 9 audit workers (ln-621..ln-629) in parallel. Research best practices, delegate, aggregate into docs/project/codebase_audit.md."
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill
 license: MIT
 ---
@@ -200,16 +200,7 @@ score = max(0, 10 - penalty)
 | 8 | ln-628-concurrency-auditor | HIGH | Async races, thread safety, TOCTOU, deadlocks, blocking I/O, contention, cross-process races | `628-concurrency.md` |
 | 9 | ln-629-lifecycle-auditor | MEDIUM | Bootstrap, graceful shutdown, resource cleanup | `629-lifecycle.md` |
 
-**Invocation (applicable workers in PARALLEL):**
-```javascript
-// Filter by Phase 2 applicability gate
-applicable_global = [ln-621, ln-622, ln-625, ln-626, ln-627, ln-628, ln-629].filter(w => !skipped_workers.includes(w))
-
-FOR EACH worker IN applicable_global:
-  Task(description: "Audit via " + worker,
-       prompt: "Execute " + worker + ". Read skill. Context: " + JSON.stringify(contextStore),
-       subagent_type: "general-purpose")
-```
+**Invocation:** All applicable global workers in PARALLEL via Task tool (filter by Phase 2 gate). Pass `contextStore` to each.
 
 ### Phase 5b: Domain-Aware Workers (PARALLEL per domain)
 
@@ -220,35 +211,7 @@ FOR EACH worker IN applicable_global:
 | 3 | ln-623-code-principles-auditor | HIGH | DRY/KISS/YAGNI violations, TODO/FIXME, error handling, DI | `623-principles-{domain}.md` |
 | 4 | ln-624-code-quality-auditor | MEDIUM | Cyclomatic complexity, O(n²), N+1 queries, magic numbers | `624-quality-{domain}.md` |
 
-**Invocation (2 workers × N domains):**
-```javascript
-IF domain_mode == "domain-aware":
-  FOR EACH domain IN all_domains:
-    domain_context = {
-      ...contextStore,
-      domain_mode: "domain-aware",
-      current_domain: { name: domain.name, path: domain.path }
-    }
-    Task(description: "Audit principles " + domain.name + " via ln-623",
-         prompt: "Execute ln-623-code-principles-auditor. Read skill. Context: " + JSON.stringify(domain_context),
-         subagent_type: "general-purpose")
-    Task(description: "Audit quality " + domain.name + " via ln-624",
-         prompt: "Execute ln-624-code-quality-auditor. Read skill. Context: " + JSON.stringify(domain_context),
-         subagent_type: "general-purpose")
-ELSE:
-  // Fallback: invoke once for entire codebase (global mode)
-  Task(description: "Audit principles via ln-623",
-       prompt: "Execute ln-623-code-principles-auditor. Read skill. Context: " + JSON.stringify(contextStore),
-       subagent_type: "general-purpose")
-  Task(description: "Audit quality via ln-624",
-       prompt: "Execute ln-624-code-quality-auditor. Read skill. Context: " + JSON.stringify(contextStore),
-       subagent_type: "general-purpose")
-```
-
-**Parallelism strategy:**
-- Phase 5a: All applicable global workers run in PARALLEL
-- Phase 5b: All (2 × N) domain-aware invocations run in PARALLEL
-- Example: 3 domains → 6 invocations (ln-623×3 + ln-624×3) in single message
+**Invocation:** IF domain-aware → 2 workers × N domains in PARALLEL (add `domain_mode`, `current_domain` to contextStore). ELSE → 2 workers once for global codebase. All invocations via Task tool in single message.
 
 ## Phase 6: Aggregate Results (File-Based)
 
@@ -361,25 +324,11 @@ Recalculate category scores excluding advisory findings from penalty.
 
 **Exempt:** Security (ln-621), N+1 queries, CRITICAL build errors, concurrency (ln-628).
 
-## Output Format
-
-**MANDATORY READ:** Load `shared/templates/codebase_audit_template.md` for full report structure.
-
-Report is written to `docs/project/codebase_audit.md` using the template. Key sections:
-- Executive Summary, Compliance Score (9 categories), Severity Summary
-- Domain Health Summary + Cross-Domain Issues (if domain-aware)
-- Strengths, Findings by Category (global + domain-grouped), Recommended Actions
-- Sources Consulted
-
 ## Phase 7: Write Report
 
 **MANDATORY READ:** Load `shared/templates/codebase_audit_template.md` for report format.
 
-Write consolidated report to `docs/project/codebase_audit.md`:
-- Use template structure from codebase_audit_template.md
-- Fill all sections with aggregated worker data
-- Include "Advisory Findings" section with context-validated downgrades
-- Overwrite previous report (each audit is a full snapshot)
+Write consolidated report to `docs/project/codebase_audit.md` using template. Fill all sections with aggregated worker data, include Advisory Findings from context validation. Overwrite previous report (each audit is full snapshot).
 
 ## Critical Rules
 

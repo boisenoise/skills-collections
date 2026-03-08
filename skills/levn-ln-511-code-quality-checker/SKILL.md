@@ -1,6 +1,6 @@
 ---
 name: ln-511-code-quality-checker
-description: "Worker that checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates architectural decisions via MCP Ref: (1) Optimality (2) Compliance (3) Performance. Reports issues with SEC-, PERF-, MNT-, ARCH-, BP-, OPT- prefixes."
+description: "Checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates decisions via MCP Ref. Reports with SEC-/PERF-/MNT-/ARCH-/BP-/OPT- prefixes."
 license: MIT
 ---
 
@@ -16,7 +16,7 @@ Analyzes Done implementation tasks with quantitative Code Quality Score based on
 |-------|----------|--------|-------------|
 | `storyId` | Yes | args, git branch, kanban, user | Story to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Story Resolution Chain.
+**Resolution:** Story Resolution Chain.
 **Status filter:** In Progress, To Review
 
 ## Purpose & Scope
@@ -61,6 +61,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 | Prefix | Category | Default Severity | MCP Ref |
 |--------|----------|------------------|---------|
 | SEC- | Security (auth, validation, secrets) | high | — |
+| SEC-DESTR- | Destructive ops (guards: DB, FS, MIG, ENV, FORCE) | high/medium | — |
 | PERF- | Performance (algorithms, configs, bottlenecks) | medium/high | ✓ Required |
 | MNT- | Maintainability (DRY, SOLID, complexity, dead code) | medium | — |
 | ARCH- | Architecture (layers, boundaries, patterns, contracts) | medium | — |
@@ -80,12 +81,12 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 | ARCH-LB- | Layer Boundary: I/O outside infra, HTTP in domain | high |
 | ARCH-TX- | Transaction Boundaries: commit() in 3+ layers, mixed UoW ownership | high (CRITICAL if auth/payment) |
 | ARCH-DTO- | Missing DTO (4+ params without DTO), Entity Leakage (ORM entity in API response) | medium (high if auth/payment) |
-| ARCH-DI- | Dependency Injection: direct instantiation in business logic, mixed DI+imports | medium |
-| ARCH-CEH- | Centralized Error Handling: no global handler, stack traces in prod, uncaughtException | medium (high if no handler at all) |
+| ARCH-DI- | Dependency Injection: dependencies not replaceable for testing (direct instantiation, no injection mechanism). Exception: small scripts/CLIs where params/closures suffice → skip | medium |
+| ARCH-CEH- | Centralized Error Handling: errors silently swallowed, stack traces leak to prod, no consistent error logging. Exception: 50-line scripts → downgrade to LOW | medium (high if no handler at all) |
 | ARCH-SES- | Session Ownership: DI session + local session in same module | medium |
-| ARCH-AI-SEB | Side-Effect Breadth: 3+ side-effect categories in one function | medium |
+| ARCH-AI-SEB | Side-Effect Breadth: 3+ side-effect categories in one **leaf** function. **Conflict Resolution:** orchestrator/coordinator functions (imports 3+ services AND delegates sequentially) are EXPECTED to have multiple categories — do NOT flag SEB | medium |
 | ARCH-AI-AH | Architectural Honesty: read-named function with write side-effects | medium |
-| ARCH-AI-FO | Flat Orchestration: service imports 3+ other services | medium |
+| ARCH-AI-FO | Flat Orchestration: **leaf** service imports 3+ other services. Orchestrator imports are expected — do NOT flag | medium |
 
 **PERF- subcategories:**
 
@@ -122,14 +123,18 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - ELSE → AskUserQuestion: show Stories from kanban filtered by [In Progress, To Review]
 2) Load Story (full) and Done implementation tasks (full descriptions) via Linear; skip tasks with label "tests".
 3) Collect affected files from tasks (Affected Components/Existing Code Impact) and recent commits/diffs if noted.
-4) **Calculate code metrics:**
-   - Cyclomatic Complexity per function (target ≤10)
-   - Function size (target ≤50 lines)
-   - File size (target ≤500 lines)
-   - Nesting depth (target ≤3)
-   - Parameter count (target ≤4)
+4) **Two-Layer Detection (MANDATORY):**
+   **MANDATORY READ:** `shared/references/two_layer_detection.md`
+   All threshold-based findings require Layer 2 context analysis. Layer 1 finding without Layer 2 = NOT a valid finding. Before reporting any metric violation, ask: "Is this violation intentional or justified by design?" See Exception column in metrics below.
 
-5) **MCP Ref Validation (MANDATORY for code changes — SKIP if `--skip-mcp-ref` flag passed):**
+5) **Calculate code metrics:**
+   - Cyclomatic Complexity per function (target ≤10; Exception: enum/switch dispatch, state machines, parser grammars → downgrade to LOW)
+   - Function size (target ≤50 lines; Exception: orchestrator functions with sequential delegation)
+   - File size (target ≤500 lines; Exception: config/schema/migration files, generated code)
+   - Nesting depth (target ≤3)
+   - Parameter count (target ≤4; Exception: builder/options patterns)
+
+6) **MCP Ref Validation (MANDATORY for code changes — SKIP if `--skip-mcp-ref` flag passed):**
 
    > **Fast-track mode:** When invoked with `--skip-mcp-ref`, skip this entire step (no OPT-, BP-, PERF- checks). Proceed directly to step 6 (static analysis). This reduces cost from ~5000 to ~800 tokens while preserving metrics + static analysis coverage.
 
@@ -157,9 +162,10 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - Loops/recursion in critical paths
    - ORM queries added
 
-6) **Analyze code for static issues (assign prefixes):**
-   **MANDATORY READ:** `shared/references/clean_code_checklist.md`
+7) **Analyze code for static issues (assign prefixes):**
+   **MANDATORY READ:** `shared/references/clean_code_checklist.md`, `shared/references/destructive_operation_safety.md`
    - SEC-: hardcoded creds, unvalidated input, SQL injection, race conditions
+   - SEC-DESTR-: unguarded destructive operations — use code-level guards table from destructive_operation_safety.md (loaded above). Check all 5 guard categories (DB, FS, MIG, ENV, FORCE).
    - MNT-: DRY violations (MNT-DRY-: duplicate logic), dead code (MNT-DC-: per checklist), complex conditionals, poor naming
    - **MNT-DRY- cross-story hotspot scan:** Grep for common pattern signatures (error handlers: `catch.*Error|handleError`, validators: `validate|isValid`, config access: `getSettings|getConfig`) across ALL `src/` files (count mode). If any pattern appears in 5+ files, sample 3 files (Read 50 lines each) and check structural similarity. If >80% similar → MNT-DRY-CROSS (medium, -10 points): `Pattern X duplicated in N files — extract to shared module.`
    - **MNT-DC- cross-story unused export scan:** For each file modified by Story, count `export` declarations. Then Grep across ALL `src/` for import references to those exports. Exports with 0 import references → MNT-DC-CROSS (medium, -10 points): `{export} in {file} exported but never imported — remove or mark internal.`
@@ -171,19 +177,19 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - ARCH-DI-: direct instantiation in business logic (no DI container or mixed patterns)
    - ARCH-CEH-: centralized error handling absent or bypassed
    - ARCH-SES-: session ownership conflicts (DI + local session in same module)
-   - ARCH-AI-SEB: side-effect breadth (3+ categories in one function)
+   - ARCH-AI-SEB: side-effect breadth (3+ categories in one **leaf** function; orchestrator functions exempt — see Conflict Resolution in table above)
    - ARCH-AI-AH: architectural honesty (read-named function with hidden writes)
-   - ARCH-AI-FO: flat orchestration (service importing 3+ services)
+   - ARCH-AI-FO: flat orchestration (**leaf** service importing 3+ services; orchestrator imports exempt)
    - MNT-GOD-: god classes (>15 methods or >500 lines per class)
    - MNT-SIG-: method signature quality (boolean flags, unclear returns)
    - MNT-ERR-: error contract inconsistency (mixed raise/return patterns in same service)
 
-7) **Calculate Code Quality Score:**
+8) **Calculate Code Quality Score:**
    - Start with 100
    - Subtract metric penalties (see Code Metrics table)
    - Subtract issue penalties (see Issue penalties table)
 
-8) Output verdict with score and structured issues. Add Linear comment with findings.
+9) Output verdict with score and structured issues. Add Linear comment with findings.
 
 ## Critical Rules
 - Read guides mentioned in Story/Tasks before judging compliance.

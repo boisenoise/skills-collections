@@ -29,6 +29,8 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 1) **Parse context from contextStore**
    - Extract tech_stack, best_practices, db_config, output_dir
    - Determine scan_path
@@ -153,7 +155,9 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 - **HIGH:** Session/connection acquired without cleanup guarantee (leak on exception)
 - **MEDIUM:** File handle or cursor without cleanup in non-critical path
 
-**Recommendation:** Always use context managers (`async with`, `with`, try-with-resources, `defer`); never acquire resources with bare assignment.
+**Exception:** Session acquired and released before streaming/long-poll begins → skip. NullPool / `pool_size` config documented as serverless design → skip.
+
+**Recommendation:** Ensure resources are cleaned up on all exit paths (context managers, try-finally, or framework-managed lifecycle).
 
 **Effort:** S (wrap in context manager or add defer)
 

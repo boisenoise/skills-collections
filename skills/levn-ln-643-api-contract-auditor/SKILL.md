@@ -1,6 +1,6 @@
 ---
 name: ln-643-api-contract-auditor
-description: "Checks layer leakage in method signatures, missing DTOs, entity leakage to API, inconsistent error contracts, redundant method overloads. Returns findings with penalty-based scoring + diagnostic sub-scores."
+description: "Checks layer leakage in method signatures, missing DTOs, entity leakage to API, inconsistent error contracts. Returns findings with penalty-based scoring."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -41,7 +41,7 @@ Specialized worker auditing API contracts, method signatures at service boundari
 
 ### Phase 0: Load References
 
-**MANDATORY READ:** Load `references/detection_patterns.md` — language-specific Grep patterns for all 5 rules.
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology. Load `references/detection_patterns.md` — language-specific Grep patterns for all 5 rules.
 
 ### Phase 1: Discover Service Boundaries
 
@@ -62,7 +62,7 @@ scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
 |---|------|----------|---------------|
 | 1 | Layer Leakage | HIGH/MEDIUM | Service/domain accepts HTTP types (Request, parsed_body, headers) |
 | 2 | Missing DTO | MEDIUM/LOW | 4+ params repeated in 2+ methods without grouping DTO |
-| 3 | Entity Leakage | HIGH/MEDIUM | ORM entity returned from API without response DTO |
+| 3 | Entity Leakage | HIGH/MEDIUM | ORM entity returned from API without response DTO. Downgrade when: internal API with no external consumers → LOW |
 | 4 | Error Contracts | MEDIUM/LOW | Mixed error patterns (raise + return None) in same service |
 | 5 | Redundant Overloads | LOW/MEDIUM | Method pairs with `_with_`/`_and_` suffix differing by 1-2 params |
 | 6 | Architectural Honesty | HIGH/MEDIUM | Read-named function (get_/find_/check_/validate_/is_/has_) body contains write side-effects. Exclusions per `shared/references/ai_ready_architecture.md` |

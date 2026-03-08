@@ -26,8 +26,14 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 1) **Parse Context:** Extract tech stack, framework detection patterns, test file list, output_dir from contextStore
-2) **Scan Codebase:** Scan test files for framework/library tests (see Audit Rules below)
+2) **Scan Codebase (Layer 1):** Scan test files for framework/library tests (see Audit Rules below)
+2b) **Context Analysis (Layer 2 — MANDATORY):** For each candidate, read test code and ask:
+   - Does this test custom code that *wraps* a framework primitive (e.g., custom hook using useState)? → **KEEP** (testing integration, not framework)
+   - Does this test ONLY call framework API with no custom logic? → flag for removal
+   - Is this a test helper/utility that imports libraries for mocking setup? → **skip** (not a test of framework behavior)
 3) **Collect Findings:** Record each violation with severity, location (file:line), effort estimate (S/M/L), recommendation
 4) **Calculate Score:** Count violations by severity, calculate compliance score (X/10)
 5) **Write Report:** Build full markdown report in memory per `shared/templates/audit_worker_report_template.md`, write to `{output_dir}/631-business-logic.md` in single Write call
@@ -45,7 +51,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** DELETE — framework already tested by maintainers
+**Recommendation:** Consider removing IF test only validates framework behavior. If testing integration of custom code with framework → KEEP
 
 **Effort:** S (delete test file or test block)
 
@@ -59,7 +65,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** DELETE — ORM already tested
+**Recommendation:** Consider removing IF test only validates ORM behavior. If testing custom query logic or repository patterns → KEEP
 
 **Effort:** S
 
@@ -73,7 +79,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** DELETE — crypto libraries already tested
+**Recommendation:** Consider removing IF test only validates library behavior. If testing custom password policy or hashing wrapper → KEEP
 
 **Effort:** S
 
@@ -87,7 +93,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** DELETE — JWT library already tested
+**Recommendation:** Consider removing IF test only validates JWT library. If testing custom token payload, claims logic, or auth flow → KEEP
 
 **Effort:** S
 
@@ -101,7 +107,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** DELETE — HTTP clients already tested
+**Recommendation:** Consider removing IF test only validates HTTP client behavior. If testing custom API wrapper, retry logic, or error mapping → KEEP
 
 **Effort:** S
 

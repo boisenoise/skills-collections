@@ -35,11 +35,13 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 2) **Scan codebase for violations (Layer 1)**
    - All Grep/Glob patterns use `scan_path` (not codebase_root)
    - Example: `Grep(pattern="if.*if.*if", path=scan_path)` for nesting detection
-3) **Analyze context per candidate (Layer 2)**
-   - Cyclomatic complexity: is complexity from switch/case on enum (valid) or deeply nested conditions (bad)?
+3) **Analyze context per candidate (Layer 2 — MANDATORY)**
+   Layer 1 finding without Layer 2 = NOT a valid finding. Before reporting, ask: "Is this violation intentional or justified by design?"
+   - Cyclomatic complexity: is complexity from switch/case on enum (valid) or deeply nested conditions (bad)? Enum dispatch → downgrade to LOW or skip
    - O(n²): read context — what's n? If bounded (n < 100), downgrade severity
-   - N+1: read ORM config — does it have eager loading configured elsewhere?
-   - Cascade depth: already traces calls (implicit Layer 2)
+   - N+1: read ORM config — does it have eager loading configured elsewhere? Admin-only endpoint → downgrade severity
+   - God class: is it a config/schema/builder class? → downgrade
+   - Cascade depth: already traces calls (implicit Layer 2). Orchestrator function → SEB does NOT apply (see Conflict Resolution in ARCH-AI-SEB)
 4) **Collect findings with severity, location, effort, recommendation**
    - Tag each finding with `domain: domain_name` (if domain-aware)
 5) **Calculate score using penalty algorithm**
@@ -59,6 +61,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **HIGH:** Complexity > 20 (extremely hard to test)
 - **MEDIUM:** Complexity 11-20 (refactor recommended)
 - **LOW:** Complexity 8-10 (acceptable but monitor)
+- **Downgrade when:** Enum/switch dispatch, state machines, parser grammars → downgrade to LOW or skip
 
 **Recommendation:** Split function, extract helper methods, use early returns
 
@@ -75,6 +78,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **HIGH:** > 6 levels (unreadable)
 - **MEDIUM:** 5-6 levels
 - **LOW:** 4 levels
+- **Downgrade when:** Nesting from early-return guard clauses (structurally deep but linear logic) → downgrade
 
 **Recommendation:** Extract functions, use guard clauses, invert conditions
 
@@ -91,6 +95,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **HIGH:** > 100 lines
 - **MEDIUM:** 51-100 lines
 - **LOW:** 40-50 lines (borderline)
+- **Downgrade when:** Orchestrator functions with sequential delegation; data transformation pipelines → downgrade
 
 **Recommendation:** Split into smaller functions, apply Single Responsibility
 
@@ -107,6 +112,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **HIGH:** > 1000 lines
 - **MEDIUM:** 501-1000 lines
 - **LOW:** 400-500 lines
+- **Downgrade when:** Config/schema/migration files, generated code, barrel/index files → skip
 
 **Recommendation:** Split into multiple files, apply separation of concerns
 
@@ -122,6 +128,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 **Severity:**
 - **MEDIUM:** 6-8 parameters
 - **LOW:** 5 parameters (borderline)
+- **Downgrade when:** Builder/options pattern constructor; framework-required signatures (middleware, hooks) → skip
 
 **Recommendation:** Use parameter object, builder pattern, default parameters
 
@@ -138,6 +145,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **HIGH:** O(n²) in hot path (API request handler)
 - **MEDIUM:** O(n²) in occasional operations
 - **LOW:** O(n²) on small datasets (n < 100)
+- **Downgrade when:** Bounded n (n < 100 guaranteed by domain); one-time init/migration code → downgrade to LOW or skip
 
 **Recommendation:** Use hash maps, optimize with single pass, use better data structures
 
@@ -154,6 +162,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **CRITICAL:** N+1 in API endpoint (performance disaster)
 - **HIGH:** N+1 in frequent operations
 - **MEDIUM:** N+1 in admin panel
+- **Downgrade when:** Admin-only endpoint called ≤1x/day → downgrade to LOW. Eager loading configured elsewhere in ORM → skip
 
 **Recommendation:** Use eager loading, batch queries, JOIN
 
@@ -177,6 +186,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **MEDIUM:** Duplicate constants (same value defined 3+ times)
 - **MEDIUM:** No central constants file
 - **LOW:** Magic strings in logging/debugging
+- **Downgrade when:** HTTP status codes (200, 404, 500) → skip. Math constants (0, 1, -1) in algorithms → skip. Test data → skip
 
 **Recommendation:**
 - Create central constants file (`constants.ts`, `config.py`, `constants.go`)
@@ -225,6 +235,9 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 - **HIGH:** cascade_depth >= 4
 - **MEDIUM:** cascade_depth = 3
 - OK: depth <= 2
+- **Downgrade when:** Orchestrator/coordinator functions (imports 3+ services AND delegates sequentially) → skip. Depth from opaque sinks (logging, metrics) → skip
+
+**Conflict Resolution:** IF function is an orchestrator/coordinator (imports 3+ services AND delegates to them sequentially) → ARCH-AI-SEB does NOT apply. Orchestrators are EXPECTED to have multiple side-effect categories. Only flag SEB for leaf functions.
 
 **Recommendation:** Refactor to flat orchestration — extract side-effects into independent sink functions. See reference.
 

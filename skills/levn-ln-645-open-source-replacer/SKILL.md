@@ -1,6 +1,6 @@
 ---
 name: ln-645-open-source-replacer
-description: "Goal-based open-source replacement auditor: discovers custom modules (>100 LOC), analyzes PURPOSE via code reading, searches OSS alternatives via MCP Research (WebSearch, Context7, Ref), evaluates quality (stars, maintenance, license, CVE, API compatibility), generates migration plan."
+description: "Discovers custom modules (>100 LOC), analyzes purpose, searches OSS alternatives via MCP Research, evaluates quality (stars, license, CVE), generates migration plan."
 license: MIT
 ---
 
@@ -41,6 +41,8 @@ L3 Worker that discovers custom modules, analyzes their purpose, and finds battl
 ```
 
 ## Workflow
+
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
 ### Phase 1: Discovery + Classification
 
@@ -289,6 +291,7 @@ Severity mapping:
 - **HIGH:** HIGH confidence replacement for module >200 LOC
 - **MEDIUM:** MEDIUM confidence, or HIGH confidence for 100-200 LOC
 - **LOW:** LOW confidence (partial coverage only)
+- **Exception:** Custom module with domain-specific logic not covered by OSS package → skip. Feature parity <80% → skip recommendation. **Layer 2:** Verify replacement has full feature parity before recommending
 
 ## Critical Rules
 

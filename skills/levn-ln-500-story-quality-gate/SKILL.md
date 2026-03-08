@@ -16,7 +16,7 @@ Thin orchestrator that coordinates quality checks and test planning, then determ
 |-------|----------|--------|-------------|
 | `storyId` | Yes | args, git branch, kanban, user | Story to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Story Resolution Chain.
+**Resolution:** Story Resolution Chain.
 **Status filter:** To Review
 
 ## Purpose & Scope
@@ -70,7 +70,6 @@ Additional prefixes: `TEST-` (coverage gaps), `ARCH-` (architecture), `DOC-` (do
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ### Phase 1: Discovery

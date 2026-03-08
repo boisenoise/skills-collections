@@ -1,6 +1,6 @@
 ---
 name: ln-640-pattern-evolution-auditor
-description: "Audits architectural patterns against best practices (MCP Ref, Context7, WebSearch). Maintains patterns catalog, calculates 4 scores. Output: docs/project/patterns_catalog.md. Use when user asks to: (1) Check architecture health, (2) Audit patterns before refactoring, (3) Find undocumented patterns in codebase."
+description: "Audits architectural patterns against best practices. Maintains patterns catalog, calculates 4 scores per pattern. Output: patterns_catalog.md."
 license: MIT
 ---
 
@@ -18,9 +18,6 @@ L2 Coordinator that analyzes implemented architectural patterns against current 
 - Calculate 4 scores per pattern via ln-641
 - Track quality trends over time (improving/stable/declining)
 - Output: `docs/project/patterns_catalog.md` (file-based)
-- **Drift Detection:** Track score changes over time, enforce SLA thresholds
-- **Auto-remediation:** Create [REFACTOR] Story in Linear when architecture degrades below SLA
-- **Health Timeline:** Append-only log in `docs/project/architecture_health.md`
 
 ## 4-Score Model
 
@@ -30,20 +27,6 @@ L2 Coordinator that analyzes implemented architectural patterns against current 
 | **Completeness** | All components, error handling, observability, tests | 70% |
 | **Quality** | Readability, maintainability, no smells, SOLID, no duplication | 70% |
 | **Implementation** | Code exists, production use, integrated, monitored | 70% |
-
-## SLA Thresholds & Drift Detection
-
-| Metric | SLA Threshold | Drift Alert | Auto-Action |
-|--------|---------------|-------------|-------------|
-| **architecture_health_score** | >= 70 | Drop > 10 points between audits | Create [REFACTOR] Story |
-| **Per-pattern compliance** | >= 60% | Drop > 15% between audits | Flag in "Requires Attention" |
-| **Per-pattern quality** | >= 60% | Drop > 15% between audits | Flag in "Requires Attention" |
-| **Layer violations (critical)** | 0 | Any new critical violation | Create [BUG] Story |
-| **Cross-domain cycles** | 0 | Any new cycle | Create [REFACTOR] Story |
-
-**SLA breach = config-driven auto-remediation:**
-- IF `task_provider == "linear"` (Linear MCP available): create_issue() in Linear
-- ELSE: Write task file to `docs/tasks/` with `ACTION_REQUIRED` marker
 
 ## Worker Invocation
 
@@ -70,6 +53,8 @@ Task(description: "[Audit/Create] via ln-6XX",
 - ❌ Any execution bypassing subagent context isolation
 
 ## Workflow
+
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
 ### Phase 1a: Baseline Detection
 
@@ -421,61 +406,7 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
 3. Output summary (see Return Result below)
 ```
 
-### Phase 9: Drift Detection & SLA Enforcement
-
-```
-1. Load previous scores from docs/project/architecture_health.md
-   IF file missing → create with current scores as baseline, skip drift check
-   IF exists → parse last entry
-
-2. Calculate drift:
-   health_drift = current.architecture_health_score - previous.architecture_health_score
-   FOR EACH pattern:
-     compliance_drift = current.compliance - previous.compliance
-     quality_drift = current.quality - previous.quality
-
-3. Check SLA thresholds (see SLA Thresholds table):
-   breaches = []
-   IF architecture_health_score < 70:
-     breaches.append({type: "health_below_sla", score: architecture_health_score})
-   IF health_drift < -10:
-     breaches.append({type: "health_drift", delta: health_drift})
-   FOR EACH pattern WHERE compliance_drift < -15 OR quality_drift < -15:
-     breaches.append({type: "pattern_drift", pattern: name, delta: min(compliance_drift, quality_drift)})
-   FOR EACH new_critical_violation NOT in previous:
-     breaches.append({type: "new_critical", violation: description})
-   FOR EACH new_cycle NOT in previous:
-     breaches.append({type: "new_cycle", cycle: path})
-
-4. Auto-remediation (if breaches found):
-   task_provider = Read docs/tools_config.md -> Task Management -> Provider  # See storage_mode_detection.md
-   FOR EACH breach:
-     IF type IN ["health_below_sla", "health_drift", "new_cycle"]:
-       title = "[REFACTOR] Architecture health degraded: {breach.type}"
-       description = "SLA breach detected by ln-640..."
-       IF task_provider == "linear":
-         create_issue(title: title, description: description)
-       ELSE:
-         Write task file to docs/tasks/ with ACTION_REQUIRED marker
-     IF type == "new_critical":
-       title = "[BUG] Critical layer violation: {breach.violation}"
-       description = "New critical violation detected..."
-       IF task_provider == "linear":
-         create_issue(title: title, description: description)
-       ELSE:
-         Write task file to docs/tasks/ with ACTION_REQUIRED marker
-
-5. Append to docs/project/architecture_health.md:
-   ## YYYY-MM-DD
-   | Metric | Score | Prev | Delta | Status |
-   |--------|-------|------|-------|--------|
-   | Health Score | 78 | 82 | -4 | OK |
-   | Pattern: Caching | 72/85/68/90 | 75/85/70/90 | -3/0/-2/0 | WARNING |
-   ...
-   SLA Breaches: {count} | Stories Created: {count}
-```
-
-### Phase 10: Return Result
+### Phase 9: Return Result
 
 ```json
 {
@@ -541,15 +472,7 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
       "domains": ["users", "billing", "orders"],
       "recommendation": "Address at architecture level"
     }
-  ],
-  "drift": {
-    "health_drift": -4,
-    "pattern_drifts": [
-      {"pattern": "Caching", "compliance_drift": -3, "quality_drift": -2}
-    ],
-    "sla_breaches": 0,
-    "stories_created": 0
-  }
+  ]
 }
 ```
 
@@ -559,9 +482,7 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
 - **Layer audit first:** Run ln-642 before ln-641 pattern analysis
 - **4 scores mandatory:** Never skip any score calculation
 - **Layer deductions:** Apply scoring_rules.md deductions for violations
-- **File output only:** Write results to patterns_catalog.md; exception: SLA breach creates Linear Stories
-- **SLA enforcement:** Always run Phase 9 drift detection; skip only on first audit (no baseline)
-- **Append-only timeline:** Never overwrite `architecture_health.md`, only append new entries
+- **File output only:** Write results to patterns_catalog.md; no side-effect task/issue creation
 
 ## Definition of Done
 
@@ -579,11 +500,8 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
 - If domain-aware: cross-domain aggregation completed via DATA-EXTENDED from files
 - Gaps identified (undocumented, missing components, layer violations, inconsistent, systemic)
 - Catalog updated with scores, dates, Layer Boundary Status
-- Trend analysis completed
+- Trend analysis completed (current vs previous scores compared)
 - Summary report output
-- Drift detection completed (Phase 9): scores compared to previous, SLA thresholds checked
-- SLA breaches handled: [REFACTOR]/[BUG] Stories created in Linear (or ACTION_REQUIRED in health file)
-- Architecture health timeline appended to `docs/project/architecture_health.md`
 
 ## Reference Files
 

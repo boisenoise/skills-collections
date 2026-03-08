@@ -27,8 +27,14 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 1) **Parse Context:** Extract tech stack, isolation checklist, anti-patterns catalog, test file list, output_dir from contextStore
-2) **Check Isolation:** Check isolation for 6 categories (APIs, DB, FS, Time, Random, Network)
+2) **Check Isolation (Layer 1):** Check isolation for 6 categories (APIs, DB, FS, Time, Random, Network)
+2b) **Context Analysis (Layer 2 — MANDATORY):** For each isolation violation, ask:
+   - Is this an **integration test**? (real dependencies are intentional) → **do NOT flag**. Only flag isolation issues in **unit tests**
+   - Is in-memory DB configured via test config (not visible in grep)? → **skip**
+   - Is this a test helper that sets up mocks for other tests? → **skip**
 3) **Check Determinism:** Check for flaky tests, time-dependent assertions, order-dependent tests, shared mutable state
 4) **Detect Anti-Patterns:** Detect 6 anti-patterns (Liar, Giant, Slow Poke, Conjoined Twins, Happy Path, Framework Tester)
 5) **Collect Findings:** Record each violation with severity, location (file:line), effort estimate (S/M/L), recommendation
@@ -49,7 +55,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **HIGH**
 
-**Recommendation:** Mock external APIs with `nock` or `jest.mock`
+**Recommendation:** Ensure external API calls are controlled (mock, stub, or test server). Tool choice depends on project stack. **Exception:** Integration tests are EXPECTED to use real dependencies — do NOT flag
 
 **Effort:** M
 
@@ -64,7 +70,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Use in-memory DB or mock DB calls
+**Recommendation:** Ensure DB state is controlled and isolated between test runs. **Exception:** Integration tests with in-memory DB via config → skip
 
 **Effort:** M-L
 
@@ -79,7 +85,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Mock file system with `mock-fs`
+**Recommendation:** Ensure file system operations are isolated (mock, temp directory, or cleanup). Tool choice depends on project stack
 
 **Effort:** S-M
 
@@ -93,7 +99,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Mock time with `jest.useFakeTimers()`
+**Recommendation:** Ensure time-dependent logic uses controlled clock (fake timers, injected clock, or time provider). Tool choice depends on project stack
 
 **Effort:** S
 
@@ -281,7 +287,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ### 7. Default Value Blindness (Tests with default config)
 
-**What:** See `shared/references/risk_based_testing_guide.md` → Anti-Pattern 9.
+**What:** Tests with default config values only. **MANDATORY READ:** Load `shared/references/risk_based_testing_guide.md` → Anti-Pattern 9.
 
 **Detection:**
 - Grep for common defaults in test setup: `:8080`, `:3000`, `30000`, `limit: 20`, `offset: 0`

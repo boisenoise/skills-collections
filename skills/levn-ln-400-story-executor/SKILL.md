@@ -1,6 +1,6 @@
 ---
 name: ln-400-story-executor
-description: "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/ln-402/ln-403/ln-404. Sets Story to To Review when all tasks Done (NOT Done — quality gate handles that). Metadata-only loading up front."
+description: "Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/402/403/404. Sets Story to To Review when all tasks Done. Metadata-only loading."
 license: MIT
 ---
 
@@ -16,7 +16,7 @@ Executes a Story end-to-end by looping through its tasks in priority order. Sets
 |-------|----------|--------|-------------|
 | `storyId` | Yes | args, git branch, kanban, user | Story to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Story Resolution Chain.
+**Resolution:** Story Resolution Chain.
 **Status filter:** Todo, In Progress
 
 ## Purpose & Scope
@@ -29,7 +29,6 @@ Executes a Story end-to-end by looping through its tasks in priority order. Sets
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ## When to Use
@@ -136,7 +135,7 @@ Before each task, add BOTH steps:
 4. **Only ln-402 sets Done:** Stop and report if any worker leaves task Done or In Progress
 5. **Source of truth:** Trust Linear metadata (Linear Mode) or task files (File Mode)
 6. **Story status:** ln-400 handles Todo→In Progress→**To Review**. NEVER set Story to Done — only the quality gate (5XX) can do that after full quality check
-7. **Commit policy:** Only ln-402 commits code. Workers (ln-401/ln-403/ln-404) leave changes uncommitted for ln-402 to review and commit with task ID reference.
+7. **Commit policy:** Only ln-402 commits code. Workers (ln-401/ln-403/ln-404) leave changes uncommitted for ln-402 to review and commit.
 8. **[BUG] tasks:** ln-402 may create new [BUG] tasks mid-review. After metadata reload, reprioritize — new tasks processed in next loop iteration.
 9. **Parallel groups:** Tasks in same group execute concurrently via Task tool subagents. Reviews (ln-402) remain sequential. If `**Parallel Group:**` missing on any task, fall back to fully sequential execution.
 

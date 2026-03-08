@@ -73,14 +73,13 @@ docs/market/[epic-slug]/
 |-------|----------|--------|-------------|
 | `epicId` | Yes | args, kanban, user | Epic to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Epic Resolution Chain.
+**Resolution:** Epic Resolution Chain.
 **Status filter:** Active (planned/started)
 
 ## Tools Config
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, `shared/references/input_resolution_pattern.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider
 
 ## Research Tools

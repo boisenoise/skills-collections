@@ -1,6 +1,6 @@
 ---
 name: ln-653-runtime-performance-auditor
-description: "Checks blocking IO in async, unnecessary allocations, sync sleep in async, string concat in loops, missing to_thread for CPU-bound, redundant data copies. Returns findings with severity, location, effort, recommendations."
+description: "Checks blocking IO in async, unnecessary allocations, sync sleep, string concat in loops, missing to_thread, redundant copies. Returns findings with severity and effort."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -28,6 +28,8 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `codebase_root`, `
 **Domain-aware:** Supports `domain_mode` + `current_domain`.
 
 ## Workflow
+
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
 1) **Parse context from contextStore**
    - Extract tech_stack, best_practices, output_dir
@@ -65,6 +67,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `codebase_root`, `
 **Severity:**
 - **HIGH:** Blocking IO in API request handler (blocks entire event loop)
 - **MEDIUM:** Blocking IO in background task/worker
+- **Downgrade when:** Blocking IO in `__init__`/setup/bootstrap (not request path) → LOW. Small file (<1KB) read in non-hot path → skip
 
 **Recommendation:** Use `aiofiles`, `asyncio.to_thread()`, or `loop.run_in_executor()` for file operations; use `httpx.AsyncClient` instead of `requests`
 
@@ -98,6 +101,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `codebase_root`, `
 **Severity:**
 - **HIGH:** `time.sleep()` in async API handler (freezes all concurrent requests)
 - **MEDIUM:** `time.sleep()` in async background task
+- **Downgrade when:** `time.sleep` in CLI/script (not async server) → skip
 
 **Recommendation:** Replace with `await asyncio.sleep(N)`
 

@@ -130,6 +130,44 @@ No transaction wrapping. If step 3 fails, inventory already deducted = data inco
 
 ---
 
+### R4b: Destructive Operation Safety
+
+**MANDATORY READ:** `shared/references/destructive_operation_safety.md`
+
+**Check:** Tasks with destructive operations have "Destructive Operation Safety" section with all 5 required fields filled (backup, rollback, blast radius, env guard, preview/dry-run) + severity
+
+**Keywords:** Per shared reference keyword list — `DROP, TRUNCATE, DELETE (without WHERE), ALTER...DROP COLUMN, rm -rf, rmdir, unlink, terraform destroy, kubectl delete, docker volume rm, migrate, purge, wipe, --force, git push --force, git reset --hard`
+
+**GOOD:**
+```markdown
+### Destructive Operation Safety
+**Operations:** DROP TABLE legacy_sessions; rm -rf /tmp/build-cache
+**Severity:** HIGH
+**Backup plan:** pg_dump legacy_sessions before DROP; verify row count matches
+**Rollback plan:** pg_restore from dump; tested on staging 2024-01-15
+**Blast radius:** legacy_sessions table (0 active users, read-only since 2023-06); /tmp/build-cache (ephemeral, recreated on build)
+**Environment guard:** DROP gated by IS_MIGRATION_APPROVED=true env var; rm -rf only in CI cleanup stage
+**Preview / dry-run:** SELECT COUNT(*) FROM legacy_sessions = 0 active rows; ls -la /tmp/build-cache shows only stale artifacts
+```
+
+**BAD:**
+```markdown
+## Implementation Plan
+Drop the old sessions table and clean up temp files.
+```
+No safety section. No backup/rollback/blast radius/guard/preview documented.
+
+**Scoring:** Impact 5, Probability 4 = Priority 20 (HIGH)
+- Safety section present AND all fields concrete (non-placeholder) → PASS (0 points)
+- Safety section present but any field is TODO/placeholder/empty → FLAGGED (5 points) + NO-GO (human must fill)
+- Destructive keywords found but NO safety section → FLAGGED (5 points) + NO-GO (human review mandatory)
+
+**Auto-fix:** Validator MAY insert the section skeleton from shared reference template for consistency. But if ANY field remains TODO/placeholder/empty → criterion stays FLAGGED, story stays NO-GO. Only concrete, non-placeholder content clears the penalty. This is NOT auto-fixable to PASS.
+
+**Skip When:** No destructive keywords detected in Story or Tasks.
+
+---
+
 ### R5: Integration Risks with External Systems
 
 **Check:** External API/service integrations define SLA expectations, timeout, retry, and dev mock strategy
@@ -187,7 +225,7 @@ No fallback for IdP outage. No mention of replication/failover.
 ## Scoring Algorithm
 
 ```
-FOR EACH risk category R1-R6:
+FOR EACH risk category R1-R4, R4b, R5-R6:
   1. SCAN Story (Technical Notes, Dependencies) + Tasks (Implementation Plan, Technical Approach)
   2. DETECT risk indicators via keywords
   3. IF risk indicator found:

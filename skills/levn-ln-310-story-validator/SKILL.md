@@ -1,6 +1,6 @@
 ---
 name: ln-310-story-validator
-description: Validates Stories/Tasks with GO/NO-GO verdict, Readiness Score (1-10), Penalty Points, and Anti-Hallucination verification. Auto-fixes to reach 0 points, delegates to ln-002 for docs. Use when reviewing Stories before execution or when user requests validation.
+description: "Validates Stories/Tasks: GO/NO-GO verdict, Readiness Score (1-10), Penalty Points (Before/After), Anti-Hallucination. Auto-fixes fixable violations, FLAGs unfixable. Delegates to ln-002 for docs."
 license: MIT
 ---
 
@@ -16,13 +16,13 @@ Validate Stories/Tasks with explicit GO/NO-GO verdict, Readiness Score, and Anti
 |-------|----------|--------|-------------|
 | `storyId` | Yes | args, git branch, kanban, user | Story to process |
 
-**Resolution:** Per `shared/references/input_resolution_pattern.md` — Story Resolution Chain.
+**Resolution:** Story Resolution Chain.
 **Status filter:** Backlog
 
 ## Purpose & Scope
 
 - Validate Story plus child Tasks against industry standards and project patterns
-- Calculate Penalty Points for violations, then auto-fix to reach 0 points
+- Calculate Penalty Points for violations, then auto-fix what can be fixed
 - Delegate to ln-002-best-practices-researcher for creating documentation (guides, manuals, ADRs, research)
 - Support Plan Mode: show audit results, wait for approval, then fix
 - Approve Story after fixes (Backlog -> Todo) with tabular output summary
@@ -36,7 +36,7 @@ Validate Stories/Tasks with explicit GO/NO-GO verdict, Readiness Score, and Anti
 
 ## Penalty Points System
 
-**Goal:** Quantitative assessment of Story/Tasks quality. Target = 0 penalty points after fixes.
+**Goal:** Quantitative assessment of Story/Tasks quality. Before score = raw quality; After score = post-fix quality.
 
 | Severity | Points | Description |
 |----------|--------|-------------|
@@ -46,9 +46,9 @@ Validate Stories/Tasks with explicit GO/NO-GO verdict, Readiness Score, and Anti
 | LOW | 1 | Structural/cosmetic issues |
 
 **Workflow:**
-1. Audit: Calculate penalty points for all 22 criteria
-2. Fix: Auto-fix and zero out points
-3. Report: Total Before -> 0 After
+1. Audit: Calculate penalty points for all 22 criteria (Before)
+2. Fix: Auto-fix fixable violations; FLAGGED items keep their penalty
+3. Report: Before → After (0 if all fixed; >0 if FLAGGED remain)
 
 ## Mode Detection
 
@@ -118,7 +118,6 @@ Phase 6: Approve & Notify
 
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
-Read `docs/tools_config.md` (bootstrap if missing per tools_config_guide.md).
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 All subsequent phases use `task_provider` to select operations per storage_mode_detection.md.
@@ -165,7 +164,7 @@ All subsequent phases use `task_provider` to select operations per storage_mode_
 
 **Execute fixes for ALL 22 criteria on the spot.**
 
-- Execution order (8 groups):
+- Execution order (9 groups):
   1. **Structural (#1-#4)** — Story/Tasks template compliance + AC completeness/specificity
   2. **Standards (#5)** — RFC/OWASP compliance FIRST (before YAGNI/KISS!)
   3. **Solution (#6, #21)** — Library versions, alternative solutions
@@ -198,13 +197,12 @@ Invoke `Skill(skill="ln-311-agent-reviewer", args="{storyId}")`.
   - IF `task_provider` = `linear`: `create_comment({issueId, body})` on Story
   - IF `task_provider` = `file`: `Write` comment to `docs/tasks/epics/.../comments/{ISO-timestamp}.md`
   - Content: Penalty Points table (Before -> After = 0), Auto-Fixes Applied, Documentation Created (via ln-002), Standards Compliance Evidence
-- **Display tabular output** (Unicode box-drawing) to terminal
-- Final: Total Penalty Points = 0
+- **Display tabular output** (Unicode box-drawing) to terminal with Before/After scores
 - **Recommended next step:** `ln-400-story-executor` to start Story execution
 
 ## Auto-Fix Actions Reference
 
-**MANDATORY READ:** Load `references/phase2_research_audit.md` for complete 21-criteria table with:
+**MANDATORY READ:** Load `references/phase2_research_audit.md` for complete 22-criteria table with:
 - Structural (#1-#4): Story/Task template compliance
 - Standards (#5): RFC/OWASP compliance
 - Solution (#6, #21): Library versions, alternatives
@@ -218,28 +216,24 @@ Invoke `Skill(skill="ln-311-agent-reviewer", args="{storyId}")`.
 
 ## Final Assessment Model
 
-**Outputs after all fixes applied:**
+**Two-stage assessment:** Before (raw audit) and After (post auto-fix).
 
-| Metric | Value | Meaning |
-|--------|-------|---------|
-| **Gate** | GO / NO-GO | Final verdict for execution readiness |
-| **Readiness Score** | 1-10 | Quality confidence level |
-| **Penalty Points** | 0 (after fixes) | Validation completeness |
-| **Anti-Hallucination** | VERIFIED / FLAGGED | Technical claims verified |
-| **AC Coverage** | 100% (N/N) | All ACs mapped to Tasks |
+| Metric | Before | After | Meaning |
+|--------|--------|-------|---------|
+| **Penalty Points** | Raw audit total | Remaining after fixes | 0 = all fixed; >0 = unfixable items |
+| **Readiness Score** | `10 - (Before / 5)` | `10 - (After / 5)` | Quality confidence (1-10) |
+| **Anti-Hallucination** | — | VERIFIED / FLAGGED | Technical claims verified |
+| **AC Coverage** | — | N/N (target 100%) | All ACs mapped to Tasks |
+| **Gate** | — | GO / NO-GO | Final verdict |
 
-### Readiness Score Calculation
-
-```
-Readiness Score = 10 - (Penalty Points / 5)
-```
-
-**Before/After diagnostic:** Phase 3 calculates initial Penalty Points and Readiness Score (Before). Phase 4 auto-fixes reduce penalties to 0, yielding Readiness Score = 10 (After). Both values reported in Final Assessment for transparency.
+### GO/NO-GO Decision
 
 | Gate | Condition |
 |------|-----------|
-| GO | Penalty Points = 0 after Phase 4 (Readiness Score = 10) |
-| NO-GO | Any criterion FLAGGED as unfixable (see Critical Rules) |
+| GO | After Penalty Points = 0 AND no FLAGGED criteria |
+| NO-GO | After Penalty Points > 0 OR any criterion FLAGGED as unfixable |
+
+**FLAGGED criteria:** If auto-fix is impossible (MCP Ref unavailable, external dependency), penalty stays — it is NOT zeroed out. User must resolve manually before re-validation.
 
 ### Anti-Hallucination Verification
 
@@ -275,14 +269,14 @@ Verify all 22 criteria (#1-#22) from Auto-Fix Actions pass with concrete evidenc
 ## Critical Rules
 - All 22 criteria MUST be verified with concrete evidence (doc path, MCP result, Linear update) before Phase 6 (Self-Audit Protocol)
 - Fix execution order is strict: Structural -> Standards -> Solution -> Workflow -> Quality -> Dependencies -> Risk -> Traceability (standards before YAGNI/KISS)
-- Never approve with Penalty Points > 0; all violations must be auto-fixed to zero. If auto-fix is impossible for a criterion (e.g., MCP Ref unavailable, external dependency), mark as FLAGGED with reason — penalty stays, Gate = NO-GO, user must resolve manually
+- If auto-fix succeeds, zero out that criterion's penalty. If auto-fix is impossible (e.g., MCP Ref unavailable, external dependency), mark as FLAGGED with reason — penalty stays, Gate = NO-GO, user must resolve manually
 - Test Strategy section must exist but remain empty (testing handled separately by other skills)
 - In Plan Mode, MUST stop after Phase 3 and wait for user approval before applying any fixes
 
 ## Definition of Done
 
 - Phases 1-6 completed: metadata loaded, research done, penalties calculated, fixes applied, agent review done, Story approved.
-- Penalty Points = 0 (all 22 criteria fixed). Readiness Score ≥ 5.
+- Penalty Points After = 0 (all 22 criteria fixed or none FLAGGED). Readiness Score After = 10.
 - Anti-Hallucination: VERIFIED (all claims sourced via MCP).
 - AC Coverage: 100% (each AC mapped to ≥1 Task).
 - Agent Review: ln-311 invoked; suggestions aggregated, validated, accepted applied (or SKIPPED if no agents).

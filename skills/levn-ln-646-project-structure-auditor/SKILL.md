@@ -39,6 +39,8 @@ L3 Worker that audits the physical directory structure of a project against fram
 
 ## Workflow
 
+**MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
+
 ### Phase 1: Detect Tech Stack
 
 **MANDATORY READ:** Load `../ln-700-project-bootstrap/references/stack_detection.md` -- use Detection Algorithm, Frontend Detection, Backend Detection, Structure Detection.
@@ -347,8 +349,8 @@ score = max(0, 10 - penalty)
 ```
 
 Severity mapping:
-- **CRITICAL:** .env files committed (security risk)
-- **HIGH:** Build artifacts tracked, missing .gitignore, source in wrong location, multiple lock files, missing secrets in .gitignore
+- **CRITICAL:** .env files committed (security risk). **Exception:** .env.example / .env.template with default values → skip CRITICAL
+- **HIGH:** Build artifacts tracked, missing .gitignore, source in wrong location, multiple lock files, missing secrets in .gitignore. **Exception:** Build artifacts in Git LFS → skip
 - **MEDIUM:** Missing framework dirs, junk drawers, temp files, platform remnants, missing stack-specific gitignore entries, naming violations >10%
 - **LOW:** IDE/OS patterns missing, inconsistent dir naming, mixed test patterns, minor config issues
 
