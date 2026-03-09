@@ -21,7 +21,7 @@ Specialized worker auditing code complexity, method signatures, algorithms, and 
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `codebase_root`, `output_dir`.
 
@@ -250,11 +250,11 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/624-quality-{domain}.md` (or `624-quality.md` in global mode) with `category: "Code Quality"` and checks: cyclomatic_complexity, deep_nesting, long_methods, god_classes, too_many_params, quadratic_algorithms, n_plus_one, magic_numbers, method_signatures, cascade_depth.
 
@@ -266,6 +266,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Do not auto-fix:** Report only
 - **Domain-aware scanning:** If `domain_mode="domain-aware"`, scan ONLY `scan_path` (not entire codebase)
 - **Tag findings:** Include `domain` field in each finding when domain-aware
@@ -274,6 +276,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Metrics tools:** Use existing tools when available (ESLint complexity plugin, radon, gocyclo)
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed (including domain_mode, current_domain, output_dir)
 - scan_path determined (domain path or codebase root)
@@ -286,8 +290,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---

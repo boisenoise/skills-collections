@@ -30,7 +30,7 @@ L2 Coordinator that analyzes implemented architectural patterns against current 
 
 ## Worker Invocation
 
-> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md`.
 
 | Worker | Purpose | Phase |
 |--------|---------|-------|
@@ -41,16 +41,7 @@ L2 Coordinator that analyzes implemented architectural patterns against current 
 | ln-645-open-source-replacer | Search OSS replacements for custom modules via MCP Research | Phase 4 |
 | ln-646-project-structure-auditor | Audit physical structure, hygiene, naming conventions | Phase 4 |
 
-**Prompt template:**
-```
-Task(description: "[Audit/Create] via ln-6XX",
-     prompt: "Execute {skill-name}. Read skill from {skill-name}/SKILL.md. Pattern: {pattern}",
-     subagent_type: "general-purpose")
-```
-
-**Anti-Patterns:**
-- ❌ Direct Skill tool invocation without Task wrapper
-- ❌ Any execution bypassing subagent context isolation
+All delegations use Task with `subagent_type: "general-purpose"`. Keep Phase 4 workers parallel where inputs are independent; keep ln-641 in Phase 5 because pattern scoring depends on earlier boundary and graph evidence.
 
 ## Workflow
 
@@ -181,20 +172,9 @@ FOR EACH pattern WHERE last_audit > 30 days OR never:
 
 ### Phase 3: Domain Discovery + Output Setup
 
-```
-# Detect project structure for domain-aware scanning
-domains = detect_domains(src_root)
-# e.g., [{name: "users", path: "src/users/"}, {name: "billing", path: "src/billing/"}]
+**MANDATORY READ:** Load `shared/references/audit_coordinator_domain_mode.md`.
 
-IF len(domains) > 1:
-  domain_mode = "domain-aware"
-ELSE:
-  domain_mode = "global"
-
-# Prepare output directory for worker reports
-output_dir = "docs/project/.audit/ln-640/{YYYY-MM-DD}"
-mkdir -p {output_dir}   # No deletion — date folders preserve history
-```
+Use the shared domain discovery pattern to set `domain_mode` and `all_domains`. Then create `docs/project/.audit/ln-640/{YYYY-MM-DD}/` and keep prior date folders intact.
 
 ### Phase 4: Layer Boundary + API Contract + Dependency Graph Audit
 
@@ -245,7 +225,7 @@ FOR EACH pattern IN catalog WHERE pattern.status == "VERIFIED":
 
 **Worker Output Contract (file-based):**
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format, naming, AUDIT-META, and DATA-EXTENDED specs.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 All workers write reports to `{output_dir}/` and return minimal summary:
 
@@ -359,6 +339,8 @@ gaps = {
 
 ### Aggregation Algorithm
 
+**MANDATORY READ:** Load `shared/references/audit_coordinator_aggregation.md` and `shared/references/context_validation.md`.
+
 ```
 # Step 1: Parse scores from worker return values (already in-context)
 # ln-641: "Score: 7.9/10 (C:72 K:85 Q:68 I:90) | Issues: 3 (H:1 M:2 L:0)"
@@ -384,7 +366,6 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
 # < 70: "critical"
 
 # Step 3: Context Validation (Post-Filter)
-# MANDATORY READ: shared/references/context_validation.md
 # Apply Rules 1, 3 to ln-641 anti-pattern findings:
 #   Rule 1: Match god_class/large_file findings against ADR list
 #   Rule 3: For god_class deductions (-5 compliance):
@@ -476,6 +457,12 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
 }
 ```
 
+## Phase 10: Append Results Log
+
+**MANDATORY READ:** Load `shared/references/results_log_pattern.md`
+
+Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-640`, Metric=`architecture_health_score`, Scale=`0-100`, Score from Phase 9 output. Calculate Delta vs previous `ln-640` row. Create file with header if missing. Rolling window: max 50 entries.
+
 ## Critical Rules
 
 - **MCP Ref first:** Always research best practices before analysis
@@ -505,8 +492,9 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
+- **Domain mode pattern:** `shared/references/audit_coordinator_domain_mode.md`
+- **Aggregation pattern:** `shared/references/audit_coordinator_aggregation.md`
 - Pattern catalog template: `shared/templates/patterns_template.md`
 - Pattern library (detection + best practices + discovery): `references/pattern_library.md`
 - Layer boundary rules (for ln-642): `references/layer_rules.md`

@@ -111,7 +111,7 @@ scan_root = scan_path IF domain_mode == "domain-aware" ELSE codebase_root
 
 ### Phase 3.5: Calculate Score
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Primary score** uses penalty formula (same as all workers):
 ```
@@ -123,7 +123,7 @@ score = max(0, 10 - penalty)
 
 ### Phase 4: Write Report
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format (ln-640 section: extended AUDIT-META + DATA-EXTENDED).
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 ```
 # Build markdown report in memory with:
@@ -147,6 +147,8 @@ Score: 6.75/10 (C:65 K:70 Q:55 I:80) | Issues: 4 (H:2 M:1 L:1)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Architecture-level only:** Focus on service boundaries, not internal implementation
 - **Read before score:** Never score without reading actual service code
 - **Scope boundary:** SKIP duplication findings (owned by ln-623)
@@ -154,6 +156,8 @@ Score: 6.75/10 (C:65 K:70 Q:55 I:80) | Issues: 4 (H:2 M:1 L:1)
 - **Domain-aware:** When domain_mode="domain-aware", scan only scan_path, tag findings with domain
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - Service boundaries discovered (API, service, domain layers)
 - Method signatures extracted and analyzed
@@ -167,7 +171,6 @@ Score: 6.75/10 (C:65 K:70 Q:55 I:80) | Issues: 4 (H:2 M:1 L:1)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - Detection patterns: `references/detection_patterns.md`
 - Scoring rules: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
 - Pattern library: `../ln-640-pattern-evolution-auditor/references/pattern_library.md`

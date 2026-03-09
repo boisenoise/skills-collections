@@ -20,7 +20,7 @@ Specialized worker auditing code principles (DRY, KISS, YAGNI) and design patter
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `codebase_root`, `output_dir`.
 
@@ -170,19 +170,19 @@ All findings require Layer 2 context analysis. Layer 1 finding without Layer 2 =
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/623-principles-{domain}.md` (or `623-principles.md` in global mode) with `category: "Architecture & Design"`.
 
-**FINDINGS-EXTENDED block (required for this worker):** After the Findings table, include a `<!-- FINDINGS-EXTENDED -->` JSON block containing all DRY findings with `pattern_signature` for cross-domain matching by ln-620 coordinator. See template for format.
+**FINDINGS-EXTENDED block (required for this worker):** After the Findings table, include a `<!-- FINDINGS-EXTENDED -->` JSON block containing all DRY findings with `pattern_signature` for cross-domain matching by ln-620 coordinator. Follow `shared/templates/audit_worker_report_template.md`.
 
 **pattern_id:** DRY type identifier (`dry_1.1` through `dry_1.10`). Omit for non-DRY findings.
 
-**pattern_signature:** Normalized key for the detected pattern (e.g., `validation_email`, `sql_users_findByEmail`, `middleware_auth_validate_ratelimit`). Same signature in multiple domains triggers cross-domain DRY finding. See `detection_patterns.md` for format per DRY type.
+**pattern_signature:** Normalized key for the detected pattern (e.g., `validation_email`, `sql_users_findByEmail`, `middleware_auth_validate_ratelimit`). Same signature in multiple domains triggers cross-domain DRY finding. Format is defined in `references/detection_patterns.md`.
 
 Return summary to coordinator:
 ```
@@ -191,6 +191,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
 ## Critical Rules
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - **Do not auto-fix:** Report only
 - **Domain-aware scanning:** If `domain_mode="domain-aware"`, scan ONLY `scan_path`
@@ -201,6 +203,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Exclusions:** Skip generated code, vendor, migrations (see `detection_patterns.md#exclusions`)
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed (including domain_mode, current_domain, output_dir)
 - scan_path determined (domain path or codebase root)
@@ -215,11 +219,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - **Detection patterns:** [references/detection_patterns.md](references/detection_patterns.md)
 - **Refactoring decision tree:** [references/refactoring_decision_tree.md](references/refactoring_decision_tree.md)
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
-- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 5.0.0

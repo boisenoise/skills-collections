@@ -195,7 +195,7 @@ FOR EACH module, FOR EACH alternative:
 
 ### Phase 5: Write Report + Migration Plan
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Build report in memory, write to `{output_dir}/645-open-source-replacer[-{domain}].md`.
 
@@ -295,6 +295,8 @@ Severity mapping:
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Goal-based, not pattern-based:** Read code to understand PURPOSE before searching alternatives
 - **MCP Research mandatory:** Always search via WebSearch/Context7/Ref, never assume packages exist
 - **Security gate mandatory:** WebSearch for CVEs before recommending any package; never recommend packages with unpatched HIGH/CRITICAL CVEs
@@ -307,6 +309,8 @@ Severity mapping:
 - **Evidence always:** Include file paths + line counts for every finding
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - Custom modules discovered (>= 100 LOC, utility/integration type)
 - Pre-classification gate applied: domain-specific modules excluded with documented reason
@@ -322,7 +326,6 @@ Severity mapping:
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - **Scoring algorithm:** `shared/references/audit_scoring.md`
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`
 

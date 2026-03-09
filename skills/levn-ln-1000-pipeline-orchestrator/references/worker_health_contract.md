@@ -147,7 +147,7 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
 3. **Fallback: new worker with checkpoint context** (if resume fails or no checkpoint):
    ```
    new_worker = "story-{id}-s{checkpoint.stage}-retry"
-   new_prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id], project_root) + """
+   new_prompt = worker_prompt(story, checkpoint.stage, business_answers) + """
      CHECKPOINT RESUME — DO NOT re-execute completed work.
      Tasks already completed: {checkpoint.tasksCompleted}
      Tasks remaining: {checkpoint.tasksRemaining}
@@ -291,14 +291,12 @@ Lead writes ALL state variables to `.pipeline/state.json` on **every heartbeat c
 | `quality_cycles` | Yes | FAIL->retry counter |
 | `validation_retries` | Yes | NO-GO retry counter |
 | `crash_count` | Yes | Respawn counter |
-| `worktree_map` | Yes | Story -> worktree directory mapping |
 | `story_results` | Yes | Per-stage results for report |
 | `infra_issues` | Yes | Infrastructure problems list |
 | `stage_timestamps` | Yes | Per-stage start/end times for duration tracking |
 | `git_stats` | Yes | Lines added/deleted/files changed |
 | `pipeline_start_time` | Yes | Pipeline start for wall-clock duration |
 | `readiness_scores` | Yes | From Stage 1 GO, for Stage 3 fast-track |
-| `merge_status` | Yes | "pending" / "merged" / "declined" |
 | `team_name` | Yes | Team name for Task() spawns |
 | `business_answers` | Yes | Phase 2 answers passed to worker prompts |
 | `storage_mode` | Yes | "file" or "linear" task backend |

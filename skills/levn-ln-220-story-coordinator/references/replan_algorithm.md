@@ -289,7 +289,7 @@ Before implementing replan in ln-220-story-coordinator, verify:
 
 **✅ Data Loading:**
 - [ ] Fetch all existing Stories from Epic: `list_issues(project=Epic.id, label="user-story")`
-- [ ] Load FULL descriptions (all 8 sections) for each Story
+- [ ] Load FULL descriptions (all 9 sections) for each Story
 - [ ] Note Story status (Backlog/Todo/In Progress/To Review/Done)
 
 **✅ IDEAL Plan Building:**

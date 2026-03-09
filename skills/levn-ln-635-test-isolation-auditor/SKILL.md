@@ -21,7 +21,7 @@ Specialized worker auditing test isolation and detecting anti-patterns.
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`, `output_dir`.
 
@@ -300,7 +300,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping:**
 - Flaky tests, External API not mocked, The Liar, Default Value Blindness → HIGH
@@ -309,7 +309,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/635-isolation.md` with `category: "Isolation & Anti-Patterns"` and checks: api_isolation, db_isolation, fs_isolation, time_isolation, random_isolation, network_isolation, flaky_tests, anti_patterns, default_value_blindness.
 
@@ -323,6 +323,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Do not auto-fix:** Report only
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
 - **Flat findings:** Merge isolation + determinism + anti-patterns into single findings array, use `principle` prefix to distinguish
@@ -330,6 +332,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Context-aware:** Supertest with real Express app is acceptable for integration tests
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed successfully (including output_dir)
 - All 3 audit groups completed:
@@ -340,12 +344,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - Score calculated using penalty algorithm
 - Report written to `{output_dir}/635-isolation.md` (atomic single Write call)
 - Summary returned to coordinator
-
-## Reference Files
-
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
-- **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
 **Version:** 3.0.0

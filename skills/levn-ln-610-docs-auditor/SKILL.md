@@ -78,7 +78,9 @@ mkdir -p {output_dir}
 
 ## Phase 4: Delegate to Workers
 
-Invoke all workers **in parallel** via Skill tool:
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md`.
+
+Invoke all workers in parallel via Task tool:
 
 | Worker | Invocations | Output |
 |--------|-------------|--------|
@@ -87,15 +89,15 @@ Invoke all workers **in parallel** via Skill tool:
 | ln-613-code-comments-auditor | 1 | `{output_dir}/613-code-comments.md` |
 | ln-614-docs-fact-checker | 1 | `{output_dir}/614-fact-checker.md` |
 
-Pass contextStore to each worker. For ln-612, additionally pass `doc_path` per invocation. ln-614 receives contextStore only — it discovers and scans all .md files internally.
-
-**Worker return format:** `Report written: ... | Score: X.X/10 | Issues: N (C:N H:N M:N L:N)`
+Pass `contextStore` to each worker. For ln-612, additionally pass `doc_path` per invocation. ln-614 receives only `contextStore` and discovers `.md` files internally. Workers follow the shared file-based audit contract and return compact summaries with report path, score, and severity counts.
 
 ## Phase 5: Aggregate Results
 
-1. Parse scores from worker return values
-2. Read worker reports from `{output_dir}/` for detailed findings
-3. Calculate category scores:
+**MANDATORY READ:** Load `shared/references/audit_coordinator_aggregation.md`.
+
+Use the shared aggregation pattern for summary parsing, worker report reads, severity rollups, and final report assembly.
+
+Category weights:
 
 | Category | Source | Weight |
 |----------|--------|--------|
@@ -104,7 +106,7 @@ Pass contextStore to each worker. For ln-612, additionally pass `doc_path` per i
 | Code Comments | ln-613 | 20% |
 | Fact Accuracy | ln-614 | 25% |
 
-4. Calculate overall score: weighted average of 4 categories
+Calculate overall score as the weighted average of the 4 categories above.
 
 ## Phase 6: Context Validation (Post-Filter)
 
@@ -183,7 +185,7 @@ Write consolidated report to `docs/project/docs_audit.md`:
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_scoring.md`.
 
 ## Critical Notes
 
@@ -208,9 +210,8 @@ Write consolidated report to `docs/project/docs_audit.md`:
 ## Reference Files
 
 - **Context validation rules:** `shared/references/context_validation.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
+- **Aggregation pattern:** `shared/references/audit_coordinator_aggregation.md`
 
 ---
 **Version:** 5.0.0

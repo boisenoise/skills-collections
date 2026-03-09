@@ -110,7 +110,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 ## When to Use
 - **Invoked by ln-510-quality-coordinator** Phase 2
 - All implementation tasks in Story status = Done
-- Before ln-512 tech debt cleanup and ln-513 agent review
+- Before ln-512 tech debt cleanup and ln-510 inline agent review
 
 ## Workflow (concise)
 

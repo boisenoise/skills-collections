@@ -8,21 +8,35 @@ Workers MUST use exact formats below. Lead parses messages by regex — deviatio
 
 ### Success Messages
 
-| Stage | Format |
-|-------|--------|
-| 0 | `Stage 0 COMPLETE for {id}. {N} tasks created. Plan score: {score}/4.` |
-| 1 | `Stage 1 COMPLETE for {id}. Verdict: GO. Readiness: {score}.` |
-| 2 | `Stage 2 COMPLETE for {id}. All tasks Done. Story set to To Review.` |
-| 3 | `Stage 3 COMPLETE for {id}. Verdict: {PASS\|CONCERNS\|WAIVED}. Quality Score: {score}/100.` |
+| Stage | Name | Format |
+|-------|------|--------|
+| 0 | Task Planning | `Stage 0 COMPLETE for {id}. {N} tasks created. Plan score: {score}/4.` |
+| 1 | Validation | `Stage 1 COMPLETE for {id}. Verdict: GO. Readiness: {score}. Agents: {agents_info}.` |
+| 2 | Implementation | `Stage 2 COMPLETE for {id}. All tasks Done. Story set to To Review.` |
+| 3 | Quality Gate | `Stage 3 COMPLETE for {id}. Verdict: {PASS\|CONCERNS\|WAIVED}. Quality Score: {score}/100. Agents: {agents_info}.` |
 
 ### Error/Failure Messages
 
-| Stage | Format |
-|-------|--------|
-| 0 | `Stage 0 ERROR for {id}: {details}` |
-| 1 | `Stage 1 COMPLETE for {id}. Verdict: NO-GO. Readiness: {score}. Reason: {reason}` |
-| 2 | `Stage 2 ERROR for {id}: {details}` |
-| 3 | `Stage 3 COMPLETE for {id}. Verdict: FAIL. Quality Score: {score}/100. Issues: {list}` |
+| Stage | Name | Format |
+|-------|------|--------|
+| 0 | Task Planning | `Stage 0 ERROR for {id}: {details}` |
+| 1 | Validation | `Stage 1 COMPLETE for {id}. Verdict: NO-GO. Readiness: {score}. Reason: {reason}. Agents: {agents_info}.` |
+| 2 | Implementation | `Stage 2 ERROR for {id}: {details}` |
+| 3 | Quality Gate | `Stage 3 COMPLETE for {id}. Verdict: FAIL. Quality Score: {score}/100. Issues: {list}. Agents: {agents_info}.` |
+
+### Agents Info Format
+
+The `{agents_info}` field reports agent review results. Required for Stage 1 and Stage 3 messages.
+
+| Value | Meaning |
+|-------|---------|
+| `codex(2/3),gemini(1/2)` | Both agents used; accepted/total suggestions |
+| `codex(1/2),gemini(FAILED)` | One agent failed |
+| `SKIPPED(no agents available)` | Health check returned 0 agents |
+| `SKIPPED(agents disabled)` | All agents disabled in environment_state.json |
+| `SKIPPED(fast-track)` | Stage 3 fast-track mode skipped agent review |
+
+**Backward compatibility:** If `Agents:` field is absent in a message, lead stores `"N/A"` (supports workers from older prompts).
 
 ### Diagnostic Response
 
@@ -60,10 +74,14 @@ Lead extracts structured data from worker messages:
 (\d+) tasks created\. Plan score: (\d)/4
 
 # Stage 1 details
-Verdict: (GO|NO-GO)\. Readiness: (\d+)
+Verdict: (GO|NO-GO)\. Readiness: (\d+).*?(?:Agents: (.+?)\.)?$
 
 # Stage 3 details
-Verdict: (PASS|CONCERNS|WAIVED|FAIL)\. Quality Score: (\d+)/100
+Verdict: (PASS|CONCERNS|WAIVED|FAIL)\. Quality Score: (\d+)/100.*?(?:Agents: (.+?)\.)?$
+
+# Agents info (optional, captured from Stage 1 and Stage 3)
+# Group captures: SKIPPED(reason) | codex(N/M),gemini(N/M) | codex(N/M),gemini(FAILED)
+# If group is empty/absent → store as "N/A"
 ```
 
 ## SendMessage Contract

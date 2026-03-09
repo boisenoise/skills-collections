@@ -62,6 +62,8 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
    - ELSE → AskUserQuestion: show In Progress/To Review Stories from kanban
 2) Load templates per taskType (see Template Loading) and fetch full existing task descriptions.
 3) Normalize both sides (IDEAL vs existing sections) and run replan algorithm to classify KEEP/UPDATE/OBSOLETE/CREATE.
+   - **Inherited Assumptions (UPDATE):** Preserve Inherited Assumptions from parent Story. If parent Story Assumptions changed, update Inherited Assumptions in affected tasks to match current Story registry (ID + text sync).
+   - **Inherited Assumptions (CREATE):** For new tasks, extract relevant assumptions from parent Story Assumptions table, add to Context > Inherited Assumptions using `A{N} ({CATEGORY})` format.
    - **Destructive Op Detection (UPDATE):** After updating Implementation Plan, re-scan for keywords from destructive_operation_safety.md (loaded above). IF detected AND "Destructive Operation Safety" section missing → add section from shared reference template. IF section already present → preserve it.
    - **Destructive Op Detection (CREATE):** For new tasks, scan Implementation Plan for keywords from destructive_operation_safety.md (loaded above). IF detected → include "Destructive Operation Safety" section from shared reference template (MANDATORY). Fill all 5 fields + severity.
 4) Present summary (counts, titles, key diffs). Confirmation required if running interactively.

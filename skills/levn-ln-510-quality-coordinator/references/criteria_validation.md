@@ -9,7 +9,7 @@ Story-level validation checks executed in Phase 3 (after code quality, before li
 
 ## Purpose
 
-Validate Story against criteria from ln-310-story-validator that require **aggregate view** across all tasks:
+Validate Story against criteria from ln-310-multi-agent-validator that require **aggregate view** across all tasks:
 - Story Dependencies (criterion #18) - no forward Story deps in Epic
 - AC-Task Coverage Quality (criterion #17) - STRONG/WEAK/MISSING scoring across all AC
 - Database Creation Principle (criterion #9) - schema scope matches Story
@@ -25,7 +25,7 @@ Validate Story against criteria from ln-310-story-validator that require **aggre
 
 **Criterion:** Story N does NOT depend on Stories N+1, N+2 (sequential order)
 
-**Reference:** [ln-310-story-validator/references/dependency_validation.md](../../ln-310-story-validator/references/dependency_validation.md) criterion #18
+**Reference:** [ln-310-multi-agent-validator/references/dependency_validation.md](../../ln-310-multi-agent-validator/references/dependency_validation.md) criterion #18
 
 **Method:**
 1. Load Epic from Story.project
@@ -51,7 +51,7 @@ action: "Refactor Story 1.2 to use only Stories 1.1, or reorder Stories"
 
 **Criterion:** Each AC has STRONG coverage (Task mentions HTTP codes + messages + timing)
 
-**Reference:** [ln-310-story-validator/references/traceability_validation.md](../../ln-310-story-validator/references/traceability_validation.md) criterion #17 (lines 143-169)
+**Reference:** [ln-310-multi-agent-validator/references/traceability_validation.md](../../ln-310-multi-agent-validator/references/traceability_validation.md) criterion #17 (lines 143-169)
 
 **Method:**
 1. Load Story AC section
@@ -95,7 +95,7 @@ action: "Create new Task to implement AC3 performance requirement"
 
 **Criterion:** Story creates ONLY tables it needs (incremental schema evolution)
 
-**Reference:** [ln-310-story-validator/references/workflow_validation.md](../../ln-310-story-validator/references/workflow_validation.md) criterion #9 (lines 85-103)
+**Reference:** [ln-310-multi-agent-validator/references/workflow_validation.md](../../ln-310-multi-agent-validator/references/workflow_validation.md) criterion #9 (lines 85-103)
 
 **Method:**
 1. Load Story Statement + Technical Notes

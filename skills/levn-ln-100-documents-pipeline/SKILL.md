@@ -1,6 +1,6 @@
 ---
 name: ln-100-documents-pipeline
-description: "Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs) + ln-120-150 workers. Phase 4: global cleanup. Idempotent."
+description: "Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs) + ln-120-150 workers. Phase 3: global cleanup. Idempotent."
 license: MIT
 ---
 
@@ -51,7 +51,7 @@ This skill should be used when:
 
 ## Workflow
 
-The skill follows a 7-phase orchestration workflow: **Legacy Migration (optional)** → User confirmation → Invoke coordinator + 4 workers sequentially → Global cleanup → **Documentation Audit (optional)** → Summary. Phase 3 (validation) is intentionally skipped - each component validates its own output.
+The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional)** → User confirmation → Invoke coordinator + 4 workers sequentially → Global cleanup → **Documentation Audit (optional)** → Summary.
 
 ---
 
@@ -75,7 +75,7 @@ The skill follows a 7-phase orchestration workflow: **Legacy Migration (optional
 **0.2 Content Extraction**:
 - For each detected legacy file:
   - Parse markdown structure (headers, lists, code blocks)
-  - Apply type-specific extractor (**MANDATORY READ:** Load `legacy_detection_patterns.md`):
+  - Apply type-specific extractor (**MANDATORY READ:** Load `references/legacy_detection_patterns.md`):
     - `architecture_extractor` → { layers[], components[], diagrams[] }
     - `requirements_extractor` → { functional[], non_functional[] }
     - `tech_stack_extractor` → { frontend, backend, database, versions }
@@ -269,14 +269,14 @@ Add ALL invocations to todos before starting:
 - Invoke ln-130-tasks-docs-creator (pending)
 - Invoke ln-140-test-docs-creator (pending)
 - Invoke ln-150-presentation-creator (pending)
-- Run Global Cleanup (Phase 4) (pending)
-- Run Documentation Audit (Phase 5 - optional) (pending)
+- Run Global Cleanup (Phase 3) (pending)
+- Run Documentation Audit (Phase 4 - optional) (pending)
 ```
 Mark each as in_progress when starting, completed when worker returns success.
 
 ---
 
-### Phase 4: Global Cleanup and Consolidation
+### Phase 3: Global Cleanup and Consolidation
 
 **Objective**: Remove duplicates, orphaned files, consolidate knowledge across ALL documentation.
 
@@ -294,7 +294,7 @@ Quick quality check per created document:
 | 2 | **Accuracy** | Tech stack matches actual project files | References non-existent frameworks |
 | 3 | **Actuality** | Dates and versions match current state | Outdated references |
 
-**Gate:** All FAIL items → fix inline before continuing cleanup. Report quality summary in Phase 5.
+**Gate:** All FAIL items → fix inline before continuing cleanup. Report quality summary in Phase 4.
 
 **4.1 Scan for duplicate content**
 
@@ -425,7 +425,7 @@ Links:
 
 ---
 
-### Phase 5: Documentation Audit (OPTIONAL)
+### Phase 4: Documentation Audit (OPTIONAL)
 
 **Objective**: Audit documentation and code comments quality.
 
@@ -466,7 +466,7 @@ See full reports above for detailed findings.
 
 ---
 
-### Phase 6: Summary and Next Steps
+### Phase 5: Summary and Next Steps
 
 **Objective**: Provide complete overview of created system.
 
@@ -545,24 +545,13 @@ project_root/
 2. **ln-210-epic-coordinator** - Decompose scope into Epics (Linear Projects)
 3. **ln-220-story-coordinator** - Create User Stories for each Epic (automatic decomposition + replan)
 4. **ln-300-task-coordinator** - Break down Stories into implementation tasks (automatic decomposition + replan)
-5. **ln-310-story-validator** - Verify Stories before development
+5. **ln-310-multi-agent-validator** - Verify Stories before development
 6. **ln-400-story-executor** - Orchestrate Story implementation
 7. **Story quality gate** - Review completed Stories
 
 ---
 
-## Advantages of Orchestrator Approach
-
-**Benefits:**
-- ✅ Single command creates complete system
-- ✅ No need to remember skill sequence
-- ✅ Automated skill chaining
-- ✅ Consistent output every time
-- ✅ Time-saving (one invocation vs 2-3 manual invocations)
-- ✅ **Idempotent**: Safe to run multiple times - preserves existing files, creates only missing ones
-- ✅ **Pre-flight check**: Shows file scan summary before execution
-- ✅ **Global cleanup**: Automatic deduplication, orphan reporting, knowledge consolidation
-- ✅ **Validated cross-links**: No broken links in documentation
+## Trade-offs
 
 **Trade-offs:**
 - ⚠️ Less granular control (can't skip coordinator phases)
@@ -629,7 +618,7 @@ If any invoked skill fails:
 
 - **Idempotent:** Creates only missing files; existing files are preserved without overwrite
 - **Sequential invocation:** Workers must be invoked in order (ln-110 -> ln-120 -> ln-130 -> ln-140 -> ln-150); each verified before next
-- **Global cleanup mandatory:** Phase 4 (deduplication, orphan reporting, SSoT consolidation, cross-link validation) runs after all workers complete
+- **Global cleanup mandatory:** Phase 3 (deduplication, orphan reporting, SSoT consolidation, cross-link validation) runs after all workers complete
 - **User confirmation required:** Pre-flight check and explicit approval before any file creation
 - **NO_CODE Rule:** All generated documents use tables/ASCII/links; no code blocks >5 lines
 
@@ -673,7 +662,7 @@ Before completing work, verify ALL checkpoints:
 - [ ] File sizes listed for user confirmation
 - [ ] Warning displayed if expected files missing
 
-**✅ Global Cleanup Complete (Phase 4):**
+**✅ Global Cleanup Complete (Phase 3):**
 - [ ] 4.1: Duplicate sections identified and removed (>80% similarity)
 - [ ] 4.1: Links added to canonical locations (principles.md, testing-strategy.md, kanban_board.md)
 - [ ] 4.2: Unexpected files reported (advisory, no auto-archive)
@@ -681,12 +670,12 @@ Before completing work, verify ALL checkpoints:
 - [ ] 4.4: Internal links validated (broken links fixed, critical links added)
 - [ ] 4.5: Final report generated (counts, lists, actions)
 
-**✅ Documentation Audit (Phase 5 - if selected):**
+**✅ Documentation Audit (Phase 4 - if selected):**
 - [ ] User selected audit option (AUDIT DOCS / AUDIT COMMENTS / BOTH / SKIP)
 - [ ] If AUDIT DOCS: ln-610-docs-auditor invoked, compliance score displayed
 - [ ] Audit summary shown with scores per category
 
-**✅ Summary Displayed (Phase 6):**
+**✅ Summary Displayed (Phase 5):**
 - [ ] All created files listed with sizes
 - [ ] Documentation system features highlighted (SCOPE tags, Maintenance sections, README hubs, DAG structure, deduplicated content, validated links)
 - [ ] Next steps recommended (ln-210-epic-coordinator)

@@ -104,20 +104,14 @@ gaps = {
 
 ### Phase 5: Calculate Score
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
-
-**Primary score** uses penalty formula (same as all workers):
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Diagnostic sub-scores** (0-100 each) are calculated separately and reported in AUDIT-META for diagnostic purposes only:
 - compliance, completeness, quality, implementation
 
 ### Phase 6: Write Report
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format (ln-640 section: extended AUDIT-META + DATA-EXTENDED).
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 ```
 # Build pattern name slug: "Job Processing" → "job-processing"
@@ -141,6 +135,8 @@ Score: 7.9/10 (C:72 K:85 Q:68 I:90) | Issues: 3 (H:1 M:2 L:0)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **One pattern only:** Analyze only the pattern passed by coordinator
 - **Read before score:** Never score without reading actual code
 - **Detection-based scoring:** Use Grep/Glob patterns from scoring_rules.md, not assumptions
@@ -148,6 +144,8 @@ Score: 7.9/10 (C:72 K:85 Q:68 I:90) | Issues: 3 (H:1 M:2 L:0)
 - **Code references:** Always include file paths for findings
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - All implementations found via Glob/Grep (using pattern_library.md keywords or adaptive evidence)
 - Key files read and analyzed
@@ -160,7 +158,6 @@ Score: 7.9/10 (C:72 K:85 Q:68 I:90) | Issues: 3 (H:1 M:2 L:0)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - Scoring rules: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
 - Pattern library: `../ln-640-pattern-evolution-auditor/references/pattern_library.md`
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`

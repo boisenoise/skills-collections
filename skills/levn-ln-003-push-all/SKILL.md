@@ -52,7 +52,7 @@ Check if related documentation needs updating:
 
 Discover and run project linters before committing, per ci_tool_detection.md.
 
-**Step 1: Discover linter setup** per ci_tool_detection.md discovery hierarchy. Also check: `CLAUDE.md`, `README.md`, `CONTRIBUTING.md` for lint instructions.
+**Step 1: Discover linter setup** — first check `docs/project/runbook.md` for explicit lint/format commands (they take priority over auto-detection), then follow ci_tool_detection.md discovery hierarchy. Also check: `CLAUDE.md`, `README.md`, `CONTRIBUTING.md` for lint instructions.
 
 **Step 2: Run linters with auto-fix**
 

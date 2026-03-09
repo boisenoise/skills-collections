@@ -21,7 +21,7 @@ Specialized worker auditing database query patterns for redundancy, inefficiency
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (database type, ORM settings), `codebase_root`, `output_dir`.
 
@@ -160,11 +160,11 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/651-query-efficiency.md` with `category: "Query Efficiency"` and checks: redundant_fetch, n_update_delete_loop, unnecessary_resolve, over_fetching, missing_bulk_ops, wrong_caching_scope.
 
@@ -176,6 +176,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Do not auto-fix:** Report only
 - **Trace call chains:** Rules 1 and 3 require reading both caller and callee
 - **ORM-aware:** Check `expire_on_commit`, `autoflush`, session scope before flagging redundant fetches
@@ -183,6 +185,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Exclude tests:** Do not flag test fixtures or setup code
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed successfully (including output_dir)
 - scan_path determined (domain path or codebase root)
@@ -195,8 +199,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---

@@ -21,7 +21,7 @@ Specialized worker auditing database transaction patterns for correctness, scope
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (database type, ORM settings, trigger/notify patterns), `codebase_root`, `output_dir`.
 
@@ -149,11 +149,11 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/652-transaction-correctness.md` with `category: "Transaction Correctness"` and checks: missing_intermediate_commits, scope_too_wide, scope_too_narrow, missing_rollback, long_held_transaction.
 
@@ -165,6 +165,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Do not auto-fix:** Report only
 - **Trigger discovery first:** Always scan migrations for triggers/NOTIFY before analyzing transaction patterns
 - **ORM-aware:** Check if ORM context manager auto-rollbacks (`async with session.begin()` is safe)
@@ -172,6 +174,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Database-specific:** PostgreSQL NOTIFY semantics differ from MySQL event scheduler
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed successfully (including output_dir)
 - scan_path determined
@@ -185,8 +189,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---

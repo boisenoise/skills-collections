@@ -21,7 +21,7 @@ Specialized worker calculating Usefulness Score for each test.
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`, `output_dir`.
 
@@ -147,7 +147,7 @@ Decision: REVIEW (if E2E covers, remove; else keep)
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping by Usefulness Score:**
 - Score <5 → CRITICAL (test wastes significant maintenance effort)
@@ -157,7 +157,7 @@ Decision: REVIEW (if E2E covers, remove; else keep)
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/633-test-value.md` with `category: "Risk-Based Value"` and checks: usefulness_score, remove_candidates, review_candidates.
 
@@ -171,6 +171,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Do not auto-fix:** Report only
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
 - **Score objectivity:** Base Impact and Probability on code analysis, not assumptions
@@ -178,6 +180,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Cross-reference E2E:** REVIEW decisions depend on whether E2E already covers the scenario
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed successfully (including output_dir)
 - Usefulness Score calculated for each test (Impact x Probability)
@@ -189,8 +193,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---

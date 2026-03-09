@@ -270,83 +270,31 @@ IF len(test_files) > 0:
 
 ### Phase 7: Score + Report + Return
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for scoring formula. Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`, `shared/references/audit_scoring.md`, and `shared/templates/audit_worker_report_template.md`.
 
 ```
-# 7a: Calculate Score
-penalty = (critical * 2.0) + (high * 1.0) + (medium * 0.5) + (low * 0.2)
-score = max(0, 10 - penalty)
-
-# 7b: Build Report in Memory
-report = """
-# Project Structure Audit Report
-
-<!-- AUDIT-META
-worker: ln-646
-category: Project Structure
-domain: {domain_name|global}
-scan_path: {scan_path|.}
-score: {score}
-total_issues: {total}
-critical: {critical}
-high: {high}
-medium: {medium}
-low: {low}
-status: complete
--->
-
-## Checks
-
-| ID | Check | Status | Details |
-|----|-------|--------|---------|
-| file_hygiene | File Hygiene | {status} | Build artifacts, temp files, env files, binaries |
-| ignore_files | Ignore File Quality | {status} | .gitignore completeness, secrets, .dockerignore |
-| framework_conventions | Framework Conventions | {status} | {framework} structure compliance |
-| domain_organization | Domain/Layer Organization | {status} | Junk drawers, root cleanliness, consistency |
-| naming_conventions | Naming Conventions | {status} | File/dir/test naming patterns |
-
-## Findings
-
-| Severity | Location | Issue | Principle | Recommendation | Effort |
-|----------|----------|-------|-----------|----------------|--------|
-{sorted by severity: CRITICAL first, then HIGH, MEDIUM, LOW}
-
-<!-- DATA-EXTENDED
-{
-  "tech_stack": {"language": "...", "framework": "...", "structure": "..."},
-  "dimensions": {
-    "file_hygiene": {"checks": 6, "issues": N},
-    "ignore_files": {"checks": 4, "issues": N},
-    "framework_conventions": {"checks": 3, "issues": N},
-    "domain_organization": {"checks": 3, "issues": N},
-    "naming_conventions": {"checks": 3, "issues": N}
-  },
-  "junk_drawers": [{"path": "src/utils", "file_count": 23}],
-  "naming_dominant_case": "PascalCase",
-  "naming_violations_pct": 5
-}
--->
-"""
-
-# 7c: Write Report (atomic single Write call)
+# 7a: Calculate score via shared formula
+# 7b: Build report in memory using the shared audit worker template
+# 7c: Populate DATA-EXTENDED with:
+#   tech_stack
+#   dimensions.file_hygiene / ignore_files / framework_conventions / domain_organization / naming_conventions
+#   junk_drawers
+#   naming_dominant_case
+#   naming_violations_pct
+# 7d: Write report (atomic single Write call)
 IF domain_mode == "domain-aware":
   Write to {output_dir}/646-structure-{current_domain}.md
 ELSE:
   Write to {output_dir}/646-structure.md
 
-# 7d: Return Summary
+# 7e: Return summary
 Report written: docs/project/.audit/ln-640/{YYYY-MM-DD}/646-structure[-{domain}].md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
 ## Scoring
 
-Uses standard penalty formula from `shared/references/audit_scoring.md`:
-
-```
-penalty = (critical x 2.0) + (high x 1.0) + (medium x 0.5) + (low x 0.2)
-score = max(0, 10 - penalty)
-```
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 Severity mapping:
 - **CRITICAL:** .env files committed (security risk). **Exception:** .env.example / .env.template with default values → skip CRITICAL
@@ -355,6 +303,8 @@ Severity mapping:
 - **LOW:** IDE/OS patterns missing, inconsistent dir naming, mixed test patterns, minor config issues
 
 ## Critical Rules
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - **Auto-detect, never assume:** Always detect tech stack before applying framework rules
 - **No false positives on conventions:** Apply framework rules ONLY for detected stack
@@ -366,6 +316,8 @@ Severity mapping:
 - **Evidence always:** Include file paths for every finding
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - Tech stack detected (from `docs/project/tech_stack.md` or auto-detection)
 - File hygiene checked: build artifacts, temp files, platform remnants, lock files, .env, binaries
@@ -380,8 +332,6 @@ Severity mapping:
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Scoring algorithm:** `shared/references/audit_scoring.md`
 - **Structure rules:** `references/structure_rules.md`
 - **Stack detection:** `../ln-700-project-bootstrap/references/stack_detection.md`
 - **Platform artifacts:** `../ln-724-artifact-cleaner/references/platform_artifacts.md`

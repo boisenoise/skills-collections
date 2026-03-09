@@ -69,7 +69,7 @@ Task(
 )
 ```
 
-**Note:** Every worker operates in its own worktree (`WORKING DIRECTORY`). `PIPELINE_DIR` is always set to the absolute project root path to ensure `.pipeline/` files (checkpoint, done.flag) land in the project root, not the worktree.
+**Note:** ln-1000 creates worktree in Phase 3.4 — all workers start in `feature/*` branch. Workers self-detect via `git branch --show-current` (per `shared/references/git_worktree_fallback.md`). ln-400 skips its own worktree creation when already on `feature/*`. `PIPELINE_DIR` = project root for `.pipeline/` files.
 
 **Worker name:** The `{workerName}` variable in templates = the `name` parameter from Task() spawn. Workers derive it from prompt context: `story-{storyId}-s{stage}` (or `-retry` suffix for retries).
 
@@ -81,10 +81,10 @@ THINKING: Always enabled (adaptive). Reasoning effort: low.
 - Think efficiently. Template-based task creation — apply Foundation-First pattern, fill template fields. Don't overanalyze.
 Your assignment: Story {storyId} "{storyTitle}"
 
-WORKING DIRECTORY: {worktree_dir}
-ALL commands must execute in this directory. cd to {worktree_dir} before any operation.
-PIPELINE_DIR: {project_root}/.pipeline
-ALL .pipeline/ file operations (checkpoint, done.flag) MUST use PIPELINE_DIR absolute path.
+GIT CONTEXT: Worker self-detects branch via `git branch --show-current`.
+If on feature/* branch — work here (ln-1000 creates worktree before spawning workers).
+PIPELINE_DIR: .pipeline (relative to project root)
+ALL .pipeline/ file operations (checkpoint, done.flag) use PIPELINE_DIR.
 
 TASK: Execute Stage 0 — Task Planning (create implementation tasks).
 
@@ -94,6 +94,14 @@ Step 1: Invoke task coordinator:
 Step 2: After ln-300 completes, check result:
   - Tasks created successfully (1-8 tasks): Report success (Step 4a)
   - Error or plan score <2/4: Report failure (Step 4b)
+
+Step 2b: Write stage notes to {PIPELINE_DIR}/stage_0_notes_{storyId}.md:
+  ## Task Planning
+  **Skill:** ln-300
+  ### Key Decisions
+  - {1-3 bullets: task decomposition rationale, Foundation-First pattern choices}
+  ### Artifacts
+  - {Task file paths or Linear task URLs created}
 
 Step 3: Write checkpoint:
   Write {PIPELINE_DIR}/checkpoint-{storyId}.json with:
@@ -132,19 +140,35 @@ THINKING: Always enabled (adaptive). Reasoning effort: medium.
 - Think adequately. Balance speed and thoroughness. Focus on core path.
 Your assignment: Story {storyId} "{storyTitle}"
 
-WORKING DIRECTORY: {worktree_dir}
-ALL commands must execute in this directory. cd to {worktree_dir} before any operation.
-PIPELINE_DIR: {project_root}/.pipeline
-ALL .pipeline/ file operations (checkpoint, done.flag) MUST use PIPELINE_DIR absolute path.
+GIT CONTEXT: Worker self-detects branch via `git branch --show-current`.
+If on feature/* branch — work here (ln-1000 creates worktree before spawning workers).
+PIPELINE_DIR: .pipeline (relative to project root)
+ALL .pipeline/ file operations (checkpoint, done.flag) use PIPELINE_DIR.
 
 TASK: Execute Stage 1 — Story Validation.
 
 Step 1: Invoke validation:
-  Skill(skill: "ln-310-story-validator", args: "{storyId}")
+  Skill(skill: "ln-310-multi-agent-validator", args: "{storyId}")
 
 Step 2: After ln-310 completes, check result:
   - If GO (Readiness >= 5, Penalty = 0): Report success to lead
   - If NO-GO: Report failure with reason to lead
+
+Step 2b: Extract agent review info + write stage notes:
+  Agent info extraction:
+  - Look for "Agent Review:" display line in ln-310 output (e.g., "Agent Review: codex (2/3), gemini (1/2)")
+  - OR read last entry from .agent-review/review_history.md
+  - Format as agents_info: "codex(2/3),gemini(1/2)" or "SKIPPED({reason})"
+  - If no agent info found: agents_info = "SKIPPED(unknown)"
+  Write {PIPELINE_DIR}/stage_1_notes_{storyId}.md:
+  ## Validation
+  **Skill:** ln-310
+  **Agent Review:** {agents_info}
+  ### Key Decisions
+  - {1-3 bullets: penalty points found/fixed, standards applied, agent findings accepted/rejected with reason}
+  ### Artifacts
+  - {Linear validation comment URL or file path}
+  - {.agent-review/ result files if agents were used}
 
 Step 3: Write checkpoint:
   Write {PIPELINE_DIR}/checkpoint-{storyId}.json with:
@@ -155,11 +179,11 @@ Step 3: Write checkpoint:
 Step 4: Report to lead (use EXACT format per verdict):
   IF GO:
     SendMessage(type: "message", recipient: "pipeline-lead",
-      content: "Stage 1 COMPLETE for {storyId}. Verdict: GO. Readiness: {score}.",
+      content: "Stage 1 COMPLETE for {storyId}. Verdict: GO. Readiness: {score}. Agents: {agents_info}.",
       summary: "{storyId} Stage 1 GO")
   IF NO-GO:
     SendMessage(type: "message", recipient: "pipeline-lead",
-      content: "Stage 1 COMPLETE for {storyId}. Verdict: NO-GO. Readiness: {score}. Reason: {reason}",
+      content: "Stage 1 COMPLETE for {storyId}. Verdict: NO-GO. Readiness: {score}. Reason: {reason}. Agents: {agents_info}.",
       summary: "{storyId} Stage 1 NO-GO")
 Step 5: Wait for ACK from lead:
   Lead will send "ACK Stage 1 for {storyId}" after processing your report.
@@ -185,10 +209,10 @@ THINKING: Always enabled (adaptive). Reasoning effort: medium.
 - Think adequately. Balance speed and thoroughness. Focus on core path.
 Your assignment: Story {storyId} "{storyTitle}"
 
-WORKING DIRECTORY: {worktree_dir}
-ALL commands must execute in this directory. cd to {worktree_dir} before any operation.
-PIPELINE_DIR: {project_root}/.pipeline
-ALL .pipeline/ file operations (checkpoint, done.flag) MUST use PIPELINE_DIR absolute path.
+GIT CONTEXT: Worker self-detects branch via `git branch --show-current`.
+If on feature/* branch — work here (ln-1000 creates worktree before spawning workers).
+PIPELINE_DIR: .pipeline (relative to project root)
+ALL .pipeline/ file operations (checkpoint, done.flag) use PIPELINE_DIR.
 
 MCP TOOL PREFERENCES (code editing only):
 When mcp__hashline-edit__* tools are available (check via ToolSearch "+hashline-edit"),
@@ -212,6 +236,14 @@ Step 1: Invoke executor:
 Step 2: After ln-400 completes, check result:
   - All tasks Done, Story = To Review: Report success (Step 4a)
   - Any task stuck or error: Report error (Step 4b)
+
+Step 2b: Write stage notes to {PIPELINE_DIR}/stage_2_notes_{storyId}.md:
+  ## Implementation
+  **Skill:** ln-400
+  ### Key Decisions
+  - {1-3 bullets: technical choices (library, pattern, architecture), challenges encountered and how resolved}
+  ### Artifacts
+  - {Git commit SHAs from this stage: `git log --oneline origin/{base_branch}..HEAD`}
 
 Step 3: Write final checkpoint:
   Write {PIPELINE_DIR}/checkpoint-{storyId}.json with stage=2, all tasks in tasksCompleted
@@ -248,10 +280,10 @@ THINKING: Always enabled (adaptive). Reasoning effort: medium.
 - Think adequately. Checklist-based quality checks — systematic verification, not creative analysis.
 Your assignment: Story {storyId} "{storyTitle}"
 
-WORKING DIRECTORY: {worktree_dir}
-ALL commands must execute in this directory. cd to {worktree_dir} before any operation.
-PIPELINE_DIR: {project_root}/.pipeline
-ALL .pipeline/ file operations (checkpoint, done.flag) MUST use PIPELINE_DIR absolute path.
+GIT CONTEXT: Worker self-detects branch via `git branch --show-current`.
+If on feature/* branch — work here (ln-1000 creates worktree before spawning workers).
+PIPELINE_DIR: .pipeline (relative to project root)
+ALL .pipeline/ file operations (checkpoint, done.flag) use PIPELINE_DIR.
 
 TASK: Execute Stage 3 — Quality Gate.
 
@@ -264,6 +296,24 @@ Step 2: After ln-500 completes, check verdict:
   - FAIL: Report failure with issues list
   - WAIVED: Report success with waiver reason
 
+Step 2b: Extract agent review info + write stage notes:
+  Agent info extraction:
+  - Look for "Agent Review:" display line in ln-500/ln-510 output
+  - OR read last entry from .agent-review/review_history.md
+  - If FAST_TRACK=true and no agent review output: agents_info = "SKIPPED(fast-track)"
+  - Format: "codex(2/3),gemini(1/2)" or "SKIPPED({reason})"
+  - If no agent info found: agents_info = "SKIPPED(unknown)"
+  Write {PIPELINE_DIR}/stage_3_notes_{storyId}.md:
+  ## Quality Gate
+  **Skill:** ln-500
+  **Agent Review:** {agents_info}
+  ### Key Decisions
+  - {1-3 bullets: quality issues found/fixed, code review findings, branch finalization details}
+  ### Artifacts
+  - {Linear quality comment URL or file path}
+  - {.agent-review/ result files if agents were used}
+  - Branch: {branch_name}, git stats: {files_changed} files, +{lines_added}/-{lines_deleted}
+
 Step 3: Write checkpoint:
   Write {PIPELINE_DIR}/checkpoint-{storyId}.json with:
     stage=3, all tasks in tasksCompleted,
@@ -273,11 +323,11 @@ Step 3: Write checkpoint:
 Step 4: Report to lead (use EXACT format per verdict):
   IF PASS/CONCERNS/WAIVED:
     SendMessage(type: "message", recipient: "pipeline-lead",
-      content: "Stage 3 COMPLETE for {storyId}. Verdict: {PASS|CONCERNS|WAIVED}. Quality Score: {score}/100.",
+      content: "Stage 3 COMPLETE for {storyId}. Verdict: {PASS|CONCERNS|WAIVED}. Quality Score: {score}/100. Agents: {agents_info}.",
       summary: "{storyId} Stage 3 {verdict}")
   IF FAIL:
     SendMessage(type: "message", recipient: "pipeline-lead",
-      content: "Stage 3 COMPLETE for {storyId}. Verdict: FAIL. Quality Score: {score}/100. Issues: {issues list}",
+      content: "Stage 3 COMPLETE for {storyId}. Verdict: FAIL. Quality Score: {score}/100. Issues: {issues list}. Agents: {agents_info}.",
       summary: "{storyId} Stage 3 FAIL")
 Step 5: Wait for ACK from lead:
   Lead will send "ACK Stage 3 for {storyId}" after processing your report.

@@ -59,6 +59,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
    - Rationale: Prevents code duplication BEFORE implementation starts
 2) **Template select:** Load template based on taskType (see "Template Loading" section).
 3) **Generate docs:** Fill sections for each task in plan/request using provided data, guide links, and DRY warnings.
+   - **Inherited Assumptions:** Extract relevant assumptions from parent Story Assumptions table, add to Context > Inherited Assumptions. Only list assumptions affecting THIS task. Use `A{N} ({CATEGORY})` format.
    - **Destructive Op Detection:** For EACH task, scan Implementation Plan for keywords from destructive_operation_safety.md (loaded above). IF detected → include "Destructive Operation Safety" section from shared reference template (MANDATORY). Creator fills all 5 fields + severity. IF NOT detected → omit section.
 4) **Validate type rules:** Stop with error if violation (see table below).
 5) **Preview:** Show titles/goals/estimates/AC/components, DRY warnings count, and totals.

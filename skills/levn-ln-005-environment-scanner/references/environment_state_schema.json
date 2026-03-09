@@ -1,0 +1,35 @@
+{
+  "$id": "environment_state_v1",
+  "type": "object",
+  "required": ["$schema", "scanned_at", "agents"],
+  "properties": {
+    "$schema": { "const": "environment_state_v1" },
+    "scanned_at": { "type": "string", "format": "date-time" },
+    "agents": {
+      "type": "object",
+      "required": ["codex", "gemini"],
+      "properties": {
+        "codex": {
+          "type": "object",
+          "required": ["available"],
+          "properties": {
+            "available": { "type": "boolean" },
+            "disabled": { "type": "boolean" },
+            "version": { "type": "string" },
+            "detail": { "type": "string" }
+          }
+        },
+        "gemini": {
+          "type": "object",
+          "required": ["available"],
+          "properties": {
+            "available": { "type": "boolean" },
+            "disabled": { "type": "boolean" },
+            "version": { "type": "string" },
+            "detail": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -75,71 +75,19 @@ Coordinates comprehensive test suite audit across 6 quality categories using 5 s
 
 **Key Benefit:** Context gathered ONCE → passed to all workers → token-efficient
 
-### Phase 2.5: Prepare Output Directory
+### Phase 3: Domain Discovery
 
 ```bash
 mkdir -p {output_dir}   # No deletion — date folders preserve history
 ```
 
-### Phase 3: Domain Discovery (NEW)
+**MANDATORY READ:** Load `shared/references/audit_coordinator_domain_mode.md`.
 
-**Purpose:** Detect project domains from production code folder structure for domain-aware coverage analysis.
-
-**Algorithm:** (same as ln-360-codebase-auditor)
-
-1. **Priority 1: Explicit domain folders**
-   - Check for: `src/domains/*/`, `src/features/*/`, `src/modules/*/`
-   - Monorepo patterns: `packages/*/`, `libs/*/`, `apps/*/`
-   - If found (>1 match) → use as domains
-
-2. **Priority 2: Top-level src/* folders**
-   - List folders: `src/users/`, `src/orders/`, `src/payments/`
-   - Exclude infrastructure: `utils`, `shared`, `common`, `lib`, `helpers`, `config`, `types`, `interfaces`, `constants`, `middleware`, `infrastructure`, `core`
-   - If remaining >1 → use as domains
-
-3. **Priority 3: Fallback to global mode**
-   - If <2 domains detected → `domain_mode = "global"`
-   - All workers scan entire codebase (backward-compatible behavior)
-
-**Heuristics for domain detection:**
-
-| Heuristic | Indicator | Example |
-|-----------|-----------|---------|
-| File count | >5 files in folder | `src/users/` with 12 files |
-| Structure | controllers/, services/, models/ present | MVC/Clean Architecture |
-| Barrel export | index.ts/index.js exists | Module pattern |
-| README | README.md describes domain | Domain documentation |
-
-**Output:**
-```json
-{
-  "domain_mode": "domain-aware",
-  "all_domains": [
-    {"name": "users", "path": "src/users", "file_count": 45},
-    {"name": "orders", "path": "src/orders", "file_count": 32},
-    {"name": "shared", "path": "src/shared", "file_count": 15, "is_shared": true}
-  ]
-}
-```
-
-**Shared folder handling:**
-- Folders named `shared`, `common`, `utils`, `lib`, `core` → mark `is_shared: true`
-- Shared code audited but grouped separately in report
+Detect `domain_mode` and `all_domains` with the shared pattern. This coordinator keeps one local rule: shared folders remain visible in coverage analysis, but do not inflate business-domain coverage percentages.
 
 ### Phase 4: Delegate to Workers
 
-> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` for context isolation.
-
-**Prompt template:**
-```
-Task(description: "Test audit via ln-63X",
-     prompt: "Execute ln-63X-{worker}. Read skill from ln-63X-{worker}/SKILL.md. Context: {contextStore}",
-     subagent_type: "general-purpose")
-```
-
-**Anti-Patterns:**
-- ❌ Direct Skill tool invocation without Task wrapper
-- ❌ Any execution bypassing subagent context isolation
+**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md` and `shared/references/audit_worker_core_contract.md`.
 
 #### Phase 4a: Global Workers (PARALLEL)
 
@@ -192,59 +140,21 @@ ELSE:
 - Phase 4b: All N domain-aware invocations run in PARALLEL
 - Example: 3 domains → 3 ln-634 invocations in single message
 
-**Worker Output Contract (File-Based):**
-
-Workers write full report to `{output_dir}/{worker_id}.md` per `shared/templates/audit_worker_report_template.md`.
-
-Workers return **minimal summary** in-context (~50 tokens):
-```
-Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/631-business-logic.md
-Score: 7.5/10 | Issues: 5 (C:0 H:2 M:2 L:1)
-```
-
-Coordinator extracts score/counts from return values. Full findings stay in files.
-
-**Unified Scoring Formula (all workers):**
-```
-penalty = (critical × 2.0) + (high × 1.0) + (medium × 0.5) + (low × 0.2)
-score = max(0, 10 - penalty)
-```
-
 **Domain-aware workers** add optional fields: `domain`, `scan_path`
 
 ### Phase 5: Aggregate Results (File-Based)
 
-**Goal:** Merge all worker results into unified Test Suite Audit Report
+**MANDATORY READ:** Load `shared/references/audit_coordinator_aggregation.md` and `shared/references/context_validation.md`.
 
-Workers wrote reports to `{output_dir}/` and returned minimal summaries. Aggregation uses **return values for numbers** and **file reads for findings tables**.
+Use the shared aggregation pattern for output directory checks, return-value parsing, severity rollups, file reads, and final report assembly.
 
-**Aggregation Algorithm:**
-```
-1. Parse scores/counts from worker return strings (already in context)
-2. Read worker report files from {output_dir}/ for findings tables
-3. Sum severity counts across all workers
-4. Calculate Overall Score: average of 5 worker scores
-5. Sort findings by severity: CRITICAL → HIGH → MEDIUM → LOW
-6. Group findings by category for report sections
-```
-
-**Actions:**
-1. **Parse return values** from all workers for scores/counts
-2. **Read worker files** from `{output_dir}/` for detailed findings
-3. **Sum severity counts** across all workers
-4. **Calculate overall score** = average of 5 worker scores
-5. **Domain-aware worker (ln-634)** → group by domain.name if domain_mode="domain-aware"
-6. **Generate Executive Summary** (2-3 sentences)
-7. **Write report** to `docs/project/test_audit.md`
-8. **Return summary** to user
-
-**Findings grouping:**
-- Categories 1-3, 5-6 (Business Logic, E2E, Value, Isolation, Anti-Patterns) → single tables (global)
-- Category 4 (Coverage Gaps) → subtables per domain (if domain_mode="domain-aware")
+Local rules for this coordinator:
+- Categories 1-3 and 5-6 stay global in the final report.
+- Category 4 (Coverage Gaps) is grouped per domain when `domain_mode="domain-aware"`.
+- Overall score = average of 5 worker scores.
+- Append one results-log row with `Skill=ln-630`, `Metric=overall_score`, `Scale=0-10`.
 
 **Context Validation (Post-Filter):**
-
-**MANDATORY READ:** Load `shared/references/context_validation.md`
 
 Apply Rules 1, 5 + test-specific filters to merged findings:
 ```
@@ -391,8 +301,8 @@ Each worker:
 - **Orchestrator lifecycle:** `shared/references/orchestrator_pattern.md`
 - **Risk-based testing methodology:** `shared/references/risk_based_testing_guide.md`
 - **Task delegation pattern:** `shared/references/task_delegation_pattern.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
-- **Audit output schema:** `shared/references/audit_output_schema.md`
+- **Domain mode pattern:** `shared/references/audit_coordinator_domain_mode.md`
+- **Aggregation pattern:** `shared/references/audit_coordinator_aggregation.md`
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`
 
 ## Related Skills
@@ -406,7 +316,6 @@ Each worker:
 
 - **Reference:**
   - [../shared/references/risk_based_testing_guide.md](../shared/references/risk_based_testing_guide.md) — Risk-Based Testing Guide
-  - [../ln-620-codebase-auditor](../ln-620-codebase-auditor/) — Codebase audit coordinator (similar pattern)
 
 ---
 **Version:** 4.0.0

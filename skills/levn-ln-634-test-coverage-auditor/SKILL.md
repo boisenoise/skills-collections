@@ -21,7 +21,7 @@ Specialized worker identifying missing tests for critical business logic.
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`, `output_dir`.
 
@@ -156,7 +156,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping by Priority:**
 - Priority 20+ (Money, Security) missing test → CRITICAL
@@ -166,7 +166,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/634-coverage-gaps.md` (global) or `{output_dir}/634-coverage-gaps-{domain}.md` (domain-aware) with `category: "Coverage Gaps"` and checks: money_flow_coverage, security_flow_coverage, data_integrity_coverage, core_journey_coverage.
 
@@ -178,12 +178,16 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Domain-aware scanning:** If `domain_mode="domain-aware"`, scan ONLY `scan_path` production code (not entire codebase)
 - **Tag findings:** Include `domain` field in each finding when domain-aware
 - **Test search scope:** Search ALL test files for coverage (tests may be in different location than production code)
 - **Match by name:** Use function name, module name, or test description to match tests to production code
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed successfully (including output_dir, domain_mode, current_domain)
 - scan_path determined (domain path or codebase root)
@@ -196,8 +200,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---

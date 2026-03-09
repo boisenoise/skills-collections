@@ -37,7 +37,10 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ## Workflow
 
-### Phase 1: Discovery & Branch Setup
+### Phase 1: Discovery & Worktree Setup
+
+**MANDATORY READ:** Load `shared/references/git_worktree_fallback.md` — use "Story execution" row.
+
 1. **Resolve storyId** (per input_resolution_pattern.md):
    - IF args provided → use args
    - ELSE IF git branch matches `feature/{id}-*` → extract id
@@ -46,10 +49,9 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 2. Auto-discover Team ID/config from kanban_board.md + CLAUDE.md
 3. Get Story title from resolved storyId
 4. Generate branch name: `feature/{identifier}-{story-title-slug}` (lowercase, spaces→dashes, no special chars)
-5. Check current branch: `git branch --show-current`
-6. If not matching:
-   - If branch exists: `git checkout feature/{identifier}-{slug}`
-   - If not: `git checkout -b feature/{identifier}-{slug}`
+5. **Self-detection:** `git branch --show-current`
+   - If already on `feature/*` → use current worktree, skip to Phase 2
+   - If on develop/main/master → create worktree + branch (per git_worktree_fallback.md lifecycle steps 1-3, worktree dir: `.worktrees/story-{identifier}`)
 
 ### Phase 2: Load Metadata
 Fetch Story metadata and all child task metadata (ID/title/status/labels only):
@@ -129,7 +131,7 @@ Before each task, add BOTH steps:
 2. `Review [Task-ID]: [Title]` — mark in_progress after executor, completed after ln-402
 
 ## Critical Rules
-1. **Branch isolation:** All work in `feature/{story-id}-{slug}`. Never commit to main/master
+1. **Worktree isolation:** All work in isolated worktree on `feature/{story-id}-{slug}`. Never modify main worktree
 2. **Metadata first:** Never load task descriptions in Phase 2; workers load full text
 3. **One task at a time:** Pick → delegate → review → next. No bulk operations
 4. **Only ln-402 sets Done:** Stop and report if any worker leaves task Done or In Progress

@@ -83,14 +83,16 @@ for each story_id:
 
 **Token Rationale:** 10 Stories × 5,000 = 50,000 tokens. Load sequentially to manage context.
 
-**Step 3:** Parse 8 sections for each Story
+**Step 3:** Parse 9 sections for each Story
 - Story Statement (persona, capability, value)
 - Context
 - Acceptance Criteria (3-5 GWT)
+- Implementation Tasks
 - Test Strategy
 - Technical Notes (**Standards Research** in Library Research subsection)
 - Definition of Done
 - Dependencies
+- Assumptions
 
 **Step 4:** Extract metadata
 - ID, number, title, status
@@ -237,7 +239,7 @@ WARNINGS: US005 (Todo) AC changed
 
 NEXT STEPS:
 1. Review warnings
-2. Run ln-310-story-validator on updated/created Stories
+2. Run ln-310-multi-agent-validator on updated/created Stories
 3. Use ln-300-task-coordinator to create/replan tasks
 ```
 
@@ -258,7 +260,7 @@ NEXT STEPS:
 **✅ Phase 1:**
 - [ ] Existing Story IDs queried (Linear or file mode)
 - [ ] FULL descriptions fetched ONE BY ONE
-- [ ] 8 sections parsed
+- [ ] 9 sections parsed
 - [ ] Metadata extracted (persona, capability, AC, Standards Research)
 
 **✅ Phase 2:**
@@ -305,7 +307,7 @@ NEXT STEPS:
 
 **Location:** `shared/templates/story_template.md` (centralized)
 **Local Copy:** `docs/templates/story_template.md` (in target project)
-**Purpose:** Universal Story template (8 sections)
+**Purpose:** Universal Story template (9 sections)
 **Usage:** Load via Template Loading logic when generating updated Story documents for UPDATE/CREATE operations
 
 ## Integration

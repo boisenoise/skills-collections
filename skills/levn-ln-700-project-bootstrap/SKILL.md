@@ -21,7 +21,7 @@ Universal project bootstrapper with two modes: CREATE (generate production-ready
 |--------|--------|-----------|
 | **Input** | Empty directory or target stack config | Existing project (Replit, StackBlitz, CodeSandbox, Glitch, custom) |
 | **Detection** | No source files found | Source files + optional platform config detected |
-| **ln-710** | SKIP (no deps to upgrade) | RUN (upgrade existing deps) |
+| **ln-820** | SKIP (no deps to upgrade) | RUN (upgrade existing deps) |
 | **ln-720** | SCAFFOLD + GENERATE | RESTRUCTURE + MIGRATE |
 | **ln-724** | SKIP (no artifacts) | CONDITIONAL (if platform detected) |
 | **ln-730–780** | RUN (same for both modes) | RUN (same for both modes) |
@@ -34,7 +34,7 @@ Universal project bootstrapper with two modes: CREATE (generate production-ready
 |--------|---------|
 | **Input** | Empty directory (CREATE) or source project (TRANSFORM) |
 | **Output** | Production-ready project with all infrastructure |
-| **Delegations** | ln-710 (conditional) -> ln-720 -> ln-730 -> ln-740 -> ln-750 -> ln-760 -> ln-770 -> ln-780 |
+| **Delegations** | ln-820 (conditional) -> ln-720 -> ln-730 -> ln-740 -> ln-750 -> ln-760 -> ln-770 -> ln-780 |
 
 ---
 
@@ -52,7 +52,7 @@ Phase 2: Confirm (User Approval)
     v
 Phase 3: Execute (Delegate to L2 Coordinators)
     |
-    +---> ln-710: Dependency Upgrader
+    +---> ln-820: Dependency Upgrader
     +---> ln-720: Structure Migrator
     +---> ln-730: DevOps Setup
     +---> ln-740: Quality Setup
@@ -187,7 +187,7 @@ Based on detected stack, create detailed plan:
 
 ## Transformations
 
-### 1. Dependencies (ln-710)
+### 1. Dependencies (ln-820)
 - Upgrade React 18 -> 19
 - Upgrade Vite 5 -> 6
 - Add missing peer dependencies
@@ -267,12 +267,12 @@ Sequential delegation to L2 coordinators:
 
 | Order | Skill | Purpose | CREATE mode | TRANSFORM mode | Depends On |
 |-------|-------|---------|-------------|----------------|------------|
-| 1 | ln-710 | Upgrade dependencies | **SKIP** | RUN | — |
-| 2 | ln-720 | Structure (SCAFFOLD/RESTRUCTURE) | RUN (SCAFFOLD) | RUN (RESTRUCTURE) | ln-710 |
+| 1 | ln-820 | Upgrade dependencies | **SKIP** | RUN | — |
+| 2 | ln-720 | Structure (SCAFFOLD/RESTRUCTURE) | RUN (SCAFFOLD) | RUN (RESTRUCTURE) | ln-820 |
 | 3 | ln-730 | Setup Docker/CI | RUN | RUN | ln-720 |
 | 4 | ln-740 | Configure quality tools | RUN | RUN | ln-720 |
 | 5 | ln-750 | Generate .claude/commands | RUN | RUN | ln-720 |
-| 6 | ln-760 | Security scanning | RUN | RUN | ln-710 |
+| 6 | ln-760 | Security scanning | RUN | RUN | ln-820 |
 | 7 | ln-770 | Crosscutting concerns | RUN | RUN | ln-720 |
 | 8 | ln-780 | Build and verify | RUN | RUN | All above |
 
@@ -324,7 +324,7 @@ For each L2 coordinator:
 | # | Category | Check | Source |
 |---|----------|-------|--------|
 | 1 | **Structure** | Clean Architecture layers present | ln-720 result |
-| 2 | **Dependencies** | All packages installed, no version conflicts | ln-710 result |
+| 2 | **Dependencies** | All packages installed, no version conflicts | ln-820 result |
 | 3 | **DevOps** | Docker builds, CI pipeline valid | ln-730 result |
 | 4 | **Quality** | Linters/formatters configured and pass | ln-740 result |
 | 5 | **Security** | No hardcoded secrets, scanning configured | ln-760 result |
@@ -478,7 +478,7 @@ SKIP_TESTS=false
 | ln-001-standards-researcher | Query for best practices during ln-720 |
 | ln-002-best-practices-researcher | Generate guides during ln-720 |
 | ln-100-documents-pipeline | Call after bootstrap for docs |
-| ln-310-story-validator | Validate generated tasks |
+| ln-310-multi-agent-validator | Validate generated tasks |
 
 ---
 

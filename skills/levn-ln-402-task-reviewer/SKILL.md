@@ -173,6 +173,7 @@ Step 9: Update & Commit
    - Naming: follows project's existing convention (check 3+ similar files). No abbreviations except domain terms. No single-letter variables (except loops).
    - Entity Leakage: ORM entities must NOT be returned directly from API endpoints. Use DTOs/response models. (BLOCKER for auth/payment, CONCERN for others) <!-- Defense-in-depth: also checked by ln-511 ARCH-DTO- -->
    - Method Signature: no boolean flag parameters in public methods (use enum/options object); no more than 5 parameters without DTO. (NIT) <!-- Defense-in-depth: also checked by ln-511 MNT-SIG- -->
+   - **Simplicity criterion (task-scoped):** **MANDATORY READ:** `references/simplicity_criterion.md` — Check MNT-KISS-SCOPE (effort-S task with 3+ new abstractions) and MNT-YAGNI-SCOPE (refactoring added new dependencies or created 2x more files than modified). Advisory CONCERNs only. <!-- Defense-in-depth: also checked by ln-511 KISS/YAGNI -->
    - Docs: if public API changed → API docs updated. If new env var → .env.example updated. If new concept → README/architecture doc updated.
    - Tests updated/run: for impl/refactor ensure affected tests adjusted; for test tasks verify risk-based limits and priority (≤15) per planner template.
 5) **AC Validation (MANDATORY for implementation tasks):**

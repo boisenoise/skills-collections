@@ -22,7 +22,7 @@ Specialized worker auditing E2E test coverage for critical paths (risk-based).
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/task_delegation_pattern.md#audit-coordinator--worker-contract` for contextStore structure.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`, `output_dir`.
 
@@ -116,7 +116,7 @@ For each E2E test, calculate Usefulness Score = Impact × Probability
 
 ## Scoring Algorithm
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping:**
 - Missing E2E for Priority 25 (Money, Security) → CRITICAL
@@ -127,7 +127,7 @@ For each E2E test, calculate Usefulness Score = Impact × Probability
 
 ## Output Format
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 Write report to `{output_dir}/632-e2e-priority.md` with `category: "E2E Critical Coverage"` and checks: critical_path_coverage, user_journey_coverage, e2e_usefulness_validation.
 
@@ -139,6 +139,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Do not auto-fix:** Report only
 - **Risk-based only:** Prioritize by business impact (Money > Security > Data), not by code coverage percentage
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
@@ -146,6 +148,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **No pyramid enforcement:** Do not recommend E2E/Integration/Unit ratios — focus on critical path coverage
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - contextStore parsed successfully (including output_dir)
 - Critical paths identified (Money, Security, Data) with Priority scores
@@ -157,8 +161,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
-- **Audit scoring formula:** `shared/references/audit_scoring.md`
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---

@@ -11,7 +11,7 @@ Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TR
 
 | Mode | When | Template | Key Differences |
 |------|------|----------|-----------------|
-| **CREATE** | Empty dir or user requests new project | [CREATE Template](#create-mode-template) | No Source Analysis, ln-710 SKIP, ln-724 SKIP, ln-721 SCAFFOLD |
+| **CREATE** | Empty dir or user requests new project | [CREATE Template](#create-mode-template) | No Source Analysis, ln-820 SKIP, ln-724 SKIP, ln-721 SCAFFOLD |
 | **TRANSFORM** | Existing codebase detected | [TRANSFORM Template](#transform-mode-template) | Full source analysis, all workers run |
 
 ---
@@ -48,7 +48,7 @@ Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TR
 
 ## Generation Steps
 
-### Step 1: Dependencies (ln-710)
+### Step 1: Dependencies (ln-820)
 **Action:** SKIP (nothing to upgrade)
 
 ### Step 2: Structure (ln-720)
@@ -110,7 +110,7 @@ Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TR
 
 ## Transformation Steps
 
-### Step 1: Dependencies (ln-710)
+### Step 1: Dependencies (ln-820)
 
 **Upgrades Required:**
 {{#each DEPENDENCY_UPGRADES}}

@@ -204,11 +204,11 @@ IF len(unique_files) > 2:
 
 ### Phase 5: Calculate Score
 
-**MANDATORY READ:** Load `shared/references/audit_scoring.md` for unified scoring formula.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 ### Phase 6: Write Report
 
-**MANDATORY READ:** Load `shared/templates/audit_worker_report_template.md` for file format (ln-640 section: standard AUDIT-META + DATA-EXTENDED).
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
 ```
 # Build markdown report in memory with:
@@ -232,6 +232,8 @@ Score: 4.5/10 | Issues: 8 (C:1 H:3 M:4 L:0)
 
 ## Critical Rules
 
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+
 - **Read architecture.md first** - never assume architecture type
 - **Skip violations list** - respect legacy files marked for gradual fix
 - **File + line + code** - always provide exact location with context
@@ -239,6 +241,8 @@ Score: 4.5/10 | Issues: 8 (C:1 H:3 M:4 L:0)
 - **No false positives** - verify path contains forbidden dir, not just substring
 
 ## Definition of Done
+
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
 - Architecture discovered from docs/architecture.md (or fallback used)
 - All violation types from layer_rules.md checked
@@ -253,7 +257,6 @@ Score: 4.5/10 | Issues: 8 (C:1 H:3 M:4 L:0)
 
 ## Reference Files
 
-- **Worker report template:** `shared/templates/audit_worker_report_template.md`
 - Layer rules: `../ln-640-pattern-evolution-auditor/references/layer_rules.md`
 - Scoring impact: `../ln-640-pattern-evolution-auditor/references/scoring_rules.md`
 

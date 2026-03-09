@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-08T06:21:39.004745",
-  "skill_count": 2383,
+  "last_updated": "2026-03-09T06:32:32.714004",
+  "skill_count": 2348,
   "sources_processed": 19,
   "skills": [
     {
@@ -1012,14 +1012,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-python-security-auditor",
-      "original_name": "python-security-auditor",
-      "description": "Python Security Auditor",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-mermaid-expert",
       "original_name": "mermaid-expert",
       "description": "Create Mermaid diagrams for flowcharts, sequences, ERDs, and architectures. Masters syntax for all diagram types and styling.",
@@ -1324,14 +1316,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-aws-mcp-setup",
-      "original_name": "aws-mcp-setup",
-      "description": "Aws Mcp Setup",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-odoo-upgrade-advisor",
       "original_name": "odoo-upgrade-advisor",
       "description": "Step-by-step Odoo version upgrade advisor: pre-upgrade checklist, community vs enterprise upgrade path, OCA module compatibility, and post-upgrade validation.",
@@ -1415,14 +1399,6 @@
       "name": "antigravity-typescript-expert",
       "original_name": "typescript-expert",
       "description": "TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimization, monorepo management, migration strategies, and modern tooling.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-aws-common",
-      "original_name": "aws-common",
-      "description": "Aws Common",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1542,7 +1518,7 @@
     {
       "name": "antigravity-frontend-slides",
       "original_name": "frontend-slides",
-      "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual...",
+      "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -1988,14 +1964,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-jupyter-workflow",
-      "original_name": "jupyter-workflow",
-      "description": "Jupyter Workflow",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-cc-skill-continuous-learning",
       "original_name": "cc-skill-continuous-learning",
       "description": "Development skill from everything-claude-code",
@@ -2316,14 +2284,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-automate-whatsapp",
-      "original_name": "automate-whatsapp",
-      "description": "Automate Whatsapp",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-team-composition-analysis",
       "original_name": "team-composition-analysis",
       "description": "This skill should be used when the user asks to \\\\\\\"plan team structure\", \"determine hiring needs\", \"design org chart\", \"calculate compensation\", \"plan equity allocation\", or requests...",
@@ -2612,14 +2572,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-publish-and-summary",
-      "original_name": "publish-and-summary",
-      "description": "Publish And Summary",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-security-requirement-extraction",
       "original_name": "security-requirement-extraction",
       "description": "Derive security requirements from threat models and business context. Use when translating threats into actionable requirements, creating security user stories, or building security test cases.",
@@ -2764,14 +2716,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-yara-authoring",
-      "original_name": "yara-authoring",
-      "description": "Yara Authoring",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-networkx",
       "original_name": "networkx",
       "description": "Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python. Use when working with network/graph data structures, analyzing relationships between entities, computing graph algorithms (shortest paths, centrality, clustering), detecting...",
@@ -2831,14 +2775,6 @@
       "name": "antigravity-database-design",
       "original_name": "database-design",
       "description": "Database design principles and decision-making. Schema design, indexing strategy, ORM selection, serverless databases.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-research-engineer",
-      "original_name": "research-engineer",
-      "description": "Research Engineer",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3052,9 +2988,9 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-proof-of-vulnerability",
-      "original_name": "proof-of-vulnerability",
-      "description": "Proof Of Vulnerability",
+      "name": "antigravity-shadcn",
+      "original_name": "shadcn",
+      "description": "Manages shadcn/ui components and projects, providing context, documentation, and usage patterns for building modern design systems.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3119,14 +3055,6 @@
       "name": "antigravity-azure-ai-document-intelligence-ts",
       "original_name": "azure-ai-document-intelligence-ts",
       "description": "Extract text, tables, and structured data from documents using Azure Document Intelligence (@azure-rest/ai-document-intelligence). Use when processing invoices, receipts, IDs, forms, or building cu...",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-rails-upgrade",
-      "original_name": "rails-upgrade",
-      "description": "Rails Upgrade",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3439,14 +3367,6 @@
       "name": "antigravity-algolia-search",
       "original_name": "algolia-search",
       "description": "Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and relevance tuning Use when: adding search to, algolia, instantsearch, search api, search functionality.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-vercel-deploy-claimable",
-      "original_name": "vercel-deploy-claimable",
-      "description": "Vercel Deploy Claimable",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3796,14 +3716,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-great-tables",
-      "original_name": "great-tables",
-      "description": "Great Tables",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-tdd-workflows-tdd-green",
       "original_name": "tdd-workflows-tdd-green",
       "description": "Implement the minimal code needed to make failing tests pass in the TDD green phase.",
@@ -3908,14 +3820,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-literature-analysis",
-      "original_name": "literature-analysis",
-      "description": "Literature Analysis",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-interactive-portfolio",
       "original_name": "interactive-portfolio",
       "description": "Expert in building portfolios that actually land jobs and clients - not just showing work, but creating memorable experiences. Covers developer portfolios, designer portfolios, creative portfolios,...",
@@ -4004,14 +3908,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-data-visualization",
-      "original_name": "data-visualization",
-      "description": "Data Visualization",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-instagram-automation",
       "original_name": "instagram-automation",
       "description": "Automate Instagram tasks via Rube MCP (Composio): create posts, carousels, manage media, get insights, and publishing limits. Always search tools first for current schemas.",
@@ -4060,14 +3956,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-building-secure-contracts",
-      "original_name": "building-secure-contracts",
-      "description": "Building Secure Contracts",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-stride-analysis-patterns",
       "original_name": "stride-analysis-patterns",
       "description": "Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, conducting threat modeling sessions, or creating security documentation.",
@@ -4103,14 +3991,6 @@
       "name": "antigravity-threejs-lighting",
       "original_name": "threejs-lighting",
       "description": "Three.js lighting - light types, shadows, environment lighting. Use when adding lights, configuring shadows, setting up IBL, or optimizing lighting performance.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-numpy",
-      "original_name": "numpy",
-      "description": "Numpy",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4660,6 +4540,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-senior-frontend",
+      "original_name": "senior-frontend",
+      "description": "Frontend development skill for React, Next.js, TypeScript, and Tailwind CSS applications. Use when building React components, optimizing Next.js performance, analyzing bundle sizes, scaffolding frontend projects, implementing accessibility, or reviewing frontend code quality.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-seo-cannibalization-detector",
       "original_name": "seo-cannibalization-detector",
       "description": "Analyzes multiple provided pages to identify keyword overlap and potential cannibalization issues. Suggests differentiation strategies. Use PROACTIVELY when reviewing similar content.",
@@ -4684,9 +4572,9 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-integrate-whatsapp",
-      "original_name": "integrate-whatsapp",
-      "description": "Integrate Whatsapp",
+      "name": "antigravity-pakistan-payments-stack",
+      "original_name": "pakistan-payments-stack",
+      "description": "Design and implement Pakistani payment gateways (JazzCash, Easypaisa, local banks) in production SaaS stacks with robust PKR billing, webhooks, and reconciliation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5244,14 +5132,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-aws-cost-ops",
-      "original_name": "aws-cost-ops",
-      "description": "Aws Cost Ops",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-distributed-tracing",
       "original_name": "distributed-tracing",
       "description": "Implement distributed tracing with Jaeger and Tempo to track requests across microservices and identify performance bottlenecks. Use when debugging microservices, analyzing request flows, or implem...",
@@ -5796,14 +5676,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-rust-security-auditor",
-      "original_name": "rust-security-auditor",
-      "description": "Rust Security Auditor",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-plan-writing",
       "original_name": "plan-writing",
       "description": "Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work.",
@@ -5871,14 +5743,6 @@
       "name": "antigravity-backend-development-feature-development",
       "original_name": "backend-development-feature-development",
       "description": "Orchestrate end-to-end backend feature development from requirements to deployment. Use when coordinating multi-phase feature delivery across teams and services.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-grimoire",
-      "original_name": "grimoire",
-      "description": "Grimoire",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6300,14 +6164,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-pandas",
-      "original_name": "pandas",
-      "description": "Pandas",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-fp-taskeither-ref",
       "original_name": "fp-taskeither-ref",
       "description": "Quick reference for TaskEither. Use when user needs async error handling, API calls, or Promise-based operations that can fail.",
@@ -6524,14 +6380,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-workflow-skill-design",
-      "original_name": "workflow-skill-design",
-      "description": "Workflow Skill Design",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-makepad-dsl",
       "original_name": "makepad-dsl",
       "description": "CRITICAL: Use for Makepad DSL syntax and inheritance. Triggers on:\nmakepad dsl, live_design, makepad inheritance, makepad prototype,\n\"<Widget>\", \"Foo = { }\", makepad object, makepad property,\nmakepad DSL \u8bed\u6cd5, makepad \u7ee7\u627f, makepad \u539f\u578b, \u5982\u4f55\u5b9a\u4e49 makepad \u7ec4\u4ef6\n",
@@ -6660,14 +6508,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-osint-evals",
-      "original_name": "osint-evals",
-      "description": "Osint Evals",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-architecture",
       "original_name": "architecture",
       "description": "Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.",
@@ -6703,14 +6543,6 @@
       "name": "antigravity-nutrition-analyzer",
       "original_name": "nutrition-analyzer",
       "description": "\u5206\u6790\u8425\u517b\u6570\u636e\u3001\u8bc6\u522b\u8425\u517b\u6a21\u5f0f\u3001\u8bc4\u4f30\u8425\u517b\u72b6\u51b5\uff0c\u5e76\u63d0\u4f9b\u4e2a\u6027\u5316\u8425\u517b\u5efa\u8bae\u3002\u652f\u6301\u4e0e\u8fd0\u52a8\u3001\u7761\u7720\u3001\u6162\u6027\u75c5\u6570\u636e\u7684\u5173\u8054\u5206\u6790\u3002",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-quantitative-analysis",
-      "original_name": "quantitative-analysis",
-      "description": "Quantitative Analysis",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6796,25 +6628,9 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-monte-carlo-treasury",
-      "original_name": "monte-carlo-treasury",
-      "description": "Monte Carlo Treasury",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-tiktok-automation",
       "original_name": "tiktok-automation",
       "description": "Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, and view user profiles/stats. Always search tools first for current schemas.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-security-skill-creator",
-      "original_name": "security-skill-creator",
-      "description": "Security Skill Creator",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7236,14 +7052,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-static-analysis",
-      "original_name": "static-analysis",
-      "description": "Static Analysis",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-codex-review",
       "original_name": "codex-review",
       "description": "Professional code review with auto CHANGELOG generation, integrated with Codex AI",
@@ -7428,14 +7236,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-scipy",
-      "original_name": "scipy",
-      "description": "Scipy",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-startup-business-analyst-financial-projections",
       "original_name": "startup-business-analyst-financial-projections",
       "description": "Create detailed 3-5 year financial model with revenue, costs, cash\nflow, and scenarios\n",
@@ -7519,6 +7319,14 @@
       "name": "antigravity-seo-content-refresher",
       "original_name": "seo-content-refresher",
       "description": "Identifies outdated elements in provided content and suggests updates to maintain freshness. Finds statistics, dates, and examples that need updating. Use PROACTIVELY for older content.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-audit-skills",
+      "original_name": "audit-skills",
+      "description": "Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identify malicious patterns, data leaks, system stability risks, and obfuscated payloads across Windows, macOS, Linux/Unix, and Mobile (Android/iOS).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7780,14 +7588,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-golang-security-auditor",
-      "original_name": "golang-security-auditor",
-      "description": "Golang Security Auditor",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-azure-ai-agents-persistent-dotnet",
       "original_name": "azure-ai-agents-persistent-dotnet",
       "description": "Azure AI Agents Persistent SDK for .NET. Low-level SDK for creating and managing AI agents with threads, messages, runs, and tools.",
@@ -7948,14 +7748,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-pygraphistry",
-      "original_name": "pygraphistry",
-      "description": "Pygraphistry",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-close-automation",
       "original_name": "close-automation",
       "description": "Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and track notes. Always search tools first for current schemas.",
@@ -8084,14 +7876,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-it-depends",
-      "original_name": "it-depends",
-      "description": "It Depends",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-sast-configuration",
       "original_name": "sast-configuration",
       "description": "Configure Static Application Security Testing (SAST) tools for automated vulnerability detection in application code. Use when setting up security scanning, implementing DevSecOps practices, or aut...",
@@ -8122,14 +7906,6 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Unknown"
-    },
-    {
-      "name": "antigravity-monte-carlo-vulnerability-detection",
-      "original_name": "monte-carlo-vulnerability-detection",
-      "description": "Monte Carlo Vulnerability Detection",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
     },
     {
       "name": "antigravity-issues",
@@ -8215,14 +7991,6 @@
       "name": "antigravity-dependency-upgrade",
       "original_name": "dependency-upgrade",
       "description": "Manage major dependency version upgrades with compatibility analysis, staged rollout, and comprehensive testing. Use when upgrading framework versions, updating major dependencies, or managing brea...",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-risk-modeling",
-      "original_name": "risk-modeling",
-      "description": "Risk Modeling",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8423,14 +8191,6 @@
       "name": "antigravity-seo-fundamentals",
       "original_name": "seo-fundamentals",
       "description": "Core principles of SEO including E-E-A-T, Core Web Vitals, technical foundations, content quality, and how modern search engines evaluate pages.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-umap",
-      "original_name": "umap",
-      "description": "Umap",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8684,14 +8444,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-polyfile",
-      "original_name": "polyfile",
-      "description": "Polyfile",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-figma-automation",
       "original_name": "figma-automation",
       "description": "Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. Always search tools first for current schemas.",
@@ -8703,14 +8455,6 @@
       "name": "antigravity-segment-automation",
       "original_name": "segment-automation",
       "description": "Automate Segment tasks via Rube MCP (Composio): track events, identify users, manage groups, page views, aliases, batch operations. Always search tools first for current schemas.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-aws-agentic-ai",
-      "original_name": "aws-agentic-ai",
-      "description": "Aws Agentic Ai",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9103,14 +8847,6 @@
       "name": "antigravity-agents-v2-py",
       "original_name": "agents-v2-py",
       "description": "Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). Use when creating hosted agents with custom container images in Azure AI Foundry.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-testing-handbook-skills",
-      "original_name": "testing-handbook-skills",
-      "description": "Testing Handbook Skills",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9716,14 +9452,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-observe-whatsapp",
-      "original_name": "observe-whatsapp",
-      "description": "Observe Whatsapp",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-laravel-security-audit",
       "original_name": "laravel-security-audit",
       "description": "Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and insecure practices using OWASP standards and Laravel security best practices.",
@@ -9940,25 +9668,9 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-open-source-context",
-      "original_name": "open-source-context",
-      "description": "Open Source Context",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-odoo-accounting-setup",
       "original_name": "odoo-accounting-setup",
       "description": "Expert guide for configuring Odoo Accounting: chart of accounts, journals, fiscal positions, taxes, payment terms, and bank reconciliation.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-operational-guidelines",
-      "original_name": "operational-guidelines",
-      "description": "Operational Guidelines",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10052,25 +9764,9 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-aws-cdk-development",
-      "original_name": "aws-cdk-development",
-      "description": "Aws Cdk Development",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-wiki-qa",
       "original_name": "wiki-qa",
       "description": "Answers questions about a code repository using source file analysis. Use when the user asks a question about how something works, wants to understand a component, or needs help navigating the code...",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-culture-index",
-      "original_name": "culture-index",
-      "description": "Culture Index",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10332,14 +10028,6 @@
       "license": "MIT"
     },
     {
-      "name": "antigravity-paper-analysis",
-      "original_name": "paper-analysis",
-      "description": "Paper Analysis",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
       "name": "antigravity-square-automation",
       "original_name": "square-automation",
       "description": "Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search tools first for current schemas.",
@@ -10447,14 +10135,6 @@
       "name": "antigravity-ai-wrapper-product",
       "original_name": "ai-wrapper-product",
       "description": "Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people will pay for. Not just 'ChatGPT but different' - products that solve specific problems with AI. Cov...",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-aws-serverless-eda",
-      "original_name": "aws-serverless-eda",
-      "description": "Aws Serverless Eda",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17540,17 +17220,17 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-110-project-docs-coordinator",
-      "original_name": "ln-110-project-docs-coordinator",
-      "description": "Coordinates project documentation creation. Gathers context once, detects project type, delegates to specialized workers (ln-111-115).",
+      "name": "levn-ln-830-code-modernization-coordinator",
+      "original_name": "ln-830-code-modernization-coordinator",
+      "description": "Coordinates code modernization: OSS replacement and bundle optimization workers",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
     },
     {
-      "name": "levn-ln-005-multi-agent-context-review",
-      "original_name": "ln-005-multi-agent-context-review",
-      "description": "Multi-agent context review: delegates plans, decisions, documents, architecture proposals to external agents (Codex + Gemini) for independent review with debate protocol. Works in Plan Mode.",
+      "name": "levn-ln-110-project-docs-coordinator",
+      "original_name": "ln-110-project-docs-coordinator",
+      "description": "Coordinates project documentation creation. Gathers context once, detects project type, delegates to specialized workers (ln-111-115).",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17612,6 +17292,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-822-nuget-upgrader",
+      "original_name": "ln-822-nuget-upgrader",
+      "description": "Upgrades .NET NuGet packages with breaking change handling",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-402-task-reviewer",
       "original_name": "ln-402-task-reviewer",
       "description": "Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tasks for side-effect issues. Sets task Done or To Rework. Runs inline from coordinator.",
@@ -17622,7 +17310,23 @@
     {
       "name": "levn-ln-510-quality-coordinator",
       "original_name": "ln-510-quality-coordinator",
-      "description": "Coordinates code quality checks: ln-511 code quality, ln-512 tech debt cleanup, ln-513 agent review, ln-514 regression. Sequential pipeline, returns quality_verdict + aggregated results.",
+      "description": "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-514 regression. Returns quality_verdict + aggregated results.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-811-algorithm-optimizer",
+      "original_name": "ln-811-algorithm-optimizer",
+      "description": "Optimizes algorithms via autoresearch loop: benchmark, research, hypothesize, keep/discard",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-810-performance-optimization-coordinator",
+      "original_name": "ln-810-performance-optimization-coordinator",
+      "description": "Coordinates performance optimization: algorithm, query, and runtime workers in parallel",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17655,6 +17359,14 @@
       "name": "levn-ln-652-transaction-correctness-auditor",
       "original_name": "ln-652-transaction-correctness-auditor",
       "description": "Checks transaction scope, missing rollback handling, long-held transactions, trigger/notify interaction. Returns findings with severity, location, effort.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-832-bundle-optimizer",
+      "original_name": "ln-832-bundle-optimizer",
+      "description": "Reduces JS/TS bundle size via unused deps, tree-shaking, code splitting with keep/discard",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17708,17 +17420,9 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-711-npm-upgrader",
-      "original_name": "ln-711-npm-upgrader",
-      "description": "Upgrades npm/yarn/pnpm dependencies with breaking change handling",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-221-story-creator",
       "original_name": "ln-221-story-creator",
-      "description": "Creates Stories from IDEAL plan (CREATE) or appends user-requested Stories (ADD). Generates 8-section documents, validates INVEST, creates in Linear.",
+      "description": "Creates Stories from IDEAL plan (CREATE) or appends user-requested Stories (ADD). Generates 9-section documents, validates INVEST, creates in Linear.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17740,6 +17444,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-823-pip-upgrader",
+      "original_name": "ln-823-pip-upgrader",
+      "description": "Upgrades Python pip/poetry/pipenv dependencies with breaking change handling",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-750-commands-generator",
       "original_name": "ln-750-commands-generator",
       "description": "Generates project-specific .claude/commands for Claude Code",
@@ -17751,6 +17463,14 @@
       "name": "levn-ln-622-build-auditor",
       "original_name": "ln-622-build-auditor",
       "description": "Checks compiler/linter errors, deprecation warnings, type errors, failed tests, build config issues. Returns findings with severity, location, effort, recommendations.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-005-environment-scanner",
+      "original_name": "ln-005-environment-scanner",
+      "description": "Probes CLI agents (Codex, Gemini) and writes docs/environment_state.json \u2014 agent availability config for Phase 0",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17924,6 +17644,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-812-query-optimizer",
+      "original_name": "ln-812-query-optimizer",
+      "description": "Fixes N+1 queries, redundant fetches, over-fetching with keep/discard verification",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-653-runtime-performance-auditor",
       "original_name": "ln-653-runtime-performance-auditor",
       "description": "Checks blocking IO in async, unnecessary allocations, sync sleep, string concat in loops, missing to_thread, redundant copies. Returns findings with severity and effort.",
@@ -17996,17 +17724,17 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-513-agent-reviewer",
-      "original_name": "ln-513-agent-reviewer",
-      "description": "Runs parallel external agent reviews (Codex + Gemini) on code changes. Process-as-arrive, critical verification with debate. Returns filtered suggestions.",
+      "name": "levn-ln-721-frontend-restructure",
+      "original_name": "ln-721-frontend-restructure",
+      "description": "Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-based architecture",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
     },
     {
-      "name": "levn-ln-721-frontend-restructure",
-      "original_name": "ln-721-frontend-restructure",
-      "description": "Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-based architecture",
+      "name": "levn-ln-310-multi-agent-validator",
+      "original_name": "ln-310-multi-agent-validator",
+      "description": "Validates Stories/Tasks or context via parallel multi-agent review (Codex + Gemini). Merges findings, debates, applies fixes. GO/NO-GO verdict.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18020,25 +17748,17 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-712-nuget-upgrader",
-      "original_name": "ln-712-nuget-upgrader",
-      "description": "Upgrades .NET NuGet packages with breaking change handling",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-310-story-validator",
-      "original_name": "ln-310-story-validator",
-      "description": "Validates Stories/Tasks: GO/NO-GO verdict, Readiness Score (1-10), Penalty Points (Before/After), Anti-Hallucination. Auto-fixes fixable violations, FLAGs unfixable. Delegates to ln-002 for docs.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-100-documents-pipeline",
       "original_name": "ln-100-documents-pipeline",
-      "description": "Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs) + ln-120-150 workers. Phase 4: global cleanup. Idempotent.",
+      "description": "Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs) + ln-120-150 workers. Phase 3: global cleanup. Idempotent.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-813-runtime-optimizer",
+      "original_name": "ln-813-runtime-optimizer",
+      "description": "Fixes blocking IO, unnecessary allocations, sync-in-async with keep/discard verification",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18047,14 +17767,6 @@
       "name": "levn-ln-002-best-practices-researcher",
       "original_name": "ln-002-best-practices-researcher",
       "description": "Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/research). Single research, multiple output types.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-710-dependency-upgrader",
-      "original_name": "ln-710-dependency-upgrader",
-      "description": "Coordinates dependency upgrades across all detected package managers",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18086,23 +17798,15 @@
     {
       "name": "levn-ln-1000-pipeline-orchestrator",
       "original_name": "ln-1000-pipeline-orchestrator",
-      "description": "Meta-orchestrator: reads kanban board, lets user pick ONE Story, drives it through pipeline 300->310->400->500 via TeamCreate. User-confirmed merge to develop after quality gate PASS.",
+      "description": "Meta-orchestrator: reads kanban board, lets user pick ONE Story, drives it through pipeline 300->310->400->500 via TeamCreate. Creates worktree isolation; coordinates workers + reports.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
     },
     {
-      "name": "levn-ln-311-agent-reviewer",
-      "original_name": "ln-311-agent-reviewer",
-      "description": "Runs parallel external agent reviews (Codex + Gemini) on Story/Tasks. Process-as-arrive, critical verification with debate. Returns filtered suggestions.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-713-pip-upgrader",
-      "original_name": "ln-713-pip-upgrader",
-      "description": "Upgrades Python pip/poetry/pipenv dependencies with breaking change handling",
+      "name": "levn-ln-004-agent-config-sync",
+      "original_name": "ln-004-agent-config-sync",
+      "description": "Sync skills (symlinks) and MCP settings from Claude to Gemini CLI and Codex CLI",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18196,6 +17900,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-821-npm-upgrader",
+      "original_name": "ln-821-npm-upgrader",
+      "description": "Upgrades npm/yarn/pnpm dependencies with breaking change handling",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-775-api-docs-generator",
       "original_name": "ln-775-api-docs-generator",
       "description": "Configures Swagger/OpenAPI documentation",
@@ -18231,6 +17943,14 @@
       "name": "levn-ln-646-project-structure-auditor",
       "original_name": "ln-646-project-structure-auditor",
       "description": "Audits project physical structure: file hygiene, ignore file quality, framework convention compliance, domain/layer organization, naming conventions. Stack-adaptive via auto-detection.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-831-oss-replacer",
+      "original_name": "ln-831-oss-replacer",
+      "description": "Replaces custom modules with OSS packages using ln-645 migration plans, atomic keep/discard",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18284,17 +18004,17 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-630-test-auditor",
-      "original_name": "ln-630-test-auditor",
-      "description": "Test suite audit coordinator. Delegates to 5 workers (Business Logic, E2E, Value, Coverage, Isolation). Aggregates results into docs/project/test_audit.md.",
+      "name": "levn-ln-820-dependency-optimization-coordinator",
+      "original_name": "ln-820-dependency-optimization-coordinator",
+      "description": "Coordinates dependency upgrades across all detected package managers",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
     },
     {
-      "name": "levn-ln-004-agent-sync",
-      "original_name": "ln-004-agent-sync",
-      "description": "Sync skills (symlinks) and MCP settings from Claude to Gemini CLI and Codex CLI",
+      "name": "levn-ln-630-test-auditor",
+      "original_name": "ln-630-test-auditor",
+      "description": "Test suite audit coordinator. Delegates to 5 workers (Business Logic, E2E, Value, Coverage, Isolation). Aggregates results into docs/project/test_audit.md.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

@@ -51,16 +51,16 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 |-------|------|-------------|
 | `complete` | boolean | `false` while pipeline running, `true` before cleanup |
 | `selected_story_id` | string | Story ID selected by user for this pipeline run |
-| `stories_remaining` | number | 1 if story not yet DONE/PAUSED/PENDING_MERGE, else 0 |
+| `stories_remaining` | number | 1 if story not yet DONE/PAUSED, else 0 |
 | `last_check` | string | ISO 8601 timestamp of last state update |
-| `story_state` | object | `{storyId: "STAGE_0"\|"STAGE_1"\|...\|"PENDING_MERGE"\|"DONE"\|"PAUSED"}` |
+| `story_state` | object | `{storyId: "STAGE_0"\|"STAGE_1"\|"STAGE_2"\|"STAGE_3"\|"DONE"\|"PAUSED"}` |
 | `worker_map` | object | `{storyId: worker_name}` — assigned worker |
 | `quality_cycles` | object | `{storyId: count}` — FAIL->retry counter (limit 2) |
+| `previous_quality_score` | object | `{storyId: score}` — quality score from first Stage 3 FAIL (for rework degradation comparison). Absent until first FAIL. |
 | `validation_retries` | object | `{storyId: count}` — NO-GO retry counter (limit 1) |
 | `crash_count` | object | `{storyId: count}` — crash respawn counter (limit 1) |
 | `story_results` | object | `{storyId: {stage0: "...", stage1: "...", ...}}` — per-stage results for report |
 | `infra_issues` | array | `[{phase, type, message}]` — infrastructure issues for report |
-| `worktree_map` | object | `{storyId: worktree_dir}` — story -> worktree mapping |
 | `status_cache` | object | `{statusName: statusUUID}` — Linear status name->UUID mapping (empty if file mode) |
 | `stage_timestamps` | object | `{storyId: {stage_N_start: ISO, stage_N_end: ISO}}` — per-stage duration tracking |
 | `git_stats` | object | `{storyId: {lines_added, lines_deleted, files_changed}}` — code output metrics |
@@ -72,7 +72,6 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `skill_repo_path` | string | Skills repository absolute path (for recovery hook) |
 | `project_brief` | object | `{name, tech, type, key_rules}` — project context from CLAUDE.md |
 | `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — orchestrator brief from Linear |
-| `merge_status` | string | `"pending"` \| `"merged"` \| `"declined"` — merge confirmation result |
 
 **Example:**
 ```json
@@ -84,15 +83,14 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
   "story_state": { "API-427": "STAGE_2" },
   "worker_map": { "API-427": "story-API-427-s2" },
   "quality_cycles": { "API-427": 0 },
+  "previous_quality_score": {},
   "validation_retries": { "API-427": 0 },
   "crash_count": { "API-427": 0 },
   "story_results": { "API-427": { "stage0": "skip", "stage1": "skip" } },
   "infra_issues": [],
-  "worktree_map": { "API-427": ".worktrees/story-API-427" },
   "stage_timestamps": { "API-427": { "stage_2_start": "2026-02-13T13:00:00Z" } },
   "git_stats": {},
-  "pipeline_start_time": "2026-02-13T12:55:00Z",
-  "merge_status": "pending"
+  "pipeline_start_time": "2026-02-13T12:55:00Z"
 }
 ```
 
@@ -108,7 +106,7 @@ Lead executes on confirmed crash (3-step protocol passed):
    IF resume succeeds → worker continues where it left off → DONE
 
 3. Fallback — new worker with checkpoint context:
-   prompt = worker_prompt(story, checkpoint.stage, business_answers, worktree_map[id], project_root) + CHECKPOINT_RESUME block
+   prompt = worker_prompt(story, checkpoint.stage, business_answers) + CHECKPOINT_RESUME block
    Task(name: "story-{id}-s{N}-retry", team_name: "pipeline-{date}",
         model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
         prompt: prompt)

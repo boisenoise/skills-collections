@@ -108,7 +108,7 @@ ELSE:
 | Criteria Validation (3 checks) | RUN | RUN | Cheap, validates AC coverage |
 | ln-511 metrics + static analysis | RUN | **RUN** | **Catches complexity/DRY/dead code that per-task review misses** |
 | ln-511 MCP Ref (OPT-, BP-, PERF-) | RUN | **SKIP** | Expensive external calls |
-| ln-513 agent review | RUN | **SKIP** | Expensive external calls |
+| Inline agent review | RUN | **SKIP** | Expensive external calls |
 | ln-520 test planning | RUN | **SKIP** | Redundant for pre-validated |
 | NFR validation | All dims | **Security only** | Perf/Maintainability less critical |
 
@@ -117,7 +117,7 @@ ELSE:
 1) **Invoke ln-510-quality-coordinator** via Skill tool
    - Pass: Story ID (+ `--fast-track` flag if fast_track == true)
    - Full: ln-510 runs: code quality (ln-511) -> criteria validation -> linters -> regression (ln-514)
-   - Fast-track: ln-510 runs: code metrics + static (ln-511 `--skip-mcp-ref`) -> criteria -> linters -> regression (ln-514) — skips MCP Ref/ln-513
+   - Fast-track: ln-510 runs: code metrics + static (ln-511 `--skip-mcp-ref`) -> criteria -> linters -> regression (ln-514) — skips MCP Ref/agent review
 2) **If ln-510 returns FAIL:**
    - Create fix/refactor tasks via ln-301
    - Stop — return to ln-400
@@ -130,7 +130,7 @@ ELSE:
    - **Test task exists, not Done** -> report status, stop
    - **Test task Done** -> proceed to Phase 5
 
-2) **Invoke ln-520-test-planner** via Skill tool (if needed)
+3) **Invoke ln-520-test-planner** via Skill tool (if needed)
    - Pass: Story ID
    - ln-520 runs: research (ln-521) -> manual testing (ln-522) -> auto test planning (ln-523)
 
@@ -160,6 +160,20 @@ ELSE:
    - IF `task_provider` = `linear`: `save_issue({id: storyId, state: "Done"})` for PASS/CONCERNS/WAIVED; create fix tasks for FAIL
    - IF `task_provider` = `file`: `Edit` `**Status:**` line to `Done` in story.md for PASS/CONCERNS/WAIVED; create fix task files for FAIL
 
+### Phase 7: Branch Finalization
+
+**MANDATORY READ:** Load `shared/references/git_worktree_fallback.md`
+
+Runs only when verdict is PASS, CONCERNS, or WAIVED. Consumes verified results from ln-510/ln-514 — does NOT rerun checks.
+
+1. IF uncommitted changes exist → `git add -A && git commit -m "{storyId}: {Story Title}"`
+2. Push branch: `git push -u origin {branch}`
+3. Move Story + Tasks → Done (Linear or kanban)
+4. Report to chat + file: branch name, git stats (files changed, insertions, deletions), quality verdict
+5. Cleanup: `git worktree remove {worktree_dir}` (branch preserved on remote)
+
+**On FAIL verdict:** Skip Phase 7. Create fix tasks, return to ln-400.
+
 **TodoWrite format (mandatory):**
 ```
 - Invoke ln-510-quality-coordinator (in_progress)
@@ -168,14 +182,15 @@ ELSE:
 - Verify test coverage (pending)
 - Calculate Quality Score + NFR (pending)
 - Determine verdict + update Story (pending)
+- Branch finalization (pending)
 ```
 
 ## Worker Invocation (MANDATORY)
 
 | Phase | Worker | Purpose |
 |-------|--------|---------|
-| 2 | ln-510-quality-coordinator | Code quality + criteria + linters + regression |
-| 3 | ln-520-test-planner | Research + manual testing + auto test planning |
+| 3 | ln-510-quality-coordinator | Code quality + criteria + linters + regression |
+| 4 | ln-520-test-planner | Research + manual testing + auto test planning |
 
 **Invocation:**
 ```
@@ -213,6 +228,7 @@ Skill(skill: "ln-520-test-planner", args: "{storyId}")
   issues: [{id: "SEC-001", severity: high|medium|low, finding: "...", action: "..."}]
   ```
 - Story set to Done (PASS/CONCERNS/WAIVED) or fix tasks created (FAIL)
+- Branch finalized: committed, pushed to remote, worktree cleaned up (PASS/CONCERNS/WAIVED)
 - Root cause analysis recorded in architecture_health.md for every FAIL verdict
 - Comment with gate verdict posted
 
@@ -223,6 +239,7 @@ Skill(skill: "ln-520-test-planner", args: "{storyId}")
 - **Quality coordinator:** `../ln-510-quality-coordinator/SKILL.md`
 - **Test planner:** `../ln-520-test-planner/SKILL.md`
 - **Risk-based testing:** `shared/references/risk_based_testing_guide.md`
+- **MANDATORY READ:** `shared/references/git_worktree_fallback.md`
 
 ---
 **Version:** 7.0.0

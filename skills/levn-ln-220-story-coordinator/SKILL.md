@@ -297,7 +297,7 @@ Skill(
 ```
 
 **Worker handles:**
-- Generate Story documents (8 sections, insert Standards Research)
+- Generate Story documents (9 sections, insert Standards Research)
 - Validate INVEST criteria
 - Show preview
 - User confirmation (if autoApprove=false)
@@ -309,6 +309,8 @@ Skill(
 ---
 
 ### Phase 5b: Delegate REPLAN (Existing Stories Found)
+
+**MANDATORY READ:** Load `references/replan_algorithm.md`
 
 **Trigger:** Epic already has Stories (requirements changed)
 
@@ -368,7 +370,7 @@ Skill(
 
 **Worker handles:**
 - Research standards for NEW Story only
-- Generate Story document (8 sections)
+- Generate Story document (9 sections)
 - Validate INVEST criteria
 - Create in Linear (append to existing)
 - Update kanban_board.md
@@ -402,8 +404,6 @@ Mark each as in_progress when starting, completed when done.
 
 ---
 
----
-
 ## Critical Rules
 
 - **Decompose-First:** Build IDEAL Story plan before checking existing Stories (prevents anchoring to suboptimal structure)
@@ -430,7 +430,7 @@ Mark each as in_progress when starting, completed when done.
 
 **Downstream:**
 - **ln-300-task-coordinator** - creates implementation tasks for each Story
-- **ln-310-story-validator** - validates Story structure/content
+- **ln-310-multi-agent-validator** - validates Story structure/content
 - **ln-400-story-executor** - orchestrates task execution for Story
 
 ---
@@ -509,8 +509,6 @@ Mark each as in_progress when starting, completed when done.
 - **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
 - **Decompose-first pattern:** `shared/references/decompose_first_pattern.md`
 - **Numbering conventions:** `shared/references/numbering_conventions.md` (Story sequential across Epics)
-
----
 
 ---
 
