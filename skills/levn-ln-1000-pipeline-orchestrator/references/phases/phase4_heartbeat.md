@@ -16,19 +16,18 @@ Lead detects context loss when:
 ### Recovery Steps
 
 1. **Read** `.pipeline/state.json` → restore ALL state variables including team_name, business_answers, storage_mode, selected_story_id
-2. **Read** SKILL.md (FULL) → restore all phases, rules, error handling, anti-patterns
+2. **Read** SKILL.md (FULL) → restore all phases, rules, error handling, anti-patterns, known issues
 3. **Read** `references/phases/phase4_handlers.md` → restore all ON message handlers
 4. **Read** `references/phases/phase4_heartbeat.md` → restore verification + heartbeat output
-5. **Read** `references/known_issues.md` → restore self-diagnostic patterns
-6. **Set** ephemeral variables: `suspicious_idle = false`, `heartbeat_count = 0`. Run `ToolSearch("+hashline-edit")` for MCP tools
-7. **Resume** event loop: process messages → verify flags → persist state → end turn
+5. **Set** ephemeral variables: `suspicious_idle = false`, `heartbeat_count = 0`. Run `ToolSearch("+hashline-edit")` for MCP tools
+6. **Resume** event loop: process messages → verify flags → persist state → end turn
 
 ### Token Cost
 
 | Scenario | Files Read | Approx Tokens |
 |----------|-----------|---------------|
 | Normal heartbeat (no compression) | 0 | 0 |
-| After compression (one-time recovery) | 4 files | ~2500 |
+| After compression (one-time recovery) | 3 files | ~2200 |
 | Recovery block in stderr (every heartbeat) | -- | ~120 |
 
 ## Active Done-Flag Verification (Step 3)
@@ -68,65 +67,26 @@ IF exists(done_flag_path):
     synthetic_recovery_successful = false
 
     IF checkpoint AND checkpoint.stage == current_stage:
-      # Synthetic recovery based on checkpoint + kanban verification
+      # Synthetic recovery: verify via kanban, then synthesize appropriate ON message
+      Re-read kanban board
+      verified = verify_stage_completion(current_stage, story_id, checkpoint)
 
-      IF current_stage == 0:
-        # Stage 0: Verify tasks created in kanban board
-        Re-read kanban board
-        tasks_exist = count_tasks_under_story(story_id) > 0
-        IF tasks_exist:
-          task_count = count_tasks_under_story(story_id)
-          plan_score = checkpoint.planScore
-          Output: "Recovered Stage 0 completion for {story_id}. {task_count} tasks created."
-          CALL ON "Stage 0 COMPLETE for {story_id}. {task_count} tasks created. Plan score: {plan_score}/4."
-          synthetic_recovery_successful = true
-        ELSE:
-          Output: "Stage 0 checkpoint invalid for {story_id}: tasks not found despite done.flag"
-          CALL ON "Stage 0 ERROR for {story_id}: Tasks not found despite done.flag"
-          synthetic_recovery_successful = true
+      # Stage verification table:
+      # | Stage | Check                    | Success message fields              | Failure message              |
+      # |-------|--------------------------|-------------------------------------|------------------------------|
+      # | 0     | count_tasks > 0          | "{count} tasks. Plan score: {X}/4"  | "Tasks not found"            |
+      # | 1     | story_status == "Todo"   | "Verdict: GO. Readiness: {X}"       | "Verdict: NO-GO. Reason: {}" |
+      # | 2     | story_status == "To Review" | "All tasks Done"                 | "Not in To Review"           |
+      # | 3     | checkpoint.verdict in PASS/CONCERNS/WAIVED | "Verdict: {v}. Score: {X}/100" | "Verdict: FAIL. Issues: {}" |
 
-      ELSE IF current_stage == 1:
-        # Stage 1: Verify Story moved to Todo (GO) or still Backlog (NO-GO)
-        Re-read kanban board
-        story_status = get_story_status(story_id)
-        IF story_status == "Todo":
-          readiness = checkpoint.readiness
-          Output: "Recovered Stage 1 completion for {story_id}. Verdict: GO."
-          CALL ON "Stage 1 COMPLETE for {story_id}. Verdict: GO. Readiness: {readiness}."
-          synthetic_recovery_successful = true
-        ELSE:
-          reason = checkpoint.reason
-          readiness = checkpoint.readiness
-          Output: "Recovered Stage 1 completion for {story_id}. Verdict: NO-GO."
-          CALL ON "Stage 1 COMPLETE for {story_id}. Verdict: NO-GO. Readiness: {readiness}. Reason: {reason}"
-          synthetic_recovery_successful = true
-
-      ELSE IF current_stage == 2:
-        # Stage 2: Verify Story moved to To Review
-        Re-read kanban board
-        story_status = get_story_status(story_id)
-        IF story_status == "To Review":
-          Output: "Recovered Stage 2 completion for {story_id}. Story in To Review."
-          CALL ON "Stage 2 COMPLETE for {story_id}. All tasks Done. Story set to To Review."
-          synthetic_recovery_successful = true
-        ELSE:
-          Output: "Stage 2 checkpoint invalid for {story_id}: Story not in To Review despite done.flag"
-          CALL ON "Stage 2 ERROR for {story_id}: Story not in To Review despite done.flag"
-          synthetic_recovery_successful = true
-
-      ELSE IF current_stage == 3:
-        # Stage 3: Verify verdict from checkpoint
-        verdict = checkpoint.verdict
-        score = checkpoint.qualityScore
-        IF verdict in ["PASS", "CONCERNS", "WAIVED"]:
-          Output: "Recovered Stage 3 completion for {story_id}. Verdict: {verdict}."
-          CALL ON "Stage 3 COMPLETE for {story_id}. Verdict: {verdict}. Quality Score: {score}/100."
-          synthetic_recovery_successful = true
-        ELSE:
-          issues = checkpoint.issues
-          Output: "Recovered Stage 3 completion for {story_id}. Verdict: FAIL."
-          CALL ON "Stage 3 COMPLETE for {story_id}. Verdict: FAIL. Quality Score: {score}/100. Issues: {issues}"
-          synthetic_recovery_successful = true
+      IF verified:
+        Output: "Recovered Stage {current_stage} completion for {story_id}."
+        CALL ON "Stage {current_stage} COMPLETE for {story_id}. {success_fields}"
+        synthetic_recovery_successful = true
+      ELSE:
+        Output: "Stage {current_stage} recovery failed for {story_id}."
+        CALL ON "Stage {current_stage} ERROR for {story_id}: {failure_reason}"
+        synthetic_recovery_successful = true
 
     IF NOT synthetic_recovery_successful:
       # Checkpoint missing/invalid - fallback to probe protocol
@@ -141,16 +101,8 @@ IF exists(done_flag_path):
 
 ```
 ON HEARTBEAT (Stop hook stderr: "HEARTBEAT: ..."):
-  Write .pipeline/state.json with ALL state variables:
-    complete, selected_story_id,
-    stories_remaining = (1 if story_state[selected_story_id] NOT IN ("DONE", "PAUSED") else 0),
-    last_check=now,
-    story_state, worker_map, quality_cycles, previous_quality_score, validation_retries,
-    crash_count, story_results, infra_issues,
-    stage_timestamps, git_stats,
-    pipeline_start_time, readiness_scores, team_name,
-    business_answers, storage_mode, status_cache, skill_repo_path,
-    project_brief, story_briefs
+  Write .pipeline/state.json with ALL variables per checkpoint_format.md → Pipeline State Schema.
+  Additionally: stories_remaining = (1 if story NOT DONE/PAUSED else 0), last_check = now().
   # Full state write enables Phase 0 recovery if lead crashes between heartbeats
 ```
 
@@ -170,9 +122,16 @@ ON NO NEW MESSAGES (heartbeat cycle with no worker updates):
   story_id = selected_story_id
   current_stage = extract_stage_number(story_state[story_id])
 
-  # Determine current activity from checkpoint
+  # Determine current activity from plan_approved flag + checkpoint
   checkpoint = read(".pipeline/checkpoint-{story_id}.json") if exists
-  IF checkpoint:
+  IF plan_approved[story_id]:
+    activity = "Plan approved, spawning execute worker"
+    progress_fraction = "—"
+  ELSE IF NOT checkpoint:
+    # No checkpoint = plan worker still analyzing (or just spawned)
+    activity = "Plan worker analyzing (Stage {current_stage})"
+    progress_fraction = "plan {plan_revision_count[current_stage]}/2 revisions"
+  ELSE IF checkpoint:
     activity = checkpoint.lastAction OR skill_name_from_stage(current_stage)
     progress_fraction = "{len(checkpoint.tasksCompleted)}/{len(checkpoint.tasksCompleted)+len(checkpoint.tasksRemaining)}"
   ELSE:
@@ -224,7 +183,7 @@ next_steps = {
   0: "Validation (ln-310) -> Todo",
   1: "Execution (ln-400) -> To Review",
   2: "Quality Gate (ln-500) -> Done/To Rework",
-  3: "Sync with develop -> User confirmation -> Done"
+  3: "Branch finalization (ln-500) -> Done"
 }
 RETURN next_steps[current_stage]
 ```
@@ -248,5 +207,5 @@ ELSE:
 - **Checkpoint Format:** `checkpoint_format.md`
 
 ---
-**Version:** 2.0.0
-**Last Updated:** 2026-02-25
+**Version:** 3.0.0
+**Last Updated:** 2026-03-09

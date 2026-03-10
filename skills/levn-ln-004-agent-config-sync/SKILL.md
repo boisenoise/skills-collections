@@ -51,15 +51,18 @@ Detect OS → Discover Configs → Sync Skills → Sync MCP → Report
 
 | Agent | Windows | macOS / Linux |
 |-------|---------|---------------|
-| **Claude** | `%USERPROFILE%\.claude\settings.json` | `~/.claude/settings.json` |
+| **Claude** | `%USERPROFILE%\.claude.json` (primary) | `~/.claude.json` (primary) |
+| **Claude** | `%USERPROFILE%\.claude\settings.json` (fallback) | `~/.claude/settings.json` (fallback) |
 | **Gemini** | `%USERPROFILE%\.gemini\settings.json` | `~/.gemini/settings.json` |
 | **Codex** | `%USERPROFILE%\.codex\config.toml` | `~/.codex/config.toml` |
 
 ### Phase 1: Discover Current State
 
-1. **Read Claude settings:**
-   - Parse `~/.claude/settings.json` → extract `mcpServers` block
-   - If no `mcpServers` → WARN "No MCP servers configured in Claude", skip MCP sync
+1. **Read Claude settings (check both sources, merge):**
+   - Parse `~/.claude.json` → extract `mcpServers` block (primary source, app state file)
+   - Parse `~/.claude/settings.json` → extract `mcpServers` block (fallback, user settings file)
+   - Merge: primary overrides fallback by server name
+   - If no `mcpServers` in either → WARN "No MCP servers configured in Claude", skip MCP sync
 
 2. **Read target configs (if exist):**
    - Gemini: Parse `~/.gemini/settings.json` → extract existing `mcpServers`
@@ -111,7 +114,7 @@ FOR EACH target IN (gemini, codex) WHERE target in targets:
 
 ### Phase 3: Sync MCP Settings
 
-**Source:** `~/.claude/settings.json` → `mcpServers` block
+**Source:** `~/.claude.json` (primary) + `~/.claude/settings.json` (fallback) → merged `mcpServers`
 
 #### 3a: Claude → Gemini (JSON → JSON)
 
@@ -120,7 +123,20 @@ FOR EACH target IN (gemini, codex) WHERE target in targets:
 3. **Merge strategy:** Claude servers override Gemini servers by key name. Gemini-only servers preserved.
 4. Write updated `settings.json`
 
-**Conversion:** None needed — identical format.
+**Conversion:** Transport type mapping required:
+
+   | Claude field | Gemini field | Notes |
+   |---|---|---|
+   | `type: "http"` + `url` | `httpUrl` | Streamable HTTP |
+   | `type: "sse"` + `url` | `url` | SSE transport |
+   | `command` + `args` | `command` + `args` + `cwd` | stdio (same format) |
+   | `env` | `env` | Same format (`$VAR_NAME` syntax in Gemini) |
+   | `headers` | `headers` | Same format (JSON object, for `url`/`httpUrl`) |
+
+   **Gemini-only fields (not mapped from Claude):**
+   - `timeout` — request timeout in ms (default: 10min)
+   - `trust` — bypass tool confirmations
+   - `includeTools` / `excludeTools` — tool whitelist/blacklist
 
 #### 3b: Claude → Codex (JSON → TOML)
 
@@ -133,8 +149,9 @@ FOR EACH target IN (gemini, codex) WHERE target in targets:
    | `command` | `command` | Same |
    | `args` | `args` | JSON array → TOML array |
    | `env` | `[mcp_servers.{name}.env]` | Nested table |
-   | `type: "http"` + `url` | `url` | HTTP transport |
-   | `type: "sse"` + `url` | `url` | SSE transport |
+   | `type: "http"` + `url` | `url` | Streamable HTTP (Codex auto-detects by `url` presence) |
+   | `type: "sse"` + `url` | `url` | SSE → Streamable HTTP (same `url` field) |
+   | `headers` | `http_headers` | **Different key name!** Static header values |
 
    **Example conversion:**
    ```json
@@ -152,9 +169,12 @@ FOR EACH target IN (gemini, codex) WHERE target in targets:
 4. **Merge strategy:** Claude servers override. Codex-only servers preserved.
 5. Write updated `config.toml`
 
-**Unsupported conversions (preserve as-is in Codex):**
-- `bearer_token_env_var` — no Claude equivalent
-- `enabled_tools` / `disabled_tools` — no Claude equivalent
+**Codex-only fields (preserve as-is, no Claude equivalent):**
+- `bearer_token_env_var` — Codex bearer token auth
+- `enabled_tools` / `disabled_tools` — Codex tool filtering
+- `startup_timeout_sec` / `tool_timeout_sec` — Codex timeouts
+- `enabled` / `required` — Codex server lifecycle
+- `env_vars` / `env_http_headers` — Codex env-based headers
 
 ### Phase 4: Report
 
@@ -200,5 +220,5 @@ Sync Complete:
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2026-02-15
+**Version:** 1.1.0
+**Last Updated:** 2026-03-09

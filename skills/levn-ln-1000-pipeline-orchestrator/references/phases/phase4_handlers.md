@@ -38,9 +38,11 @@ This prevents double-spawn when same completion message is delivered across hear
 ### ON "Stage 0 COMPLETE for {id}. {N} tasks created. Plan score: {score}/4."
 
 ```
+# VERIFY
 Re-read kanban board
 ASSERT tasks exist under Story {id}         # Guard: verify ln-300 output
-IF tasks missing: story_state[id] = "PAUSED"; ESCALATE; CONTINUE
+ASSERT task count IN 1..8                   # Guard: reasonable task count
+IF ANY ASSERT fails: story_state[id] = "PAUSED"; ESCALATE; CONTINUE
 story_state[id] = "STAGE_1"
 stage_timestamps[id].stage_0_end = now()
 stage_timestamps[id].stage_1_start = now()
@@ -50,11 +52,12 @@ SendMessage(recipient: worker_map[id],
   content: "ACK Stage 0 for {id}", summary: "{id} Stage 0 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
-next_worker = "story-{id}-s1"
+next_worker = "story-{id}-s1-plan"
 Task(name: next_worker, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
-     prompt: worker_prompt(story, 1, business_answers))
+     prompt: plan_only_template(story, 1, business_answers))
 worker_map[id] = next_worker
+plan_approved[id] = false
 Write .pipeline/worker-{next_worker}-active.flag
 story_results[id].stage0 = "{N} tasks, {score}/4"
 ```
@@ -78,8 +81,11 @@ Append story report section to docs/tasks/reports/pipeline-{date}.md (PAUSED)
 ### ON "Stage 1 COMPLETE for {id}. Verdict: GO. Readiness: {score}. Agents: {agents_info}."
 
 ```
+# VERIFY
 Re-read kanban board
 ASSERT Story {id} status = Todo              # Guard: verify ln-310 output
+ASSERT readiness_score >= 5                  # Guard: ln-310 should have set score >= 5 for GO
+IF ANY ASSERT fails: story_state[id] = "PAUSED"; ESCALATE; CONTINUE
 story_state[id] = "STAGE_2"
 stage_timestamps[id].stage_1_end = now()
 stage_timestamps[id].stage_2_start = now()
@@ -89,11 +95,12 @@ SendMessage(recipient: worker_map[id],
   content: "ACK Stage 1 for {id}", summary: "{id} Stage 1 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
-next_worker = "story-{id}-s2"
+next_worker = "story-{id}-s2-plan"
 Task(name: next_worker, team_name: "pipeline-{date}",
-     model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",      # Stage 2 medium effort
-     prompt: worker_prompt(story, 2, business_answers))
+     model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
+     prompt: plan_only_template(story, 2, business_answers))
 worker_map[id] = next_worker
+plan_approved[id] = false
 Write .pipeline/worker-{next_worker}-active.flag
 story_results[id].stage1 = "GO, {score}"
 story_results[id].stage1_agents = "{agents_info}"    # From Agents: field; "N/A" if absent
@@ -111,11 +118,12 @@ IF validation_retries[id] <= 1:
   # Shutdown old worker, spawn fresh for Stage 1 retry
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
-  next_worker = "story-{id}-s1-retry"
+  next_worker = "story-{id}-s1-retry-plan"
   Task(name: next_worker, team_name: "pipeline-{date}",
-       model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",    # Stage 1 = review
-       prompt: worker_prompt(story, 1, business_answers))
+       model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
+       prompt: plan_only_template(story, 1, business_answers))
   worker_map[id] = next_worker
+  plan_approved[id] = false
   Write .pipeline/worker-{next_worker}-active.flag
 ELSE:
   story_state[id] = "PAUSED"
@@ -145,8 +153,12 @@ Append story report section to docs/tasks/reports/pipeline-{date}.md (PAUSED)
 ### ON "Stage 2 COMPLETE for {id}. All tasks Done. Story set to To Review."
 
 ```
+# VERIFY
 Re-read kanban board
 ASSERT Story {id} status = To Review         # Guard: verify ln-400 output
+ASSERT all tasks status = Done               # Guard: ln-400 should have completed all tasks
+ASSERT feature branch has commits: `git log origin/{base_branch}..HEAD --oneline | wc -l` > 0
+IF ANY ASSERT fails: story_state[id] = "PAUSED"; ESCALATE; CONTINUE
 story_state[id] = "STAGE_3"
 stage_timestamps[id].stage_2_end = now()
 stage_timestamps[id].stage_3_start = now()
@@ -156,11 +168,12 @@ SendMessage(recipient: worker_map[id],
   content: "ACK Stage 2 for {id}", summary: "{id} Stage 2 ACK")
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
-next_worker = "story-{id}-s3"
+next_worker = "story-{id}-s3-plan"
 Task(name: next_worker, team_name: "pipeline-{date}",
-     model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",      # Stage 3 = QA
-     prompt: worker_prompt(story, 3, business_answers))
+     model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
+     prompt: plan_only_template(story, 3, business_answers))
 worker_map[id] = next_worker
+plan_approved[id] = false
 Write .pipeline/worker-{next_worker}-active.flag
 story_results[id].stage2 = "Done"
 ```
@@ -179,8 +192,22 @@ SendMessage(type: "shutdown_request", recipient: worker_map[id])
 story_results[id].stage3 = "{verdict} {score}/100"
 story_results[id].stage3_agents = "{agents_info}"    # From Agents: field; "N/A" if absent
 
-# Branch finalization (commit, push, cleanup) handled by ln-500
-# Lead collects branch name + git stats from worker's completion report
+# VERIFY (read-only — lead ASSERTs, ln-500 is sole kanban writer per §9)
+Re-read kanban board
+ASSERT Story {id} status = Done                     # ln-500 set this
+ASSERT all tasks status = Done
+ASSERT branch pushed: `git branch -r` contains feature branch
+# Extract git_stats from stage notes (written by worker in .pipeline/)
+IF .pipeline/stage_3_notes_{id}.md exists:
+  Parse git stats (files_changed, lines_added, lines_deleted) from stage notes
+  git_stats[id] = { files_changed, lines_added, lines_deleted }
+  branch_name = extract branch name from stage notes or Phase 3.4 variable
+ELSE:
+  # Fallback: extract from git directly
+  git_stats[id] = parse `git diff --stat origin/{base_branch}..HEAD`
+  branch_name = `git branch --show-current`
+IF ANY ASSERT fails: WARN user (non-blocking: story likely Done, verification incomplete)
+
 story_state[id] = "DONE"
 Update .pipeline/state.json
 ```
@@ -188,6 +215,10 @@ Update .pipeline/state.json
 ### ON "Stage 3 COMPLETE for {id}. Verdict: FAIL. Quality Score: {score}/100. Issues: {issues}. Agents: {agents_info}."
 
 ```
+# VERIFY (read-only — lead ASSERTs, ln-500 is sole kanban writer per §9)
+Re-read kanban board
+ASSERT Story {id} status = To Rework        # ln-500 set this on FAIL
+
 quality_cycles[id]++
 # ACK: confirm receipt before shutdown (prevents worker retry latency)
 SendMessage(recipient: worker_map[id],
@@ -200,11 +231,12 @@ IF quality_cycles[id] < 2:
   # Shutdown old worker, spawn fresh for Stage 2 re-entry (fix tasks)
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
-  next_worker = "story-{id}-s2-fix{quality_cycles[id]}"
+  next_worker = "story-{id}-s2-fix{quality_cycles[id]}-plan"
   Task(name: next_worker, team_name: "pipeline-{date}",
-       model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",    # Stage 2 medium effort (fix)
-       prompt: worker_prompt(story, 2, business_answers))
+       model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
+       prompt: plan_only_template(story, 2, business_answers))
   worker_map[id] = next_worker
+  plan_approved[id] = false
   Write .pipeline/worker-{next_worker}-active.flag
 ELSE:
   # Score comparison: detect rework degradation (autoresearch pattern)
@@ -224,6 +256,71 @@ ELSE:
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
   story_results[id].stage3 = "FAIL {score}/100 (cycles exhausted, {escalation_msg})"
   Append story report section to docs/tasks/reports/pipeline-{date}.md (PAUSED)
+```
+
+## Plan Gate Handler
+
+### ON "PLAN_RESULT for Stage {N}, Story {id}."
+
+**MANDATORY READ:** Load `references/plan_gate_criteria.md` for auto-approval criteria per stage.
+
+Handles plan submissions from plan-only workers.
+
+```
+# SENDER VALIDATION + STATE GUARD (same as execute workers)
+VERIFY message.sender == worker_map[id]
+IF story_state[id] != "STAGE_{N}": LOG "State mismatch"; re-send ACK; SKIP
+
+# Parse plan JSON from message content (after "Plan: " prefix)
+plan = parse_json(message.content.after("Plan: "))
+
+# Evaluate against criteria (per plan_gate_criteria.md)
+criteria_result = evaluate_plan_criteria(plan, N)
+
+IF criteria_result.pass:
+  # Approve plan — plan worker will write done.flag and shut down
+  SendMessage(recipient: worker_map[id],
+    content: "PLAN_APPROVE for Stage {N}, Story {id}. Proceed with execution.",
+    summary: "{id} Stage {N} plan approved")
+  OUTPUT: "Stage {N} plan approved: {criteria_result.summary}"
+
+  # Wait for plan worker shutdown (done.flag + shutdown), then spawn execute worker
+  # Execute worker spawn happens on next heartbeat after plan worker done.flag detected
+  plan_approved[id] = true    # Flag for heartbeat to spawn execute worker
+
+ELSE IF plan_revision_count[N] < 2:
+  plan_revision_count[N]++
+  SendMessage(recipient: worker_map[id],
+    content: "PLAN_REVISE for Stage {N}, Story {id}. Feedback: {criteria_result.failures}. Revision {plan_revision_count[N]}/2.",
+    summary: "{id} Stage {N} plan revise")
+  OUTPUT: "Stage {N} plan needs revision ({plan_revision_count[N]}/2): {criteria_result.failures}"
+
+ELSE:
+  # Plan rejected — exhausted revisions
+  SendMessage(recipient: worker_map[id],
+    content: "ACK Stage {N} for {id}", summary: "{id} Stage {N} ACK")
+  Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
+  SendMessage(type: "shutdown_request", recipient: worker_map[id])
+  story_state[id] = "PAUSED"
+  ESCALATE: "Plan rejected 2 times for Stage {N}, Story {id}"
+  story_results[id]["stage{N}_plan"] = "REJECTED (2 revisions exhausted)"
+
+Write .pipeline/state.json
+```
+
+### Plan Worker Done-Flag Detection (in heartbeat)
+
+When `plan_approved[id] == true` and plan worker's done.flag exists:
+```
+# Plan worker has shut down after APPROVE — spawn execute worker
+Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
+execute_worker = "story-{id}-s{N}"
+Task(name: execute_worker, team_name: "pipeline-{date}",
+     model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
+     prompt: worker_prompt(story, N, business_answers))
+worker_map[id] = execute_worker
+Write .pipeline/worker-{execute_worker}-active.flag
+plan_approved[id] = false
 ```
 
 ## Crash Detection Handler
@@ -273,5 +370,5 @@ ON TeammateIdle again WITHOUT response:
 - **Checkpoint Format:** `checkpoint_format.md`
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-02-14
+**Version:** 2.0.0
+**Last Updated:** 2026-03-09

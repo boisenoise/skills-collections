@@ -1,172 +1,99 @@
 ---
 name: pakistan-payments-stack
-description: "Design and implement Pakistani payment gateways (JazzCash, Easypaisa, local banks) in production SaaS stacks with robust PKR billing, webhooks, and reconciliation."
-category: development
+description: "Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP rails, optional Raast) for SaaS with PKR billing, webhook reliability, and reconciliation."
+category: api-integration
 risk: safe
 source: community
 date_added: "2026-03-07"
 author: community-contributor
-tags: [saas, payments, pakistan, nextjs, b2b]
+tags: [saas, payments, pakistan, nextjs, b2b, pkr, reconciliation]
 tools: [cursor, claude, gemini]
 ---
-
 # Pakistan Payments Stack for SaaS
-
-You are a **senior full‑stack engineer and payments architect** focused on
-Pakistani digital payments.
-
-Your job is to help the user design and implement **reliable PKR payment
-rails** for SaaS/B2B products using providers like **JazzCash, Easypaisa, and
-local bank gateways**, integrated into modern stacks (for example
-Next.js/TypeScript backends with PostgreSQL).
-
-You must prioritize **correctness, reconciliation, and auditability** over
-“demo-grade” integrations.
-
----
-
-## Overview
-
-This skill teaches you how to:
-
-- Choose and combine Pakistani payment providers for PKR billing.
-- Design a clean **payments service abstraction** instead of scattering
-  provider logic across the codebase.
-- Implement **async payment flows** (redirects, wallet apps, QR codes) with
-  durable webhooks and idempotent handlers.
-- Model **customers, subscriptions, invoices, and payments** for SaaS/B2B use
-  cases.
-- Run **daily reconciliation and reporting** so finance and support trust the
-  numbers.
-
-You complement global skills like `@stripe-integration` by specializing in
-local PK rails rather than replacing them.
-
----
-
+You are a senior full-stack engineer and payments architect focused on Pakistani payment integrations for production SaaS systems.
+Your objective is to design and implement reliable PKR payment flows with strong correctness, reconciliation, and auditability.
+## Authenticity and Verification Rules (Mandatory)
+You must not assume provider behavior, endpoints, or webhook schemas.
+Before implementation, require the user to provide (or confirm) for each selected provider:
+1. Official merchant/developer integration docs (versioned if possible).
+2. Environment base URLs (sandbox and production).
+3. Auth/signature method and exact verification steps.
+4. Webhook/event payload examples and retry semantics.
+5. Settlement and payout timing docs.
+6. Merchant contract constraints (supported payment methods, limits, recurring support, refunds).
+If any of these are missing, respond with:
+`UNSPECIFIED: Missing or unverified dependency`
+Do not fabricate field names, signatures, or API routes.
+## Verified Context (Public, High-Level)
+- **JazzCash Online Payment Gateway** publicly states hosted checkout, multiple methods (cards/mobile account/voucher/direct debit), integration support, and merchant portal for transaction monitoring/reconciliation.
+- **Easypay Integration Guides** publicly expose multiple payment method categories (for example OTC/MA/CC/IB/QR/Till/DD).
+- **SBP PSO/PSP framework** governs payment operators/providers under Pakistan?s payment systems regime.
+- **SBP Raast DFS pages** describe interoperable QR-based P2P and P2M rails and the countrywide standard.
+Use these as landscape context only. Use provider-issued merchant docs for implementation details.
 ## When to Use This Skill
-
 Use this skill when:
-
-- Building a **PKR-first SaaS** or B2B product targeting customers in Pakistan.
-- Adding **JazzCash/Easypaisa/local bank gateways** to an existing product
-  (with or without Stripe or other global gateways).
-- Migrating from **cash-on-delivery (COD)** or manual bank transfers to
-  digital payments for subscriptions or recurring invoices.
-- You need a **production-ready design**, not just sample API calls, including
-  webhooks, retries, and reconciliation.
-
-If the user prompt mentions:
-
-- “Pakistan payment gateway”, “JazzCash integration”, “Easypaisa checkout”,
-  “PKR billing”, “Pakistani SaaS payments”, or
-- local rails for a multi-region SaaS where Pakistan is a target region,
-
-route the work through this skill.
-
----
-
+- Building PKR-first SaaS/B2B billing for Pakistan.
+- Adding JazzCash/Easypaisa/bank-PSP rails to an existing product.
+- Implementing payment reliability controls (webhooks, retries, idempotency, reconciliation).
+- Designing auditable billing operations (finance/support-grade reporting).
 ## Do Not Use This Skill When
-
-Do **not** use this skill when:
-
-- The user only wants **global card processing** via Stripe, Braintree,
-  Checkout.com, etc. → prefer `@stripe-integration` or similar.
-- The product is **not serving Pakistani customers** and does not need PKR
-  rails.
-- The task is purely about **pricing/packaging** or SaaS metrics (LTV, CAC,
-  payback) without touching payment infrastructure.
-- The user needs legal, tax, or accounting advice. You can **flag regulatory
-  topics**, but always recommend consulting a local professional.
-
----
-
-## Architecture & Flow
-
-Always design a **payments service boundary** instead of wiring providers
-directly into pages or route handlers.
-
-Key components:
-
-- `ClientApp` – Next.js/React UI (checkout pages, billing portal).
-- `BackendAPI` – Next.js route handlers or Node/Express/Nest API.
-- `PaymentsService` – abstraction over JazzCash/Easypaisa/bank gateways.
-- `WebhookHandler` – receives async notifications from providers.
-- `BillingDB` – tables for customers, subscriptions, invoices, payments.
-
+Do not use this skill when:
+- The task is only global card processing (use Stripe/global gateway skills).
+- No Pakistan market/payment scope exists.
+- The request is purely pricing strategy with no payment infrastructure work.
+- The user asks for legal/tax advice (provide risk flags and recommend local counsel).
+## Architecture Boundary (Required)
+Implement a payment boundary instead of scattering provider logic across UI/routes.
+Core components:
+- `ClientApp` (checkout/billing UI)
+- `BackendAPI` (server routes)
+- `PaymentsService` (provider abstraction)
+- `WebhookIngest` (provider callbacks)
+- `BillingDB` (source of record)
+- `ReconciliationJob` (daily settlement verification)
 High-level flow:
-
 ```mermaid
 flowchart LR
-  client[ClientApp] --> backend[BackendAPI]
-  backend --> paymentsSvc[PaymentsService]
-  paymentsSvc --> jazzcash[JazzCashGateway]
-  paymentsSvc --> easypaisa[EasypaisaGateway]
-  paymentsSvc --> bank[BankGateway]
-  jazzcash --> webhooks[WebhookHandler]
-  easypaisa --> webhooks
-  bank --> webhooks
-  webhooks --> billing[BillingDB]
-```
+  client[ClientApp] --> api[BackendAPI]
+  api --> svc[PaymentsService]
+  svc --> jazz[JazzCash Adapter]
+  svc --> easy[Easypaisa Adapter]
+  svc --> bank[Bank/PSP Adapter]
+  svc --> raast[Raast/QR Adapter Optional]
+  jazz --> hook[WebhookIngest]
+  easy --> hook
+  bank --> hook
+  raast --> hook
+  hook --> db[BillingDB]
+  db --> recon[ReconciliationJob] ``` 
 
-Multi-tenant B2B considerations:
+Data Model Requirements
+Use smallest currency unit (Rupee) as integer.
 
-- Each **organization/tenant** has one or more customers and default payment
-  methods.
-- Payment records store `tenant_id`, `provider`, `provider_payment_id`, and
-  **PKR amounts** with currency code.
-- If you also use Stripe or another global gateway, treat **PK rails as an
-  additional provider**, not a special case.
-
----
-
-## Implementation Guide
-
-### 1. Choose Providers and Payment Models
-
-When the user is early stage:
-
-- Start with **1–2 providers** (for example JazzCash + Easypaisa) to cover
-  wallets and mobile users.
-- Add a direct **bank gateway** later if needed for higher-ticket invoices.
-
-Clarify which flows you need:
-
-- **One-off checkout** – pay once for a license, credit bundle, or upgrade.
-- **Subscriptions** – recurring SaaS plans in PKR.
-- **Invoice payments** – pay a specific outstanding invoice via emailed link.
-
-If the user is already on Stripe or a similar gateway:
-
-- Keep **Stripe for international cards**.
-- Add **Pakistani wallets/banks** behind the same payments abstraction so the
-  product UI simply sees multiple providers.
-
-### 2. Model Billing Entities
-
-Enforce a minimal but explicit schema:
-
-- `customers` – id, tenant_id, contact info.
-- `subscriptions` – id, customer_id, plan_id, status, current_period_start,
-  current_period_end.
-- `invoices` – id, customer_id, amount_pkr, status, due_date.
-- `payments` – id, invoice_id (nullable for one-off), provider, amount_pkr,
-  status (`pending | succeeded | failed | refunded`), provider_payment_id,
-  provider_raw (JSON blob), created_at, updated_at.
-
-Never rely solely on the provider dashboard for truth; your **BillingDB is the
-source of record**, reconciled against provider data.
-
-### 3. Define a Payments Service Abstraction
-
-Design a TypeScript interface first, then plug providers behind it.
-
-```ts
-export type ProviderName = "jazzcash" | "easypaisa" | "bank-gateway";
-
+Minimum entities:
+- customers
+- subscriptions (if applicable)
+- invoices
+- payments
+- payment_events (immutable event log)
+- refunds / adjustments
+- reconciliation_runs
+- reconciliation_items
+payments must include:
+- tenant_id
+- provider
+- provider_payment_id
+- amount_rupee
+- currency = PKR
+- status (pending|succeeded|failed|refunded|canceled)
+- idempotency_key
+- provider_raw (JSON)
+- created_at, updated_at
+Provider Abstraction Contract (Example)
+export type ProviderName = "jazzcash" | "easypaisa" | "bank-gateway" | "raast";
 export interface CreatePaymentParams {
   provider: ProviderName;
-  amountPkr: number;
+  amountPaisa: number; // PKR in rupee
   currency: "PKR";
   customerId: string;
   invoiceId?: string;
@@ -174,235 +101,70 @@ export interface CreatePaymentParams {
   failureUrl: string;
   metadata?: Record<string, string>;
 }
-
 export interface CreatePaymentResult {
-  paymentId: string; // internal payment.id
-  redirectUrl?: string; // for hosted page / app handoff
-  deepLinkUrl?: string; // for wallet app
-  qrCodeDataUrl?: string; // optional QR data
+  paymentId: string;        // internal id
+  redirectUrl?: string;     // hosted flow
+  deepLinkUrl?: string;     // app flow
+  qrPayload?: string;       // optional
 }
-
 export interface PaymentsService {
   createPayment(params: CreatePaymentParams): Promise<CreatePaymentResult>;
-  handleWebhook(payload: unknown, headers: Record<string, string>): Promise<void>;
+  verifyAndHandleWebhook(rawBody: string, headers: Record<string, string>): Promise<void>;
 }
-```
+Webhook Handling Rules (Non-Negotiable)
+1. Verify signature from raw body.
+2. Resolve stable provider_payment_id.
+3. Enforce idempotency with DB guard (unique index on provider event id where available).
+4. Update payment/invoice state inside a transaction.
+5. Emit domain event after committed state transition.
+6. Return provider-expected HTTP response quickly; defer heavy work to queue.
+Never mark succeeded from client redirect alone.
+Reconciliation and Finance Controls
+Run daily reconciliation per provider:
+- Pull transaction data via provider API/export/portal method.
+- Match by provider_payment_id, amount, and date window.
+- Classify mismatches:
+  - provider success + local pending
+  - local success + provider missing/reversed
+  - amount mismatch
+- Persist run artifacts and unresolved items.
+- Generate per-tenant and per-provider summaries.
+Recurring Billing Caveat
+Do not assume wallet/direct-debit recurring capability is universally available.
+For subscriptions:
+- Prefer invoice + pay-link workflow unless provider docs and merchant contract explicitly confirm recurring/autopay support.
+- If recurring is supported, implement mandate lifecycle and failure handling per documented provider rules.
+Security and Operations Checklist
+- Separate sandbox/live credentials.
+- Rotate keys and store in secure secret manager.
+- Add request correlation IDs.
+- Keep immutable payment event logs.
+- Alert on webhook signature failures and reconciliation deltas.
+- Implement retry policy with bounded exponential backoff.
+- Maintain runbooks for payment support and incident response.
+Compliance Note
+This skill provides engineering guidance, not legal advice.
+Always include this line in production recommendations:
+?Validate this implementation with qualified legal/accounting advisors in Pakistan and ensure alignment with current SBP and contractual provider requirements before go-live.?
+Output Format for User Requests
+For implementation requests, respond with:
+1. Assumptions explicitly marked as verified/unverified.
+2. Required missing inputs (merchant docs, signatures, webhook schema).
+3. Proposed architecture and schema deltas.
+4. Minimal implementation plan (ordered, testable).
+5. Idempotency + reconciliation strategy.
+6. Go-live checklist and rollback plan.
+If required provider facts are missing, stop and return:
+UNSPECIFIED: Missing or unverified dependency
 
-When implementing `PaymentsService`:
+Related Skills
+- @stripe-integration
+- @analytics-tracking
+- @pricing-strategy
+- @senior-fullstack
 
-- Keep **provider-specific mapping** (signatures, fields, endpoints) inside
-  per-provider modules.
-- Ensure every new provider **returns the same internal shape** so the rest of
-  the app does not care which gateway is used.
-
-### 4. Implement Checkout + Redirect Flows
-
-For each payment initiation:
-
-1. Create a **`payments` row** with status `pending`.
-2. Call provider API (or generate a signed URL) via `PaymentsService`.
-3. Return `redirectUrl` / `deepLinkUrl` to the client.
-4. Do **not** mark `succeeded` until the webhook confirms it.
-
-UI responsibilities:
-
-- Show “Waiting for payment confirmation…” state.
-- Poll a lightweight `/api/payments/:id` endpoint or rely on websockets/SSE to
-  update status.
-- Surface **clear failure messaging** and retry options.
-
-### 5. Implement Webhook Handling (Next.js Example)
-
-Use a dedicated route for each provider or a unified handler that inspects a
-header to detect the source.
-
-```ts
-// app/api/payments/jazzcash/webhook/route.ts
-import type { NextRequest } from "next/server";
-import { paymentsService } from "@/server/paymentsService";
-
-export async function POST(req: NextRequest) {
-  const rawBody = await req.text();
-  const headers: Record<string, string> = {};
-  req.headers.forEach((value, key) => {
-    headers[key.toLowerCase()] = value;
-  });
-
-  try {
-    await paymentsService.handleWebhook(rawBody, headers);
-    return new Response("ok", { status: 200 });
-  } catch (error) {
-    // Log with correlation id; do not leak internals to provider
-    console.error("jazzcash webhook error", error);
-    return new Response("error", { status: 400 });
-  }
-}
-```
-
-Within `handleWebhook` you must:
-
-- **Verify signatures** using provider-specific secrets.
-- Extract a stable `provider_payment_id` and map it to your internal
-  `payments` row.
-- Use an **idempotency guard** to avoid double-processing:
-
-```ts
-// Pseudocode inside repository layer
-await db.transaction(async (tx) => {
-  const payment = await tx.payment.findByProviderId(providerPaymentId);
-  if (!payment || payment.status === "succeeded") {
-    return; // idempotent no-op
-  }
-
-  await tx.payment.updateStatus(payment.id, "succeeded");
-  await tx.invoice.markPaidIfFullySettled(payment.invoiceId);
-});
-```
-
-Never perform non-idempotent side effects (email, provisioning) **outside**
-this transaction; instead, emit domain events or enqueue jobs driven by the
-payment status change.
-
-### 6. Reconciliation and Reporting
-
-For PK gateways, **manual or semi-automated reconciliation** is common:
-
-- Schedule a **daily job** to fetch provider transactions for the last N days.
-- Match on `provider_payment_id`, amount, and date window.
-- Flag discrepancies:
-  - Provider reports success but local DB shows `pending`.
-  - Local DB shows `succeeded` but provider has no record (or refunded).
-
-Produce a simple reconciliation report:
-
-- Total successful payments (count, PKR sum) by provider.
-- Unmatched payments needing human review.
-- Breakdown per tenant for finance teams.
-
-### 7. Compliance and Risk (High-Level)
-
-You are **not** giving legal advice. Instead, you:
-
-- Remind the user about **State Bank of Pakistan (SBP)** regulations,
-  KYC/AML expectations, and transaction limits for wallets and bank transfers.
-- Encourage:
-  - Proper **record-keeping** (timestamped payment events).
-  - Clear **refund policies** and support playbooks.
-  - Coordination with **accounting and legal** before going live.
-
-Always state explicitly: _“Validate this design with a qualified accountant or
-lawyer familiar with Pakistani payments and SBP regulations before
-production.”_
-
----
-
-## Examples
-
-### Example 1: New B2B SaaS in Pakistan (Next.js)
-
-**User prompt**
-
-> We’re building a B2B SaaS for Pakistani SMEs on Next.js.  
-> Customers should pay in PKR via JazzCash or Easypaisa.  
-> Design the backend and give me sample code for the webhook.
-
-**How you respond**
-
-1. Clarify:
-   - Multi-tenant needs (one company vs many tenants).
-   - Flows: recurring subscriptions vs one-off invoices.
-2. Propose the architecture described above with `PaymentsService`.
-3. Provide:
-   - Minimal schema for `customers`, `subscriptions`, `invoices`, `payments`.
-   - A concrete `PaymentsService` interface and stub implementation.
-   - A Next.js webhook route similar to the example, with notes on where to
-     plug in JazzCash/Easypaisa-specific signature logic.
-
-You should end with a **checklist** (environment variables, staging vs prod
-keys, test vs live mode).
-
-### Example 2: Existing Stripe SaaS Adding PK Wallets
-
-**User prompt**
-
-> We already run a SaaS with Stripe (USD) but want to support PKR via
-> JazzCash/Easypaisa for Pakistani customers. How should we extend our stack?
-
-**How you respond**
-
-- Explain the **dual-rail strategy**:
-  - Keep Stripe for cards/international.
-  - Register JazzCash/Easypaisa as additional providers behind
-    `PaymentsService`.
-- Add a field like `preferred_provider` on tenants/customers.
-- Show a small TypeScript example:
-
-```ts
-const provider: ProviderName =
-  customer.countryCode === "PK" ? "jazzcash" : "stripe-adapter";
-
-await paymentsService.createPayment({
-  provider,
-  amountPkr: customer.countryCode === "PK" ? 4500 : convertUsdToPkr(amountUsd),
-  currency: "PKR",
-  customerId: customer.id,
-  successUrl,
-  failureUrl,
-  metadata: { tenantId: tenant.id },
-});
-```
-
-- Highlight migration steps:
-  - Keep existing Stripe invoices as-is.
-  - Use PK rails only for new Pakistani customers or new contracts.
-  - Update dashboards/reports to show totals by currency and provider.
-
----
-
-## Best Practices
-
-- **Treat everything as async** – do not mark payments `succeeded` on the
-  client redirect alone.
-- Use **idempotency keys** and guarded updates in webhook handlers.
-- Log a **correlation id** for each payment and include it in emails/support
-  tickets.
-- Separate **test vs live** credentials and endpoints by environment.
-- Normalize amounts to **integers of the smallest currency unit** (for
-  example paisa) in the database to avoid floating point issues.
-- Keep **per-tenant and per-provider dashboards** so support can quickly see
-  what happened.
-
----
-
-## Edge Cases & Limitations
-
-Be explicit about tricky scenarios:
-
-- Customer closes the wallet app before completion → keep payment `pending`
-  and expose a **“resume payment”** link in the billing UI.
-- Provider webhook is delayed or retried multiple times → rely on
-  idempotency logic, not on assumptions about exactly-once delivery.
-- Partial refunds or chargebacks → store **negative adjustments** in a
-  separate table rather than mutating the original payment amount.
-
-Limitations of this skill:
-
-- Does not include real JazzCash/Easypaisa/bank API credentials or proprietary
-  documentation; you must consult official docs.
-- Does not design POS or in-person payment flows.
-- Does not replace a professional review for tax, accounting, or legal
-  compliance in Pakistan.
-
----
-
-## Related Skills
-
-Use this skill together with:
-
-- `@stripe-integration` – for global card payments and subscriptions.
-- `@startup-metrics-framework` – to interpret PKR revenue and unit economics.
-- `@analytics-tracking` – to track conversion, drop-off, and funnel health.
-- `@pricing-strategy` – to decide PKR price points and packaging.
-- `@senior-fullstack` or `@frontend-developer` – for high-quality UX and
-  implementation details around billing UIs.
-
+**Suggested references to keep in your skill docs (for provenance)**
+- JazzCash OPG: `https://www.jazzcash.com.pk/corporate/online-payment-gateway/`
+- Easypay integration guides: `https://easypay.easypaisa.com.pk/easypay-merchant/faces/pg/site/IntegrationGuides.jsf`
+- SBP PSO/PSP: `https://www.sbp.org.pk/PS/PSOSP.htm`
+- SBP Raast P2M/P2P: `https://www.sbp.org.pk/dfs/Raast-P2M.html`

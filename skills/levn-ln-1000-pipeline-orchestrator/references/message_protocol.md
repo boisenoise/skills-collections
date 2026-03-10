@@ -116,6 +116,62 @@ SendMessage(
 )
 ```
 
+## Plan Gate Messages
+
+Plan workers (read-only) communicate plans before execution workers are spawned.
+
+### Plan Worker -> Lead: Plan Result
+
+```
+PLAN_RESULT for Stage {N}, Story {id}.
+Plan: {JSON plan object}
+```
+
+**JSON plan schemas (per stage):**
+
+| Stage | Required Fields |
+|-------|----------------|
+| 0 | `tasks_planned`, `tasks[]` (title, goal, estimate), `execution_order`, `risks[]` |
+| 1 | `ac_coverage[]` (ac, tasks), `risks[]`, `strategy` |
+| 2 | `tasks[]` (id, approach, files), `file_ownership`, `test_plan` |
+| 3 | `audit_dimensions[]`, `test_commands[]`, `branch_strategy` |
+
+**SendMessage format:**
+```
+SendMessage(
+  type: "message",
+  recipient: "pipeline-lead",
+  content: "PLAN_RESULT for Stage {N}, Story {id}.\nPlan: {JSON}",
+  summary: "{id} Stage {N} plan"
+)
+```
+
+### Lead -> Plan Worker: Approve / Revise
+
+| Command | Format | When |
+|---------|--------|------|
+| Approve | `PLAN_APPROVE for Stage {N}, Story {id}. Proceed with execution.` | All criteria passed |
+| Revise | `PLAN_REVISE for Stage {N}, Story {id}. Feedback: {failed criteria}. Revision {M}/2.` | Criteria failed, revisions remaining |
+
+**SendMessage format:**
+```
+SendMessage(
+  recipient: plan_worker_name,
+  content: "PLAN_APPROVE for Stage {N}, Story {id}. Proceed with execution.",
+  summary: "{id} Stage {N} plan approved"
+)
+```
+
+### Lead Parsing Regex (Plan Gate)
+
+```
+# Plan result
+^PLAN_RESULT for Stage (\d), Story ([A-Z]+-\d+)\.\nPlan: (.+)$
+
+# Plan worker responds to approve by writing done.flag and shutting down
+# No response message expected — done.flag signals completion
+```
+
 ## Unparseable Message Handling
 
 If lead cannot parse worker message (doesn't match regex):
@@ -163,5 +219,5 @@ Worker: writes done.flag, approves shutdown
 Worker retries report up to 1 time after probe. If still no ACK after retry → approve shutdown regardless (heartbeat verification is final safety net).
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-02-13
+**Version:** 2.0.0
+**Last Updated:** 2026-03-09

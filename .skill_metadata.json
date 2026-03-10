@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-09T06:32:32.714004",
-  "skill_count": 2348,
+  "last_updated": "2026-03-10T06:25:02.821789",
+  "skill_count": 2350,
   "sources_processed": 19,
   "skills": [
     {
@@ -1532,6 +1532,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-playwright-java",
+      "original_name": "playwright-java",
+      "description": "Scaffold, write, debug, and enhance enterprise-grade Playwright E2E tests in Java using Page Object Model, JUnit 5, Allure reporting, and parallel execution.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-testing-patterns",
       "original_name": "testing-patterns",
       "description": "Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing unit tests, creating test factories, or following TDD red-green-refactor cycle.",
@@ -2959,6 +2967,14 @@
       "name": "antigravity-active-directory-attacks",
       "original_name": "active-directory-attacks",
       "description": "This skill should be used when the user asks to \"attack Active Directory\", \"exploit AD\", \"Kerberoasting\", \"DCSync\", \"pass-the-hash\", \"BloodHound enumeration\", \"Golden Ticket\", ...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-diary",
+      "original_name": "diary",
+      "description": "Unified Diary System: A context-preserving automated logger for multi-project development.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4574,7 +4590,7 @@
     {
       "name": "antigravity-pakistan-payments-stack",
       "original_name": "pakistan-payments-stack",
-      "description": "Design and implement Pakistani payment gateways (JazzCash, Easypaisa, local banks) in production SaaS stacks with robust PKR billing, webhooks, and reconciliation.",
+      "description": "Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP rails, optional Raast) for SaaS with PKR billing, webhook reliability, and reconciliation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17734,7 +17750,7 @@
     {
       "name": "levn-ln-310-multi-agent-validator",
       "original_name": "ln-310-multi-agent-validator",
-      "description": "Validates Stories/Tasks or context via parallel multi-agent review (Codex + Gemini). Merges findings, debates, applies fixes. GO/NO-GO verdict.",
+      "description": "Validates Stories/Tasks, context, or plans via parallel multi-agent review (Codex + Gemini). Merges findings, debates, applies fixes. GO/NO-GO verdict.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

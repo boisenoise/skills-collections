@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-09 06:32 UTC*
+*Last updated: 2026-03-10 06:25 UTC*
 
-Total skills: **2348**
+Total skills: **2350**
 
 ## Skills by Source
 
@@ -1006,7 +1006,7 @@ Total skills: **2348**
 | `levn-ln-300-task-coordinator` | Orchestrates task operations. Analyzes Story, builds optimal plan (1-8 implementation tasks), delega... |
 | `levn-ln-301-task-creator` | Creates ALL task types (implementation, refactoring, test). Generates task documents from templates,... |
 | `levn-ln-302-task-replanner` | Updates ALL task types (implementation/refactoring/test). Compares IDEAL plan vs existing tasks, cat... |
-| `levn-ln-310-multi-agent-validator` | Validates Stories/Tasks or context via parallel multi-agent review (Codex + Gemini). Merges findings... |
+| `levn-ln-310-multi-agent-validator` | Validates Stories/Tasks, context, or plans via parallel multi-agent review (Codex + Gemini). Merges ... |
 | `levn-ln-400-story-executor` | Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/402/403/40... |
 | `levn-ln-401-task-executor` | Executes implementation tasks (Todo -> In Progress -> To Review). Follows KISS/YAGNI, guides, qualit... |
 | `levn-ln-402-task-reviewer` | Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tasks for side... |
@@ -1624,6 +1624,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-development` | Comprehensive web, mobile, and backend development workflow bundling frontend, backend, full-stack, ... |
 | `antigravity-devops-deploy` | DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infrae... |
 | `antigravity-devops-troubleshooter` | Expert DevOps troubleshooter specializing in rapid incident response, advanced debugging, and modern... |
+| `antigravity-diary` | Unified Diary System: A context-preserving automated logger for multi-project development. |
 | `antigravity-differential-review` | Performs security-focused differential review of code changes (PRs, commits, diffs). Adapts analysis... |
 | `antigravity-discord-automation` | Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Alwa... |
 | `antigravity-discord-bot-architect` | Specialized skill for building production-ready Discord bots. Covers Discord.js (JavaScript) and Pyc... |
@@ -2054,7 +2055,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-page-cro` | Analyze and optimize individual pages for conversion performance. |
 | `antigravity-pagerduty-automation` | Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation ... |
 | `antigravity-paid-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
-| `antigravity-pakistan-payments-stack` | Design and implement Pakistani payment gateways (JazzCash, Easypaisa, local banks) in production Saa... |
+| `antigravity-pakistan-payments-stack` | Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP ... |
 | `antigravity-parallel-agents` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domai... |
 | `antigravity-payment-integration` | Integrate Stripe, PayPal, and payment processors. Handles checkout flows, subscriptions, webhooks, a... |
 | `antigravity-paypal-integration` | Integrate PayPal payment processing with support for express checkout, subscriptions, and refund man... |
@@ -2075,6 +2076,7 @@ structures, and modern OOP features. U... |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
 | `antigravity-planning-with-files` | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and... |
+| `antigravity-playwright-java` | Scaffold, write, debug, and enhance enterprise-grade Playwright E2E tests in Java using Page Object ... |
 | `antigravity-playwright-skill` | Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to ... |
 | `antigravity-plotly` | Interactive visualization library. Use when you need hover info, zoom, pan, or web-embeddable charts... |
 | `antigravity-podcast-generation` | Generate AI-powered podcast-style audio narratives using Azure OpenAI's GPT Realtime Mini model via ... |

@@ -1,6 +1,6 @@
 # Context Review Pipeline (mode=context)
 
-MCP Ref research pipeline for mode=context foreground work. Runs in parallel with agent background tasks.
+MCP Ref research pipeline for mode=context and mode=plan foreground work. Runs in parallel with agent background tasks.
 
 ## Applicability Check
 

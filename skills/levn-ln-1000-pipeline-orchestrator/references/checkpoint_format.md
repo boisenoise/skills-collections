@@ -72,6 +72,8 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `skill_repo_path` | string | Skills repository absolute path (for recovery hook) |
 | `project_brief` | object | `{name, tech, type, key_rules}` — project context from CLAUDE.md |
 | `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — orchestrator brief from Linear |
+| `plan_revision_count` | object | `{"0": 0, "1": 0, "2": 0, "3": 0}` — plan gate revision counter per stage |
+| `plan_approved` | object | `{storyId: true\|false}` — plan gate approval flag; `true` = plan approved, awaiting execute worker spawn |
 
 **Example:**
 ```json
@@ -141,5 +143,5 @@ Workers write checkpoints at these points:
 **Stage 2 is critical** — most work happens here, checkpoints after each task prevent losing progress.
 
 ---
-**Version:** 2.0.0
-**Last Updated:** 2026-02-25
+**Version:** 3.0.0
+**Last Updated:** 2026-03-09
