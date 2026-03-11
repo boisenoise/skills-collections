@@ -62,7 +62,7 @@ and returns a session cookie.
 
 ## Auto-fix Actions
 
-1. Read docs created by ln-002 in Phase 2 (guides/manuals/ADRs/research)
+1. Read docs created by ln-002 in Phase 3 (guides/manuals/ADRs/research)
 2. Query MCP Ref for additional standards:
    ```
    ref_search_documentation(query="[domain] RFC OWASP best practices {current_year}")
@@ -73,7 +73,7 @@ and returns a session cookie.
    - Rewrite Technical Notes with compliant approach
    - Add reference to guide/RFC (e.g., "See [Guide-05](docs/guides/05-rest-api-patterns.md)")
 6. Add Standards Compliance subsection if missing
-7. Update Linear issue via `mcp__linear-server__update_issue`
+7. Update Linear issue via `save_issue`
 8. Add comment: "Solution updated to comply with [Standards list]"
 
 ---
@@ -87,7 +87,7 @@ We'll create custom login endpoint `/do-login` that accepts username/password
 and returns a session cookie.
 ```
 
-**After (Phase 2 findings from oauth2-proxy Manual + Auth ADR):**
+**After (Phase 3 findings from oauth2-proxy Manual + Auth ADR):**
 ```markdown
 ## Technical Notes
 
@@ -144,8 +144,8 @@ Does solution violate Industry Standard (RFC, OWASP, REST)?
 - Must be checked BEFORE KISS/YAGNI (#11-#12)
 
 **Research Integration:**
-- Phase 2 creates documentation via ln-002 delegation
-- Criterion #5 reads from Phase 2 docs, fallback to MCP Ref if needed
+- Phase 3 creates documentation via ln-002 delegation
+- Criterion #5 reads from Phase 3 docs, fallback to MCP Ref if needed
 - All research completed BEFORE Phase 4 auto-fix begins
 
 **Linear Updates:**

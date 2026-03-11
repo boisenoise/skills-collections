@@ -1,9 +1,9 @@
-# Solution Validation (Criterion #6)
+# Solution Validation (Criteria #6, #21)
 
-<!-- SCOPE: Library version validation criterion #6 ONLY. Contains version verification rules, npm/pypi checks. -->
+<!-- SCOPE: Library version (#6) and alternative solutions (#21). Contains version verification, alternatives analysis. -->
 <!-- DO NOT add here: Standards validation → standards_validation.md, other criteria → structural_validation.md -->
 
-Detailed rules for library version verification.
+Detailed rules for library version verification and alternative solutions analysis.
 
 ---
 
@@ -24,7 +24,7 @@ Detailed rules for library version verification.
 - "Latest version" (no verification)
 
 **Auto-fix actions:**
-1. Check if manuals exist from Phase 2 research (created by ln-002)
+1. Check if manuals exist from Phase 3 research (created by ln-002)
 2. IF manuals exist:
    - Read recommended version from manual (e.g., Manual: oauth2-proxy v7.6.0)
    - Compare with Story Technical Notes current version
@@ -35,7 +35,7 @@ Detailed rules for library version verification.
    - Query `mcp__context7__query-docs(libraryId="...", query="latest version")`
    - Extract latest stable version from docs
    - Add inline reference: "Library v[version] (verified via Context7)"
-4. Update Linear issue via `mcp__linear-server__update_issue`
+4. Update Linear issue via `save_issue`
 5. Add comment: "Library versions verified and updated"
 
 **Example transformation:**
@@ -71,6 +71,27 @@ Detailed rules for library version verification.
 
 ---
 
+## Criterion #21: Alternative Solutions
+
+**Check:** Story approach is optimal vs modern alternatives
+
+**Penalty:** MEDIUM (3 points)
+
+**Rule:** Verify the chosen approach against current alternatives. Cross-reference ln-645 audit if available.
+
+**Auto-fix actions:**
+1. Search MCP Ref + web for alternatives to primary libraries/patterns in Technical Notes
+2. Check for ln-645 audit: `Glob("docs/project/.audit/ln-640/*/645-open-source-replacer*.md")` — take latest by date
+3. IF ln-645 report exists AND HIGH-confidence replacement touches Story's affected files:
+   - Add advisory note to Technical Notes: package name + migration effort
+   - IF Effort=L → recommend creating separate [REFACTOR] Story instead of blocking current implementation
+4. IF better alternative found (without ln-645): add "Alternative Considered" note to Technical Notes
+5. Update Linear issue + add comment
+
+**Skip when:** Story in Done/Canceled, no libraries in Technical Notes, or all alternatives already documented.
+
+---
+
 ## Execution Notes
 
 **Sequential Dependency:**
@@ -79,8 +100,8 @@ Detailed rules for library version verification.
 - Cannot verify libraries until Standards checked (#5)
 
 **Research Integration:**
-- Phase 2 creates documentation via ln-002 delegation
-- Criterion #6 reads from Phase 2 docs, fallback to Context7 if needed
+- Phase 3 creates documentation via ln-002 delegation
+- Criterion #6 reads from Phase 3 docs, fallback to Context7 if needed
 - All research completed BEFORE Phase 4 auto-fix begins
 
 **Linear Updates:**

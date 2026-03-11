@@ -1,9 +1,9 @@
-# Structural Validation (Criteria #1-#4)
+# Structural Validation (Criteria #1-#4, #23-#24)
 
-<!-- SCOPE: Structure and template compliance criteria #1-#4 ONLY. Contains section order, Story statement, AC format rules. -->
-<!-- DO NOT add here: Workflow criteria → workflow_validation.md, standards → standards_validation.md -->
+<!-- SCOPE: Structure and template compliance criteria #1-#4, Architecture Considerations #23, Assumption Registry #24. -->
+<!-- DO NOT add here: Workflow criteria -> workflow_validation.md, standards -> standards_validation.md -->
 
-Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criteria validation.
+Detailed rules for Story/Tasks structure, Story statement, Acceptance Criteria, Architecture Considerations, and Assumption Registry validation.
 
 ---
 
@@ -11,9 +11,9 @@ Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criter
 
 **Check:** Story description follows template structure with 9 sections in order
 
-**Penalty:** LOW (1 point)
+**Penalty:** LOW (1 point). Skip when Story is Done/Canceled or older than 30 days.
 
-⚠️ **Important:** Request FULL Story description from Linear (not truncated) to validate all 9 sections.
+Request FULL Story description from Linear (not truncated) to validate all 9 sections.
 
 **Required Sections (in order):**
 1. **Story** (As a / I want / So that)
@@ -26,41 +26,24 @@ Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criter
 8. **Dependencies** (Depends On + Blocks)
 9. **Assumptions** (typed table with categories)
 
-✅ All 9 sections present in correct order
-✅ Each section has non-empty content (except Test Strategy - must be empty)
-✅ Required subsections present (Context: Current Situation/Desired Outcome)
+**Pass:** All 9 sections present in correct order, each non-empty (except Test Strategy — must be empty), required subsections present.
 
-❌ Missing sections → Add with template placeholders (`_TODO: Fill this section_`)
-❌ Sections out of order → Reorder to match template
-❌ Empty sections → Add placeholder text
+**Fail:** Missing sections -> add with `_TODO: Fill this section_`. Out of order -> reorder. Empty -> add placeholder.
 
 **Auto-fix actions:**
-1. Parse current Story description
-2. Identify missing/misplaced sections
-3. Restructure:
-   - Add missing sections with TODO placeholders
-   - Reorder sections to match template
-   - Add missing subsections (Current Situation, Desired Outcome, etc.)
-4. Update Linear issue via `mcp__linear-server__update_issue`
-5. Add comment to Linear explaining changes
-
-**Template Reference:** Story template (9 sections structure)
-
-**Skip Fix When:**
-- Story in Done/Canceled status
-- Story older than 30 days (legacy, don't touch)
+1. Parse current description, identify missing/misplaced sections
+2. Add missing sections with TODO placeholders, reorder to match template, add missing subsections
+3. Update Linear issue + add comment explaining changes
 
 ---
 
-## Criterion #2: Tasks Structure (Template Compliance - EVERY Task)
+## Criterion #2: Tasks Structure (Template Compliance — EVERY Task)
 
 **Check:** All child Task descriptions follow template structure
 
-**Penalty:** LOW (1 point per Task)
+**Penalty:** LOW (1 point per Task). Skip when Task is Done/Canceled or older than 30 days.
 
-**Equally Critical:** This check is as important as Story validation (#1). EVERY Task must comply with task_template_implementation.md.
-
-⚠️ **Important:** Request FULL Task description from Linear (not truncated) for EACH Task to validate all 7 sections.
+Request FULL Task description from Linear (not truncated) for EACH Task.
 
 **Required Sections (in order for EACH Task):**
 1. **Context** (Current State + Desired State)
@@ -72,27 +55,13 @@ Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criter
 7. **Definition of Done** (Checklist)
 
 > [!NOTE]
-> Test Strategy removed from Tasks - all tests in Story's final task
+> Test Strategy removed from Tasks — all tests in Story's final task
 
-✅ All 7 sections present in correct order in EVERY Task
-✅ Each section has non-empty content in every Task
-✅ Required subsections present in every Task
+**Pass/Fail:** Same rules as #1 applied to EVERY Task individually.
 
-❌ Missing sections in any Task → Add with template placeholders
-❌ Sections out of order in any Task → Reorder to match template
+**Auto-fix actions:** Same as #1 but per-Task. Update each Task individually.
 
-**Auto-fix actions (for each Task with structure violations):**
-1. Parse Task description
-2. Identify missing/misplaced sections
-3. Restructure each Task individually
-4. Update Linear issue for each Task via `mcp__linear-server__update_issue`
-5. Add comment to Linear for each fixed Task
-
-**Template Reference:** [ln-301-task-creator/references/task_template_implementation.md](../../ln-301-task-creator/references/task_template_implementation.md)
-
-**Skip Fix When:**
-- Task in Done/Canceled status
-- Task older than 30 days (legacy, don't touch)
+**Template Reference:** `shared/templates/task_template_implementation.md`
 
 ---
 
@@ -102,25 +71,12 @@ Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criter
 
 **Penalty:** LOW (1 point)
 
-✅ **GOOD:** "As a API client, I want to authenticate with OAuth2 tokens, So that users can securely access their data"
-❌ **BAD:** "Improve authentication" (vague, no user context)
+**Rule:** Statement must have persona, capability, and value. "Improve authentication" (vague, no user context) fails.
 
 **Auto-fix actions:**
-1. Extract persona from Context section
-2. Identify capability from Technical Notes
-3. Extract value from Success Metrics (or Context → Desired Outcome)
-4. Rewrite Story statement using formula:
-   ```
-   As a [persona from Context]
-   I want to [capability from Technical Notes]
-   So that [value from Success Metrics or Desired Outcome]
-   ```
-5. Update Linear issue via `mcp__linear-server__update_issue`
-6. Add comment explaining rewrite
-
-**Example transformation:**
-- Before: "Add OAuth support"
-- After: "As a API client, I want to authenticate using OAuth 2.0 tokens, So that I can securely access user data without storing passwords"
+1. Extract persona from Context, capability from Technical Notes, value from Desired Outcome
+2. Rewrite: `As a [persona] I want to [capability] So that [value]`
+3. Update Linear issue + add comment
 
 ---
 
@@ -130,61 +86,91 @@ Detailed rules for Story/Tasks structure, Story statement, and Acceptance Criter
 
 **Penalty:** MEDIUM (3 points)
 
-✅ **GOOD:**
-- "Given valid OAuth2 token, When API request sent, Then user authenticated and data returned"
-- "Given invalid token, When API request sent, Then 401 error returned"
-
-❌ **BAD:** "Authentication should work correctly" (not testable)
-
-**Requirements:**
-- 3-5 Acceptance Criteria
-- Given/When/Then format
-- Cover main scenarios + edge cases + error handling
+**Requirements:** 3-5 ACs in Given/When/Then format.
 
 **Completeness Check (3 scenario types required):**
-1. ✅ **Happy Path** (1-2 AC) - main success scenarios
-2. ✅ **Error Handling** (1-2 AC) - invalid inputs, auth failures, system errors
-3. ✅ **Edge Cases** (1 AC) - boundary conditions, special states, race conditions
+1. **Happy Path** (1-2 AC) — main success scenarios
+2. **Error Handling** (1-2 AC) — invalid inputs, auth failures, system errors
+3. **Edge Cases** (1 AC) — boundary conditions, special states, race conditions
 
 **Specificity Check (measurable outcomes required):**
-- ✅ HTTP status codes (200, 201, 400, 401, 403, 404, 500)
-- ✅ Response times (<200ms, <1s, <5s)
-- ✅ Exact error messages ("Invalid credentials", "Token expired")
-- ✅ Quantifiable metrics (99% uptime, 1000 req/sec)
+- HTTP status codes (200, 201, 400, 401, 403, 404, 500)
+- Response times (<200ms, <1s, <5s)
+- Exact error messages ("Invalid credentials", "Token expired")
+- Quantifiable metrics (99% uptime, 1000 req/sec)
 
 **Auto-fix actions:**
-1. Parse existing AC
-2. Convert to Given/When/Then format:
-   - **Given:** Preconditions (state, inputs)
-   - **When:** Action (user action, API call)
-   - **Then:** Expected outcome (success, error)
-3. Add missing scenarios:
-   - If only positive → add negative (error handling)
-   - If only main flow → add edge cases
-4. **Check AC coverage types:**
-   - IF only happy path → Add error handling AC (401, 403, 404, 500 scenarios)
-   - IF no edge cases → Add boundary condition AC (empty input, max limits, concurrent access)
-5. **Check AC specificity:**
-   - IF vague ("fast", "secure", "reliable") → Add measurable criteria
-   - IF no HTTP codes → Suggest specific codes (200 success, 401 auth, 400 validation)
-   - IF no error messages → Add exact message text
-   - IF performance claim → Add timing (<200ms) or throughput (1000 req/sec)
-6. Update Linear issue via `mcp__linear-server__update_issue`
-7. Add comment explaining additions
+1. Parse existing AC, convert to Given/When/Then format
+2. Add missing scenarios: no error handling -> add 401/403/404/500 ACs; no edge cases -> add boundary ACs
+3. Fix specificity: vague terms ("fast", "secure") -> measurable criteria; missing HTTP codes -> suggest specific codes; missing error messages -> add exact text; performance claims -> add timing
+4. Update Linear issue + add comment
 
 **Example transformation:**
 - Before: "User can login", "Login fails with wrong password"
 - After:
-  1. "Given valid credentials, When user submits login form, Then user is authenticated and redirected to dashboard" (happy path)
-  2. "Given invalid password, When user submits login form, Then 401 error is returned with message 'Invalid credentials'" (error handling)
-  3. "Given account locked, When user submits login form, Then 403 error is returned with message 'Account locked'" (edge case)
-  4. "Given missing email field, When user submits login form, Then 400 error is returned with message 'Email required'" (error handling)
-
-**Completeness + Specificity Example:**
-- Before: "Login should be fast and secure"
-- After: "Given valid credentials, When user submits login form, Then user authenticated <200ms and token expires in 1h" (measurable)
+  1. "Given valid credentials, When user submits login form, Then authenticated and redirected to dashboard" (happy path)
+  2. "Given invalid password, When user submits, Then 401 with 'Invalid credentials'" (error handling)
+  3. "Given account locked, When user submits, Then 403 with 'Account locked'" (edge case)
 
 ---
 
-**Version:** 3.0.0 (BREAKING: Added AC Completeness (3 scenario types) and Specificity (measurable outcomes) checks per BMAD Method best practices)
+## Criterion #23: Architecture Considerations
+
+**Check:** Story Technical Notes has Architecture Considerations subsection with: layers affected, side-effect boundary, orchestration depth
+
+**Penalty:** MEDIUM (3 points)
+
+**Required fields:**
+
+| Field | Description |
+|-------|-------------|
+| Layers affected | Which architectural layers this Story touches (DB, Service, API, UI) |
+| Side-effect boundary | What external state changes (DB writes, API calls, file system, cache) |
+| Orchestration depth | How many services/components coordinate (1 = simple, 3+ = complex) |
+
+**Auto-fix actions:**
+1. Check if Architecture Considerations subsection exists in Technical Notes
+2. IF missing: add section from `story_template.md` with placeholder fields
+3. IF present but incomplete: add missing fields with `_TODO:_` placeholders
+4. Update Linear issue + add comment
+
+**Skip when:** Story in Done/Canceled status, or Story has no Technical Notes section.
+
+---
+
+## Criterion #24: Assumption Registry
+
+**Check:** Assumptions section with >=1 typed entry; each has Category, Confidence, Invalidation Impact; LOW confidence entries have validation plan in Tasks; child Tasks inherit parent Story assumptions
+
+**Penalty:** MEDIUM (3 points)
+
+**Required table columns:**
+
+| Column | Values |
+|--------|--------|
+| ID | A1, A2, ... |
+| Assumption | Description text |
+| Category | TECHNICAL, DEPENDENCY, FEASIBILITY, TIMELINE |
+| Confidence | HIGH, MEDIUM, LOW |
+| Invalidation Impact | What happens if wrong |
+
+**Rules:**
+- >=1 assumption required (every Story has implicit assumptions)
+- LOW confidence → must have validation plan in at least one Task
+- Child Tasks with "Inherited Assumptions" section must match parent Story IDs + text
+
+**Detection keywords** (scan Technical Notes for implicit assumptions): `assumes`, `expects`, `requires`, `should be available`, `will be`, `must have`, `depends on`
+
+**Auto-fix actions:**
+1. Scan Story Technical Notes + Dependencies for implicit assumptions via keywords
+2. Create Assumptions table with detected entries, assign Category/Confidence
+3. For LOW confidence: add `_TODO: Validate assumption [ID] before implementation_` to relevant Task
+4. Verify child Task "Inherited Assumptions" sync with parent Story
+5. Update Linear issue + add comment
+
+**Skip when:** Story in Done/Canceled status.
+
+---
+
+**Version:** 3.0.0
 **Last Updated:** 2026-02-03

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-10T06:25:02.821789",
-  "skill_count": 2350,
+  "last_updated": "2026-03-11T06:26:37.082379",
+  "skill_count": 2355,
   "sources_processed": 19,
   "skills": [
     {
@@ -2196,6 +2196,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-sankhya-dashboard-html-jsp-custom-best-pratices",
+      "original_name": "sankhya-dashboard-html-jsp-custom-best-pratices",
+      "description": "This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sankhya dashboards using HTML, JSP, Java, and SQL.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-shopify-automation",
       "original_name": "shopify-automation",
       "description": "Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections. Always search tools first for current schemas.",
@@ -3199,6 +3207,14 @@
       "name": "antigravity-odoo-automated-tests",
       "original_name": "odoo-automated-tests",
       "description": "Write and run Odoo automated tests using TransactionCase, HttpCase, and browser tour tests. Covers test data setup, mocking, and CI integration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-seek-and-analyze-video",
+      "original_name": "seek-and-analyze-video",
+      "description": "Seek and analyze video content using Memories.ai Large Visual Memory Model for persistent video intelligence",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4711,6 +4727,14 @@
       "name": "antigravity-azure-ai-translation-text-py",
       "original_name": "azure-ai-translation-text-py",
       "description": "Azure AI Text Translation SDK for real-time text translation, transliteration, language detection, and dictionary lookup. Use for translating text content in applications.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-blueprint",
+      "original_name": "blueprint",
+      "description": "Turn a one-line objective into a step-by-step construction plan any coding agent can execute cold. Each step has a self-contained context brief \u2014 a fresh agent in a new session can pick up any step without reading prior steps.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7236,6 +7260,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-progressive-estimation",
+      "original_name": "progressive-estimation",
+      "description": "Estimate AI-assisted and hybrid human+agent development work with research-backed PERT statistics and calibration feedback loops",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hig-inputs",
       "original_name": "hig-inputs",
       "description": "Apple HIG guidance for input methods and interaction patterns: gestures, Apple Pencil, keyboards, game controllers, pointers, Digital Crown, eye tracking, focus system, remotes, spatial...",
@@ -8303,6 +8335,14 @@
       "name": "antigravity-marketing-psychology",
       "original_name": "marketing-psychology",
       "description": "Apply behavioral science and mental models to marketing decisions, prioritized using a psychological leverage and feasibility scoring system.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-pipecat-friday-agent",
+      "original_name": "pipecat-friday-agent",
+      "description": "Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini, and OpenAI.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17750,7 +17790,7 @@
     {
       "name": "levn-ln-310-multi-agent-validator",
       "original_name": "ln-310-multi-agent-validator",
-      "description": "Validates Stories/Tasks, context, or plans via parallel multi-agent review (Codex + Gemini). Merges findings, debates, applies fixes. GO/NO-GO verdict.",
+      "description": "Validates Stories/Tasks, plans, or context via parallel multi-agent review (Codex + Gemini). Merges findings, debates, applies fixes. GO/NO-GO verdict.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17830,7 +17870,7 @@
     {
       "name": "levn-ln-220-story-coordinator",
       "original_name": "ln-220-story-coordinator",
-      "description": "CREATE/REPLAN Stories for Epic (5-10 Stories). Delegates ln-001-standards-researcher for standards research. Decompose-First Pattern. Auto-discovers team/Epic.",
+      "description": "CREATE/REPLAN Stories for Epic (5-10 Stories). Multi-epic routing: auto-groups Stories by correct Epic. Delegates ln-001 for standards research. Self-Check phase.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

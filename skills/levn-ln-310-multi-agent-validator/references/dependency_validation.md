@@ -13,107 +13,29 @@ Detailed rules for Story and Task independence validation (no forward dependenci
 
 **Penalty:** CRITICAL (10 points)
 
-**What it checks:**
-- Story N can be completed using only Stories 1 to N-1
-- No forward references to Stories N+1, N+2, etc.
-- Each Story builds on previous Stories' outputs
-- Stories are independently executable in sequence
+**Rule:** Story N may reference only Stories 1..N-1. Forward references (N+1, N+2...) violate sequential executability and INVEST Independence.
 
 ---
 
-## Examples #18
+### Auto-fix Actions #18
 
-**GOOD (Sequential Dependency):**
-```markdown
-## Epic 1: User Authentication
-
-Story 1.1: User Registration
-- Depends On: None
-- Status: Can complete independently
-
-Story 1.2: User Login
-- Depends On: Story 1.1 (uses user table from 1.1)
-- Status: Can complete using only 1.1 output
-
-Story 1.3: Token Refresh
-- Depends On: Story 1.2 (uses auth flow from 1.2)
-- Status: Can complete using only 1.1 + 1.2 outputs
-```
-
-**BAD (Forward Dependency):**
-```markdown
-## Epic 1: User Authentication
-
-Story 1.1: User Login
-- Depends On: Story 1.3 (requires token validation from 1.3)  <- FORWARD!
-- Status: BLOCKED by future Story
-
-Story 1.2: Password Reset
-- Depends On: Story 1.4 (requires email service from 1.4)  <- FORWARD!
-- Status: BLOCKED by future Story
-
-Story 1.3: Token Validation
-- Depends On: None
-```
-
-**Why Forward Dependencies Are Critical:**
-- Break sequential execution flow
-- Create circular dependencies
-- Prevent incremental delivery
-- Violate INVEST Independence principle
-
----
-
-## Auto-fix Actions #18
-
-1. **Load all Stories in Epic:**
-   - Query Linear: `list_issues(project=Epic.id, label="user-story")`
-   - Sort by Story number (US001, US002, US003...)
-
-2. **For EACH Story, parse Dependencies section:**
-   - Extract "Depends On" field
-   - Parse Story references (US001, US002, Story 1.1, Story 1.2)
-   - Normalize to Story numbers (1.1, 1.2, 1.3)
-
-3. **Check for forward dependencies:**
+1. Load all Stories in Epic, sort by number (US001, US002...)
+2. Parse each Story's "Depends On" field, normalize refs to numbers
+3. Detect forward deps:
    ```
-   FOR Story N in Epic:
-     FOR each dependency D in Story N.dependencies:
-       IF D.number > N.number:
-         FLAG as CRITICAL violation
-         ADD penalty: 10 points
+   FOR Story N: IF any dep D.number > N.number → CRITICAL violation (+10 pts)
    ```
-
-4. **Build dependency graph:**
-   ```markdown
-   ## Dependency Graph
+4. Build dependency graph:
+   ```
    Story 1.1 → (none)
-   Story 1.2 → Story 1.1 ✅
-   Story 1.3 → Story 1.5 ❌ FORWARD!
-   Story 1.4 → Story 1.2, Story 1.3 ⚠️ (depends on 1.3 which is blocked)
+   Story 1.2 → 1.1 ✅
+   Story 1.3 → 1.5 ❌ FORWARD
    ```
-
-5. **Suggest fixes:**
-   - IF Story N depends on Story N+K:
-     - **Option A:** Reorder Stories (move Story N+K before Story N)
-     - **Option B:** Split Epic (move dependent Stories to separate Epic)
-     - **Option C:** Remove dependency (make Stories independent)
-
-6. **Update Linear:**
-   - Add comment to Story N: "⚠️ CRITICAL: Forward dependency on Story N+K detected. Cannot execute until dependency resolved."
-   - Add comment to Epic: "Epic has forward dependencies. Stories cannot execute sequentially."
-
-7. **Warn user:**
-   ```
-   CRITICAL: Epic has forward dependencies
-   - Story 1.2 depends on Story 1.4
-   - Story 1.3 depends on Story 1.5
-
-   Recommended actions:
-   1. Reorder Stories to resolve dependencies
-   2. Split Epic if dependencies are complex
-   3. Make Stories more independent
-   ```
+5. Suggest fixes:
+   - **Option A:** Reorder Stories (move depended Story before dependent)
+   - **Option B:** Split Epic (move dependent Stories to separate Epic)
+   - **Option C:** Remove dependency (make Stories independent)
+6. Update Linear: comment on Story + Epic about detected forward deps
 
 ---
 
@@ -123,116 +45,27 @@ Story 1.3: Token Validation
 
 **Penalty:** MEDIUM (3 points)
 
-**What it checks:**
-- Task N can be completed using only Tasks 1 to N-1
-- No forward references to Tasks N+1, N+2, etc.
-- Each Task builds on previous Tasks' outputs
-- Tasks follow Foundation-First order (DB → Service → API → UI)
+**Rule:** Task N may reference only Tasks 1..N-1. Tasks follow Foundation-First order (DB -> Service -> API -> UI). Skip check if Story has only 1 task.
 
 ---
 
-## Examples #19
+### Auto-fix Actions #19
 
-**GOOD (Sequential Dependency):**
-```markdown
-## Implementation Tasks
-
-Task 1: Create Users table
-- Depends On: None
-- Output: Users schema in database
-
-Task 2: Implement UserRepository
-- Depends On: Task 1 (uses Users table)
-- Output: Data access layer
-
-Task 3: Implement UserService
-- Depends On: Task 2 (uses UserRepository)
-- Output: Business logic layer
-
-Task 4: Implement /api/users endpoint
-- Depends On: Task 3 (uses UserService)
-- Output: REST API
-```
-
-**BAD (Forward Dependency):**
-```markdown
-## Implementation Tasks
-
-Task 1: Implement /api/users endpoint
-- Depends On: Task 3 (requires UserService)  <- FORWARD!
-
-Task 2: Implement UserRepository
-- Depends On: Task 4 (requires validation from Task 4)  <- FORWARD!
-
-Task 3: Implement UserService
-- Depends On: Task 2 (uses UserRepository)  <- OK
-
-Task 4: Add validation middleware
-- Depends On: None
-```
-
-**Why Task Forward Dependencies Matter:**
-- Break Foundation-First execution order
-- Prevent task-by-task implementation
-- Create implementation blockers
-- Violate sequential work pattern
-
----
-
-## Auto-fix Actions #19
-
-1. **Load all Tasks in Story:**
-   - Query Linear: `list_issues(parentId=Story.id)`
-   - Filter: implementation tasks only (exclude test tasks)
-   - Sort by Task number (T-001, T-002, T-003...)
-
-2. **For EACH Task, parse dependencies:**
-   - Search Task description for keywords: "requires", "depends on", "needs", "uses output from"
-   - Extract Task references (T-001, T-002, Task 1, Task 2)
-   - Normalize to Task numbers (1, 2, 3)
-
-3. **Check for forward dependencies:**
+1. Load all implementation Tasks in Story, sort by number
+2. Parse deps from description: keywords "requires", "depends on", "needs", "uses output from"
+3. Detect forward deps:
    ```
-   FOR Task N in Story:
-     Parse Task N description
-     Extract dependency keywords
-     FOR each dependency D:
-       IF D references Task M where M > N:
-         FLAG as MEDIUM violation
-         ADD penalty: 3 points
+   FOR Task N: IF any dep refs Task M where M > N → MEDIUM violation (+3 pts)
    ```
-
-4. **Check Foundation-First order:**
-   - Database tasks (T-001 to T-002)
-   - Service tasks (T-003 to T-004)
-   - API tasks (T-005 to T-006)
-   - IF Task N (API) comes before Task M (Database):
-     - FLAG as order violation
-     - Suggest reordering
-
-5. **Suggest fixes:**
-   - IF Task N depends on Task N+K:
-     - **Option A:** Reorder Tasks (move Task N+K before Task N)
-     - **Option B:** Remove dependency (refactor to use only previous Tasks)
-     - **Option C:** Split Task N (extract dependent part to new Task after N+K)
-
-6. **Update Linear:**
-   - Add TODO to Task N: `_TODO: Task depends on future Task N+K. Reorder or refactor._`
-   - Update Implementation Plan with correct order
-
-7. **Build corrected order:**
-   ```markdown
-   ## Corrected Task Order
-
-   Before (with forward dependencies):
-   1. Task API endpoint (depends on Task 3)
-   2. Task Repository
-   3. Task Service (depends on Task 2)
-
-   After (Foundation-First):
-   1. Task Repository (no dependencies)
-   2. Task Service (uses Task 1)
-   3. Task API endpoint (uses Task 2)
+4. Check Foundation-First order: DB tasks before Service before API before UI
+5. Suggest fixes:
+   - **Option A:** Reorder Tasks (move depended Task before dependent)
+   - **Option B:** Remove dependency (refactor to use only previous Tasks)
+   - **Option C:** Split Task (extract dependent part to new Task after depended)
+6. Build corrected order:
+   ```
+   Before: 1.API(→T3) 2.Repo 3.Service(→T2)
+   After:  1.Repo     2.Service(→T1) 3.API(→T2)
    ```
 
 ---
@@ -244,38 +77,34 @@ Task 4: Add validation middleware
 **Penalty:** MEDIUM (3 points)
 
 **What it checks:**
-- Tasks in the same Parallel Group do NOT reference each other
-- All dependencies of group N tasks point to groups 1..N-1 only
+- Tasks in same Parallel Group do NOT reference each other
+- All deps of group N tasks point to groups 1..N-1 only
 - Group numbers are sequential (1, 2, 3...) with no gaps
-- Every task has a `**Parallel Group:**` field (or all tasks lack it — backward compatible)
+- Every task has `**Parallel Group:**` field (or all lack it — backward compatible)
 
-**Skip When:**
-- No tasks have `**Parallel Group:**` field (backward compatible — each task = own group)
-- Story has only 1 task (no parallelism possible)
+Skip if no tasks have `**Parallel Group:**` field or Story has only 1 task.
 
----
+### DAG Detection Algorithm
 
-### Examples #19b
+Valid parallel groups form a DAG where edges go only from lower to higher groups:
 
-**GOOD:**
 ```
-Task 1 (Group 1): DB migration — no deps
-Task 2 (Group 2): UserRepo — depends on Task 1 ✅ (group 1 < group 2)
-Task 3 (Group 2): ProductRepo — depends on Task 1 ✅ (group 1 < group 2)
-Task 4 (Group 3): UserService — depends on Task 2 ✅ (group 2 < group 3)
-```
+GOOD:
+  T1(G1): DB migration — no deps
+  T2(G2): UserRepo — dep T1 ✅ (G1 < G2)
+  T3(G2): ProductRepo — dep T1 ✅ (G1 < G2)
+  T4(G3): UserService — dep T2 ✅ (G2 < G3)
 
-**BAD:**
-```
-Task 2 (Group 2): UserRepo — depends on Task 1 ✅
-Task 3 (Group 2): ProductRepo — depends on Task 2 ❌ (same group = mutual dependency!)
+BAD:
+  T2(G2): UserRepo — dep T1 ✅
+  T3(G2): ProductRepo — dep T2 ❌ (same group = mutual dependency!)
 ```
 
 ### Auto-fix Actions #19b
 
-1. Parse `**Parallel Group:**` from each task description
-2. Build group→tasks mapping
-3. For each group, verify no task references another task in same group
+1. Parse `**Parallel Group:**` from each task
+2. Build group->tasks mapping
+3. For each group: verify no task refs another task in same group
 4. Verify all deps point to earlier groups
 5. If violation: reassign task to next group (increment)
 6. If gaps in numbering: renumber sequentially
@@ -287,126 +116,33 @@ Task 3 (Group 2): ProductRepo — depends on Task 2 ❌ (same group = mutual dep
 **Story Dependencies (Criterion #18):**
 
 Search in Story "Dependencies" section:
-```markdown
+```
 ## Dependencies
 **Depends On:**
-- Story 1.3: Token validation  <- Extract "1.3"
-- US005: User profile  <- Extract "005" → Story 1.5
+- Story 1.3: Token validation  → extract "1.3"
+- US005: User profile          → extract "005" → Story 1.5
 ```
 
-Keywords to detect implicit dependencies:
-- "requires Story N"
-- "depends on Story N"
-- "needs Story N to be completed"
-- "blocked by Story N"
-- "waits for Story N"
+Keywords for implicit deps:
+`requires Story N` | `depends on Story N` | `needs Story N` | `blocked by Story N` | `waits for Story N`
 
 **Task Dependencies (Criterion #19):**
 
-Search in Task description (all sections):
-```markdown
+Search ALL sections of Task description:
+```
 ## Context
-Requires Task 3 to generate tokens  <- FORWARD!
+Requires Task 3 to generate tokens        → FORWARD if current < 3
 
 ## Implementation Plan
-Phase 1: Uses output from Task 4  <- FORWARD!
+Uses output from Task 4                    → FORWARD if current < 4
 
 ## Technical Approach
-Depends on validation middleware from Task 5  <- FORWARD!
+Depends on validation middleware from Task 5 → FORWARD if current < 5
 ```
 
-Keywords to detect:
-- "requires Task N"
-- "depends on Task N"
-- "needs Task N output"
-- "uses Task N result"
-- "waits for Task N"
+Keywords: `requires Task N` | `depends on Task N` | `needs Task N output` | `uses Task N result` | `waits for Task N`
 
 ---
 
-## Execution Order
-
-**CRITICAL:** Dependency checks run in Group 6 (after Workflow fixes, before Traceability)
-
-**Rationale:**
-- Criterion #18 (Story Dependencies) requires all Stories loaded (Phase 2)
-- Criterion #19 (Task Dependencies) requires Task order finalized (criterion #13 completed)
-- Running earlier = checking against incomplete/unordered data
-
-**Sequence:**
-```
-Phase 4 Groups 1-5 complete:
-  - Structural (#1-#4) → Stories/Tasks structured
-  - Standards (#5) → Compliance verified
-  - Solution (#6) → Libraries updated
-  - Workflow (#7-#13) → Task order finalized (Foundation-First)
-  - Quality (#14-#15) → Documentation complete
-
-→ Group 6: Dependencies (#18-#19, #19b) runs
-  - Check Story forward dependencies
-  - Check Task forward dependencies
-  - Check Parallel Group validity (if groups assigned)
-
-→ Group 7: Traceability (#16-#17) runs
-  - Verify final alignment and coverage
-```
-
----
-
-## Skip Fix When
-
-- Story/Task in Done/Canceled status
-- Story/Task older than 30 days (legacy, don't touch)
-- Epic has only 1 Story (no dependencies possible)
-- Story has only 1 Task (no dependencies possible)
-
----
-
-## Execution Notes
-
-**Sequential Dependency:**
-- Criteria #18-#19 depend on #1-#15 being completed first
-- Must run AFTER Task order finalized (#13)
-- Must run BEFORE Traceability (#16-#17)
-
-**Linear Updates:**
-- Each criterion auto-fix updates Linear issue once
-- Add comment: "Dependency validation: [N] forward dependencies detected, [M] fixed"
-
-**User Warnings:**
-- Forward dependencies = CRITICAL for Stories, MEDIUM for Tasks
-- Always suggest reordering as primary fix
-- Provide clear before/after examples
-
----
-
-## Integration with Other Criteria
-
-**Criterion #13 (Task Order):**
-- #13 checks Foundation-First LAYERS (DB → Service → API)
-- #19 checks NO FORWARD DEPENDENCIES (Task N → Task N+1)
-- Both work together to ensure correct task sequence
-
-**Criterion #16 (Story-Task Alignment):**
-- #16 checks Tasks align with Story statement
-- #18 checks Stories align sequentially in Epic
-- Both ensure traceability at different levels
-
-**Criterion #19b (Parallel Groups):**
-- #19b checks tasks in same group don't reference each other
-- #19 checks no forward dependencies (sequential order)
-- Both ensure correct task execution flow (sequential + parallel)
-
-**Example:**
-```
-Criterion #13: "Tasks are ordered DB → Service → API" ✅
-Criterion #19: "Task 2 (Service) doesn't depend on Task 4 (future)" ✅
-Criterion #19b: "Tasks 2,3 (Group 2) don't reference each other" ✅
-
-Result: Tasks can execute sequentially without blockers
-```
-
----
-
-**Version:** 1.0.0 (NEW: Story/Task dependency validation per BMAD Method best practices)
+**Version:** 1.0.0
 **Last Updated:** 2026-02-03

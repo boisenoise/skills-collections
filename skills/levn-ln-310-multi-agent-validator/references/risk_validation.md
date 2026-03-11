@@ -17,128 +17,32 @@ Detailed rules for implementation risk analysis in Story/Tasks.
 
 **Uses:** Impact x Probability matrix from `shared/references/risk_based_testing_guide.md`
 
+**Skip fix when:** Story has explicit Risk Assessment section, Story/Task in Done/Canceled, scope is trivial (1-2 Tasks, no external deps/DB/arch decisions), or all detected risks already mitigated in Technical Notes.
+
 ---
 
 ## Risk Categories
 
-### R1: Architectural Decisions Without Justification
-
-**Check:** Non-trivial architectural choices (patterns, infrastructure, data flow) have documented rationale or ADR reference
-
-**Keywords:** architecture, pattern, CQRS, saga, event-driven, microservice, monolith, event sourcing, message queue
-
-**GOOD:**
-```markdown
-## Technical Notes
-Architecture: Event-driven with RabbitMQ for order processing.
-Rationale: Decouples payment from fulfillment (ADR-003). Fallback: sync processing if queue unavailable.
-```
-
-**BAD:**
-```markdown
-## Technical Notes
-Architecture: Event-driven with RabbitMQ for order processing.
-```
-No rationale, no ADR reference, no fallback strategy.
-
-**Auto-fix:** FLAG only (architectural decisions require human judgment)
-- Add comment: "Architectural decision [X] detected without rationale. Consider creating ADR via ln-002."
-
----
-
-### R2: Missing Error Handling Strategy
-
-**Check:** External calls and multi-step operations have explicit error handling (retry, fallback, timeout, circuit breaker)
-
-**Keywords:** error, exception, retry, fallback, timeout, circuit breaker, dead letter, compensation
-
-**GOOD:**
-```markdown
-## Implementation Plan
-Call Stripe API with:
-- Timeout: 10s per request
-- Retry: 3x exponential backoff (1s, 2s, 4s)
-- Fallback: Queue payment for manual processing
-- Circuit breaker: Open after 5 consecutive failures
-```
-
-**BAD:**
-```markdown
-## Implementation Plan
-Call Stripe API to process payment.
-Create order record after successful payment.
-```
-No timeout, no retry, no fallback for external API failure.
-
-**Auto-fix:** Add `_TODO: Define error handling for [detected integration/operation]: timeout, retry policy, fallback strategy_` to Task Implementation Plan.
-
----
-
-### R3: Scalability Concerns
-
-**Check:** Data operations have bounds (pagination, limits, batch sizes); no unbounded queries or O(n^2) patterns
-
-**Keywords:** scale, concurrent, batch, pagination, limit, all records, full scan, load all, fetch all, no limit
-
-**GOOD:**
-```markdown
-## Technical Approach
-Fetch users with cursor-based pagination (limit 50 per page).
-Batch email sending: 100 per batch with 1s delay between batches.
-```
-
-**BAD:**
-```markdown
-## Technical Approach
-Fetch all users from database.
-Send notification email to each user.
-```
-Unbounded query + unbounded loop = O(n) memory + O(n) time with no limits.
-
-**Auto-fix:** Add `_TODO: Define pagination/batch limits for [detected unbounded operation]_` to Task Technical Approach.
-
----
-
-### R4: Data Integrity Risks
-
-**Check:** Multi-step data operations use transactions; destructive operations have safeguards
-
-**Keywords:** transaction, rollback, constraint, cascade, delete, drop, truncate, migrate, atomic, consistency
-
-**GOOD:**
-```markdown
-## Implementation Plan
-1. Begin transaction
-2. Create order record
-3. Deduct inventory
-4. Charge payment
-5. Commit (or rollback all on failure)
-
-Migration: Add column with default value (non-breaking). Backfill in batches.
-```
-
-**BAD:**
-```markdown
-## Implementation Plan
-1. Create order record
-2. Deduct inventory
-3. Charge payment
-```
-No transaction wrapping. If step 3 fails, inventory already deducted = data inconsistency.
-
-**Auto-fix:** Add `_TODO: Wrap [multi-step operation] in transaction with rollback on failure_` to Task Implementation Plan.
+| Cat | Rule | Keywords | Auto-fix |
+|-----|------|----------|----------|
+| R1: Architecture | Non-trivial choices need rationale or ADR ref | architecture, pattern, CQRS, saga, event-driven, microservice, monolith, event sourcing, message queue | FLAG → suggest ADR via ln-002 |
+| R2: Error Handling | External calls need timeout, retry, fallback, circuit breaker | error, exception, retry, fallback, timeout, circuit breaker, dead letter, compensation | TODO: Define error handling for [op] |
+| R3: Scalability | Data ops need bounds (pagination, limits, batch). Unbounded = risk | scale, concurrent, batch, pagination, limit, all records, full scan, load all, fetch all, no limit | TODO: Define pagination/batch limits |
+| R4: Data Integrity | Multi-step data ops need transactions with rollback | transaction, rollback, constraint, cascade, delete, drop, truncate, migrate, atomic, consistency | TODO: Wrap [op] in transaction with rollback |
+| R5: Integration | External APIs need SLA, timeout, retry, mock, webhook idempotency | API, external, third-party, webhook, integration, service, provider, vendor, OAuth, SSO | TODO: Define timeout/retry/fallback + idempotency |
+| R6: SPOF | Critical-path needs degradation or redundancy plan | single, central, only one, depends entirely, critical path, no alternative, sole provider | FLAG → degradation strategy |
 
 ---
 
 ### R4b: Destructive Operation Safety
 
-**MANDATORY READ:** `shared/references/destructive_operation_safety.md`
+> SSOT: `shared/references/destructive_operation_safety.md`
 
 **Check:** Tasks with destructive operations have "Destructive Operation Safety" section with all 5 required fields filled (backup, rollback, blast radius, env guard, preview/dry-run) + severity
 
-**Keywords:** Per shared reference keyword list — `DROP, TRUNCATE, DELETE (without WHERE), ALTER...DROP COLUMN, rm -rf, rmdir, unlink, terraform destroy, kubectl delete, docker volume rm, migrate, purge, wipe, --force, git push --force, git reset --hard`
+**Keywords:** `DROP, TRUNCATE, DELETE (without WHERE), ALTER...DROP COLUMN, rm -rf, rmdir, unlink, terraform destroy, kubectl delete, docker volume rm, migrate, purge, wipe, --force, git push --force, git reset --hard`
 
-**GOOD:**
+**GOOD example** (all 5 fields concrete):
 ```markdown
 ### Destructive Operation Safety
 **Operations:** DROP TABLE legacy_sessions; rm -rf /tmp/build-cache
@@ -150,75 +54,14 @@ No transaction wrapping. If step 3 fails, inventory already deducted = data inco
 **Preview / dry-run:** SELECT COUNT(*) FROM legacy_sessions = 0 active rows; ls -la /tmp/build-cache shows only stale artifacts
 ```
 
-**BAD:**
-```markdown
-## Implementation Plan
-Drop the old sessions table and clean up temp files.
-```
-No safety section. No backup/rollback/blast radius/guard/preview documented.
-
 **Scoring:** Impact 5, Probability 4 = Priority 20 (HIGH)
-- Safety section present AND all fields concrete (non-placeholder) → PASS (0 points)
-- Safety section present but any field is TODO/placeholder/empty → FLAGGED (5 points) + NO-GO (human must fill)
+- All fields concrete (non-placeholder) → PASS (0 points)
+- Any field is TODO/placeholder/empty → FLAGGED (5 points) + NO-GO (human must fill)
 - Destructive keywords found but NO safety section → FLAGGED (5 points) + NO-GO (human review mandatory)
 
-**Auto-fix:** Validator MAY insert the section skeleton from shared reference template for consistency. But if ANY field remains TODO/placeholder/empty → criterion stays FLAGGED, story stays NO-GO. Only concrete, non-placeholder content clears the penalty. This is NOT auto-fixable to PASS.
+**Auto-fix:** Insert section skeleton from shared reference template. If ANY field remains TODO/placeholder/empty → criterion stays FLAGGED, story stays NO-GO. Not auto-fixable to PASS.
 
-**Skip When:** No destructive keywords detected in Story or Tasks.
-
----
-
-### R5: Integration Risks with External Systems
-
-**Check:** External API/service integrations define SLA expectations, timeout, retry, and dev mock strategy
-
-**Keywords:** API, external, third-party, webhook, integration, service, provider, vendor, OAuth, SSO
-
-**GOOD:**
-```markdown
-## Technical Approach
-Stripe integration:
-- Expected SLA: 99.9%, avg response 200ms
-- Timeout: 10s, Retry: 3x with backoff
-- Dev environment: Use Stripe test mode (no mocks needed)
-- Webhook: Idempotent processing with event ID dedup
-```
-
-**BAD:**
-```markdown
-## Technical Approach
-Integrate with Stripe for payment processing.
-Listen for Stripe webhooks.
-```
-No SLA, no timeout, no retry, no idempotency for webhooks.
-
-**Auto-fix:** Add `### Integration Points` section with `_TODO: Define timeout/retry/fallback for [external service]. Define webhook idempotency strategy._`
-
----
-
-### R6: Single Points of Failure
-
-**Check:** Critical-path components have degradation strategy or redundancy plan
-
-**Keywords:** single, central, only one, depends entirely, critical path, no alternative, sole provider
-
-**GOOD:**
-```markdown
-## Technical Notes
-Auth: Primary IdP = Auth0. Fallback: cached JWT validation (grace period 1h if IdP unavailable).
-Database: Primary PostgreSQL with read replica. Failover: automatic via connection pool.
-```
-
-**BAD:**
-```markdown
-## Technical Notes
-Auth: Auth0 for all authentication.
-Database: PostgreSQL.
-```
-No fallback for IdP outage. No mention of replication/failover.
-
-**Auto-fix:** FLAG only (redundancy decisions require cost/architecture trade-offs)
-- Add comment: "Single point of failure detected: [component]. Consider graceful degradation strategy."
+**Skip when:** No destructive keywords detected in Story or Tasks.
 
 ---
 
@@ -244,8 +87,8 @@ TOTAL = sum of all penalties (cap at 15 points)
 
 **Default Impact x Probability by category:**
 
-| Category | Default Impact | Default Probability | Default Priority | Notes |
-|----------|---------------|--------------------|--------------------|-------|
+| Category | Impact | Probability | Priority | Notes |
+|----------|--------|-------------|----------|-------|
 | R1: Architectural Decisions | 4 | 3 | 12 (MEDIUM) | Raise to 5x4=20 if system-wide pattern |
 | R2: Error Handling | 4 | 4 | 16 (HIGH) | External calls almost always need handling |
 | R3: Scalability | 3 | 3 | 9 (MEDIUM) | Raise if user-facing or data-heavy |
@@ -266,69 +109,9 @@ Override defaults when Story context indicates higher/lower risk (e.g., internal
 | 9-14 | Add TODO placeholder (silent) | Important but lower urgency |
 | <= 8 | SKIP | Risk too low to warrant Story-level documentation |
 
-**Auto-fixable categories:** R2 (TODO for error handling), R3 (TODO for limits), R4 (TODO for transactions), R5 (TODO for integration points)
+**Auto-fixable:** R2 (error handling), R3 (limits), R4 (transactions), R5 (integration points)
 
 **Human review only:** R1 (architectural decisions), R6 (SPOF at design level), any risk with Priority >= 20
-
----
-
-## Skip Fix When
-
-- Story has explicit "Risk Assessment" or "Risks and Mitigations" section with documented risks
-- Story/Task in Done/Canceled status
-- Story scope is trivial (1-2 Tasks, no external dependencies, no DB changes, no architectural decisions)
-- All detected risks already have mitigation documented in Technical Notes
-
----
-
-## Execution Order
-
-**Group 7 (NEW): Risk (#20) runs after Dependencies, before Traceability**
-
-**Rationale:**
-- Needs structural fixes complete (#1-#4) to find Technical Notes sections
-- Needs standards applied (#5) to distinguish standard-required complexity from risk
-- Needs dependencies resolved (#18-#19) to avoid flagging already-fixed issues
-- Must run before Traceability (#16-#17) since risk TODOs may affect AC-Task mapping
-
-**Sequence:**
-```
-Phase 4 Groups 1-6 complete:
-  - Structural (#1-#4)
-  - Standards (#5)
-  - Solution (#6)
-  - Workflow (#7-#13)
-  - Quality (#14-#15)
-  - Dependencies (#18-#19)
-
--> Group 7: Risk (#20) runs
-  - Scan for risk indicators
-  - Score via Impact x Probability
-  - Auto-fix or FLAG
-
--> Group 8: Traceability (#16-#17) runs
-  - Verify final alignment and coverage
-```
-
----
-
-## Integration with Other Criteria
-
-**Criterion #5 (Standards Compliance):**
-- #5 checks RFC/OWASP references exist
-- #20 checks risk mitigation strategies exist
-- Overlap: security risks detected by #20 may already be covered by #5 OWASP checks
-- Rule: If #5 already flagged an issue with OWASP reference, #20 does NOT double-count
-
-**Criterion #15 (Code Quality Basics):**
-- #15 checks hardcoded values
-- #20.R5 checks external integrations
-- Rule: Hardcoded API keys found by #15 are NOT re-flagged by #20.R5
-
-**Agent review risk_analysis area:**
-- #20 enforces "did you document risks?" (structural/compliance check)
-- Agent review risk_analysis asks "what risks did agents find independently?" (analytical review)
-- Complementary: #20 runs in Phase 4, agent review merges in Phase 5
 
 ---
 

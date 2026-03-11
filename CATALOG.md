@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-10 06:25 UTC*
+*Last updated: 2026-03-11 06:26 UTC*
 
-Total skills: **2350**
+Total skills: **2355**
 
 ## Skills by Source
 
@@ -999,14 +999,14 @@ Total skills: **2350**
 | `levn-ln-200-scope-decomposer` | Orchestrates full decomposition (scope → Epics → Stories → RICE prioritization) by delegating ln-210... |
 | `levn-ln-201-opportunity-discoverer` | Traffic-First opportunity discovery. KILL funnel filters ideas by traffic channel, demand, competiti... |
 | `levn-ln-210-epic-coordinator` | CREATE/REPLAN Epics from scope (3-7 Epics). Batch Preview + Auto-extraction. Decompose-First Pattern... |
-| `levn-ln-220-story-coordinator` | CREATE/REPLAN Stories for Epic (5-10 Stories). Delegates ln-001-standards-researcher for standards r... |
+| `levn-ln-220-story-coordinator` | CREATE/REPLAN Stories for Epic (5-10 Stories). Multi-epic routing: auto-groups Stories by correct Ep... |
 | `levn-ln-221-story-creator` | Creates Stories from IDEAL plan (CREATE) or appends user-requested Stories (ADD). Generates 9-sectio... |
 | `levn-ln-222-story-replanner` | Replans Stories when Epic requirements change. Compares IDEAL vs existing, categorizes operations (K... |
 | `levn-ln-230-story-prioritizer` | RICE prioritization per Story with market research. Generates consolidated prioritization table in d... |
 | `levn-ln-300-task-coordinator` | Orchestrates task operations. Analyzes Story, builds optimal plan (1-8 implementation tasks), delega... |
 | `levn-ln-301-task-creator` | Creates ALL task types (implementation, refactoring, test). Generates task documents from templates,... |
 | `levn-ln-302-task-replanner` | Updates ALL task types (implementation/refactoring/test). Compares IDEAL plan vs existing tasks, cat... |
-| `levn-ln-310-multi-agent-validator` | Validates Stories/Tasks, context, or plans via parallel multi-agent review (Codex + Gemini). Merges ... |
+| `levn-ln-310-multi-agent-validator` | Validates Stories/Tasks, plans, or context via parallel multi-agent review (Codex + Gemini). Merges ... |
 | `levn-ln-400-story-executor` | Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/402/403/40... |
 | `levn-ln-401-task-executor` | Executes implementation tasks (Todo -> In Progress -> To Review). Follows KISS/YAGNI, guides, qualit... |
 | `levn-ln-402-task-reviewer` | Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tasks for side... |
@@ -1444,6 +1444,7 @@ pipelines, and system utilities.... |
 | `antigravity-blockchain-developer` | Build production-ready Web3 applications, smart contracts, and decentralized systems. Implements DeF... |
 | `antigravity-blockrun` | Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explic... |
 | `antigravity-blog-writing-guide` | Write, review, and improve blog posts for the Sentry engineering blog following Sentry's specific wr... |
+| `antigravity-blueprint` | Turn a one-line objective into a step-by-step construction plan any coding agent can execute cold. E... |
 | `antigravity-box-automation` | Automate Box cloud storage operations including file upload/download, search, folder management, sha... |
 | `antigravity-brainstorming` | Use before creative or constructive work (features, architecture, behavior). Transforms vague ideas ... |
 | `antigravity-brand-guidelines` | Write copy following Sentry brand guidelines. Use when writing UI text, error messages, empty states... |
@@ -2072,6 +2073,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-personal-tool-builder` | Expert in building custom tools that solve your own problems first. The best products often start as... |
 | `antigravity-php-pro` | Write idiomatic PHP code with generators, iterators, SPL data
 structures, and modern OOP features. U... |
+| `antigravity-pipecat-friday-agent` | Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini... |
 | `antigravity-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
@@ -2103,6 +2105,7 @@ structures, and modern OOP features. U... |
 | `antigravity-production-scheduling` | Codified expertise for production scheduling, job sequencing, line balancing, changeover optimisatio... |
 | `antigravity-professional-proofreader` | Use when a user asks to "proofread", "review and correct", "fix grammar", "improve readability while... |
 | `antigravity-programmatic-seo` | Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templat... |
+| `antigravity-progressive-estimation` | Estimate AI-assisted and hybrid human+agent development work with research-backed PERT statistics an... |
 | `antigravity-project-development` | This skill should be used when the user asks to "start an LLM project", "design batch pipeline", "ev... |
 | `antigravity-projection-patterns` | Build read models and projections from event streams. Use when implementing CQRS read sides, buildin... |
 | `antigravity-prometheus-configuration` | Set up Prometheus for comprehensive metric collection, storage, and monitoring of infrastructure and... |
@@ -2174,6 +2177,7 @@ pricing pages, case studies, and sale... |
 | `antigravity-salesforce-automation` | Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL qu... |
 | `antigravity-salesforce-development` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex t... |
 | `antigravity-sam-altman` | Agente que simula Sam Altman — CEO da OpenAI, ex-presidente da Y Combinator, arquiteto da era AGI. U... |
+| `antigravity-sankhya-dashboard-html-jsp-custom-best-pratices` | This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sa... |
 | `antigravity-sast-configuration` | Configure Static Application Security Testing (SAST) tools for automated vulnerability detection in ... |
 | `antigravity-scala-pro` | Master enterprise-grade Scala development with functional programming, distributed systems, and big ... |
 | `antigravity-scanning-tools` | This skill should be used when the user asks to "perform vulnerability scanning", "scan networks for... |
@@ -2196,6 +2200,7 @@ pricing pages, case studies, and sale... |
 | `antigravity-security-scanning-security-hardening` | Coordinate multi-layer security scanning and hardening across application, infrastructure, and compl... |
 | `antigravity-security-scanning-security-sast` | Static Application Security Testing (SAST) for code vulnerability
 analysis across multiple languages... |
+| `antigravity-seek-and-analyze-video` | Seek and analyze video content using Memories.ai Large Visual Memory Model for persistent video inte... |
 | `antigravity-segment-automation` | Automate Segment tasks via Rube MCP (Composio): track events, identify users, manage groups, page vi... |
 | `antigravity-segment-cdp` | Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tra... |
 | `antigravity-semgrep-rule-creator` | Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns... |

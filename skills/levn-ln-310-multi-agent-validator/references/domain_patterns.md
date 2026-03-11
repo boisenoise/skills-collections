@@ -11,7 +11,7 @@ Mapping Story patterns to documentation types for ln-002 delegation during ln-31
 
 This registry defines WHEN to delegate to ln-002-best-practices-researcher and WHAT type of document to create.
 
-**Usage in ln-310 Phase 2:**
+**Usage in ln-310 Phase 3:**
 1. Load domain_patterns.md
 2. Scan Story title + Technical Notes for trigger keywords
 3. IF keywords match → Delegate to ln-002 with doc_type + topic
@@ -76,76 +76,17 @@ IF doc_type = Manual:
 
 ---
 
-## ln-002 Delegation Examples
+## Delegation Example (multi-pattern)
 
-### Example 1: OAuth Story
+Story: "Add rate-limited REST API with Redis caching"
+→ Keywords: `REST`, `API`, `rate`, `redis`, `caching`
+→ Patterns: **REST API** + **Rate Limiting** + **Caching**
 
-**Story Title:** "Implement OAuth 2.0 authentication with GitHub"
-
-**ln-310 Detection:**
-- Keywords: "oauth", "authentication"
-- Pattern: **OAuth/OIDC**
-- Library: `oauth2-proxy v7.6.0`
-
-**ln-002 Delegation:**
 ```
-Skill(skill="ln-002-best-practices-researcher",
-      args="doc_type=manual topic='oauth2-proxy v7.6.0'")
-
-Skill(skill="ln-002-best-practices-researcher",
-      args="doc_type=adr topic='Authentication Strategy'")
+Skill(skill="ln-002-best-practices-researcher", args="doc_type=guide topic='RESTful API Patterns'")
+Skill(skill="ln-002-best-practices-researcher", args="doc_type=guide topic='API Rate Limiting Pattern'")
+Skill(skill="ln-002-best-practices-researcher", args="doc_type=manual topic='Redis v7.2'")
 ```
-
-**Output:**
-- `docs/manuals/oauth2-proxy-v7.md`
-- `docs/adrs/NNN-auth-strategy.md`
-
----
-
-### Example 2: REST API with Rate Limiting
-
-**Story Title:** "Create user management API"
-
-**ln-310 Detection:**
-- Keywords: "RESTful", "API", "endpoints", "rate", "limiting"
-- Patterns: **REST API** + **Rate Limiting**
-
-**ln-002 Delegation:**
-```
-Skill(skill="ln-002-best-practices-researcher",
-      args="doc_type=guide topic='RESTful API Patterns'")
-
-Skill(skill="ln-002-best-practices-researcher",
-      args="doc_type=guide topic='API Rate Limiting Pattern'")
-```
-
-**Output:**
-- `docs/guides/NN-rest-api-patterns.md`
-- `docs/guides/NN-rate-limiting.md`
-
----
-
-### Example 3: Database with Caching
-
-**Story Title:** "Optimize database queries with Redis caching"
-
-**ln-310 Detection:**
-- Keywords: "database", "prisma", "redis", "caching"
-- Patterns: **Database** + **Caching**
-- Libraries: `prisma v5.8.1`, `redis v7.2`
-
-**ln-002 Delegation:**
-```
-Skill(skill="ln-002-best-practices-researcher",
-      args="doc_type=manual topic='Prisma v5.8.1'")
-
-Skill(skill="ln-002-best-practices-researcher",
-      args="doc_type=manual topic='Redis v7.2'")
-```
-
-**Output:**
-- `docs/manuals/prisma-5.md`
-- `docs/manuals/redis-7.md`
 
 ---
 

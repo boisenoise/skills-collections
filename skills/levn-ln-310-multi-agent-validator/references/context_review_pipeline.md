@@ -1,10 +1,10 @@
 # Context Review Pipeline (mode=context)
 
-MCP Ref research pipeline for mode=context and mode=plan foreground work. Runs in parallel with agent background tasks.
+MCP Ref research pipeline for mode=context and mode=plan_review foreground work. Runs in parallel with agent background tasks.
 
 ## Applicability Check
 
-Scan `context_files` for technology decision signals. No signals → skip MCP Ref research (steps c-e), proceed to Phase 5.
+Scan context (conversation history + git diff) for technology decision signals. No signals → skip MCP Ref research, proceed to Phase 5.
 
 | Signal Type | Examples |
 |-------------|---------|
@@ -19,7 +19,7 @@ Scan `context_files` for technology decision signals. No signals → skip MCP Re
 
 Priority order for `query_prefix`:
 
-1. `tech_stack` input parameter → use directly
+1. Conversation context (technology mentions) → use directly
 2. `docs/tools_config.md` Research section → extract stack hints
 3. Glob for indicator files:
 
@@ -32,7 +32,7 @@ Priority order for `query_prefix`:
 | `Cargo.toml` | Rust | `"Rust"` |
 | `build.gradle`, `pom.xml` | Java | `"Java"` |
 
-4. Parse context_files for technology mentions (fallback heuristic)
+4. Parse git diff for technology mentions (fallback heuristic)
 
 ## Compare & Correct Safety Rules
 

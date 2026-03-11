@@ -1,4 +1,4 @@
-# Phase 2: Research & Audit
+# Phase 3: Research & Audit
 
 **Always execute for every Story - no exceptions.**
 
@@ -63,7 +63,7 @@ Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `d
 
 # Auto-Fix Actions Reference
 
-Detailed criteria table for Phase 4 auto-fix execution and Phase 2 penalty calculation.
+Detailed criteria table for Phase 4 auto-fix execution and Phase 3 penalty calculation.
 
 ## Structural (#1-#4, #24)
 
@@ -72,7 +72,7 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 2 penalty calcu
 | 1 | Story Structure | 9 sections per template | LOW (1) | Add/reorder sections with TODO placeholders; update Linear |
 | 2 | Tasks Structure | Each Task has 7 sections | LOW (1) | Load each Task; add/reorder sections; update Linear |
 | 3 | Story Statement | As a/I want/So that clarity | LOW (1) | Rewrite using persona/capability/value; update Linear |
-| 4 | Acceptance Criteria | Given/When/Then, 3-5 items; each task AC has `verify:` method | MEDIUM (3) | Normalize to G/W/T; add edge cases; generate `verify:` methods for task ACs missing them (test/command/inspect based on AC content); update Linear |
+| 4 | Acceptance Criteria | Given/When/Then, 3-5 items | MEDIUM (3) | Normalize to G/W/T; add edge cases; update Linear |
 | 24 | Assumption Registry | Assumptions section with >=1 typed entry; each has Category, Confidence, Invalidation Impact; LOW confidence entries have validation plan in Tasks; Inherited Assumptions in child Tasks match parent Story registry (ID exists + text matches) | MEDIUM (3) | Scan Technical Notes for implicit assumptions (keywords: "assumes", "expects", "requires", "available"); populate table; verify assumption sync in Tasks |
 
 ## Standards (#5)

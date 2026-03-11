@@ -9,12 +9,12 @@ Detailed rules for documentation completeness and code quality (no hardcoded val
 
 ## Criterion #14: Documentation Complete
 
-**Check:** All relevant docs from ln-002 Phase 2 research are referenced in Story
+**Check:** All relevant docs from ln-002 Phase 3 research are referenced in Story
 
 **Penalty:** HIGH (5 points)
 
 **What it checks:**
-- Guides/Manuals/ADRs created in Phase 2 are linked in Technical Notes
+- Guides/Manuals/ADRs created in Phase 3 are linked in Technical Notes
 - Pattern-specific documentation exists and referenced
 - Technical Notes contain links to relevant docs
 
@@ -43,16 +43,16 @@ Detailed rules for documentation completeness and code quality (no hardcoded val
 ## Technical Notes
 
 We'll add OAuth authentication and REST API endpoints.
-(No references to guides/manuals/ADRs/research created in Phase 2)
+(No references to guides/manuals/ADRs/research created in Phase 3)
 ```
 
 **Auto-fix actions:**
-1. Check if documentation exists from Phase 2 (created by ln-002)
+1. Check if documentation exists from Phase 3 (created by ln-002)
 2. For EACH keyword in Technical Notes (auth, database, api, error, logging):
    - IF doc exists -> Add reference to Technical Notes
    - IF doc missing -> Note for ln-002 delegation or add inline MCP Ref reference
 3. Add "Related Documentation" subsection with all doc links
-4. Update Linear issue via `mcp__linear-server__update_issue`
+4. Update Linear issue via `save_issue`
 5. Add comment: "Documentation references added - [list of docs]"
 
 **Pattern Examples:**
@@ -105,7 +105,7 @@ We'll add OAuth authentication and REST API endpoints.
    ### Security
    All sensitive values stored in environment variables (never committed to git)
    ```
-4. Update Linear issue via `mcp__linear-server__update_issue`
+4. Update Linear issue via `save_issue`
 5. Add comment: "Hardcoded values replaced with .env placeholders"
 
 **Skip Fix When:**
@@ -122,8 +122,8 @@ We'll add OAuth authentication and REST API endpoints.
 - Cannot check hardcoded values (#15) until Technical Notes exist
 
 **Research Integration:**
-- Phase 2 creates documentation via ln-002 delegation
-- Criteria #14-#15 read from Phase 2 docs
+- Phase 3 creates documentation via ln-002 delegation
+- Criteria #14-#15 read from Phase 3 docs
 - All research completed BEFORE Phase 4 auto-fix begins
 
 **Linear Updates:**

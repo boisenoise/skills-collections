@@ -74,7 +74,7 @@ Generate pre-mortem table for Phase 3 audit report:
 
 ## Feed-forward Rules
 
-Pre-mortem runs in **Step 5** (before Penalty Calculation in Step 6), so its outputs feed into scoring:
+Pre-mortem runs in **Step 5** (before Penalty Calculation in Step 7), so its outputs feed into scoring:
 
 | Output | Target | How |
 |--------|--------|-----|
@@ -82,7 +82,7 @@ Pre-mortem runs in **Step 5** (before Penalty Calculation in Step 6), so its out
 | Elephants | Assumptions #24 | Add with `[pre-mortem]` tag, Category from domain, Confidence=LOW |
 | Paper Tigers | Audit report only | Document for transparency, no penalty impact |
 
-**Important:** Tigers and Elephants discovered here are scored by their target criteria (#20, #24) in Step 6. The pre-mortem criterion #27 itself only checks whether the analysis was performed.
+**Important:** Tigers and Elephants discovered here are scored by their target criteria (#20, #24) in Step 7. The pre-mortem criterion #27 itself only checks whether the analysis was performed.
 
 ---
 
@@ -124,18 +124,19 @@ Story: "Add user profile edit form" — 2 tasks, no external deps, known React p
 
 ## Execution Order
 
-**Step 5 in Phase 2** (before Penalty Calculation):
+**Step 5 in Phase 3** (before Penalty Calculation):
 
 ```
 Step 1: Domain Extraction
 Step 2: Documentation Delegation
 Step 3: Research via MCP
 Step 4: Anti-Hallucination Verification
-→ Step 5: Pre-mortem Analysis (NEW)
+→ Step 5: Pre-mortem Analysis
   - Classify Tigers/Paper Tigers/Elephants
   - Feed Tigers → Risk #20
   - Feed Elephants → Assumptions #24
-→ Step 6: Penalty Calculation (includes #20 with Tigers, #24 with Elephants)
+Step 6: Cross-Reference Analysis (#25-#26)
+→ Step 7: Penalty Calculation (includes #20 with Tigers, #24 with Elephants)
 ```
 
 **Rationale:** Pre-mortem must run before penalty calculation so that discovered risks and assumptions are included in the scoring pass. Running after would create a back-edge requiring a second scoring pass.

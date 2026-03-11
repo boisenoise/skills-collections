@@ -1,10 +1,10 @@
 # Penalty Points System
 
-<!-- SCOPE: Calculation rules, report format, and edge cases ONLY. For severity levels and criteria list, see SKILL.md. -->
+<!-- SCOPE: Calculation rules, report format, and edge cases ONLY. -->
 
 Details that expand on SKILL.md: multiple violations, report format, edge cases.
 
-For severity levels (CRITICAL/HIGH/MEDIUM/LOW) and 27-criteria mapping, see [SKILL.md §Penalty Points System](../SKILL.md#penalty-points-system) and [§Auto-Fix Actions Reference](../SKILL.md#auto-fix-actions-reference).
+For severity levels and 27-criteria mapping, see [SKILL.md §Phase 4](../SKILL.md#phase-4-auto-fix) and [phase2_research_audit.md](phase2_research_audit.md).
 
 ---
 
