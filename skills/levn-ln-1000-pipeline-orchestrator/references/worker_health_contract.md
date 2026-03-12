@@ -12,24 +12,6 @@ SPAWNED ──→ EXECUTING ──→ REPORTING ──→ SHUTDOWN
 
 Each worker handles exactly ONE stage (or one plan). No IDLE→EXECUTING transition between stages.
 
-### Plan Workers (Plan Gate)
-
-A read-only plan worker runs before the execute worker for each stage:
-
-```
-SPAWNED ──→ ANALYZING ──→ PLAN_RESULT ──→ [APPROVE] ──→ SHUTDOWN
-                                │
-                                └──→ [REVISE] ──→ ANALYZING (max 2 revisions)
-                                │
-                                └──→ [LIMIT] ──→ Lead PAUSES + ESCALATES
-```
-
-Plan workers follow the same health contract as execute workers (crash detection, keepalive hooks, done.flag), with differences:
-- **Read-only:** DO NOT invoke Skill(), modify files, or update Linear/kanban
-- **Communication:** Send `PLAN_RESULT` instead of `Stage N COMPLETE/ERROR`
-- **Shutdown trigger:** `PLAN_APPROVE` from Lead (not ACK after completion)
-- **Naming:** `story-{id}-s{N}-plan` (suffix `-plan`)
-
 | State | Description | Duration |
 |-------|------------|----------|
 | SPAWNED | Task() called, worker initializing | Seconds |
@@ -85,7 +67,7 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
 
 3. **Fallback: new worker with checkpoint context** (if resume fails or no checkpoint):
    ```
-   new_worker = "story-{id}-s{checkpoint.stage}-retry"
+   new_worker = "story-{id}-{checkpoint.stage_name}-retry"  # stage_name = decompose|validate|implement|qa
    new_prompt = worker_prompt(story, checkpoint.stage, business_answers) + """
      CHECKPOINT RESUME — DO NOT re-execute completed work.
      Tasks already completed: {checkpoint.tasksCompleted}

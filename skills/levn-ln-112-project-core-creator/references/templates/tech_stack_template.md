@@ -5,7 +5,7 @@
 **Status:** {{STATUS}}
 
 <!-- SCOPE: Technology stack (specific versions, libraries, frameworks), Docker configuration (Dockerfile, docker-compose.yml), development tools, naming conventions ONLY. -->
-<!-- DO NOT add here: API endpoints → api_spec.md, Database schema → database_schema.md, Architecture patterns → architecture.md, Requirements → requirements.md, Deployment procedures → runbook.md, Design system → design_guidelines.md -->
+<!-- DO NOT add here: API endpoints → api_spec.md, Database schema → database_schema.md, Architecture patterns → architecture.md, Requirements → requirements.md, Deployment procedures → runbook.md, Infrastructure inventory → infrastructure.md, Design system → design_guidelines.md -->
 
 ---
 

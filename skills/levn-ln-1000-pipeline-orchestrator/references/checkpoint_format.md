@@ -72,8 +72,6 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `skill_repo_path` | string | Skills repository absolute path (for recovery hook) |
 | `project_brief` | object | `{name, tech, type, key_rules}` — project context from CLAUDE.md |
 | `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — orchestrator brief from Linear |
-| `plan_revision_count` | object | `{"0": 0, "1": 0, "2": 0, "3": 0}` — plan gate revision counter per stage |
-| `plan_approved` | object | `{storyId: true\|false}` — plan gate approval flag; `true` = plan approved, awaiting execute worker spawn |
 
 **Example:**
 ```json
@@ -109,7 +107,7 @@ Lead executes on confirmed crash (3-step protocol passed):
 
 3. Fallback — new worker with checkpoint context:
    prompt = worker_prompt(story, checkpoint.stage, business_answers) + CHECKPOINT_RESUME block
-   Task(name: "story-{id}-s{N}-retry", team_name: "pipeline-{date}",
+   Task(name: "story-{id}-{stage_name}-retry", team_name: "pipeline-{date}",  # stage_name = decompose|validate|implement|qa
         model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
         prompt: prompt)
 ```

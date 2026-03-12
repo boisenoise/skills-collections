@@ -6,7 +6,7 @@
 **Standard Compliance:** ISO/IEC/IEEE 29148:2018
 
 <!-- SCOPE: Functional requirements (FR-XXX-NNN) with MoSCoW prioritization, acceptance criteria, constraints, assumptions, traceability ONLY. -->
-<!-- DO NOT add here: NFR (removed completely per project policy), Tech stack → tech_stack.md, Database → database_schema.md, API → api_spec.md, Design system → design_guidelines.md, Operations → runbook.md, Architecture → architecture.md, Implementation → technical_specification.md -->
+<!-- DO NOT add here: NFR (removed completely per project policy), Tech stack → tech_stack.md, Database → database_schema.md, API → api_spec.md, Design system → design_guidelines.md, Operations → runbook.md, Infrastructure inventory → infrastructure.md, Architecture → architecture.md, Implementation → technical_specification.md -->
 
 ---
 

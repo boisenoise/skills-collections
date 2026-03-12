@@ -56,7 +56,7 @@ Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `d
 
 ## Step 7: Penalty Points Calculation
 
-- Evaluate all 27 criteria against Story/Tasks (see Auto-Fix Actions Reference below)
+- Evaluate all 28 criteria against Story/Tasks (see Auto-Fix Actions Reference below)
 - Assign penalty points per violation (CRITICAL=10, HIGH=5, MEDIUM=3, LOW=1)
 - Calculate total penalty points
 - Build fix plan for each violation
@@ -81,12 +81,13 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 3 penalty calcu
 |---|-----------|----------------|---------|------------------|
 | 5 | Standards Compliance | Each technical decision references specific RFC/OWASP/REST standard by number | CRITICAL (10) | Query MCP Ref; update Technical Notes with compliant approach |
 
-## Solution (#6, #21)
+## Solution (#6, #21, #28)
 
 | # | Criterion | What it checks | Penalty | Auto-fix actions |
 |---|-----------|----------------|---------|------------------|
 | 6 | Library & Version | Libraries are latest stable | HIGH (5) | Query Context7; update to recommended versions |
 | 21 | Alternative Solutions | Story approach is optimal vs modern alternatives; cross-ref ln-645 audit if `docs/project/.audit/ln-640/*/645-open-source-replacer*.md` available (glob across dates, take latest) | MEDIUM (3) | Search MCP Ref + web for alternatives; if better option found — add "Alternative Considered" note. If ln-645 report exists AND HIGH-confidence replacement touches Story's affected files — add advisory note to Technical Notes with package name + migration effort. If Effort=L — recommend creating separate [REFACTOR] Story instead of blocking current implementation |
+| 28 | Library Feature Utilization | Planned custom code duplicates features of already-declared project dependencies | MEDIUM (3) | Read manifest + Library Research; scan Task plans for custom-build signals; query Context7 (max 3); add advisory to Task Technical Approach |
 
 ## Workflow (#7-#13)
 
@@ -152,7 +153,7 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 3 penalty calcu
 |---|-----------|----------------|---------|------------------|
 | 27 | Pre-mortem Analysis | Pre-mortem with Tiger/Paper Tiger/Elephant classification (complex Stories) | MEDIUM (3) | Execute algorithm from premortem_validation.md; Tigers → risk #20; Elephants → Assumptions #24 [pre-mortem] |
 
-**Maximum Penalty:** 110 points (sum of all 27 criteria; #20 capped at 15; #25 max 1 CRITICAL = 10)
+**Maximum Penalty:** 113 points (sum of all 28 criteria; #20 capped at 15; #25 max 1 CRITICAL = 10)
 
 ---
 **Version:** 1.0.0

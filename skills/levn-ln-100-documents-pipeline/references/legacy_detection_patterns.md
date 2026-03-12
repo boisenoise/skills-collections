@@ -30,7 +30,8 @@
 | `DEPLOYMENT.md` | runbook | docs/project/runbook.md | HIGH |
 | `ops/*.md` | runbook | docs/project/runbook.md | MEDIUM |
 | `deployment/*.md` | runbook | docs/project/runbook.md | MEDIUM |
-| `infrastructure/*.md` | runbook | docs/project/runbook.md | MEDIUM |
+| `infrastructure/*.md` | infrastructure | docs/project/infrastructure.md | MEDIUM |
+| `INFRASTRUCTURE.md` | infrastructure | docs/project/infrastructure.md | HIGH |
 | `documentation/**/*.md` | analyze_content | various | LOW |
 | `doc/**/*.md` | analyze_content | various | LOW |
 | `wiki/**/*.md` | analyze_content | various | LOW |
@@ -56,6 +57,8 @@ Extract sections from README.md that should be moved to dedicated documents:
 | `^## Endpoints` | api_spec | docs/project/api_spec.md |
 | `^## Database` | database_schema | docs/project/database_schema.md |
 | `^## Schema` | database_schema | docs/project/database_schema.md |
+| `^## Infrastructure` | infrastructure | docs/project/infrastructure.md |
+| `^## Servers` | infrastructure | docs/project/infrastructure.md |
 | `^## Deployment` | runbook | docs/project/runbook.md |
 | `^## Deploy` | runbook | docs/project/runbook.md |
 | `^## Installation` | runbook | docs/project/runbook.md |
@@ -89,7 +92,8 @@ When a file has LOW confidence (e.g., `documentation/**/*.md`), analyze content 
 | principle, guideline, standard, convention, anti-pattern, best practice | principles |
 | endpoint, POST, GET, PUT, DELETE, request, response, HTTP, REST, API | api_spec |
 | table, column, schema, migration, relation, foreign key, index, SQL | database_schema |
-| deploy, docker, container, environment, server, CI/CD, pipeline | runbook |
+| server, IP, hostname, port, DNS, domain, SSL, certificate, inventory | infrastructure |
+| deploy, docker, container, environment, CI/CD, pipeline, setup, install | runbook |
 | design, UI, UX, component, wireframe, mockup, style, theme | design_guidelines |
 
 **Keyword matching rules:**
@@ -227,6 +231,32 @@ When a file has LOW confidence (e.g., `documentation/**/*.md`), analyze content 
 1. Find SQL DDL `CREATE TABLE` → parse table structures
 2. Find `## Tables` sections with tables → extract
 3. Find mermaid `erDiagram` blocks → extract as `erd_diagram`
+
+---
+
+### infrastructure_extractor
+
+**Input:** Markdown file or section detected as `infrastructure`
+
+**Extract:**
+```json
+{
+  "servers": [],          // [{ role, hostname, ip, os, specs }]
+  "domains": [],          // [{ domain, target, purpose }]
+  "ports": {},            // { "server_name": [{ port, service, protocol }] }
+  "services": [],         // [{ name, image, server, notes }]
+  "artifacts": {},        // { url, repository, credentials_management }
+  "cicd": {}              // { platform, config_file, trigger, deploy_path }
+}
+```
+
+**Extraction logic:**
+1. Find tables with `Role | IP` or `Hostname` headers → extract as `servers`
+2. Find `## Domain` or `## DNS` sections → extract as `domains`
+3. Find `## Port` sections with port tables → extract as `ports`
+4. Find `## Service` or `## Deployed` sections → extract as `services`
+5. Find `## Artifact` sections → extract as `artifacts`
+6. Find `## CI/CD` or `## Pipeline` sections → extract as `cicd`
 
 ---
 

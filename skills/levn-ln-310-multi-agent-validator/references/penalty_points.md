@@ -4,7 +4,7 @@
 
 Details that expand on SKILL.md: multiple violations, report format, edge cases.
 
-For severity levels and 27-criteria mapping, see [SKILL.md §Phase 4](../SKILL.md#phase-4-auto-fix) and [phase2_research_audit.md](phase2_research_audit.md).
+For severity levels and 28-criteria mapping, see [SKILL.md §Phase 4](../SKILL.md#phase-4-auto-fix) and [phase2_research_audit.md](phase2_research_audit.md).
 
 ---
 
@@ -28,6 +28,7 @@ Some criteria can have multiple violations (points multiply):
 | #25 AC Cross-Story Overlap | Per overlap + cap | 3 points (overlap) or 10 points (conflict); max 1 CRITICAL = 10 points total |
 | #26 Task Cross-Story Duplication | Per duplication | 1 point * duplication_count (max 3) |
 | #27 Pre-mortem Analysis | Single | 3 points if skipped for complex Story |
+| #28 Library Feature Utilization | Single | 3 points (all findings combined into one advisory) |
 | Others | Single | Fixed points per criterion |
 
 **Examples:**
@@ -101,7 +102,7 @@ Story approved: Backlog -> Todo
 
 ### Maximum Violations
 
-If total > 30 points (max possible: 110 with all 27 criteria; #20 capped at 15, #25 max 1 CRITICAL = 10), add warning:
+If total > 30 points (max possible: 113 with all 28 criteria; #20 capped at 15, #25 max 1 CRITICAL = 10), add warning:
 
 ```
 WARNING: High violation count (42 points)

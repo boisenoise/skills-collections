@@ -1,6 +1,6 @@
 ---
 name: ln-510-quality-coordinator
-description: "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-514 regression. Returns quality_verdict + aggregated results."
+description: "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-513 regression. Returns quality_verdict + aggregated results."
 license: MIT
 ---
 
@@ -25,7 +25,7 @@ Sequential coordinator for code quality pipeline. Invokes workers (511 -> 512 ->
 - Run inline agent review (Codex + Gemini in parallel on cleaned code)
 - Run Criteria Validation (Story dependencies, AC-Task Coverage, DB Creation Principle)
 - Run linters from tech_stack.md
-- Invoke ln-514-regression-checker (test suite after all changes)
+- Invoke ln-513-regression-checker (test suite after all changes)
 - Return quality_verdict + aggregated results
 - Calculate quality_verdict per normalization matrix + `references/gate_levels.md`
 
@@ -50,7 +50,7 @@ Sequential coordinator for code quality pipeline. Invokes workers (511 -> 512 ->
 1) Auto-discover team/config from `docs/tasks/kanban_board.md`
 2) Load Story + task metadata from Linear (no full descriptions)
 
-**Fast-track mode:** When invoked with `--fast-track` flag (readiness 10/10), run Phase 2 with `--skip-mcp-ref` (metrics + static only, no MCP Ref), skip Phase 3 (ln-512), Phase 4 (agent review). Run Phase 5 (criteria), Phase 6 (linters), Phase 7 (ln-514).
+**Fast-track mode:** When invoked with `--fast-track` flag (readiness 10/10), run Phase 2 with `--skip-mcp-ref` (metrics + static only, no MCP Ref), skip Phase 3 (ln-512), Phase 4 (agent review). Run Phase 5 (criteria), Phase 6 (linters), Phase 7 (ln-513).
 
 ### Phase 2: Code Quality (delegate to ln-511 — ALWAYS runs)
 
@@ -121,16 +121,16 @@ Skill(skill: "ln-512-tech-debt-cleaner", args: "{storyId}")
 2) Run all detected checks (timeouts per guide: 2min linters, 5min typecheck)
 3) **If any check fails** -> aggregate issues, continue
 
-### Phase 7: Regression Tests (delegate to ln-514)
+### Phase 7: Regression Tests (delegate to ln-513)
 
-1) **Invoke ln-514-regression-checker** via Skill tool
+1) **Invoke ln-513-regression-checker** via Skill tool
    - Runs full test suite, reports PASS/FAIL
    - Runs AFTER ln-512 changes to verify nothing broke
 2) **If regression FAIL** -> aggregate issues, continue
 
 **Invocation:**
 ```
-Skill(skill: "ln-514-regression-checker", args: "{storyId}")
+Skill(skill: "ln-513-regression-checker", args: "{storyId}")
 ```
 
 ### Phase 8: Agent Merge (runs after Phase 7, when agent results arrive — SKIP if --fast-track or agents SKIPPED)
@@ -218,7 +218,7 @@ issues:
 - Launch agent review (background) (pending)
 - Criteria Validation (Story deps, AC coverage, DB schema) (pending)
 - Run linters from tech_stack.md (pending)
-- Invoke ln-514-regression-checker (pending)
+- Invoke ln-513-regression-checker (pending)
 - Merge agent review results (pending)
 - Calculate quality_verdict + return results (pending)
 ```
@@ -230,12 +230,12 @@ issues:
 | 2 | ln-511-code-quality-checker | Shared (Skill tool) — code metrics, MCP Ref, static analysis |
 | 3 | ln-512-tech-debt-cleaner | Shared (Skill tool) — auto-fix safe findings from ln-511 |
 | 4 | Inline agent review (Codex + Gemini) | Background — launched after ln-512, merged in Phase 8 |
-| 7 | ln-514-regression-checker | Shared (Skill tool) — full test suite after all changes |
+| 7 | ln-513-regression-checker | Shared (Skill tool) — full test suite after all changes |
 
 **All workers:** Invoke via Skill tool — workers see coordinator context. Agent review runs inline (no Skill delegation).
 
 **Anti-Patterns:**
-- Running mypy, ruff, pytest directly instead of invoking ln-511/ln-514
+- Running mypy, ruff, pytest directly instead of invoking ln-511/ln-513
 - Skipping agent health check or not launching agents in Phase 4
 - Auto-fixing code directly instead of invoking ln-512
 - Marking steps as completed without invoking the actual skill
@@ -253,13 +253,13 @@ issues:
 - Agent review executed inline (or skipped if --fast-track), results merged in Phase 8
 - Criteria Validation completed (3 checks)
 - Linters executed
-- ln-514 invoked, regression results returned
+- ln-513 invoked, regression results returned
 - quality_verdict calculated + aggregated results returned
 
 ## Reference Files
 - Criteria Validation: `references/criteria_validation.md`
 - Gate levels: `references/gate_levels.md`
-- Workers: `../ln-511-code-quality-checker/SKILL.md`, `../ln-512-tech-debt-cleaner/SKILL.md`, `../ln-514-regression-checker/SKILL.md`
+- Workers: `../ln-511-code-quality-checker/SKILL.md`, `../ln-512-tech-debt-cleaner/SKILL.md`, `../ln-513-regression-checker/SKILL.md`
 - Agent review workflow: `shared/references/agent_review_workflow.md`
 - Agent delegation pattern: `shared/references/agent_delegation_pattern.md`
 - Agent review memory: `shared/references/agent_review_memory.md`

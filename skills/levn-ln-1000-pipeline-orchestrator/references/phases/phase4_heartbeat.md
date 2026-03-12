@@ -122,16 +122,9 @@ ON NO NEW MESSAGES (heartbeat cycle with no worker updates):
   story_id = selected_story_id
   current_stage = extract_stage_number(story_state[story_id])
 
-  # Determine current activity from plan_approved flag + checkpoint
+  # Determine current activity from checkpoint
   checkpoint = read(".pipeline/checkpoint-{story_id}.json") if exists
-  IF plan_approved[story_id]:
-    activity = "Plan approved, spawning execute worker"
-    progress_fraction = "—"
-  ELSE IF NOT checkpoint:
-    # No checkpoint = plan worker still analyzing (or just spawned)
-    activity = "Plan worker analyzing (Stage {current_stage})"
-    progress_fraction = "plan {plan_revision_count[current_stage]}/2 revisions"
-  ELSE IF checkpoint:
+  IF checkpoint:
     activity = checkpoint.lastAction OR skill_name_from_stage(current_stage)
     progress_fraction = "{len(checkpoint.tasksCompleted)}/{len(checkpoint.tasksCompleted)+len(checkpoint.tasksRemaining)}"
   ELSE:

@@ -26,7 +26,7 @@ Validates Stories/Tasks (mode=story), implementation plans (mode=plan_review), o
 
 ## Purpose
 
-- **mode=story:** Validate Story + Tasks (27 criteria), auto-fix, agent review, approve (Backlog→Todo)
+- **mode=story:** Validate Story + Tasks (28 criteria), auto-fix, agent review, approve (Backlog→Todo)
 - **mode=plan_review:** Review plans against codebase. Auto-detects in Read-Only Mode. Review with corrections
 - **mode=context:** Review documents/architecture via agents + MCP Ref. Review with corrections
 - **All modes:** Parallel agents (Codex + Gemini), merge, verify, debate, apply
@@ -79,7 +79,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 **mode=story:**
 
-**MANDATORY READ:** Load `references/phase2_research_audit.md` — full procedure: domain extraction, ln-002 delegation, MCP research, Anti-Hallucination, Pre-mortem, Penalty Points (27 criteria).
+**MANDATORY READ:** Load `references/phase2_research_audit.md` — full procedure: domain extraction, ln-002 delegation, MCP research, Anti-Hallucination, Pre-mortem, Penalty Points (28 criteria).
 
 Display: Penalty Points table (criterion, severity, points, description) + Total + Fix Plan.
 Save audit to `.agent-review/{storyId}_phase3_audit.md` (penalty table + pre-mortem + cross-reference findings).
@@ -109,7 +109,7 @@ Then proceed to Phase 5.
 |---|-------|-----------|
 | 1 | **Structural (#1-#4, #23-#24)** — template, AC, Architecture, Assumptions | `references/structural_validation.md` |
 | 2 | **Standards (#5)** — RFC/OWASP (before YAGNI/KISS) | `references/standards_validation.md` |
-| 3 | **Solution (#6, #21)** — library versions, alternatives | `references/solution_validation.md` |
+| 3 | **Solution (#6, #21, #28)** — library versions, alternatives, feature utilization | `references/solution_validation.md` |
 | 4 | **Workflow (#7-#13)** — test strategy, docs, size, YAGNI, KISS | `references/workflow_validation.md` |
 | 5 | **Quality (#14-#15)** — documentation, hardcoded values | `references/quality_validation.md` |
 | 6 | **Dependencies (#18-#19/#19b)** — no forward deps, parallel groups | `references/dependency_validation.md` |
@@ -119,7 +119,7 @@ Then proceed to Phase 5.
 | 10 | **Verification (#22)** — AC verify methods | `references/traceability_validation.md` |
 | 11 | **Traceability (#16-#17)** — Story-Task alignment, AC coverage (LAST) | `references/traceability_validation.md` |
 
-Zero out penalty points as structural fixes applied (section added, format corrected, placeholder inserted). FLAGGED if auto-fix impossible (human judgment required) → penalty stays, user resolves. Test Strategy section: exist but empty. Maximum Penalty: 110 points.
+Zero out penalty points as structural fixes applied (section added, format corrected, placeholder inserted). FLAGGED if auto-fix impossible (human judgment required) → penalty stays, user resolves. Test Strategy section: exist but empty. Maximum Penalty: 113 points.
 
 ### Phase 5: Merge + Critical Verification (MANDATORY — DO NOT SKIP)
 
@@ -180,7 +180,7 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 
 **mode=story additional:**
 - [ ] MCP Ref research executed (Phase 3)
-- [ ] Penalty Points calculated, 27 criteria (Phase 3)
+- [ ] Penalty Points calculated, 28 criteria (Phase 3)
 - [ ] Auto-fix executed, all 11 groups (Phase 4)
 - [ ] Penalty After = 0, Readiness Score = 10 (Phase 4)
 - [ ] Anti-Hallucination: VERIFIED (Phase 3)
@@ -202,8 +202,8 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 ## Reference Files
 
 - **Core config:** `shared/references/tools_config_guide.md`, `storage_mode_detection.md`, `input_resolution_pattern.md`, `plan_mode_pattern.md`
-- **Validation criteria:** `references/phase2_research_audit.md` (27 criteria + auto-fix), `references/penalty_points.md`
-- **Validation checklists:** `references/structural_validation.md` (#1-4, #23-24), `standards_validation.md` (#5), `solution_validation.md` (#6, #21), `workflow_validation.md` (#7-13), `quality_validation.md` (#14-15), `dependency_validation.md` (#18-19), `risk_validation.md` (#20), `cross_reference_validation.md` (#25-26), `premortem_validation.md` (#27), `traceability_validation.md` (#16-17, #22)
+- **Validation criteria:** `references/phase2_research_audit.md` (28 criteria + auto-fix), `references/penalty_points.md`
+- **Validation checklists:** `references/structural_validation.md` (#1-4, #23-24), `standards_validation.md` (#5), `solution_validation.md` (#6, #21, #28), `workflow_validation.md` (#7-13), `quality_validation.md` (#14-15), `dependency_validation.md` (#18-19), `risk_validation.md` (#20), `cross_reference_validation.md` (#25-26), `premortem_validation.md` (#27), `traceability_validation.md` (#16-17, #22)
 - **Templates:** `shared/templates/story_template.md`, `task_template_implementation.md`; local: `docs/templates/`
 - **Agent review:** `shared/references/agent_review_workflow.md`, `agent_delegation_pattern.md`, `agent_review_memory.md`; prompts: `shared/agents/prompt_templates/review_base.md` + `modes/{story,context,plan_review}.md`; challenge: `challenge_review.md`
 - **Research:** `shared/references/research_tool_fallback.md`, `references/context_review_pipeline.md`, `domain_patterns.md`, `mcp_ref_findings_template.md`

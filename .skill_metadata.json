@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-11T06:26:37.082379",
-  "skill_count": 2355,
+  "last_updated": "2026-03-12T06:27:43.575192",
+  "skill_count": 2362,
   "sources_processed": 19,
   "skills": [
     {
@@ -1596,6 +1596,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-keyword-extractor",
+      "original_name": "keyword-extractor",
+      "description": "Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract keywords for given text.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-using-superpowers",
       "original_name": "using-superpowers",
       "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
@@ -1948,6 +1956,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-explain-like-socrates",
+      "original_name": "explain-like-socrates",
+      "description": "Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help understand a concept like socrates.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-linkedin-automation",
       "original_name": "linkedin-automation",
       "description": "Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comments, and image uploads. Always search tools first for current schemas.",
@@ -2159,6 +2175,14 @@
       "name": "antigravity-cdk-patterns",
       "original_name": "cdk-patterns",
       "description": "Common AWS CDK patterns and constructs for building cloud infrastructure with TypeScript, Python, or Java. Use when designing reusable CDK stacks and L3 constructs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-yes-md",
+      "original_name": "yes-md",
+      "description": "6-layer AI governance: safety gates, evidence-based debugging, anti-slack detection, and machine-enforced hooks. Makes AI safe, thorough, and honest.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2687,6 +2711,14 @@
       "name": "antigravity-blog-writing-guide",
       "original_name": "blog-writing-guide",
       "description": "Write, review, and improve blog posts for the Sentry engineering blog following Sentry's specific writing standards, voice, and quality bar. Use this skill whenever someone asks to write a blog post, draft a technical article, review blog content, improve a draft, write a...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-skill-check",
+      "original_name": "skill-check",
+      "description": "Validate Claude Code skills against the agentskills specification. Catches structural, semantic, and naming issues before users do.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4812,6 +4844,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-md",
+      "original_name": "ai-md",
+      "description": "Convert human-written CLAUDE.md into AI-native structured-label format. Battle-tested across 4 models. Same rules, fewer tokens, higher compliance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-react-nextjs-development",
       "original_name": "react-nextjs-development",
       "description": "React and Next.js 14+ application development with App Router, Server Components, TypeScript, Tailwind CSS, and modern frontend patterns.",
@@ -6311,6 +6351,14 @@
       "name": "antigravity-dbt-transformation-patterns",
       "original_name": "dbt-transformation-patterns",
       "description": "Master dbt (data build tool) for analytics engineering with model organization, testing, documentation, and incremental strategies. Use when building data transformations, creating data models, or ...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-lex",
+      "original_name": "lex",
+      "description": "Centralized 'Truth Engine' for cross-jurisdictional legal context (US, EU, CA) and contract scaffolding.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10127,6 +10175,14 @@
       "name": "antigravity-citation-management",
       "original_name": "citation-management",
       "description": "Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers, extract accurate metadata, validate citations, and generate properly formatted BibTeX entries. This skill should be used when you need to find papers, verify citation...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-local-llm-expert",
+      "original_name": "local-llm-expert",
+      "description": "Master local LLM inference, model selection, VRAM optimization, and local deployment using Ollama, llama.cpp, vLLM, and LM Studio. Expert in quantization formats (GGUF, EXL2) and local AI privacy.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17270,7 +17326,7 @@
     {
       "name": "levn-ln-114-frontend-docs-creator",
       "original_name": "ln-114-frontend-docs-creator",
-      "description": "Creates design_guidelines.md for frontend projects. L3 Worker invoked CONDITIONALLY when hasFrontend detected.",
+      "description": "Creates design_guidelines.md for frontend projects. Invoked when hasFrontend detected.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17318,7 +17374,7 @@
     {
       "name": "levn-ln-115-devops-docs-creator",
       "original_name": "ln-115-devops-docs-creator",
-      "description": "Creates runbook.md for DevOps setup. L3 Worker invoked CONDITIONALLY when hasDocker detected.",
+      "description": "Creates infrastructure.md (always) and runbook.md (if hasDocker). DevOps documentation worker.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17366,7 +17422,7 @@
     {
       "name": "levn-ln-510-quality-coordinator",
       "original_name": "ln-510-quality-coordinator",
-      "description": "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-514 regression. Returns quality_verdict + aggregated results.",
+      "description": "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-513 regression. Returns quality_verdict + aggregated results.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17732,14 +17788,6 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-514-regression-checker",
-      "original_name": "ln-514-regression-checker",
-      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-730-devops-setup",
       "original_name": "ln-730-devops-setup",
       "description": "Coordinates Docker, CI/CD, and environment configuration setup via auto-detection",
@@ -17766,7 +17814,7 @@
     {
       "name": "levn-ln-113-backend-docs-creator",
       "original_name": "ln-113-backend-docs-creator",
-      "description": "Creates 2 backend docs (api_spec.md, database_schema.md). L3 Worker invoked CONDITIONALLY when hasBackend or hasDatabase detected.",
+      "description": "Creates 2 backend docs (api_spec.md, database_schema.md). Invoked when hasBackend or hasDatabase detected.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17783,6 +17831,14 @@
       "name": "levn-ln-721-frontend-restructure",
       "original_name": "ln-721-frontend-restructure",
       "description": "Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-based architecture",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-513-regression-checker",
+      "original_name": "ln-513-regression-checker",
+      "description": "Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No status changes or task creation.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

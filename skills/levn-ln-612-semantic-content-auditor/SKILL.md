@@ -35,6 +35,7 @@ Called ONLY for project documents (not reference/tasks):
 | `docs/project/api_spec.md` | API scope covers all endpoint groups |
 | `docs/project/database_schema.md` | Schema scope covers all entities |
 | `docs/project/design_guidelines.md` | Design scope covers active components |
+| `docs/project/infrastructure.md` | Infrastructure scope covers all deployment targets |
 | `docs/project/runbook.md` | Runbook scope covers setup + operations |
 
 **Excluded:** `docs/tasks/`, `docs/reference/`, `docs/presentation/`, `tests/`

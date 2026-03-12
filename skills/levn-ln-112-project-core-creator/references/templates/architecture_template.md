@@ -7,7 +7,7 @@
 **Standard Compliance:** ISO/IEC/IEEE 42010:2022
 
 <!-- SCOPE: System architecture (arc42 structure), C4 diagrams (Context, Container, Component), runtime scenarios (sequence diagrams), crosscutting concepts (security, error handling, configuration), ADR references ONLY. -->
-<!-- DO NOT add here: Deployment procedures → runbook.md, Testing strategy → tests/README.md, Monitoring/Logging operations → runbook.md, Tech stack versions → tech_stack.md, API specs → api_spec.md, Database schema → database_schema.md, Design system → design_guidelines.md, Requirements → requirements.md -->
+<!-- DO NOT add here: Deployment procedures → runbook.md, Infrastructure inventory → infrastructure.md, Testing strategy → tests/README.md, Monitoring/Logging operations → runbook.md, Tech stack versions → tech_stack.md, API specs → api_spec.md, Database schema → database_schema.md, Design system → design_guidelines.md, Requirements → requirements.md -->
 
 <!-- NO_CODE_EXAMPLES: Architecture documentation describes DECISIONS and CONTRACTS, not implementations.
      FORBIDDEN: Import statements, DI configuration, function bodies, code blocks > 5 lines

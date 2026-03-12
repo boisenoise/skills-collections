@@ -1,9 +1,9 @@
-# DevOps Documentation Questions (Q46-Q51)
+# DevOps Documentation Questions (Q46-Q55)
 
-<!-- SCOPE: Interactive questions for runbook.md ONLY. Conditional: hasDocker. Contains deployment, monitoring, troubleshooting questions. -->
+<!-- SCOPE: Interactive questions for runbook.md and infrastructure.md ONLY. Conditional: runbook requires hasDocker, infrastructure is always. Contains deployment, monitoring, troubleshooting, infrastructure questions. -->
 <!-- DO NOT add here: question logic → ln-115-devops-docs-creator SKILL.md, other doc questions → questions_backend.md, questions_frontend.md -->
 
-**Purpose:** Validation questions for runbook.md with conditional content support.
+**Purpose:** Validation questions for runbook.md and infrastructure.md with conditional content support.
 
 ---
 
@@ -12,6 +12,7 @@
 | Document | Questions | Auto-Discovery | Condition |
 |----------|-----------|----------------|-----------|
 | [runbook.md](#docsprojectrunbookmd) | 6 | High | hasDocker |
+| [infrastructure.md](#docsprojectinfrastructuremd) | 4 | Medium | Always |
 
 ---
 
@@ -150,9 +151,106 @@
 
 ---
 
-**Total Questions:** 6
-**Total Documents:** 1
+<!-- DOCUMENT_START: docs/project/infrastructure.md -->
+## docs/project/infrastructure.md
+
+**File:** docs/project/infrastructure.md (infrastructure inventory)
+**Rules:** Declarative tables, no procedural content, inventory of WHAT is deployed WHERE
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2025-12-19
+
+<!-- QUESTION_START: 52 -->
+### Question 52: What servers/hosts are in the infrastructure?
+
+**Expected Answer:** Server roles, IPs, hostnames, SSH access, hardware specs
+**Target Section:** ## 1. Server Inventory
+
+**Validation Heuristics:**
+- At least 1 server with IP/hostname
+- SSH access documented
+- Hardware specs (CPU, RAM, disk) listed
+
+**Auto-Discovery:**
+- Check: `~/.ssh/config` for SSH aliases and hostnames
+- Check: CI/CD deploy targets (deploy scripts, .gitlab-ci.yml deploy stages)
+- Check: docker-compose `deploy.placement` constraints
+- Check: Dockerfile `FROM` for base image hints
+- **If not found:** Mark as `[TBD: Document server inventory]`
+<!-- QUESTION_END: 52 -->
+
+---
+
+<!-- QUESTION_START: 53 -->
+### Question 53: What domains/DNS are configured?
+
+**Expected Answer:** Domain names, targets, purpose, reverse proxy config
+**Target Section:** ## 2. Domain & DNS
+
+**Validation Heuristics:**
+- At least 1 domain with target and purpose
+- SSL/TLS configuration mentioned
+
+**Auto-Discovery:**
+- Check: docker-compose env vars `VIRTUAL_HOST`, `LETSENCRYPT_HOST`
+- Check: nginx/apache configs in project
+- Check: `.env.example` for domain-related vars (BASE_URL, API_URL)
+- **If not found:** Mark as `[TBD: Document domain configuration]`
+<!-- QUESTION_END: 53 -->
+
+---
+
+<!-- QUESTION_START: 54 -->
+### Question 54: What artifact repositories are used?
+
+**Expected Answer:** Registry URLs, repository names, credential management
+**Target Section:** ## 5. Artifact Repository
+
+**Validation Heuristics:**
+- Registry URL specified
+- Credential management described (not plaintext passwords)
+
+**Auto-Discovery:**
+- Check: `.env.example` for registry URLs (NEXUS_URL, REGISTRY_URL)
+- Check: docker-compose image prefixes (private registry indicators)
+- Check: `.npmrc`, `pip.conf`, `nuget.config` for registry configs
+- Check: `.docker/config.json` for auth references
+- **If not found:** Mark as `[TBD: Configure artifact registry]`
+<!-- QUESTION_END: 54 -->
+
+---
+
+<!-- QUESTION_START: 55 -->
+### Question 55: What are minimum host resource requirements?
+
+**Expected Answer:** RAM, disk, CPU minimums with notes
+**Target Section:** ## 7. Host Requirements
+
+**Validation Heuristics:**
+- At least RAM and disk minimums specified
+- GPU requirements if HAS_GPU
+
+**Auto-Discovery:**
+- Check: docker-compose `deploy.resources.limits` and `reservations`
+- Check: Dockerfile memory/CPU hints
+- Check: README.md for system requirements section
+- **If not found:** Estimate from docker-compose service count and resource patterns
+<!-- QUESTION_END: 55 -->
+
+---
+
+**Overall File Validation:**
+- Has SCOPE tag in first 10 lines
+- Has server inventory, port allocation, deployed services sections
+- No procedural content (belongs in runbook.md)
+- Tables used for all inventory data
+
+<!-- DOCUMENT_END: docs/project/infrastructure.md -->
+
+---
+
+**Total Questions:** 10
+**Total Documents:** 2
+
+---
+**Version:** 2.0.0
+**Last Updated:** 2025-01-12

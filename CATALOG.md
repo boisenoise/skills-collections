@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-11 06:26 UTC*
+*Last updated: 2026-03-12 06:27 UTC*
 
-Total skills: **2355**
+Total skills: **2362**
 
 ## Skills by Source
 
@@ -989,9 +989,9 @@ Total skills: **2355**
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
 | `levn-ln-111-root-docs-creator` | Creates 5 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
 | `levn-ln-112-project-core-creator` | Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). ... |
-| `levn-ln-113-backend-docs-creator` | Creates 2 backend docs (api_spec.md, database_schema.md). L3 Worker invoked CONDITIONALLY when hasBa... |
-| `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md for frontend projects. L3 Worker invoked CONDITIONALLY when hasFrontend... |
-| `levn-ln-115-devops-docs-creator` | Creates runbook.md for DevOps setup. L3 Worker invoked CONDITIONALLY when hasDocker detected. |
+| `levn-ln-113-backend-docs-creator` | Creates 2 backend docs (api_spec.md, database_schema.md). Invoked when hasBackend or hasDatabase det... |
+| `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md for frontend projects. Invoked when hasFrontend detected. |
+| `levn-ln-115-devops-docs-creator` | Creates infrastructure.md (always) and runbook.md (if hasDocker). DevOps documentation worker. |
 | `levn-ln-120-reference-docs-creator` | Creates reference documentation structure + smart documents (ADRs/Guides/Manuals) based on TECH_STAC... |
 | `levn-ln-130-tasks-docs-creator` | Creates task management documentation (docs/tasks/README.md + kanban_board.md). Sets up Linear integ... |
 | `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md + tests/README.md). Establishes testing philosophy a... |
@@ -1016,7 +1016,7 @@ Total skills: **2355**
 | `levn-ln-510-quality-coordinator` | Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-5... |
 | `levn-ln-511-code-quality-checker` | Checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates decisi... |
 | `levn-ln-512-tech-debt-cleaner` | Applies safe auto-fixes for low-risk audit findings (unused imports, dead code, commented-out code).... |
-| `levn-ln-514-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
+| `levn-ln-513-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
 | `levn-ln-520-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-521, ln-522, ln... |
 | `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
 | `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reus... |
@@ -1218,6 +1218,7 @@ Total skills: **2355**
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
 | `antigravity-ai-analyzer` | AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、预测健康风险、提供个性化建议。支持智能问答和AI健康报告生成。 |
 | `antigravity-ai-engineer` | Build production-ready LLM applications, advanced RAG systems, and intelligent agents. Implements ve... |
+| `antigravity-ai-md` | Convert human-written CLAUDE.md into AI-native structured-label format. Battle-tested across 4 model... |
 | `antigravity-ai-ml` | AI and machine learning workflow covering LLM application development, RAG implementation, agent arc... |
 | `antigravity-ai-product` | Every product will be AI-powered. The question is whether you'll build it right or ship a demo that ... |
 | `antigravity-ai-studio-image` | Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos realistas estilo influencer ou e... |
@@ -1682,6 +1683,7 @@ behavior. Use proactively when encoun... |
 evolve, evolution, co... |
 | `antigravity-exa-search` | Semantic search, similar content discovery, and structured research using Exa API |
 | `antigravity-executing-plans` | Use when you have a written implementation plan to execute in a separate session with review checkpo... |
+| `antigravity-explain-like-socrates` | Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help un... |
 | `antigravity-expo-api-routes` | Guidelines for creating API routes in Expo Router with EAS Hosting |
 | `antigravity-expo-cicd-workflows` | Helps understand and write EAS workflow YAML files for Expo projects. Use this skill when the user a... |
 | `antigravity-expo-deployment` | Deploy Expo apps to production |
@@ -1867,6 +1869,7 @@ Use when... |
 | `antigravity-k8s-manifest-generator` | Create production-ready Kubernetes manifests for Deployments, Services, ConfigMaps, and Secrets foll... |
 | `antigravity-k8s-security-policies` | Implement Kubernetes security policies including NetworkPolicy, PodSecurityPolicy, and RBAC for prod... |
 | `antigravity-kaizen` | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user ... |
+| `antigravity-keyword-extractor` | Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract... |
 | `antigravity-klaviyo-automation` | Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign message... |
 | `antigravity-kotlin-coroutines-expert` | Expert patterns for Kotlin Coroutines and Flow, covering structured concurrency, error handling, and... |
 | `antigravity-kpi-dashboard-design` | Design effective KPI dashboards with metrics selection, visualization best practices, and real-time ... |
@@ -1887,6 +1890,7 @@ Use when... |
 | `antigravity-leiloeiro-juridico` | Analise juridica de leiloes: nulidades, bem de familia, alienacao fiduciaria, CPC arts 829-903, Lei ... |
 | `antigravity-leiloeiro-mercado` | Analise de mercado imobiliario para leiloes. Liquidez, desagio tipico, ROI, estrategias de saida (fl... |
 | `antigravity-leiloeiro-risco` | Analise de risco em leiloes de imoveis. Score 36 pontos, riscos juridicos/financeiros/operacionais, ... |
+| `antigravity-lex` | Centralized 'Truth Engine' for cross-jurisdictional legal context (US, EU, CA) and contract scaffold... |
 | `antigravity-lightning-architecture-review` | Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze L... |
 | `antigravity-lightning-channel-factories` | Technical reference on Lightning Network channel factories, multi-party channels, LSP architectures,... |
 | `antigravity-lightning-factory-explainer` | Explain Bitcoin Lightning channel factories and the SuperScalar protocol — scalable Lightning onboar... |
@@ -1907,6 +1911,7 @@ Use when... |
 | `antigravity-llm-ops` | LLM Operations -- RAG, embeddings, vector databases, fine-tuning, prompt engineering avancado, custo... |
 | `antigravity-llm-prompt-optimizer` | Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost output... |
 | `antigravity-local-legal-seo-audit` | Audit and improve local SEO for law firms, attorneys, forensic experts and legal/professional servic... |
+| `antigravity-local-llm-expert` | Master local LLM inference, model selection, VRAM optimization, and local deployment using Ollama, l... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
 | `antigravity-loki-mode` | Multi-agent autonomous startup system for Claude Code. Triggers on "Loki Mode". Orchestrates 100+ sp... |
 | `antigravity-m365-agents-dotnet` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.... |
@@ -2239,6 +2244,7 @@ Plans content calendars and ident... |
 | `antigravity-shopify-development` | Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid. |
 | `antigravity-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
+| `antigravity-skill-check` | Validate Claude Code skills against the agentskills specification. Catches structural, semantic, and... |
 | `antigravity-skill-creator` | This skill should be used when the user asks to create a new skill, build a skill, make a custom ski... |
 | `antigravity-skill-creator-ms` | Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Found... |
 | `antigravity-skill-developer` | Create and manage Claude Code skills following Anthropic best practices. Use when creating new skill... |
@@ -2442,6 +2448,7 @@ calculations
 | `antigravity-yann-lecun-debate` | Sub-skill de debates e posições de Yann LeCun. Cobre críticas técnicas detalhadas aos LLMs, rivalida... |
 | `antigravity-yann-lecun-filosofia` | Sub-skill filosófica e pedagógica de Yann LeCun. Cobre filosofia do open source (LLaMA, soberania te... |
 | `antigravity-yann-lecun-tecnico` | Sub-skill técnica de Yann LeCun. Cobre CNNs, LeNet, backpropagation, JEPA (I-JEPA, V-JEPA, MC-JEPA),... |
+| `antigravity-yes-md` | 6-layer AI governance: safety gates, evidence-based debugging, anti-slack detection, and machine-enf... |
 | `antigravity-youtube-automation` | Automate YouTube tasks via Rube MCP (Composio): upload videos, manage playlists, search content, get... |
 | `antigravity-youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelli... |
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |

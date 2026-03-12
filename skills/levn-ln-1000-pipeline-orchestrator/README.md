@@ -154,7 +154,7 @@ ln-1000 Lead
             ├─ Skill("ln-510-quality-coordinator")          ← L2: inline
             │    ├─ Task("ln-511-code-quality-checker")     ← L3: subagent (metrics + static analysis)
             │    ├─ Task("ln-512-tech-debt-cleaner")        ← L3: subagent (auto-fixes)
-            │    ├─ Task("ln-514-regression-checker")       ← L3: subagent (runs tests)
+            │    ├─ Task("ln-513-regression-checker")       ← L3: subagent (runs tests)
             │    ├─ Agent("codex-review", background)       ← external agent
             │    └─ Agent("gemini-review", background)      ← external agent
             │
@@ -382,10 +382,9 @@ Pipeline-level verification (Phase 5). Per-stage checks are in VERIFY blocks abo
 |------|---------|---------|
 | `SKILL.md` | Full implementation spec (phases 0-5) | Lead agent |
 | `references/worker_prompts.md` | Prompt templates for all teammates | Lead (at spawn time) |
-| `references/phases/phase4_handlers.md` | ON message handlers (stage completion, plan gate, crash) | Lead (Phase 4) |
+| `references/phases/phase4_handlers.md` | ON message handlers (stage completion, crash) | Lead (Phase 4) |
 | `references/phases/phase4_heartbeat.md` | Health monitoring + structured heartbeat output | Lead (Phase 4) |
 | `references/worker_health_contract.md` | Lifecycle, keepalive hooks, respawn rules | Lead (reference) |
-| `references/plan_gate_criteria.md` | Auto-approval criteria per stage | Lead (plan evaluation) |
 | `references/pipeline_states.md` | State machine transitions + guards | Lead (routing) |
 | `references/checkpoint_format.md` | Checkpoint + state.json schemas | Lead + workers |
 | `references/message_protocol.md` | Message formats + parsing regex | Lead + workers |

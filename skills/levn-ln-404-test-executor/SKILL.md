@@ -48,7 +48,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
    - ELSE → AskUserQuestion: show Todo test Tasks from kanban
 2) **Load task:** Fetch full test task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; review parent Story and manual test results if provided.
 2b) **Goal gate:** **MANDATORY READ:** `shared/references/goal_articulation_gate.md` — State REAL GOAL of these tests (which business behavior must be verified, not "write tests"). NOT THE GOAL: testing infrastructure or framework behavior instead of business logic. HIDDEN CONSTRAINT: which existing tests might break from implementation changes.
-3) **Read runbook:** **Read `docs/project/runbook.md`** — understand test environment setup, Docker commands, test execution prerequisites. Use exact commands from runbook.
+3) **Read environment docs:** **Read `docs/project/infrastructure.md`** — get server IPs, ports, service endpoints. **Read `docs/project/runbook.md`** — understand test environment setup, Docker commands, test execution prerequisites. Use exact commands from runbook.
 4) **Validate plan:** Check Priority ≥15 coverage and Usefulness Criteria; ensure focus on business flows (no infra-only tests).
 5) **Start work:** Set task In Progress (Linear: update_issue; File: Edit status line); move in kanban.
 6) **Implement & run:** Author/update tests per plan; reuse existing fixtures/helpers; run tests; fix failing existing tests; update infra/doc sections as required.

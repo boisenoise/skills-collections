@@ -5,7 +5,7 @@
 **Status:** {{STATUS}}
 
 <!-- SCOPE: ALL operational procedures (local development setup, Docker commands, environment variables, testing commands, build/deployment, production operations, troubleshooting, SSH access, logs, restart procedures) ONLY. -->
-<!-- DO NOT add here: Architecture patterns → architecture.md, Tech stack versions → tech_stack.md, Database schema → database_schema.md, API endpoints → api_spec.md, Testing strategy → tests/README.md, Design system → design_guidelines.md, Requirements → requirements.md -->
+<!-- DO NOT add here: Infrastructure inventory → infrastructure.md, Architecture patterns → architecture.md, Tech stack versions → tech_stack.md, Database schema → database_schema.md, API endpoints → api_spec.md, Testing strategy → tests/README.md, Design system → design_guidelines.md, Requirements → requirements.md -->
 
 ---
 

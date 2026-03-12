@@ -57,7 +57,6 @@ PAUSED --[user resolves]--> (appropriate stage)
 | `quality_cycles` | 0 | +1 on STAGE_3 FAIL | 2 | Escalate to user |
 | `validation_retries` | 0 | +1 on STAGE_1 NO-GO | 1 | Escalate to user |
 | `crash_count` | 0 | +1 on confirmed crash | 1 | PAUSED + escalate |
-| `plan_revision_count[stage]` | 0 | +1 on plan criteria fail | 2 | PAUSED + escalate |
 
 ## Stage-to-Status Mapping
 

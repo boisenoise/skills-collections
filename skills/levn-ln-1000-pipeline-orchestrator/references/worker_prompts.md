@@ -60,7 +60,7 @@ Workers write checkpoint files after significant steps to enable crash recovery.
 
 ```
 Task(
-  name: "story-{storyId}-s{stage}",
+  name: "story-{storyId}-{stage}",  # stage = decompose | validate | implement | qa
   team_name: "pipeline-{date}",
   model: "opus",                     # All stages use Opus. Effort differentiated via prompt.
   mode: "bypassPermissions",
@@ -69,9 +69,17 @@ Task(
 )
 ```
 
+**Worker name convention:**
+| Stage | Execute worker | Retry/fix |
+|-------|---------------|-----------|
+| 0 (Task Planning) | `story-{id}-decompose` | — |
+| 1 (Validation) | `story-{id}-validate` | `story-{id}-validate-retry` |
+| 2 (Implementation) | `story-{id}-implement` | `story-{id}-implement-fix{N}` |
+| 3 (Quality Gate) | `story-{id}-qa` | — |
+
 **Note:** ln-1000 creates worktree in Phase 3.4 — all workers start in `feature/*` branch. Workers self-detect via `git branch --show-current` (per `shared/references/git_worktree_fallback.md`). ln-400 skips its own worktree creation when already on `feature/*`. `PIPELINE_DIR` = absolute path to `{project_root}/.pipeline` (set by lead in Phase 3.2).
 
-**Worker name:** The `{workerName}` variable in templates = the `name` parameter from Task() spawn. Workers derive it from prompt context: `story-{storyId}-s{stage}` (or `-retry` suffix for retries).
+**Worker name:** The `{workerName}` variable in templates = the `name` parameter from Task() spawn. Workers derive it from prompt context: `story-{storyId}-{stage}` where stage = `decompose` | `validate` | `implement` | `qa` (or `-retry` / `-fix{N}` suffix for retries/rework).
 
 ## Stage 0: Task Planning (ln-300)
 
@@ -345,68 +353,6 @@ FAST_TRACK: {"true" IF readiness_scores[storyId] == 10 ELSE "false"}
 LINEAR STATUS MAP (use UUIDs for update_issue state parameter, NOT string names):
 {FOR name, uuid IN status_cache: "  {name} = {uuid}"}
 {ENDIF}
-```
-
-## Plan-Only Worker Templates
-
-Plan-only workers: read-only analysis, no Skill()/file changes, SendMessage protocol.
-
-### Plan Worker Spawn
-
-```
-Task(
-  name: "story-{storyId}-s{stage}-plan",
-  team_name: "pipeline-{date}",
-  model: "opus",
-  mode: "bypassPermissions",
-  subagent_type: "general-purpose",
-  prompt: plan_only_template(story, stage, business_answers)
-)
-```
-
-### Per-Stage Variables
-
-| Variable | Stage 0 | Stage 1 | Stage 2 | Stage 3 |
-|----------|---------|---------|---------|---------|
-| `{effort}` | low | low | medium | low |
-| `{task_description}` | Propose task decomposition. DO NOT create tasks | Propose validation plan. DO NOT run validation | Propose execution plan. DO NOT implement | Propose quality gate plan. DO NOT run QA |
-| `{analysis_steps}` | 1. Read Story requirements 2. Scan codebase structure 3. Identify tasks (1-8) | 1. Read Story ACs and Tasks 2. Check AC→Task coverage 3. Identify validation risks | 1. Read all Tasks (ACs, notes) 2. Analyze codebase per task 3. Plan approach per task 4. Map file ownership | 1. Read git diff 2. Identify audit dimensions 3. Plan test commands 4. Review branch strategy |
-| `{plan_json}` | `{"tasks_planned": N, "tasks": [{"title","goal","estimate"}], "execution_order": "...", "risks": [...]}` | `{"ac_coverage": [{"ac","tasks"}], "risks": [...], "strategy": "..."}` | `{"tasks": [{"id","approach","files"}], "file_ownership": {...}, "test_plan": "..."}` | `{"audit_dimensions": [...], "test_commands": [...], "branch_strategy": "..."}` |
-| `{forbidden}` | invoke Skill(), create tasks, modify files, write to Linear/kanban | invoke Skill(), modify files, run validation, update Linear/kanban | invoke Skill(), write code, modify files, run tests, update Linear/kanban | invoke Skill(), run tests, modify files, push branches, update Linear/kanban |
-| `{extra_context}` | *(empty)* | *(empty)* | *(empty)* | `READINESS_SCORE: {readiness_scores[storyId] or "unknown"}` |
-
-### Parameterized Plan Template
-
-```
-You are a pipeline PLAN worker in team "pipeline-{date}".
-THINKING: Always enabled (adaptive). Reasoning effort: {effort}.
-Your assignment: Story {storyId} "{storyTitle}"
-
-GIT CONTEXT: Worker self-detects branch via `git branch --show-current`.
-If on feature/* branch — work here. PIPELINE_DIR: {pipeline_dir}
-
-TASK: {task_description}
-
-READ-ONLY ANALYSIS:
-{analysis_steps}
-
-Step 1: Send plan to lead:
-  SendMessage(type: "message", recipient: "pipeline-lead",
-    content: "PLAN_RESULT for Stage {stage}, Story {storyId}.\nPlan: {JSON plan}",
-    summary: "{storyId} Stage {stage} plan")
-
-  Plan JSON: {plan_json}
-
-Step 2: Wait for lead response:
-  - ON PLAN_APPROVE: Write {PIPELINE_DIR}/worker-{workerName}-done.flag -> approve shutdown
-  - ON PLAN_REVISE: Incorporate feedback, re-send PLAN_RESULT with revised plan
-NEVER read ~/.claude/ files. NEVER use sleep loops. Messages arrive automatically.
-
-DO NOT: {forbidden}
-
-CONTEXT:
-{businessAnswers}
-{extra_context}
 ```
 
 ## Worker Lifecycle

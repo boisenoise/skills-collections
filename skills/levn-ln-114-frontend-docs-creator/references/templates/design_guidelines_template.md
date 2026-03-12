@@ -5,7 +5,7 @@
 **Status:** {{STATUS}}
 
 <!-- SCOPE: UI/UX design system (typography, colors, spacing, grid), component library (buttons, forms, cards, navigation, modals), layout patterns (page templates), accessibility guidelines (WCAG AA, keyboard, ARIA), responsive behavior (breakpoints, adaptations), branding (logo, imagery, icons) ONLY. -->
-<!-- DO NOT add here: Technical implementation → tech_stack.md, React/Vue code examples → Task descriptions, API contracts → api_spec.md, State management → architecture.md, Performance optimization → runbook.md -->
+<!-- DO NOT add here: Technical implementation → tech_stack.md, React/Vue code examples → Task descriptions, API contracts → api_spec.md, State management → architecture.md, Performance optimization → runbook.md, Infrastructure inventory → infrastructure.md -->
 
 <!-- NO_CODE_EXAMPLES: Design guidelines document VISUAL CONTRACTS, not code implementations.
      FORBIDDEN: JSX/HTML component code, CSS-in-JS implementations, React/Vue components, styled-components

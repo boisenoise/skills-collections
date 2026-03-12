@@ -54,7 +54,7 @@ Each worker receives exactly ONE `Execute Stage` command per lifetime. Stage tra
 |---------|--------|------|
 | Start stage | `Execute Stage {N} for {id}` | Initial assignment after spawn (one per worker) |
 | Diagnostic | `Status check: are you still working on Stage {N} for {id}?` | Crash detection probe |
-| Shutdown | `SendMessage(type: "shutdown_request", recipient: "story-{id}-s{N}")` | After stage completion or PAUSED |
+| Shutdown | `SendMessage(type: "shutdown_request", recipient: "story-{id}-{stage_name}")` | After stage completion or PAUSED |
 | ACK | `ACK Stage {N} for {id}` | After processing completion message (confirms receipt) |
 
 ## Lead Parsing Regex
@@ -103,7 +103,7 @@ SendMessage(
 # Command / Diagnostic / Shutdown:
 SendMessage(
   type: "message",
-  recipient: "story-{id}-s{N}",
+  recipient: "story-{id}-{stage_name}",  # decompose | validate | implement | qa
   content: <exact format from Commands table>,
   summary: "{id} -> Stage {N}"                  # max 10 words
 )
@@ -114,62 +114,6 @@ SendMessage(
   content: "ACK Stage {N} for {id}",
   summary: "{id} Stage {N} ACK"                 # max 10 words
 )
-```
-
-## Plan Gate Messages
-
-Plan workers (read-only) communicate plans before execution workers are spawned.
-
-### Plan Worker -> Lead: Plan Result
-
-```
-PLAN_RESULT for Stage {N}, Story {id}.
-Plan: {JSON plan object}
-```
-
-**JSON plan schemas (per stage):**
-
-| Stage | Required Fields |
-|-------|----------------|
-| 0 | `tasks_planned`, `tasks[]` (title, goal, estimate), `execution_order`, `risks[]` |
-| 1 | `ac_coverage[]` (ac, tasks), `risks[]`, `strategy` |
-| 2 | `tasks[]` (id, approach, files), `file_ownership`, `test_plan` |
-| 3 | `audit_dimensions[]`, `test_commands[]`, `branch_strategy` |
-
-**SendMessage format:**
-```
-SendMessage(
-  type: "message",
-  recipient: "pipeline-lead",
-  content: "PLAN_RESULT for Stage {N}, Story {id}.\nPlan: {JSON}",
-  summary: "{id} Stage {N} plan"
-)
-```
-
-### Lead -> Plan Worker: Approve / Revise
-
-| Command | Format | When |
-|---------|--------|------|
-| Approve | `PLAN_APPROVE for Stage {N}, Story {id}. Proceed with execution.` | All criteria passed |
-| Revise | `PLAN_REVISE for Stage {N}, Story {id}. Feedback: {failed criteria}. Revision {M}/2.` | Criteria failed, revisions remaining |
-
-**SendMessage format:**
-```
-SendMessage(
-  recipient: plan_worker_name,
-  content: "PLAN_APPROVE for Stage {N}, Story {id}. Proceed with execution.",
-  summary: "{id} Stage {N} plan approved"
-)
-```
-
-### Lead Parsing Regex (Plan Gate)
-
-```
-# Plan result
-^PLAN_RESULT for Stage (\d), Story ([A-Z]+-\d+)\.\nPlan: (.+)$
-
-# Plan worker responds to approve by writing done.flag and shutting down
-# No response message expected — done.flag signals completion
 ```
 
 ## Unparseable Message Handling

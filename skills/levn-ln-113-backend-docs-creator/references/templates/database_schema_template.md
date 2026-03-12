@@ -5,7 +5,7 @@
 **Status:** {{STATUS}}
 
 <!-- SCOPE: Database schema (ER diagrams, table definitions, data dictionary, indexes, constraints, migrations, normalization) ONLY. -->
-<!-- DO NOT add here: API endpoints → api_spec.md, Tech stack versions → tech_stack.md, Architecture patterns → architecture.md, Requirements → requirements.md, Deployment → runbook.md -->
+<!-- DO NOT add here: API endpoints → api_spec.md, Tech stack versions → tech_stack.md, Architecture patterns → architecture.md, Requirements → requirements.md, Deployment → runbook.md, Infrastructure inventory → infrastructure.md -->
 
 ---
 

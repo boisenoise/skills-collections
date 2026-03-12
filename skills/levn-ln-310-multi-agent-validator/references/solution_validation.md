@@ -92,23 +92,94 @@ Detailed rules for library version verification and alternative solutions analys
 
 ---
 
+## Criterion #28: Library Feature Utilization
+
+**Check:** Planned custom implementations don't duplicate features of already-declared project dependencies
+
+**Penalty:** MEDIUM (3 points)
+
+**Rule:** Cross-reference Task Implementation Plans against project manifest + Story Library Research. Flag when a Task plans to build something a declared dependency already provides.
+
+✅ **GOOD:**
+- "Use `prisma.user.createMany()` for batch insert" (uses existing Prisma method)
+- "Retry via Polly's `WaitAndRetryAsync` policy" (uses declared .NET library)
+- "Format dates with `date-fns/format`" (uses installed package)
+
+❌ **BAD:**
+- "Implement custom retry with exponential backoff" (project has Polly in *.csproj)
+- "Write date formatting utility" (date-fns already in package.json)
+- "Build manual SQL batch insert loop" (Prisma supports createMany)
+
+**Detection algorithm:**
+
+1. **Dependency Extraction:**
+   - Read project manifest: `package.json`, `requirements.txt`, `pyproject.toml`, `*.csproj`, `go.mod`, `Cargo.toml`, `build.gradle`, `pom.xml` (Glob up to 2 levels deep; if Story Affected Components point to a subdirectory, check that directory's manifest first)
+   - Read Story Library Research table (populated by #6)
+   - Build library set: `{name, version, domain}` for top dependencies
+
+2. **Intent Extraction from Tasks:**
+   - Scan each Task's Implementation Plan + Technical Approach for custom-build signals:
+     - Keywords: `"implement custom"`, `"write from scratch"`, `"build manually"`, `"create utility/helper"`, `"hand-roll"`, `"hand-code"`, `"add [X] function/method/class"`
+     - Co-occurrence required: custom-build keyword + functional noun (`parser`, `validator`, `formatter`, `serializer`, `retry`, `cache`, `scheduler`, `HTTP client`, `logger`, `queue`, `date`, `sort`, `auth`, `crypto`)
+   - Single keyword matches without functional noun → skip (too vague)
+
+3. **Context7 Cross-Reference (max 3 queries per Story):**
+   - For top matches (by confidence: custom-build signal strength + library domain overlap):
+     - `resolve-library-id(libraryName="{library}")` → `query-docs(libraryId="...", query="{extracted_intent} built-in method API")`
+   - Batch intents per library: if 3 Tasks reference same library → 1 combined query
+   - Reuse #6's Context7 responses if same library already queried
+   - Fallback: Context7 → built-in knowledge. No WebSearch for #28
+
+**Confidence levels:**
+- **HIGH:** Task says "implement custom X" AND library docs show `library.X()` method exists → **penalty + advisory**
+- **MEDIUM:** Task describes behavior that resembles a library feature but uses different terminology → **advisory note only, no penalty**
+- **LOW:** Vague overlap → **skip, do not flag**
+
+**Auto-fix actions:**
+1. For each HIGH-confidence finding, add advisory note to Task Technical Approach:
+   ```
+   > **Library Feature Available:** [library] v[version] provides `[method]` for [purpose].
+   > Consider using instead of custom implementation. [Context7/docs reference]
+   ```
+2. If Story has Library Research table: add "Key APIs (underutilized)" subsection with method signatures mapped to Task intents
+3. Update Linear issue / file via appropriate provider
+4. Add comment: "Library feature utilization check: N findings (advisory)"
+
+**Skip when:**
+- No manifest files found in project (no dependencies to check)
+- Task has no Implementation Plan section
+- Library method already documented in Technical Approach as being used for this purpose
+- Story/Task in Done/Canceled status
+- Story has 0 external dependencies (pure internal refactoring)
+
+---
+
 ## Execution Notes
 
 **Sequential Dependency:**
-- Criterion #6 depends on #1-#5 being completed first
+- Criteria #6, #21, #28 depend on #1-#5 being completed first
 - Cannot verify libraries until Technical Notes exist (#1)
 - Cannot verify libraries until Standards checked (#5)
+- #28 depends on #6 completing first (needs verified Library Research table)
+- Group 3 execution order: #6 → #21 → #28
 
 **Research Integration:**
 - Phase 3 creates documentation via ln-002 delegation
 - Criterion #6 reads from Phase 3 docs, fallback to Context7 if needed
+- Criterion #28 reuses #6's Context7 responses when querying the same library
 - All research completed BEFORE Phase 4 auto-fix begins
 
+**Token Efficiency (#28):**
+- Max 3 Context7 queries per Story (not per Task)
+- Only query DECLARED dependencies (suggesting new ones is #21's job)
+- Batch intents per library into single query
+- Reuse #6's cached Context7 responses
+
 **Linear Updates:**
-- Criterion auto-fix updates Linear issue once
-- Add single comment summarizing library version updates
+- Criterion auto-fix updates Linear issue once per criterion
+- Add single comment summarizing library version updates (#6) and feature findings (#28)
 
 ---
 
-**Version:** 3.0.0
+**Version:** 4.0.0
 **Last Updated:** 2025-01-07

@@ -103,7 +103,7 @@ ELSE:
 
 | Component | Full Gate | Fast-Track | Why |
 |-----------|-----------|------------|-----|
-| ln-514 regression tests | RUN | RUN | Always critical, cheap |
+| ln-513 regression tests | RUN | RUN | Always critical, cheap |
 | Linters | RUN | RUN | Cheap, catches formatting |
 | Criteria Validation (3 checks) | RUN | RUN | Cheap, validates AC coverage |
 | ln-511 metrics + static analysis | RUN | **RUN** | **Catches complexity/DRY/dead code that per-task review misses** |
@@ -116,8 +116,8 @@ ELSE:
 
 1) **Invoke ln-510-quality-coordinator** via Skill tool
    - Pass: Story ID (+ `--fast-track` flag if fast_track == true)
-   - Full: ln-510 runs: code quality (ln-511) -> criteria validation -> linters -> regression (ln-514)
-   - Fast-track: ln-510 runs: code metrics + static (ln-511 `--skip-mcp-ref`) -> criteria -> linters -> regression (ln-514) — skips MCP Ref/agent review
+   - Full: ln-510 runs: code quality (ln-511) -> criteria validation -> linters -> regression (ln-513)
+   - Fast-track: ln-510 runs: code metrics + static (ln-511 `--skip-mcp-ref`) -> criteria -> linters -> regression (ln-513) — skips MCP Ref/agent review
 2) **If ln-510 returns FAIL:**
    - Create fix/refactor tasks via ln-301
    - Stop — return to ln-400
@@ -164,7 +164,7 @@ ELSE:
 
 **MANDATORY READ:** Load `shared/references/git_worktree_fallback.md`
 
-Runs only when verdict is PASS, CONCERNS, or WAIVED. Consumes verified results from ln-510/ln-514 — does NOT rerun checks.
+Runs only when verdict is PASS, CONCERNS, or WAIVED. Consumes verified results from ln-510/ln-513 — does NOT rerun checks.
 
 1. IF uncommitted changes exist → `git add -A && git commit -m "{storyId}: {Story Title}"`
 2. Push branch: `git push -u origin {branch}`

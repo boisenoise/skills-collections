@@ -6,6 +6,10 @@ license: MIT
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root.
 
+# Test Planning Orchestrator
+
+Coordinates the complete test planning pipeline for a Story by delegating to specialized workers.
+
 ## Inputs
 
 | Input | Required | Source | Description |
@@ -14,10 +18,6 @@ license: MIT
 
 **Resolution:** Story Resolution Chain.
 **Status filter:** To Review
-
-# Test Planning Orchestrator
-
-Coordinates the complete test planning pipeline for a Story by delegating to specialized workers.
 
 ## Purpose & Scope
 - **Orchestrate** test planning: research → manual testing → automated test planning
@@ -34,7 +34,7 @@ This skill should be used when:
 
 **Prerequisites:**
 - All implementation Tasks in Story status = Done
-- Regression tests passed (ln-514)
+- Regression tests passed (ln-513)
 - Code quality checked (ln-511)
 
 ## Pipeline Overview

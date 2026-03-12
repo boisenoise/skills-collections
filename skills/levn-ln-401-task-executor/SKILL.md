@@ -78,6 +78,19 @@ Step 2: Load Context
 Step 2b: Goal Articulation Gate
   - Complete 4 questions from shared/references/goal_articulation_gate.md (<=25 tokens each)
 
+Step 2c: Implementation Blueprint
+  - From task "Affected Components": extract file paths (Glob/Grep to find actual paths)
+  - Read each file (or key sections) to understand current structure
+  - Output:
+    ## Implementation Blueprint: {taskId}
+    **Files to create:** [list with brief purpose]
+    **Files to modify:** [list with what changes]
+    **Change order (dependencies first):**
+    1. {file} — {what and why first}
+    2. {file} — {depends on step 1}
+    **Risks:** {shared files with parallel tasks, if any}
+  - Scope: ONLY files of this task. Do not analyze other tasks.
+
 Step 3: Start Work
   - Set task to In Progress, update kanban
 
@@ -106,6 +119,7 @@ Step 6: Finish
    - ELSE → AskUserQuestion: show Todo Tasks from kanban
 2) **Load context:** Fetch full task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; auto-discover team/config if needed.
 2b) **Goal gate:** **MANDATORY READ:** `shared/references/goal_articulation_gate.md` — Complete the 4-question gate (<=25 tokens each). State REAL GOAL (deliverable as subject), DONE LOOKS LIKE, NOT THE GOAL, INVARIANTS & HIDDEN CONSTRAINTS.
+2c) **Implementation Blueprint:** From task "Affected Components", find actual file paths via Glob/Grep. Read key sections of each file. Output structured plan: files to create/modify, change order (dependencies first), risks (shared files with parallel tasks). Scope: this task only.
 3) **Start work:** Update this task to In Progress (Linear: update_issue; File: Edit status line); move it in kanban (keep Epic/Story indent).
 4) **Implement (with verification loop):** **Before writing new utilities/handlers**, Grep `src/` for existing patterns (error handling, validation, config access). Reuse if found; if not reusable, document rationale in code comment. Follow checkboxes/plan; keep it simple; avoid hardcoded values; reuse existing components; update docs noted in Affected Components; update existing tests if impacted (no new tests here). Before creating service functions, apply Architecture Guard (cascade depth, interface honesty, flat orchestration). After implementation, execute `verify:` methods from task AC: test → run specified test; command → execute and check output; inspect → verify file/content exists. If any verify fails → fix before proceeding.
 5) **Quality:** Run typecheck and lint (or project equivalents); ensure instructions in Existing Code Impact are addressed.

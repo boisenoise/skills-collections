@@ -22,9 +22,9 @@ Meta-orchestrator that reads the kanban board, shows available Stories, lets the
 
 ```
 L0: ln-1000-pipeline-orchestrator (TeamCreate lead, delegate mode, single story)
-  +-- Plan Worker (read-only, per stage, shutdown after APPROVE)
-  +-- Execute Worker (fresh per stage, shutdown after completion, one at a time)
+  +-- Worker (fresh per stage, shutdown after completion, one at a time)
        |   All stages: Opus 4.6  |  Effort: Stage 0 = low | Stage 1,2 = medium | Stage 3 = medium
+       |   Names: story-{id}-decompose | story-{id}-validate | story-{id}-implement | story-{id}-qa
        +-- L1: ln-300 / ln-310 / ln-400 / ln-500 (invoked via Skill tool, as-is)
             +-- L2/L3: existing hierarchy unchanged
 ```
@@ -235,8 +235,7 @@ Write .pipeline/state.json (schema: checkpoint_format.md → Pipeline State Sche
   Initialize: complete=false, selected_story_id, stories_remaining=1,
   all counters=0, empty collections, team_name="pipeline-{YYYY-MM-DD}",
   business_answers from Phase 2, storage_mode, project_brief, story_briefs,
-  status_cache (Linear) or {} (file), plan_revision_count={"0":0,"1":0,"2":0,"3":0},
-  pipeline_dir
+  status_cache (Linear) or {} (file), pipeline_dir
 Write .pipeline/lead-session.id with current session_id   # Stop hook uses this to only keep lead alive
 ```
 
@@ -255,10 +254,9 @@ IF platform == "win32":
 
 **Model routing:** All stages use `model: "opus"`. Thinking mode: always enabled (adaptive). Crash recovery = same effort as target stage.
 
-| Worker Type | Stage 0 | Stage 1 | Stage 2 | Stage 3 |
-|-------------|---------|---------|---------|---------|
-| **Execute** | low | medium | medium | medium |
-| **Plan-Only** | low | low | medium | low |
+| Worker | Stage 0 | Stage 1 | Stage 2 | Stage 3 |
+|--------|---------|---------|---------|---------|
+| Effort | low | medium | medium | medium |
 
 1. Create team:
    ```
@@ -322,35 +320,28 @@ stage_timestamps = {}                        # {storyId: {stage_N_start: ISO, st
 git_stats = {}                               # {storyId: {lines_added, lines_deleted, files_changed}}
 pipeline_start_time = now()                  # ISO 8601 — wall-clock start for duration metrics
 readiness_scores = {}                        # {storyId: readiness_score} — from Stage 1 GO
-plan_revision_count = {"0": 0, "1": 0, "2": 0, "3": 0}  # Plan gate revision counter per stage
-plan_approved = {}                           # {storyId: true} — set by ON PLAN_RESULT handler
 previous_quality_score = {}                  # {storyId: score} — saved on FAIL for rework degradation detection
 
 # Helper functions — defined in phase4_heartbeat.md (loaded above)
 # skill_name_from_stage(stage), predict_next_step(stage), stage_duration(id, N)
 
-# --- SPAWN PLAN WORKER (Plan Gate) ---
-# Always spawn read-only plan worker first. Lead evaluates plan via criteria,
-# then spawns execute worker after approval (see phase4_handlers.md Plan Gate Handler).
+# --- SPAWN FIRST WORKER ---
 id = selected_story.id
 target_stage = determine_stage(selected_story)    # pipeline_states.md guards
-plan_worker_name = "story-{id}-s{target_stage}-plan"
+# Stage names: 0=decompose, 1=validate, 2=implement, 3=qa
+stage_names = {0: "decompose", 1: "validate", 2: "implement", 3: "qa"}
+worker_name = "story-{id}-{stage_names[target_stage]}"
 
-Task(name: plan_worker_name, team_name: "pipeline-{date}",
+Task(name: worker_name, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions",
      subagent_type: "general-purpose",
-     prompt: plan_only_template(selected_story, target_stage, business_answers))
-worker_map[id] = plan_worker_name
+     prompt: worker_prompt(selected_story, target_stage, business_answers))
+worker_map[id] = worker_name
 story_state[id] = "STAGE_{target_stage}"
 stage_timestamps[id] = {}
 stage_timestamps[id]["stage_{target_stage}_start"] = now()
-Write .pipeline/worker-{plan_worker_name}-active.flag     # For TeammateIdle hook
+Write .pipeline/worker-{worker_name}-active.flag     # For TeammateIdle hook
 Update .pipeline/state.json
-SendMessage(recipient: plan_worker_name,
-            content: "Create plan for Stage {target_stage} of Story {id}",
-            summary: "Stage {target_stage} plan request")
-# Heartbeat loop handles PLAN_RESULT → APPROVE/REVISE → execute worker spawn
-# (see phase4_handlers.md: Plan Gate Handler + Plan Worker Done-Flag Detection)
 
 # --- EVENT LOOP (heartbeat-driven, single story) ---
 # Stop hook → exit 2 → new agentic loop → worker messages delivered → ON handlers → turn ends → repeat
@@ -363,7 +354,6 @@ WHILE story_state[id] NOT IN ("DONE", "PAUSED"):
   # 1. Process worker messages (reactive message handling)
   #
   **MANDATORY READ:** Load `references/phases/phase4_handlers.md` for all ON message handlers:
-  - Plan Gate (PLAN_RESULT → APPROVE/REVISE, plan worker → execute worker transition)
   - Stage 0 COMPLETE / ERROR (task planning outcomes)
   - Stage 1 COMPLETE (GO / NO-GO validation outcomes with retry logic)
   - Stage 2 COMPLETE / ERROR (execution outcomes)
@@ -621,7 +611,6 @@ Pipeline-level verification. Per-stage verifications are in `phase4_handlers.md`
 ### Phase 4 Procedures (Progressive Disclosure)
 - **Message handlers:** `references/phases/phase4_handlers.md` (Plan Gate, Stage 0-3 ON handlers, crash detection)
 - **Heartbeat & verification:** `references/phases/phase4_heartbeat.md` (Active done-flag checking, structured heartbeat output)
-- **Plan gate criteria:** `references/plan_gate_criteria.md` (auto-approval criteria per stage)
 
 ### Core Infrastructure
 - **MANDATORY READ:** `shared/references/git_worktree_fallback.md`

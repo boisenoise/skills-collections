@@ -83,6 +83,7 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
     - `api_spec_extractor` → { endpoints[], authentication }
     - `database_schema_extractor` → { tables[], relationships[] }
     - `runbook_extractor` → { prerequisites[], install_steps[], env_vars[] }
+    - `infrastructure_extractor` → { servers[], domains[], ports[], services[], artifacts{}, cicd{} }
   - Score content quality (0.0-1.0)
 - Store in `extracted_content` object
 
@@ -143,7 +144,8 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
       "legacy_tech_stack": { "frontend": "...", "backend": "..." },
       "legacy_api": { "endpoints": [...] },
       "legacy_database": { "tables": [...] },
-      "legacy_runbook": { "install_steps": [...] }
+      "legacy_runbook": { "install_steps": [...] },
+      "legacy_infrastructure": { "servers": [...], "domains": [...], "ports": {} }
     }
   }
   ```
@@ -182,7 +184,7 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
      - **Root docs** (4 files): `CLAUDE.md`, `docs/README.md`, `docs/documentation_standards.md`, `docs/principles.md`
      - **Reference structure** (5 items): `docs/reference/README.md`, `docs/reference/adrs/`, `docs/reference/guides/`, `docs/reference/manuals/`, `docs/reference/research/`
      - **Tasks docs** (2 files): `docs/tasks/README.md`, `docs/tasks/kanban_board.md`
-     - **Project docs** (up to 7 files): `docs/project/requirements.md`, `architecture.md`, `tech_stack.md`, `api_spec.md`, `database_schema.md`, `design_guidelines.md`, `runbook.md`
+     - **Project docs** (up to 8 files): `docs/project/requirements.md`, `architecture.md`, `tech_stack.md`, `api_spec.md`, `database_schema.md`, `design_guidelines.md`, `infrastructure.md`, `runbook.md`
      - **Presentation** (3 items): `docs/presentation/README.md`, `presentation_final.html`, `assets/` directory
      - **Test docs** (2 files): `docs/reference/guides/testing-strategy.md`, `tests/README.md`
    - Count existing vs missing files
@@ -226,8 +228,8 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
   - ln-112-project-core-creator → 3 core docs (uses LEGACY_CONTENT.legacy_architecture, legacy_requirements, legacy_tech_stack)
   - ln-113-backend-docs-creator → 2 conditional (uses LEGACY_CONTENT.legacy_api, legacy_database)
   - ln-114-frontend-docs-creator → 1 conditional (if hasFrontend)
-  - ln-115-devops-docs-creator → 1 conditional (uses LEGACY_CONTENT.legacy_runbook)
-- **Output**: Root docs (`CLAUDE.md` + `docs/README.md` + `docs/documentation_standards.md` + `docs/principles.md`) + Project docs (`docs/project/requirements.md`, `architecture.md`, `tech_stack.md` + conditional: `api_spec.md`, `database_schema.md`, `design_guidelines.md`, `runbook.md`)
+  - ln-115-devops-docs-creator → 2 docs: 1 always + 1 conditional (uses LEGACY_CONTENT.legacy_runbook, legacy_infrastructure)
+- **Output**: Root docs (`CLAUDE.md` + `docs/README.md` + `docs/documentation_standards.md` + `docs/principles.md`) + Project docs (`docs/project/requirements.md`, `architecture.md`, `tech_stack.md`, `infrastructure.md` + conditional: `api_spec.md`, `database_schema.md`, `design_guidelines.md`, `runbook.md`)
 - **Store**: Save `context_store` from ln-110 result (contains TECH_STACK for ln-120)
 - **Validation**: Each L3 worker validates output (SCOPE tags, Maintenance sections)
 - **Verify**: All documents exist before continuing
@@ -517,6 +519,7 @@ project_root/
 │   │   ├── api_spec.md               # ← API endpoints (conditional)
 │   │   ├── database_schema.md        # ← Database schema (conditional)
 │   │   ├── design_guidelines.md      # ← UI/UX system (conditional)
+│   │   ├── infrastructure.md          # ← Infrastructure inventory (always)
 │   │   └── runbook.md                # ← Operations guide (conditional)
 │   ├── reference/
 │   │   ├── README.md                 # ← Reference documentation hub (registries)
