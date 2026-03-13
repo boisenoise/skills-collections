@@ -16,7 +16,7 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 |-------|------|-------|-------------|
 | `storyId` | string | All | Story identifier (e.g., "PROJ-42") |
 | `stage` | number | All | Current stage (0-3) |
-| `agentId` | string | All | Worker's agent ID for Task resume |
+| `agentId` | string | All | Worker's agent ID for Agent resume |
 | `tasksCompleted` | string[] | All | Task IDs already finished |
 | `tasksRemaining` | string[] | All | Task IDs still pending |
 | `lastAction` | string | All | Description of last completed action |
@@ -66,7 +66,7 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `git_stats` | object | `{storyId: {lines_added, lines_deleted, files_changed}}` — code output metrics |
 | `pipeline_start_time` | string | ISO 8601 timestamp of pipeline start — for wall-clock duration |
 | `readiness_scores` | object | `{storyId: readiness_score}` — from Stage 1 GO, for Stage 3 fast-track decision |
-| `team_name` | string | Team name for Task() spawns (e.g., "pipeline-2026-02-15") |
+| `team_name` | string | Team name for Agent() spawns (e.g., "pipeline-2026-02-15") |
 | `business_answers` | object | `{question: answer}` from Phase 2 — passed to worker prompts |
 | `storage_mode` | string | `"file"` or `"linear"` — task storage backend |
 | `skill_repo_path` | string | Skills repository absolute path (for recovery hook) |
@@ -102,12 +102,12 @@ Lead executes on confirmed crash (3-step protocol passed):
 1. Read checkpoint: .pipeline/checkpoint-{id}.json
 
 2. Try resume (preserves full agent context):
-   Task(resume: checkpoint.agentId)
+   Agent(resume: checkpoint.agentId)
    IF resume succeeds → worker continues where it left off → DONE
 
 3. Fallback — new worker with checkpoint context:
    prompt = worker_prompt(story, checkpoint.stage, business_answers) + CHECKPOINT_RESUME block
-   Task(name: "story-{id}-{stage_name}-retry", team_name: "pipeline-{date}",  # stage_name = decompose|validate|implement|qa
+   Agent(name: "story-{id}-{stage_name}-retry", team_name: "pipeline-{date}",  # stage_name = decompose|validate|implement|qa
         model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
         prompt: prompt)
 ```

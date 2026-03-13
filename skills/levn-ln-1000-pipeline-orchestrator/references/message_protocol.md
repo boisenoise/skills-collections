@@ -35,6 +35,7 @@ The `{agents_info}` field reports agent review results. Required for Stage 1 and
 | `SKIPPED(no agents available)` | Health check returned 0 agents |
 | `SKIPPED(agents disabled)` | All agents disabled in environment_state.json |
 | `SKIPPED(fast-track)` | Stage 3 fast-track mode skipped agent review |
+| `SKIPPED(pipeline-efficiency)` | Stage 3 skipped for pipeline speed; regression tests + lint still run |
 
 **Backward compatibility:** If `Agents:` field is absent in a message, lead stores `"N/A"` (supports workers from older prompts).
 
@@ -91,7 +92,7 @@ Verdict: (PASS|CONCERNS|WAIVED|FAIL)\. Quality Score: (\d+)/100.*?(?:Agents: (.+
 ```
 SendMessage(
   type: "message",
-  recipient: "pipeline-lead",
+  recipient: "team-lead",
   content: <exact format from tables above>,
   summary: "{id} Stage {N} {verdict/result}"    # max 10 words
 )

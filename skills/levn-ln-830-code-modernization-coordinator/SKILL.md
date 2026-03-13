@@ -67,14 +67,20 @@ Coordinates code modernization by delegating to L3 workers: ln-831 (OSS replacer
 
 ## Phase 2: Delegate to Workers
 
-> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` and `isolation: "worktree"` — each worker creates its own branch per `shared/references/git_worktree_fallback.md`.
+> **CRITICAL:** All delegations use Agent tool with `subagent_type: "general-purpose"` and `isolation: "worktree"` — each worker creates its own branch per `shared/references/git_worktree_fallback.md`.
 
 ### Delegation Protocol
 
 ```
 FOR each selected worker:
-  Task(description: "Modernize via ln-83X",
-       prompt: "Execute ln-83X-{worker}. Read skill from ln-83X-{worker}/SKILL.md. Context: {delegationContext}",
+  Agent(description: "Modernize via ln-83X",
+       prompt: "Execute modernization worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"ln-83X-{worker}\")
+
+CONTEXT:
+{delegationContext}",
        subagent_type: "general-purpose",
        isolation: "worktree")
 ```
@@ -210,6 +216,14 @@ Options:
 - Workers delegated with worktree isolation (`isolation: "worktree"`, ln-831 before ln-832)
 - Each worker produces isolated branch, pushed to remote
 - Coordinator report aggregates per-worker results (branch, changes, status)
+
+---
+
+## Phase 6: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `optimization-coordinator`. Run after all phases complete. Output to chat using the `optimization-coordinator` format.
 
 ---
 

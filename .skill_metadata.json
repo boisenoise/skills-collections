@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-12T06:27:43.575192",
-  "skill_count": 2362,
+  "last_updated": "2026-03-13T06:27:09.964152",
+  "skill_count": 2366,
   "sources_processed": 19,
   "skills": [
     {
@@ -4668,6 +4668,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-interview-coach",
+      "original_name": "interview-coach",
+      "description": "Full job search coaching system \u2014 JD decoding, resume, storybank, mock interviews, transcript analysis, comp negotiation. 23 commands, persistent state.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-gitlab-automation",
       "original_name": "gitlab-automation",
       "description": "Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations via Rube MCP (Composio). Always search tools first for current schemas.",
@@ -9020,6 +9028,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-closed-loop-delivery",
+      "original_name": "closed-loop-delivery",
+      "description": "Use when a coding task must be completed against explicit acceptance criteria with minimal user re-intervention across implementation, review feedback, deployment, and runtime verification.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-computer-use-agents",
       "original_name": "computer-use-agents",
       "description": "Build AI agents that interact with computers like humans do - viewing screens, moving cursors, clicking buttons, and typing text. Covers Anthropic's Computer Use, OpenAI's Operator/CUA, and open-so...",
@@ -9900,9 +9916,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-acceptance-orchestrator",
+      "original_name": "acceptance-orchestrator",
+      "description": "Use when a coding task should be driven end-to-end from issue intake through implementation, review, deployment, and acceptance verification with minimal human re-intervention.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-terraform-specialist",
       "original_name": "terraform-specialist",
       "description": "Expert Terraform/OpenTofu specialist mastering advanced IaC automation, state management, and enterprise infrastructure patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-create-issue-gate",
+      "original_name": "create-issue-gate",
+      "description": "Use when starting a new implementation task and an issue must be created with strict acceptance criteria gating before execution.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

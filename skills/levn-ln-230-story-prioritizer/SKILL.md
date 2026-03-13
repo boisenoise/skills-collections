@@ -101,11 +101,7 @@ Extract: `task_provider` = Task Management → Provider
 
 **Process:**
 
-1. **Resolve epicId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches `feature/epic-{N}-*` → extract Epic N
-   - ELSE IF kanban has exactly 1 active Epic → suggest
-   - ELSE → AskUserQuestion: show active Epics from kanban
+1. **Resolve epicId:** Run Epic Resolution Chain per guide.
 
 2. **Load Epic details:**
    - **IF task_provider == "linear":** `get_project(query=epicId)`
@@ -460,6 +456,12 @@ ln-230-story-prioritizer epic="Epic 7" stories="US001,US002,US003"
 | P1 | "Need video subtitles" | SRT/VTT Support | Timing preservation | Blue Ocean opportunity | Medium | $5.7B | [GMI](link) | 2 |
 
 ---
+
+## Phase 6: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `planning-coordinator`. Run after all phases complete. Output to chat using the `planning-coordinator` format.
 
 ## Reference Files
 

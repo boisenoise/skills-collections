@@ -78,7 +78,7 @@ Coordinates comprehensive test suite audit across 6 quality categories using 5 s
 ### Phase 3: Domain Discovery
 
 ```bash
-mkdir -p {output_dir}   # No deletion — date folders preserve history
+mkdir -p {output_dir}   # Worker files cleaned up after consolidation (Phase 7)
 ```
 
 **MANDATORY READ:** Load `shared/references/audit_coordinator_domain_mode.md`.
@@ -103,8 +103,14 @@ Detect `domain_mode` and `all_domains` with the shared pattern. This coordinator
 **Invocation (4 workers in PARALLEL):**
 ```javascript
 FOR EACH worker IN [ln-631, ln-632, ln-633, ln-635]:
-  Task(description: "Test audit via " + worker,
-       prompt: "Execute " + worker + ". Read skill. Context: " + JSON.stringify(contextStore),
+  Agent(description: "Test audit via " + worker,
+       prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(contextStore),
        subagent_type: "general-purpose")
 ```
 
@@ -125,13 +131,25 @@ IF domain_mode == "domain-aware":
       domain_mode: "domain-aware",
       current_domain: { name: domain.name, path: domain.path }
     }
-    Task(description: "Test audit coverage " + domain.name + " via ln-634",
-         prompt: "Execute ln-634-test-coverage-auditor. Read skill. Context: " + JSON.stringify(domain_context),
+    Agent(description: "Test coverage " + domain.name + " via ln-634",
+         prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"ln-634-test-coverage-auditor\")
+
+CONTEXT:
+" + JSON.stringify(domain_context),
          subagent_type: "general-purpose")
 ELSE:
   // Fallback: invoke once for entire codebase (global mode)
-  Task(description: "Test audit coverage via ln-634",
-       prompt: "Execute ln-634-test-coverage-auditor. Read skill. Context: " + JSON.stringify(contextStore),
+  Agent(description: "Test coverage via ln-634",
+       prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"ln-634-test-coverage-auditor\")
+
+CONTEXT:
+" + JSON.stringify(contextStore),
        subagent_type: "general-purpose")
 ```
 
@@ -152,7 +170,6 @@ Local rules for this coordinator:
 - Categories 1-3 and 5-6 stay global in the final report.
 - Category 4 (Coverage Gaps) is grouped per domain when `domain_mode="domain-aware"`.
 - Overall score = average of 5 worker scores.
-- Append one results-log row with `Skill=ln-630`, `Metric=overall_score`, `Scale=0-10`.
 
 **Context Validation (Post-Filter):**
 
@@ -278,6 +295,20 @@ Each worker:
 - **Code is truth:** If test contradicts code behavior, update test
 - **Language preservation:** Report in project's language (EN/RU)
 
+## Phase 6: Append Results Log
+
+**MANDATORY READ:** Load `shared/references/results_log_pattern.md`
+
+Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-630`, Metric=`overall_score`, Scale=`0-10`, Score from Phase 5 aggregation. Calculate Delta vs previous `ln-630` row. Create file with header if missing. Rolling window: max 50 entries.
+
+## Phase 7: Cleanup Worker Files
+
+```bash
+rm -rf {output_dir}
+```
+
+Delete the dated output directory (`docs/project/.audit/ln-630/{YYYY-MM-DD}/`). The consolidated report and results log already preserve all audit data.
+
 ## Definition of Done
 
 - All test files discovered via Glob
@@ -294,7 +325,15 @@ Each worker:
 - Missing tests identified with Priority (grouped by domain if applicable)
 - Anti-patterns catalogued
 - Report written to `docs/project/test_audit.md`
+- Results log row appended to `docs/project/.audit/results_log.md`
+- Worker output directory cleaned up after consolidation
 - Summary returned to user
+
+## Phase 8: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `review-coordinator` (workers only). Run after all phases complete. Output to chat using the `review-coordinator — workers only` format.
 
 ## Reference Files
 

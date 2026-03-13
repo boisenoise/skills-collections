@@ -58,11 +58,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ### Phase 1: Discovery (Automated)
 
-1. **Resolve storyId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches `feature/{id}-*` → extract id
-   - ELSE IF kanban has exactly 1 Story in [To Review] → suggest
-   - ELSE → AskUserQuestion: show Stories from kanban filtered by [To Review]
+1. **Resolve storyId:** Run Story Resolution Chain per guide (status filter: [To Review]).
 2. Auto-discover Team ID from `docs/tasks/kanban_board.md` (see CLAUDE.md "Configuration Auto-Discovery")
 
 ### Phase 2: Story + Tasks Analysis (NO Dialog)
@@ -259,6 +255,12 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 **Risk-Based Testing:** Prioritize by Business Impact x Probability. E2E-first from ACTUAL manual testing results. Priority ≥15 scenarios covered by tests.
 
 **Expected-Based Testing:** For deterministic tests, compare actual vs expected using `diff`. **MANDATORY READ:** Load `../ln-522-manual-tester/SKILL.md` — section "Test Design Principles".
+
+## Reference Files
+
+| File | Purpose |
+|------|---------|
+| `references/risk_based_testing_examples.md` | Practical examples of risk-based testing (learning reference) |
 
 ---
 

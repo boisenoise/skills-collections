@@ -44,7 +44,7 @@ Workers (ln-301, ln-302) handle the actual Linear/File operations based on `task
 **MANDATORY READ:** Load `shared/references/creation_quality_checklist.md` §Task Creation Checklist for validation criteria that ln-310 will enforce.
 
 ## Workflow (concise)
-- **Phase 1 Discovery:** Auto-discover Team ID (docs/tasks/kanban_board.md). Resolve storyId (per input_resolution_pattern.md): IF args provided → use args; ELSE IF git branch matches `feature/{id}-*` → extract id; ELSE IF kanban has exactly 1 Story in [Backlog, Todo] → suggest; ELSE → AskUserQuestion: show Stories from kanban filtered by [Backlog, Todo].
+- **Phase 1 Discovery:** Auto-discover Team ID (docs/tasks/kanban_board.md). Resolve storyId: Run Story Resolution Chain per guide (status filter: [Backlog, Todo]).
 - **Phase 2 Decompose (always):** **MANDATORY READ:** `shared/references/goal_articulation_gate.md` — Before building IDEAL plan, state REAL GOAL of this Story in one sentence (the deliverable, not the process). Verify: does the decomposition serve THIS goal? Then: Load Story (AC, Technical Notes, Context), assess complexity, build IDEAL plan (1-8 implementation tasks only), **scan for reusable patterns** (Grep `src/` for error handlers, validators, utilities relevant to task categories — count only; if found, append `**Pattern Hint:** {count} existing {category} patterns in src/. Review for reuse before creating new (Step 4a in ln-401).` to relevant task descriptions), apply Foundation-First execution order, **validate Task Independence**, **assign Parallel Groups**, **define verification methods for each task AC**, extract guide links.
 - **Phase 3 Check & Detect Mode:** Query Linear for existing tasks (metadata only). Detect mode by count + user keywords (add/replan).
 - **Phase 4 Delegate:** Call the right worker with Story data, IDEAL plan/append request, guide links, existing task IDs if any; autoApprove=true.
@@ -173,6 +173,12 @@ Mark each as in_progress when starting, completed when done.
 - Worker invoked with correct payload and autoApprove=true.
 - Worker summary received (Linear URLs/operations) and kanban update confirmed.
 - Next steps returned (ln-310-multi-agent-validator, then orchestrator continues).
+
+## Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `planning-coordinator`. Run after all phases complete. Output to chat using the `planning-coordinator` format.
 
 ## Reference Files
 - **Tools config:** `shared/references/tools_config_guide.md`

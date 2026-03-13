@@ -33,6 +33,8 @@ Coordinates 4 specialized audit workers to perform comprehensive documentation q
 5) **Aggregate:** Collect worker results, calculate overall score
 6) **Context Validation:** Post-filter findings
 7) **Write Report:** Save to `docs/project/docs_audit.md`
+8) **Results Log:** Append trend row
+9) **Cleanup:** Delete worker files
 
 ## Phase 1: Discovery
 
@@ -74,13 +76,13 @@ Where `{YYYY-MM-DD}` is current date (e.g., `2026-03-01`).
 mkdir -p {output_dir}
 ```
 
-**No deletion** of previous date folders — history preserved for comparison.
+Worker files are cleaned up after consolidation (see Phase 9).
 
 ## Phase 4: Delegate to Workers
 
 **MANDATORY READ:** Load `shared/references/task_delegation_pattern.md`.
 
-Invoke all workers in parallel via Task tool:
+All workers in PARALLEL via Agent tool:
 
 | Worker | Invocations | Output |
 |--------|-------------|--------|
@@ -89,7 +91,35 @@ Invoke all workers in parallel via Task tool:
 | ln-613-code-comments-auditor | 1 | `{output_dir}/613-code-comments.md` |
 | ln-614-docs-fact-checker | 1 | `{output_dir}/614-fact-checker.md` |
 
-Pass `contextStore` to each worker. For ln-612, additionally pass `doc_path` per invocation. ln-614 receives only `contextStore` and discovers `.md` files internally. Workers follow the shared file-based audit contract and return compact summaries with report path, score, and severity counts.
+ln-614 receives only `contextStore` and discovers `.md` files internally. Workers follow the shared file-based audit contract and return compact summaries with report path, score, and severity counts.
+
+**Invocation:**
+```javascript
+// Global workers (ln-611, ln-613, ln-614) — 1 invocation each:
+FOR EACH worker IN [ln-611, ln-613, ln-614]:
+  Agent(description: "Docs audit via " + worker,
+       prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(contextStore),
+       subagent_type: "general-purpose")
+
+// Per-document worker (ln-612) — N invocations:
+FOR EACH doc IN semantic_targets:
+  doc_context = { ...contextStore, doc_path: doc }
+  Agent(description: "Semantic audit " + doc + " via ln-612",
+       prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"ln-612-semantic-content-auditor\")
+
+CONTEXT:
+" + JSON.stringify(doc_context),
+       subagent_type: "general-purpose")
+```
 
 ## Phase 5: Aggregate Results
 
@@ -197,15 +227,37 @@ Write consolidated report to `docs/project/docs_audit.md`:
 - **Code is truth:** When docs contradict code, always update docs
 - **Delete, don't archive:** Legacy content removed, not archived
 
+## Phase 8: Append Results Log
+
+**MANDATORY READ:** Load `shared/references/results_log_pattern.md`
+
+Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-610`, Metric=`overall_score`, Scale=`0-10`, Score from Phase 7 report. Calculate Delta vs previous `ln-610` row. Create file with header if missing. Rolling window: max 50 entries.
+
+## Phase 9: Cleanup Worker Files
+
+```bash
+rm -rf {output_dir}
+```
+
+Delete the dated output directory (`docs/project/.audit/ln-610/{YYYY-MM-DD}/`). The consolidated report and results log already preserve all audit data.
+
 ## Definition of Done
 
 - Project metadata discovered (tech stack, doc list)
 - contextStore built with output_dir = `docs/project/.audit/ln-610/{YYYY-MM-DD}`
-- Output directory created (no deletion of previous runs)
+- Output directory created for worker reports
 - All 4 workers invoked and completed
 - Worker reports aggregated: 4 category scores + overall
 - Context Validation applied to all findings
 - Consolidated report written to `docs/project/docs_audit.md`
+- Results log row appended to `docs/project/.audit/results_log.md`
+- Worker output directory cleaned up after consolidation
+
+## Phase 10: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `review-coordinator` (workers only). Run after all phases complete. Output to chat using the `review-coordinator — workers only` format.
 
 ## Reference Files
 

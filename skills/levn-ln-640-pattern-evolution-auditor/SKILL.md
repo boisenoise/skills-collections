@@ -41,7 +41,7 @@ L2 Coordinator that analyzes implemented architectural patterns against current 
 | ln-645-open-source-replacer | Search OSS replacements for custom modules via MCP Research | Phase 4 |
 | ln-646-project-structure-auditor | Audit physical structure, hygiene, naming conventions | Phase 4 |
 
-All delegations use Task with `subagent_type: "general-purpose"`. Keep Phase 4 workers parallel where inputs are independent; keep ln-641 in Phase 5 because pattern scoring depends on earlier boundary and graph evidence.
+All delegations use Agent with `subagent_type: "general-purpose"`. Keep Phase 4 workers parallel where inputs are independent; keep ln-641 in Phase 5 because pattern scoring depends on earlier boundary and graph evidence.
 
 ## Workflow
 
@@ -174,40 +174,39 @@ FOR EACH pattern WHERE last_audit > 30 days OR never:
 
 **MANDATORY READ:** Load `shared/references/audit_coordinator_domain_mode.md`.
 
-Use the shared domain discovery pattern to set `domain_mode` and `all_domains`. Then create `docs/project/.audit/ln-640/{YYYY-MM-DD}/` and keep prior date folders intact.
+Use the shared domain discovery pattern to set `domain_mode` and `all_domains`. Then create `docs/project/.audit/ln-640/{YYYY-MM-DD}/`. Worker files are cleaned up after consolidation (see Phase 11).
 
 ### Phase 4: Layer Boundary + API Contract + Dependency Graph Audit
 
-```
+```javascript
 IF domain_mode == "domain-aware":
-  # Per-domain invocation of ln-642, ln-643, ln-644
-  FOR EACH domain IN domains (parallel):
-    Task(ln-642-layer-boundary-auditor)
-      Input: architecture_path, codebase_root, skip_violations, output_dir,
-             domain_mode="domain-aware", current_domain=domain.name, scan_path=domain.path
-    Task(ln-643-api-contract-auditor)
-      Input: pattern="API Contracts", locations=[domain.path], bestPractices, output_dir,
-             domain_mode="domain-aware", current_domain=domain.name, scan_path=domain.path
-    Task(ln-644-dependency-graph-auditor)
-      Input: architecture_path, codebase_root, output_dir,
-             domain_mode="domain-aware", current_domain=domain.name, scan_path=domain.path
-    Task(ln-645-open-source-replacer)
-      Input: codebase_root, tech_stack, output_dir,
-             domain_mode="domain-aware", current_domain=domain.name, scan_path=domain.path
-    Task(ln-646-project-structure-auditor)
-      Input: codebase_root, output_dir,
-             domain_mode="domain-aware", current_domain=domain.name, scan_path=domain.path
+  FOR EACH domain IN all_domains:
+    domain_context = {
+      ...contextStore,
+      domain_mode: "domain-aware",
+      current_domain: { name: domain.name, path: domain.path }
+    }
+    FOR EACH worker IN [ln-642, ln-643, ln-644, ln-645, ln-646]:
+      Agent(description: "Audit " + domain.name + " via " + worker,
+           prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(domain_context),
+           subagent_type: "general-purpose")
 ELSE:
-  Task(ln-642-layer-boundary-auditor)
-    Input: architecture_path, codebase_root, skip_violations, output_dir
-  Task(ln-643-api-contract-auditor)
-    Input: pattern="API Contracts", locations=[service_dirs, api_dirs], bestPractices, output_dir
-  Task(ln-644-dependency-graph-auditor)
-    Input: architecture_path, codebase_root, output_dir
-  Task(ln-645-open-source-replacer)
-    Input: codebase_root, tech_stack, output_dir
-  Task(ln-646-project-structure-auditor)
-    Input: codebase_root, output_dir
+  FOR EACH worker IN [ln-642, ln-643, ln-644, ln-645, ln-646]:
+    Agent(description: "Pattern evolution audit via " + worker,
+         prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(contextStore),
+         subagent_type: "general-purpose")
 
 # Apply layer deductions from ln-642 return values (score + issue counts)
 # Detailed violations read from files in Phase 6
@@ -215,12 +214,19 @@ ELSE:
 
 ### Phase 5: Pattern Analysis Loop
 
-```
+```javascript
 # ln-641 stays GLOBAL (patterns are cross-cutting, not per-domain)
 # Only VERIFIED patterns from Phase 1d (skip EXCLUDED)
 FOR EACH pattern IN catalog WHERE pattern.status == "VERIFIED":
-  Task(ln-641-pattern-analyzer)
-    Input: pattern, locations, bestPractices, output_dir
+  Agent(description: "Analyze " + pattern.name + " via ln-641",
+       prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"ln-641-pattern-analyzer\")
+
+CONTEXT:
+" + JSON.stringify({...contextStore, pattern: pattern}),
+       subagent_type: "general-purpose")
 ```
 
 **Worker Output Contract (file-based):**
@@ -471,13 +477,22 @@ Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-640`, Met
 - **Layer deductions:** Apply scoring_rules.md deductions for violations
 - **File output only:** Write results to patterns_catalog.md; no side-effect task/issue creation
 
+## Phase 11: Cleanup Worker Files
+
+```bash
+rm -rf {output_dir}
+```
+
+Delete the dated output directory (`docs/project/.audit/ln-640/{YYYY-MM-DD}/`). The consolidated report and results log already preserve all audit data.
+
 ## Definition of Done
 
 - Pattern catalog loaded or created
 - Applicability verified for all detected patterns (Phase 1d); excluded patterns documented
 - Best practices researched for all VERIFIED patterns needing audit
 - Domain discovery completed (global or domain-aware mode selected)
-- Output directory `docs/project/.audit/ln-640/{YYYY-MM-DD}/` created (no deletion of previous runs)
+- Output directory `docs/project/.audit/ln-640/{YYYY-MM-DD}/` created for worker reports
+- Worker output directory cleaned up after consolidation
 - Layer boundaries audited via ln-642 (reports written to `{output_dir}/`)
 - API contracts audited via ln-643 (reports written to `{output_dir}/`)
 - Dependency graph audited via ln-644 (reports written to `{output_dir}/`)
@@ -489,6 +504,12 @@ Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-640`, Met
 - Catalog updated with scores, dates, Layer Boundary Status
 - Trend analysis completed (current vs previous scores compared)
 - Summary report output
+
+## Phase 12: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `review-coordinator` (workers only). Run after all phases complete. Output to chat using the `review-coordinator — workers only` format.
 
 ## Reference Files
 

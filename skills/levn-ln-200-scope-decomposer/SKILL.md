@@ -379,6 +379,12 @@ After ln-200-scope-decomposer completes:
 
 ---
 
+## Phase 6: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `planning-coordinator`. Run after all phases complete. Output to chat using the `planning-coordinator` format.
+
 ## Reference Files
 
 - **Configuration source:** `docs/tasks/kanban_board.md` (Team ID, Next Epic Number)

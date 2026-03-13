@@ -14,7 +14,7 @@ Each worker handles exactly ONE stage (or one plan). No IDLE→EXECUTING transit
 
 | State | Description | Duration |
 |-------|------------|----------|
-| SPAWNED | Task() called, worker initializing | Seconds |
+| SPAWNED | Agent() called, worker initializing | Seconds |
 | EXECUTING | Worker running ln-300/310/400/500 via Skill tool | Minutes to hours (ln-400 can be long) |
 | REPORTING | Worker sends "Stage N COMPLETE/ERROR" to lead | Seconds |
 | SHUTDOWN | Lead sends shutdown_request after report, worker approves and exits | Seconds |
@@ -61,7 +61,7 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
    ```
    checkpoint = read(".pipeline/checkpoint-{id}.json")
    IF checkpoint.agentId exists:
-     Task(resume: checkpoint.agentId)
+     Agent(resume: checkpoint.agentId)
      # If resume succeeds → worker continues exactly where it left off
    ```
 
@@ -75,7 +75,7 @@ When crash confirmed (Step 3). See `references/checkpoint_format.md` for checkpo
      Last action: {checkpoint.lastAction}
      Continue from remaining tasks only.
    """
-   Task(name: new_worker, team_name: "pipeline-{date}",
+   Agent(name: new_worker, team_name: "pipeline-{date}",
         model: "opus", mode: "bypassPermissions",
         subagent_type: "general-purpose", prompt: new_prompt)
    worker_map[id] = new_worker
@@ -176,7 +176,7 @@ Ephemeral variables (NOT persisted, reset on recovery):
 3. Re-read kanban board → verify consistency with story_state
 4. Read team config → verify worker_map members still exist
 5. For active story (selected_story_id):
-   a. Try Task(resume: checkpoint.agentId) — preserves full context
+   a. Try Agent(resume: checkpoint.agentId) — preserves full context
    b. Fallback: respawn with checkpoint context (see Respawn Rules)
 6. Resume Phase 4 event loop
 ```

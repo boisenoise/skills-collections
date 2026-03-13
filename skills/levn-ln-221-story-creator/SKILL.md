@@ -102,12 +102,8 @@ Extract: `task_provider` = Task Management → Provider
 
 ### Phase 1: Generate Story Documents
 
-**Step 0: Resolve epicId** (per input_resolution_pattern.md, standalone invocation only):
-- IF epicData provided by ln-220 orchestrator → use it (skip resolution)
-- IF args provided → use args
-- ELSE IF git branch matches `feature/epic-{N}-*` → extract Epic N
-- ELSE IF kanban has exactly 1 active Epic → suggest
-- ELSE → AskUserQuestion: show active Epics from kanban
+**Step 0: Resolve epicId** (standalone only — skip if epicData provided by ln-220 orchestrator):
+Run Epic Resolution Chain per guide.
 
 **Step 1: Generate Documents**
 

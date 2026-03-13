@@ -507,6 +507,12 @@ Before completing work, verify ALL checkpoints:
 
 ---
 
+## Phase 6: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `planning-coordinator`. Run after all phases complete. Output to chat using the `planning-coordinator` format.
+
 ## Reference Files
 
 - **MANDATORY READ:** `shared/references/tools_config_guide.md`

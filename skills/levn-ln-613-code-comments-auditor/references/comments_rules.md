@@ -75,7 +75,7 @@ Exclude:
 | Historical notes ("was X, now Y") | Clutters code | CHANGELOG |
 | Code examples | Belongs in tests/docs | Documentation |
 
-> **Note:** Task/Epic/Story IDs are **allowed** — they help with code traceability and quick navigation to original requirements.
+> **Note:** Task/Epic/Story IDs, ADR references — allowed as **spec/requirement links** (`See API-409`, `Per ADR-003`, `RFC 9457`). Forbidden as **development history** (`EP4_07 added filtering`, `Created in Sprint 5`).
 
 ### Detection Patterns
 

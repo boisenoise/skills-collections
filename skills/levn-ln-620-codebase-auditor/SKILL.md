@@ -29,6 +29,8 @@ Coordinates 9 specialized audit workers to perform comprehensive codebase qualit
 5) **Delegate:** Two-stage delegation - global workers (5a) + domain-aware workers (5b)
 6) **Aggregate:** Collect worker results, group by domain, calculate scores
 7) **Write Report:** Save to `docs/project/codebase_audit.md`
+8) **Results Log:** Append trend row
+9) **Cleanup:** Delete worker files
 
 ## Phase 1: Discovery
 
@@ -111,7 +113,7 @@ Detect `domain_mode` and `all_domains` using the shared pattern. This coordinato
 
 ### Phase 5.0: Prepare Output Directory
 
-Create `{output_dir}` before delegation. Keep prior date folders for history; never delete them.
+Create `{output_dir}` before delegation. Worker files are cleaned up after consolidation (see Phase 9).
 
 ### Phase 5a: Global Workers (PARALLEL)
 
@@ -127,7 +129,19 @@ Create `{output_dir}` before delegation. Keep prior date folders for history; ne
 | 8 | ln-628-concurrency-auditor | HIGH | Async races, thread safety, TOCTOU, deadlocks, blocking I/O, contention, cross-process races | `628-concurrency.md` |
 | 9 | ln-629-lifecycle-auditor | MEDIUM | Bootstrap, graceful shutdown, resource cleanup | `629-lifecycle.md` |
 
-**Invocation:** All applicable global workers in PARALLEL via Task tool (filter by Phase 2 gate). Pass `contextStore` to each.
+**Invocation (filter by Phase 2 applicability gate):**
+```javascript
+FOR EACH worker IN applicable_workers:
+  Agent(description: "Codebase audit via " + worker,
+       prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(contextStore),
+       subagent_type: "general-purpose")
+```
 
 ### Phase 5b: Domain-Aware Workers (PARALLEL per domain)
 
@@ -138,7 +152,39 @@ Create `{output_dir}` before delegation. Keep prior date folders for history; ne
 | 3 | ln-623-code-principles-auditor | HIGH | DRY/KISS/YAGNI violations, TODO/FIXME, error handling, DI | `623-principles-{domain}.md` |
 | 4 | ln-624-code-quality-auditor | MEDIUM | Cyclomatic complexity, O(n²), N+1 queries, magic numbers | `624-quality-{domain}.md` |
 
-**Invocation:** IF domain-aware → 2 workers × N domains in PARALLEL (add `domain_mode`, `current_domain` to contextStore). ELSE → 2 workers once for global codebase. All invocations via Task tool in single message.
+**Invocation:**
+```javascript
+IF domain_mode == "domain-aware":
+  FOR EACH domain IN all_domains:
+    FOR EACH worker IN [ln-623, ln-624]:
+      domain_context = {
+        ...contextStore,
+        domain_mode: "domain-aware",
+        current_domain: { name: domain.name, path: domain.path }
+      }
+      Agent(description: "Audit " + domain.name + " via " + worker,
+           prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(domain_context),
+           subagent_type: "general-purpose")
+ELSE:
+  FOR EACH worker IN [ln-623, ln-624]:
+    Agent(description: "Codebase audit via " + worker,
+         prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(contextStore),
+         subagent_type: "general-purpose")
+```
+
+All invocations in single message for maximum parallelism.
 
 ## Phase 6: Aggregate Results (File-Based)
 
@@ -236,13 +282,22 @@ Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-620`, Met
 - **File output only:** Write results to codebase_audit.md, no task/story creation
 - **Do not audit:** Coordinator orchestrates only; audit logic lives in workers
 
+## Phase 9: Cleanup Worker Files
+
+```bash
+rm -rf {output_dir}
+```
+
+Delete the dated output directory (`docs/project/.audit/ln-620/{YYYY-MM-DD}/`). The consolidated report and results log already preserve all audit data.
+
 ## Definition of Done
 
 - Project type detected; worker applicability determined; inapplicable workers documented with reason
 - Best practices researched via MCP tools for major dependencies
 - Domain discovery completed (domain_mode determined)
 - contextStore built with tech stack + best practices + domain info + output_dir
-- `docs/project/.audit/ln-620/{YYYY-MM-DD}/` directory created (no deletion of previous runs)
+- `docs/project/.audit/ln-620/{YYYY-MM-DD}/` directory created for worker reports
+- Worker output directory cleaned up after consolidation
 - Applicable global workers invoked in PARALLEL; each wrote report to `{output_dir}/`
 - Domain-aware workers (2 × N domains) invoked in PARALLEL; each wrote report to `{output_dir}/`
 - All workers completed successfully (or reported errors); return values parsed for scores/counts
@@ -269,6 +324,12 @@ Worker SKILL.md files contain the detailed audit rules:
 - [ln-627-observability-auditor](../ln-627-observability-auditor/SKILL.md)
 - [ln-628-concurrency-auditor](../ln-628-concurrency-auditor/SKILL.md)
 - [ln-629-lifecycle-auditor](../ln-629-lifecycle-auditor/SKILL.md)
+
+## Phase 10: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `review-coordinator` (workers only). Run after all phases complete. Output to chat using the `review-coordinator — workers only` format.
 
 ## Reference Files
 

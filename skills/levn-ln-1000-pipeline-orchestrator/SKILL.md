@@ -50,6 +50,18 @@ When `mcp__hashline-edit__*` tools are available, workers MUST prefer them over 
 
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
+## Agent Teams Mode
+
+Extract from `docs/tools_config.md` → Agent Teams → Mode:
+- `teams`: Full Agent Teams (TeamCreate + heartbeat + SendMessage). Requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`.
+- `subagents`: Fallback. Sequential Agent() spawns, results return directly. No heartbeat needed. ~2x cheaper.
+
+IF tools_config.md has no Agent Teams section:
+  1. Check env var: `echo $CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`
+  2. IF "1" → ask user: "Agent Teams available. Use teams mode (richer coordination, ~2x cost) or subagents mode (simpler, cheaper)?"
+  3. IF absent → set mode=subagents, WARN: "Agent Teams env var not set. Using subagent mode."
+  4. Update docs/tools_config.md with detected mode
+
 ## When to Use
 - One Story ready for processing — user picks which one
 - Need end-to-end automation: task planning -> validation -> execution -> quality gate
@@ -117,7 +129,7 @@ IF .pipeline/state.json exists AND complete == false:
   5. Set suspicious_idle = false (ephemeral, reset on recovery)
   5a. IF worktree_dir exists (.worktrees/story-{selected_story_id}): cd {worktree_dir}
   6. IF story_state[id] IN ("STAGE_0".."STAGE_3"):
-     IF checkpoint.agentId exists → Task(resume: checkpoint.agentId)
+     IF checkpoint.agentId exists → Agent(resume: checkpoint.agentId)
      ELSE → respawn worker with checkpoint context (see checkpoint_format.md)
   7. Jump to Phase 4 event loop
 
@@ -207,7 +219,10 @@ IF storage_mode == "linear":
 
 #### 3.1 Pre-flight: Settings Verification
 
+**IF agent_teams_mode == "teams":**
+
 Verify `.claude/settings.local.json` in target project:
+- `env.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` = `"1"` (required for TeamCreate/SendMessage)
 - `defaultMode` = `"bypassPermissions"` (required for workers)
 - `hooks.Stop` registered → `pipeline-keepalive.sh`
 - `hooks.TeammateIdle` registered → `worker-keepalive.sh`
@@ -226,6 +241,13 @@ Bash: cp {skill_repo}/ln-1000-pipeline-orchestrator/references/hooks/worker-keep
 1. Verify hook commands use `bash .claude/hooks/script.sh` (relative path, no env vars — `$CLAUDE_PROJECT_DIR` is NOT available in hook shell context)
 2. Verify `.claude/hooks/*.sh` files exist and have `#!/bin/bash` shebang
 3. On Windows: ensure LF line endings in .sh files (see hook installation above — use Bash `cp`, not Write tool)
+
+**IF agent_teams_mode == "subagents":**
+
+Verify `.claude/settings.local.json` in target project:
+- `defaultMode` = `"bypassPermissions"` (required for subagent workers)
+
+No hooks, no env var, no TeamCreate needed — subagents return results directly to lead.
 
 #### 3.2 Initialize Pipeline State
 
@@ -258,10 +280,16 @@ IF platform == "win32":
 |--------|---------|---------|---------|---------|
 | Effort | low | medium | medium | medium |
 
-1. Create team:
-   ```
-   TeamCreate(team_name: "pipeline-{YYYY-MM-DD}-{HHmm}")
-   ```
+**IF agent_teams_mode == "teams":**
+```
+TeamCreate(team_name: "pipeline-{YYYY-MM-DD}-{HHmm}")
+# TeamCreate assigns lead name "team-lead" (lead_agent_id: "team-lead@{team_name}")
+# Workers use recipient: "team-lead" — hardcoded in references/worker_prompts.md
+```
+
+**IF agent_teams_mode == "subagents":**
+Skip TeamCreate. Lead spawns Agent() calls directly in Phase 4.
+Workers are sequential subagents — no team_name, no SendMessage, no heartbeat.
 
 #### 3.4 Worktree Isolation
 
@@ -332,50 +360,87 @@ target_stage = determine_stage(selected_story)    # pipeline_states.md guards
 stage_names = {0: "decompose", 1: "validate", 2: "implement", 3: "qa"}
 worker_name = "story-{id}-{stage_names[target_stage]}"
 
-Task(name: worker_name, team_name: "pipeline-{date}",
-     model: "opus", mode: "bypassPermissions",
-     subagent_type: "general-purpose",
-     prompt: worker_prompt(selected_story, target_stage, business_answers))
-worker_map[id] = worker_name
+IF agent_teams_mode == "teams":
+  Agent(name: worker_name, team_name: "pipeline-{date}",
+       model: "opus", mode: "bypassPermissions",
+       subagent_type: "general-purpose",
+       prompt: worker_prompt(selected_story, target_stage, business_answers))
+  worker_map[id] = worker_name
+  Write .pipeline/worker-{worker_name}-active.flag     # For TeammateIdle hook
+
+IF agent_teams_mode == "subagents":
+  result = Agent(name: worker_name,
+       model: "opus", mode: "bypassPermissions",
+       subagent_type: "general-purpose",
+       prompt: worker_prompt_subagent(selected_story, target_stage, business_answers))
+  # Result returns directly — parse for COMPLETE/ERROR, no SendMessage needed
+  # worker_prompt_subagent = same as worker_prompt but WITHOUT Step 5 (ACK/shutdown)
+  # Worker just does the work and returns result as final output
+
 story_state[id] = "STAGE_{target_stage}"
 stage_timestamps[id] = {}
 stage_timestamps[id]["stage_{target_stage}_start"] = now()
-Write .pipeline/worker-{worker_name}-active.flag     # For TeammateIdle hook
 Update .pipeline/state.json
 
-# --- EVENT LOOP (heartbeat-driven, single story) ---
-# Stop hook → exit 2 → new agentic loop → worker messages delivered → ON handlers → turn ends → repeat
-# See: phase4_handlers.md (message processing), phase4_heartbeat.md (health monitoring + recovery)
-# Anti-pattern: NEVER say "waiting for messages" — heartbeat keeps lead alive automatically.
-# Context loss after compression? Follow recovery protocol in phase4_heartbeat.md.
+# --- EVENT LOOP ---
+
+IF agent_teams_mode == "teams":
+  # Heartbeat-driven: Stop hook → exit 2 → new agentic loop → worker messages delivered → ON handlers → repeat
+  # See: phase4_handlers.md (message processing), phase4_heartbeat.md (health monitoring + recovery)
+  # Anti-pattern: NEVER say "waiting for messages" — heartbeat keeps lead alive automatically.
+  # Context loss after compression? Follow recovery protocol in phase4_heartbeat.md.
+
+IF agent_teams_mode == "subagents":
+  # Sequential: Agent() returns result → parse → update state → spawn next Agent() → repeat
+  # No heartbeat, no SendMessage, no crash detection needed — subagents are managed by Claude Code.
+  # Crash recovery: use Agent(resume: agentId) to resume failed subagent.
 
 WHILE story_state[id] NOT IN ("DONE", "PAUSED"):
 
-  # 1. Process worker messages (reactive message handling)
-  #
-  **MANDATORY READ:** Load `references/phases/phase4_handlers.md` for all ON message handlers:
-  - Stage 0 COMPLETE / ERROR (task planning outcomes)
-  - Stage 1 COMPLETE (GO / NO-GO validation outcomes with retry logic)
-  - Stage 2 COMPLETE / ERROR (execution outcomes)
-  - Stage 3 COMPLETE (PASS/CONCERNS/WAIVED/FAIL quality gate outcomes with rework cycles)
-  - Worker crash detection (3-step protocol: flag → probe → respawn)
+  IF agent_teams_mode == "teams":
+    # 1. Process worker messages (reactive message handling)
+    #
+    **MANDATORY READ:** Load `references/phases/phase4_handlers.md` for all ON message handlers:
+    - Stage 0 COMPLETE / ERROR (task planning outcomes)
+    - Stage 1 COMPLETE (GO / NO-GO validation outcomes with retry logic)
+    - Stage 2 COMPLETE / ERROR (execution outcomes)
+    - Stage 3 COMPLETE (PASS/CONCERNS/WAIVED/FAIL quality gate outcomes with rework cycles)
+    - Worker crash detection (3-step protocol: flag → probe → respawn)
 
-  Handlers include sender validation and state guards to prevent duplicate processing.
+    Handlers include sender validation and state guards to prevent duplicate processing.
 
-  # 2. Active done-flag verification (proactive health monitoring)
-  #
-  **MANDATORY READ:** Load `references/phases/phase4_heartbeat.md` for bidirectional health monitoring:
-  - Lost message detection (done-flag exists but state not advanced)
-  - Synthetic recovery from checkpoint + kanban verification (all 4 stages)
-  - Fallback to probe protocol when checkpoint missing
-  - Structured heartbeat output (single story status line)
-  - Helper functions (skill_name_from_stage, predict_next_step)
+    # 2. Active done-flag verification (proactive health monitoring)
+    #
+    **MANDATORY READ:** Load `references/phases/phase4_heartbeat.md` for bidirectional health monitoring:
+    - Lost message detection (done-flag exists but state not advanced)
+    - Synthetic recovery from checkpoint + kanban verification (all 4 stages)
+    - Fallback to probe protocol when checkpoint missing
+    - Structured heartbeat output (single story status line)
+    - Helper functions (skill_name_from_stage, predict_next_step)
 
-  # 3. Heartbeat state persistence
-  #
-  ON HEARTBEAT (Stop hook stderr: "HEARTBEAT: ..."):
-    Write .pipeline/state.json with ALL state variables.
-    # phase4_heartbeat.md persistence details (loaded above)
+    # 3. Heartbeat state persistence
+    #
+    ON HEARTBEAT (Stop hook stderr: "HEARTBEAT: ..."):
+      Write .pipeline/state.json with ALL state variables.
+      # phase4_heartbeat.md persistence details (loaded above)
+
+  IF agent_teams_mode == "subagents":
+    # Result already returned from Agent() call above (or from loop iteration below).
+    # Parse result text for stage outcome:
+    #   - Match "Stage {N} COMPLETE" → extract details, advance to next stage
+    #   - Match "Stage {N} ERROR" → handle error per phase4_handlers.md logic
+    #   - Apply same business logic as ON handlers (retry limits, quality cycles, etc.)
+    #
+    # Spawn next stage worker:
+    next_stage = current_stage + 1    # or rework cycle per handler logic
+    worker_name = "story-{id}-{stage_names[next_stage]}"
+    result = Agent(name: worker_name,
+         model: "opus", mode: "bypassPermissions",
+         subagent_type: "general-purpose",
+         prompt: worker_prompt_subagent(selected_story, next_stage, business_answers))
+    # Parse result, update state, continue loop
+
+    Update .pipeline/state.json
 
 ```
 
@@ -393,7 +458,7 @@ Write .pipeline/state.json: { "complete": true, ... }
 verification = {
   story_selected:   selected_story_id is set              # Phase 1 ✓
   questions_asked:  business_answers stored OR none        # Phase 2 ✓
-  team_created:     team exists                            # Phase 3 ✓
+  team_created:     team exists OR agent_teams_mode == "subagents"  # Phase 3 ✓
   story_processed:  story_state[id] IN ("DONE", "PAUSED") # Phase 4 ✓
 }
 IF ANY verification == false: WARN user with details
@@ -534,6 +599,7 @@ Delete .pipeline/ directory
 | Worker checkpoint/done.flag not found | Worker in worktree wrote to `.worktrees/` not project root | `pipeline_dir` set as absolute path in Phase 3.2, passed to workers via `{pipeline_dir}` template var |
 | hashline-edit tools unavailable | MCP tool references lost after compression | `ToolSearch("+hashline-edit")` to reload |
 | Lead can't spawn workers after compression | team_name/business_answers lost | Read from `.pipeline/state.json` (persisted since Phase 3.2) |
+| Workers DM wrong lead name | `recipient: "pipeline-lead"` — TeamCreate assigns `"team-lead"` | Use `recipient: "team-lead"` hardcoded in `references/worker_prompts.md` |
 
 ## Anti-Patterns
 - Running ln-300/ln-310/ln-400/ln-500 directly from lead instead of delegating to workers
@@ -605,12 +671,20 @@ Pipeline-level verification. Per-stage verifications are in `phase4_handlers.md`
 | 7 | Pipeline summary shown to user | Phase 5 table output | Always |
 | 8 | Team cleaned up | TeamDelete called | Always |
 | 9 | Worktree status communicated | DONE: cleaned by ln-500. PAUSED: saved + cleaned by lead | Always |
+| 10 | Meta-Analysis run | Phase 6 completed, appended to pipeline report | Always |
+
+## Phase 6: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md` and `references/phases/phase6_meta_analysis.md`
+
+Skill type: `execution-orchestrator`. Runs after Phase 5. Pipeline-specific implementation (worker audit, recovery map, trend tracking, assumption audit, report format) in `phase6_meta_analysis.md`.
 
 ## Reference Files
 
-### Phase 4 Procedures (Progressive Disclosure)
+### Phase 4-6 Procedures (Progressive Disclosure)
 - **Message handlers:** `references/phases/phase4_handlers.md` (Plan Gate, Stage 0-3 ON handlers, crash detection)
 - **Heartbeat & verification:** `references/phases/phase4_heartbeat.md` (Active done-flag checking, structured heartbeat output)
+- **Meta-analysis:** `references/phases/phase6_meta_analysis.md` (Worker audit, recovery map, trend tracking, report format)
 
 ### Core Infrastructure
 - **MANDATORY READ:** `shared/references/git_worktree_fallback.md`

@@ -32,6 +32,8 @@ Coordinates 4 specialized audit workers to perform database efficiency, transact
 5) **Delegate:** 4 workers in PARALLEL
 6) **Aggregate:** Collect worker results, calculate scores
 7) **Write Report:** Save to `docs/project/persistence_audit.md`
+8) **Results Log:** Append trend row
+9) **Cleanup:** Delete worker files
 
 ## Phase 1: Discovery
 
@@ -87,7 +89,7 @@ Grep("pg_notify|NOTIFY|CREATE TRIGGER", path="alembic/versions/")
 ## Phase 3: Prepare Output Directory
 
 ```bash
-mkdir -p {output_dir}   # No deletion — date folders preserve history
+mkdir -p {output_dir}   # Worker files cleaned up after consolidation (Phase 8)
 ```
 
 ## Phase 4: Delegate to Workers
@@ -106,8 +108,14 @@ mkdir -p {output_dir}   # No deletion — date folders preserve history
 **Invocation (4 workers in PARALLEL):**
 ```javascript
 FOR EACH worker IN [ln-651, ln-652, ln-653, ln-654]:
-  Task(description: "Audit via " + worker,
-       prompt: "Execute " + worker + ". Read skill. Context: " + JSON.stringify(contextStore),
+  Agent(description: "Audit via " + worker,
+       prompt: "Execute audit worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"" + worker + "\")
+
+CONTEXT:
+" + JSON.stringify(contextStore),
        subagent_type: "general-purpose")
 ```
 
@@ -240,19 +248,28 @@ Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-650`, Met
 - **Metadata-only loading:** Coordinator loads metadata; workers load full file contents
 - **Do not audit:** Coordinator orchestrates only; audit logic lives in workers
 
+## Phase 8: Cleanup Worker Files
+
+```bash
+rm -rf {output_dir}
+```
+
+Delete the dated output directory (`docs/project/.audit/ln-650/{YYYY-MM-DD}/`). The consolidated report and results log already preserve all audit data.
+
 ## Definition of Done
 
 - Tech stack discovered (DB type, ORM, async framework)
 - DB-specific metadata extracted (triggers, session config, pool settings)
 - Best practices researched via MCP tools
 - contextStore built with output_dir = `docs/project/.audit/ln-650/{YYYY-MM-DD}`
-- Output directory created (no deletion of previous runs)
+- Output directory created for worker reports
 - All 4 workers invoked in PARALLEL and completed; each wrote report to `{output_dir}/`
 - Results aggregated from return values (scores) + file reads (findings tables)
 - Compliance score calculated per category + overall
 - Executive Summary included
 - Report written to `docs/project/persistence_audit.md`
 - Sources consulted listed with URLs
+- Worker output directory cleaned up after consolidation
 
 ## Workers
 
@@ -260,6 +277,12 @@ Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-650`, Met
 - [ln-652-transaction-correctness-auditor](../ln-652-transaction-correctness-auditor/SKILL.md)
 - [ln-653-runtime-performance-auditor](../ln-653-runtime-performance-auditor/SKILL.md)
 - [ln-654-resource-lifecycle-auditor](../ln-654-resource-lifecycle-auditor/SKILL.md)
+
+## Phase 9: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `review-coordinator` (workers only). Run after all phases complete. Output to chat using the `review-coordinator — workers only` format.
 
 ## Reference Files
 

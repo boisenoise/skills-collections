@@ -64,11 +64,7 @@ Extract: `task_provider` = Task Management → Provider
 
 Auto-discovers from `docs/tasks/kanban_board.md`:
 
-1. **Resolve epicId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches `feature/epic-{N}-*` → extract Epic N
-   - ELSE IF kanban has exactly 1 active Epic → suggest
-   - ELSE → AskUserQuestion: show active Epics from kanban
+1. **Resolve epicId:** Run Epic Resolution Chain per guide.
 2. **Team ID:** Reads Linear Configuration table
 3. **Load Epic description:**
    - **IF task_provider == "linear":** `get_project(query="Epic N")` → Fetch full Epic document
@@ -590,6 +586,12 @@ Mark each as in_progress when starting, completed when done.
 7. Phase 7: Self-Check → 8/8 Stories created, 2 Epics processed, PASS
 
 ---
+
+## Phase 8: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `planning-coordinator`. Run after all phases complete. Output to chat using the `planning-coordinator` format.
 
 ## Reference Files
 

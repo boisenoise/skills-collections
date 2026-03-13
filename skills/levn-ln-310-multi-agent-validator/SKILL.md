@@ -45,6 +45,11 @@ Create TodoWrite items from Phase headings below:
 **MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, `shared/references/input_resolution_pattern.md`
 
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
+- **mode=plan_review:** `tools_config.md` is optional — `task_provider` not used. If absent: `task_provider = "N/A"`, proceed silently.
+- **mode=story | mode=context:** `tools_config.md` required.
+
+Initialize: `agents_launched = UNSET`. MUST be set to `true` or `SKIPPED` in Phase 2.
+> **PROTOCOL RULE:** Any reasoning that "this task is too small/simple to require agents" is a PROTOCOL VIOLATION. Task scope does NOT change the agent launch requirement.
 
 ### Phase 1: Discovery & Loading
 
@@ -61,6 +66,8 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 > **CRITICAL:** Agent launch is NOT optional. Executes for ALL modes. The ONLY valid skip: health check returned 0 agents. An Explore agent or ad-hoc research is NOT a substitute. Set `agents_launched` = `true` | `SKIPPED` before proceeding.
 
+> **BLOCKING GATE:** If you find yourself reasoning about skipping agents due to task simplicity, small scope, or "already reviewed" — STOP. Return to the start of Phase 2. The ONLY valid exit without launching is: health_check returned 0 agents.
+
 1) **Health Check** (all modes): Read `docs/environment_state.json` → exclude disabled. Run `python shared/agents/agent_runner.py --health-check`. 0 available → `agents_launched = SKIPPED`
 2) **Prepare references:**
    - mode=story: Story/Task URLs (linear) or file paths (file)
@@ -69,7 +76,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 3) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/{mode}.md` (per shared workflow "Step: Build Prompt"). Replace mode-specific placeholders. Save to `.agent-review/{id}_{mode}review_prompt.md`
 4) **Launch BOTH agents** as background tasks. `agents_launched = true`
 
-**Prompt persistence:** Normal Mode → save to `.agent-review/`. Read-Only Mode → pass inline to Agent tool `prompt` parameter.
+**Prompt persistence:** Save prompt to `.agent-review/` before launching agents. Agents are always launched as Bash background tasks — they are external OS processes and are not affected by Claude Code plan mode.
 
 > **Parallelism:** Agents run in background through Phases 3-4. Results merged in Phase 5.
 
@@ -173,6 +180,7 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 - [ ] Metadata loaded — not skimmed (Phase 1)
 - [ ] `agent_runner.py --health-check` executed (Phase 2)
 - [ ] Agents launched as background tasks OR SKIPPED: 0 agents (Phase 2)
+  > ⛔ If unchecked AND environment_state.json showed ≥1 available agent → CRITICAL VIOLATION. Do NOT return results. Return to Phase 2.
 - [ ] Prompt file saved to `.agent-review/` OR passed inline in Plan Mode (Phase 2)
 - [ ] Agent results read and parsed OR SKIPPED (Phase 5)
 - [ ] Critical Verification + Debate executed OR SKIPPED (Phase 5)
@@ -190,6 +198,12 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 **mode=context / mode=plan_review additional:**
 - [ ] MCP Ref research executed OR N/A (Phase 3)
 - [ ] Corrections applied to artifacts OR none needed (Phase 3)
+
+## Phase 7: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `review-coordinator` (with agents). Run after Phase 7 completes. Output to chat using the `review-coordinator — with agents` format.
 
 ## Template Loading
 

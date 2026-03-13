@@ -221,6 +221,12 @@ ln-110-project-docs-coordinator (this skill)
 - **Actuality verified:** all document facts match current code (paths, functions, APIs, configs exist and are accurate)
 - Summary returned to ln-100
 
+## Phase 4: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `planning-coordinator`. Run after all phases complete. Output to chat using the `planning-coordinator` format.
+
 ## Reference Files
 - Guides: `references/guides/automatic_analysis_guide.md`, `critical_questions.md`, `troubleshooting.md`
 

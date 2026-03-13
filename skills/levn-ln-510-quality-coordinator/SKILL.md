@@ -39,16 +39,15 @@ Sequential coordinator for code quality pipeline. Invokes workers (511 -> 512 ->
 
 **MANDATORY READ:** Load `shared/references/input_resolution_pattern.md`
 
-1. **Resolve storyId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches `feature/{id}-*` → extract id
-   - ELSE IF kanban has exactly 1 Story in [To Review] → suggest
-   - ELSE → AskUserQuestion: show Stories from kanban filtered by [To Review]
+1. **Resolve storyId:** Run Story Resolution Chain per guide (status filter: [To Review]).
 
 ### Phase 1: Discovery
 
 1) Auto-discover team/config from `docs/tasks/kanban_board.md`
 2) Load Story + task metadata from Linear (no full descriptions)
+3) **Collect git scope** (sets `changed_files[]` for ln-511 via coordinator context):
+   **MANDATORY READ:** Load `shared/references/git_scope_detection.md`
+   Run algorithm from guide → build `changed_files[]`
 
 **Fast-track mode:** When invoked with `--fast-track` flag (readiness 10/10), run Phase 2 with `--skip-mcp-ref` (metrics + static only, no MCP Ref), skip Phase 3 (ln-512), Phase 4 (agent review). Run Phase 5 (criteria), Phase 6 (linters), Phase 7 (ln-513).
 
@@ -255,6 +254,12 @@ issues:
 - Linters executed
 - ln-513 invoked, regression results returned
 - quality_verdict calculated + aggregated results returned
+
+## Phase 10: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `review-coordinator` (with agents). Run after all phases complete. Output to chat using the `review-coordinator — with agents` format.
 
 ## Reference Files
 - Criteria Validation: `references/criteria_validation.md`

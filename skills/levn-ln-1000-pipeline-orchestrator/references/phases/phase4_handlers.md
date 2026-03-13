@@ -53,7 +53,7 @@ SendMessage(recipient: worker_map[id],
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 next_worker = "story-{id}-validate"
-Task(name: next_worker, team_name: "pipeline-{date}",
+Agent(name: next_worker, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
      prompt: worker_prompt(story, 1, business_answers))
 worker_map[id] = next_worker
@@ -95,7 +95,7 @@ SendMessage(recipient: worker_map[id],
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 next_worker = "story-{id}-implement"
-Task(name: next_worker, team_name: "pipeline-{date}",
+Agent(name: next_worker, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
      prompt: worker_prompt(story, 2, business_answers))
 worker_map[id] = next_worker
@@ -117,7 +117,7 @@ IF validation_retries[id] <= 1:
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
   next_worker = "story-{id}-validate-retry"
-  Task(name: next_worker, team_name: "pipeline-{date}",
+  Agent(name: next_worker, team_name: "pipeline-{date}",
        model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
        prompt: worker_prompt(story, 1, business_answers))
   worker_map[id] = next_worker
@@ -166,7 +166,7 @@ SendMessage(recipient: worker_map[id],
 Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
 SendMessage(type: "shutdown_request", recipient: worker_map[id])
 next_worker = "story-{id}-qa"
-Task(name: next_worker, team_name: "pipeline-{date}",
+Agent(name: next_worker, team_name: "pipeline-{date}",
      model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
      prompt: worker_prompt(story, 3, business_answers))
 worker_map[id] = next_worker
@@ -228,7 +228,7 @@ IF quality_cycles[id] < 2:
   Bash: rm -f .pipeline/worker-{worker_map[id]}-active.flag .pipeline/worker-{worker_map[id]}-done.flag
   SendMessage(type: "shutdown_request", recipient: worker_map[id])
   next_worker = "story-{id}-implement-fix{quality_cycles[id]}"
-  Task(name: next_worker, team_name: "pipeline-{date}",
+  Agent(name: next_worker, team_name: "pipeline-{date}",
        model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
        prompt: worker_prompt(story, 2, business_answers))
   worker_map[id] = next_worker
@@ -278,12 +278,12 @@ ON TeammateIdle again WITHOUT response:
     # Resume protocol (see checkpoint_format.md):
     checkpoint = read(".pipeline/checkpoint-{id}.json")
     IF checkpoint.agentId exists:
-      Task(resume: checkpoint.agentId)          # Try 1: full context resume
+      Agent(resume: checkpoint.agentId)          # Try 1: full context resume
       # worker_map[id] remains unchanged (same agent, resumed)
     ELSE:
       next_worker = "story-{id}-s{checkpoint.stage}-retry"
       new_prompt = worker_prompt(story, checkpoint.stage, business_answers) + CHECKPOINT_RESUME block
-      Task(name: next_worker, team_name: "pipeline-{date}",
+      Agent(name: next_worker, team_name: "pipeline-{date}",
            model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
            prompt: new_prompt)                  # Try 2: Opus for crash recovery/troubleshooting
       worker_map[id] = next_worker

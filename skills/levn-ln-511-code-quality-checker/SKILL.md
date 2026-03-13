@@ -116,13 +116,12 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 
 **MANDATORY READ:** Load `shared/references/input_resolution_pattern.md`
 
-1) **Resolve storyId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches `feature/{id}-*` → extract id
-   - ELSE IF kanban has exactly 1 Story in [In Progress, To Review] → suggest
-   - ELSE → AskUserQuestion: show Stories from kanban filtered by [In Progress, To Review]
+1) **Resolve storyId:** Run Story Resolution Chain per guide (status filter: [In Progress, To Review]).
 2) Load Story (full) and Done implementation tasks (full descriptions) via Linear; skip tasks with label "tests".
-3) Collect affected files from tasks (Affected Components/Existing Code Impact) and recent commits/diffs if noted.
+3) **Collect changed files** (`changed_files[]`):
+   **MANDATORY READ:** `shared/references/git_scope_detection.md`
+   - IF invoked by ln-510: use `changed_files[]` from coordinator context → proceed to Enrich step in guide
+   - IF invoked standalone: run full algorithm from guide
 4) **Two-Layer Detection (MANDATORY):**
    **MANDATORY READ:** `shared/references/two_layer_detection.md`
    All threshold-based findings require Layer 2 context analysis. Layer 1 finding without Layer 2 = NOT a valid finding. Before reporting any metric violation, ask: "Is this violation intentional or justified by design?" See Exception column in metrics below.
@@ -316,6 +315,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 - Linear comment posted with findings.
 
 ## Reference Files
+- Git scope detection: `shared/references/git_scope_detection.md`
 - Code metrics: `references/code_metrics.md` (thresholds and penalties)
 - Guides: `docs/guides/`
 - Templates for context: `shared/templates/task_template_implementation.md`

@@ -55,11 +55,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 **Local copies:** `docs/templates/*.md` (in target project)
 
 ## Workflow (concise)
-1) **Resolve storyId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches Story pattern → use detected Story
-   - ELSE IF kanban has exactly 1 Story in [In Progress, To Review] → suggest
-   - ELSE → AskUserQuestion: show In Progress/To Review Stories from kanban
+1) **Resolve storyId:** Run Story Resolution Chain per guide (status filter: [In Progress, To Review]).
 2) Load templates per taskType (see Template Loading) and fetch full existing task descriptions.
 3) Normalize both sides (IDEAL vs existing sections) and run replan algorithm to classify KEEP/UPDATE/OBSOLETE/CREATE.
    - **Inherited Assumptions (UPDATE):** Preserve Inherited Assumptions from parent Story. If parent Story Assumptions changed, update Inherited Assumptions in affected tasks to match current Story registry (ID + text sync).

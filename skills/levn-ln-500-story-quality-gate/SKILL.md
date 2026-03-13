@@ -74,11 +74,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 ### Phase 1: Discovery
 
-1) **Resolve storyId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches `feature/{id}-*` → extract id
-   - ELSE IF kanban has exactly 1 Story in [To Review] → suggest
-   - ELSE → AskUserQuestion: show Stories from kanban filtered by [To Review]
+1) **Resolve storyId:** Run Story Resolution Chain per guide (status filter: [To Review]).
 2) Auto-discover team/config from `docs/tasks/kanban_board.md`
 3) Load Story + task metadata:
    - IF `task_provider` = `linear`: `get_issue(storyId)` + `list_issues(parentId=storyId)`
@@ -108,7 +104,7 @@ ELSE:
 | Criteria Validation (3 checks) | RUN | RUN | Cheap, validates AC coverage |
 | ln-511 metrics + static analysis | RUN | **RUN** | **Catches complexity/DRY/dead code that per-task review misses** |
 | ln-511 MCP Ref (OPT-, BP-, PERF-) | RUN | **SKIP** | Expensive external calls |
-| Inline agent review | RUN | **SKIP** | Expensive external calls |
+| Inline agent review | RUN | **RUN (1 agent minimum)** | Catches logic/algorithm bugs that static analysis misses |
 | ln-520 test planning | RUN | **SKIP** | Redundant for pre-validated |
 | NFR validation | All dims | **Security only** | Perf/Maintainability less critical |
 
@@ -156,7 +152,8 @@ ELSE:
    - IF `task_provider` = `linear`: `create_comment({issueId: storyId, body: verdict_summary})`
    - IF `task_provider` = `file`: `Write` comment to `docs/tasks/epics/.../comments/{ISO-timestamp}.md`
 6) **If FAIL:** Record root cause analysis — classify each failure (missing_context | wrong_pattern | unclear_ac | doc_gap | test_gap). Append to `docs/project/architecture_health.md` under `## Root Cause Log` (create section if missing). Format: `| {date} | {story_id} | {issue_id} | {classification} | {action_taken} |`
-7) Update Story status:
+7) **Escaped defects (post-gate):** When bugs are discovered AFTER gate verdict (manual review, production, ln-310 mode=code_review), run Detection Efficacy Audit per `shared/references/detection_efficacy_audit.md`. Log results to `docs/project/architecture_health.md` under `## Escaped Defect Log`. Classifications: `algorithm_logic | performance_pattern | domain_specific | resource_bounds | encapsulation | data_structure | concurrency`.
+8) Update Story status:
    - IF `task_provider` = `linear`: `save_issue({id: storyId, state: "Done"})` for PASS/CONCERNS/WAIVED; create fix tasks for FAIL
    - IF `task_provider` = `file`: `Edit` `**Status:**` line to `Done` in story.md for PASS/CONCERNS/WAIVED; create fix task files for FAIL
 
@@ -210,6 +207,7 @@ Skill(skill: "ln-520-test-planner", args: "{storyId}")
 - Task creation via ln-301 only; this skill never edits tasks directly
 - Test verification only runs when test task is Done
 - Language preservation in comments (EN/RU)
+- **Agent code review is MANDATORY regardless of execution mode.** If ln-510 is invoked — it handles agent review (Phase 4/8). If ln-510 is skipped or replaced with inline implementation — agent review MUST still be performed directly using `shared/agents/prompt_templates/modes/code.md` with at least 1 external agent and critical verification protocol. **MANDATORY READ:** Load `references/minimum_quality_checks.md` for non-negotiable checks.
 
 ## Definition of Done
 - ln-510 quality checks: pass OR fix tasks created
@@ -232,6 +230,12 @@ Skill(skill: "ln-520-test-planner", args: "{storyId}")
 - Root cause analysis recorded in architecture_health.md for every FAIL verdict
 - Comment with gate verdict posted
 
+## Phase 8: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `execution-orchestrator`. Run after all phases complete. Output to chat using the `execution-orchestrator` format.
+
 ## Reference Files
 - **Tools config:** `shared/references/tools_config_guide.md`
 - **Storage mode operations:** `shared/references/storage_mode_detection.md`
@@ -239,6 +243,7 @@ Skill(skill: "ln-520-test-planner", args: "{storyId}")
 - **Quality coordinator:** `../ln-510-quality-coordinator/SKILL.md`
 - **Test planner:** `../ln-520-test-planner/SKILL.md`
 - **Risk-based testing:** `shared/references/risk_based_testing_guide.md`
+- **Minimum quality checks:** `references/minimum_quality_checks.md`
 - **MANDATORY READ:** `shared/references/git_worktree_fallback.md`
 
 ---

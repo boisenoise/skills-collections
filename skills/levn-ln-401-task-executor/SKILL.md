@@ -112,11 +112,7 @@ Step 6: Finish
 ```
 
 ## Workflow (concise)
-1) **Resolve taskId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF Story context available → list Todo tasks under Story, suggest if 1
-   - ELSE IF kanban has exactly 1 Task in [Todo] → suggest
-   - ELSE → AskUserQuestion: show Todo Tasks from kanban
+1) **Resolve taskId:** Run Task Resolution Chain per guide (status filter: [Todo]).
 2) **Load context:** Fetch full task description (Linear: get_issue; File: Read task file); read linked guides/manuals/ADRs/research; auto-discover team/config if needed.
 2b) **Goal gate:** **MANDATORY READ:** `shared/references/goal_articulation_gate.md` — Complete the 4-question gate (<=25 tokens each). State REAL GOAL (deliverable as subject), DONE LOOKS LIKE, NOT THE GOAL, INVARIANTS & HIDDEN CONSTRAINTS.
 2c) **Implementation Blueprint:** From task "Affected Components", find actual file paths via Glob/Grep. Read key sections of each file. Output structured plan: files to create/modify, change order (dependencies first), risks (shared files with parallel tasks). Scope: this task only.
@@ -128,6 +124,8 @@ Step 6: Finish
 ## Pre-Submission Checklist
 
 **Context:** Self-assessment before To Review reduces review round-trips and catches obvious issues early.
+
+**MANDATORY READ:** Load `shared/references/code_efficiency_criterion.md` — self-check before submission.
 
 Before setting To Review, verify all items:
 
@@ -142,6 +140,7 @@ Before setting To Review, verify all items:
 | 6 | **Pattern reuse** | New utilities checked against existing codebase; no duplicate patterns introduced |
 | 7 | **Architecture guard** | Cascade depth <= 2 (leaf functions); no hidden writes in read-named functions; no service chains >= 3 in leaf functions (orchestrator imports exempt) |
 | 8 | **Destructive op safety** | If task has "Destructive Operation Safety" section: (1) backup step executed/planned before destructive code, (2) rollback mechanism exists in code, (3) environment guard present, (4) preview/dry-run evidence attached or referenced |
+| 9 | **Code efficiency** | No unnecessary intermediates, verbose patterns replaced by language idioms, no boilerplate framework handles (per `shared/references/code_efficiency_criterion.md`) |
 
 **MANDATORY READ:** Load `shared/references/destructive_operation_safety.md` for severity classification and safety requirements.
 

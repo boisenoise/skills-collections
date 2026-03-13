@@ -76,11 +76,7 @@ To create expected files:
 
 **MANDATORY READ:** Load `shared/references/input_resolution_pattern.md`
 
-1. **Resolve storyId** (per input_resolution_pattern.md):
-   - IF args provided → use args
-   - ELSE IF git branch matches `feature/{id}-*` → extract id
-   - ELSE IF kanban has exactly 1 Story in [To Review] → suggest
-   - ELSE → AskUserQuestion: show Stories from kanban filtered by [To Review]
+1. **Resolve storyId:** Run Story Resolution Chain per guide (status filter: [To Review]).
 
 ### Phase 1: Setup tests/manual structure
 1) **Read `docs/project/infrastructure.md`** — get port allocation, service endpoints, base URLs. **Read `docs/project/runbook.md`** — get Docker commands, test prerequisites, environment setup

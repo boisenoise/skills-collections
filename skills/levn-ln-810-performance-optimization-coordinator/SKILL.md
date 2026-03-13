@@ -68,14 +68,20 @@ Coordinates performance optimization by delegating to L3 workers: ln-811 (algori
 
 ## Phase 2: Delegate to Workers
 
-> **CRITICAL:** All delegations use Task tool with `subagent_type: "general-purpose"` and `isolation: "worktree"` — each worker creates its own branch per `shared/references/git_worktree_fallback.md`.
+> **CRITICAL:** All delegations use Agent tool with `subagent_type: "general-purpose"` and `isolation: "worktree"` — each worker creates its own branch per `shared/references/git_worktree_fallback.md`.
 
 ### Delegation Protocol
 
 ```
 FOR each selected worker:
-  Task(description: "Optimize via ln-81X",
-       prompt: "Execute ln-81X-{worker}. Read skill from ln-81X-{worker}/SKILL.md. Context: {delegationContext}",
+  Agent(description: "Optimize via ln-81X",
+       prompt: "Execute optimization worker.
+
+Step 1: Invoke worker:
+  Skill(skill: \"ln-81X-{worker}\")
+
+CONTEXT:
+{delegationContext}",
        subagent_type: "general-purpose",
        isolation: "worktree")
 ```
@@ -218,6 +224,14 @@ Options:
 - Workers delegated with worktree isolation (`isolation: "worktree"`)
 - Each worker produces isolated branch, pushed to remote
 - Coordinator report aggregates per-worker results (branch, fixes, status)
+
+---
+
+## Phase 6: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `optimization-coordinator`. Run after all phases complete. Output to chat using the `optimization-coordinator` format.
 
 ---
 
