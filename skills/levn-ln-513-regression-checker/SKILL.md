@@ -10,18 +10,39 @@ license: MIT
 
 Runs the existing test suite to ensure no regressions after implementation changes.
 
+## Inputs
+
+| Input | Required | Source | Description |
+|-------|----------|--------|-------------|
+| `storyId` | Yes | args, git branch, kanban, user | Story to process |
+
+**Resolution:** Story Resolution Chain.
+**Status filter:** To Review
+
 ## Purpose & Scope
 - Detect test framework (pytest/jest/vitest/go test/etc.) and test dirs.
-- Execute full suite; capture results for Story quality gate.
+- Execute full suite; capture stdout/stderr for Story quality gate.
 - Return PASS/FAIL with counts/log excerpts; never modifies Linear or kanban.
+- Preserve full stdout/stderr output for downstream log analysis.
 
 ## When to Use
 - **Invoked by ln-510-quality-coordinator** Phase 7
 - Code quality check passed
 
-## Workflow (concise)
-1) Auto-discover test framework per `shared/references/ci_tool_detection.md` Command Registry (Test Frameworks section).
-2) **Read `docs/project/infrastructure.md`** — get service endpoints, port allocation. **Read `docs/project/runbook.md`** — get exact test commands, Docker setup, environment variables. Runbook commands take priority over auto-detection (per ci_tool_detection.md Discovery Hierarchy).
+## Workflow
+
+### Phase 0: Resolve Inputs
+
+**MANDATORY READ:** Load `shared/references/input_resolution_pattern.md`, `shared/references/ci_tool_detection.md`
+
+1. **Resolve storyId:** Run Story Resolution Chain per guide (status filter: [To Review]).
+
+### Phase 1: Execute Tests
+
+**MANDATORY READ:** Load `docs/project/infrastructure.md`, `docs/project/runbook.md`
+
+1) Auto-discover test framework per ci_tool_detection.md Command Registry (Test Frameworks section).
+2) Get service endpoints, port allocation from infrastructure.md. Get exact test commands, Docker setup, environment variables from runbook.md. Runbook commands take priority over auto-detection (per ci_tool_detection.md Discovery Hierarchy).
 3) Build appropriate test command; run with timeout (5min per ci_tool_detection.md); capture stdout/stderr.
 4) Parse results: passed/failed counts; key failing tests.
 5) Output verdict JSON (PASS or FAIL + failures list) and add Linear comment.
@@ -37,7 +58,7 @@ Runs the existing test suite to ensure no regressions after implementation chang
 - Linear comment posted with summary.
 
 ## Reference Files
-- Risk-based limits used downstream: `../shared/references/risk_based_testing_guide.md`
+- Risk-based limits used downstream: `shared/references/risk_based_testing_guide.md`
 - **CI tool detection:** `shared/references/ci_tool_detection.md`
 - **Pytest patterns:** `references/pytest_configuration.md`
 

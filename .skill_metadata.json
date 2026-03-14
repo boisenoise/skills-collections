@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-13T06:27:09.964152",
-  "skill_count": 2366,
+  "last_updated": "2026-03-14T06:23:59.286877",
+  "skill_count": 2378,
   "sources_processed": 19,
   "skills": [
     {
@@ -3340,6 +3340,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-privacy-by-design",
+      "original_name": "privacy-by-design",
+      "description": "Use when building apps that collect user data. Ensures privacy protections are built in from the start\u2014data minimization, consent, encryption.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-monitor-opentelemetry-py",
       "original_name": "azure-monitor-opentelemetry-py",
       "description": "Azure Monitor OpenTelemetry Distro for Python. Use for one-line Application Insights setup with auto-instrumentation.",
@@ -5620,6 +5628,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-antigravity-skill-orchestrator",
+      "original_name": "antigravity-skill-orchestrator",
+      "description": "A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks successful skill combinations using agent-memory-mcp, and prevents skill overuse for simple tasks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-llm-application-dev-langchain-agent",
       "original_name": "llm-application-dev-langchain-agent",
       "description": "You are an expert LangChain agent developer specializing in production-grade AI systems using LangChain 0.1+ and LangGraph.",
@@ -5783,6 +5799,14 @@
       "name": "antigravity-telegram-mini-app",
       "original_name": "telegram-mini-app",
       "description": "Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-like experience. Covers the TON ecosystem, Telegram Web App API, payments, user authentication, and build...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-llm-structured-output",
+      "original_name": "llm-structured-output",
+      "description": "Get reliable JSON, enums, and typed objects from LLMs using response_format, tool_use, and schema-constrained decoding across OpenAI, Anthropic, and Google APIs.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9807,6 +9831,14 @@
       "name": "antigravity-react-modernization",
       "original_name": "react-modernization",
       "description": "Upgrade React applications to latest versions, migrate from class components to hooks, and adopt concurrent features. Use when modernizing React codebases, migrating to React Hooks, or upgrading to...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-electron-development",
+      "original_name": "electron-development",
+      "description": "Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-process architecture, electron-builder packaging, code signing, and auto-update.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17380,6 +17412,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-636-manual-test-auditor",
+      "original_name": "ln-636-manual-test-auditor",
+      "description": "Audits manual test scripts (tests/manual/) for harness adoption, golden file completeness, fail-fast, config sourcing, template compliance, idempotency.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-761-secret-scanner",
       "original_name": "ln-761-secret-scanner",
       "description": "Scans codebase for hardcoded secrets. Returns normalized findings with severity and remediation guidance. Pre-commit hook integration.",
@@ -17454,7 +17494,7 @@
     {
       "name": "levn-ln-510-quality-coordinator",
       "original_name": "ln-510-quality-coordinator",
-      "description": "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-513 regression. Returns quality_verdict + aggregated results.",
+      "description": "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-513 regression, ln-514 log analysis. Returns quality_verdict + aggregated results.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17596,14 +17636,6 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-750-commands-generator",
-      "original_name": "ln-750-commands-generator",
-      "description": "Generates project-specific .claude/commands for Claude Code",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-622-build-auditor",
       "original_name": "ln-622-build-auditor",
       "description": "Checks compiler/linter errors, deprecation warnings, type errors, failed tests, build config issues. Returns findings with severity, location, effort, recommendations.",
@@ -17684,9 +17716,33 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-911-github-triager",
+      "original_name": "ln-911-github-triager",
+      "description": "Scan open GitHub issues, PRs, discussions. Produce prioritized triage report with engagement metrics and recommended actions",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-912-community-announcer",
+      "original_name": "ln-912-community-announcer",
+      "description": "Compose and publish GitHub Discussion announcements: gather context, classify, compose, fact-check, review, publish via GraphQL",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-644-dependency-graph-auditor",
       "original_name": "ln-644-dependency-graph-auditor",
       "description": "Builds dependency graph, detects cycles (DFS), validates boundary rules, calculates coupling metrics (Ca/Ce/I, CCD/NCCD). Adaptive architecture detection.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-161-skill-creator",
+      "original_name": "ln-161-skill-creator",
+      "description": "Creates .claude/commands from procedural doc sections with proper structure and transformation",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17783,6 +17839,14 @@
       "name": "levn-ln-724-artifact-cleaner",
       "original_name": "ln-724-artifact-cleaner",
       "description": "Universal platform artifact cleaner: Replit, StackBlitz, CodeSandbox, Glitch",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-160-docs-skill-extractor",
+      "original_name": "ln-160-docs-skill-extractor",
+      "description": "Scans project docs, classifies procedural content, extracts into .claude/commands skills",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17972,9 +18036,9 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-751-command-templates",
-      "original_name": "ln-751-command-templates",
-      "description": "Generates individual .claude/commands files from templates",
+      "name": "levn-ln-913-community-debater",
+      "original_name": "ln-913-community-debater",
+      "description": "Launch RFC/debate discussions on GitHub: define topic, classify type, compose structured RFC/poll, review, publish via GraphQL",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18020,6 +18084,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-162-skill-reviewer",
+      "original_name": "ln-162-skill-reviewer",
+      "description": "Universal skill reviewer: SKILL mode (D1-D9 + M1-M5) or COMMAND mode (.claude/commands review)",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-733-env-configurator",
       "original_name": "ln-733-env-configurator",
       "description": "Configures environment variables and secrets protection",
@@ -18052,6 +18124,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-910-community-engagement",
+      "original_name": "ln-910-community-engagement",
+      "description": "Community engagement coordinator: analyzes repo health, consults strategy, delegates to announcer/debater/triager",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-775-api-docs-generator",
       "original_name": "ln-775-api-docs-generator",
       "description": "Configures Swagger/OpenAPI documentation",
@@ -18063,6 +18143,14 @@
       "name": "levn-ln-700-project-bootstrap",
       "original_name": "ln-700-project-bootstrap",
       "description": "Universal project bootstrapper: CREATE new or TRANSFORM existing project to production-ready structure",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-514-test-log-analyzer",
+      "original_name": "ln-514-test-log-analyzer",
+      "description": "Analyzes application logs: classifies errors, checks log quality/format, maps stack traces to source, recommends fixes.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18158,7 +18246,7 @@
     {
       "name": "levn-ln-630-test-auditor",
       "original_name": "ln-630-test-auditor",
-      "description": "Test suite audit coordinator. Delegates to 5 workers (Business Logic, E2E, Value, Coverage, Isolation). Aggregates results into docs/project/test_audit.md.",
+      "description": "Test suite audit coordinator: automated + manual tests. Delegates to 6 workers (Business Logic, E2E, Value, Coverage, Isolation, Manual Quality). Output: docs/project/test_audit.md.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18566,7 +18654,7 @@
     {
       "name": "marketing-free-tool-strategy",
       "original_name": "free-tool-strategy",
-      "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" \"free resource,\" \"ROI calculator,\" \"grader tool,\" \"audit tool,\" \"should I build a free tool,\" or \"tools for lead gen.\" Use this whenever someone wants to build something useful and give it away to attract leads or earn links. For content-based lead generation, see content-strategy.",
+      "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" \"free resource,\" \"ROI calculator,\" \"grader tool,\" \"audit tool,\" \"should I build a free tool,\" or \"tools for lead gen.\" Use this whenever someone wants to build something useful and give it away to attract leads or earn links. For downloadable content lead magnets (ebooks, checklists, templates), see lead-magnets.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -18735,6 +18823,14 @@
       "name": "marketing-referral-program",
       "original_name": "referral-program",
       "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,' 'how to get referrals,' 'customers referring customers,' or 'affiliate payout.' Use this whenever someone wants existing users or partners to bring in new customers. For launch-specific virality, see launch-strategy.",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "license": "MIT"
+    },
+    {
+      "name": "marketing-lead-magnets",
+      "original_name": "lead-magnets",
+      "description": "When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the user mentions \"lead magnet,\" \"gated content,\" \"content upgrade,\" \"downloadable,\" \"ebook,\" \"cheat sheet,\" \"checklist,\" \"template download,\" \"opt-in,\" \"freebie,\" \"PDF download,\" \"resource library,\" \"content offer,\" \"email capture content,\" \"Notion template,\" \"spreadsheet template,\" or \"what should I give away for emails.\" Use this for planning what to create and how to distribute it. For interactive tools as lead magnets, see free-tool-strategy. For writing the actual content, see copywriting. For the email sequence after capture, see email-sequence.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"

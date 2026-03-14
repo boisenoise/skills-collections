@@ -109,6 +109,8 @@ Run Epic Resolution Chain per guide.
 
 Load story template (see "Template Loading" section) and use 9 sections.
 
+**Template Discipline (MANDATORY):** Story documents contain EXACTLY 9 sections from the template: Story, Context, Acceptance Criteria, Implementation Tasks, Test Strategy, Technical Notes, Definition of Done, Dependencies, Assumptions. Do NOT add extra sections (e.g., "User Scenarios", "Industry Benchmark", "API Design"). Content that does not fit the 9 sections is either Technical Notes material or out of scope.
+
 For EACH Story in IDEAL plan:
 
 | Section | Content |
@@ -132,13 +134,15 @@ For EACH Story, check:
 | Criterion | Check | Pass | Fail |
 |-----------|-------|------|------|
 | **Independent** | No circular dependencies | ✅ | ❌ STOP |
-| **Negotiable** | AC focus on WHAT not HOW | ✅ | ❌ STOP |
+| **Negotiable** | AC focus on WHAT user observes, not HOW system works. ACs with system internals (lookup priority, cache layers, endpoint URLs, architecture) → move to Technical Notes | ✅ | ❌ STOP |
 | **Valuable** | Clear "So that" value | ✅ | ❌ STOP |
 | **Estimable** | Size within checklist #9 range | ✅ | ❌ STOP |
 | **Small** | AC/hours/tests per checklist #9 | ✅ | ❌ STOP |
 | **Testable** | Measurable AC (GWT format) | ✅ | ❌ STOP |
 
 **Error if ANY Story fails** → Report to orchestrator, stop execution.
+
+**AC Count Gate:** If any Story has >5 ACs → STOP. Report to orchestrator: "Story USXXX has N ACs (limit: 5). Split required." Do not proceed with creation.
 
 ### Phase 3: Show Preview
 
@@ -250,6 +254,8 @@ NEXT STEPS:
 | **Epic Grouping** | Reuse Epic header if exists (search by Epic number), don't duplicate |
 | **Story Numbering** | Sequential across ALL Epics (read Next Story from kanban_board.md) |
 | **No Code** | Descriptions contain approach ONLY, not code |
+| **Template Discipline** | Story documents contain EXACTLY 9 template sections. No extra sections (User Scenarios, Industry Benchmark, etc.). Non-template content → Technical Notes or discard |
+| **AC Purity** | ACs describe observable user behavior only. System internals (architecture, endpoint design, cache layers) → Technical Notes |
 
 ## Definition of Done
 

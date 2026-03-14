@@ -1,6 +1,6 @@
 ---
 name: ln-510-quality-coordinator
-description: "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-513 regression. Returns quality_verdict + aggregated results."
+description: "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-513 regression, ln-514 log analysis. Returns quality_verdict + aggregated results."
 license: MIT
 ---
 
@@ -8,7 +8,7 @@ license: MIT
 
 # Quality Coordinator
 
-Sequential coordinator for code quality pipeline. Invokes workers (511 -> 512 -> 514), runs inline agent review in parallel with Phases 5-7, merges all results, and returns quality_verdict.
+Sequential coordinator for code quality pipeline. Invokes workers (ln-511 → ln-512 → ln-513 → ln-514), runs inline agent review in parallel with Phases 5-8, merges all results, and returns quality_verdict.
 
 ## Inputs
 
@@ -26,6 +26,7 @@ Sequential coordinator for code quality pipeline. Invokes workers (511 -> 512 ->
 - Run Criteria Validation (Story dependencies, AC-Task Coverage, DB Creation Principle)
 - Run linters from tech_stack.md
 - Invoke ln-513-regression-checker (test suite after all changes)
+- Invoke ln-514-test-log-analyzer (classify errors, assess log quality)
 - Return quality_verdict + aggregated results
 - Calculate quality_verdict per normalization matrix + `references/gate_levels.md`
 
@@ -49,7 +50,7 @@ Sequential coordinator for code quality pipeline. Invokes workers (511 -> 512 ->
    **MANDATORY READ:** Load `shared/references/git_scope_detection.md`
    Run algorithm from guide → build `changed_files[]`
 
-**Fast-track mode:** When invoked with `--fast-track` flag (readiness 10/10), run Phase 2 with `--skip-mcp-ref` (metrics + static only, no MCP Ref), skip Phase 3 (ln-512), Phase 4 (agent review). Run Phase 5 (criteria), Phase 6 (linters), Phase 7 (ln-513).
+**Fast-track mode:** When invoked with `--fast-track` flag (readiness 10/10), run Phase 2 with `--skip-mcp-ref` (metrics + static only, no MCP Ref), skip Phase 3 (ln-512), Phase 4 (agent review). Run Phase 5 (criteria), Phase 6 (linters), Phase 7 (ln-513), Phase 8 (ln-514).
 
 ### Phase 2: Code Quality (delegate to ln-511 — ALWAYS runs)
 
@@ -89,7 +90,7 @@ Skill(skill: "ln-512-tech-debt-cleaner", args: "{storyId}")
 
 ### Phase 4: Agent Review Launch (SKIP if --fast-track)
 
-> **MANDATORY STEP (full gate):** Launches agents in background, results merged in Phase 8.
+> **MANDATORY STEP (full gate):** Launches agents in background, results merged in Phase 9.
 > **Fast-track:** SKIP this phase.
 
 **MANDATORY READ:** Load `shared/references/agent_review_workflow.md`, `shared/references/agent_delegation_pattern.md`
@@ -101,7 +102,7 @@ Skill(skill: "ln-512-tech-debt-cleaner", args: "{storyId}")
 4b) **Get references:** `get_issue(storyId)` + `list_issues(parent=storyId, status=Done)` (exclude test tasks)
 4c) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/code.md` (per shared workflow "Step: Build Prompt"), replace `{story_ref}`, `{task_refs}`. Save to `.agent-review/{identifier}_codereview_prompt.md`
 4d) **Launch BOTH agents** as background tasks (per shared workflow) + **Load Review Memory**
-    → Continue to Phase 5 (Criteria Validation), Phase 6 (Linters), Phase 7 (Regression) while agents work
+    → Continue to Phase 5 (Criteria Validation), Phase 6 (Linters), Phase 7 (Regression), Phase 8 (Log Analysis) while agents work
 
 ### Phase 5: Criteria Validation
 
@@ -132,21 +133,34 @@ Skill(skill: "ln-512-tech-debt-cleaner", args: "{storyId}")
 Skill(skill: "ln-513-regression-checker", args: "{storyId}")
 ```
 
-### Phase 8: Agent Merge (runs after Phase 7, when agent results arrive — SKIP if --fast-track or agents SKIPPED)
+### Phase 8: Test Log Analysis (delegate to ln-514 — runs after ln-513)
+
+1) **Invoke ln-514-test-log-analyzer** via Skill tool with context instructions
+   - Only Real Bugs affect quality verdict; log quality issues are informational
+2) **If ln-514 returns REAL_BUGS_FOUND** -> aggregate issues, continue
+3) **If ln-514 returns NO_LOG_SOURCES** -> status ignored, continue
+4) Post ln-514 report as Linear comment on story
+
+**Invocation:**
+```
+Skill(skill: "ln-514-test-log-analyzer", args: "review logs since test run start, expected errors from negative test cases")
+```
+
+### Phase 9: Agent Merge (runs after Phase 8, when agent results arrive — SKIP if --fast-track or agents SKIPPED)
 
 **MANDATORY READ:** Load `shared/references/agent_review_workflow.md` (Critical Verification + Debate), `shared/references/agent_review_memory.md`
 
-8a) **Wait for agent results** — read result files as they arrive (process-as-arrive pattern)
-8b) **Critical Verification + Debate** per shared workflow — Claude evaluates each suggestion on merits
-8c) **Merge accepted suggestions** into issues list (SEC-, PERF-, MNT-, ARCH-, BP-, OPT-)
+9a) **Wait for agent results** — read result files as they arrive (process-as-arrive pattern)
+9b) **Critical Verification + Debate** per shared workflow — Claude evaluates each suggestion on merits
+9c) **Merge accepted suggestions** into issues list (SEC-, PERF-, MNT-, ARCH-, BP-, OPT-)
     - If `area=security` or `area=correctness` → escalate aggregate to CONCERNS
-8d) **Save review summary** to `.agent-review/review_history.md`
+9d) **Save review summary** to `.agent-review/review_history.md`
 
-### Phase 9: Calculate Verdict + Return Results
+### Phase 10: Calculate Verdict + Return Results
 
 **MANDATORY READ:** Load `references/gate_levels.md`
 
-#### Step 9.1: Normalize Component Results
+#### Step 10.1: Normalize Component Results
 
 Map each component status to FAIL/CONCERN/ignored using this matrix:
 
@@ -169,8 +183,12 @@ Map each component status to FAIL/CONCERN/ignored using this matrix:
 | agent_review | CODE_ACCEPTABLE | -- | 0 |
 | agent_review | SUGGESTIONS (security/correctness) | CONCERN | -10 |
 | agent_review | SKIPPED | ignored | 0 |
+| log_analysis | CLEAN | -- | 0 |
+| log_analysis | WARNINGS_ONLY | -- | 0 |
+| log_analysis | REAL_BUGS_FOUND | FAIL | -20 |
+| log_analysis | SKIPPED / NO_LOG_SOURCES | ignored | 0 |
 
-#### Step 9.2: Calculate Quality Verdict
+#### Step 10.2: Calculate Quality Verdict
 
 ```
 fail_count = count of components mapped to FAIL
@@ -188,7 +206,7 @@ ELSE:
   quality_verdict = FAIL
 ```
 
-#### Step 9.3: Return Results
+#### Step 10.3: Return Results
 
 ```yaml
 quality_verdict: PASS | CONCERNS | FAIL
@@ -203,6 +221,7 @@ criteria_validation: PASS | CONCERNS | FAIL
 linters: PASS | FAIL
 tech_debt_cleanup: CLEANED | NOTHING_TO_CLEAN | BUILD_FAILED | SKIPPED
 regression: PASS | FAIL
+log_analysis: CLEAN | WARNINGS_ONLY | REAL_BUGS_FOUND | SKIPPED
 issues:
   - {id: "SEC-001", severity: high, finding: "...", source: "ln-511"}
   - {id: "OPT-001", severity: medium, finding: "...", source: "agent-review"}
@@ -218,6 +237,7 @@ issues:
 - Criteria Validation (Story deps, AC coverage, DB schema) (pending)
 - Run linters from tech_stack.md (pending)
 - Invoke ln-513-regression-checker (pending)
+- Invoke ln-514-test-log-analyzer (pending)
 - Merge agent review results (pending)
 - Calculate quality_verdict + return results (pending)
 ```
@@ -228,8 +248,9 @@ issues:
 |-------|--------|---------|
 | 2 | ln-511-code-quality-checker | Shared (Skill tool) — code metrics, MCP Ref, static analysis |
 | 3 | ln-512-tech-debt-cleaner | Shared (Skill tool) — auto-fix safe findings from ln-511 |
-| 4 | Inline agent review (Codex + Gemini) | Background — launched after ln-512, merged in Phase 8 |
+| 4 | Inline agent review (Codex + Gemini) | Background — launched after ln-512, merged in Phase 9 |
 | 7 | ln-513-regression-checker | Shared (Skill tool) — full test suite after all changes |
+| 8 | ln-514-test-log-analyzer | Shared (Skill tool) — error classification + log quality after ln-513 |
 
 **All workers:** Invoke via Skill tool — workers see coordinator context. Agent review runs inline (no Skill delegation).
 
@@ -249,13 +270,14 @@ issues:
 ## Definition of Done
 - ln-511 invoked (ALWAYS — full or `--skip-mcp-ref` in fast-track), code quality score returned
 - ln-512 invoked (or skipped if --fast-track), tech debt cleanup results returned
-- Agent review executed inline (or skipped if --fast-track), results merged in Phase 8
+- Agent review executed inline (or skipped if --fast-track), results merged in Phase 9
 - Criteria Validation completed (3 checks)
 - Linters executed
 - ln-513 invoked, regression results returned
+- ln-514 invoked, log analysis results returned (or SKIPPED/NO_LOG_SOURCES)
 - quality_verdict calculated + aggregated results returned
 
-## Phase 10: Meta-Analysis
+## Phase 11: Meta-Analysis
 
 **MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
 
@@ -264,7 +286,7 @@ Skill type: `review-coordinator` (with agents). Run after all phases complete. O
 ## Reference Files
 - Criteria Validation: `references/criteria_validation.md`
 - Gate levels: `references/gate_levels.md`
-- Workers: `../ln-511-code-quality-checker/SKILL.md`, `../ln-512-tech-debt-cleaner/SKILL.md`, `../ln-513-regression-checker/SKILL.md`
+- Workers: `../ln-511-code-quality-checker/SKILL.md`, `../ln-512-tech-debt-cleaner/SKILL.md`, `../ln-513-regression-checker/SKILL.md`, `../ln-514-test-log-analyzer/SKILL.md`
 - Agent review workflow: `shared/references/agent_review_workflow.md`
 - Agent delegation pattern: `shared/references/agent_delegation_pattern.md`
 - Agent review memory: `shared/references/agent_review_memory.md`

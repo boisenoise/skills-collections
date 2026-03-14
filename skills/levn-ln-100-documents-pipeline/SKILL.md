@@ -261,6 +261,13 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
 - **Validation**: ln-150 validates output in Phase 2/3
 - **Verify**: Presentation files exist before continuing
 
+**2.6 Extract Skills from Documentation (Optional)**:
+- **Condition**: User approved skill extraction in Phase 1, or invoked manually later
+- **Invocation**: `Skill(skill: "ln-160-docs-skill-extractor")` → AUTOMATIC
+- **Input**: All docs created by ln-110—ln-150
+- **Output**: `.claude/commands/*.md` files extracted from procedural documentation sections
+- **Skip**: If not approved → can run ln-160-docs-skill-extractor later manually
+
 **Output**: Complete documentation system with coordinator + 4 workers completed and validated
 
 **TodoWrite format (mandatory):**

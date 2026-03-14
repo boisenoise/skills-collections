@@ -46,7 +46,7 @@ Use when:
 
 **Resolution:** Epic Resolution Chain.
 **Status filter:** Active (planned/started)
-**Multi-epic:** If IDEAL plan (Phase 3) produces Stories that don't fit resolved Epic, Phase 3 Step 7 auto-routes them to correct Epics (or creates stub Epics inline).
+**Multi-epic:** If IDEAL plan (Phase 3) produces Stories that don't fit resolved Epic, Phase 3 Step 8 auto-routes them to correct Epics (or creates stub Epics inline).
 
 ## Workflow
 
@@ -77,7 +77,7 @@ Auto-discovers from `docs/tasks/kanban_board.md`:
 
 Load ALL active Epics from `docs/tasks/kanban_board.md` → Epics Overview section:
 - Extract: Epic number, title for each active Epic
-- Store as `allEpics[]` for Phase 3 Epic Routing (Step 7)
+- Store as `allEpics[]` for Phase 3 Epic Routing (Step 8)
 - Lightweight: titles from kanban only, NOT full Epic documents
 
 **Step 3: Extract Planning Information (Automated)**
@@ -142,9 +142,9 @@ For each question with no answer from Step 3-4:
 2. **Delegate to ln-001-standards-researcher:**
    - Call `Skill(skill: "ln-001-standards-researcher", epic_description="[Epic full description]", story_domain="[domain]")`
    - Wait for Standards Research (Markdown string)
-3. **Store:** Cache for Phase 5a/5b (workers insert in Story Technical Notes)
+3. **Store:** Cache for Phase 5a/5b (workers insert in Story Technical Notes → Library Research subsection). Research is INFORMATIONAL — it constrains HOW to implement, not WHAT to implement. ACs must derive from Epic Scope In, not from research.
 
-**Output:** Standards Research stored for ALL Stories in Epic
+**Output:** Standards Research stored for ALL Stories in Epic (Technical Notes only, never ACs)
 
 **Skip conditions:**
 - Epic has NO standards in Technical Notes
@@ -176,20 +176,41 @@ Each Story = ONE vertical slice of user capability (end-to-end: UI → API → S
 
 1. **Articulate REAL GOAL:** **MANDATORY READ:** `shared/references/goal_articulation_gate.md` — State REAL GOAL of this Epic in one sentence (the user capability being enabled, not "create Stories"). Verify: does the decomposition serve THIS goal?
 2. **Analyze Epic Scope:** Review features in Epic Scope In, identify user capabilities
-3. **Determine Story Count:**
+3. **Scope Minimalism Gate (MANDATORY):**
+
+   After analyzing Epic Scope, challenge the AGGREGATE design BEFORE generating Stories. Each test is pass/fail.
+
+   | Test | Rule | FAIL action |
+   |------|------|-------------|
+   | **Cart Test** | State the simplest design that delivers the Epic Goal in one sentence. If you cannot — scope too wide, split Epic. | STOP. Return to Epic coordinator for split. |
+   | **AC Count Test** | Projected ACs across all Stories: divide total by Story count. If average > 5 per Story — over-scoped. | Reduce: cut speculative ACs until average <= 5. |
+   | **AC Purity Test** | Every AC must describe OBSERVABLE USER BEHAVIOR (Given user does X, Then user sees Y). ACs that describe system internals (lookup priority, cache layers, endpoint URLs) are Technical Notes, not ACs. | Move to Technical Notes. |
+   | **Feature Bundling Test** | Epic Goal contains "and", "&", "+" joining DISTINCT capabilities? Each distinct capability = separate Story. Title "X and Y" = 2 Stories minimum. | Split into separate Stories. |
+   | **Research Firewall** | Standards Research (Phase 2) informs Technical Notes ONLY. Research MUST NOT add ACs, endpoints, or features. ACs come from Epic Scope In alone. | Remove research-driven ACs. |
+
+   **Anti-pattern (real example):**
+   - Story "Translation Memory AND Response Cache" → FAIL Feature Bundling (2 distinct capabilities bundled)
+   - 10 ACs with "5-level lookup priority" → FAIL AC Purity (system architecture, not user behavior)
+   - Research found "industry does segment matching at 75%" → added AC for it → FAIL Research Firewall (not in Epic Scope In)
+
+   **Pass:** All 5 tests pass → proceed to Step 4.
+   **Fail ANY:** Fix before proceeding. Do NOT generate Stories from an over-scoped plan.
+
+4. **Determine Story Count:**
    - Simple Epic (1-3 features): 3-5 Stories
    - Medium Epic (4-7 features): 6-8 Stories
    - Complex Epic (8+ features): 8-10 Stories
    - **Max 10 Stories per Epic**
 
-4. **Story Size:** Limits per `creation_quality_checklist.md` #9. Outside range → split or merge.
+5. **Story Size:** Limits per `creation_quality_checklist.md` #9. Outside range → split or merge.
 
-5. **Build IDEAL Plan "in mind":**
+6. **Build IDEAL Plan "in mind":**
    - Each Story: persona + capability + business value
-   - Each Story: testable AC per checklist #4
+   - Each Story: testable AC per checklist #4 (3-5 ACs, user behavior only)
    - Stories ordered by dependency (no forward deps per checklist #18)
    - Each Story: Test Strategy section exists but is **empty** (tests planned later by test planner)
    - Each Story: Technical Notes (architecture, integrations, **Standards Research from Phase 2**, guide links)
+   - **Research Firewall (per Step 3):** research → Technical Notes only, never ACs
    - Each Story: `orchestratorBrief` for ln-1000 pipeline lead:
      ```
      orchestratorBrief: {
@@ -200,11 +221,11 @@ Each Story = ONE vertical slice of user capability (end-to-end: UI → API → S
      }
      ```
 
-6. **AC Quality Validation:** Rules per `creation_quality_checklist.md` #4. Workers (ln-221, ln-222) must validate.
+7. **AC Quality Validation:** Rules per `creation_quality_checklist.md` #4. Workers (ln-221, ln-222) must validate.
 
 **INVEST Score (0-6 per Story):** Validate per `creation_quality_checklist.md` INVEST criteria (loaded above). Gate: Score ≥ 4 → proceed, < 4 → rework.
 
-7. **Epic Routing**
+8. **Epic Routing**
 
 **Objective:** Ensure each Story in IDEAL plan is assigned to the correct Epic. Handles multi-epic requests and missing Epics.
 
@@ -471,10 +492,11 @@ Mark each as in_progress when starting, completed when done.
 
 - **Decompose-First:** Build IDEAL Story plan before checking existing Stories (prevents anchoring to suboptimal structure)
 - **Vertical slicing only:** Each Story = one user journey end-to-end (UI -> API -> Service -> DB); no horizontal/technical-only Stories
-- **Standards research before generation:** Phase 2 (ln-001) must complete before Story documents are created; results go into all Story Technical Notes
+- **Scope Minimalism Gate:** Phase 3 Step 3 must pass before Story generation. >5 ACs per Story = mandatory split. ACs describe user behavior only, not system internals
+- **Standards research before generation:** Phase 2 (ln-001) must complete before Story documents are created; results go into all Story Technical Notes (never into ACs)
 - **Orchestrator loads metadata only:** ID, title, status (~50 tokens per Story); workers load full descriptions (~5,000 tokens) when needed
 - **Test Strategy section left empty:** Tests are planned later by test planner, not at Story creation time
-- **Epic Routing fast path:** Routing always runs. If all Stories match resolved Epic (common case), no user confirmation needed and zero branching overhead (Phase 3 Step 7)
+- **Epic Routing fast path:** Routing always runs. If all Stories match resolved Epic (common case), no user confirmation needed and zero branching overhead (Phase 3 Step 8)
 - **Self-Check mandatory:** Phase 7 always runs. Verifies N planned == M created, all phases completed. Never skipped
 
 ---
@@ -522,7 +544,7 @@ Mark each as in_progress when starting, completed when done.
 - [ ] IDEAL Story plan created (titles, statements, core AC, ordering)
 - [ ] Story Grouping Guidelines validated (vertical slicing)
 - [ ] INVEST checklist validated for all Stories
-- [ ] Epic Routing executed (Step 7): fast path OR multi-epic grouping confirmed by user
+- [ ] Epic Routing executed (Step 8): fast path OR multi-epic grouping confirmed by user
 - [ ] NEEDS_NEW_EPIC resolved (if any): stub Epic(s) created inline
 
 **✅ Phase 4: Check Existing Complete:**
@@ -579,7 +601,7 @@ Mark each as in_progress when starting, completed when done.
 **Process:**
 1. Phase 1: Context Assembly → Discovery (resolve to Epic 7: Auth), Step 2 loads allEpics [Epic 7, Epic 12, Epic 14]
 2. Phase 2: Standards Research → Research auth + payment standards via ln-001
-3. Phase 3: Planning → 8 Stories planned. Step 7 Routing → 5 Stories match Epic 7 (Auth), 3 Stories match Epic 12 (Payments). Routing preview shown, user confirms
+3. Phase 3: Planning → 8 Stories planned. Step 8 Routing → 5 Stories match Epic 7 (Auth), 3 Stories match Epic 12 (Payments). Routing preview shown, user confirms
 4. Phase 4: Check Existing per epicGroup → Epic 7: count=0 (CREATE), Epic 12: count=3 (REPLAN)
 5. Phase 5: Delegate CREATE to ln-221 for Epic 7 (5 Stories), then REPLAN to ln-222 for Epic 12 (3 Stories)
 6. Phase 6: Commit → `"ln-220: create Stories for Epics 7, 12"`

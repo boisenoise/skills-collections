@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-13 06:27 UTC*
+*Last updated: 2026-03-14 06:23 UTC*
 
-Total skills: **2366**
+Total skills: **2378**
 
 ## Skills by Source
 
@@ -933,6 +933,7 @@ Total skills: **2366**
 | `marketing-form-cro` | When the user wants to optimize any form that is NOT signup/registration — including lead capture fo... |
 | `marketing-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
 | `marketing-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
+| `marketing-lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.... |
 | `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
 | `marketing-marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marke... |
 | `marketing-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
@@ -996,6 +997,9 @@ Total skills: **2366**
 | `levn-ln-130-tasks-docs-creator` | Creates task management documentation (docs/tasks/README.md + kanban_board.md). Sets up Linear integ... |
 | `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md + tests/README.md). Establishes testing philosophy a... |
 | `levn-ln-150-presentation-creator` | Builds interactive HTML presentation with 6 tabs (Overview, Requirements, Architecture/C4, Tech Spec... |
+| `levn-ln-160-docs-skill-extractor` | Scans project docs, classifies procedural content, extracts into .claude/commands skills |
+| `levn-ln-161-skill-creator` | Creates .claude/commands from procedural doc sections with proper structure and transformation |
+| `levn-ln-162-skill-reviewer` | Universal skill reviewer: SKILL mode (D1-D9 + M1-M5) or COMMAND mode (.claude/commands review) |
 | `levn-ln-200-scope-decomposer` | Orchestrates full decomposition (scope → Epics → Stories → RICE prioritization) by delegating ln-210... |
 | `levn-ln-201-opportunity-discoverer` | Traffic-First opportunity discovery. KILL funnel filters ideas by traffic channel, demand, competiti... |
 | `levn-ln-210-epic-coordinator` | CREATE/REPLAN Epics from scope (3-7 Epics). Batch Preview + Auto-extraction. Decompose-First Pattern... |
@@ -1017,6 +1021,7 @@ Total skills: **2366**
 | `levn-ln-511-code-quality-checker` | Checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates decisi... |
 | `levn-ln-512-tech-debt-cleaner` | Applies safe auto-fixes for low-risk audit findings (unused imports, dead code, commented-out code).... |
 | `levn-ln-513-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
+| `levn-ln-514-test-log-analyzer` | Analyzes application logs: classifies errors, checks log quality/format, maps stack traces to source... |
 | `levn-ln-520-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-521, ln-522, ln... |
 | `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
 | `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reus... |
@@ -1036,12 +1041,13 @@ Total skills: **2366**
 | `levn-ln-627-observability-auditor` | Checks structured logging, health check endpoints, metrics collection, request tracing, log levels. ... |
 | `levn-ln-628-concurrency-auditor` | Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention, cross-proce... |
 | `levn-ln-629-lifecycle-auditor` | Checks bootstrap initialization order, graceful shutdown, resource cleanup, signal handling, livenes... |
-| `levn-ln-630-test-auditor` | Test suite audit coordinator. Delegates to 5 workers (Business Logic, E2E, Value, Coverage, Isolatio... |
+| `levn-ln-630-test-auditor` | Test suite audit coordinator: automated + manual tests. Delegates to 6 workers (Business Logic, E2E,... |
 | `levn-ln-631-test-business-logic-auditor` | Detects tests that validate framework/library behavior (Prisma, Express, bcrypt, JWT, axios, React h... |
 | `levn-ln-632-test-e2e-priority-auditor` | E2E Critical Coverage audit worker. Validates E2E coverage for critical paths (Money 20+, Security 2... |
 | `levn-ln-633-test-value-auditor` | Calculates Usefulness Score = Impact (1-5) × Probability (1-5) for each test. Returns KEEP/REVIEW/RE... |
 | `levn-ln-634-test-coverage-auditor` | Identifies missing tests for critical paths (Money 20+, Security 20+, Data Integrity 15+, Core Flows... |
 | `levn-ln-635-test-isolation-auditor` | Checks isolation (APIs/DB/FS/Time/Random/Network), determinism (flaky, order-dependent), and 7 anti-... |
+| `levn-ln-636-manual-test-auditor` | Audits manual test scripts (tests/manual/) for harness adoption, golden file completeness, fail-fast... |
 | `levn-ln-640-pattern-evolution-auditor` | Audits architectural patterns against best practices. Maintains patterns catalog, calculates 4 score... |
 | `levn-ln-641-pattern-analyzer` | Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, quality, impl... |
 | `levn-ln-642-layer-boundary-auditor` | Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ow... |
@@ -1068,8 +1074,6 @@ Total skills: **2366**
 | `levn-ln-741-linter-configurator` | Configures ESLint, Prettier, Ruff, mypy, and .NET analyzers |
 | `levn-ln-742-precommit-setup` | Configures Husky, lint-staged, commitlint, and Python pre-commit |
 | `levn-ln-743-test-infrastructure` | Creates test infrastructure with Vitest, xUnit, and pytest |
-| `levn-ln-750-commands-generator` | Generates project-specific .claude/commands for Claude Code |
-| `levn-ln-751-command-templates` | Generates individual .claude/commands files from templates |
 | `levn-ln-760-security-setup` | Coordinates security scanning (secrets + deps). Delegates to ln-761 + ln-625(mode=vulnerabilities_on... |
 | `levn-ln-761-secret-scanner` | Scans codebase for hardcoded secrets. Returns normalized findings with severity and remediation guid... |
 | `levn-ln-770-crosscutting-setup` | Coordinates logging, error handling, CORS, health checks, and API docs |
@@ -1093,6 +1097,10 @@ Total skills: **2366**
 | `levn-ln-830-code-modernization-coordinator` | Coordinates code modernization: OSS replacement and bundle optimization workers |
 | `levn-ln-831-oss-replacer` | Replaces custom modules with OSS packages using ln-645 migration plans, atomic keep/discard |
 | `levn-ln-832-bundle-optimizer` | Reduces JS/TS bundle size via unused deps, tree-shaking, code splitting with keep/discard |
+| `levn-ln-910-community-engagement` | Community engagement coordinator: analyzes repo health, consults strategy, delegates to announcer/de... |
+| `levn-ln-911-github-triager` | Scan open GitHub issues, PRs, discussions. Produce prioritized triage report with engagement metrics... |
+| `levn-ln-912-community-announcer` | Compose and publish GitHub Discussion announcements: gather context, classify, compose, fact-check, ... |
+| `levn-ln-913-community-debater` | Launch RFC/debate discussions on GitHub: define topic, classify type, compose structured RFC/poll, r... |
 
 ### muratcankoylan/Agent-Skills-for-Context-Engineering
 
@@ -1244,6 +1252,7 @@ Total skills: **2366**
 | `antigravity-animejs-animation` | Advanced JavaScript animation library skill for creating complex, high-performance web animations. |
 | `antigravity-anti-reversing-techniques` | Understand anti-reversing, obfuscation, and protection techniques encountered during software analys... |
 | `antigravity-antigravity-design-expert` | Core UI/UX engineering skill for building highly interactive, spatial, weightless, and glassmorphism... |
+| `antigravity-antigravity-skill-orchestrator` | A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks succ... |
 | `antigravity-antigravity-workflows` | Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, security aud... |
 | `antigravity-api-design-principles` | Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs th... |
 | `antigravity-api-documentation` | API documentation workflow for generating OpenAPI specs, creating developer guides, and maintaining ... |
@@ -1659,6 +1668,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-e2e-testing` | End-to-end testing workflow with Playwright for browser automation, visual regression, cross-browser... |
 | `antigravity-e2e-testing-patterns` | Master end-to-end testing with Playwright and Cypress to build reliable test suites that catch bugs,... |
 | `antigravity-earllm-build` | Build, maintain, and extend the EarLLM One Android project — a Kotlin/Compose app that connects Blue... |
+| `antigravity-electron-development` | Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-pr... |
 | `antigravity-elixir-pro` | Write idiomatic Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. Masters conc... |
 | `antigravity-elon-musk` | Agente que simula Elon Musk com profundidade psicologica e comunicacional de alta fidelidade. Ativad... |
 | `antigravity-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
@@ -1914,6 +1924,7 @@ Use when... |
 | `antigravity-llm-evaluation` | Implement comprehensive evaluation strategies for LLM applications using automated metrics, human fe... |
 | `antigravity-llm-ops` | LLM Operations -- RAG, embeddings, vector databases, fine-tuning, prompt engineering avancado, custo... |
 | `antigravity-llm-prompt-optimizer` | Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost output... |
+| `antigravity-llm-structured-output` | Get reliable JSON, enums, and typed objects from LLMs using response_format, tool_use, and schema-co... |
 | `antigravity-local-legal-seo-audit` | Audit and improve local SEO for law firms, attorneys, forensic experts and legal/professional servic... |
 | `antigravity-local-llm-expert` | Master local LLM inference, model selection, VRAM optimization, and local deployment using Ollama, l... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
@@ -2105,6 +2116,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pr-writer` | ALWAYS use this skill when creating or updating pull requests — never create or edit a PR directly w... |
 | `antigravity-pricing-strategy` | Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, ... |
 | `antigravity-prisma-expert` | Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and databas... |
+| `antigravity-privacy-by-design` | Use when building apps that collect user data. Ensures privacy protections are built in from the sta... |
 | `antigravity-privilege-escalation-methods` | This skill should be used when the user asks to "escalate privileges", "get root access", "become ad... |
 | `antigravity-product-design` | Design de produto nivel Apple — sistemas visuais, UX flows, acessibilidade, linguagem visual proprie... |
 | `antigravity-product-inventor` | Product Inventor e Design Alchemist de nivel maximo — combina Product Thinking, Design Systems, UI E... |

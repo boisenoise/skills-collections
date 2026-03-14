@@ -57,10 +57,10 @@ Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TR
 - Generate seed data (ln-723 GENERATE mode)
 - Artifact cleanup: SKIP (CREATE mode)
 
-### Step 3-7: DevOps, Quality, Commands, Security, Crosscutting
+### Step 3-6: DevOps, Quality, Security, Crosscutting
 (Same as TRANSFORM mode)
 
-### Step 8: Verification (ln-780)
+### Step 7: Verification (ln-780)
 (Same as TRANSFORM mode)
 
 ## Estimated Outcome
@@ -183,22 +183,7 @@ Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TR
 
 ---
 
-### Step 5: Commands Generation (ln-750)
-
-**Commands to Generate:**
-{{#each COMMANDS}}
-- {{name}}.md - {{description}}
-{{/each}}
-
-**Template Variables:**
-- PROJECT_NAME: {{PROJECT_NAME}}
-- FRONTEND_ROOT: {{FRONTEND_ROOT}}
-- BACKEND_ROOT: {{BACKEND_ROOT}}
-- DEV_URL: {{DEV_URL}}
-
----
-
-### Step 6: Security Setup (ln-760)
+### Step 5: Security Setup (ln-760)
 
 **Scans:**
 - [ ] Secret detection (hardcoded keys)
@@ -212,7 +197,7 @@ Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TR
 
 ---
 
-### Step 7: Crosscutting (ln-770)
+### Step 6: Crosscutting (ln-770)
 
 **Logging:**
 - Library: {{LOGGING_LIBRARY}}
@@ -239,7 +224,7 @@ Templates for bootstrap plans. Two modes supported: CREATE (from scratch) and TR
 
 ---
 
-### Step 8: Verification (ln-780)
+### Step 7: Verification (ln-780)
 
 **Build Verification:**
 - [ ] Frontend: npm run build

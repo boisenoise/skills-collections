@@ -1,6 +1,6 @@
 ---
 name: ln-630-test-auditor
-description: "Test suite audit coordinator. Delegates to 5 workers (Business Logic, E2E, Value, Coverage, Isolation). Aggregates results into docs/project/test_audit.md."
+description: "Test suite audit coordinator: automated + manual tests. Delegates to 6 workers (Business Logic, E2E, Value, Coverage, Isolation, Manual Quality). Output: docs/project/test_audit.md."
 allowed-tools: Read, Grep, Glob, Bash, mcp__Ref, mcp__context7, Skill
 license: MIT
 ---
@@ -9,12 +9,12 @@ license: MIT
 
 # Test Suite Auditor (L2 Coordinator)
 
-Coordinates comprehensive test suite audit across 6 quality categories using 5 specialized workers.
+Coordinates comprehensive test suite audit across 7 quality categories using 6 specialized workers. Discovers both automated tests (`*.test.*`, `*.spec.*`) and manual tests (`tests/manual/**/*.sh`).
 
 ## Purpose & Scope
 
 - **L2 Coordinator** that delegates to L3 specialized audit workers
-- Audits all tests against 6 quality categories (via 5 workers)
+- Audits all tests against 7 quality categories (via 6 workers)
 - Calculates **Usefulness Score** for each test (Keep/Remove/Refactor)
 - Identifies missing tests for critical business logic
 - Detects anti-patterns and isolation issues
@@ -46,10 +46,13 @@ Coordinates comprehensive test suite audit across 6 quality categories using 5 s
    - `**/*.test.*` (Jest, Vitest)
    - `**/*.spec.*` (Mocha, Jasmine)
    - `**/__tests__/**/*` (Jest convention)
+   - `tests/manual/**/*.sh` (manual bash test scripts)
 2. Parse test file structure (test names, assertions count)
-3. Auto-discover Team ID from [docs/tasks/kanban_board.md](../docs/tasks/kanban_board.md)
+3. Tag each file with `type: "automated"|"manual"`
+4. For manual tests: detect `has_expected_dir` (sibling `expected/` exists), `suite_dir`, `harness_sourced` (sources test_harness.sh)
+5. Auto-discover Team ID from [docs/tasks/kanban_board.md](../docs/tasks/kanban_board.md)
 
-**Output:** `testFilesMetadata` — list of test files with basic stats
+**Output:** `testFilesMetadata` — list of test files with basic stats and `type` field
 
 ### Phase 2: Research Best Practices (ONCE)
 
@@ -63,6 +66,7 @@ Coordinates comprehensive test suite audit across 6 quality categories using 5 s
    - Usefulness Score formulas (Impact × Probability)
    - Anti-patterns catalog
    - Framework detection patterns
+   - Manual test quality criteria (harness adoption, golden files, fail-fast, config sourcing)
 
 **Add output_dir to contextStore:**
 ```json
@@ -99,10 +103,15 @@ Detect `domain_mode` and `all_domains` with the shared pattern. This coordinator
 | 2 | [ln-632-test-e2e-priority-auditor](../ln-632-test-e2e-priority-auditor/) | E2E Priority | E2E baseline (2/endpoint), Pyramid validation, Missing E2E tests |
 | 3 | [ln-633-test-value-auditor](../ln-633-test-value-auditor/) | Risk-Based Value | Usefulness Score = Impact × Probability<br>Decisions: ≥15 KEEP, 10-14 REVIEW, <10 REMOVE |
 | 5 | [ln-635-test-isolation-auditor](../ln-635-test-isolation-auditor/) | Isolation + Anti-Patterns | Isolation (6 categories), Determinism, Anti-Patterns (7 types) |
+| 6 | [ln-636-manual-test-auditor](../ln-636-manual-test-auditor/) | Manual Test Quality | Harness adoption, golden files, fail-fast, config sourcing, template compliance, idempotency |
 
-**Invocation (4 workers in PARALLEL):**
+**Type-filtered delegation:** Coordinator splits `testFilesMetadata` by `type` before passing to workers:
+- ln-631..635 receive `testFilesMetadata.filter(f => f.type == "automated")` only
+- ln-636 receives `testFilesMetadata.filter(f => f.type == "manual")` only
+
+**Invocation (5 workers in PARALLEL):**
 ```javascript
-FOR EACH worker IN [ln-631, ln-632, ln-633, ln-635]:
+FOR EACH worker IN [ln-631, ln-632, ln-633, ln-635, ln-636]:
   Agent(description: "Test audit via " + worker,
        prompt: "Execute audit worker.
 
@@ -110,7 +119,7 @@ Step 1: Invoke worker:
   Skill(skill: \"" + worker + "\")
 
 CONTEXT:
-" + JSON.stringify(contextStore),
+" + JSON.stringify({...contextStore, testFilesMetadata: filteredByType}),
        subagent_type: "general-purpose")
 ```
 
@@ -154,9 +163,9 @@ CONTEXT:
 ```
 
 **Parallelism strategy:**
-- Phase 4a: All 4 global workers run in PARALLEL
+- Phase 4a: All 5 global workers run in PARALLEL
 - Phase 4b: All N domain-aware invocations run in PARALLEL
-- Example: 3 domains → 3 ln-634 invocations in single message
+- Example: 3 domains → 5 global + 3 ln-634 invocations in single message
 
 **Domain-aware workers** add optional fields: `domain`, `scan_path`
 
@@ -167,9 +176,9 @@ CONTEXT:
 Use the shared aggregation pattern for output directory checks, return-value parsing, severity rollups, file reads, and final report assembly.
 
 Local rules for this coordinator:
-- Categories 1-3 and 5-6 stay global in the final report.
+- Categories 1-3, 5-7 stay global in the final report.
 - Category 4 (Coverage Gaps) is grouped per domain when `domain_mode="domain-aware"`.
-- Overall score = average of 5 worker scores.
+- Overall score = average of 6 worker scores.
 
 **Context Validation (Post-Filter):**
 
@@ -227,7 +236,8 @@ Recalculate scores excluding advisory findings from penalty.
 | Risk-Based Value | X/10 | X low-value tests |
 | Coverage Gaps | X/10 | X critical paths untested |
 | Isolation & Anti-Patterns | X/10 | X isolation + anti-pattern issues |
-| **Overall** | **X/10** | Average of 5 categories |
+| Manual Test Quality | X/10 | X manual test quality issues |
+| **Overall** | **X/10** | Average of 6 categories |
 
 ### Domain Coverage Summary (NEW - if domain_mode="domain-aware")
 
@@ -271,7 +281,8 @@ Recalculate scores excluding advisory findings from penalty.
 
 Each worker:
 - Receives `contextStore` with testing best practices
-- Receives `testFilesMetadata` with test file list
+- Receives `testFilesMetadata` with test file list (tagged with `type: "automated"|"manual"`)
+- Workers 1-5 (ln-631..ln-635) focus on automated tests; worker 6 (ln-636) focuses on manual tests
 - Loads full test file contents when analyzing
 - Returns structured JSON with category findings
 - Operates independently (failure in one doesn't block others)
@@ -283,7 +294,7 @@ Each worker:
 
 ## Critical Rules
 
-- **Two-stage delegation:** Global workers (4) + Domain-aware worker (ln-634 × N domains)
+- **Two-stage delegation:** Global workers (5) + Domain-aware worker (ln-634 × N domains)
 - **Domain discovery:** Auto-detect domains from folder structure; fallback to global mode if <2 domains
 - **Parallel execution:** All workers (global + domain-aware) run in PARALLEL
 - **Domain-grouped output:** Coverage Gaps findings grouped by domain (if domain_mode="domain-aware")
@@ -311,16 +322,17 @@ Delete the dated output directory (`docs/project/.audit/ln-630/{YYYY-MM-DD}/`). 
 
 ## Definition of Done
 
-- All test files discovered via Glob
+- All test files discovered via Glob (automated + manual)
+- Manual test files tagged with `type: "manual"` in testFilesMetadata
 - Context gathered from testing best practices (MCP Ref/Context7)
 - Domain discovery completed (domain_mode determined)
 - contextStore built with test metadata + domain info
-- Global workers (4) invoked in PARALLEL
+- Global workers (5) invoked in PARALLEL (ln-631, ln-632, ln-633, ln-635, ln-636)
 - Domain-aware worker (ln-634) invoked per domain in PARALLEL
 - All workers completed successfully (or reported errors)
 - Results aggregated with domain grouping (if domain_mode="domain-aware")
 - Domain Coverage Summary built (if domain_mode="domain-aware")
-- Compliance scores calculated (6 categories)
+- Compliance scores calculated (7 categories)
 - Keep/Remove/Refactor decisions for each test
 - Missing tests identified with Priority (grouped by domain if applicable)
 - Anti-patterns catalogued
@@ -352,6 +364,7 @@ Skill type: `review-coordinator` (workers only). Run after all phases complete. 
   - [ln-633-test-value-auditor](../ln-633-test-value-auditor/) — Usefulness Score calculation
   - [ln-634-test-coverage-auditor](../ln-634-test-coverage-auditor/) — Coverage gaps identification
   - [ln-635-test-isolation-auditor](../ln-635-test-isolation-auditor/) — Isolation + Anti-Patterns
+  - [ln-636-manual-test-auditor](../ln-636-manual-test-auditor/) — Manual Test Quality
 
 - **Reference:**
   - [../shared/references/risk_based_testing_guide.md](../shared/references/risk_based_testing_guide.md) — Risk-Based Testing Guide

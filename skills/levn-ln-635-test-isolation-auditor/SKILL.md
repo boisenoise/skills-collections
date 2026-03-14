@@ -276,8 +276,8 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **What:** Tests validating Express/Prisma/bcrypt (NOT our code)
 
 **Detection:**
-- Already detected by ln-631-test-business-logic-auditor
-- Cross-reference findings
+- Tests that ONLY call framework API with no custom logic (same patterns as Business Logic Focus category)
+- Skip if this finding is already reported under Category 1 (coordinator deduplicates)
 
 **Severity:** **MEDIUM**
 
@@ -328,7 +328,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Do not auto-fix:** Report only
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
 - **Flat findings:** Merge isolation + determinism + anti-patterns into single findings array, use `principle` prefix to distinguish
-- **Cross-reference ln-631:** Framework Tester anti-pattern (Rule 6) references ln-631 findings — do not duplicate
+- **Framework Tester dedup:** Category 1 (Business Logic Focus) covers framework tests separately — coordinator deduplicates overlapping findings
 - **Context-aware:** Supertest with real Express app is acceptable for integration tests
 
 ## Definition of Done
