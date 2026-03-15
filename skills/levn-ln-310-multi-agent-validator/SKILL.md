@@ -72,7 +72,7 @@ Initialize: `agents_launched = UNSET`. MUST be set to `true` or `SKIPPED` in Pha
 2) **Prepare references:**
    - mode=story: Story/Task URLs (linear) or file paths (file)
    - mode=context: resolve identifier (default: `review_YYYYMMDD_HHMMSS`), materialize context if from chat → `.agent-review/context/{id}_context.md`
-   - mode=plan_review: auto-detect plan (Glob `.claude/plans/*.md`, most recent by mtime). No plan → error
+   - mode=plan_review: auto-detect plan (Glob `.claude/plans/*.md`, most recent by mtime). No plan → error. Materialize: copy plan file → `.agent-review/context/{identifier}_plan.md`. Use local path as `{plan_ref}`
 3) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/{mode}.md` (per shared workflow "Step: Build Prompt"). Replace mode-specific placeholders. Save to `.agent-review/{id}_{mode}review_prompt.md`
 4) **Launch BOTH agents** as background tasks. `agents_launched = true`
 
