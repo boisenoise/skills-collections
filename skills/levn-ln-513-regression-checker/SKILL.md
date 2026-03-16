@@ -26,7 +26,7 @@ Runs the existing test suite to ensure no regressions after implementation chang
 - Preserve full stdout/stderr output for downstream log analysis.
 
 ## When to Use
-- **Invoked by ln-510-quality-coordinator** Phase 7
+- After code quality checks pass
 - Code quality check passed
 
 ## Workflow
@@ -39,13 +39,14 @@ Runs the existing test suite to ensure no regressions after implementation chang
 
 ### Phase 1: Execute Tests
 
-**MANDATORY READ:** Load `docs/project/infrastructure.md`, `docs/project/runbook.md`
+**MANDATORY READ:** Load `docs/project/infrastructure.md`, `docs/project/runbook.md`, `shared/references/output_normalization.md`
 
 1) Auto-discover test framework per ci_tool_detection.md Command Registry (Test Frameworks section).
 2) Get service endpoints, port allocation from infrastructure.md. Get exact test commands, Docker setup, environment variables from runbook.md. Runbook commands take priority over auto-detection (per ci_tool_detection.md Discovery Hierarchy).
 3) Build appropriate test command; run with timeout (5min per ci_tool_detection.md); capture stdout/stderr.
 4) Parse results: passed/failed counts; key failing tests.
-5) Output verdict JSON (PASS or FAIL + failures list) and add Linear comment.
+5) **Normalize + group failures:** Apply `shared/references/output_normalization.md` §1-§3 to test output. Group failing tests by error category (Import/Module, Assertion, Timeout, Type, Connection, Runtime). Report grouped: e.g., "3 Import errors in auth/, 2 Assertion mismatches in payment/".
+6) Output verdict JSON (PASS or FAIL + grouped failures list) and add Linear comment.
 
 ## Critical Rules
 - No selective test runs; run full suite.
@@ -53,13 +54,15 @@ Runs the existing test suite to ensure no regressions after implementation chang
 - Language preservation in comment (EN/RU).
 
 ## Definition of Done
-- Framework detected; command executed.
-- Results parsed; verdict produced with failing tests (if any).
-- Linear comment posted with summary.
+
+- [ ] Framework detected; command executed
+- [ ] Results parsed; verdict produced with failing tests (if any)
+- [ ] Linear comment posted with summary
 
 ## Reference Files
 - Risk-based limits used downstream: `shared/references/risk_based_testing_guide.md`
 - **CI tool detection:** `shared/references/ci_tool_detection.md`
+- **Output normalization:** `shared/references/output_normalization.md`
 - **Pytest patterns:** `references/pytest_configuration.md`
 
 ---

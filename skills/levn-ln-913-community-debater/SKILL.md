@@ -11,15 +11,13 @@ allowed-tools: Read, Grep, Glob, Bash, WebFetch
 
 **Type:** L3 Worker (standalone)
 **Category:** 9XX Community Engagement
-**Caller:** ln-910-community-engagement (or standalone)
-
 Launches structured debate discussions in GitHub Discussions for decisions that benefit from community input.
 
 ---
 
 ## Phase 0: GitHub Discovery
 
-**MANDATORY READ:** Load `../ln-910-community-engagement/references/github_discovery.md`
+**MANDATORY READ:** Load `shared/references/community_github_discovery.md`
 
 Execute the discovery protocol. Extract:
 - `{owner}/{repo}` for URLs and codebase context
@@ -28,9 +26,10 @@ Execute the discovery protocol. Extract:
 - `categories["Polls"]` for Prioritization polls
 - Verify required categories exist
 
-Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `../ln-910-community-engagement/references/community_strategy_template.md`. Extract Section 3 (Debate Triggers) and Section 1 (Decision Matrix).
+Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `shared/references/community_strategy_template.md`. Extract Section 3 (Debate Triggers) and Section 1 (Decision Matrix).
 
-**MANDATORY READ:** Load `../ln-910-community-engagement/references/discussion_formatting.md`
+**MANDATORY READ:** Load `shared/references/community_discussion_formatting.md`
+**MANDATORY READ:** Load `shared/references/humanizer_checklist.md`
 
 ---
 
@@ -90,7 +89,21 @@ After creating the discussion, post each option as a separate comment for reacti
 
 ---
 
-## Phase 5: Review and Publish
+## Phase 5: Fact-Check
+
+Before presenting to user, verify every verifiable claim in the draft:
+
+1. **File paths & links** -- verify each linked file exists: `ls {path}`. Remove or fix broken links.
+2. **Code references** -- verify mentioned functions/patterns exist: `grep -r "{name}"`.
+3. **Alternatives accuracy** -- re-read source files to confirm the Alternatives table accurately describes tradeoffs. No hallucinated pros/cons.
+4. **Names** -- verify skill names, directory names, config keys match actual repo state.
+5. **Humanizer audit** -- run the audit protocol from `humanizer_checklist.md`. If 3+ AI patterns found, rewrite flagged sections.
+
+**Gate:** If any check fails, fix the draft before proceeding.
+
+---
+
+## Phase 6: Review and Publish
 
 Present the composed title + body to the user. **Wait for explicit approval before publishing.**
 
@@ -148,6 +161,8 @@ Report the discussion URL to the user.
 - [ ] Topic defined with codebase context gathered
 - [ ] Debate type classified (RFC/Proposal/Workflow/Prioritization)
 - [ ] RFC or poll composed with minimum 2 alternatives
+- [ ] Fact-checked (links, code references, alternatives accuracy, names)
+- [ ] Humanizer audit passed (< 3 AI patterns)
 - [ ] User approved final draft
 - [ ] Published via GraphQL mutation, URL reported
 

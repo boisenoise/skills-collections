@@ -101,7 +101,7 @@ Skill(skill: "ln-512-tech-debt-cleaner", args: "{storyId}")
     - If 0 agents → agent review SKIPPED, go to Phase 5
 4b) **Get references:** `get_issue(storyId)` + `list_issues(parent=storyId, status=Done)` (exclude test tasks)
 4c) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/code.md` (per shared workflow "Step: Build Prompt"), replace `{story_ref}`, `{task_refs}`. Save to `.agent-review/{identifier}_codereview_prompt.md`
-4d) **Launch BOTH agents** as background tasks (per shared workflow) + **Load Review Memory**
+4d) **Launch BOTH agents** as background tasks (per shared workflow)
     → Continue to Phase 5 (Criteria Validation), Phase 6 (Linters), Phase 7 (Regression), Phase 8 (Log Analysis) while agents work
 
 ### Phase 5: Criteria Validation
@@ -268,14 +268,15 @@ issues:
 - Do not create tasks or change statuses; ln-500 decides next actions
 
 ## Definition of Done
-- ln-511 invoked (ALWAYS — full or `--skip-mcp-ref` in fast-track), code quality score returned
-- ln-512 invoked (or skipped if --fast-track), tech debt cleanup results returned
-- Agent review executed inline (or skipped if --fast-track), results merged in Phase 9
-- Criteria Validation completed (3 checks)
-- Linters executed
-- ln-513 invoked, regression results returned
-- ln-514 invoked, log analysis results returned (or SKIPPED/NO_LOG_SOURCES)
-- quality_verdict calculated + aggregated results returned
+
+- [ ] ln-511 invoked (ALWAYS — full or `--skip-mcp-ref` in fast-track), code quality score returned
+- [ ] ln-512 invoked (or skipped if --fast-track), tech debt cleanup results returned
+- [ ] Agent review executed inline (or skipped if --fast-track), results merged in Phase 9
+- [ ] Criteria Validation completed (3 checks)
+- [ ] Linters executed
+- [ ] ln-513 invoked, regression results returned
+- [ ] ln-514 invoked, log analysis results returned (or SKIPPED/NO_LOG_SOURCES)
+- [ ] quality_verdict calculated + aggregated results returned
 
 ## Phase 11: Meta-Analysis
 

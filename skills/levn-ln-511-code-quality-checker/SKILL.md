@@ -72,7 +72,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 
 | Prefix | Category | Severity |
 |--------|----------|----------|
-| OPT-OSS- | Open-source replacement available (cross-ref ln-645 audit) | medium (high if >200 LOC) |
+| OPT-OSS- | Open-source replacement available | medium (high if >200 LOC) |
 
 **ARCH- subcategories:**
 
@@ -87,6 +87,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 | ARCH-AI-SEB | Side-Effect Breadth: 3+ side-effect categories in one **leaf** function. **Conflict Resolution:** orchestrator/coordinator functions (imports 3+ services AND delegates sequentially) are EXPECTED to have multiple categories — do NOT flag SEB | medium |
 | ARCH-AI-AH | Architectural Honesty: read-named function with write side-effects | medium |
 | ARCH-AI-FO | Flat Orchestration: **leaf** service imports 3+ other services. Orchestrator imports are expected — do NOT flag | medium |
+| ARCH-EVENT- | Event Channel Consistency: publisher/subscriber name mismatch (MISMATCH), orphaned channel with no counterpart (ORPHAN) | high (mismatch), medium (orphan) |
 
 **PERF- subcategories:**
 
@@ -108,9 +109,8 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 | MNT-ERR- | Error Contract inconsistency: mixed raise + return None in same service | medium |
 
 ## When to Use
-- **Invoked by ln-510-quality-coordinator** Phase 2
 - All implementation tasks in Story status = Done
-- Before ln-512 tech debt cleanup and ln-510 inline agent review
+- Before tech debt cleanup and inline agent review
 
 ## Workflow (concise)
 
@@ -134,6 +134,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - Parameter count (target ≤4; Exception: builder/options patterns)
 
 6) **MCP Ref Validation (MANDATORY for code changes — SKIP if `--skip-mcp-ref` flag passed):**
+   **MANDATORY READ:** Load `shared/references/research_tool_fallback.md`
 
    > **Fast-track mode:** When invoked with `--skip-mcp-ref`, skip this entire step (no OPT-, BP-, PERF- checks). Proceed directly to step 6 (static analysis). This reduces cost from ~5000 to ~800 tokens while preserving metrics + static analysis coverage.
 
@@ -179,6 +180,7 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - ARCH-AI-SEB: side-effect breadth (3+ categories in one **leaf** function; orchestrator functions exempt — see Conflict Resolution in table above)
    - ARCH-AI-AH: architectural honesty (read-named function with hidden writes)
    - ARCH-AI-FO: flat orchestration (**leaf** service importing 3+ services; orchestrator imports exempt)
+   - ARCH-EVENT-: event channel mismatch — Grep for `NOTIFY|pg_notify|\.publish\(|\.emit\(` (publishers) and `LISTEN|\.subscribe\(|\.on\(` (subscribers) in changed_files[]. Cross-reference channel name strings. <!-- Defense-in-depth: also checked by ln-652 Rule 6 -->
    - MNT-GOD-: god classes (>15 methods or >500 lines per class)
    - MNT-SIG-: method signature quality (boolean flags, unclear returns)
    - MNT-ERR-: error contract inconsistency (mixed raise/return patterns in same service)
@@ -188,7 +190,9 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
    - Subtract metric penalties (see Code Metrics table)
    - Subtract issue penalties (see Issue penalties table)
 
-9) Output verdict with score and structured issues. Add Linear comment with findings.
+9) **Output verdict with score and structured issues.**
+   **MANDATORY READ:** Load `references/output_schema.md`
+   Format output per schema. Add Linear comment with findings.
 
 ## Critical Rules
 - Read guides mentioned in Story/Tasks before judging compliance.
@@ -198,121 +202,15 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 - Do not create tasks or change statuses; caller decides next actions.
 
 ## Definition of Done
-- Story and Done implementation tasks loaded (test tasks excluded).
-- Code metrics calculated (Cyclomatic Complexity, function/file sizes).
-- **MCP Ref validation completed:**
-  - OPT-: Optimality checked (is chosen approach the best for the goal?)
-  - BP-: Best practices verified (correct implementation of chosen approach?)
-  - PERF-: Performance analyzed (algorithms, configs, patterns, DB)
-- ARCH- subcategories checked (LB, TX, DTO, DI, CEH, SES); MNT- subcategories checked (DC, DRY, GOD, SIG, ERR).
-- Issues identified with prefixes and severity, sources from MCP Ref/Context7.
-- Code Quality Score calculated.
-- **Output format:**
-  ```yaml
-  verdict: PASS | CONCERNS | ISSUES_FOUND
-  code_quality_score: {0-100}
-  metrics:
-    avg_cyclomatic_complexity: {value}
-    functions_over_50_lines: {count}
-    files_over_500_lines: {count}
-  issues:
-    # OPTIMALITY
-    - id: "OPT-001"
-      severity: medium
-      file: "src/auth/index.ts"
-      goal: "User session management"
-      finding: "Suboptimal approach for session management"
-      chosen: "Custom JWT with localStorage"
-      recommended: "httpOnly cookies + refresh token rotation"
-      reason: "httpOnly cookies prevent XSS token theft"
-      source: "ref://owasp-session-management"
 
-    # OPTIMALITY - OSS Replacement (from ln-645, fast-track safe)
-    - id: "OPT-OSS-001"
-      severity: high
-      file: "src/utils/email-validator.ts"
-      goal: "Email validation with MX checking"
-      finding: "Custom 245-line module has HIGH-confidence OSS replacement"
-      chosen: "Custom email-validator.ts (245 lines)"
-      recommended: "zod + zod-email (28k stars, MIT, 95% coverage)"
-      reason: "Battle-tested, actively maintained, reduces maintenance burden"
-      source: "ln-645-audit"
-
-    # BEST PRACTICES
-    - id: "BP-001"
-      severity: medium
-      file: "src/api/routes.ts"
-      finding: "POST for idempotent operation"
-      best_practice: "Use PUT for idempotent updates (RFC 7231)"
-      source: "ref://api-design-guide#idempotency"
-
-    # PERFORMANCE - Algorithm
-    - id: "PERF-ALG-001"
-      severity: high
-      file: "src/utils/search.ts:42"
-      finding: "Nested loops cause O(n²) complexity"
-      current: "O(n²) - nested filter().find()"
-      optimal: "O(n) - use Map/Set for lookup"
-      source: "ref://javascript-performance#data-structures"
-
-    # PERFORMANCE - Config
-    - id: "PERF-CFG-001"
-      severity: medium
-      file: "src/db/connection.ts"
-      finding: "Missing connection pool config"
-      current_config: "default (pool: undefined)"
-      recommended: "pool: { min: 2, max: 10 }"
-      source: "context7://pg#connection-pooling"
-
-    # PERFORMANCE - Database
-    - id: "PERF-DB-001"
-      severity: high
-      file: "src/repositories/user.ts:89"
-      finding: "N+1 query pattern detected"
-      issue: "users.map(u => u.posts) triggers N queries"
-      solution: "Use eager loading: include: { posts: true }"
-      source: "context7://prisma#eager-loading"
-
-    # ARCHITECTURE - Entity Leakage
-    - id: "ARCH-DTO-001"
-      severity: high
-      file: "src/api/users.ts:35"
-      finding: "ORM entity returned directly from API endpoint"
-      issue: "User entity with password hash exposed in GET /users response"
-      fix: "Create UserResponseDTO, map entity → DTO before return"
-
-    # ARCHITECTURE - Centralized Error Handling
-    - id: "ARCH-CEH-001"
-      severity: medium
-      file: "src/app.ts"
-      finding: "No global error handler registered"
-      issue: "Unhandled exceptions return stack traces to client in production"
-      fix: "Add app.use(globalErrorHandler) with sanitized error responses"
-
-    # MAINTAINABILITY - God Class
-    - id: "MNT-GOD-001"
-      severity: medium
-      file: "src/services/order-service.ts"
-      finding: "God class with 22 methods and 680 lines"
-      issue: "OrderService handles creation, payment, shipping, notifications"
-      fix: "Extract PaymentService, ShippingService, NotificationService"
-
-    # MAINTAINABILITY - Dead Code
-    - id: "MNT-DC-001"
-      severity: medium
-      file: "src/auth/legacy-adapter.ts"
-      finding: "Backward-compatibility wrapper kept after migration"
-      dead_code: "legacyLogin() wraps newLogin() — callers already migrated"
-      action: "Delete legacy-adapter.ts, remove re-export from index.ts"
-
-    # MAINTAINABILITY - DRY
-    - id: "MNT-DRY-001"
-      severity: medium
-      file: "src/service.ts:42"
-      finding: "DRY violation: duplicate validation logic"
-      suggested_action: "Extract to shared validator"
-  ```
-- Linear comment posted with findings.
+- [ ] Story and Done implementation tasks loaded (test tasks excluded)
+- [ ] Code metrics calculated (Cyclomatic Complexity, function/file sizes)
+- [ ] MCP Ref validation completed (OPT-, BP-, PERF- categories)
+- [ ] ARCH- subcategories checked (LB, TX, DTO, DI, CEH, SES, EVENT); MNT- subcategories checked (DC, DRY, GOD, SIG, ERR)
+- [ ] Issues identified with prefixes and severity, sources from MCP Ref/Context7
+- [ ] Code Quality Score calculated
+- [ ] Output formatted per `references/output_schema.md`
+- [ ] Linear comment posted with findings
 
 ## Reference Files
 - Git scope detection: `shared/references/git_scope_detection.md`
@@ -320,8 +218,8 @@ Formula: `Code Quality Score = 100 - metric_penalties - issue_penalties`
 - Guides: `docs/guides/`
 - Templates for context: `shared/templates/task_template_implementation.md`
 - **Clean code checklist:** `shared/references/clean_code_checklist.md`
-- **MANDATORY READ:** `shared/references/research_tool_fallback.md`
+- Research tool fallback: `shared/references/research_tool_fallback.md`
 
 ---
-**Version:** 5.0.0
-**Last Updated:** 2026-01-29
+**Version:** 5.1.0
+**Last Updated:** 2026-03-15

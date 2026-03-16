@@ -11,15 +11,13 @@ allowed-tools: Read, Grep, Glob, Bash, WebFetch
 
 **Type:** L3 Worker (standalone)
 **Category:** 9XX Community Engagement
-**Caller:** ln-910-community-engagement (or standalone)
-
 Composes and publishes structured announcements to GitHub Discussions (Announcements category).
 
 ---
 
 ## Phase 0: GitHub Discovery
 
-**MANDATORY READ:** Load `../ln-910-community-engagement/references/github_discovery.md`
+**MANDATORY READ:** Load `shared/references/community_github_discovery.md`
 
 Execute the discovery protocol. Extract:
 - `{owner}/{repo}` for URLs and git commands
@@ -27,9 +25,11 @@ Execute the discovery protocol. Extract:
 - `categories["Announcements"]` category ID for publishing
 - Verify Announcements category exists
 
-Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `../ln-910-community-engagement/references/community_strategy_template.md`. Extract Section 2 (Announcement Triggers) and Section 6 (Tone Guide).
+Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `shared/references/community_strategy_template.md`. Extract Section 2 (Announcement Triggers) and Section 6 (Tone Guide).
 
-**MANDATORY READ:** Load `../ln-910-community-engagement/references/discussion_formatting.md`
+**MANDATORY READ:** Load `shared/references/community_discussion_formatting.md`
+**MANDATORY READ:** Load [announcement_styles.md](references/announcement_styles.md)
+**MANDATORY READ:** Load `shared/references/humanizer_checklist.md`
 
 ---
 
@@ -49,9 +49,9 @@ Load strategy: check `docs/community_engagement_strategy.md` in target project, 
 
 ---
 
-## Phase 2: Classify Announcement Type
+## Phase 2: Classify and Select Style
 
-Determine the type based on gathered context:
+### 2a. Classify Announcement Type
 
 | Type | Trigger | Emoji |
 |------|---------|-------|
@@ -61,16 +61,23 @@ Determine the type based on gathered context:
 | **Architecture** | Structural changes (new categories, plugin splits) | :building_construction: |
 | **Community** | Non-technical updates (events, milestones) | :people_holding_hands: |
 
+### 2b. Select Style
+
+Use the **Style Selection Matrix** from `announcement_styles.md` to pick a primary style based on announcement type. Check the last 3 announcements in Discussions — if they all used the same style, pick a different one for variety.
+
+Optionally mix: use a hook from one style with the body from another (see Mixing Styles table in `announcement_styles.md`).
+
 ---
 
 ## Phase 3: Compose Announcement
 
-Use the **Announcement Structure Pattern** from `discussion_formatting.md` (loaded in Phase 0).
+Use the selected style template from `announcement_styles.md` as the structural basis, and `discussion_formatting.md` for GitHub markdown syntax.
 
-**Skill-specific additions beyond the shared pattern:**
+**Required elements (all styles):**
 - Add `### Contributors` section after `### What's Next` — thank contributors by @mention if applicable (skip for solo work)
 - Add footer: `*Full changelog: [CHANGELOG.md](https://github.com/{owner}/{repo}/blob/{default_branch}/CHANGELOG.md)*`
 - If breaking change: include migration steps with clear before/after in an `> [!IMPORTANT]` alert
+- End with engagement question (per Writing Quality checklist in `announcement_styles.md`)
 
 ---
 
@@ -83,6 +90,8 @@ Before presenting to user, verify every verifiable claim in the draft:
 3. **Numbers** -- verify counts mentioned against actual data: `git diff --name-only | grep -c SKILL.md` or `ls -d ln-*/SKILL.md | wc -l`.
 4. **Feature descriptions** -- re-read the key source file (from Phase 1 step 7) and confirm the draft accurately describes what changed. No hallucinated capabilities.
 5. **Names** -- verify names match actual directory/file names in the repo.
+
+6. **Humanizer audit** -- run the audit protocol from `humanizer_checklist.md`. If 3+ AI patterns found, rewrite flagged sections.
 
 **Gate:** If any check fails, fix the draft before proceeding.
 
@@ -126,8 +135,9 @@ If the announcement is a release or breaking change, suggest:
 ## Definition of Done
 
 - [ ] Context gathered (CHANGELOG, README, git log, key source files)
-- [ ] Announcement type classified
-- [ ] Draft composed using discussion_formatting.md patterns
+- [ ] Announcement type classified + style selected (different from last 3)
+- [ ] Draft composed using selected style template + formatting rules
+- [ ] Writing quality checklist passed (announcement_styles.md)
 - [ ] Fact-checked (commands, paths, numbers, descriptions, names verified)
 - [ ] User approved final draft
 - [ ] Published via GraphQL mutation, URL reported

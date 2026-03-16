@@ -20,14 +20,12 @@ L3 Worker that discovers custom modules, analyzes their purpose, and finds battl
 - Generate migration plan for viable replacements
 - Output: file-based report to `docs/project/.audit/`
 
-**Out of Scope** (owned by ln-625-dependencies-auditor):
+**Out of Scope:**
 - Pattern-based detection of known reinvented wheels (custom sorting, hand-rolled validation)
 - Package vulnerability scanning (CVE/CVSS for existing dependencies)
+- Story-level optimality checks via OPT- prefix
 
-**Out of Scope** (owned by ln-511-code-quality-checker):
-- Story-level optimality checks via OPT- prefix (ln-511 cross-references ln-645 reports)
-
-## Input (from ln-640)
+## Input
 
 ```
 - codebase_root: string        # Project root
@@ -312,17 +310,17 @@ Severity mapping:
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- Custom modules discovered (>= 100 LOC, utility/integration type)
-- Pre-classification gate applied: domain-specific modules excluded with documented reason
-- Goals extracted for each module (domain, inputs, outputs, operations)
-- Open-source alternatives searched via MCP Research (WebSearch, Context7, Ref)
-- Security gate passed: all candidates checked for CVEs via WebSearch
-- License classified: Permissive/Copyleft/Unknown for each candidate
-- Ecosystem alignment checked: existing project dependencies considered
-- Confidence scored for each replacement (HIGH/MEDIUM/LOW)
-- Migration plan generated for HIGH/MEDIUM confidence replacements
-- Report written to `{output_dir}/645-open-source-replacer[-{domain}].md`
-- Summary returned to coordinator
+- [ ] Custom modules discovered (>= 100 LOC, utility/integration type)
+- [ ] Pre-classification gate applied: domain-specific modules excluded with documented reason
+- [ ] Goals extracted for each module (domain, inputs, outputs, operations)
+- [ ] Open-source alternatives searched via MCP Research (WebSearch, Context7, Ref)
+- [ ] Security gate passed: all candidates checked for CVEs via WebSearch
+- [ ] License classified: Permissive/Copyleft/Unknown for each candidate
+- [ ] Ecosystem alignment checked: existing project dependencies considered
+- [ ] Confidence scored for each replacement (HIGH/MEDIUM/LOW)
+- [ ] Migration plan generated for HIGH/MEDIUM confidence replacements
+- [ ] Report written to `{output_dir}/645-open-source-replacer[-{domain}].md`
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 

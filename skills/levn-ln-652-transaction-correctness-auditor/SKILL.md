@@ -13,7 +13,6 @@ Specialized worker auditing database transaction patterns for correctness, scope
 
 ## Purpose & Scope
 
-- **Worker in ln-650 coordinator pipeline** - invoked by ln-650-persistence-performance-auditor
 - Audit **transaction correctness** (Priority: HIGH)
 - Check commit patterns, transaction boundaries, rollback handling, trigger/notify semantics
 - Write structured findings to file with severity, location, effort, recommendations
@@ -147,6 +146,42 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 
 **Effort:** M (restructure code to minimize transaction window)
 
+### 6. Event Channel Name Consistency
+**What:** Publisher channel/topic name does not match subscriber channel/topic name
+
+**Detection:**
+- **Step 1:** Collect publisher channel names (extend Phase 2 trigger discovery):
+  - Migration triggers: extract string argument from `pg_notify('channel_name', ...)`, `NOTIFY channel_name`
+  - Application code: Grep for `\.publish\(["']|\.emit\(["']|redis.*publish\(["']|\.send_to\(["']` in `src/`, `app/`
+  - Extract: `{channel_name, source_file, source_line, technology}`
+- **Step 2:** Collect subscriber channel names:
+  - PostgreSQL: Grep for `LISTEN\s+(\w+)` in application code (not just migrations)
+  - Redis: Grep for `\.subscribe\(["']([^"']+)` in `src/`, `app/`
+  - EventEmitter/WebSocket: Grep for `\.on\(["']([^"']+)` in handler/listener directories
+  - Extract: `{channel_name, source_file, source_line, technology}`
+- **Step 3:** Cross-reference publishers vs subscribers:
+  - Exact match: `publisher.channel_name == subscriber.channel_name` → OK
+  - Near-miss: Levenshtein distance <= 2 OR one is substring of the other → flag as MISMATCH
+  - Orphaned publisher: channel exists in publishers but not in subscribers → flag as ORPHAN
+  - Orphaned subscriber: channel exists in subscribers but not in publishers → flag as ORPHAN
+
+**Layer 2 Context Analysis (MANDATORY):**
+- If channel name comes from shared config constant or env var (e.g., `CHANNEL = os.environ["EVENT_CHANNEL"]`) and both publisher and subscriber use same source → NOT a mismatch
+- If channel uses dynamic suffix pattern (e.g., `job_events:{job_id}`) and both sides use same template → NOT orphaned
+- Exclude test files (`**/test*/**`, `**/*.test.*`) from both publisher and subscriber discovery
+
+**Severity:**
+- **CRITICAL:** Channel name mismatch (near-miss: publisher sends to `job_events`, subscriber listens on `job_event`)
+- **HIGH:** Orphaned publisher — events sent but never consumed (data loss risk if events carry state changes)
+- **MEDIUM:** Orphaned subscriber — listener registered but no publisher found (dead code or future feature)
+
+**Recommendation:**
+- For mismatches: unify channel name to a single constant shared between publisher and subscriber
+- For orphaned publishers: add subscriber or remove unused NOTIFY/publish
+- For orphaned subscribers: add publisher or remove dead listener
+
+**Effort:** S (fix typo/add constant) to M (design missing subscriber/publisher)
+
 ## Scoring Algorithm
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
@@ -155,7 +190,7 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `db_config` (datab
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
-Write report to `{output_dir}/652-transaction-correctness.md` with `category: "Transaction Correctness"` and checks: missing_intermediate_commits, scope_too_wide, scope_too_narrow, missing_rollback, long_held_transaction.
+Write report to `{output_dir}/652-transaction-correctness.md` with `category: "Transaction Correctness"` and checks: missing_intermediate_commits, scope_too_wide, scope_too_narrow, missing_rollback, long_held_transaction, event_channel_consistency.
 
 Return summary to coordinator:
 ```
@@ -177,20 +212,20 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed successfully (including output_dir)
-- scan_path determined
-- Trigger/NOTIFY infrastructure discovered from migrations
-- All 5 checks completed:
-  - missing intermediate commits, scope too wide, scope too narrow, missing rollback, long-held
-- Findings collected with severity, location, effort, recommendation
-- Score calculated using penalty algorithm
-- Report written to `{output_dir}/652-transaction-correctness.md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] contextStore parsed successfully (including output_dir)
+- [ ] scan_path determined
+- [ ] Trigger/NOTIFY infrastructure discovered from migrations
+- [ ] All 6 checks completed:
+  - missing intermediate commits, scope too wide, scope too narrow, missing rollback, long-held, event channel consistency
+- [ ] Findings collected with severity, location, effort, recommendation
+- [ ] Score calculated using penalty algorithm
+- [ ] Report written to `{output_dir}/652-transaction-correctness.md` (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-02-04
+**Version:** 1.1.0
+**Last Updated:** 2026-03-15

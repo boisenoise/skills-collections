@@ -36,14 +36,14 @@ Parse `$ARGUMENTS`: extract scope tokens (`issues`, `prs`, `discussions`), numer
 
 ## Phase 0: GitHub Discovery
 
-**MANDATORY READ:** Load `../ln-910-community-engagement/references/github_discovery.md`
+**MANDATORY READ:** Load `shared/references/community_github_discovery.md`
 
 Execute the discovery protocol. Extract:
 - `{owner}/{repo}` for `--repo` flag and URLs
 - `maintainer` login (authenticated user) for maintainer detection
 - Verify `gh` is authenticated
 
-Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `../ln-910-community-engagement/references/community_strategy_template.md`. Extract Section 5 (Engagement Metrics) for targets and red flags.
+Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `shared/references/community_strategy_template.md`. Extract Section 5 (Engagement Metrics) for targets and red flags.
 
 ---
 

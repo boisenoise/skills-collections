@@ -172,12 +172,13 @@ Log quality/format issues are INFORMATIONAL — do not affect quality verdict. O
 - Language preservation in comments (EN/RU).
 
 ## Definition of Done
-- Script deployed to target project `scripts/` (or already exists).
-- Log source detected and script executed (or NO_LOG_SOURCES returned).
-- Errors classified into 4 categories; Real Bugs identified.
-- Log quality assessed (6 dimensions + 10-criterion format checklist).
-- Stack traces mapped to source files for Real Bugs.
-- Report output to chat with signals table + machine-readable block.
+
+- [ ] Script deployed to target project `scripts/` (or already exists)
+- [ ] Log source detected and script executed (or NO_LOG_SOURCES returned)
+- [ ] Errors classified into 4 categories; Real Bugs identified
+- [ ] Log quality assessed (6 dimensions + 10-criterion format checklist)
+- [ ] Stack traces mapped to source files for Real Bugs
+- [ ] Report output to chat with signals table + machine-readable block
 
 ## Reference Files
 - **Error taxonomy:** `references/error_taxonomy.md`

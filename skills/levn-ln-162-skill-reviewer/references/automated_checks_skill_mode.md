@@ -116,6 +116,16 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
+## Publishing skill requirements check (D7)
+```bash
+for f in {scoped SKILL.md files}; do
+  if grep -qE '(gh api graphql.*mutation|gh issue comment)' "$f"; then
+    grep -qi "fact.check" "$f" || echo "FAIL: publishing skill missing Fact-Check phase: $f"
+    grep -q "humanizer_checklist" "$f" || echo "FAIL: publishing skill missing humanizer_checklist MANDATORY READ: $f"
+  fi
+done
+```
+
 ## Skill count accuracy check (D8)
 ```bash
 actual=$(ls -d ln-*/SKILL.md 2>/dev/null | wc -l)

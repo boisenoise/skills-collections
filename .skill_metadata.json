@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-15T06:30:28.675132",
-  "skill_count": 2383,
+  "last_updated": "2026-03-16T06:43:34.167052",
+  "skill_count": 2387,
   "sources_processed": 19,
   "skills": [
     {
@@ -17484,6 +17484,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-812-optimization-researcher",
+      "original_name": "ln-812-optimization-researcher",
+      "description": "Competitive benchmarks, solution research, and hypothesis generation for identified bottlenecks",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-115-devops-docs-creator",
       "original_name": "ln-115-devops-docs-creator",
       "description": "Creates infrastructure.md (always) and runbook.md (if hasDocker). DevOps documentation worker.",
@@ -17535,22 +17543,6 @@
       "name": "levn-ln-510-quality-coordinator",
       "original_name": "ln-510-quality-coordinator",
       "description": "Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-513 regression, ln-514 log analysis. Returns quality_verdict + aggregated results.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-811-algorithm-optimizer",
-      "original_name": "ln-811-algorithm-optimizer",
-      "description": "Optimizes algorithms via autoresearch loop: benchmark, research, hypothesize, keep/discard",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-810-performance-optimization-coordinator",
-      "original_name": "ln-810-performance-optimization-coordinator",
-      "description": "Coordinates performance optimization: algorithm, query, and runtime workers in parallel",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17724,6 +17716,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-814-optimization-executor",
+      "original_name": "ln-814-optimization-executor",
+      "description": "Multi-file hypothesis testing with keep/discard loop, compound baselines, and experiment logging",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-200-scope-decomposer",
       "original_name": "ln-200-scope-decomposer",
       "description": "Orchestrates full decomposition (scope \u2192 Epics \u2192 Stories \u2192 RICE prioritization) by delegating ln-210 \u2192 ln-220 \u2192 ln-230. Sequential processing. Epic 0 for Infrastructure.",
@@ -17780,6 +17780,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-637-test-structure-auditor",
+      "original_name": "ln-637-test-structure-auditor",
+      "description": "Audits test file organization: directory layout, test-to-source mapping, flat directory growth signals, domain grouping alignment, co-location consistency.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-161-skill-creator",
       "original_name": "ln-161-skill-creator",
       "description": "Creates .claude/commands from procedural doc sections with proper structure and transformation",
@@ -17799,6 +17807,14 @@
       "name": "levn-ln-623-code-principles-auditor",
       "original_name": "ln-623-code-principles-auditor",
       "description": "Checks DRY (10 types), KISS/YAGNI, error handling, DI patterns. Returns findings with severity, location, effort, pattern_signature.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-914-community-responder",
+      "original_name": "ln-914-community-responder",
+      "description": "Respond to GitHub discussions and issues: analyze context, search codebase for answers, compose and publish replies",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -17892,14 +17908,6 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-812-query-optimizer",
-      "original_name": "ln-812-query-optimizer",
-      "description": "Fixes N+1 queries, redundant fetches, over-fetching with keep/discard verification",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-653-runtime-performance-auditor",
       "original_name": "ln-653-runtime-performance-auditor",
       "description": "Checks blocking IO in async, unnecessary allocations, sync sleep, string concat in loops, missing to_thread, redundant copies. Returns findings with severity and effort.",
@@ -17964,6 +17972,22 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-810-performance-optimizer",
+      "original_name": "ln-810-performance-optimizer",
+      "description": "Multi-cycle diagnostic pipeline: profile \u2192 research \u2192 optimize \u2192 repeat with full-stack bottleneck analysis",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-813-optimization-plan-validator",
+      "original_name": "ln-813-optimization-plan-validator",
+      "description": "Validates optimization plan via parallel multi-agent review (Codex + Gemini) before execution. GO/NO-GO verdict.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-721-frontend-restructure",
       "original_name": "ln-721-frontend-restructure",
       "description": "Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-based architecture",
@@ -17999,14 +18023,6 @@
       "name": "levn-ln-100-documents-pipeline",
       "original_name": "ln-100-documents-pipeline",
       "description": "Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs) + ln-120-150 workers. Phase 3: global cleanup. Idempotent.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-813-runtime-optimizer",
-      "original_name": "ln-813-runtime-optimizer",
-      "description": "Fixes blocking IO, unnecessary allocations, sync-in-async with keep/discard verification",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18166,7 +18182,7 @@
     {
       "name": "levn-ln-910-community-engagement",
       "original_name": "ln-910-community-engagement",
-      "description": "Community engagement coordinator: analyzes repo health, consults strategy, delegates to announcer/debater/triager",
+      "description": "Community engagement coordinator: analyzes repo health, consults strategy, delegates to announcer/debater/triager/responder",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18286,7 +18302,7 @@
     {
       "name": "levn-ln-630-test-auditor",
       "original_name": "ln-630-test-auditor",
-      "description": "Test suite audit coordinator: automated + manual tests. Delegates to 6 workers (Business Logic, E2E, Value, Coverage, Isolation, Manual Quality). Output: docs/project/test_audit.md.",
+      "description": "Test suite audit coordinator: automated + manual tests. Delegates to 7 workers (Business Logic, E2E, Value, Coverage, Isolation, Manual Quality, Structure). Output: docs/project/test_audit.md.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18311,6 +18327,14 @@
       "name": "levn-ln-634-test-coverage-auditor",
       "original_name": "ln-634-test-coverage-auditor",
       "description": "Identifies missing tests for critical paths (Money 20+, Security 20+, Data Integrity 15+, Core Flows 15+). Returns list of untested critical business logic with priority justification.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-811-performance-profiler",
+      "original_name": "ln-811-performance-profiler",
+      "description": "Runtime profiling with multi-metric measurement, instrumentation, and performance map generation",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18359,6 +18383,14 @@
       "name": "levn-ln-302-task-replanner",
       "original_name": "ln-302-task-replanner",
       "description": "Updates ALL task types (implementation/refactoring/test). Compares IDEAL plan vs existing tasks, categorizes KEEP/UPDATE/OBSOLETE/CREATE, applies changes in Linear and kanban.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-647-env-config-auditor",
+      "original_name": "ln-647-env-config-auditor",
+      "description": "Audits env var config: file inventory, code-to-example sync, default desync, naming, startup validation. Stack-adaptive.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

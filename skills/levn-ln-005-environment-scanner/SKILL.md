@@ -78,6 +78,23 @@ python shared/agents/agent_runner.py --health-check
 
 **If `agent_runner.py` not found or errors:** Set both agents to `available: false`, `detail: "agent_runner.py not available"`.
 
+### Phase 1.5: Hook Health Check
+
+**MANDATORY READ:** Load `shared/references/hook_health_check.md`
+
+Validate hooks configuration: JSON syntax, script existence, dependency availability. Append results to `docs/environment_state.json` under `hooks` key:
+
+```json
+"hooks": {
+  "status": "ok",
+  "events": 3,
+  "scripts_found": "3/3",
+  "dependencies": { "python3": "3.12.0" }
+}
+```
+
+If hooks.json not found: `"hooks": { "status": "not_configured" }`.
+
 ### Phase 2: Write JSON
 
 1. **Read existing state** (if `docs/environment_state.json` exists):
@@ -131,12 +148,11 @@ If any agent has `disabled: true`, show status as `disabled` (not available/unav
 
 ## Definition of Done
 
-| # | Criterion |
-|---|-----------|
-| 1 | Both agents probed (Codex, Gemini) |
-| 2 | `docs/environment_state.json` written with valid structure |
-| 3 | Existing `disabled` flags preserved across rescan |
-| 4 | Summary table displayed to user |
+- [ ] Both agents probed (Codex, Gemini)
+- [ ] Hook health check completed (hooks.json, scripts, dependencies)
+- [ ] `docs/environment_state.json` written with valid structure (agents + hooks)
+- [ ] Existing `disabled` flags preserved across rescan
+- [ ] Summary table displayed to user
 
 ---
 **Version:** 2.0.0

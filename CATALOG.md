@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-15 06:30 UTC*
+*Last updated: 2026-03-16 06:43 UTC*
 
-Total skills: **2383**
+Total skills: **2387**
 
 ## Skills by Source
 
@@ -1041,13 +1041,14 @@ Total skills: **2383**
 | `levn-ln-627-observability-auditor` | Checks structured logging, health check endpoints, metrics collection, request tracing, log levels. ... |
 | `levn-ln-628-concurrency-auditor` | Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention, cross-proce... |
 | `levn-ln-629-lifecycle-auditor` | Checks bootstrap initialization order, graceful shutdown, resource cleanup, signal handling, livenes... |
-| `levn-ln-630-test-auditor` | Test suite audit coordinator: automated + manual tests. Delegates to 6 workers (Business Logic, E2E,... |
+| `levn-ln-630-test-auditor` | Test suite audit coordinator: automated + manual tests. Delegates to 7 workers (Business Logic, E2E,... |
 | `levn-ln-631-test-business-logic-auditor` | Detects tests that validate framework/library behavior (Prisma, Express, bcrypt, JWT, axios, React h... |
 | `levn-ln-632-test-e2e-priority-auditor` | E2E Critical Coverage audit worker. Validates E2E coverage for critical paths (Money 20+, Security 2... |
 | `levn-ln-633-test-value-auditor` | Calculates Usefulness Score = Impact (1-5) × Probability (1-5) for each test. Returns KEEP/REVIEW/RE... |
 | `levn-ln-634-test-coverage-auditor` | Identifies missing tests for critical paths (Money 20+, Security 20+, Data Integrity 15+, Core Flows... |
 | `levn-ln-635-test-isolation-auditor` | Checks isolation (APIs/DB/FS/Time/Random/Network), determinism (flaky, order-dependent), and 7 anti-... |
 | `levn-ln-636-manual-test-auditor` | Audits manual test scripts (tests/manual/) for harness adoption, golden file completeness, fail-fast... |
+| `levn-ln-637-test-structure-auditor` | Audits test file organization: directory layout, test-to-source mapping, flat directory growth signa... |
 | `levn-ln-640-pattern-evolution-auditor` | Audits architectural patterns against best practices. Maintains patterns catalog, calculates 4 score... |
 | `levn-ln-641-pattern-analyzer` | Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, quality, impl... |
 | `levn-ln-642-layer-boundary-auditor` | Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ow... |
@@ -1055,6 +1056,7 @@ Total skills: **2383**
 | `levn-ln-644-dependency-graph-auditor` | Builds dependency graph, detects cycles (DFS), validates boundary rules, calculates coupling metrics... |
 | `levn-ln-645-open-source-replacer` | Discovers custom modules (>100 LOC), analyzes purpose, searches OSS alternatives via MCP Research, e... |
 | `levn-ln-646-project-structure-auditor` | Audits project physical structure: file hygiene, ignore file quality, framework convention complianc... |
+| `levn-ln-647-env-config-auditor` | Audits env var config: file inventory, code-to-example sync, default desync, naming, startup validat... |
 | `levn-ln-650-persistence-performance-auditor` | Coordinates 4 audit workers (query efficiency, transaction, runtime performance, resource lifecycle)... |
 | `levn-ln-651-query-efficiency-auditor` | Checks redundant fetches, N-UPDATE/DELETE loops, unnecessary resolves, over-fetching, missing bulk o... |
 | `levn-ln-652-transaction-correctness-auditor` | Checks transaction scope, missing rollback handling, long-held transactions, trigger/notify interact... |
@@ -1086,10 +1088,11 @@ Total skills: **2383**
 | `levn-ln-781-build-verifier` | Builds all detected projects and verifies successful compilation |
 | `levn-ln-782-test-runner` | Executes all test suites and reports results with coverage |
 | `levn-ln-783-container-launcher` | Builds and launches Docker containers with health verification using best practices |
-| `levn-ln-810-performance-optimization-coordinator` | Coordinates performance optimization: algorithm, query, and runtime workers in parallel |
-| `levn-ln-811-algorithm-optimizer` | Optimizes algorithms via autoresearch loop: benchmark, research, hypothesize, keep/discard |
-| `levn-ln-812-query-optimizer` | Fixes N+1 queries, redundant fetches, over-fetching with keep/discard verification |
-| `levn-ln-813-runtime-optimizer` | Fixes blocking IO, unnecessary allocations, sync-in-async with keep/discard verification |
+| `levn-ln-810-performance-optimizer` | Multi-cycle diagnostic pipeline: profile → research → optimize → repeat with full-stack bottleneck a... |
+| `levn-ln-811-performance-profiler` | Runtime profiling with multi-metric measurement, instrumentation, and performance map generation |
+| `levn-ln-812-optimization-researcher` | Competitive benchmarks, solution research, and hypothesis generation for identified bottlenecks |
+| `levn-ln-813-optimization-plan-validator` | Validates optimization plan via parallel multi-agent review (Codex + Gemini) before execution. GO/NO... |
+| `levn-ln-814-optimization-executor` | Multi-file hypothesis testing with keep/discard loop, compound baselines, and experiment logging |
 | `levn-ln-820-dependency-optimization-coordinator` | Coordinates dependency upgrades across all detected package managers |
 | `levn-ln-821-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling |
 | `levn-ln-822-nuget-upgrader` | Upgrades .NET NuGet packages with breaking change handling |
@@ -1101,6 +1104,7 @@ Total skills: **2383**
 | `levn-ln-911-github-triager` | Scan open GitHub issues, PRs, discussions. Produce prioritized triage report with engagement metrics... |
 | `levn-ln-912-community-announcer` | Compose and publish GitHub Discussion announcements: gather context, classify, compose, fact-check, ... |
 | `levn-ln-913-community-debater` | Launch RFC/debate discussions on GitHub: define topic, classify type, compose structured RFC/poll, r... |
+| `levn-ln-914-community-responder` | Respond to GitHub discussions and issues: analyze context, search codebase for answers, compose and ... |
 
 ### muratcankoylan/Agent-Skills-for-Context-Engineering
 

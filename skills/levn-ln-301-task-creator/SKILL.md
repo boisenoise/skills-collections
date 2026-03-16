@@ -105,14 +105,14 @@ Example 3: No duplication (skip warning)
 ```
 
 ## Definition of Done
-- **DRY Check complete:** Codebase scanned for EACH Task; similar code detected (Grep); DRY warnings added to Task descriptions if ≥70% similarity found.
-- Context check complete (existing components/schema/deps/docs reviewed; conflicts flagged).
-- Documents generated with correct template, full sections, and DRY warnings (if applicable).
-- Type validation passed (no test creation for impl; regression strategy for refactor; risk matrix/limits for test).
-- Preview shown with DRY warnings count and user confirmed.
-- Linear issues created with parentId and URLs captured; state=Backlog.
-- kanban_board.md updated under correct Epic/Story with indentation.
-- Summary returned with URLs, totals, DRY warnings count, and next steps.
+- [ ] **DRY Check complete:** Codebase scanned for EACH Task; similar code detected (Grep); DRY warnings added to Task descriptions if ≥70% similarity found.
+- [ ] Context check complete (existing components/schema/deps/docs reviewed; conflicts flagged).
+- [ ] Documents generated with correct template, full sections, and DRY warnings (if applicable).
+- [ ] Type validation passed (no test creation for impl; regression strategy for refactor; risk matrix/limits for test).
+- [ ] Preview shown with DRY warnings count and user confirmed.
+- [ ] Linear issues created with parentId and URLs captured; state=Backlog.
+- [ ] kanban_board.md updated under correct Epic/Story with indentation.
+- [ ] Summary returned with URLs, totals, DRY warnings count, and next steps.
 
 ## Template Loading
 

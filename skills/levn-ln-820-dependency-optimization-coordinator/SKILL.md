@@ -241,12 +241,12 @@ Options:
 
 ## Definition of Done
 
-- Pre-flight checks passed (clean git state)
-- All package managers detected from indicator files
-- Security audit completed per manager (critical vulns block upgrade)
-- Workers delegated with worktree isolation (`isolation: "worktree"`)
-- Each worker produces isolated branch, pushed to remote
-- Coordinator report aggregates per-worker results (branch, upgrades, status)
+- [ ] Pre-flight checks passed (clean git state)
+- [ ] All package managers detected from indicator files
+- [ ] Security audit completed per manager (critical vulns block upgrade)
+- [ ] Workers delegated with worktree isolation (`isolation: "worktree"`)
+- [ ] Each worker produces isolated branch, pushed to remote
+- [ ] Coordinator report aggregates per-worker results (branch, upgrades, status)
 
 ---
 

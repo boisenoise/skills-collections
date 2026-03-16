@@ -153,14 +153,4 @@ Sources: Google Cloud LogSeverity (9 levels), OpenTelemetry Logs spec (severity 
 
 ## 6. Message Normalization Rules
 
-| Pattern | Replacement | Regex |
-|---------|-------------|-------|
-| UUID | `<UUID>` | `[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}` |
-| ISO timestamp | `<TS>` | `\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}` |
-| US timestamp | `<TS>` | `\d{2}-\d{2}-\d{4}\s\d{2}:\d{2}:\d{2}` |
-| IP address | `<IP>` | `\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d+)?` |
-| Path ID segment | `/<ID>` | `/[0-9a-f]{8,}` |
-| Large number | `<N>` | `\b\d{3,}\b` |
-| Trace ID | `trace_id=<TRACE>` | `trace_id=[0-9a-fA-F]{1,8}` |
-
-Apply in listed order. Normalization enables grouping identical errors that differ only in runtime values.
+**MANDATORY READ:** Load `shared/references/output_normalization.md` for normalization rules, deduplication protocol, and error grouping categories.

@@ -52,10 +52,18 @@ Check if related documentation needs updating:
 If `CHANGELOG.md` exists and changes are significant (not just lint/formatting fixes):
 
 1. Check if today's date already has an entry (`## YYYY-MM-DD`)
-2. If yes — append to existing paragraph
-3. If no — add new `## YYYY-MM-DD` entry (newest first) with ONE concise paragraph (3-5 sentences)
-4. Summarize what was changed in this push
-5. Do NOT include "Total skills: N" counts — these change too frequently
+2. If yes — append new bullets to existing entry
+3. If no — add new `## YYYY-MM-DD` entry (newest first)
+4. Write **max 5 bullets**, each starting with `- **Bold label** — description`
+5. Only user-visible or architecturally significant changes. Skip: renumbering, internal refactoring, structural fixes, deduplication
+
+| Include | Skip |
+|---------|------|
+| New capabilities / skills | Renumbering, renaming |
+| Workflow changes | Internal refactoring (D1-D9 fixes) |
+| Breaking changes | Deduplication passes |
+| New integrations | Reference file moves |
+| Performance improvements users notice | Token efficiency numbers |
 
 **Skip if:** no `CHANGELOG.md` in project, or changes are trivial (whitespace, lint auto-fixes only).
 

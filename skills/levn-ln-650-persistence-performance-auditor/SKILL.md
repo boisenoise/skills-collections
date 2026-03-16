@@ -53,11 +53,15 @@ Coordinates 4 specialized audit workers to perform database efficiency, transact
 | Triggers/NOTIFY | migration files | `pg_notify('job_events', ...)` |
 | Connection pooling | engine config | `pool_size=10, max_overflow=20` |
 
-**Scan for triggers:**
+**Scan for triggers and event channels:**
 ```
 Grep("pg_notify|NOTIFY|CREATE TRIGGER", path="alembic/versions/")
   OR path="migrations/"
-→ Store: db_config.triggers = [{table, event, function}]
+→ Store: db_config.triggers = [{table, event, function, channel_name}]
+
+Grep("LISTEN\s+\w+|\.subscribe\(|\.on\(.*channel|redis.*subscribe", path="src/")
+  OR path="app/"
+→ Store: db_config.event_subscribers = [{channel_name, file, line, technology}]
 ```
 
 ## Phase 2: Research Best Practices (ONCE)
@@ -78,7 +82,8 @@ Grep("pg_notify|NOTIFY|CREATE TRIGGER", path="alembic/versions/")
   "best_practices": {"sqlalchemy": {...}, "postgresql": {...}, "asyncio": {...}},
   "db_config": {
     "expire_on_commit": false,
-    "triggers": [{"table": "jobs", "event": "UPDATE", "function": "notify_job_events"}],
+    "triggers": [{"table": "jobs", "event": "UPDATE", "function": "notify_job_events", "channel_name": "job_events"}],
+    "event_subscribers": [{"channel_name": "job_events", "file": "src/listeners/job_listener.py", "line": 12, "technology": "postgresql"}],
     "pool_size": 10
   },
   "codebase_root": "/project",
@@ -258,18 +263,18 @@ Delete the dated output directory (`docs/project/.audit/ln-650/{YYYY-MM-DD}/`). 
 
 ## Definition of Done
 
-- Tech stack discovered (DB type, ORM, async framework)
-- DB-specific metadata extracted (triggers, session config, pool settings)
-- Best practices researched via MCP tools
-- contextStore built with output_dir = `docs/project/.audit/ln-650/{YYYY-MM-DD}`
-- Output directory created for worker reports
-- All 4 workers invoked in PARALLEL and completed; each wrote report to `{output_dir}/`
-- Results aggregated from return values (scores) + file reads (findings tables)
-- Compliance score calculated per category + overall
-- Executive Summary included
-- Report written to `docs/project/persistence_audit.md`
-- Sources consulted listed with URLs
-- Worker output directory cleaned up after consolidation
+- [ ] Tech stack discovered (DB type, ORM, async framework)
+- [ ] DB-specific metadata extracted (triggers, session config, pool settings)
+- [ ] Best practices researched via MCP tools
+- [ ] contextStore built with output_dir = `docs/project/.audit/ln-650/{YYYY-MM-DD}`
+- [ ] Output directory created for worker reports
+- [ ] All 4 workers invoked in PARALLEL and completed; each wrote report to `{output_dir}/`
+- [ ] Results aggregated from return values (scores) + file reads (findings tables)
+- [ ] Compliance score calculated per category + overall
+- [ ] Executive Summary included
+- [ ] Report written to `docs/project/persistence_audit.md`
+- [ ] Sources consulted listed with URLs
+- [ ] Worker output directory cleaned up after consolidation
 
 ## Workers
 
@@ -293,5 +298,5 @@ Skill type: `review-coordinator` (workers only). Run after all phases complete. 
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-02-04
+**Version:** 1.1.0
+**Last Updated:** 2026-03-15

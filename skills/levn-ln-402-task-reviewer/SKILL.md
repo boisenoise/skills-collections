@@ -95,7 +95,8 @@ Files to review:
 | 11 | Side-effects | Pre-existing bugs in touched files |
 | 12 | Destructive ops | Safety guards from destructive_operation_safety.md (loaded in step 4) |
 | 13 | Algorithm correctness | Loop invariants, collection keys, unbounded ops, shared state leaks |
-| 14 | CI Checks | lint/typecheck pass per ci_tool_detection.md |
+| 14 | Event channels | Channel name consistency in diff |
+| 15 | CI Checks | lint/typecheck pass per ci_tool_detection.md |
 
 Expected output: Verdict (Done/To Rework) + Issues + Fix actions
 ```
@@ -171,6 +172,7 @@ Step 9: Update & Commit
    - Entity Leakage: ORM entities must NOT be returned directly from API endpoints. Use DTOs/response models. (BLOCKER for auth/payment, CONCERN for others) <!-- Defense-in-depth: also checked by ln-511 ARCH-DTO- -->
    - Method Signature: no boolean flag parameters in public methods (use enum/options object); no more than 5 parameters without DTO. (NIT) <!-- Defense-in-depth: also checked by ln-511 MNT-SIG- -->
    - **Algorithm correctness (loops, collections, boundaries):** Does `break`/`continue`/`return` inside loops handle ALL matching items, not just the first? Do dict/set comprehensions handle duplicate keys correctly (last-wins may lose data)? Any `list(query.all())` or unbounded loop on user-controlled data without LIMIT? Any mutable shared state (connection pool GUCs, session globals) that leaks across requests? (BLOCKER if data loss/corruption, CONCERN otherwise) <!-- Prefix: ALGO- -->
+   - **Event channel consistency (task-scoped):** When task diff touches event-related code (NOTIFY/LISTEN/emit/subscribe/publish/on), verify: (1) channel name string in publisher matches channel name string in subscriber; (2) if channel name is a new string literal, Grep `src/` for matching listener/publisher counterpart. Mismatch → CONCERN: `ARCH-EVENT-MISMATCH: publisher '{pub_name}' has no matching subscriber`. Orphan → CONCERN: `ARCH-EVENT-ORPHAN: subscriber '{sub_name}' has no matching publisher`. <!-- Defense-in-depth: also checked by ln-652 Rule 6, ln-511 ARCH-EVENT- -->
    - **Simplicity criterion (task-scoped):** **MANDATORY READ:** `references/simplicity_criterion.md` — Check MNT-KISS-SCOPE (effort-S task with 3+ new abstractions) and MNT-YAGNI-SCOPE (refactoring added new dependencies or created 2x more files than modified). Advisory CONCERNs only. <!-- Defense-in-depth: also checked by ln-511 KISS/YAGNI -->
    - **Code efficiency (task-scoped):** Spot-check 2-3 key functions from diff for unnecessary intermediates, verbose patterns where idioms exist, or boilerplate framework handles. If found → CONCERN: `MNT-EFF-SCOPE: {pattern} in {file}`. Advisory only. (`shared/references/code_efficiency_criterion.md`) <!-- Defense-in-depth: executor self-checks via same reference -->
    - Docs: if public API changed → API docs updated. If new env var → .env.example updated. If new concept → README/architecture doc updated.
@@ -210,7 +212,8 @@ Step 9: Update & Commit
    IF verdict == Done:
    - Detect lint/typecheck commands per discovery hierarchy in ci_tool_detection.md
    - Run detected checks (timeouts per guide: 2min linters, 5min typecheck)
-   - IF any FAIL → override verdict to To Rework with last 50 lines of output
+   **MANDATORY READ:** Load `shared/references/output_normalization.md`
+   - IF any FAIL → apply output normalization per §1 normalize → §2 deduplicate → §4 truncate to 50 lines → override verdict to To Rework with normalized output
    - IF no tooling detected → SKIP with info message
 9) **Update:** Set task status in Linear; update kanban: if Done → **remove task from kanban** (Done section tracks Stories only, not individual Tasks); if To Rework → move task to To Rework section; add review comment with findings/actions. If side-effect bugs created, mention them in comment.
 
@@ -246,9 +249,9 @@ Step 9: Update & Commit
 - Mechanical checks (lint/typecheck) run ONLY when verdict is Done; skip for To Rework.
 
 ## Definition of Done
-- Steps 1-9 completed: task resolved, context loaded, review checks passed, AC validated, side-effect bugs created, mechanical verification passed, decision applied.
-- If Done: ALL uncommitted changes committed (`git add -A`) with task ID; task removed from kanban. If To Rework: task moved with fix guidance.
-- Review comment posted (findings + [BUG] list if any).
+- [ ] Steps 1-9 completed: task resolved, context loaded, review checks passed, AC validated, side-effect bugs created, mechanical verification passed, decision applied.
+- [ ] If Done: ALL uncommitted changes committed (`git add -A`) with task ID; task removed from kanban. If To Rework: task moved with fix guidance.
+- [ ] Review comment posted (findings + [BUG] list if any).
 
 ## Reference Files
 - **Tools config:** `shared/references/tools_config_guide.md`
@@ -258,8 +261,9 @@ Step 9: Update & Commit
 - AC Validation Checklist: `references/ac_validation_checklist.md` (4 criteria: Completeness, Specificity, Dependencies, DB Creation)
 - **Clean code checklist:** `shared/references/clean_code_checklist.md`
 - **CI tool detection:** `shared/references/ci_tool_detection.md`
+- **Output normalization:** `shared/references/output_normalization.md`
 - Kanban format: `docs/tasks/kanban_board.md`
 
 ---
-**Version:** 5.0.0
-**Last Updated:** 2026-02-07
+**Version:** 5.1.0
+**Last Updated:** 2026-03-15

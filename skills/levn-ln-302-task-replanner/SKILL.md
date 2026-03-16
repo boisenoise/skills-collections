@@ -83,12 +83,12 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 - If Story reality differs (component exists, column exists), propose Story correction to orchestrator.
 
 ## Definition of Done
-- Existing tasks loaded and parsed with correct template.
-- IDEAL plan vs existing compared; operations classified.
-- Type validation passed for all updated/created tasks.
-- Operations executed in Linear (updates, cancels, creations) with parentId intact.
-- kanban_board.md updated (Backlog) with correct Epic/Story/indentation.
-- Summary returned (KEEP/UPDATE/OBSOLETE/CREATE counts, URLs, warnings).
+- [ ] Existing tasks loaded and parsed with correct template.
+- [ ] IDEAL plan vs existing compared; operations classified.
+- [ ] Type validation passed for all updated/created tasks.
+- [ ] Operations executed in Linear (updates, cancels, creations) with parentId intact.
+- [ ] kanban_board.md updated (Backlog) with correct Epic/Story/indentation.
+- [ ] Summary returned (KEEP/UPDATE/OBSOLETE/CREATE counts, URLs, warnings).
 
 ## Reference Files
 - **Tools config:** `shared/references/tools_config_guide.md`

@@ -15,17 +15,17 @@ L3 Worker that audits the physical directory structure of a project against fram
 - Auto-detect tech stack and apply framework-specific structure rules
 - Audit 5 dimensions: file hygiene, ignore files, framework conventions, domain/layer organization, naming
 - Detect project rot: leftover artifacts, inconsistent naming, junk drawer directories
-- Complement ln-642 (code-level layer analysis) with physical structure analysis
+- Complement code-level layer analysis with physical structure analysis
 - Score and report findings per standard `audit_scoring.md` formula
 - Output: file-based report to `{output_dir}/646-structure[-{domain}].md`
 
-**Out of Scope** (owned by other workers):
-- Code-level layer boundary violations (import analysis) -> ln-642-layer-boundary-auditor
-- Platform artifact cleanup (removal) -> ln-724-artifact-cleaner
-- Structure migration (creation/movement of directories) -> ln-720-structure-migrator
-- Dependency vulnerability scanning -> ln-625-dependencies-auditor
+**Out of Scope:**
+- Code-level layer boundary violations (import analysis)
+- Platform artifact cleanup (removal of files)
+- Structure migration (creation/movement of directories)
+- Dependency vulnerability scanning
 
-## Input (from ln-640)
+## Input
 
 ```
 - codebase_root: string        # Root directory to scan
@@ -95,13 +95,6 @@ lock_files = Glob("{scan_root}/{package-lock.json,yarn.lock,pnpm-lock.yaml,bun.l
 IF len(lock_files) > 1:
   findings.append(severity: "HIGH", issue: "Multiple lock files: {lock_files}",
     recommendation: "Keep one lock file matching your package manager")
-
-# Check 2.5: .env files committed
-env_files = Glob("{scan_root}/**/.env") + Glob("{scan_root}/**/.env.local")
-  + Glob("{scan_root}/**/.env.*.local")
-IF len(env_files) > 0:
-  findings.append(severity: "CRITICAL", issue: ".env file(s) committed",
-    recommendation: "Remove from tracking, add to .gitignore")
 
 # Check 2.6: Large binaries tracked by git
 FOR EACH file IN Glob("{scan_root}/**/*.{zip,tar,gz,rar,exe,dll,so,dylib,jar,war}"):
@@ -297,7 +290,6 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 Severity mapping:
-- **CRITICAL:** .env files committed (security risk). **Exception:** .env.example / .env.template with default values → skip CRITICAL
 - **HIGH:** Build artifacts tracked, missing .gitignore, source in wrong location, multiple lock files, missing secrets in .gitignore. **Exception:** Build artifacts in Git LFS → skip
 - **MEDIUM:** Missing framework dirs, junk drawers, temp files, platform remnants, missing stack-specific gitignore entries, naming violations >10%
 - **LOW:** IDE/OS patterns missing, inconsistent dir naming, mixed test patterns, minor config issues
@@ -308,10 +300,10 @@ Severity mapping:
 
 - **Auto-detect, never assume:** Always detect tech stack before applying framework rules
 - **No false positives on conventions:** Apply framework rules ONLY for detected stack
-- **Security-first:** .env files committed = CRITICAL, missing secrets in .gitignore = HIGH
-- **Complement, not overlap:** Do NOT check import-level layer violations (owned by ln-642)
-- **Report only, never modify:** Never move/delete files (owned by ln-720/ln-724)
-- **Reuse platform detection:** Reference ln-724 patterns for platform remnants
+- **Security-first:** Missing secrets in .gitignore = HIGH
+- **Complement, not overlap:** Do NOT check import-level layer violations (separate worker scope)
+- **Report only, never modify:** Never move/delete files (separate migration/cleanup workers)
+- **Reuse platform detection:** Reference platform artifact patterns from references
 - **Co-location awareness:** Only flag missing co-location if project already uses the pattern (>50%)
 - **Evidence always:** Include file paths for every finding
 
@@ -319,16 +311,16 @@ Severity mapping:
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- Tech stack detected (from `docs/project/tech_stack.md` or auto-detection)
-- File hygiene checked: build artifacts, temp files, platform remnants, lock files, .env, binaries
-- Ignore files audited: .gitignore completeness, secrets protection, .dockerignore if Dockerfile present
-- Framework conventions applied: expected dirs, forbidden placements, co-location rules
-- Domain/layer organization checked: junk drawers, root cleanliness, cross-domain consistency
-- Naming conventions validated: file/dir/test naming patterns
-- If domain-aware: all Glob scoped to `scan_path`, findings tagged with domain
-- Score calculated per `audit_scoring.md`
-- Report written to `{output_dir}/646-structure[-{domain}].md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] Tech stack detected (from `docs/project/tech_stack.md` or auto-detection)
+- [ ] File hygiene checked: build artifacts, temp files, platform remnants, lock files, binaries
+- [ ] Ignore files audited: .gitignore completeness, secrets protection, .dockerignore if Dockerfile present
+- [ ] Framework conventions applied: expected dirs, forbidden placements, co-location rules
+- [ ] Domain/layer organization checked: junk drawers, root cleanliness, cross-domain consistency
+- [ ] Naming conventions validated: file/dir/test naming patterns
+- [ ] If domain-aware: all Glob scoped to `scan_path`, findings tagged with domain
+- [ ] Score calculated per `audit_scoring.md`
+- [ ] Report written to `{output_dir}/646-structure[-{domain}].md` (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 

@@ -1,6 +1,6 @@
 ---
 name: ln-910-community-engagement
-description: "Community engagement coordinator: analyzes repo health, consults strategy, delegates to announcer/debater/triager"
+description: "Community engagement coordinator: analyzes repo health, consults strategy, delegates to announcer/debater/triager/responder"
 license: MIT
 allowed-tools: Read, Grep, Glob, Bash, Skill
 ---
@@ -22,13 +22,13 @@ Analyzes current community health and repository state, consults the engagement 
 |--------|---------|
 | **Input** | `$ARGUMENTS` (optional): topic, action keyword, or empty for auto-analysis |
 | **Output** | Situation report + delegated action via worker skill |
-| **Workers** | ln-911 (triager), ln-912 (announcer), ln-913 (debater) |
+| **Workers** | ln-911 (triager), ln-912 (announcer), ln-913 (debater), ln-914 (responder) |
 
 ---
 
 ## Phase 0: GitHub Discovery
 
-**MANDATORY READ:** Load `references/github_discovery.md`
+**MANDATORY READ:** Load `shared/references/community_github_discovery.md`
 
 Execute the discovery protocol. Extract:
 - `{owner}/{repo}` for all GitHub operations
@@ -38,13 +38,13 @@ Execute the discovery protocol. Extract:
 
 **Gate checks:** gh authenticated? Discussions enabled?
 
-Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `references/community_strategy_template.md`.
+Load strategy: check `docs/community_engagement_strategy.md` in target project, fallback to `shared/references/community_strategy_template.md`.
 
 ---
 
 ## Phase 1: Situation Analysis
 
-If `$ARGUMENTS` contains a direct action keyword (`announce`, `debate`, `triage`), skip analysis and jump to Phase 3 (Direct Delegation).
+If `$ARGUMENTS` contains a direct action keyword (`announce`, `debate`, `triage`, `respond`), skip analysis and jump to Phase 3 (Direct Delegation).
 
 Otherwise, gather context from multiple sources in parallel:
 
@@ -90,7 +90,7 @@ Apply strategy Section 1 (Announcement vs Debate) to the gathered context:
 
 | Condition | Priority | Action | Worker |
 |-----------|----------|--------|--------|
-| Red flags: unanswered discussions >7d | **P0** | List items needing response (no worker — direct action) | Recommendations only |
+| Red flags: unanswered discussions >7d | **P0** | Respond to unanswered items | → ln-914 |
 | Red flags: PRs needing review | **P0** | List PRs needing review | Recommendations only |
 | Unreleased changes in CHANGELOG | **P1** | Announce: new features/fixes | → ln-912 |
 | `$ARGUMENTS` contains RFC/debate topic | **P1** | Debate: launch RFC | → ln-913 |
@@ -133,6 +133,7 @@ After user approves the recommended action:
 | `announce` or `announce {topic}` | `Skill(skill: "ln-912-community-announcer", args: "{topic}")` |
 | `debate` or `debate {topic}` | `Skill(skill: "ln-913-community-debater", args: "{topic}")` |
 | `triage` or `triage {scope}` | `Skill(skill: "ln-911-github-triager", args: "{scope}")` |
+| `respond` or `respond {#number}` | `Skill(skill: "ln-914-community-responder", args: "{#number or batch}")` |
 
 ### Analysis-Based Delegation
 
@@ -140,7 +141,7 @@ After user approves the recommended action:
 |-------------------|-----------|
 | Announce | `Skill(skill: "ln-912-community-announcer")` — worker gathers its own context |
 | Debate | `Skill(skill: "ln-913-community-debater", args: "{identified topic}")` |
-| Respond to items | No delegation — present the list of items needing response with GitHub URLs |
+| Respond to items | `Skill(skill: "ln-914-community-responder", args: "batch")` |
 | No action needed | Report status, done |
 
 ---
@@ -149,15 +150,23 @@ After user approves the recommended action:
 
 | File | Purpose |
 |------|---------|
-| `references/github_discovery.md` | Phase 0: dynamic repo/category/user discovery |
-| `references/community_strategy_template.md` | Default engagement strategy (fallback) |
-| `references/discussion_formatting.md` | GitHub Discussion formatting rules |
+| `shared/references/community_github_discovery.md` | Phase 0: dynamic repo/category/user discovery |
+| `shared/references/community_strategy_template.md` | Default engagement strategy (fallback) |
+| `shared/references/community_discussion_formatting.md` | GitHub Discussion formatting rules |
 
 ---
 
 ## Strategy Override
 
-Each target project can override the default strategy by creating `docs/community_engagement_strategy.md`. All skills check project-local first, then fall back to the template in `references/`.
+Each target project can override the default strategy by creating `docs/community_engagement_strategy.md`. All skills check project-local first, then fall back to the template in `shared/references/`.
+
+---
+
+## Phase 4: Meta-Analysis
+
+**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
+
+Skill type: `planning-coordinator`. Run after Phase 3 completes. Output to chat using the `planning-coordinator` format.
 
 ---
 
@@ -168,14 +177,6 @@ Each target project can override the default strategy by creating `docs/communit
 - [ ] Decision matrix applied with priority-based action selection
 - [ ] Worker delegated or recommendations shown to user
 - [ ] User informed of outcome
-
----
-
-## Phase 4: Meta-Analysis
-
-**MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
-
-Skill type: `planning-coordinator`. Run after Phase 3 completes. Output to chat using the `planning-coordinator` format.
 
 ---
 

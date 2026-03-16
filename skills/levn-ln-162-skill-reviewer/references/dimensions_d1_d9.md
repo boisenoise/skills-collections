@@ -37,6 +37,7 @@ Check ALL dimensions across ALL skills in scope. Phase 2 failures are pre-verifi
 - Metadata in table format where possible
 - No verbose explanations where table/list suffices
 - No filler words: "simply", "quickly", "easily", "on top of that", "in many cases"
+- No AI vocabulary: "Additionally", "Furthermore", "Moreover", "testament", "landscape", "showcasing", "leverage", "utilize", "foster", "streamline", "delve", "tapestry", "multifaceted", "serves as", "functions as", "stands as". Use: "also", "shows", "use", "help", "explore", "is", "has"
 - Passive voice where active is clearer ("File should be loaded" -> "Load file")
 - Sentences over 25 words -- flag for splitting
 - Verbose phrases not applied from `shared/concise_terms.md` ("in order to" -> "to", "make sure that" -> "ensure")
@@ -60,6 +61,7 @@ Check ALL dimensions across ALL skills in scope. Phase 2 failures are pre-verifi
 - Files in `references/` are actually referenced from SKILL.md (no orphan reference files)
 - `## Definition of Done` section present (all skills -- L1, L2, L3) with items as checkboxes (`- [ ]`)
 - `## Meta-Analysis` phase present with `MANDATORY READ` to `shared/references/meta_analysis_protocol.md` (L1 orchestrators and L2 coordinators only)
+- Publishing skills (contain `gh api graphql.*mutation` or `gh issue comment`) must have: a Fact-Check phase AND `MANDATORY READ` to `shared/references/humanizer_checklist.md`
 
 ## D8: Architecture Conformance
 - SKILL.md <= 800 lines total

@@ -211,11 +211,11 @@ Options:
 
 ## Definition of Done
 
-- Input analyzed (audit report or target module)
-- Appropriate workers selected based on input and stack
-- Workers delegated with worktree isolation (`isolation: "worktree"`, ln-831 before ln-832)
-- Each worker produces isolated branch, pushed to remote
-- Coordinator report aggregates per-worker results (branch, changes, status)
+- [ ] Input analyzed (audit report or target module)
+- [ ] Appropriate workers selected based on input and stack
+- [ ] Workers delegated with worktree isolation (`isolation: "worktree"`, ln-831 before ln-832)
+- [ ] Each worker produces isolated branch, pushed to remote
+- [ ] Coordinator report aggregates per-worker results (branch, changes, status)
 
 ---
 

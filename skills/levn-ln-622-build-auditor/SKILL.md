@@ -13,7 +13,7 @@ Specialized worker auditing build health and code quality tooling.
 
 ## Purpose & Scope
 
-- **Worker in ln-620 coordinator pipeline** - invoked by ln-620-codebase-auditor
+- **Worker in codebase audit pipeline**
 - Audit codebase for **build health issues** (Category 2: Critical Priority)
 - Check compiler/linter errors, deprecation warnings, type errors, failed tests, build config
 - Return structured findings to coordinator with severity, location, effort, recommendations
@@ -35,7 +35,8 @@ Receives `contextStore` with: `tech_stack` (including build_tool, test_framework
 4) **Collect Findings:** Record each violation with severity, location, effort, recommendation
 5) **Calculate Score:** Count violations by severity, calculate compliance score (X/10)
 6) **Write Report:** Build full markdown report in memory per `shared/templates/audit_worker_report_template.md`, write to `{output_dir}/622-build.md` in single Write call
-7) **Return Summary:** Return minimal summary to coordinator (see Output Format)
+7) **Trend Tracking:** Append build_health metric to results_log per `shared/references/results_log_pattern.md`. Metric: `build_health | 0-10 | penalty formula`. Calculate delta and status (improving/stable/declining) vs previous run.
+8) **Return Summary:** Return minimal summary to coordinator (see Output Format)
 
 ## Audit Rules (Priority: CRITICAL)
 
@@ -155,17 +156,19 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed successfully (including output_dir)
-- All 5 build checks completed (compiler, linter, type checker, tests, config)
-- Findings collected with severity, location, effort, recommendation
-- Score calculated using penalty algorithm
-- Report written to `{output_dir}/622-build.md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] contextStore parsed successfully (including output_dir)
+- [ ] All 5 build checks completed (compiler, linter, type checker, tests, config)
+- [ ] Findings collected with severity, location, effort, recommendation
+- [ ] Score calculated using penalty algorithm
+- [ ] Report written to `{output_dir}/622-build.md` (atomic single Write call)
+- [ ] build_health metric appended to results_log with trend status
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 
 - **Audit output schema:** `shared/references/audit_output_schema.md`
 - **CI tool detection:** `shared/references/ci_tool_detection.md`
+- **Results log pattern:** `shared/references/results_log_pattern.md`
 - Build audit rules: [references/build_rules.md](references/build_rules.md)
 
 ---

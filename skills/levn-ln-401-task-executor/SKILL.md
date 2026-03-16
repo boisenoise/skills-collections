@@ -157,12 +157,12 @@ Before setting To Review, verify all items:
 - **Do NOT commit.** Leave all changes uncommitted — the reviewer reviews and commits.
 
 ## Definition of Done
-- Task selected and set to In Progress; kanban updated accordingly.
-- Guides/manuals/ADRs/research read; approach aligned with task Technical Approach.
-- Implementation completed per plan/AC; each AC `verify:` method executed with pass evidence.
-- Docs and impacted tests updated.
-- Typecheck and lint passed (or project quality commands) with evidence in comment.
-- Task set to To Review; kanban moved to To Review; summary comment added.
+- [ ] Task selected and set to In Progress; kanban updated accordingly.
+- [ ] Guides/manuals/ADRs/research read; approach aligned with task Technical Approach.
+- [ ] Implementation completed per plan/AC; each AC `verify:` method executed with pass evidence.
+- [ ] Docs and impacted tests updated.
+- [ ] Typecheck and lint passed (or project quality commands) with evidence in comment.
+- [ ] Task set to To Review; kanban moved to To Review; summary comment added.
 
 ## Reference Files
 - **Tools config:** `shared/references/tools_config_guide.md`

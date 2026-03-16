@@ -40,6 +40,7 @@ L2 Coordinator that analyzes implemented architectural patterns against current 
 | ln-644-dependency-graph-auditor | Build dependency graph, detect cycles, validate boundaries, calculate metrics | Phase 4 |
 | ln-645-open-source-replacer | Search OSS replacements for custom modules via MCP Research | Phase 4 |
 | ln-646-project-structure-auditor | Audit physical structure, hygiene, naming conventions | Phase 4 |
+| ln-647-env-config-auditor | Audit env var config, sync, naming, startup validation | Phase 4 |
 
 All delegations use Agent with `subagent_type: "general-purpose"`. Keep Phase 4 workers parallel where inputs are independent; keep ln-641 in Phase 5 because pattern scoring depends on earlier boundary and graph evidence.
 
@@ -186,7 +187,7 @@ IF domain_mode == "domain-aware":
       domain_mode: "domain-aware",
       current_domain: { name: domain.name, path: domain.path }
     }
-    FOR EACH worker IN [ln-642, ln-643, ln-644, ln-645, ln-646]:
+    FOR EACH worker IN [ln-642, ln-643, ln-644, ln-645, ln-646, ln-647]:
       Agent(description: "Audit " + domain.name + " via " + worker,
            prompt: "Execute audit worker.
 
@@ -197,7 +198,7 @@ CONTEXT:
 " + JSON.stringify(domain_context),
            subagent_type: "general-purpose")
 ELSE:
-  FOR EACH worker IN [ln-642, ln-643, ln-644, ln-645, ln-646]:
+  FOR EACH worker IN [ln-642, ln-643, ln-644, ln-645, ln-646, ln-647]:
     Agent(description: "Pattern evolution audit via " + worker,
          prompt: "Execute audit worker.
 
@@ -243,6 +244,7 @@ All workers write reports to `{output_dir}/` and return minimal summary:
 | ln-644 | `Score: X.X/10 \| Issues: N (C:N H:N M:N L:N)` | `644-dep-graph[-{domain}].md` |
 | ln-645 | `Score: X.X/10 \| Issues: N (C:N H:N M:N L:N)` | `645-open-source-replacer[-{domain}].md` |
 | ln-646 | `Score: X.X/10 \| Issues: N (C:N H:N M:N L:N)` | `646-structure[-{domain}].md` |
+| ln-647 | `Score: X.X/10 \| Issues: N (C:N H:N M:N L:N)` | `647-env-config[-{domain}].md` |
 
 Coordinator parses scores/counts from return values (0 file reads for aggregation tables). Reads files only for cross-domain aggregation (Phase 6) and report assembly (Phase 8).
 
@@ -320,6 +322,20 @@ IF domain_mode == "domain-aware":
         recommendation: "Standardize project structure conventions across domains"
       })
 
+  # Step 6: Read DATA-EXTENDED from ln-647 files
+  FOR EACH file IN Glob("{output_dir}/647-env-config-*.md"):
+    Read file → extract <!-- DATA-EXTENDED ... --> JSON
+  # Group env sync issues across domains
+  FOR EACH issue_type IN ["missing_from_example", "dead_in_example", "default_desync"]:
+    domains_with_issue = ln647_data.filter(d => d.sync_stats[issue_type] > 0).map(d => d.domain)
+    IF len(domains_with_issue) >= 2:
+      systemic_findings.append({
+        severity: "HIGH",
+        issue: f"Systemic env config issue: {issue_type} in {len(domains_with_issue)} domains",
+        domains: domains_with_issue,
+        recommendation: "Centralize env configuration management"
+      })
+
   # Cross-domain SDP violations
   FOR EACH sdp IN ln644_sdp_violations:
     IF sdp.from.domain != sdp.to.domain:
@@ -358,9 +374,10 @@ layer_score = parse_score(ln642_return)                     # 0-10
 api_score = parse_score(ln643_return)                       # 0-10
 graph_score = parse_score(ln644_return)                     # 0-10
 structure_score = parse_score(ln646_return)                   # 0-10
+env_config_score = parse_score(ln647_return)                  # 0-10
 
 # Step 2: Calculate architecture_health_score (ln-645 NOT included — separate metric)
-all_scores = pattern_scores + [layer_score, api_score, graph_score, structure_score]
+all_scores = pattern_scores + [layer_score, api_score, graph_score, structure_score, env_config_score]
 architecture_health_score = round(average(all_scores) * 10)  # 0-100 scale
 
 # Step 2b: Separate reuse opportunity score (informational, no SLA enforcement)
@@ -435,6 +452,13 @@ reuse_opportunity_score = parse_score(ln645_return)  # 0-10, NOT in architecture
     "junk_drawers": 1,
     "naming_violations_pct": 3
   },
+  "env_config": {
+    "env_config_score": 8.0,
+    "code_vars_count": 25,
+    "example_vars_count": 22,
+    "sync_stats": {"missing_from_example": 3, "dead_in_example": 1, "default_desync": 0},
+    "validation_framework": "pydantic-settings"
+  },
   "reuse_opportunities": {
     "reuse_opportunity_score": 6.5,
     "modules_scanned": 15,
@@ -487,23 +511,18 @@ Delete the dated output directory (`docs/project/.audit/ln-640/{YYYY-MM-DD}/`). 
 
 ## Definition of Done
 
-- Pattern catalog loaded or created
-- Applicability verified for all detected patterns (Phase 1d); excluded patterns documented
-- Best practices researched for all VERIFIED patterns needing audit
-- Domain discovery completed (global or domain-aware mode selected)
-- Output directory `docs/project/.audit/ln-640/{YYYY-MM-DD}/` created for worker reports
-- Worker output directory cleaned up after consolidation
-- Layer boundaries audited via ln-642 (reports written to `{output_dir}/`)
-- API contracts audited via ln-643 (reports written to `{output_dir}/`)
-- Dependency graph audited via ln-644 (reports written to `{output_dir}/`)
-- All patterns analyzed via ln-641 (reports written to `{output_dir}/`)
-- Open-source replacement opportunities audited via ln-645 (reports written to `{output_dir}/`)
-- Project structure audited via ln-646 (reports written to `{output_dir}/`)
-- If domain-aware: cross-domain aggregation completed via DATA-EXTENDED from files
-- Gaps identified (undocumented, missing components, layer violations, inconsistent, systemic)
-- Catalog updated with scores, dates, Layer Boundary Status
-- Trend analysis completed (current vs previous scores compared)
-- Summary report output
+- [ ] Pattern catalog loaded or created
+- [ ] Applicability verified for all detected patterns (Phase 1d); excluded patterns documented
+- [ ] Best practices researched for all VERIFIED patterns needing audit
+- [ ] Domain discovery completed (global or domain-aware mode selected)
+- [ ] Output directory created for worker reports
+- [ ] Worker output directory cleaned up after consolidation
+- [ ] All workers invoked (ln-641..647) with reports written to `{output_dir}/`
+- [ ] If domain-aware: cross-domain aggregation completed via DATA-EXTENDED from files
+- [ ] Gaps identified (undocumented, missing components, layer violations, inconsistent, systemic)
+- [ ] Catalog updated with scores, dates, Layer Boundary Status
+- [ ] Trend analysis completed (current vs previous scores compared)
+- [ ] Summary report output
 
 ## Phase 12: Meta-Analysis
 
@@ -526,6 +545,7 @@ Skill type: `review-coordinator` (workers only). Run after all phases complete. 
 - Dependency graph audit: `../ln-644-dependency-graph-auditor/SKILL.md`
 - Open-source replacement audit: `../ln-645-open-source-replacer/SKILL.md`
 - Project structure audit: `../ln-646-project-structure-auditor/SKILL.md`
+- Env config audit: `../ln-647-env-config-auditor/SKILL.md`
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`
 - **MANDATORY READ:** `shared/references/tools_config_guide.md`
 - **MANDATORY READ:** `shared/references/storage_mode_detection.md`

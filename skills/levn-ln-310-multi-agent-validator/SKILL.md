@@ -95,16 +95,15 @@ Save audit to `.agent-review/{storyId}_phase3_audit.md` (penalty table + pre-mor
 
 **mode=plan_review / mode=context:**
 
-**MANDATORY READ:** Load `references/context_review_pipeline.md`, `shared/references/research_tool_fallback.md`
+**MANDATORY READ:** Load `references/context_review_pipeline.md`, `shared/references/research_tool_fallback.md`, `references/mcp_ref_findings_template.md`
 
 While agents run in background:
-1. **Load Review Memory** — per shared workflow
-2. **Applicability Check** — scan for technology decision signals. No signals → skip MCP Ref, go to Phase 5
-3. **Stack Detection** — `query_prefix` from: conversation context > `docs/tools_config.md` > indicator files
-4. **Extract Topics (3-5)** — technology decisions, score by weight
-5. **MCP Ref Research** — per `research_tool_fallback.md` chain. Query: `"{query_prefix} {topic} RFC standard best practices {year}"`
-6. **Compare & Correct** — max 5 corrections, cite RFC/standard. Apply directly: mode=plan_review → edit plan file, mode=context → edit reviewed documents. Inline rationale `"(per {RFC}: ...)"`
-7. **Save Findings** → `.agent-review/context/{id}_mcp_ref_findings.md` (per `references/mcp_ref_findings_template.md`)
+1. **Applicability Check** — scan for technology decision signals. No signals → skip MCP Ref, go to Phase 5
+2. **Stack Detection** — `query_prefix` from: conversation context > `docs/tools_config.md` > indicator files
+3. **Extract Topics (3-5)** — technology decisions, score by weight
+4. **MCP Ref Research** — per `research_tool_fallback.md` chain. Query: `"{query_prefix} {topic} RFC standard best practices {year}"`
+5. **Compare & Correct** — max 5 corrections, cite RFC/standard. Apply directly: mode=plan_review → edit plan file, mode=context → edit reviewed documents. Inline rationale `"(per {RFC}: ...)"`
+6. **Save Findings** → `.agent-review/context/{id}_mcp_ref_findings.md` (per `references/mcp_ref_findings_template.md`)
 
 Then proceed to Phase 5.
 
@@ -199,7 +198,18 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 - [ ] MCP Ref research executed OR N/A (Phase 3)
 - [ ] Corrections applied to artifacts OR none needed (Phase 3)
 
-## Phase 7: Meta-Analysis
+## Definition of Done
+
+- [ ] Tools config loaded, task_provider extracted (Phase 0)
+- [ ] Metadata loaded (Phase 1)
+- [ ] Agent health check executed, agents launched or SKIPPED (Phase 2)
+- [ ] Research/Audit completed per mode (Phase 3)
+- [ ] Auto-fix executed per mode (Phase 4, mode=story only)
+- [ ] Agent results merged, Critical Verification + Debate executed (Phase 5)
+- [ ] Status transitions applied per mode (Phase 6, mode=story only)
+- [ ] Self-Check all items verified (Phase 7)
+
+## Phase 8: Meta-Analysis
 
 **MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
 
