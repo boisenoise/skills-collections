@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-16T06:43:34.167052",
-  "skill_count": 2387,
+  "last_updated": "2026-03-17T06:33:01.413980",
+  "skill_count": 2390,
   "sources_processed": 19,
   "skills": [
     {
@@ -7556,6 +7556,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-engineering-toolkit",
+      "original_name": "ai-engineering-toolkit",
+      "description": "6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget planning, RAG pipeline design, agent security audit (65-point checklist), eval harness building, and product sense coaching.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-superpowers-lab",
       "original_name": "superpowers-lab",
       "description": "Lab environment for Claude superpowers",
@@ -9214,7 +9222,7 @@
     {
       "name": "antigravity-comprehensive-review-pr-enhance",
       "original_name": "comprehensive-review-pr-enhance",
-      "description": "You are a PR optimization expert specializing in creating high-quality pull requests that facilitate efficient code reviews. Generate comprehensive PR descriptions, automate review processes, and e...",
+      "description": "Generate structured PR descriptions from diffs, add review checklists, risk assessments, and test coverage summaries. Use when the user says \"write a PR description\", \"improve this PR\", \"summarize my changes\", \"PR review\", \"pull request\", or asks to document a diff for reviewers.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9276,6 +9284,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-awt-e2e-testing",
+      "original_name": "awt-e2e-testing",
+      "description": "AI-powered E2E web testing \u2014 eyes and hands for AI coding tools. Declarative YAML scenarios, Playwright execution, visual matching (OpenCV + OCR), platform auto-detection (Flutter/React/Vue), learning DB. Install: npx skills add ksgisang/awt-skill --skill awt -g",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-earllm-build",
       "original_name": "earllm-build",
       "description": "Build, maintain, and extend the EarLLM One Android project \u2014 a Kotlin/Compose app that connects Bluetooth earbuds to an LLM via voice pipeline. Use this skill whenever working on the earbudllm...",
@@ -9319,6 +9335,14 @@
       "name": "antigravity-tutorial-engineer",
       "original_name": "tutorial-engineer",
       "description": "Creates step-by-step tutorials and educational content from code. Transforms complex concepts into progressive learning experiences with hands-on examples.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-native-cli",
+      "original_name": "ai-native-cli",
+      "description": "Design spec with 98 rules for building CLI tools that AI agents can safely use. Covers structured JSON output, error handling, input contracts, safety guardrails, exit codes, and agent self-description.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

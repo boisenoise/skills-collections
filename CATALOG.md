@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-16 06:43 UTC*
+*Last updated: 2026-03-17 06:33 UTC*
 
-Total skills: **2387**
+Total skills: **2390**
 
 ## Skills by Source
 
@@ -1231,8 +1231,10 @@ Total skills: **2387**
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
 | `antigravity-ai-analyzer` | AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、预测健康风险、提供个性化建议。支持智能问答和AI健康报告生成。 |
 | `antigravity-ai-engineer` | Build production-ready LLM applications, advanced RAG systems, and intelligent agents. Implements ve... |
+| `antigravity-ai-engineering-toolkit` | 6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget... |
 | `antigravity-ai-md` | Convert human-written CLAUDE.md into AI-native structured-label format. Battle-tested across 4 model... |
 | `antigravity-ai-ml` | AI and machine learning workflow covering LLM application development, RAG implementation, agent arc... |
+| `antigravity-ai-native-cli` | Design spec with 98 rules for building CLI tools that AI agents can safely use. Covers structured JS... |
 | `antigravity-ai-product` | Every product will be AI-powered. The question is whether you'll build it right or ship a demo that ... |
 | `antigravity-ai-studio-image` | Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos realistas estilo influencer ou e... |
 | `antigravity-ai-wrapper-product` | Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people wi... |
@@ -1315,6 +1317,7 @@ Total skills: **2387**
 | `antigravity-aws-security-audit` | Comprehensive AWS security posture assessment using AWS CLI and security best practices |
 | `antigravity-aws-serverless` | Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functi... |
 | `antigravity-aws-skills` | AWS development with infrastructure automation and cloud architecture patterns |
+| `antigravity-awt-e2e-testing` | AI-powered E2E web testing — eyes and hands for AI coding tools. Declarative YAML scenarios, Playwri... |
 | `antigravity-azd-deployment` | Deploy containerized applications to Azure Container Apps using Azure Developer CLI (azd). Use when ... |
 | `antigravity-azure-ai-agents-persistent-dotnet` | Azure AI Agents Persistent SDK for .NET. Low-level SDK for creating and managing AI agents with thre... |
 | `antigravity-azure-ai-agents-persistent-java` | Azure AI Agents Persistent SDK for Java. Low-level SDK for creating and managing AI agents with thre... |
@@ -1550,7 +1553,7 @@ pipelines, and system utilities.... |
 | `antigravity-competitive-landscape` | This skill should be used when the user asks to \\\"analyze competitors", "assess competitive landsc... |
 | `antigravity-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
 | `antigravity-comprehensive-review-full-review` | Use when working with comprehensive review full review |
-| `antigravity-comprehensive-review-pr-enhance` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate... |
+| `antigravity-comprehensive-review-pr-enhance` | Generate structured PR descriptions from diffs, add review checklists, risk assessments, and test co... |
 | `antigravity-computer-use-agents` | Build AI agents that interact with computers like humans do - viewing screens, moving cursors, click... |
 | `antigravity-computer-vision-expert` | SOTA Computer Vision Expert (2026). Specialized in YOLO26, Segment Anything 3 (SAM 3), Vision Langua... |
 | `antigravity-concise-planning` | Use when a user asks for a plan for a coding task, to generate a clear, actionable, and atomic check... |
