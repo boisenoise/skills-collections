@@ -4,7 +4,7 @@ description: |
   Interact with Google Drive - search files, find folders, list contents, download files, upload files,
   create folders, move, copy, rename, and trash files. Use when user asks to: search Google Drive,
   find a file/folder, list Drive contents, download or upload files,...
---- Apache-2.0
+license: Apache-2.0
 metadata:
   author: sanjay3290
   version: "1.0"

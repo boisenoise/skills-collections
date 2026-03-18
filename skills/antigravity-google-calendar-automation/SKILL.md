@@ -4,7 +4,7 @@ description: |
   Interact with Google Calendar - list calendars, view events, create/update/delete events, and find free time.
   Use when user asks to: check calendar, schedule a meeting, create an event, find available time, list upcoming events,
   delete or update a calendar event, or...
---- Apache-2.0
+license: Apache-2.0
 metadata:
   author: sanjay3290
   version: "1.0"

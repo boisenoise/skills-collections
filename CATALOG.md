@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-17 06:33 UTC*
+*Last updated: 2026-03-18 06:33 UTC*
 
-Total skills: **2390**
+Total skills: **2393**
 
 ## Skills by Source
 
@@ -2137,6 +2137,7 @@ structures, and modern OOP features. U... |
 | `antigravity-professional-proofreader` | Use when a user asks to "proofread", "review and correct", "fix grammar", "improve readability while... |
 | `antigravity-programmatic-seo` | Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templat... |
 | `antigravity-progressive-estimation` | Estimate AI-assisted and hybrid human+agent development work with research-backed PERT statistics an... |
+| `antigravity-progressive-web-app` | Build Progressive Web Apps (PWAs) with offline support, installability, and caching strategies. Trig... |
 | `antigravity-project-development` | This skill should be used when the user asks to "start an LLM project", "design batch pipeline", "ev... |
 | `antigravity-projection-patterns` | Build read models and projections from event streams. Use when implementing CQRS read sides, buildin... |
 | `antigravity-prometheus-configuration` | Set up Prometheus for comprehensive metric collection, storage, and monitoring of infrastructure and... |
@@ -2389,6 +2390,7 @@ calculations
 | `antigravity-travel-health-analyzer` | 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。 |
 | `antigravity-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `antigravity-trigger-dev` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent de... |
+| `antigravity-trpc-fullstack` | Build end-to-end type-safe APIs with tRPC — routers, procedures, middleware, subscriptions, and Next... |
 | `antigravity-turborepo-caching` | Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up... |
 | `antigravity-tutorial-engineer` | Creates step-by-step tutorials and educational content from code. Transforms complex concepts into p... |
 | `antigravity-twilio-communications` | Build communication features with Twilio: SMS messaging, voice calls, WhatsApp Business API, and use... |
@@ -2425,6 +2427,7 @@ calculations
 | `antigravity-vexor` | Vector-powered CLI for semantic file search with a Claude/Codex skill |
 | `antigravity-vexor-cli` | Semantic file discovery via `vexor`. Use whenever locating where something is implemented/loaded/def... |
 | `antigravity-vibe-code-auditor` | Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks. |
+| `antigravity-vibers-code-review` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, an... |
 | `antigravity-videodb` | Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spok... |
 | `antigravity-videodb-skills` | Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK. |
 | `antigravity-viral-generator-builder` | Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar cr... |

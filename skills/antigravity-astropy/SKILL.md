@@ -1,7 +1,7 @@
 ---
 name: astropy
 description: Comprehensive Python library for astronomy and astrophysics. This skill should be used when working with astronomical data including celestial coordinates, physical units, FITS files, cosmological calculations, time systems, tables, world coordinate systems (WCS), and...
---- BSD-3-Clause license
+license: BSD-3-Clause license
 metadata:
     skill-author: K-Dense Inc.
 ---
@@ -326,4 +326,3 @@ For detailed information on specific modules:
 - `references/tables.md` - Table creation, I/O, and operations
 - `references/time.md` - Time formats, scales, and calculations
 - `references/wcs_and_other_modules.md` - WCS, NDData, modeling, visualization, constants, and utilities
-

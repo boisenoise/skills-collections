@@ -6,7 +6,7 @@ description: |
   add data to Google Sheets, find a spreadsheet, check sheet...
 risk: unknown
 source: community
---- Apache-2.0
+license: Apache-2.0
 metadata:
   author: sanjay3290
   version: "1.0"

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-17T06:33:01.413980",
-  "skill_count": 2390,
+  "last_updated": "2026-03-18T06:33:58.571101",
+  "skill_count": 2393,
   "sources_processed": 19,
   "skills": [
     {
@@ -1993,7 +1993,7 @@
       "description": "Read and write Google Sheets spreadsheets - get content, update cells, append rows, fetch specific ranges,\nsearch for spreadsheets, and view metadata. Use when user asks to: read a spreadsheet, update cells,\nadd data to Google Sheets, find a spreadsheet, check sheet...\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-cc-skill-continuous-learning",
@@ -2777,7 +2777,7 @@
       "description": "Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python. Use when working with network/graph data structures, analyzing relationships between entities, computing graph algorithms (shortest paths, centrality, clustering), detecting...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "3-clause BSD license"
     },
     {
       "name": "antigravity-mental-health-analyzer",
@@ -2929,7 +2929,7 @@
       "description": "Read and write Google Slides presentations - get text, find presentations, create presentations, add slides,\nreplace text, and manage slide content. Use when user asks to: read a presentation, create slides, find slides,\nadd a slide, replace text in a presentation, or...\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-ask-questions-if-underspecified",
@@ -2977,7 +2977,7 @@
       "description": "Statistical visualization with pandas integration. Use for quick exploration of distributions, relationships, and categorical comparisons with attractive defaults. Best for box plots, violin plots, pair plots, heatmaps. Built on matplotlib. For interactive plots use plotly;...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "BSD-3-Clause license"
     },
     {
       "name": "antigravity-makepad-skills",
@@ -4233,7 +4233,7 @@
       "description": "Comprehensive Python library for astronomy and astrophysics. This skill should be used when working with astronomical data including celestial coordinates, physical units, FITS files, cosmological calculations, time systems, tables, world coordinate systems (WCS), and...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "BSD-3-Clause license"
     },
     {
       "name": "antigravity-obsidian-clipper-template-creator",
@@ -4785,7 +4785,7 @@
       "description": "Interact with Gmail - search emails, read messages, send emails, create drafts, and manage labels.\nUse when user asks to: search email, read email, send email, create email draft, mark as read,\narchive email, star email, or manage Gmail labels. Lightweight alternative...\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-azure-ai-translation-text-py",
@@ -5268,6 +5268,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-trpc-fullstack",
+      "original_name": "trpc-fullstack",
+      "description": "Build end-to-end type-safe APIs with tRPC \u2014 routers, procedures, middleware, subscriptions, and Next.js/React integration patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-lightning-channel-factories",
       "original_name": "lightning-channel-factories",
       "description": "Technical reference on Lightning Network channel factories, multi-party channels, LSP architectures, and Bitcoin Layer 2 scaling without soft forks. Covers Decker-Wattenhofer, timeout trees, MuSig2 key aggregation, HTLC/PTLC forwarding, and watchtower breach detection.",
@@ -5561,7 +5569,7 @@
       "description": "Use this skill when working with symbolic mathematics in Python. This skill should be used for symbolic computation tasks including solving equations algebraically, performing calculus operations (derivatives, integrals, limits), manipulating algebraic expressions, working...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "https://github.com/sympy/sympy/blob/master/LICENSE"
     },
     {
       "name": "antigravity-hybrid-cloud-architect",
@@ -5743,6 +5751,14 @@
       "name": "antigravity-reference-builder",
       "original_name": "reference-builder",
       "description": "Creates exhaustive technical references and API documentation. Generates comprehensive parameter listings, configuration guides, and searchable reference materials.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-vibers-code-review",
+      "original_name": "vibers-code-review",
+      "description": "Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, and follow-up PRs from the Vibers service.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6257,7 +6273,7 @@
       "description": "Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-aware circuits, or running quantum characterization experiments. Best for Google hardware, noise modeling, and low-level circuit design. For IBM hardware use qiskit; for quantum...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0 license"
     },
     {
       "name": "antigravity-angular-state-management",
@@ -6601,7 +6617,7 @@
       "description": "Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed access (Bio.Entrez). Best for batch processing, custom bioinformatics pipelines, BLAST automation. For quick lookups use gget;...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Unknown"
     },
     {
       "name": "antigravity-security-scanning-security-sast",
@@ -7177,7 +7193,7 @@
       "description": "Interact with Google Calendar - list calendars, view events, create/update/delete events, and find free time.\nUse when user asks to: check calendar, schedule a meeting, create an event, find available time, list upcoming events,\ndelete or update a calendar event, or...\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-architect-review",
@@ -8721,7 +8737,7 @@
       "description": "IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtime for production workloads, or needing IBM optimization tools. Best for IBM hardware execution, quantum error mitigation, and enterprise quantum computing. For Google hardware...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0 license"
     },
     {
       "name": "antigravity-ai-agent-development",
@@ -9263,6 +9279,14 @@
       "name": "antigravity-azure-maps-search-dotnet",
       "original_name": "azure-maps-search-dotnet",
       "description": "Azure Maps SDK for .NET. Location-based services including geocoding, routing, rendering, geolocation, and weather. Use for address search, directions, map tiles, IP geolocation, and weather data.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-progressive-web-app",
+      "original_name": "progressive-web-app",
+      "description": "Build Progressive Web Apps (PWAs) with offline support, installability, and caching strategies. Trigger whenever the user mentions PWA, service workers, web app manifests, Workbox, 'add to home screen', or wants their web app to work offline, feel native, or be installable.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9825,7 +9849,7 @@
       "description": "Interact with Google Drive - search files, find folders, list contents, download files, upload files,\ncreate folders, move, copy, rename, and trash files. Use when user asks to: search Google Drive,\nfind a file/folder, list Drive contents, download or upload files,...\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-database-admin",
@@ -9993,7 +10017,7 @@
       "description": "Interact with Google Docs - create documents, search by title, read content, and edit text.\nUse when user asks to: create a Google Doc, find a document, read doc content, add text to a doc,\nor replace text in a document. Lightweight alternative to full Google...\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-build",
@@ -10297,7 +10321,7 @@
       "description": "Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers, extract accurate metadata, validate citations, and generate properly formatted BibTeX entries. This skill should be used when you need to find papers, verify citation...",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "MIT License"
     },
     {
       "name": "antigravity-local-llm-expert",
