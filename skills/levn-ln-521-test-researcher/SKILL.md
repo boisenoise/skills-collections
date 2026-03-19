@@ -1,6 +1,6 @@
 ---
 name: ln-521-test-researcher
-description: "Researches real-world problems, competitor solutions, and customer complaints before test planning. Posts findings as Linear comment for ln-522 and ln-523."
+description: "Researches real-world problems, competitor solutions, and customer complaints for a feature domain. Use before test planning to ground tests in actual user pain points."
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: ln-200-scope-decomposer
-description: "Orchestrates full decomposition (scope → Epics → Stories → RICE prioritization) by delegating ln-210 → ln-220 → ln-230. Sequential processing. Epic 0 for Infrastructure."
+description: "Decomposes scope into Epics, Stories, and RICE priorities. Use when user has project scope and wants full Agile breakdown."
 license: MIT
 ---
 

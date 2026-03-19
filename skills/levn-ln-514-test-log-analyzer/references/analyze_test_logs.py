@@ -49,6 +49,14 @@ PIPE_LOG_RE = re.compile(
 PG_LOG_RE = re.compile(r"\b(ERROR|WARNING|LOG|FATAL|PANIC):\s+(.+)")
 REDIS_WARN_RE = re.compile(r"^#\s*(WARNING)\s*(.*)$", re.IGNORECASE)
 REDIS_INFO_RE = re.compile(r"^[*\d]")
+# key=value format (e.g. level=ERROR in node_exporter, Go services)
+KEY_VALUE_LEVEL_RE = re.compile(
+    r"\blevel=(DEBUG|INFO|WARNING|ERROR|CRITICAL|WARN|FATAL|PANIC)\b",
+    re.IGNORECASE,
+)
+# Bare level keyword fallback — matches first occurrence, so logger names
+# like "uvicorn.error" can produce false positives. Only used after all
+# structured parsers fail.
 PLAIN_LEVEL_RE = re.compile(
     r"\b(DEBUG|INFO|WARNING|ERROR|CRITICAL)\b", re.IGNORECASE
 )
@@ -178,7 +186,16 @@ def parse_line(line: str, service: str) -> LogEntry | None:
             return LogEntry(level="INFO", service=service, message=s, raw=s)
         return None
 
-    # Plain text with level keyword
+    # Key=value format (level=ERROR) — common in Go services, node_exporter
+    m = KEY_VALUE_LEVEL_RE.search(s)
+    if m:
+        lvl = m.group(1).upper()
+        if lvl == "WARN":
+            lvl = "WARNING"
+        return LogEntry(level=lvl, service=service, message=s, raw=s)
+
+    # Plain text with level keyword (fallback — can false-positive on
+    # logger names like "uvicorn.error", so used only as last resort)
     m = PLAIN_LEVEL_RE.search(s)
     if m:
         return LogEntry(level=m.group(1).upper(), service=service,

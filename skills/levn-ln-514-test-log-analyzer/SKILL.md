@@ -1,6 +1,6 @@
 ---
 name: ln-514-test-log-analyzer
-description: "Analyzes application logs: classifies errors, checks log quality/format, maps stack traces to source, recommends fixes."
+description: "Analyzes application logs: classifies errors, checks log quality, maps stack traces to source. Use when logs need review after test runs or during development."
 license: MIT
 ---
 
@@ -38,7 +38,7 @@ If no `args` — use defaults (last 1h, no expected errors).
 
 ### Phase 1: Log Source Detection and Script Execution
 
-**MANDATORY READ:** Load `docs/project/infrastructure.md`, `docs/project/runbook.md`
+Read target project files if they exist: `docs/project/infrastructure.md`, `docs/project/runbook.md`
 
 1) Check if `scripts/analyze_test_logs.py` exists in target project. If missing, copy from `references/analyze_test_logs.py`.
 2) Detect log source mode (auto-detection priority: docker → file → loki):
@@ -51,6 +51,18 @@ If no `args` — use defaults (last 1h, no expected errors).
 
 3) Run script: `python scripts/analyze_test_logs.py --mode {detected} [options]`
 4) If no log sources found → return `NO_LOG_SOURCES` status, skip to Phase 5.
+
+**Level-based error detection (CRITICAL):**
+When constructing Loki queries or grep commands to scan for errors, ALWAYS filter by the **parsed level field**, NOT by text matching the word "error" in the full log line. Logger names like `uvicorn.error` contain "error" as part of the name but log at INFO level — text matching produces false positives.
+
+| Log format | Correct error filter | Wrong filter |
+|------------|---------------------|--------------|
+| Pipe-delimited (`ts \| LEVEL \| ...`) | `\| ERROR` or `\| CRITICAL` (match level field position) | `grep -i error` (matches logger names) |
+| Loki structured | `{service_name="X"} \| level="ERROR"` or `\| pattern` extraction | `{service_name="X"} \|= "error"` |
+| Key=value (`level=ERROR msg=...`) | `level=ERROR` or `level=FATAL` | `\|~ "(?i)error"` |
+| Docker logs (local) | `grep -E '\| ERROR \| \| CRITICAL '` | `grep -iE 'error\|exception'` |
+
+The `analyze_test_logs.py` script handles this correctly via structured regex parsers. These rules apply to **ad-hoc Loki/grep queries** constructed during analysis.
 
 ### Phase 2: 4-Category Error Classification
 

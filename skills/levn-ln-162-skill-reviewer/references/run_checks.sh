@@ -120,7 +120,7 @@ echo ""
 # ── CHECK 9: Meta-Analysis L1/L2 (D7) ──────────────────────────────
 echo "=== CHECK 9: Meta-Analysis L1/L2 (D7) ==="
 for f in $SCOPE; do
-  level=$(grep -oE 'L[12]' "$f" | head -1 || true)
+  level=$(grep '\*\*Type:\*\*' "$f" | grep -oE 'L[012]' | head -1 || true)
   if [ -n "$level" ]; then
     grep -q "Meta-Analysis" "$f" || fail "L1/L2 skill missing Meta-Analysis: $f"
     grep -q "meta_analysis_protocol" "$f" || fail "L1/L2 skill missing meta_analysis_protocol ref: $f"
@@ -181,6 +181,21 @@ if [ -f .claude-plugin/marketplace.json ]; then
   if [ "$market" != "$actual" ]; then fail "marketplace.json has $market entries, actual $actual"; fi
 fi
 echo "DONE"
+echo ""
+
+# ── CHECK 14: Description trigger quality (D8, WARN) ─────────────
+echo "=== CHECK 14: Description trigger quality (D8, WARN) ==="
+WARNS=0
+for f in $SCOPE; do
+  desc=$(sed -n '/^description:/p' "$f" | head -1 | sed 's/^description: *//' | tr -d '"')
+  if [ -n "$desc" ]; then
+    if ! echo "$desc" | grep -qiE '(Use (this )?(skill )?(when|for|before|after)|Trigger when|Invoked when|should be used when|Not for )'; then
+      warn "description lacks trigger condition (WHEN): $f"
+      WARNS=$((WARNS + 1))
+    fi
+  fi
+done
+echo "DONE ($WARNS warnings)"
 echo ""
 
 # ── SUMMARY ─────────────────────────────────────────────────────────

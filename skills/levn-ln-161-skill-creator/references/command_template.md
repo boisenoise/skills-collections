@@ -8,7 +8,7 @@ Template for generated `.claude/commands/*.md` files. Based on real-world exampl
 
 ```markdown
 ---
-description: {concise purpose, max 100 chars}
+description: {what it does}. Use when {trigger}
 allowed-tools: {comma-separated: Read, Bash, Edit, Grep, Glob, Skill, AskUserQuestion}
 ---
 
@@ -66,7 +66,8 @@ allowed-tools: {comma-separated: Read, Bash, Edit, Grep, Glob, Skill, AskUserQue
 
 | Rule | Requirement |
 |------|-------------|
-| Frontmatter | `description` (max 100 chars) + `allowed-tools` always present |
+| Frontmatter | `description` (max 100 chars, WHAT + "Use when" trigger) + `allowed-tools` always present |
+| Description trigger | Must include "Use when {context}" after purpose |
 | Title | H1, matches command purpose |
 | Purpose | 1-2 sentences max, no jargon |
 | Arguments | Only if command accepts `$ARGUMENTS` |

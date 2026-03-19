@@ -1,6 +1,6 @@
 ---
 name: ln-631-test-business-logic-auditor
-description: Detects tests that validate framework/library behavior (Prisma, Express, bcrypt, JWT, axios, React hooks) instead of OUR code. Returns findings with REMOVE decisions.
+description: "Detects tests validating framework/library behavior instead of project code. Use when auditing test business logic focus."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -155,12 +155,12 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed successfully (including output_dir)
-- All 6 checks completed (framework, ORM, crypto, JWT, HTTP client, React hooks)
-- Findings collected with severity, location, effort, recommendation
-- Score calculated using penalty algorithm
-- Report written to `{output_dir}/631-business-logic.md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] contextStore parsed successfully (including output_dir)
+- [ ] All 6 checks completed (framework, ORM, crypto, JWT, HTTP client, React hooks)
+- [ ] Findings collected with severity, location, effort, recommendation
+- [ ] Score calculated using penalty algorithm
+- [ ] Report written to `{output_dir}/631-business-logic.md` (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 

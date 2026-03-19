@@ -1,6 +1,6 @@
 ---
 name: ln-633-test-value-auditor
-description: Calculates Usefulness Score = Impact (1-5) × Probability (1-5) for each test. Returns KEEP/REVIEW/REMOVE decisions based on thresholds (≥15 KEEP, 10-14 REVIEW, <10 REMOVE).
+description: "Scores each test by Impact x Probability, returns KEEP/REVIEW/REMOVE decisions. Use when auditing test value and pruning low-value tests."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -183,13 +183,13 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed successfully (including output_dir)
-- Usefulness Score calculated for each test (Impact x Probability)
-- Decisions classified: KEEP (>=15), REVIEW (10-14), REMOVE (<10)
-- Findings collected with severity, location, effort, recommendation
-- Score calculated using penalty algorithm
-- Report written to `{output_dir}/633-test-value.md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] contextStore parsed successfully (including output_dir)
+- [ ] Usefulness Score calculated for each test (Impact x Probability)
+- [ ] Decisions classified: KEEP (>=15), REVIEW (10-14), REMOVE (<10)
+- [ ] Findings collected with severity, location, effort, recommendation
+- [ ] Score calculated using penalty algorithm
+- [ ] Report written to `{output_dir}/633-test-value.md` (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 

@@ -1,6 +1,6 @@
 ---
 name: ln-620-codebase-auditor
-description: "Coordinates 9 audit workers (ln-621..ln-629) in parallel. Research best practices, delegate, aggregate into docs/project/codebase_audit.md."
+description: "Coordinates codebase audit across security, build, code quality, dependencies, and architecture. Use when auditing entire codebase."
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill
 license: MIT
 ---
@@ -292,25 +292,25 @@ Delete the dated output directory (`docs/project/.audit/ln-620/{YYYY-MM-DD}/`). 
 
 ## Definition of Done
 
-- Project type detected; worker applicability determined; inapplicable workers documented with reason
-- Best practices researched via MCP tools for major dependencies
-- Domain discovery completed (domain_mode determined)
-- contextStore built with tech stack + best practices + domain info + output_dir
-- `docs/project/.audit/ln-620/{YYYY-MM-DD}/` directory created for worker reports
-- Worker output directory cleaned up after consolidation
-- Applicable global workers invoked in PARALLEL; each wrote report to `{output_dir}/`
-- Domain-aware workers (2 × N domains) invoked in PARALLEL; each wrote report to `{output_dir}/`
-- All workers completed successfully (or reported errors); return values parsed for scores/counts
-- Worker report files verified via Glob (expected count matches actual)
-- Results aggregated from return values (scores) + file reads (findings tables)
-- Domain Health Summary built (if domain_mode="domain-aware")
-- Cross-Domain DRY analysis completed from ln-623 FINDINGS-EXTENDED blocks (if domain-aware)
-- Context validation (Step 6.3) applied: ADR matches, cohesion checks, locality, trivial DRY filtered
-- Advisory findings separated from penalty-scored findings
-- Compliance score (X/10) calculated per category + overall (skipped workers + advisory excluded)
-- Executive Summary and Strengths sections included
-- Report written to `docs/project/codebase_audit.md` with Advisory Findings section
-- Sources consulted listed with URLs
+- [ ] Project type detected; worker applicability determined; inapplicable workers documented with reason
+- [ ] Best practices researched via MCP tools for major dependencies
+- [ ] Domain discovery completed (domain_mode determined)
+- [ ] contextStore built with tech stack + best practices + domain info + output_dir
+- [ ] `docs/project/.audit/ln-620/{YYYY-MM-DD}/` directory created for worker reports
+- [ ] Worker output directory cleaned up after consolidation
+- [ ] Applicable global workers invoked in PARALLEL; each wrote report to `{output_dir}/`
+- [ ] Domain-aware workers invoked in PARALLEL; each wrote report to `{output_dir}/`
+- [ ] All workers completed successfully (or reported errors); return values parsed for scores/counts
+- [ ] Worker report files verified via Glob (expected count matches actual)
+- [ ] Results aggregated from return values (scores) + file reads (findings tables)
+- [ ] Domain Health Summary built (if domain_mode="domain-aware")
+- [ ] Cross-Domain DRY analysis completed from FINDINGS-EXTENDED blocks (if domain-aware)
+- [ ] Context validation applied: ADR matches, cohesion checks, locality, trivial DRY filtered
+- [ ] Advisory findings separated from penalty-scored findings
+- [ ] Compliance score (X/10) calculated per category + overall (skipped workers + advisory excluded)
+- [ ] Executive Summary and Strengths sections included
+- [ ] Report written to `docs/project/codebase_audit.md` with Advisory Findings section
+- [ ] Sources consulted listed with URLs
 
 ## Workers
 

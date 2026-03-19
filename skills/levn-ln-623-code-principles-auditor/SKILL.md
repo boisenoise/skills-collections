@@ -1,6 +1,6 @@
 ---
 name: ln-623-code-principles-auditor
-description: "Checks DRY (10 types), KISS/YAGNI, error handling, DI patterns. Returns findings with severity, location, effort, pattern_signature."
+description: "Checks DRY, KISS/YAGNI, error handling, DI patterns. Use when auditing code principles compliance."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -206,16 +206,16 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed (including domain_mode, current_domain, output_dir)
-- scan_path determined (domain path or codebase root)
-- Detection patterns loaded from `references/detection_patterns.md`
-- All 7 checks completed (scoped to scan_path):
+- [ ] contextStore parsed (including domain_mode, current_domain, output_dir)
+- [ ] scan_path determined (domain path or codebase root)
+- [ ] Detection patterns loaded from `references/detection_patterns.md`
+- [ ] All 7 checks completed (scoped to scan_path):
   - DRY (10 subcategories: 1.1-1.10), KISS, YAGNI, Error Handling, Centralized Errors, DI/Init, Best Practices Guide
-- Recommendations selected via `references/refactoring_decision_tree.md`
-- Findings collected with severity, location, effort, pattern_id, pattern_signature, recommendation, domain
-- Score calculated per `shared/references/audit_scoring.md`
-- Report written to `{output_dir}/623-principles-{domain}.md` with FINDINGS-EXTENDED block (atomic single Write call)
-- Summary returned to coordinator
+- [ ] Recommendations selected via `references/refactoring_decision_tree.md`
+- [ ] Findings collected with severity, location, effort, pattern_id, pattern_signature, recommendation, domain
+- [ ] Score calculated per `shared/references/audit_scoring.md`
+- [ ] Report written to `{output_dir}/623-principles-{domain}.md` with FINDINGS-EXTENDED block (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 

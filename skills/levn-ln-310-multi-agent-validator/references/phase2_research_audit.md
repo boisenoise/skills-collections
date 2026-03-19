@@ -28,10 +28,18 @@ Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `d
 
 ## Step 4: Anti-Hallucination Verification
 
-- Scan Story/Tasks for technical claims (RFC references, library versions, security requirements)
-- Verify each claim has MCP Ref/Context7 evidence
-- Flag unverified claims for correction
-- Status: VERIFIED (all sourced) or FLAGGED (list unverified)
+**MANDATORY READ:** Load `shared/references/epistemic_protocol.md`
+
+- Scan Story/Tasks for factual claims across ALL trigger categories (per epistemic protocol Section B):
+  - Version numbers, API signatures, deprecation claims
+  - Standards/RFC references, security severity levels
+  - Market/competitor data, performance characteristics
+- For each claim, check evidence from Steps 1-3 research results:
+  - Has MCP Ref/Context7/WebSearch evidence → mark `VERIFIED`
+  - No tool evidence but claim is plausible → mark `FROM TRAINING` + add to Phase 4 fix list
+  - Contradicts tool evidence → mark `FLAGGED` (CRITICAL)
+- Note: Step 4 VERIFIES claims against existing research from Steps 1-3. It does NOT run new searches — new tool queries happen in Phase 4 auto-fix (#6).
+- Status: VERIFIED (all sourced) | FLAGGED (list unverified with trigger category)
 
 ## Step 5: Pre-mortem Analysis
 

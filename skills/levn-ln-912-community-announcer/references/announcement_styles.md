@@ -235,12 +235,25 @@ Combine a **hook** from one style with the **body** from another:
 | Excessive length (> 300 lines) | Move details into `<details>` or link to docs |
 | "We're excited to announce..." | Cut filler. Lead with the change, not emotions |
 | Feature list without impact | Each bullet: **what** — *so what* |
+| Marketing-only title (no keywords) | Include feature/product name so users find it via search |
+
+### Title Patterns
+
+Titles must be **searchable AND engaging**. Include the feature/product name as a keyword.
+
+| Bad (hook-only) | Good (searchable + engaging) |
+|-----------------|------------------------------|
+| Tell it what's slow — it finds out why | New: Performance Optimizer — profile and fix bottlenecks automatically |
+| Your logs are hiding bugs | New: Test Log Analyzer — find hidden bugs in application logs |
+| One command to rule them all | Pipeline Orchestrator — autonomous multi-agent development lifecycle |
+| Stop guessing, start measuring | Codebase Audit Suite — parallel security, quality, and architecture checks |
 
 ### Quality Checklist
 
 Before publishing, verify:
 
 - [ ] Title: imperative, < 80 chars, no version numbers (put in body)
+- [ ] Title: includes searchable product/feature name (not just a marketing hook)
 - [ ] Hook answers "what changed and why should I care?" in 1-2 sentences
 - [ ] At least one concrete example, scenario, or comparison
 - [ ] No duplicated content from CHANGELOG (link instead)

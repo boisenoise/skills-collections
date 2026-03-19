@@ -35,6 +35,11 @@ Detailed rules for library version verification and alternative solutions analys
    - Query `mcp__context7__query-docs(libraryId="...", query="latest version")`
    - Extract latest stable version from docs
    - Add inline reference: "Library v[version] (verified via Context7)"
+3a. IF Context7 also fails (per `shared/references/epistemic_protocol.md`):
+   - Mark version as `(from training, verify before implementation)` instead of asserting
+   - Add to Library References table: Source = `training (unverified)`
+   - DO NOT present training-sourced version as current fact
+   - Phase 6 summary comment: report as `FROM TRAINING` (not as "verified")
 4. Update Linear issue via `save_issue`
 5. Add comment: "Library versions verified and updated"
 

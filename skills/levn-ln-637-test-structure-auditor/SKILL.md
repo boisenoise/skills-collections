@@ -1,6 +1,6 @@
 ---
 name: ln-637-test-structure-auditor
-description: "Audits test file organization: directory layout, test-to-source mapping, flat directory growth signals, domain grouping alignment, co-location consistency."
+description: "Checks test file organization, directory layout, test-to-source mapping, domain grouping, co-location. Use when auditing test structure."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---

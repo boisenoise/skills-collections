@@ -1,6 +1,6 @@
 ---
 name: ln-636-manual-test-auditor
-description: "Audits manual test scripts (tests/manual/) for harness adoption, golden file completeness, fail-fast, config sourcing, template compliance, idempotency."
+description: "Checks manual test scripts for harness adoption, golden files, fail-fast, config sourcing, idempotency. Use when auditing manual test quality."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -198,14 +198,14 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed successfully (including output_dir)
-- Manual test infrastructure discovered (config.sh, harness, templates)
-- All 7 checks completed per test script
-- Layer 2 context analysis applied (setup/utility exclusions)
-- Findings collected with severity, location, effort, recommendation
-- Score calculated using penalty algorithm
-- Report written to `{output_dir}/636-manual-test-quality.md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] contextStore parsed successfully (including output_dir)
+- [ ] Manual test infrastructure discovered (config.sh, harness, templates)
+- [ ] All 7 checks completed per test script
+- [ ] Layer 2 context analysis applied (setup/utility exclusions)
+- [ ] Findings collected with severity, location, effort, recommendation
+- [ ] Score calculated using penalty algorithm
+- [ ] Report written to `{output_dir}/636-manual-test-quality.md` (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 

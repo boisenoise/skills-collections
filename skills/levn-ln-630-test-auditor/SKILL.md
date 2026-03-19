@@ -1,6 +1,6 @@
 ---
 name: ln-630-test-auditor
-description: "Test suite audit coordinator: automated + manual tests. Delegates to 7 workers (Business Logic, E2E, Value, Coverage, Isolation, Manual Quality, Structure). Output: docs/project/test_audit.md."
+description: "Coordinates test suite audit across business logic, E2E coverage, value, isolation, manual quality, and structure. Use when auditing entire test suite."
 allowed-tools: Read, Grep, Glob, Bash, mcp__Ref, mcp__context7, Skill
 license: MIT
 ---

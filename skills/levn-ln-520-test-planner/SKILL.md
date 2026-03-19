@@ -1,6 +1,6 @@
 ---
 name: ln-520-test-planner
-description: "Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-521, ln-522, ln-523."
+description: "Orchestrates test planning pipeline: research, manual testing, automated test planning. Use when Story needs comprehensive test coverage planning."
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: ln-782-test-runner
-description: Executes all test suites and reports results with coverage
+description: "Executes all test suites and reports results with coverage. Use when verifying that test infrastructure works after bootstrap."
 license: MIT
 ---
 

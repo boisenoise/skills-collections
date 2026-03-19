@@ -32,7 +32,8 @@ done
 FAILED=0
 PASSED=0
 # CUSTOMIZE: set total to match the number of active run_check calls below
-TOTAL=3
+# Python = 7, TypeScript = 3-5, .NET = 2
+TOTAL=7
 
 run_check() {
     local name="$1"
@@ -64,7 +65,11 @@ echo ""
 if [ "$AUTO_FIX" = true ]; then
     printf "${YELLOW}Auto-fixing...${NC}\n"
 
-    # PYTHON
+    # PYTHON (uv)
+    uv run ruff check --fix . 2>/dev/null || true
+    uv run ruff format . 2>/dev/null || true
+
+    # PYTHON (pip)
     # ruff check --fix . 2>/dev/null || true
     # ruff format . 2>/dev/null || true
 
@@ -79,29 +84,38 @@ if [ "$AUTO_FIX" = true ]; then
 fi
 
 # ── Checks ─────────────────────────────────────────────────────────────────
-# Uncomment the checks for your stack. Update TOTAL above to match.
+# Activate ONE stack block below. Comment out the others.
 
-# --- Python ---
+# --- Python (uv) — 7 checks ---
+run_check "ruff check"      "uv run ruff check ."
+run_check "ruff format"     "uv run ruff format --check ."
+run_check "mypy"            "uv run mypy"
+run_check "lint-imports"    "uv run lint-imports"
+run_check "deptry"          "uv run deptry ."
+# CUSTOMIZE: change src/ to your source directory
+run_check "vulture"         "uv run vulture src/ --min-confidence 80"
+run_check "pip-audit"       "uv export --frozen --no-hashes --no-editable -o /tmp/pip-audit-reqs.txt && uv run pip-audit -r /tmp/pip-audit-reqs.txt --no-deps --cache-dir /tmp/pip-audit-cache 2>&1 | grep -v '^WARNING:pip_audit'"
+
+# --- Python (pip) — 7 checks ---
 # run_check "ruff check"      "ruff check ."
 # run_check "ruff format"     "ruff format --check ."
 # run_check "mypy"            "mypy"
-
-# --- TypeScript ---
-# run_check "typecheck"       "npx tsc --noEmit"
-# run_check "eslint"          "npx eslint ."
-# run_check "prettier"        "npx prettier --check ."
-
-# --- .NET ---
-# run_check "dotnet build"    "dotnet build --warnaserror"
-# run_check "dotnet format"   "dotnet format --verify-no-changes"
-
-# --- Optional tools (CUSTOMIZE: uncomment what you use) ---
 # run_check "lint-imports"    "lint-imports"
 # run_check "deptry"          "deptry ."
 # run_check "vulture"         "vulture src/ --min-confidence 80"
 # run_check "pip-audit"       "pip-audit --skip-editable"
+
+# --- TypeScript — 3 checks (set TOTAL=3) ---
+# run_check "typecheck"       "npx tsc --noEmit"
+# run_check "eslint"          "npx eslint ."
+# run_check "prettier"        "npx prettier --check ."
+# Optional TypeScript advanced tools (set TOTAL=5):
 # run_check "knip"            "npx knip --production"
 # run_check "depcruise"       "npx depcruise src --config"
+
+# --- .NET — 2 checks (set TOTAL=2) ---
+# run_check "dotnet build"    "dotnet build --warnaserror"
+# run_check "dotnet format"   "dotnet format --verify-no-changes"
 
 # ── Summary ────────────────────────────────────────────────────────────────
 

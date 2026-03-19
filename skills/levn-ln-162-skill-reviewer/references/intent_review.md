@@ -1,4 +1,4 @@
-# Intent Review Dimensions (M1-M5)
+# Intent Review Dimensions (M1-M6)
 
 <!-- DO NOT add here: Workflow phases -> ln-162-skill-reviewer SKILL.md -->
 
@@ -65,3 +65,9 @@ User KEEP -> reclassify as REQUESTED. Remaining SPECULATIVE -> REVERT finding fo
 - **SIMPLIFY** -- concrete reduction possible, may be auto-fixed
 - **RETHINK** -- design decision needed, NOT auto-fixable, advisory only
 - **REVERT** -- change does not fix concrete defect, must be rolled back
+
+## M6: Performance Baseline (ADVISORY -- non-blocking)
+- Compare SKILL.md line count before/after change
+- If change adds >50 lines without new phases/features -> flag for compaction review
+- If change adds new MANDATORY READ files -> verify they're loaded conditionally, not always
+- Advisory only: findings are NOTE severity, never FAIL

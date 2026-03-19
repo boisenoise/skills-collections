@@ -235,13 +235,16 @@ select = [
 "__init__.py" = ["F401"]  # Allow unused imports
 ```
 
-### Optional Advanced Tools
+### Advanced Static Analysis Tools (Mandatory)
 
-| Tool | Purpose | When to Add |
-|------|---------|-------------|
-| vulture / deadcode | Dead code detection (global scope) | Any project |
-| import-linter | Circular import prevention | Projects with layer architecture |
-| deptry | Unused/missing dependency detection | Any project with >5 dependencies |
+These tools are MANDATORY for Python projects and included in `scripts/lint.sh`.
+
+| Tool | Purpose | Config Location | Run Command |
+|------|---------|----------------|-------------|
+| import-linter | Layer boundary enforcement | `pyproject.toml [tool.importlinter]` | `uv run lint-imports` |
+| deptry | Unused/missing/transitive deps | `pyproject.toml [tool.deptry]` | `uv run deptry .` |
+| vulture | Dead code detection | `pyproject.toml [tool.vulture]` | `uv run vulture src/ --min-confidence 80` |
+| pip-audit | CVE vulnerability scanning | No config needed | `uv run pip-audit` |
 
 ---
 
@@ -326,5 +329,5 @@ check_untyped_defs = true
 
 ---
 
-**Version:** 2.0.0
-**Last Updated:** 2026-02-26
+**Version:** 3.0.0
+**Last Updated:** 2026-03-18

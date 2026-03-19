@@ -1,6 +1,6 @@
 ---
 name: ln-647-env-config-auditor
-description: "Audits env var config: file inventory, code-to-example sync, default desync, naming, startup validation. Stack-adaptive."
+description: "Checks env var config sync, missing defaults, naming conventions, startup validation. Use when auditing environment configuration."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---

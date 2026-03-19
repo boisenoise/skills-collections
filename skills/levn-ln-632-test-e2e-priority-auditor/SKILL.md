@@ -1,6 +1,6 @@
 ---
 name: ln-632-test-e2e-priority-auditor
-description: E2E Critical Coverage audit worker. Validates E2E coverage for critical paths (Money 20+, Security 20+, Data 15+). Pure risk-based - no pyramid percentages.
+description: "Validates E2E coverage for critical paths (money, security, data integrity). Risk-based prioritization. Use when auditing E2E test coverage."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -151,13 +151,13 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed successfully (including output_dir)
-- Critical paths identified (Money, Security, Data) with Priority scores
-- All 3 checks completed (critical path coverage, user journey coverage, E2E usefulness validation)
-- Findings collected with severity, location, effort, recommendation
-- Score calculated using penalty algorithm
-- Report written to `{output_dir}/632-e2e-priority.md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] contextStore parsed successfully (including output_dir)
+- [ ] Critical paths identified (Money, Security, Data) with Priority scores
+- [ ] All 3 checks completed (critical path coverage, user journey coverage, E2E usefulness validation)
+- [ ] Findings collected with severity, location, effort, recommendation
+- [ ] Score calculated using penalty algorithm
+- [ ] Report written to `{output_dir}/632-e2e-priority.md` (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ## Reference Files
 

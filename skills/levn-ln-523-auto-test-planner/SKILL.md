@@ -1,6 +1,6 @@
 ---
 name: ln-523-auto-test-planner
-description: "Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Calculates priorities, delegates to ln-301-task-creator."
+description: "Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Use when Story needs a test task with prioritized scenarios."
 license: MIT
 ---
 

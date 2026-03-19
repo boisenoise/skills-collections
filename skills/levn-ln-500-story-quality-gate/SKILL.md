@@ -1,6 +1,6 @@
 ---
 name: ln-500-story-quality-gate
-description: "Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Delegates to ln-510 (quality) and ln-520 (tests), calculates final verdict."
+description: "Story-level quality gate with 4-level verdict (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Use when Story is ready for quality assessment."
 license: MIT
 ---
 
@@ -210,11 +210,11 @@ Skill(skill: "ln-520-test-planner", args: "{storyId}")
 - **Agent code review is MANDATORY regardless of execution mode.** If ln-510 is invoked — it handles agent review (Phase 4/8). If ln-510 is skipped or replaced with inline implementation — agent review MUST still be performed directly using `shared/agents/prompt_templates/modes/code.md` with at least 1 external agent and critical verification protocol. **MANDATORY READ:** Load `references/minimum_quality_checks.md` for non-negotiable checks.
 
 ## Definition of Done
-- ln-510 quality checks: pass OR fix tasks created
-- Test task status checked; ln-520 invoked if needed
-- Test coverage verified (when test task Done)
-- Quality Score calculated; NFR validation completed
-- **Gate output format:**
+- [ ] ln-510 quality checks: pass OR fix tasks created
+- [ ] Test task status checked; ln-520 invoked if needed
+- [ ] Test coverage verified (when test task Done)
+- [ ] Quality Score calculated; NFR validation completed
+- [ ] **Gate output format:**
   ```yaml
   gate: PASS | CONCERNS | FAIL | WAIVED
   quality_score: {0-100}
@@ -225,10 +225,10 @@ Skill(skill: "ln-520-test-planner", args: "{storyId}")
     maintainability: PASS | CONCERNS | FAIL
   issues: [{id: "SEC-001", severity: high|medium|low, finding: "...", action: "..."}]
   ```
-- Story set to Done (PASS/CONCERNS/WAIVED) or fix tasks created (FAIL)
-- Branch finalized: committed, pushed to remote, worktree cleaned up (PASS/CONCERNS/WAIVED)
-- Root cause analysis recorded in architecture_health.md for every FAIL verdict
-- Comment with gate verdict posted
+- [ ] Story set to Done (PASS/CONCERNS/WAIVED) or fix tasks created (FAIL)
+- [ ] Branch finalized: committed, pushed to remote, worktree cleaned up (PASS/CONCERNS/WAIVED)
+- [ ] Root cause analysis recorded in architecture_health.md for every FAIL verdict
+- [ ] Comment with gate verdict posted
 
 ## Phase 8: Meta-Analysis
 

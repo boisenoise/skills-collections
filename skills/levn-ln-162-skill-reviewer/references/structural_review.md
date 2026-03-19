@@ -45,7 +45,8 @@ Check ALL dimensions across ALL skills in scope. Phase 2 failures are pre-verifi
 - Tables must add information beyond adjacent text -- no restating
 - 1:1 mapping tables (each row = one input -> one output, no conditions) -> convert to inline list
 - Tables echoing template section names/structure -> reference template, don't duplicate
-- **Tiebreaker re-read:** re-read each changed section end-to-end. If same instruction can be expressed in fewer words without losing agent actionability -- compress. Apply `code_efficiency_criterion` tiebreaker to skill text: among equivalent formulations, choose shorter
+- **Tiebreaker re-read:** re-read the WHOLE skill end-to-end (not just changed sections). If same instruction can be expressed in fewer words without losing agent actionability -- compress. Apply `code_efficiency_criterion` tiebreaker to skill text: among equivalent formulations, choose shorter
+- **Post-fix holistic pass:** after Phase 5 fixes, re-scan entire SKILL.md for cross-section redundancies introduced by fixes -- merge duplicate rules, combine overlapping tables, deduplicate restated instructions. Category: SIMPLIFY
 
 ## D6: Stale Artifacts
 - No references to removed/renamed skills or files

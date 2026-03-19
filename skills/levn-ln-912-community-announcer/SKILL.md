@@ -1,6 +1,6 @@
 ---
 name: ln-912-community-announcer
-description: "Compose and publish GitHub Discussion announcements: gather context, classify, compose, fact-check, review, publish via GraphQL"
+description: "Composes and publishes announcements to GitHub Discussions. Use when sharing releases, updates, or news with the community."
 license: MIT
 allowed-tools: Read, Grep, Glob, Bash, WebFetch
 ---

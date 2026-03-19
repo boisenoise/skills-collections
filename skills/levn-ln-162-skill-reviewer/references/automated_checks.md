@@ -138,3 +138,14 @@ if [ -f .claude-plugin/marketplace.json ]; then
   [ "$market" != "$actual" ] && echo "FAIL: marketplace.json has $market entries, actual $actual"
 fi
 ```
+
+## Description trigger quality check (D8, WARN)
+```bash
+for f in {scoped SKILL.md files}; do
+  desc=$(sed -n '/^description:/p' "$f" | sed 's/^description: *//' | tr -d '"')
+  if [ -n "$desc" ]; then
+    echo "$desc" | grep -qiE '(Use (this )?(skill )?(when|for|before|after)|Trigger when|Invoked when|should be used when|Not for )' \
+      || echo "WARN: description lacks trigger condition (WHEN): $f"
+  fi
+done
+```

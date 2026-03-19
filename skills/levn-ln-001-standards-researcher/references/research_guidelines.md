@@ -7,6 +7,8 @@ Quality guidelines for library and standards research to ensure accurate, up-to-
 
 ## Source Credibility Hierarchy
 
+**MANDATORY READ:** `shared/references/epistemic_protocol.md` — source marking for all research output.
+
 Use this priority order when selecting sources:
 
 | Priority | Source Type | Example | When to Use |

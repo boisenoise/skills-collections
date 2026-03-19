@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-18 06:33 UTC*
+*Last updated: 2026-03-19 06:30 UTC*
 
-Total skills: **2393**
+Total skills: **2401**
 
 ## Skills by Source
 
@@ -980,131 +980,131 @@ Total skills: **2393**
 
 | Skill | Description |
 |-------|-------------|
-| `levn-ln-001-standards-researcher` | Research standards/patterns via MCP Ref. Generates Standards Research for Story Technical Notes subs... |
-| `levn-ln-002-best-practices-researcher` | Research best practices via MCP Ref/Context7/WebSearch and create documentation (guide/manual/ADR/re... |
-| `levn-ln-003-push-all` | Commit and push ALL changes (staged + unstaged + untracked) to the remote repository |
-| `levn-ln-004-agent-config-sync` | Sync skills (symlinks) and MCP settings from Claude to Gemini CLI and Codex CLI |
-| `levn-ln-005-environment-scanner` | Probes CLI agents (Codex, Gemini) and writes docs/environment_state.json — agent availability config... |
-| `levn-ln-100-documents-pipeline` | Top orchestrator for complete doc system. Delegates to ln-110 coordinator (project docs) + ln-120-15... |
-| `levn-ln-1000-pipeline-orchestrator` | Meta-orchestrator: reads kanban board, lets user pick ONE Story, drives it through pipeline 300->310... |
-| `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation. Gathers context once, detects project type, delegates to... |
-| `levn-ln-111-root-docs-creator` | Creates 5 root documentation files (CLAUDE.md, docs/README.md, documentation_standards.md, principle... |
-| `levn-ln-112-project-core-creator` | Creates 4 core project docs (requirements.md, architecture.md, tech_stack.md, patterns_catalog.md). ... |
-| `levn-ln-113-backend-docs-creator` | Creates 2 backend docs (api_spec.md, database_schema.md). Invoked when hasBackend or hasDatabase det... |
-| `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md for frontend projects. Invoked when hasFrontend detected. |
-| `levn-ln-115-devops-docs-creator` | Creates infrastructure.md (always) and runbook.md (if hasDocker). DevOps documentation worker. |
-| `levn-ln-120-reference-docs-creator` | Creates reference documentation structure + smart documents (ADRs/Guides/Manuals) based on TECH_STAC... |
-| `levn-ln-130-tasks-docs-creator` | Creates task management documentation (docs/tasks/README.md + kanban_board.md). Sets up Linear integ... |
-| `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md + tests/README.md). Establishes testing philosophy a... |
-| `levn-ln-150-presentation-creator` | Builds interactive HTML presentation with 6 tabs (Overview, Requirements, Architecture/C4, Tech Spec... |
-| `levn-ln-160-docs-skill-extractor` | Scans project docs, classifies procedural content, extracts into .claude/commands skills |
-| `levn-ln-161-skill-creator` | Creates .claude/commands from procedural doc sections with proper structure and transformation |
-| `levn-ln-162-skill-reviewer` | Universal skill reviewer: SKILL mode (D1-D9 + M1-M5) or COMMAND mode (.claude/commands review) |
-| `levn-ln-200-scope-decomposer` | Orchestrates full decomposition (scope → Epics → Stories → RICE prioritization) by delegating ln-210... |
-| `levn-ln-201-opportunity-discoverer` | Traffic-First opportunity discovery. KILL funnel filters ideas by traffic channel, demand, competiti... |
-| `levn-ln-210-epic-coordinator` | CREATE/REPLAN Epics from scope (3-7 Epics). Batch Preview + Auto-extraction. Decompose-First Pattern... |
-| `levn-ln-220-story-coordinator` | CREATE/REPLAN Stories for Epic (5-10 Stories). Multi-epic routing: auto-groups Stories by correct Ep... |
-| `levn-ln-221-story-creator` | Creates Stories from IDEAL plan (CREATE) or appends user-requested Stories (ADD). Generates 9-sectio... |
-| `levn-ln-222-story-replanner` | Replans Stories when Epic requirements change. Compares IDEAL vs existing, categorizes operations (K... |
-| `levn-ln-230-story-prioritizer` | RICE prioritization per Story with market research. Generates consolidated prioritization table in d... |
-| `levn-ln-300-task-coordinator` | Orchestrates task operations. Analyzes Story, builds optimal plan (1-8 implementation tasks), delega... |
-| `levn-ln-301-task-creator` | Creates ALL task types (implementation, refactoring, test). Generates task documents from templates,... |
-| `levn-ln-302-task-replanner` | Updates ALL task types (implementation/refactoring/test). Compares IDEAL plan vs existing tasks, cat... |
-| `levn-ln-310-multi-agent-validator` | Validates Stories/Tasks, plans, or context via parallel multi-agent review (Codex + Gemini). Merges ... |
-| `levn-ln-400-story-executor` | Orchestrates Story tasks. Prioritizes To Review -> To Rework -> Todo, delegates to ln-401/402/403/40... |
-| `levn-ln-401-task-executor` | Executes implementation tasks (Todo -> In Progress -> To Review). Follows KISS/YAGNI, guides, qualit... |
-| `levn-ln-402-task-reviewer` | Reviews task implementation for quality, code standards, test coverage. Creates [BUG] tasks for side... |
-| `levn-ln-403-task-rework` | Fixes tasks in To Rework and returns them to To Review. Applies reviewer feedback only for the selec... |
-| `levn-ln-404-test-executor` | Executes Story Finalizer test tasks (label "tests") from Todo -> To Review. Enforces risk-based limi... |
-| `levn-ln-500-story-quality-gate` | Story-level quality orchestrator with 4-level Gate (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. De... |
-| `levn-ln-510-quality-coordinator` | Coordinates code quality: ln-511 metrics, ln-512 cleanup, inline agent review (Codex + Gemini), ln-5... |
-| `levn-ln-511-code-quality-checker` | Checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Validates decisi... |
-| `levn-ln-512-tech-debt-cleaner` | Applies safe auto-fixes for low-risk audit findings (unused imports, dead code, commented-out code).... |
-| `levn-ln-513-regression-checker` | Worker that runs existing tests to catch regressions. Auto-detects framework, reports pass/fail. No ... |
-| `levn-ln-514-test-log-analyzer` | Analyzes application logs: classifies errors, checks log quality/format, maps stack traces to source... |
-| `levn-ln-520-test-planner` | Orchestrates test planning pipeline (research → manual → auto tests). Coordinates ln-521, ln-522, ln... |
-| `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints before test planning. ... |
-| `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts saved to tests/manual/. Creates reus... |
-| `levn-ln-523-auto-test-planner` | Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Calculat... |
-| `levn-ln-610-docs-auditor` | Coordinates 4 documentation audit workers (structure, semantic, fact-check, code comments). Delegate... |
-| `levn-ln-611-docs-structure-auditor` | Checks hierarchy & links, SSOT, proactive compression, requirements compliance, freshness indicators... |
-| `levn-ln-612-semantic-content-auditor` | Audits document semantic content against stated SCOPE and project goals. Checks coverage, off-topic ... |
-| `levn-ln-613-code-comments-auditor` | Checks WHY-not-WHAT, density (15-20%), forbidden content, docstrings quality, actuality, legacy clea... |
-| `levn-ln-614-docs-fact-checker` | Extracts verifiable claims from ALL .md files (paths, versions, counts, configs, names, endpoints), ... |
-| `levn-ln-620-codebase-auditor` | Coordinates 9 audit workers (ln-621..ln-629) in parallel. Research best practices, delegate, aggrega... |
-| `levn-ln-621-security-auditor` | Checks hardcoded secrets, SQL injection, XSS, insecure dependencies, missing input validation. Retur... |
+| `levn-ln-001-standards-researcher` | Researches standards and patterns via MCP Ref for Story Technical Notes. Use when Story needs standa... |
+| `levn-ln-002-best-practices-researcher` | Researches best practices and creates documentation (guide, manual, ADR, or research). Use when proj... |
+| `levn-ln-003-push-all` | Commits and pushes all changes (staged, unstaged, untracked) to remote. Use when you need a quick pu... |
+| `levn-ln-004-agent-config-sync` | Syncs skills and MCP settings from Claude Code to Gemini CLI and Codex CLI. Use when agent configs n... |
+| `levn-ln-005-environment-scanner` | Probes CLI agents (Codex, Gemini) and writes environment_state.json. Use when setting up a project o... |
+| `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests, presentation).... |
+| `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
+| `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
+| `levn-ln-111-root-docs-creator` | Creates root documentation files (CLAUDE.md, docs/README.md, standards, principles, tools config). U... |
+| `levn-ln-112-project-core-creator` | Creates core project docs (requirements, architecture, tech stack, patterns catalog). Use for any pr... |
+| `levn-ln-113-backend-docs-creator` | Creates backend docs (api_spec.md, database_schema.md). Use when project has backend API or database... |
+| `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md with WCAG 2.1 compliance and design system docs. Use when project has a... |
+| `levn-ln-115-devops-docs-creator` | Creates infrastructure.md and runbook.md (Docker-conditional). Use for DevOps documentation in any p... |
+| `levn-ln-120-reference-docs-creator` | Creates reference docs (ADRs, guides, manuals) for nontrivial tech stack choices. Use when project n... |
+| `levn-ln-130-tasks-docs-creator` | Creates task management docs (kanban board, workflow rules) with Linear integration. Use when settin... |
+| `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md, tests/README.md) with Risk-Based Testing philosophy... |
+| `levn-ln-150-presentation-creator` | Builds interactive HTML presentation from project docs with Mermaid diagrams. Use when sharing proje... |
+| `levn-ln-160-docs-skill-extractor` | Extracts procedural content from project docs into .claude/commands skills. Use when docs contain de... |
+| `levn-ln-161-skill-creator` | Creates .claude/commands from procedural doc sections. Use when transforming documentation prose int... |
+| `levn-ln-162-skill-reviewer` | Reviews skills (D1-D9 + M1-M6 criteria) or .claude/commands for quality. Use when validating skill c... |
+| `levn-ln-200-scope-decomposer` | Decomposes scope into Epics, Stories, and RICE priorities. Use when user has project scope and wants... |
+| `levn-ln-201-opportunity-discoverer` | Discovers growth opportunities using Traffic-First KILL funnel. Use when searching for next product ... |
+| `levn-ln-210-epic-coordinator` | Creates or replans 3-7 Epics from scope using Decompose-First pattern. Use when initiative needs Epi... |
+| `levn-ln-220-story-coordinator` | Creates, replans, or appends 5-10 Stories per Epic with standards research and multi-epic routing. U... |
+| `levn-ln-221-story-creator` | Creates Story documents with 9-section structure and INVEST validation in Linear. Use when Epic has ... |
+| `levn-ln-222-story-replanner` | Replans Stories by comparing IDEAL vs existing (KEEP/UPDATE/OBSOLETE/CREATE). Use when Epic requirem... |
+| `levn-ln-230-story-prioritizer` | RICE-scores Stories with market research and generates prioritization table. Use when Stories need b... |
+| `levn-ln-300-task-coordinator` | Analyzes Story and builds optimal task plan (1-8 tasks), then routes to create or replan. Use when S... |
+| `levn-ln-301-task-creator` | Creates implementation, refactoring, and test tasks from templates. Use when orchestrator plan needs... |
+| `levn-ln-302-task-replanner` | Compares ideal plan vs existing tasks and applies KEEP/UPDATE/OBSOLETE/CREATE changes. Use when Stor... |
+| `levn-ln-310-multi-agent-validator` | Validates Stories, plans, or context via parallel multi-agent review with GO/NO-GO verdict. Use when... |
+| `levn-ln-400-story-executor` | Executes Story tasks in priority order (To Review, To Rework, Todo). Use when Story has planned task... |
+| `levn-ln-401-task-executor` | Executes implementation tasks through Todo, In Progress, To Review. Use when task needs coding with ... |
+| `levn-ln-402-task-reviewer` | Reviews task implementation for quality, code standards, and test coverage. Use when task is in To R... |
+| `levn-ln-403-task-rework` | Fixes tasks in To Rework by applying reviewer feedback, then returns to To Review. Use when task was... |
+| `levn-ln-404-test-executor` | Executes test tasks (label 'tests') through Todo to To Review with risk-based limits. Use for test t... |
+| `levn-ln-500-story-quality-gate` | Story-level quality gate with 4-level verdict (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Use whe... |
+| `levn-ln-510-quality-coordinator` | Coordinates code quality checks: metrics, cleanup, agent review, regression, log analysis. Use when ... |
+| `levn-ln-511-code-quality-checker` | Checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Use when impleme... |
+| `levn-ln-512-tech-debt-cleaner` | Auto-fixes low-risk tech debt (unused imports, dead code, commented-out code) with >=90% confidence.... |
+| `levn-ln-513-regression-checker` | Runs existing test suite to catch regressions after implementation changes. Use when Story needs reg... |
+| `levn-ln-514-test-log-analyzer` | Analyzes application logs: classifies errors, checks log quality, maps stack traces to source. Use w... |
+| `levn-ln-520-test-planner` | Orchestrates test planning pipeline: research, manual testing, automated test planning. Use when Sto... |
+| `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints for a feature domain. ... |
+| `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts in tests/manual/. Use when Story imp... |
+| `levn-ln-523-auto-test-planner` | Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Use when... |
+| `levn-ln-610-docs-auditor` | Coordinates documentation audit across structure, semantic content, fact-checking, and code comments... |
+| `levn-ln-611-docs-structure-auditor` | Checks hierarchy, links, SSOT, compression, requirements compliance, freshness, legacy cleanup. Use ... |
+| `levn-ln-612-semantic-content-auditor` | Checks document semantic content against SCOPE and project goals, coverage gaps, off-topic content, ... |
+| `levn-ln-613-code-comments-auditor` | Checks WHY-not-WHAT, density, forbidden content, docstrings quality, actuality, legacy cleanup. Use ... |
+| `levn-ln-614-docs-fact-checker` | Verifies claims in .md files (paths, versions, counts, configs, endpoints) against codebase, cross-c... |
+| `levn-ln-620-codebase-auditor` | Coordinates codebase audit across security, build, code quality, dependencies, and architecture. Use... |
+| `levn-ln-621-security-auditor` | Checks hardcoded secrets, SQL injection, XSS, insecure deps, input validation. Use when auditing sec... |
 | `levn-ln-622-build-auditor` | Checks compiler/linter errors, deprecation warnings, type errors, failed tests, build config issues.... |
-| `levn-ln-623-code-principles-auditor` | Checks DRY (10 types), KISS/YAGNI, error handling, DI patterns. Returns findings with severity, loca... |
-| `levn-ln-624-code-quality-auditor` | Checks cyclomatic complexity, nesting, long methods, god classes, method signatures, O(n²), N+1 quer... |
-| `levn-ln-625-dependencies-auditor` | Checks outdated packages, unused deps, reinvented wheels, vulnerability scan (CVE/CVSS). Supports mo... |
-| `levn-ln-626-dead-code-auditor` | Checks unreachable code, unused imports/variables/functions, commented-out code, backward compatibil... |
-| `levn-ln-627-observability-auditor` | Checks structured logging, health check endpoints, metrics collection, request tracing, log levels. ... |
-| `levn-ln-628-concurrency-auditor` | Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention, cross-proce... |
-| `levn-ln-629-lifecycle-auditor` | Checks bootstrap initialization order, graceful shutdown, resource cleanup, signal handling, livenes... |
-| `levn-ln-630-test-auditor` | Test suite audit coordinator: automated + manual tests. Delegates to 7 workers (Business Logic, E2E,... |
-| `levn-ln-631-test-business-logic-auditor` | Detects tests that validate framework/library behavior (Prisma, Express, bcrypt, JWT, axios, React h... |
-| `levn-ln-632-test-e2e-priority-auditor` | E2E Critical Coverage audit worker. Validates E2E coverage for critical paths (Money 20+, Security 2... |
-| `levn-ln-633-test-value-auditor` | Calculates Usefulness Score = Impact (1-5) × Probability (1-5) for each test. Returns KEEP/REVIEW/RE... |
-| `levn-ln-634-test-coverage-auditor` | Identifies missing tests for critical paths (Money 20+, Security 20+, Data Integrity 15+, Core Flows... |
-| `levn-ln-635-test-isolation-auditor` | Checks isolation (APIs/DB/FS/Time/Random/Network), determinism (flaky, order-dependent), and 7 anti-... |
-| `levn-ln-636-manual-test-auditor` | Audits manual test scripts (tests/manual/) for harness adoption, golden file completeness, fail-fast... |
-| `levn-ln-637-test-structure-auditor` | Audits test file organization: directory layout, test-to-source mapping, flat directory growth signa... |
-| `levn-ln-640-pattern-evolution-auditor` | Audits architectural patterns against best practices. Maintains patterns catalog, calculates 4 score... |
-| `levn-ln-641-pattern-analyzer` | Analyzes single pattern implementation, calculates 4 scores (compliance, completeness, quality, impl... |
-| `levn-ln-642-layer-boundary-auditor` | Audits layer boundaries + cross-layer consistency: I/O violations, transaction boundaries (commit ow... |
+| `levn-ln-623-code-principles-auditor` | Checks DRY, KISS/YAGNI, error handling, DI patterns. Use when auditing code principles compliance. |
+| `levn-ln-624-code-quality-auditor` | Checks cyclomatic complexity, nesting, long methods, god classes, O(n2), N+1 queries, constants mana... |
+| `levn-ln-625-dependencies-auditor` | Checks outdated packages, unused deps, reinvented wheels, CVE/CVSS vulnerability scan. Use when audi... |
+| `levn-ln-626-dead-code-auditor` | Checks unreachable code, unused imports/variables/functions, commented-out code, deprecated patterns... |
+| `levn-ln-627-observability-auditor` | Checks structured logging, health checks, metrics collection, request tracing, log levels. Use when ... |
+| `levn-ln-628-concurrency-auditor` | Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention. Use when au... |
+| `levn-ln-629-lifecycle-auditor` | Checks bootstrap initialization, graceful shutdown, resource cleanup, signal handling, liveness/read... |
+| `levn-ln-630-test-auditor` | Coordinates test suite audit across business logic, E2E coverage, value, isolation, manual quality, ... |
+| `levn-ln-631-test-business-logic-auditor` | Detects tests validating framework/library behavior instead of project code. Use when auditing test ... |
+| `levn-ln-632-test-e2e-priority-auditor` | Validates E2E coverage for critical paths (money, security, data integrity). Risk-based prioritizati... |
+| `levn-ln-633-test-value-auditor` | Scores each test by Impact x Probability, returns KEEP/REVIEW/REMOVE decisions. Use when auditing te... |
+| `levn-ln-634-test-coverage-auditor` | Identifies missing tests for critical paths (money, security, data integrity, core flows). Use when ... |
+| `levn-ln-635-test-isolation-auditor` | Checks test isolation (API/DB/FS/Time/Network), determinism, flaky tests, order-dependency, anti-pat... |
+| `levn-ln-636-manual-test-auditor` | Checks manual test scripts for harness adoption, golden files, fail-fast, config sourcing, idempoten... |
+| `levn-ln-637-test-structure-auditor` | Checks test file organization, directory layout, test-to-source mapping, domain grouping, co-locatio... |
+| `levn-ln-640-pattern-evolution-auditor` | Audits architectural patterns against best practices, maintains patterns catalog with compliance sco... |
+| `levn-ln-641-pattern-analyzer` | Analyzes single pattern implementation, calculates compliance/completeness/quality scores, identifie... |
+| `levn-ln-642-layer-boundary-auditor` | Checks layer boundary violations, transaction boundaries, session ownership, cross-layer consistency... |
 | `levn-ln-643-api-contract-auditor` | Checks layer leakage in method signatures, missing DTOs, entity leakage to API, inconsistent error c... |
-| `levn-ln-644-dependency-graph-auditor` | Builds dependency graph, detects cycles (DFS), validates boundary rules, calculates coupling metrics... |
-| `levn-ln-645-open-source-replacer` | Discovers custom modules (>100 LOC), analyzes purpose, searches OSS alternatives via MCP Research, e... |
-| `levn-ln-646-project-structure-auditor` | Audits project physical structure: file hygiene, ignore file quality, framework convention complianc... |
-| `levn-ln-647-env-config-auditor` | Audits env var config: file inventory, code-to-example sync, default desync, naming, startup validat... |
-| `levn-ln-650-persistence-performance-auditor` | Coordinates 4 audit workers (query efficiency, transaction, runtime performance, resource lifecycle)... |
-| `levn-ln-651-query-efficiency-auditor` | Checks redundant fetches, N-UPDATE/DELETE loops, unnecessary resolves, over-fetching, missing bulk o... |
+| `levn-ln-644-dependency-graph-auditor` | Builds dependency graph, detects cycles, validates boundary rules, calculates coupling metrics (Ca/C... |
+| `levn-ln-645-open-source-replacer` | Discovers custom modules replaceable by OSS, evaluates alternatives (stars, license, CVE), generates... |
+| `levn-ln-646-project-structure-auditor` | Checks file hygiene, ignore files, framework conventions, domain/layer organization, naming. Use whe... |
+| `levn-ln-647-env-config-auditor` | Checks env var config sync, missing defaults, naming conventions, startup validation. Use when audit... |
+| `levn-ln-650-persistence-performance-auditor` | Coordinates persistence and performance audit across queries, transactions, runtime, and resource li... |
+| `levn-ln-651-query-efficiency-auditor` | Checks redundant fetches, N+1 loops, over-fetching, missing bulk operations, wrong caching scope. Us... |
 | `levn-ln-652-transaction-correctness-auditor` | Checks transaction scope, missing rollback handling, long-held transactions, trigger/notify interact... |
-| `levn-ln-653-runtime-performance-auditor` | Checks blocking IO in async, unnecessary allocations, sync sleep, string concat in loops, missing to... |
-| `levn-ln-654-resource-lifecycle-auditor` | Checks session scope mismatch, streaming resource holding, missing cleanup, pool config, error path ... |
-| `levn-ln-700-project-bootstrap` | Universal project bootstrapper: CREATE new or TRANSFORM existing project to production-ready structu... |
-| `levn-ln-720-structure-migrator` | Coordinates project structure: SCAFFOLD new or RESTRUCTURE existing to Clean Architecture |
-| `levn-ln-721-frontend-restructure` | Frontend structure worker: SCAFFOLD new React project or RESTRUCTURE existing monolith to component-... |
-| `levn-ln-722-backend-generator` | Generates .NET Clean Architecture backend structure from entity definitions |
-| `levn-ln-723-seed-data-generator` | Universal seed data generator: MIGRATE from ORM schemas or GENERATE from entity definitions to any t... |
-| `levn-ln-724-artifact-cleaner` | Universal platform artifact cleaner: Replit, StackBlitz, CodeSandbox, Glitch |
-| `levn-ln-730-devops-setup` | Coordinates Docker, CI/CD, and environment configuration setup via auto-detection |
-| `levn-ln-731-docker-generator` | Generates Docker and docker-compose configuration for multi-container development |
-| `levn-ln-732-cicd-generator` | Generates GitHub Actions CI workflow configuration |
-| `levn-ln-733-env-configurator` | Configures environment variables and secrets protection |
-| `levn-ln-740-quality-setup` | Coordinates linters, pre-commit hooks, and test infrastructure setup |
-| `levn-ln-741-linter-configurator` | Configures ESLint, Prettier, Ruff, mypy, and .NET analyzers |
-| `levn-ln-742-precommit-setup` | Configures Husky, lint-staged, commitlint, and Python pre-commit |
-| `levn-ln-743-test-infrastructure` | Creates test infrastructure with Vitest, xUnit, and pytest |
-| `levn-ln-760-security-setup` | Coordinates security scanning (secrets + deps). Delegates to ln-761 + ln-625(mode=vulnerabilities_on... |
-| `levn-ln-761-secret-scanner` | Scans codebase for hardcoded secrets. Returns normalized findings with severity and remediation guid... |
-| `levn-ln-770-crosscutting-setup` | Coordinates logging, error handling, CORS, health checks, and API docs |
-| `levn-ln-771-logging-configurator` | Configures structured logging (Serilog/.NET, structlog/Python) |
-| `levn-ln-772-error-handler-setup` | Configures global exception handling middleware |
-| `levn-ln-773-cors-configurator` | Configures CORS policy for development and production |
-| `levn-ln-774-healthcheck-setup` | Configures health check endpoints for Kubernetes readiness/liveness/startup |
-| `levn-ln-775-api-docs-generator` | Configures Swagger/OpenAPI documentation |
-| `levn-ln-780-bootstrap-verifier` | Orchestrates final verification - build, test, and container health checks |
-| `levn-ln-781-build-verifier` | Builds all detected projects and verifies successful compilation |
-| `levn-ln-782-test-runner` | Executes all test suites and reports results with coverage |
-| `levn-ln-783-container-launcher` | Builds and launches Docker containers with health verification using best practices |
-| `levn-ln-810-performance-optimizer` | Multi-cycle diagnostic pipeline: profile → research → optimize → repeat with full-stack bottleneck a... |
-| `levn-ln-811-performance-profiler` | Runtime profiling with multi-metric measurement, instrumentation, and performance map generation |
-| `levn-ln-812-optimization-researcher` | Competitive benchmarks, solution research, and hypothesis generation for identified bottlenecks |
-| `levn-ln-813-optimization-plan-validator` | Validates optimization plan via parallel multi-agent review (Codex + Gemini) before execution. GO/NO... |
-| `levn-ln-814-optimization-executor` | Multi-file hypothesis testing with keep/discard loop, compound baselines, and experiment logging |
-| `levn-ln-820-dependency-optimization-coordinator` | Coordinates dependency upgrades across all detected package managers |
-| `levn-ln-821-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling |
-| `levn-ln-822-nuget-upgrader` | Upgrades .NET NuGet packages with breaking change handling |
-| `levn-ln-823-pip-upgrader` | Upgrades Python pip/poetry/pipenv dependencies with breaking change handling |
-| `levn-ln-830-code-modernization-coordinator` | Coordinates code modernization: OSS replacement and bundle optimization workers |
-| `levn-ln-831-oss-replacer` | Replaces custom modules with OSS packages using ln-645 migration plans, atomic keep/discard |
-| `levn-ln-832-bundle-optimizer` | Reduces JS/TS bundle size via unused deps, tree-shaking, code splitting with keep/discard |
-| `levn-ln-910-community-engagement` | Community engagement coordinator: analyzes repo health, consults strategy, delegates to announcer/de... |
-| `levn-ln-911-github-triager` | Scan open GitHub issues, PRs, discussions. Produce prioritized triage report with engagement metrics... |
-| `levn-ln-912-community-announcer` | Compose and publish GitHub Discussion announcements: gather context, classify, compose, fact-check, ... |
-| `levn-ln-913-community-debater` | Launch RFC/debate discussions on GitHub: define topic, classify type, compose structured RFC/poll, r... |
-| `levn-ln-914-community-responder` | Respond to GitHub discussions and issues: analyze context, search codebase for answers, compose and ... |
+| `levn-ln-653-runtime-performance-auditor` | Checks blocking IO in async, unnecessary allocations, sync sleep, string concat in loops, redundant ... |
+| `levn-ln-654-resource-lifecycle-auditor` | Checks session scope mismatch, missing cleanup, pool config, error path leaks, resource holding. Use... |
+| `levn-ln-700-project-bootstrap` | Bootstraps projects to production-ready structure. Use when creating new or transforming existing pr... |
+| `levn-ln-720-structure-migrator` | Scaffolds new or restructures existing projects to Clean Architecture. Use when setting up project s... |
+| `levn-ln-721-frontend-restructure` | Scaffolds new React projects or restructures monoliths to component-based architecture. Use when set... |
+| `levn-ln-722-backend-generator` | Generates .NET Clean Architecture backend structure from entity definitions. Use when bootstrapping ... |
+| `levn-ln-723-seed-data-generator` | Generates seed data from ORM schemas or entity definitions to any target format. Use when populating... |
+| `levn-ln-724-artifact-cleaner` | Removes platform-specific artifacts from Replit, StackBlitz, CodeSandbox, Glitch. Use when preparing... |
+| `levn-ln-730-devops-setup` | Sets up Docker, CI/CD, and environment configuration with auto-detection. Use when adding DevOps inf... |
+| `levn-ln-731-docker-generator` | Generates Dockerfile and docker-compose configuration for multi-container development. Use when cont... |
+| `levn-ln-732-cicd-generator` | Generates GitHub Actions CI workflow configuration. Use when adding continuous integration to a proj... |
+| `levn-ln-733-env-configurator` | Configures environment variables and secrets protection. Use when setting up .env files and gitignor... |
+| `levn-ln-740-quality-setup` | Sets up linters, pre-commit hooks, and test infrastructure. Use when adding code quality tooling to ... |
+| `levn-ln-741-linter-configurator` | Configures ESLint, Prettier, Ruff, mypy, and .NET analyzers. Use when setting up linting and formatt... |
+| `levn-ln-742-precommit-setup` | Configures Husky, lint-staged, commitlint, and Python pre-commit hooks. Use when adding Git hook aut... |
+| `levn-ln-743-test-infrastructure` | Sets up test infrastructure with Vitest, xUnit, and pytest. Use when adding testing frameworks and s... |
+| `levn-ln-760-security-setup` | Sets up security scanning for secrets and dependency vulnerabilities. Use when adding security infra... |
+| `levn-ln-761-secret-scanner` | Scans codebase for hardcoded secrets with severity classification and remediation guidance. Use when... |
+| `levn-ln-770-crosscutting-setup` | Sets up logging, error handling, CORS, health checks, and API docs. Use when adding cross-cutting co... |
+| `levn-ln-771-logging-configurator` | Configures structured JSON logging with Serilog (.NET) or structlog (Python). Use when adding loggin... |
+| `levn-ln-772-error-handler-setup` | Configures global exception handling middleware. Use when adding centralized error handling to .NET ... |
+| `levn-ln-773-cors-configurator` | Configures CORS policy for development and production environments. Use when setting up cross-origin... |
+| `levn-ln-774-healthcheck-setup` | Configures health check endpoints for Kubernetes readiness/liveness/startup probes. Use when deployi... |
+| `levn-ln-775-api-docs-generator` | Configures Swagger/OpenAPI documentation for backend APIs. Use when adding interactive API docs to a... |
+| `levn-ln-780-bootstrap-verifier` | Verifies bootstrapped projects via build, test, and container health checks. Use when validating pro... |
+| `levn-ln-781-build-verifier` | Builds all detected projects and verifies successful compilation. Use when checking that a bootstrap... |
+| `levn-ln-782-test-runner` | Executes all test suites and reports results with coverage. Use when verifying that test infrastruct... |
+| `levn-ln-783-container-launcher` | Builds and launches Docker containers with health verification. Use when validating that containeriz... |
+| `levn-ln-810-performance-optimizer` | Multi-cycle performance optimization with profiling and bottleneck analysis. Use when optimizing app... |
+| `levn-ln-811-performance-profiler` | Profiles runtime performance with CPU, memory, and I/O metrics. Use when measuring bottlenecks befor... |
+| `levn-ln-812-optimization-researcher` | Researches competitive benchmarks and generates optimization hypotheses for identified bottlenecks. ... |
+| `levn-ln-813-optimization-plan-validator` | Validates optimization plan via multi-agent review before execution. Use when verifying feasibility ... |
+| `levn-ln-814-optimization-executor` | Executes optimization hypotheses with keep/discard testing loop. Use when applying validated perform... |
+| `levn-ln-820-dependency-optimization-coordinator` | Upgrades dependencies across all detected package managers. Use when updating npm, NuGet, or pip pac... |
+| `levn-ln-821-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling. Use when updating JavaScript/Type... |
+| `levn-ln-822-nuget-upgrader` | Upgrades .NET NuGet packages with breaking change handling. Use when updating .NET dependencies. |
+| `levn-ln-823-pip-upgrader` | Upgrades Python pip/poetry/pipenv dependencies with breaking change handling. Use when updating Pyth... |
+| `levn-ln-830-code-modernization-coordinator` | Modernizes codebase via OSS replacement and bundle optimization. Use when acting on audit findings t... |
+| `levn-ln-831-oss-replacer` | Replaces custom modules with OSS packages using atomic keep/discard testing. Use when migrating cust... |
+| `levn-ln-832-bundle-optimizer` | Reduces JS/TS bundle size via tree-shaking, code splitting, and unused dependency removal. Use when ... |
+| `levn-ln-910-community-engagement` | Analyzes community health and delegates engagement tasks. Use when managing GitHub issues, discussio... |
+| `levn-ln-911-github-triager` | Produces prioritized triage report from open GitHub issues, PRs, and discussions. Use when reviewing... |
+| `levn-ln-912-community-announcer` | Composes and publishes announcements to GitHub Discussions. Use when sharing releases, updates, or n... |
+| `levn-ln-913-community-debater` | Launches RFC and debate discussions on GitHub. Use when proposing changes that need community input ... |
+| `levn-ln-914-community-responder` | Responds to unanswered GitHub discussions and issues with codebase-informed replies. Use when cleari... |
 
 ### muratcankoylan/Agent-Skills-for-Context-Engineering
 
@@ -1294,6 +1294,7 @@ Total skills: **2393**
 | `antigravity-arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M m... |
 | `antigravity-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
 | `antigravity-ask-questions-if-underspecified` | Clarify requirements before implementing. Use when serious doubts arise. |
+| `antigravity-astro` | Build content-focused websites with Astro — zero JS by default, islands architecture, multi-framewor... |
 | `antigravity-astropy` | Comprehensive Python library for astronomy and astrophysics. This skill should be used when working ... |
 | `antigravity-async-python-patterns` | Master Python asyncio, concurrent programming, and async/await patterns for high-performance applica... |
 | `antigravity-attack-tree-construction` | Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, ident... |
@@ -1806,6 +1807,7 @@ U... |
 | `antigravity-godot-4-migration` | Specialized guide for migrating Godot 3.x projects to Godot 4 (GDScript 2.0), covering syntax change... |
 | `antigravity-godot-gdscript-patterns` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use wh... |
 | `antigravity-golang-pro` | Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production... |
+| `antigravity-goldrush-api` | Query blockchain data across 100+ chains: wallet balances, token prices, transactions, DEX pairs, an... |
 | `antigravity-google-analytics-automation` | Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn... |
 | `antigravity-google-calendar-automation` | Interact with Google Calendar - list calendars, view events, create/update/delete events, and find f... |
 | `antigravity-google-docs-automation` | Interact with Google Docs - create documents, search by title, read content, and edit text.
@@ -1838,6 +1840,7 @@ Use when... |
 | `antigravity-hig-platforms` | Apple Human Interface Guidelines for platform-specific design. |
 | `antigravity-hig-project-context` | Create or update a shared Apple design context document that other HIG skills use to tailor guidance... |
 | `antigravity-hig-technologies` | Apple HIG guidance for Apple technology integrations: Siri, Apple Pay, HealthKit, HomeKit, ARKit, ma... |
+| `antigravity-hono` | Build ultra-fast web APIs and full-stack apps with Hono — runs on Cloudflare Workers, Deno, Bun, Nod... |
 | `antigravity-hosted-agents` | Build background agents in sandboxed environments. Use for hosted coding agents, sandboxed VMs, Moda... |
 | `antigravity-hosted-agents-v2-py` | Build hosted agents using Azure AI Projects SDK with ImageBasedHostedAgentDefinition. Use when creat... |
 | `antigravity-hr-pro` | Professional, ethical HR partner for hiring, onboarding/offboarding, PTO and leave, performance, com... |
@@ -1898,6 +1901,7 @@ Use when... |
 | `antigravity-kpi-dashboard-design` | Design effective KPI dashboards with metrics selection, visualization best practices, and real-time ... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
 | `antigravity-kubernetes-deployment` | Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and productio... |
+| `antigravity-landing-page-generator` | Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB fra... |
 | `antigravity-langchain-architecture` | Design LLM applications using the LangChain framework with agents, memory, and tool integration patt... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |
 | `antigravity-langgraph` | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applicati... |
@@ -2078,6 +2082,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
 | `antigravity-one-drive-automation` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder oper... |
 | `antigravity-openapi-spec-generation` | Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patte... |
+| `antigravity-openclaw-github-repo-commander` | 7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis |
 | `antigravity-oral-health-analyzer` | 分析口腔健康数据、识别口腔问题模式、评估口腔健康状况、提供个性化口腔健康建议。支持与营养、慢性病、用药等其他健康数据的关联分析。 |
 | `antigravity-os-scripting` | Operating system and shell scripting troubleshooting workflow for Linux, macOS, and Windows. Covers ... |
 | `antigravity-oss-hunter` | Automatically hunt for high-impact OSS contribution opportunities in trending repositories. |
@@ -2148,6 +2153,7 @@ structures, and modern OOP features. U... |
 | `antigravity-prompt-library` | Curated collection of high-quality prompts for various use cases. Includes role-based prompts, task-... |
 | `antigravity-protocol-reverse-engineering` | Master network protocol reverse engineering including packet analysis, protocol dissection, and cust... |
 | `antigravity-pubmed-database` | Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, ... |
+| `antigravity-pydantic-ai` | Build production-ready AI agents with PydanticAI — type-safe tool use, structured outputs, dependenc... |
 | `antigravity-pydantic-models-py` | Create Pydantic models following the multi-model pattern with Base, Create, Update, Response, and In... |
 | `antigravity-pypict-skill` | Pairwise test generation |
 | `antigravity-python-development-python-scaffold` | You are a Python project architecture expert specializing in scaffolding production-ready Python app... |
@@ -2331,6 +2337,7 @@ calculations
 | `antigravity-supabase-automation` | Automate Supabase database queries, table management, project administration, storage, edge function... |
 | `antigravity-superpowers-lab` | Lab environment for Claude superpowers |
 | `antigravity-supply-chain-risk-auditor` | Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply ch... |
+| `antigravity-sveltekit` | Build full-stack web applications with SvelteKit — file-based routing, SSR, SSG, API routes, and for... |
 | `antigravity-swiftui-expert-skill` | Write, review, or improve SwiftUI code following best practices for state management, view compositi... |
 | `antigravity-sympy` | Use this skill when working with symbolic mathematics in Python. This skill should be used for symbo... |
 | `antigravity-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
@@ -2498,6 +2505,7 @@ calculations
 | `vercel-deploy-to-vercel` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "depl... |
 | `vercel-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be ... |
 | `vercel-react-native-skills` | React Native and Expo best practices for building performant mobile apps. Use when building React Na... |
+| `vercel-vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel ... |
 | `vercel-web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check acc... |
 
 ### zxkane/aws-skills

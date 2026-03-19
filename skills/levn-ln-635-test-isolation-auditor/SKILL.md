@@ -1,6 +1,6 @@
 ---
 name: ln-635-test-isolation-auditor
-description: "Checks isolation (APIs/DB/FS/Time/Random/Network), determinism (flaky, order-dependent), and 7 anti-patterns."
+description: "Checks test isolation (API/DB/FS/Time/Network), determinism, flaky tests, order-dependency, anti-patterns. Use when auditing test isolation."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
 ---
@@ -335,15 +335,15 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-- contextStore parsed successfully (including output_dir)
-- All 3 audit groups completed:
+- [ ] contextStore parsed successfully (including output_dir)
+- [ ] All 3 audit groups completed:
   - Isolation (6 categories: APIs, DB, FS, Time, Random, Network)
   - Determinism (4 checks: flaky, time-dependent, order-dependent, shared state)
   - Anti-patterns (7 checks: Liar, Giant, Slow Poke, Conjoined Twins, Happy Path, Framework Tester, Default Value Blindness)
-- Findings collected with severity, location, effort, recommendation
-- Score calculated using penalty algorithm
-- Report written to `{output_dir}/635-isolation.md` (atomic single Write call)
-- Summary returned to coordinator
+- [ ] Findings collected with severity, location, effort, recommendation
+- [ ] Score calculated using penalty algorithm
+- [ ] Report written to `{output_dir}/635-isolation.md` (atomic single Write call)
+- [ ] Summary returned to coordinator
 
 ---
 **Version:** 3.0.0

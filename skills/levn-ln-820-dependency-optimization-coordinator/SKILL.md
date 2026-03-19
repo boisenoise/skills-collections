@@ -1,6 +1,6 @@
 ---
 name: ln-820-dependency-optimization-coordinator
-description: Coordinates dependency upgrades across all detected package managers
+description: "Upgrades dependencies across all detected package managers. Use when updating npm, NuGet, or pip packages project-wide."
 license: MIT
 ---
 

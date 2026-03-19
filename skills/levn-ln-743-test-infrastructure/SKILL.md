@@ -1,6 +1,6 @@
 ---
 name: ln-743-test-infrastructure
-description: Creates test infrastructure with Vitest, xUnit, and pytest
+description: "Sets up test infrastructure with Vitest, xUnit, and pytest. Use when adding testing frameworks and sample tests to a project."
 license: MIT
 ---
 
@@ -137,12 +137,13 @@ tests/
 
 ```
 tests/
-├── __init__.py
-├── conftest.py          # Fixtures
+├── conftest.py          # Shared fixtures (from conftest_template.py)
 ├── unit/
 │   └── test_sample.py
 └── integration/         # Optional
 ```
+
+For FastAPI/async projects, generate `conftest.py` from `conftest_template.py` with shared async HTTP client fixture. Adapt the app import path to match the project.
 
 ---
 
@@ -257,6 +258,7 @@ Configure CI to fail if coverage drops below thresholds.
 | [xunit_test_template.cs](references/xunit_test_template.cs) | xUnit test example |
 | [pytest_config_template.toml](references/pytest_config_template.toml) | pytest config |
 | [pytest_test_template.py](references/pytest_test_template.py) | pytest test example |
+| [conftest_template.py](references/conftest_template.py) | Shared async fixtures (FastAPI) |
 | [testing_guide.md](references/testing_guide.md) | Testing best practices |
 
 ---
@@ -273,5 +275,5 @@ Configure CI to fail if coverage drops below thresholds.
 
 ---
 
-**Version:** 2.0.0
-**Last Updated:** 2026-01-10
+**Version:** 3.0.0
+**Last Updated:** 2026-03-18

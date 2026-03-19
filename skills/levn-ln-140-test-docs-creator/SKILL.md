@@ -1,6 +1,6 @@
 ---
 name: ln-140-test-docs-creator
-description: Creates test documentation (testing-strategy.md + tests/README.md). Establishes testing philosophy and Story-Level Test Task Pattern.
+description: "Creates test documentation (testing-strategy.md, tests/README.md) with Risk-Based Testing philosophy. Use when setting up test strategy for a project."
 license: MIT
 ---
 
