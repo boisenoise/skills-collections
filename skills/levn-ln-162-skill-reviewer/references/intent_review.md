@@ -17,6 +17,9 @@ For each primary skill, read the git diff (`git diff HEAD -- {skill_dir}/`).
 - KISS/YAGNI criteria pass per `shared/references/creation_quality_checklist.md` (#11, #12)
 - No simpler approach achieves same goal with fewer lines/phases/files
 - Simpler alternative exists -> finding with specific description (SIMPLIFY or RETHINK)
+- **Downstream verification:** When a primary skill changes behavior, enumerate ALL downstream skills in its delegation tree (Worker Invocation table). For each: verify the change is compatible with downstream input contracts (D10)
+- **Upstream verification:** Check all skills that delegate TO the changed skill. Verify their expectations still hold
+- **Concrete trace test:** For each behavioral change, formulate: "If I call this skill with {input}, will it produce {expected output}?" Trace through the delegation chain. If any step breaks -- finding
 
 ## M3: Ecosystem Consistency
 - 2-3 peer skills in same category (same NXX prefix) use consistent delegation pattern, hierarchy level, workflow pattern

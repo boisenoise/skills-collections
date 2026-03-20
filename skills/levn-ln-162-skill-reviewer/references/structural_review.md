@@ -1,4 +1,4 @@
-# Structural Review Dimensions (D1-D9)
+# Structural Review Dimensions (D1-D11)
 
 <!-- DO NOT add here: Workflow phases -> ln-162-skill-reviewer SKILL.md -->
 
@@ -77,3 +77,20 @@ Check ALL dimensions across ALL skills in scope. Phase 2 failures are pre-verifi
 - References `shared/references/two_layer_detection.md` via MANDATORY READ
 - Scoring formula consistent: `penalty = (C*2.0) + (H*1.0) + (M*0.5) + (L*0.2)`
 - Report structure follows `shared/templates/audit_worker_report_template.md`
+
+## D10: Cross-Skill Behavioral Contracts
+
+When a primary skill changes its behavioral contract (fast-track matrix, dispatch pattern, input/output format), verify ALL skills it delegates to or receives delegation from have compatible contracts.
+
+- **Dispatch consistency:** If skill A's Worker Invocation table says "invoke ln-B via Skill tool" -- verify ln-B is actually designed for inline invocation (not Agent-only). Read Worker Invocation tables in both skills
+- **Fast-track cascade:** If skill A has a fast-track matrix that skips/modifies sub-skill behavior -- verify each sub-skill's SKILL.md supports that modified behavior. Example: if ln-500 says "ln-520 RUN simplified" -- verify ln-520 has a `--simplified` input
+- **Input contract compatibility:** If skill A delegates to B with specific args -- verify B's Inputs table accepts those args. If B has prerequisites -- verify A's state satisfies them when calling B
+- **Status transition ownership:** If multiple skills can set the same kanban status -- verify exactly ONE is the designated writer (no conflicts, no gaps)
+
+## D11: Resource Lifecycle Integrity
+
+For skills that manage shared resources (worktrees, branches, `.pipeline/` state, `.agent-review/` files):
+
+- **Creator-User-Cleaner chain:** Trace who creates, who uses, who cleans up each resource. Verify no gaps (resource created but never cleaned) or conflicts (cleanup while still in use)
+- **Inline vs Isolated execution:** If a skill may run both as Skill (inline) and as Agent (isolated), verify resource operations work in both modes. Example: `git worktree remove` fails if CWD is inside the worktree
+- **Checkpoint contract:** If a skill writes checkpoints -- verify the recovery consumer reads the same fields. If fields are added/removed -- verify both sides match

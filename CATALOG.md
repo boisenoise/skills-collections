@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-19 06:30 UTC*
+*Last updated: 2026-03-20 06:28 UTC*
 
-Total skills: **2401**
+Total skills: **2402**
 
 ## Skills by Source
 
@@ -999,7 +999,7 @@ Total skills: **2401**
 | `levn-ln-150-presentation-creator` | Builds interactive HTML presentation from project docs with Mermaid diagrams. Use when sharing proje... |
 | `levn-ln-160-docs-skill-extractor` | Extracts procedural content from project docs into .claude/commands skills. Use when docs contain de... |
 | `levn-ln-161-skill-creator` | Creates .claude/commands from procedural doc sections. Use when transforming documentation prose int... |
-| `levn-ln-162-skill-reviewer` | Reviews skills (D1-D9 + M1-M6 criteria) or .claude/commands for quality. Use when validating skill c... |
+| `levn-ln-162-skill-reviewer` | Reviews skills (D1-D11 + M1-M6 criteria) or .claude/commands for quality. Use when validating skill ... |
 | `levn-ln-200-scope-decomposer` | Decomposes scope into Epics, Stories, and RICE priorities. Use when user has project scope and wants... |
 | `levn-ln-201-opportunity-discoverer` | Discovers growth opportunities using Traffic-First KILL funnel. Use when searching for next product ... |
 | `levn-ln-210-epic-coordinator` | Creates or replans 3-7 Epics from scope using Decompose-First pattern. Use when initiative needs Epi... |
@@ -1223,7 +1223,7 @@ Total skills: **2401**
 | `antigravity-agent-orchestrator` | Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capac... |
 | `antigravity-agent-tool-builder` | Tools are how AI agents interact with the world. A well-designed tool is the difference between an a... |
 | `antigravity-agentfolio` | Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFol... |
-| `antigravity-agentic-actions-auditor` | Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Clau... |
+| `antigravity-agentic-actions-auditor` | Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Cla... |
 | `antigravity-agentmail` | Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check... |
 | `antigravity-agents-md` | This skill should be used when the user asks to "create AGENTS.md", "update AGENTS.md", "maintain ag... |
 | `antigravity-agents-v2-py` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). U... |
@@ -1984,6 +1984,7 @@ makepad widget, makepad View, make... |
 | `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
 | `antigravity-matematico-tao` | Matemático ultra-avançado inspirado em Terence Tao. Análise rigorosa de código e arquitetura com teo... |
 | `antigravity-matplotlib` | Low-level plotting library for full customization. Use when you need fine-grained control over every... |
+| `antigravity-maxia` | Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP ... |
 | `antigravity-mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
 | `antigravity-mcp-builder-ms` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
 | `antigravity-memory-forensics` | Master memory forensics techniques including memory acquisition, process analysis, and artifact extr... |

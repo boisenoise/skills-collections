@@ -1,34 +1,5 @@
 {
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  },
   "permissions": {
-    "allow": [],
-    "deny": [],
     "defaultMode": "bypassPermissions"
-  },
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash .claude/hooks/pipeline-keepalive.sh"
-          }
-        ]
-      }
-    ],
-    "TeammateIdle": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash .claude/hooks/worker-keepalive.sh"
-          }
-        ]
-      }
-    ]
   }
 }

@@ -22,6 +22,8 @@ Validates Stories/Tasks (mode=story), implementation plans (mode=plan_review), o
 
 > **Terminology:** `mode=plan_review` = review mode (evaluating a plan document). "Plan Mode" / "Read-Only Mode" = execution flag (framework-level, applies to ALL modes). These are independent concepts.
 
+> **Plan Mode compatibility:** ln-310 runs normally in Plan Mode. `.agent-review/` is git-ignored — writing prompts, results, and context there is NOT a project modification. If the framework blocks a write, request permission — the user expects file operations in `.agent-review/`. Agent launches (Bash background) are external processes and always work.
+
 **Resolution (mode=story):** Story Resolution Chain. **Status filter:** Backlog
 
 ## Purpose
@@ -68,11 +70,11 @@ Initialize: `agents_launched = UNSET`. MUST be set to `true` or `SKIPPED` in Pha
 
 > **BLOCKING GATE:** If you find yourself reasoning about skipping agents due to task simplicity, small scope, or "already reviewed" — STOP. Return to the start of Phase 2. The ONLY valid exit without launching is: health_check returned 0 agents.
 
-1) **Health Check** (all modes): Read `docs/environment_state.json` → exclude disabled. Run `python shared/agents/agent_runner.py --health-check`. 0 available → `agents_launched = SKIPPED`
+1) **Health Check** (all modes): Read `docs/environment_state.json` → exclude disabled. Run `node shared/agents/agent_runner.mjs --health-check`. 0 available → `agents_launched = SKIPPED`
 2) **Prepare references:**
    - mode=story: Story/Task URLs (linear) or file paths (file)
    - mode=context: resolve identifier (default: `review_YYYYMMDD_HHMMSS`), materialize context if from chat → `.agent-review/context/{id}_context.md`
-   - mode=plan_review: auto-detect plan (Glob `.claude/plans/*.md`, most recent by mtime). No plan → error. Materialize: copy plan file → `.agent-review/context/{identifier}_plan.md`. Use local path as `{plan_ref}`
+   - mode=plan_review: auto-detect plan (Glob `.claude/plans/*.md`, most recent by mtime). No plan → error. Clean `.agent-review/context/` (delete all files). Materialize: copy plan file → `.agent-review/context/{identifier}_plan.md`. Use local path as `{plan_ref}`
 3) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/{mode}.md` (per shared workflow "Step: Build Prompt"). Replace mode-specific placeholders. Save to `.agent-review/{id}_{mode}review_prompt.md`
 4) **Launch BOTH agents** as background tasks. `agents_launched = true`
 
@@ -177,10 +179,10 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 **All modes:**
 - [ ] tools_config loaded, task_provider extracted (Phase 0)
 - [ ] Metadata loaded — not skimmed (Phase 1)
-- [ ] `agent_runner.py --health-check` executed (Phase 2)
+- [ ] `agent_runner.mjs --health-check` executed (Phase 2)
 - [ ] Agents launched as background tasks OR SKIPPED: 0 agents (Phase 2)
   > ⛔ If unchecked AND environment_state.json showed ≥1 available agent → CRITICAL VIOLATION. Do NOT return results. Return to Phase 2.
-- [ ] Prompt file saved to `.agent-review/` OR passed inline in Plan Mode (Phase 2)
+- [ ] Prompt file saved to `.agent-review/` (Phase 2)
 - [ ] Agent results read and parsed OR SKIPPED (Phase 5)
 - [ ] Critical Verification + Debate executed OR SKIPPED (Phase 5)
 - [ ] Agent process trees verified dead OR SKIPPED (Phase 5)

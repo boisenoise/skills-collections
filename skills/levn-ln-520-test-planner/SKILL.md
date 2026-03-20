@@ -15,6 +15,7 @@ Coordinates the complete test planning pipeline for a Story by delegating to spe
 | Input | Required | Source | Description |
 |-------|----------|--------|-------------|
 | `storyId` | Yes | args, git branch, kanban, user | Story to process |
+| `--simplified` | No | args | Skip research (ln-521) and manual testing (ln-522). Run only auto-test planning (ln-523). Used in fast-track mode. |
 
 **Resolution:** Story Resolution Chain.
 **Status filter:** To Review
@@ -67,6 +68,10 @@ ln-520-test-planner (Orchestrator)
 
 ### Phase 2: Research Delegation
 
+> **Simplified mode gate:**
+> - IF `--simplified` flag AND research comment already exists on Story: Skip Phase 2 (research). Proceed to Phase 4.
+> - IF `--simplified` flag AND no research comment: Skip Phase 2. Proceed to Phase 4 (ln-523 will generate minimal inline research).
+
 1) **Check if research exists:**
    - Search Linear comments for "## Test Research:" header
    - If found → skip to Phase 3
@@ -78,6 +83,9 @@ ln-520-test-planner (Orchestrator)
    - Verify research comment created
 
 ### Phase 3: Manual Testing Delegation
+
+> **Simplified mode gate:**
+> - IF `--simplified` flag: Skip Phase 3 (manual testing). Proceed to Phase 4.
 
 1) **Check if manual testing done:**
    - Search Linear comments for "## Manual Testing Results" header
@@ -170,7 +178,7 @@ Skill type: `planning-coordinator`. Run after all phases complete. Output to cha
 
 - Workers: `../ln-521-test-researcher/SKILL.md`, `../ln-522-manual-tester/SKILL.md`, `../ln-523-auto-test-planner/SKILL.md`
 - Caller: `../ln-500-story-quality-gate/SKILL.md`
-- Risk-based testing: `../shared/references/risk_based_testing_guide.md`
+- Risk-based testing: `shared/references/risk_based_testing_guide.md`
 
 ---
 

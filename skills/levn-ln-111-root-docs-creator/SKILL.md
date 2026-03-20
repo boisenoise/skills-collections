@@ -70,6 +70,9 @@ For each document (CLAUDE.md, docs/README.md, documentation_standards.md, princi
    - Write file
 
 ### Phase 2b: Create Tools Config
+
+**MANDATORY READ:** Load `shared/references/mcp_tool_preferences.md`
+
 For `docs/tools_config.md`:
 1. Check if file exists (idempotent — respect existing config, may have been auto-bootstrapped)
 2. If exists: skip with log
@@ -78,7 +81,7 @@ For `docs/tools_config.md`:
    - **Detect available tools** (replace placeholders with actual values):
      - Task Management: call `list_teams()` via mcp__linear-server → set Provider/Status/Team ID
      - Research: call `ref_search_documentation(query="test")` → if active, set Provider=ref. Then call `resolve-library-id(libraryName="react")` for Context7 → set Fallback chain
-     - File Editing: check mcp__hashline-edit availability → set Provider
+     - File Editing: run detection sequence (loaded above)
      - External Agents: run `codex --version`, `gemini --version` → set Status/Comment
      - Git: run `git worktree list` → set Worktree/Strategy
    - Write file with detected values

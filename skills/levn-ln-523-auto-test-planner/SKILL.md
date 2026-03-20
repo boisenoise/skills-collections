@@ -26,27 +26,14 @@ Creates Story test task with comprehensive automated test coverage (E2E/Integrat
 - **Delegate** to ln-301-task-creator (CREATE) or ln-302-task-replanner (REPLAN)
 - **NOT** for: manual testing (ln-522), research (ln-521), orchestration (ln-520)
 
-## When to Use This Skill
+## When to Use
 
-This skill should be used when:
-- **Invoked by ln-520-test-planner** after ln-521 research and ln-522 manual testing
-- All implementation tasks in Story are Done
-- Manual testing results documented in Linear comment (from ln-522)
-- Research findings available in Linear comment (from ln-521)
-
-**Prerequisites:**
+- Invoked by ln-520-test-planner after implementation tasks Done
 - All implementation Tasks in Story status = Done
-- ln-521-test-researcher completed (research comment exists)
-- ln-522-manual-tester completed (manual test results in Linear comment)
+- ln-521 research: uses if available, generates minimal inline research if missing
+- ln-522 manual testing: uses if available, marks as 'skipped by policy' if missing
 
 **Automation:** Supports `autoApprove: true` (default when invoked by ln-520) to skip manual confirmation.
-
-## When NOT to Use
-
-Do NOT use if:
-- Manual testing NOT completed -> Wait for ln-522
-- Research NOT completed -> Wait for ln-521
-- Implementation tasks NOT all Done -> Complete impl tasks first
 
 ## Workflow
 
@@ -79,9 +66,10 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 2. Load research comment (from ln-521): "## Test Research: {Feature}"
    - IF `task_provider` = `linear`: `list_comments(issueId=storyId)` → find matching comment
    - IF `task_provider` = `file`: `Glob("docs/tasks/epics/*/stories/*/comments/*.md")` → find matching comment
+   - IF research comment not found: generate 3-5 bullet points of key test areas based on Story AC and task descriptions (inline, no external research).
 3. Load manual test results comment (from ln-522): "## Manual Testing Results"
    - Same approach as research comment above
-   - If not found -> ERROR: Run ln-520-test-planner pipeline first
+   - IF manual test results not found: skip manual test coverage analysis. Note in output: 'Manual testing: skipped by policy (simplified mode).'
 4. Parse sections: AC results (PASS/FAIL), Edge Cases, Error Handling, Integration flows
 5. Map to test design: PASSED AC -> E2E, Edge cases -> Unit, Errors -> Error handling, Flows -> Integration
 
@@ -101,7 +89,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
 **Process:** Locate Linear comment with "Manual Testing Results" header -> Verify Format Version 1.0 -> Extract structured sections (Acceptance Criteria, Test Results by AC, Edge Cases, Error Handling, Integration Testing) using regex -> Validate (at least 1 PASSED AC, AC count matches Story, completeness check) -> Map parsed data to test design structure
 
-**Error Handling:** Missing comment -> ERROR (run ln-522 first), Missing format version -> WARNING (try legacy parsing), Required section missing -> ERROR (re-run ln-522), No PASSED AC -> ERROR (fix implementation)
+**Error Handling:** Missing comment -> use fallback (inline research or skip per Phase 2 logic), Missing format version -> WARNING (try legacy parsing), Required section missing -> use fallback, No PASSED AC -> ERROR (fix implementation)
 
 ### Phase 4: Risk-Based Test Planning (Automated)
 
@@ -226,23 +214,13 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 - **Storage mode operations:** `shared/references/storage_mode_detection.md`
 - **Risk-based testing methodology:** `shared/references/risk_based_testing_guide.md`
 - **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
+- **Test task template:** `shared/templates/test_task_template.md` (workers ln-301/ln-302 load via Template Loading)
+- **Testing examples:** `references/risk_based_testing_examples.md`
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`
-
-### risk_based_testing_guide.md
-
-**Purpose**: Risk-Based Testing methodology (detailed guide)
-
-**Location**: [shared/references/risk_based_testing_guide.md](shared/references/risk_based_testing_guide.md)
-
-### test_task_template.md (CENTRALIZED)
-
-**Location**: `shared/templates/test_task_template.md`
-
-**Usage**: Workers (ln-301, ln-302) load via Template Loading logic
 
 ## Critical Rules
 
-- **Manual results required:** Never plan tests without ln-522 manual testing results — guessing coverage is worse than no tests
+- **Manual results preferred:** Use ln-522 manual testing results when available. When missing (simplified mode), generate minimal inline research and mark manual testing as skipped
 - **E2E-first, not unit-first:** Baseline is always 2 E2E (positive + negative); unit/integration added only for Priority >= 15
 - **No framework testing:** Every test must validate OUR business logic; never test library/framework behavior
 - **Usefulness enforcement:** Every test beyond baseline must pass all 6 Usefulness Criteria (see risk_based_testing_guide.md)
@@ -255,12 +233,6 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 **Risk-Based Testing:** Prioritize by Business Impact x Probability. E2E-first from ACTUAL manual testing results. Priority ≥15 scenarios covered by tests.
 
 **Expected-Based Testing:** For deterministic tests, compare actual vs expected using `diff`. **MANDATORY READ:** Load `../ln-522-manual-tester/SKILL.md` — section "Test Design Principles".
-
-## Reference Files
-
-| File | Purpose |
-|------|---------|
-| `references/risk_based_testing_examples.md` | Practical examples of risk-based testing (learning reference) |
 
 ---
 

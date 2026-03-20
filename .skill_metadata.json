@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-19T06:30:48.957917",
-  "skill_count": 2401,
+  "last_updated": "2026-03-20T06:28:22.086844",
+  "skill_count": 2402,
   "sources_processed": 19,
   "skills": [
     {
@@ -1351,6 +1351,14 @@
       "name": "antigravity-angular-ui-patterns",
       "original_name": "angular-ui-patterns",
       "description": "Modern Angular UI patterns for loading states, error handling, and data display. Use when building UI components, handling async data, or managing component states.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-maxia",
+      "original_name": "maxia",
+      "description": "Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP tools, A2A protocol, DeFi yields, sentiment analysis, rug detection.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4334,7 +4342,7 @@
     {
       "name": "antigravity-agentic-actions-auditor",
       "original_name": "agentic-actions-auditor",
-      "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines,...",
+      "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Claude Code Action,  Gemini CLI, OpenAI Codex, and GitHub AI  Inference.  Detects attack vectors where attacker-controlled  input reaches. AI agents running in CI/CD pipelines.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18254,7 +18262,7 @@
     {
       "name": "levn-ln-162-skill-reviewer",
       "original_name": "ln-162-skill-reviewer",
-      "description": "Reviews skills (D1-D9 + M1-M6 criteria) or .claude/commands for quality. Use when validating skill correctness before release.",
+      "description": "Reviews skills (D1-D11 + M1-M6 criteria) or .claude/commands for quality. Use when validating skill correctness before release.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

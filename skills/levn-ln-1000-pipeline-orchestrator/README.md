@@ -106,8 +106,8 @@ ln-1000 Lead
 ln-1000 Lead
   └─ Agent(name: "story-{id}-validate", team: "pipeline-...")     ← L1: teammate
        └─ Skill("ln-310-multi-agent-validator")             ← L2: inline
-            ├─ Agent("codex-review", background=true)       ← external agent (Codex CLI)
-            ├─ Agent("gemini-review", background=true)      ← external agent (Gemini CLI)
+            ├─ Agent("codex", background=true)       ← external agent (Codex CLI)
+            ├─ Agent("gemini", background=true)      ← external agent (Gemini CLI)
             ├─ MCP Ref research (foreground)                ← inline research
             ├─ 27-criteria Penalty Points audit             ← inline
             └─ Phase 5: Merge agent results + debate        ← inline
@@ -117,7 +117,7 @@ ln-1000 Lead
 |--------|--------|
 | **Input** | Story in Backlog (tasks exist), task metadata |
 | **What happens** | Parallel: Codex + Gemini review in background. Foreground: 27-criteria audit, MCP Ref research, auto-fix. Then merge + debate agent findings |
-| **External agents** | Codex CLI and Gemini CLI (not Claude subagents — separate processes via `agent_runner.py`) |
+| **External agents** | Codex CLI and Gemini CLI (not Claude subagents — separate processes via `agent_runner.mjs`) |
 | **Output to Lead** | "Stage 1 COMPLETE. Verdict: GO/NO-GO. Readiness: {X}. Agents: codex(2/3),gemini(1/2)" |
 | **Effort** | medium |
 | **Duration** | 5-15 min (agents run in parallel with audit) |
@@ -166,8 +166,8 @@ ln-1000 Lead
             │    ├─ Agent("ln-511-code-quality-checker")     ← L3: subagent (metrics + static analysis)
             │    ├─ Agent("ln-512-tech-debt-cleaner")        ← L3: subagent (auto-fixes)
             │    ├─ Agent("ln-513-regression-checker")       ← L3: subagent (runs tests)
-            │    ├─ Agent("codex-review", background)       ← external agent
-            │    └─ Agent("gemini-review", background)      ← external agent
+            │    ├─ Agent("codex", background)       ← external agent
+            │    └─ Agent("gemini", background)      ← external agent
             │
             └─ Skill("ln-520-test-planner")                 ← L2: inline (skipped if fast-track)
                  ├─ Agent("ln-521-test-researcher")          ← L3: subagent

@@ -7,7 +7,7 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 ```
 {project_root}/.pipeline/
   state.json              # Global pipeline state (lead writes)
-  checkpoint-{storyId}.json  # Per-story checkpoint (worker writes)
+  checkpoint-{storyId}.json  # Per-story checkpoint (lead writes after each stage)
 ```
 
 ## Checkpoint Schema
@@ -16,7 +16,6 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 |-------|------|-------|-------------|
 | `storyId` | string | All | Story identifier (e.g., "PROJ-42") |
 | `stage` | number | All | Current stage (0-3) |
-| `agentId` | string | All | Worker's agent ID for Agent resume |
 | `tasksCompleted` | string[] | All | Task IDs already finished |
 | `tasksRemaining` | string[] | All | Task IDs still pending |
 | `lastAction` | string | All | Description of last completed action |
@@ -33,7 +32,6 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 {
   "storyId": "PROJ-42",
   "stage": 3,
-  "agentId": "abc-123-def",
   "tasksCompleted": ["PROJ-101", "PROJ-102", "PROJ-103", "PROJ-104", "PROJ-105"],
   "tasksRemaining": [],
   "lastAction": "Quality gate completed, verdict: PASS",
@@ -45,7 +43,7 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 
 ## Pipeline State Schema
 
-Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cycle. This enables full recovery on restart.
+Lead writes ALL state variables to `.pipeline/state.json` on every stage transition. This enables full recovery on restart.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -54,11 +52,9 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `stories_remaining` | number | 1 if story not yet DONE/PAUSED, else 0 |
 | `last_check` | string | ISO 8601 timestamp of last state update |
 | `story_state` | object | `{storyId: "STAGE_0"\|"STAGE_1"\|"STAGE_2"\|"STAGE_3"\|"DONE"\|"PAUSED"}` |
-| `worker_map` | object | `{storyId: worker_name}` — assigned worker |
 | `quality_cycles` | object | `{storyId: count}` — FAIL->retry counter (limit 2) |
 | `previous_quality_score` | object | `{storyId: score}` — quality score from first Stage 3 FAIL (for rework degradation comparison). Absent until first FAIL. |
 | `validation_retries` | object | `{storyId: count}` — NO-GO retry counter (limit 1) |
-| `crash_count` | object | `{storyId: count}` — crash respawn counter (limit 1) |
 | `story_results` | object | `{storyId: {stage0: "...", stage1: "...", ...}}` — per-stage results for report |
 | `infra_issues` | array | `[{phase, type, message}]` — infrastructure issues for report |
 | `status_cache` | object | `{statusName: statusUUID}` — Linear status name->UUID mapping (empty if file mode) |
@@ -66,10 +62,9 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 | `git_stats` | object | `{storyId: {lines_added, lines_deleted, files_changed}}` — code output metrics |
 | `pipeline_start_time` | string | ISO 8601 timestamp of pipeline start — for wall-clock duration |
 | `readiness_scores` | object | `{storyId: readiness_score}` — from Stage 1 GO, for Stage 3 fast-track decision |
-| `team_name` | string | Team name for Agent() spawns (e.g., "pipeline-2026-02-15") |
-| `business_answers` | object | `{question: answer}` from Phase 2 — passed to worker prompts |
+| `business_answers` | object | `{question: answer}` from Phase 2 — passed to Skill prompts |
 | `storage_mode` | string | `"file"` or `"linear"` — task storage backend |
-| `skill_repo_path` | string | Skills repository absolute path (for recovery hook) |
+| `skill_repo_path` | string | Skills repository absolute path (for recovery) |
 | `project_brief` | object | `{name, tech, type, key_rules}` — project context from CLAUDE.md |
 | `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — orchestrator brief from Linear |
 
@@ -81,11 +76,9 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
   "stories_remaining": 1,
   "last_check": "2026-02-13T14:30:00Z",
   "story_state": { "API-427": "STAGE_2" },
-  "worker_map": { "API-427": "story-API-427-s2" },
   "quality_cycles": { "API-427": 0 },
   "previous_quality_score": {},
   "validation_retries": { "API-427": 0 },
-  "crash_count": { "API-427": 0 },
   "story_results": { "API-427": { "stage0": "skip", "stage1": "skip" } },
   "infra_issues": [],
   "stage_timestamps": { "API-427": { "stage_2_start": "2026-02-13T13:00:00Z" } },
@@ -96,23 +89,16 @@ Lead writes ALL state variables to `.pipeline/state.json` on every heartbeat cyc
 
 ## Resume Protocol
 
-Lead executes on confirmed crash (3-step protocol passed):
+Lead executes on crash recovery:
 
 ```
 1. Read checkpoint: .pipeline/checkpoint-{id}.json
-
-2. Try resume (preserves full agent context):
-   Agent(resume: checkpoint.agentId)
-   IF resume succeeds → worker continues where it left off → DONE
-
-3. Fallback — new worker with checkpoint context:
-   prompt = worker_prompt(story, checkpoint.stage, business_answers) + CHECKPOINT_RESUME block
-   Agent(name: "story-{id}-{stage_name}-retry", team_name: "pipeline-{date}",  # stage_name = decompose|validate|implement|qa
-        model: "opus", mode: "bypassPermissions", subagent_type: "general-purpose",
-        prompt: prompt)
+2. Read state.json -> restore pipeline state variables
+3. Resume from last checkpoint stage + 1
+   Re-invoke Skill() for the failed stage with CHECKPOINT_RESUME context
 ```
 
-**CHECKPOINT_RESUME block** (appended to worker prompt):
+**CHECKPOINT_RESUME block** (passed to Skill context):
 ```
 CHECKPOINT RESUME — DO NOT re-execute completed work.
 Tasks already completed: {tasksCompleted joined by ", "}
@@ -121,16 +107,16 @@ Last action: {lastAction}
 Continue from remaining tasks only.
 ```
 
-## Worker Write Protocol
+## Checkpoint Write Protocol
 
-Workers write checkpoints at these points:
+Lead writes checkpoints after each Skill() call completes:
 
 | Stage | When to Write | Required Fields | Stage-Specific Fields |
 |-------|--------------|----------------|----------------------|
-| 0 (ln-300) | After tasks created | storyId, stage, agentId, timestamp, lastAction | **planScore** (0-4), tasksCompleted=[], tasksRemaining=[created task IDs] |
-| 1 (ln-310) | After validation | storyId, stage, agentId, timestamp, lastAction | **readiness** (1-10), **verdict** (GO/NO-GO), **reason** (if NO-GO), tasksCompleted=[], tasksRemaining=[] |
-| 2 (ln-400) | After EACH task completes | storyId, stage, agentId, timestamp, lastAction | Move task ID from remaining to completed |
-| 3 (ln-500) | After quality gate | storyId, stage, agentId, timestamp, lastAction | **verdict** (PASS/CONCERNS/WAIVED/FAIL), **qualityScore** (0-100), **issues** (if FAIL), tasksCompleted=[all], tasksRemaining=[] |
+| 0 (ln-300) | After tasks created | storyId, stage, timestamp, lastAction | **planScore** (0-4), tasksCompleted=[], tasksRemaining=[created task IDs] |
+| 1 (ln-310) | After validation | storyId, stage, timestamp, lastAction | **readiness** (1-10), **verdict** (GO/NO-GO), **reason** (if NO-GO), tasksCompleted=[], tasksRemaining=[] |
+| 2 (ln-400) | After implementation | storyId, stage, timestamp, lastAction | tasksCompleted=[done task IDs], tasksRemaining=[pending task IDs] |
+| 3 (ln-500) | After quality gate | storyId, stage, timestamp, lastAction | **verdict** (PASS/CONCERNS/WAIVED/FAIL), **qualityScore** (0-100), **issues** (if FAIL), tasksCompleted=[all], tasksRemaining=[] |
 
 **Stage-Specific Field Requirements:**
 - **Stage 0:** MUST write `planScore` (task plan quality from ln-300)
@@ -138,8 +124,6 @@ Workers write checkpoints at these points:
 - **Stage 2:** No stage-specific fields (task progress only)
 - **Stage 3:** MUST write `verdict`, `qualityScore`; MUST write `issues` if verdict=FAIL
 
-**Stage 2 is critical** — most work happens here, checkpoints after each task prevent losing progress.
-
 ---
-**Version:** 3.0.0
-**Last Updated:** 2026-03-09
+**Version:** 4.0.0
+**Last Updated:** 2026-03-19

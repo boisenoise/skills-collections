@@ -149,3 +149,19 @@ for f in {scoped SKILL.md files}; do
   fi
 done
 ```
+
+## Check 15: Platform API Compatibility
+
+Grep all SKILL.md files in scope for usage of deprecated/removed Claude Code features.
+
+**Patterns to detect:**
+```bash
+# Removed: Agent(resume:) -- replaced by SendMessage({to: agentId}) in 2.1.77
+grep -n 'Agent(resume:' "$file"
+# Removed: effort level "max" -- simplified to low/medium/high in 2.1.72
+grep -n 'effort.*"max"\|effort: max' "$file"
+```
+
+**Maintained in:** `references/deprecated_apis.md`
+
+**Result:** PASS if no matches. FAIL with line numbers if deprecated patterns found.

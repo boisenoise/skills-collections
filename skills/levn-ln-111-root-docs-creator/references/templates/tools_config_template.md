@@ -48,18 +48,7 @@
 
 ## File Editing
 
-| Setting | Value |
-|---------|-------|
-| **Provider** | {{EDITING_PROVIDER}} |
-| **Fallback** | standard (Read/Edit/Write) |
-
-**Detection:** Call `mcp__hashline-edit__read_file` on any project file. If responds → `hashline-edit`. Else → `standard`.
-
-**Troubleshooting:**
-
-| Problem | Fix |
-|---------|-----|
-| hashline-edit not found | Add hashline-edit MCP server (optional, standard tools work fine) |
+**File Editing:** Per `shared/references/mcp_tool_preferences.md` detection sequence (file-edit MCP → hashline CLI → standard).
 
 ---
 
@@ -70,7 +59,7 @@
 | codex | {{CODEX_STATUS}} | {{CODEX_COMMENT}} |
 | gemini | {{GEMINI_STATUS}} | {{GEMINI_COMMENT}} |
 
-**Detection:** Run `codex --version` and `gemini --version` via Bash. Exit 0 → `available`. Health check: `python shared/agents/agent_runner.py --health`.
+**Detection:** Run `codex --version` and `gemini --version` via Bash. Exit 0 → `available`. Health check: `node shared/agents/agent_runner.mjs --health`.
 
 **Troubleshooting:**
 

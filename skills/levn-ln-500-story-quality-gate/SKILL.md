@@ -105,7 +105,7 @@ ELSE:
 | ln-511 metrics + static analysis | RUN | **RUN** | **Catches complexity/DRY/dead code that per-task review misses** |
 | ln-511 MCP Ref (OPT-, BP-, PERF-) | RUN | **SKIP** | Expensive external calls |
 | Inline agent review | RUN | **RUN (1 agent minimum)** | Catches logic/algorithm bugs that static analysis misses |
-| ln-520 test planning | RUN | **SKIP** | Redundant for pre-validated |
+| ln-520 test planning | RUN | **RUN (simplified)** | Auto-test plan always created; research + manual testing skipped |
 | NFR validation | All dims | **Security only** | Perf/Maintainability less critical |
 
 ### Phase 3: Quality Checks (delegate to ln-510)
@@ -113,14 +113,16 @@ ELSE:
 1) **Invoke ln-510-quality-coordinator** via Skill tool
    - Pass: Story ID (+ `--fast-track` flag if fast_track == true)
    - Full: ln-510 runs: code quality (ln-511) -> criteria validation -> linters -> regression (ln-513)
-   - Fast-track: ln-510 runs: code metrics + static (ln-511 `--skip-mcp-ref`) -> criteria -> linters -> regression (ln-513) — skips MCP Ref/agent review
+   - Fast-track: ln-510 runs: code metrics + static (ln-511 `--skip-mcp-ref`) -> criteria -> linters -> regression (ln-513) -> agent review (1 agent min) — skips MCP Ref only
 2) **If ln-510 returns FAIL:**
    - Create fix/refactor tasks via ln-301
    - Stop — return to ln-400
 
 ### Phase 4: Test Planning (delegate to ln-520)
 
-1) **IF fast_track: SKIP Phase 4 entirely** (proceed to Phase 5)
+1) **IF fast_track:** invoke ln-520 in simplified mode (skip research + manual testing, run only auto-test planning):
+   Skill(skill: "ln-520-test-planner", args: "{storyId} --simplified")
+   Proceed to Phase 5.
 2) Check test task status:
    - **No test task** -> invoke ln-520-test-planner to create
    - **Test task exists, not Done** -> report status, stop
@@ -168,6 +170,7 @@ Runs only when verdict is PASS, CONCERNS, or WAIVED. Consumes verified results f
 3. Move Story + Tasks → Done (Linear or kanban)
 4. Report to chat + file: branch name, git stats (files changed, insertions, deletions), quality verdict
 5. Cleanup: `git worktree remove {worktree_dir}` (branch preserved on remote)
+   - **Skip cleanup** if CWD is inside worktree (caller handles cleanup). Detect: `realpath .` starts with `realpath {worktree_dir}`
 
 **On FAIL verdict:** Skip Phase 7. Create fix tasks, return to ln-400.
 
