@@ -1,20 +1,20 @@
 # Domain Patterns Registry
 
-<!-- SCOPE: Domain pattern → doc type mapping for ln-002 delegation ONLY. Contains trigger keywords, doc_type output. -->
-<!-- DO NOT add here: Validation logic → ln-310-multi-agent-validator SKILL.md, ln-002 workflow → ln-002-best-practices-researcher SKILL.md -->
+<!-- SCOPE: Domain pattern → doc type mapping for inline documentation creation. Contains trigger keywords, doc_type output. -->
+<!-- DO NOT add here: Validation logic → ln-310-multi-agent-validator SKILL.md, documentation rules → shared/references/documentation_creation.md -->
 
-Mapping Story patterns to documentation types for ln-002 delegation during ln-310 validation.
+Mapping Story patterns to documentation types for inline documentation creation during ln-310 validation.
 
 ---
 
 ## Purpose
 
-This registry defines WHEN to delegate to ln-002-best-practices-researcher and WHAT type of document to create.
+This registry defines WHEN to create documentation inline and WHAT type of document to create.
 
 **Usage in ln-310 Phase 3:**
 1. Load domain_patterns.md
 2. Scan Story title + Technical Notes for trigger keywords
-3. IF keywords match → Delegate to ln-002 with doc_type + topic
+3. IF keywords match → Create doc inline per shared/references/documentation_creation.md
 4. Add created doc links to Story Technical Notes
 
 ---
@@ -67,7 +67,7 @@ IF multiple patterns detected:
 ```
 IF doc_type = Manual:
   → Extract library name from Technical Notes
-  → Pass library name to ln-002
+  → Pass library name to manual template
 ```
 
 **Example:**
@@ -76,16 +76,30 @@ IF doc_type = Manual:
 
 ---
 
-## Delegation Example (multi-pattern)
+## Inline Creation Example (multi-pattern)
 
 Story: "Add rate-limited REST API with Redis caching"
 → Keywords: `REST`, `API`, `rate`, `redis`, `caching`
 → Patterns: **REST API** + **Rate Limiting** + **Caching**
 
 ```
-Skill(skill="ln-002-best-practices-researcher", args="doc_type=guide topic='RESTful API Patterns'")
-Skill(skill="ln-002-best-practices-researcher", args="doc_type=guide topic='API Rate Limiting Pattern'")
-Skill(skill="ln-002-best-practices-researcher", args="doc_type=manual topic='Redis v7.2'")
+1. Glob docs/guides/*rest*.md → not found
+2. Load shared/templates/guide_template.md
+3. Research "RESTful API Patterns" per research_methodology.md
+4. Generate guide (NO CODE, tables first, 300-500 words)
+5. Save → docs/guides/NN-rest-api-patterns.md
+
+1. Glob docs/guides/*rate-limit*.md → not found
+2. Load shared/templates/guide_template.md
+3. Research "API Rate Limiting Pattern" per research_methodology.md
+4. Generate guide
+5. Save → docs/guides/NN-api-rate-limiting.md
+
+1. Glob docs/manuals/*redis*.md → not found
+2. Load shared/templates/manual_template.md
+3. Research "Redis v7.2" via Context7
+4. Generate manual
+5. Save → docs/manuals/redis-v7.md
 ```
 
 ---

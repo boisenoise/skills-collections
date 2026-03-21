@@ -24,7 +24,7 @@ Detailed rules for library version verification and alternative solutions analys
 - "Latest version" (no verification)
 
 **Auto-fix actions:**
-1. Check if manuals exist from Phase 3 research (created by ln-002)
+1. Check if manuals exist from Phase 3 research (created inline)
 2. IF manuals exist:
    - Read recommended version from manual (e.g., Manual: oauth2-proxy v7.6.0)
    - Compare with Story Technical Notes current version
@@ -54,7 +54,7 @@ Detailed rules for library version verification and alternative solutions analys
 - PostgreSQL database
 ```
 
-**After (with manuals from ln-002):**
+**After (with manuals from Phase 3):**
 ```markdown
 ## Technical Notes
 
@@ -169,7 +169,7 @@ Detailed rules for library version verification and alternative solutions analys
 - Group 3 execution order: #6 → #21 → #28
 
 **Research Integration:**
-- Phase 3 creates documentation via ln-002 delegation
+- Phase 3 creates documentation inline
 - Criterion #6 reads from Phase 3 docs, fallback to Context7 if needed
 - Criterion #28 reuses #6's Context7 responses when querying the same library
 - All research completed BEFORE Phase 4 auto-fix begins

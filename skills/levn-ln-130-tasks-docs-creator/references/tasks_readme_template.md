@@ -236,7 +236,7 @@ Single hierarchical view: **Status → Epic → User Story → Tasks**
 | **Quality** | Story quality gate | Quality checks, regression, test planning, verdict |
 | **Testing** | Test planner | Plan Story Finalizer test task (after manual testing) |
 | **Documentation** | ln-111-project-docs-creator | Create project docs (requirements, architecture, specs) |
-| | ln-002-best-practices-researcher | Create ADRs, guides, manuals (doc_type parameter) |
+| | documentation_creation.md | ADRs, guides, manuals (ln-310 Phase 3 Step 2) |
 
 ---
 

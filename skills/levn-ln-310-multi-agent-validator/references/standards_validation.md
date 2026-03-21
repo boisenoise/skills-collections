@@ -62,7 +62,7 @@ and returns a session cookie.
 
 ## Auto-fix Actions
 
-1. Read docs created by ln-002 in Phase 3 (guides/manuals/ADRs/research)
+1. Read docs created in Phase 3 (guides/manuals/ADRs/research)
 2. Query MCP Ref for additional standards:
    ```
    ref_search_documentation(query="[domain] RFC OWASP best practices {current_year}")
@@ -144,7 +144,7 @@ Does solution violate Industry Standard (RFC, OWASP, REST)?
 - Must be checked BEFORE KISS/YAGNI (#11-#12)
 
 **Research Integration:**
-- Phase 3 creates documentation via ln-002 delegation
+- Phase 3 creates documentation inline
 - Criterion #5 reads from Phase 3 docs, fallback to MCP Ref if needed
 - All research completed BEFORE Phase 4 auto-fix begins
 

@@ -21,6 +21,18 @@ Check ALL dimensions across ALL skills in scope. Phase 2 failures are pre-verifi
 - Multiple `**MANDATORY READ:**` in same section -> group into ONE block at section start
 - `> **Paths:**` note present after frontmatter if SKILL.md contains any file references
 
+## D2b: Execution Proximity
+
+Imperative actions in workflow steps (Launch, Run, Execute, Call) that depend on specific tool syntax (CLI flags, API signatures, file format patterns) MUST include an **inline command template** at the point of use — not only in a MANDATORY READ reference.
+
+**Rationale:** Agents may skip MANDATORY READ and "guess" the syntax. Inline template prevents this while MANDATORY READ provides full documentation.
+
+**Check:** For each workflow step containing an imperative action + reference to a shared tool:
+- Step mentions `agent_runner`, `Skill(`, `Bash`, or external CLI → inline code block with exact command MUST be within 5 lines
+- Step says "per {reference}" for execution syntax → inline template or example required
+
+**Severity:** WARN (not FAIL) — advisory, but high-impact for correctness.
+
 ## D3: Duplication
 - Same instructions/rules not repeated across multiple skills
 - Shared logic lives in `shared/references/`, skill-specific in SKILL.md (SRP)

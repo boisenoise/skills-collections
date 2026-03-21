@@ -9,18 +9,22 @@
 - Scan Story content for pattern matches via keyword detection
 - Build list of detected domains requiring documentation
 
-## Step 2: Documentation Delegation
+## Step 2: Inline Documentation Creation
 
-For EACH detected pattern, delegate to ln-002:
+**MANDATORY READ:** Load `shared/references/documentation_creation.md`
 
-```
-Skill(skill="ln-002-best-practices-researcher",
-      args="doc_type=[guide|manual|adr] topic='[pattern]'")
-```
-
-Receive file paths to created documentation (`docs/guides/`, `docs/manuals/`, `docs/adrs/`, `docs/research/`).
+For EACH detected pattern:
+1. Check if doc already exists (Glob by pattern path from domain_patterns.md)
+2. IF missing → load template from `shared/templates/{doc_type}_template.md`
+3. Research per `shared/references/research_methodology.md` + fallback chain
+4. For doc_type=adr: answer the 5 ADR questions (per documentation_creation.md) internally before generation
+5. Generate document (per documentation_creation.md rules: NO CODE, tables first, 300-500 words)
+6. Save to `docs/{type}s/{naming}.md`
+7. Add link to Story Technical Notes
 
 ## Step 3: Research via MCP
+
+**MANDATORY READ:** Load `shared/references/research_methodology.md`
 
 - Query MCP Ref for industry standards: `ref_search_documentation(query="[topic] RFC OWASP best practices {current_year}")`
 - Query Context7 for library versions: `resolve-library-id` + `query-docs`
@@ -113,7 +117,7 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 3 penalty calcu
 
 | # | Criterion | What it checks | Penalty | Auto-fix actions |
 |---|-----------|----------------|---------|------------------|
-| 14 | Documentation Complete | Pattern docs exist + referenced | HIGH (5) | Delegate to ln-002; add all doc links to Technical Notes |
+| 14 | Documentation Complete | Pattern docs exist + referenced | HIGH (5) | Create inline per documentation_creation.md; add all doc links to Technical Notes |
 | 15 | Code Quality Basics | No hardcoded values | MEDIUM (3) | Add TODOs for constants/config/env |
 
 ## Traceability (#16-#17)

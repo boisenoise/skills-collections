@@ -150,7 +150,21 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Check 15: Platform API Compatibility
+## Check 15: Execution proximity (D2b, WARN)
+```bash
+for f in {scoped SKILL.md files}; do
+  # Find imperative actions referencing external tools without inline command template
+  grep -nE '(Launch|Run|Execute) .*(agent_runner|--agent|background task|BOTH agents)' "$f" | while read match; do
+    linenum=$(echo "$match" | cut -d: -f1)
+    # Check 10 lines around for inline code block with actual command
+    nearby=$(sed -n "$((linenum > 5 ? linenum-5 : 1)),$((linenum+10))p" "$f")
+    echo "$nearby" | grep -qE '```|`node |`bash |--prompt-file|--output-file|--agent ' \
+      || echo "WARN: imperative tool action at line $linenum without inline command template: $f"
+  done
+done
+```
+
+## Check 16: Platform API Compatibility
 
 Grep all SKILL.md files in scope for usage of deprecated/removed Claude Code features.
 

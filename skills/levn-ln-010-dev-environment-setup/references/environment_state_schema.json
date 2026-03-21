@@ -1,0 +1,102 @@
+{
+  "$id": "environment_state_v2",
+  "type": "object",
+  "required": ["$schema", "scanned_at", "agents"],
+  "properties": {
+    "$schema": { "const": "environment_state_v2" },
+    "scanned_at": { "type": "string", "format": "date-time" },
+    "agents": {
+      "type": "object",
+      "required": ["codex", "gemini"],
+      "properties": {
+        "codex": {
+          "type": "object",
+          "required": ["available"],
+          "properties": {
+            "available": { "type": "boolean" },
+            "disabled": { "type": "boolean" },
+            "version": { "type": "string" },
+            "detail": { "type": "string" }
+          }
+        },
+        "gemini": {
+          "type": "object",
+          "required": ["available"],
+          "properties": {
+            "available": { "type": "boolean" },
+            "disabled": { "type": "boolean" },
+            "version": { "type": "string" },
+            "detail": { "type": "string" }
+          }
+        }
+      }
+    },
+    "mcp_servers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "configured": { "type": "boolean" },
+          "connected": { "type": "boolean" },
+          "transport": { "enum": ["stdio", "http"] },
+          "source": { "type": "string" },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "mcp_budget": {
+      "type": "object",
+      "properties": {
+        "server_count": { "type": "integer" },
+        "estimated_tokens": { "type": "integer" },
+        "context_percentage": { "type": "number" },
+        "warning": { "type": ["string", "null"] }
+      }
+    },
+    "hooks": {
+      "type": "object",
+      "properties": {
+        "status": { "enum": ["ok", "partial", "not_configured", "disabled"] },
+        "events": { "type": "integer" },
+        "scripts_found": { "type": "string" },
+        "rtk_enabled": { "type": "boolean" },
+        "disable_all_hooks": { "type": "boolean" },
+        "dependencies": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "claude_md": {
+      "type": "object",
+      "properties": {
+        "exists": { "type": "boolean" },
+        "has_compact_instructions": { "type": "boolean" },
+        "line_count": { "type": "integer" },
+        "has_timestamps": { "type": "boolean" }
+      }
+    },
+    "config_sync": {
+      "type": "object",
+      "properties": {
+        "gemini": {
+          "type": "object",
+          "properties": {
+            "synced": { "type": "boolean" },
+            "servers_synced": { "type": "integer" },
+            "hooks_synced": { "type": "integer" },
+            "detail": { "type": "string" }
+          }
+        },
+        "codex": {
+          "type": "object",
+          "properties": {
+            "synced": { "type": "boolean" },
+            "servers_synced": { "type": "integer" },
+            "detail": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

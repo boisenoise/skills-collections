@@ -4,7 +4,7 @@ description: "Reviews skills (D1-D11 + M1-M6 criteria) or .claude/commands for q
 license: MIT
 ---
 
-> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root.
+> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/{path}`.
 
 # ln-162-skill-reviewer
 
@@ -127,7 +127,8 @@ After all fixes applied:
 | Description triggers (D8) | {PASS/WARN} | {list or --} |
 | Cross-skill contracts (D10) | {PASS/FAIL} | {list or --} |
 | Resource lifecycle (D11) | {PASS/FAIL} | {list or --} |
-| Platform API compat (#15) | {PASS/FAIL} | {list or --} |
+| Execution proximity (D2b) | {PASS/WARN} | {list or --} |
+| Platform API compat (#16) | {PASS/FAIL} | {list or --} |
 
 ### Fixed ({count})
 | # | Skill | Dim | Issue | Fix Applied |

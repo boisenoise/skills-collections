@@ -9,7 +9,7 @@ Detailed rules for documentation completeness and code quality (no hardcoded val
 
 ## Criterion #14: Documentation Complete
 
-**Check:** All relevant docs from ln-002 Phase 3 research are referenced in Story
+**Check:** All relevant docs from Phase 3 research are referenced in Story
 
 **Penalty:** HIGH (5 points)
 
@@ -47,10 +47,10 @@ We'll add OAuth authentication and REST API endpoints.
 ```
 
 **Auto-fix actions:**
-1. Check if documentation exists from Phase 3 (created by ln-002)
+1. Check if documentation exists from Phase 3 (created inline)
 2. For EACH keyword in Technical Notes (auth, database, api, error, logging):
    - IF doc exists -> Add reference to Technical Notes
-   - IF doc missing -> Note for ln-002 delegation or add inline MCP Ref reference
+   - IF doc missing -> Create per documentation_creation.md or add MCP Ref reference
 3. Add "Related Documentation" subsection with all doc links
 4. Update Linear issue via `save_issue`
 5. Add comment: "Documentation references added - [list of docs]"
@@ -122,7 +122,7 @@ We'll add OAuth authentication and REST API endpoints.
 - Cannot check hardcoded values (#15) until Technical Notes exist
 
 **Research Integration:**
-- Phase 3 creates documentation via ln-002 delegation
+- Phase 3 creates documentation inline per shared/references/documentation_creation.md
 - Criteria #14-#15 read from Phase 3 docs
 - All research completed BEFORE Phase 4 auto-fix begins
 

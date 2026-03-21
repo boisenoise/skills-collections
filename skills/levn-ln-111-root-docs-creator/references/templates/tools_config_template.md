@@ -48,7 +48,7 @@
 
 ## File Editing
 
-**File Editing:** Per `shared/references/mcp_tool_preferences.md` detection sequence (file-edit MCP → hashline CLI → standard).
+**File Editing:** Per `shared/references/mcp_tool_preferences.md` detection sequence (hex-line MCP → standard tools).
 
 ---
 

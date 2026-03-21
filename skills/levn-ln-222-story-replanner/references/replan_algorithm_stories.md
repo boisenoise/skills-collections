@@ -12,7 +12,7 @@ Comparison logic for ln-222-story-replanner REPLAN MODE. Determines operations (
 **Key Principle:** IDEAL plan (from ln-220 Phase 3) = source of truth. Compare existing Stories against IDEAL.
 
 **Inputs:**
-- IDEAL Story Plan: 5-10 Stories, vertical slices, AC 3-5 each, Standards Research from ln-001
+- IDEAL Story Plan: 5-10 Stories, vertical slices, AC 3-5 each, Standards Research from ln-220
 - Existing Stories: Linear issues (Story Statement, AC, Technical Notes with Standards Research, status)
 
 ## Comparison Algorithm

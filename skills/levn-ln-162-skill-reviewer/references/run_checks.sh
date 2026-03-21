@@ -198,6 +198,33 @@ done
 echo "DONE ($WARNS warnings)"
 echo ""
 
+# ── CHECK 15: Execution proximity (D2b, WARN) ──────────────────────
+echo "=== CHECK 15: Execution proximity (D2b, WARN) ==="
+WARNS=0
+for f in $SCOPE; do
+  while IFS= read -r match; do
+    linenum=$(echo "$match" | cut -d: -f1)
+    start=$((linenum > 5 ? linenum - 5 : 1))
+    endline=$((linenum + 10))
+    nearby=$(sed -n "${start},${endline}p" "$f")
+    if ! echo "$nearby" | grep -qE -- '--prompt-file|--output-file'; then
+      warn "imperative tool action at line $linenum without inline command template: $f"
+      WARNS=$((WARNS + 1))
+    fi
+  done < <(grep -nE '(Launch|Run|Execute) .*(agent_runner|--agent|background task|BOTH agents)' "$f" | grep -v 'health-check' || true)
+done
+echo "DONE ($WARNS warnings)"
+echo ""
+
+# ── CHECK 16: Platform API compatibility ────────────────────────────
+echo "=== CHECK 16: Platform API compatibility ==="
+for f in $SCOPE; do
+  grep -n 'Agent(resume:' "$f" && fail "deprecated Agent(resume:) in $f — use SendMessage({to: agentId})"
+  grep -nE 'effort.*"max"|effort: max' "$f" && fail "deprecated effort \"max\" in $f — use low/medium/high"
+done
+echo "DONE"
+echo ""
+
 # ── SUMMARY ─────────────────────────────────────────────────────────
 echo "================================"
 if [ "$FAILS" -eq 0 ]; then

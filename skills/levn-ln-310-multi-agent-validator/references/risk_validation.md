@@ -25,7 +25,7 @@ Detailed rules for implementation risk analysis in Story/Tasks.
 
 | Cat | Rule | Keywords | Auto-fix |
 |-----|------|----------|----------|
-| R1: Architecture | Non-trivial choices need rationale or ADR ref | architecture, pattern, CQRS, saga, event-driven, microservice, monolith, event sourcing, message queue | FLAG → suggest ADR via ln-002 |
+| R1: Architecture | Non-trivial choices need rationale or ADR ref | architecture, pattern, CQRS, saga, event-driven, microservice, monolith, event sourcing, message queue | FLAG → create ADR per shared/templates/adr_template.md |
 | R2: Error Handling | External calls need timeout, retry, fallback, circuit breaker | error, exception, retry, fallback, timeout, circuit breaker, dead letter, compensation | TODO: Define error handling for [op] |
 | R3: Scalability | Data ops need bounds (pagination, limits, batch). Unbounded = risk | scale, concurrent, batch, pagination, limit, all records, full scan, load all, fetch all, no limit | TODO: Define pagination/batch limits |
 | R4: Data Integrity | Multi-step data ops need transactions with rollback | transaction, rollback, constraint, cascade, delete, drop, truncate, migrate, atomic, consistency | TODO: Wrap [op] in transaction with rollback |
