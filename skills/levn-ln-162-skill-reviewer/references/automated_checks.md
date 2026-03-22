@@ -4,7 +4,7 @@
 
 Run ALL checks below for every SKILL.md in scope. Every FAIL is a confirmed violation -- no judgment needed, no skipping.
 
-## Frontmatter check (D7)
+## Check 1: Frontmatter (D7)
 ```bash
 for f in {scoped SKILL.md files}; do
   head -5 "$f" | grep -q "^---" || echo "FAIL: no frontmatter: $f"
@@ -13,7 +13,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Version/date check (D7)
+## Check 2: Version/date (D7)
 ```bash
 for f in {scoped SKILL.md files}; do
   grep -q "\*\*Version:\*\*" "$f" || echo "FAIL: no version: $f"
@@ -22,7 +22,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Size check (D8)
+## Check 3: Size (D8)
 ```bash
 for f in {scoped SKILL.md files}; do
   lines=$(wc -l < "$f")
@@ -30,7 +30,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Description length check (D8)
+## Check 4: Description length (D8)
 ```bash
 for f in {scoped SKILL.md files}; do
   desc=$(sed -n '/^description:/p' "$f" | sed 's/^description: *//' | tr -d '"')
@@ -39,7 +39,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## MANDATORY READ path verification (D2)
+## Check 5: MANDATORY READ path verification (D2)
 ```bash
 for f in {scoped SKILL.md files}; do
   dir=$(dirname "$f")
@@ -49,7 +49,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Orphan references check (D7)
+## Check 6: Orphan references (D7)
 ```bash
 for f in {scoped SKILL.md files}; do
   dir=$(dirname "$f")
@@ -63,7 +63,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Passive file reference check (D2)
+## Check 7: Passive file reference (D2)
 ```bash
 for f in {scoped SKILL.md files}; do
   # Pattern 1: See/Per/Follows prose patterns
@@ -73,26 +73,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Marketplace skill path check (D8, optional)
-```bash
-if [ -f .claude-plugin/marketplace.json ]; then
-  grep -oE '"\.\/ln-[^"]+' .claude-plugin/marketplace.json | tr -d '"' | while read path; do
-    [ ! -d "$path" ] && echo "FAIL: marketplace.json references missing dir: $path"
-  done
-fi
-```
-
-## Root docs stale skill name check (D6)
-```bash
-for doc in README.md AGENTS.md .claude-plugin/marketplace.json; do
-  [ -f "$doc" ] || continue
-  grep -oE 'ln-[0-9]+-[a-z-]+' "$doc" | sort -u | while read skill; do
-    ls -d ${skill}*/ >/dev/null 2>&1 || echo "FAIL: $doc references missing skill: $skill"
-  done
-done
-```
-
-## Definition of Done check (D7)
+## Check 8: Definition of Done (D7)
 ```bash
 for f in {scoped SKILL.md files}; do
   grep -q "## Definition of Done" "$f" || echo "FAIL: no Definition of Done: $f"
@@ -104,7 +85,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Meta-Analysis check (D7)
+## Check 9: Meta-Analysis L1/L2 (D7)
 ```bash
 for f in {scoped SKILL.md files}; do
   # Detect skill level from Type line
@@ -116,7 +97,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Publishing skill requirements check (D7)
+## Check 10: Publishing skill requirements (D7)
 ```bash
 for f in {scoped SKILL.md files}; do
   if grep -qE '(gh api graphql.*mutation|gh issue comment)' "$f"; then
@@ -126,20 +107,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Skill count accuracy check (D8)
-```bash
-actual=$(ls -d ln-*/SKILL.md 2>/dev/null | wc -l)
-if [ -f README.md ]; then
-  badge=$(grep -oE 'skills-[0-9]+' README.md | grep -oE '[0-9]+')
-  [ -n "$badge" ] && [ "$badge" != "$actual" ] && echo "FAIL: README badge says $badge, actual $actual"
-fi
-if [ -f .claude-plugin/marketplace.json ]; then
-  market=$(grep -oE '"\.\/ln-[^"]+' .claude-plugin/marketplace.json | wc -l)
-  [ "$market" != "$actual" ] && echo "FAIL: marketplace.json has $market entries, actual $actual"
-fi
-```
-
-## Description trigger quality check (D8, WARN)
+## Check 11: Description trigger quality (D8, WARN)
 ```bash
 for f in {scoped SKILL.md files}; do
   desc=$(sed -n '/^description:/p' "$f" | sed 's/^description: *//' | tr -d '"')
@@ -150,7 +118,7 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Check 15: Execution proximity (D2b, WARN)
+## Check 12: Execution proximity (D2b, WARN)
 ```bash
 for f in {scoped SKILL.md files}; do
   # Find imperative actions referencing external tools without inline command template
@@ -164,18 +132,29 @@ for f in {scoped SKILL.md files}; do
 done
 ```
 
-## Check 16: Platform API Compatibility
-
-Grep all SKILL.md files in scope for usage of deprecated/removed Claude Code features.
-
-**Patterns to detect:**
+## Check 13: Platform API Compatibility
 ```bash
-# Removed: Agent(resume:) -- replaced by SendMessage({to: agentId}) in 2.1.77
-grep -n 'Agent(resume:' "$file"
-# Removed: effort level "max" -- simplified to low/medium/high in 2.1.72
-grep -n 'effort.*"max"\|effort: max' "$file"
+for f in {scoped SKILL.md files}; do
+  grep -n 'Agent(resume:' "$f" && echo "FAIL: deprecated Agent(resume:) in $f — use SendMessage({to: agentId})"
+  grep -nE 'effort.*"max"|effort: max' "$f" && echo "FAIL: deprecated effort \"max\" in $f — use low/medium/high"
+done
 ```
 
 **Maintained in:** `references/deprecated_apis.md`
 
-**Result:** PASS if no matches. FAIL with line numbers if deprecated patterns found.
+## Check 17: Worker invocation enforcement (D8b)
+```bash
+for f in {scoped SKILL.md files}; do
+  level=$(grep -oE 'L[12]' "$f" | head -1)
+  [ -z "$level" ] && continue
+  worker_count=$(grep -oE 'ln-[0-9]+-[a-z-]+' "$f" | sort -u | while read w; do
+    self=$(basename $(dirname "$f") | grep -oE 'ln-[0-9]+-[a-z-]+')
+    [ "$w" != "$self" ] && echo "$w"
+  done | sort -u | wc -l)
+  [ "$worker_count" -eq 0 ] && continue
+  skill_calls=$(grep -c 'Skill(skill:' "$f" || true)
+  [ "$skill_calls" -eq 0 ] && echo "FAIL: $level skill delegates to $worker_count workers but has no Skill() invocation code blocks: $f"
+  grep -q 'Worker Invocation (MANDATORY)' "$f" || echo "FAIL: $level skill missing Worker Invocation (MANDATORY) section: $f"
+  grep -q 'TodoWrite format (mandatory)' "$f" || echo "WARN: $level skill missing TodoWrite format section: $f"
+done
+```

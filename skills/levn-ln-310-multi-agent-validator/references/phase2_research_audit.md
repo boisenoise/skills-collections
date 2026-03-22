@@ -1,6 +1,6 @@
 # Phase 3: Research & Audit
 
-**Always execute for every Story - no exceptions.**
+**Always execute — no exceptions.** Steps 1-2 and 5-7 are mode=story only. Steps 3-4 and criteria #5, #6, #21, #28 apply to ALL modes (story, plan_review, context).
 
 ## Step 1: Domain Extraction
 
@@ -22,27 +22,28 @@ For EACH detected pattern:
 6. Save to `docs/{type}s/{naming}.md`
 7. Add link to Story Technical Notes
 
-## Step 3: Research via MCP
+## Step 3: Research via MCP (ALL MODES)
 
 **MANDATORY READ:** Load `shared/references/research_methodology.md`
 
 - Query MCP Ref for industry standards: `ref_search_documentation(query="[topic] RFC OWASP best practices {current_year}")`
 - Query Context7 for library versions: `resolve-library-id` + `query-docs`
 - Extract: standards (RFC numbers, OWASP rules), library versions, patterns
+- **mode=plan_review/context:** pipeline entry via `references/context_review_pipeline.md` (Applicability Check → Stack Detection → this step)
 
-## Step 4: Anti-Hallucination Verification
+## Step 4: Anti-Hallucination Verification (ALL MODES)
 
 **MANDATORY READ:** Load `shared/references/epistemic_protocol.md`
 
-- Scan Story/Tasks for factual claims across ALL trigger categories (per epistemic protocol Section B):
+- Scan artifact (Story/Tasks, plan, or reviewed documents) for factual claims across ALL trigger categories (per epistemic protocol Section B):
   - Version numbers, API signatures, deprecation claims
   - Standards/RFC references, security severity levels
   - Market/competitor data, performance characteristics
 - For each claim, check evidence from Steps 1-3 research results:
   - Has MCP Ref/Context7/WebSearch evidence → mark `VERIFIED`
-  - No tool evidence but claim is plausible → mark `FROM TRAINING` + add to Phase 4 fix list
+  - No tool evidence but claim is plausible → mark `FROM TRAINING` + add to fix list
   - Contradicts tool evidence → mark `FLAGGED` (CRITICAL)
-- Note: Step 4 VERIFIES claims against existing research from Steps 1-3. It does NOT run new searches — new tool queries happen in Phase 4 auto-fix (#6).
+- Note: Step 4 VERIFIES claims against existing research. It does NOT run new searches — new tool queries happen in auto-fix (#6 for story, Compare & Correct for plan/context).
 - Status: VERIFIED (all sourced) | FLAGGED (list unverified with trigger category)
 
 ## Step 5: Pre-mortem Analysis
@@ -87,19 +88,21 @@ Detailed criteria table for Phase 4 auto-fix execution and Phase 3 penalty calcu
 | 4 | Acceptance Criteria | Given/When/Then, 3-5 items | MEDIUM (3) | Normalize to G/W/T; add edge cases; update Linear |
 | 24 | Assumption Registry | Assumptions section with >=1 typed entry; each has Category, Confidence, Invalidation Impact; LOW confidence entries have validation plan in Tasks; Inherited Assumptions in child Tasks match parent Story registry (ID exists + text matches) | MEDIUM (3) | Scan Technical Notes for implicit assumptions (keywords: "assumes", "expects", "requires", "available"); populate table; verify assumption sync in Tasks |
 
-## Standards (#5)
+## Standards (#5) — ALL MODES
 
-| # | Criterion | What it checks | Penalty | Auto-fix actions |
-|---|-----------|----------------|---------|------------------|
-| 5 | Standards Compliance | Each technical decision references specific RFC/OWASP/REST standard by number | CRITICAL (10) | Query MCP Ref; update Technical Notes with compliant approach |
+| # | Criterion | What it checks | Penalty (story) | Auto-fix: story | Auto-fix: plan/context |
+|---|-----------|----------------|-----------------|-----------------|------------------------|
+| 5 | Standards Compliance | Each technical decision references specific RFC/OWASP/REST standard by number | CRITICAL (10) | Query MCP Ref; update Technical Notes with compliant approach | Query MCP Ref; add inline `"(per {RFC}: ...)"` to artifact |
 
-## Solution (#6, #21, #28)
+## Solution (#6, #21, #28) — ALL MODES
 
-| # | Criterion | What it checks | Penalty | Auto-fix actions |
-|---|-----------|----------------|---------|------------------|
-| 6 | Library & Version | Libraries are latest stable | HIGH (5) | Query Context7; update to recommended versions |
-| 21 | Alternative Solutions | Story approach is optimal vs modern alternatives; cross-ref ln-645 audit if `docs/project/.audit/ln-640/*/645-open-source-replacer*.md` available (glob across dates, take latest) | MEDIUM (3) | Search MCP Ref + web for alternatives; if better option found — add "Alternative Considered" note. If ln-645 report exists AND HIGH-confidence replacement touches Story's affected files — add advisory note to Technical Notes with package name + migration effort. If Effort=L — recommend creating separate [REFACTOR] Story instead of blocking current implementation |
-| 28 | Library Feature Utilization | Planned custom code duplicates features of already-declared project dependencies | MEDIUM (3) | Read manifest + Library Research; scan Task plans for custom-build signals; query Context7 (max 3); add advisory to Task Technical Approach |
+| # | Criterion | What it checks | Penalty (story) | Auto-fix: story | Auto-fix: plan/context |
+|---|-----------|----------------|-----------------|-----------------|------------------------|
+| 6 | Library & Version | Libraries are latest stable | HIGH (5) | Query Context7; update to recommended versions | Query Context7; correct version in artifact + deprecation note |
+| 21 | Alternative Solutions | Chosen approach optimal vs modern alternatives; cross-ref ln-645 audit if `docs/project/.audit/ln-640/*/645-open-source-replacer*.md` available (glob across dates, take latest) | MEDIUM (3) | Search MCP Ref + web; add "Alternative Considered" note to Technical Notes. If ln-645 + HIGH-confidence → advisory note | Search MCP Ref; add "Alternative Considered" note to artifact if better option found |
+| 28 | Library Feature Utilization | Custom code duplicates features of declared dependencies | MEDIUM (3) | Read manifest + Context7 (max 3); add advisory to Task Technical Approach | Read manifest + Context7; add advisory "built-in {feature} available" to artifact |
+
+> **Mode differences:** In mode=story, violations accumulate penalty points (Phase 3 Step 7) and are fixed in Phase 4. In mode=plan_review/context, no penalty points — corrections are applied directly per `references/context_review_pipeline.md` Compare & Correct Safety Rules (max 5 corrections).
 
 ## Workflow (#7-#13)
 

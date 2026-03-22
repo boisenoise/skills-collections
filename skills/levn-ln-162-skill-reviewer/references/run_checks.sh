@@ -140,51 +140,9 @@ done
 echo "DONE"
 echo ""
 
-# ── CHECK 11: Marketplace paths (D8, optional) ─────────────────────
-echo "=== CHECK 11: Marketplace paths (D8) ==="
-if [ -f .claude-plugin/marketplace.json ]; then
-  while read -r path; do
-    if [ ! -d "$path" ]; then fail "marketplace.json references missing dir: $path"; fi
-  done < <(grep -oE '"\.\/ln-[^"]+' .claude-plugin/marketplace.json | tr -d '"')
-else
-  echo "SKIP: no marketplace.json"
-fi
-echo "DONE"
-echo ""
+# ── CHECK 11: Description trigger quality (D8, WARN) ─────────────
+echo "=== CHECK 11: Description trigger quality (D8, WARN) ==="
 
-# ── CHECK 12: Root docs stale names (D6) ───────────────────────────
-echo "=== CHECK 12: Root docs stale names (D6) ==="
-for doc in README.md .claude-plugin/marketplace.json; do
-  if [ -f "$doc" ]; then
-    while read -r skill; do
-      ls -d ${skill}*/ >/dev/null 2>&1 || fail "$doc references missing skill: $skill"
-    done < <(grep -oE 'ln-[0-9]+-[a-z-]+' "$doc" | sort -u)
-  fi
-done
-echo "DONE"
-echo ""
-
-# ── CHECK 13: Skill count accuracy (D8) ────────────────────────────
-echo "=== CHECK 13: Skill count accuracy (D8) ==="
-actual=$(ls -d ln-*/SKILL.md 2>/dev/null | wc -l)
-echo "Actual skill count: $actual"
-if [ -f README.md ]; then
-  badge=$(grep -oE 'skills-[0-9]+' README.md | grep -oE '[0-9]+' || true)
-  if [ -n "$badge" ]; then
-    echo "README badge: $badge"
-    if [ "$badge" != "$actual" ]; then fail "README badge says $badge, actual $actual"; fi
-  fi
-fi
-if [ -f .claude-plugin/marketplace.json ]; then
-  market=$(grep -oE '"\.\/ln-[^"]+' .claude-plugin/marketplace.json | wc -l)
-  echo "Marketplace entries: $market"
-  if [ "$market" != "$actual" ]; then fail "marketplace.json has $market entries, actual $actual"; fi
-fi
-echo "DONE"
-echo ""
-
-# ── CHECK 14: Description trigger quality (D8, WARN) ─────────────
-echo "=== CHECK 14: Description trigger quality (D8, WARN) ==="
 WARNS=0
 for f in $SCOPE; do
   desc=$(sed -n '/^description:/p' "$f" | head -1 | sed 's/^description: *//' | tr -d '"')
@@ -198,8 +156,8 @@ done
 echo "DONE ($WARNS warnings)"
 echo ""
 
-# ── CHECK 15: Execution proximity (D2b, WARN) ──────────────────────
-echo "=== CHECK 15: Execution proximity (D2b, WARN) ==="
+# ── CHECK 12: Execution proximity (D2b, WARN) ──────────────────────
+echo "=== CHECK 12: Execution proximity (D2b, WARN) ==="
 WARNS=0
 for f in $SCOPE; do
   while IFS= read -r match; do
@@ -216,11 +174,29 @@ done
 echo "DONE ($WARNS warnings)"
 echo ""
 
-# ── CHECK 16: Platform API compatibility ────────────────────────────
-echo "=== CHECK 16: Platform API compatibility ==="
+# ── CHECK 13: Platform API compatibility ────────────────────────────
+echo "=== CHECK 13: Platform API compatibility ==="
 for f in $SCOPE; do
   grep -n 'Agent(resume:' "$f" && fail "deprecated Agent(resume:) in $f — use SendMessage({to: agentId})"
   grep -nE 'effort.*"max"|effort: max' "$f" && fail "deprecated effort \"max\" in $f — use low/medium/high"
+done
+echo "DONE"
+echo ""
+
+# ── CHECK 17: Worker invocation enforcement (D8b) ───────────────
+echo "=== CHECK 17: Worker invocation enforcement (D8b) ==="
+for f in $SCOPE; do
+  level=$(grep '\*\*Type:\*\*' "$f" | grep -oE 'L[12]' | head -1 || true)
+  [ -z "$level" ] && continue
+  self=$(basename $(dirname "$f") | grep -oE 'ln-[0-9]+-[a-z-]+')
+  worker_count=$(grep -oE 'ln-[0-9]+-[a-z-]+' "$f" | sort -u | while read w; do
+    [ "$w" != "$self" ] && echo "$w"
+  done | sort -u | wc -l)
+  [ "$worker_count" -eq 0 ] && continue
+  skill_calls=$(grep -c 'Skill(skill:' "$f" || true)
+  [ "$skill_calls" -eq 0 ] && fail "$level skill delegates to $worker_count workers but has no Skill() invocation code blocks: $f"
+  grep -q 'Worker Invocation (MANDATORY)' "$f" || fail "$level skill missing Worker Invocation (MANDATORY) section: $f"
+  grep -q 'TodoWrite format (mandatory)' "$f" || warn "$level skill missing TodoWrite format section: $f"
 done
 echo "DONE"
 echo ""

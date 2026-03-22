@@ -1,6 +1,7 @@
-# Context Review Pipeline (mode=context)
+# Context Review Pipeline (mode=plan_review / mode=context)
 
-MCP Ref research pipeline for mode=context and mode=plan_review foreground work. Runs in parallel with agent background tasks.
+Pipeline orchestration for MCP Ref research. Runs in parallel with agent background tasks.
+Criteria definitions: `references/phase2_research_audit.md` (criteria #5, #6, #21, #28 + Anti-Hallucination — sections marked "ALL MODES").
 
 ## Applicability Check
 
@@ -33,6 +34,14 @@ Priority order for `query_prefix`:
 | `build.gradle`, `pom.xml` | Java | `"Java"` |
 
 4. Parse git diff for technology mentions (fallback heuristic)
+
+## Research Execution
+
+Apply criteria #5, #6, #21, #28 from `references/phase2_research_audit.md` (see "Auto-fix: plan/context" column):
+
+1. For each extracted topic, run queries per criterion
+2. Anti-Hallucination (Step 4 from phase2_research_audit.md) — verify factual claims in artifact
+3. Each finding → CORRECTED / VALIDATED / REVIEW NEEDED
 
 ## Compare & Correct Safety Rules
 

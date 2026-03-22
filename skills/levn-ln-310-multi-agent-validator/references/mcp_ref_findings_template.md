@@ -7,15 +7,15 @@
 
 ## Corrections Applied
 
-| # | File | Line | Topic | Plan Statement | Official Docs Say | Action |
-|---|------|------|-------|----------------|-------------------|--------|
-| 1 | {file} | {line} | {topic} | {before} | {after} (per {source}) | CORRECTED |
+| # | Criterion | File | Line | Topic | Plan Statement | Official Docs Say | Action |
+|---|-----------|------|------|-------|----------------|-------------------|--------|
+| 1 | #5 | {file} | {line} | {topic} | {before} | {after} (per {source}) | CORRECTED |
 
 ## Validated (No Issues)
 
-| Topic | Plan Statement | Confirmed By |
-|-------|----------------|-------------|
-| {topic} | {statement} | {source}: "{query}" |
+| Criterion | Topic | Plan Statement | Confirmed By |
+|-----------|-------|----------------|-------------|
+| #6 | {topic} | {statement} | {source}: "{query}" |
 
 ## Review Needed (Ambiguous)
 

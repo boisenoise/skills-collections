@@ -85,6 +85,28 @@ Imperative actions in workflow steps (Launch, Run, Execute, Call) that depend on
 - L2->L2 cross-category delegation follows forward-flow (0XX->1XX->...->6XX), except 0XX shared services
 - Coupling reduction in `shared/` files -- shared references describe patterns, NOT consumers. Forbidden in any form: `Used by`, `Skills using this:`, `For ln-NNN`, `via ln-NNN` suffixes, skill names in role descriptions, skill IDs in code examples. Use generic role names (`task executor`, `review worker`). Consumers reference shared via MANDATORY READ; reverse direction is never needed
 
+
+## D8b: Worker Invocation Enforcement (L1/L2 only)
+
+L1 orchestrators and L2 coordinators that delegate to workers MUST have all three:
+
+| Required Element | Pattern to Grep | Where |
+|-----------------|----------------|-------|
+| Explicit invocation code | `Skill(skill:` or `Agent(description:.*Skill(skill:` | Per-worker in workflow section |
+| Worker Invocation section | `## Worker Invocation (MANDATORY)` | Dedicated section |
+| TodoWrite tracking | `TodoWrite format (mandatory):` | Near Worker Invocation section |
+
+**Detection:** Skill is L1/L2 if `Type:` line contains `L1` or `L2`, or SKILL.md has a Worker Invocation table referencing other `ln-NNN` skills.
+
+**Check:** For each L1/L2 skill with worker references:
+1. Count distinct `ln-NNN` skills in worker/delegation tables
+2. Count `Skill(skill: "ln-NNN` code blocks in workflow
+3. If worker count > invocation count → FAIL: workers described but not explicitly invoked
+4. If no `Worker Invocation (MANDATORY)` section → FAIL
+5. If no `TodoWrite format (mandatory)` → WARN
+
+**Why:** Without explicit `Skill()` code blocks, agents "forget" to invoke workers and execute their logic inline. This is a recurring failure pattern in coordinators.
+
 ## D9: Pattern Compliance (conditional -- `ln-6*` audit skills only)
 - References `shared/references/two_layer_detection.md` via MANDATORY READ
 - Scoring formula consistent: `penalty = (C*2.0) + (H*1.0) + (M*0.5) + (L*0.2)`

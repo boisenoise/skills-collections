@@ -75,35 +75,5 @@ Per protocol §5: compare actual outcome vs pre-execution expectations.
 
 Append to `docs/tasks/reports/pipeline-{date}.md`:
 
-```
----
-
-## Meta-Analysis
-
-### Stage & Skill Effectiveness
-
-| Stage | Skill  | Duration | Status | Skill Result                             |
-|-------|--------|----------|--------|------------------------------------------|
-| 0     | ln-300 | {dur}    | {OK/!} | Plan {score}/4, {N} tasks                |
-| 1     | ln-310 | {dur}    | {OK/!} | {GO/NO-GO}, Readiness {score}/10         |
-| 2     | ln-400 | {dur}    | {OK/!} | {files} files, +{add}/-{del}             |
-| 3     | ln-500 | {dur}    | {OK/!} | {verdict}, Score {score}/100, {rework} rework |
-
-### Problems & Limitations
-
-{IF infra_issues empty: "None detected."}
-{ELSE:
-| # | Stage   | Type             | Description          | Recovery Action                          |
-|---|---------|------------------|----------------------|------------------------------------------|
-{row per infra_issue}
-}
-
-### Improvement Candidates
-
-{IF candidates: numbered list of focus areas}
-{ELSE: "None — pipeline ran clean."}
-
-### Assumptions
-
-{what matched vs what surprised — per protocol §5}
-```
+Output per `shared/references/meta_analysis_protocol.md` format.
+Pipeline-specific data to include: stage table from §1, recovery map from §2, trend from §4, assumptions from §5.
