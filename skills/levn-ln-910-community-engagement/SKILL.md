@@ -171,6 +171,29 @@ Skill type: `planning-coordinator`. Run after Phase 3 completes. Output to chat 
 
 ---
 
+**TodoWrite format (mandatory):**
+```
+- GitHub discovery (in_progress)
+- Situation analysis (pending)
+- Apply decision matrix (pending)
+- Invoke ln-911-github-triager (pending)
+- Invoke ln-912-community-announcer (pending)
+- Invoke ln-913-community-debater (pending)
+- Invoke ln-914-community-responder (pending)
+- Report outcome to user (pending)
+```
+
+## Worker Invocation (MANDATORY)
+
+| Phase | Worker | Context |
+|-------|--------|---------|
+| 1 | ln-911-github-triager | Shared (Skill tool) — community health summary |
+| 3 | ln-912-community-announcer | Shared (Skill tool) — feature/release announcements |
+| 3 | ln-913-community-debater | Shared (Skill tool) — RFC / architectural debates |
+| 3 | ln-914-community-responder | Shared (Skill tool) — respond to unanswered items |
+
+**All workers:** Invoke via Skill tool — workers see coordinator context.
+
 ## Definition of Done
 
 - [ ] GitHub discovery complete (owner/repo, categories, maintainer extracted)

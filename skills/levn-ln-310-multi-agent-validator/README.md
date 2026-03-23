@@ -7,7 +7,7 @@ Quick-reference for understanding how the validator works at runtime. For implem
 | | mode=story | mode=plan_review | mode=context |
 |---|-----------|-----------|-------------|
 | **Input** | Story ID (Backlog) | Plan file (auto-detect) | Conversation + git diff |
-| **Phases** | 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 | 0 → 1 → 2 → 3 → 5 → 7 | 0 → 1 → 2 → 3 → 5 → 7 |
+| **Phases** | 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 | 0 → 1 → 2 → 3 → 5 → 6 → 8 | 0 → 1 → 2 → 3 → 5 → 6 → 8 |
 | **Phase 3 work** | 28-criteria audit + display | MCP Ref research | MCP Ref research |
 | **Agents** | Codex + Gemini (background) | Codex + Gemini (background) | Codex + Gemini (background) |
 | **Output** | GO/NO-GO, Story → Todo | Advisory corrections | Advisory corrections |
@@ -26,12 +26,12 @@ Phase 0         Phase 1          Phase 2                Phase 3
 └──────────┘   └─────────────┘  └──────────────────┘   │ Display pts  │
                                   │ agents in background│ + Fix Plan   │
                                   ▼                     └──────┬───────┘
-Phase 4          Phase 5                    Phase 6            │Phase 7
-┌──────────────┐ ┌────────────────────────┐ ┌──────────────┐ ┌─────────────┐
-│ Auto-Fix     │ │ Wait for agents        │ │ Story → Todo │ │ Self-Check  │
-│ 11 groups    │→│ Parse + Merge + Dedup  │→│ Kanban update│→│ All [ ] must│
-│ 28 criteria  │ │ Debate if DISAGREE     │ │ Summary post │ │ be [x]      │
-└──────────────┘ └────────────────────────┘ └──────────────┘ └─────────────┘
+Phase 4          Phase 5                    Phase 6            Phase 7            │Phase 8
+┌──────────────┐ ┌────────────────────────┐ ┌──────────────┐ ┌──────────────┐ ┌─────────────┐
+│ Auto-Fix     │ │ Wait for agents        │ │ Iterative    │ │ Story → Todo │ │ Self-Check  │
+│ 11 groups    │→│ Parse + Merge + Dedup  │→│ Refinement   │→│ Kanban update│→│ All [ ] must│
+│ 28 criteria  │ │ REJECT if disagree     │ │ Codex loop   │ │ Summary post │ │ be [x]      │
+└──────────────┘ └────────────────────────┘ └──────────────┘ └──────────────┘ └─────────────┘
 ```
 
 ### mode=plan_review / mode=context
@@ -40,11 +40,17 @@ Phase 4          Phase 5                    Phase 6            │Phase 7
 Phase 0         Phase 1          Phase 2                Phase 3            Phase 5
 ┌──────────┐   ┌─────────────┐  ┌──────────────────┐   ┌──────────────┐  ┌────────────────┐
 │ Load     │   │ Resolve     │  │ Health Check     │   │ MCP Ref      │  │ Wait agents    │
-│ tools_   │──→│ input +     │─→│ Build prompt     │──→│ Research     │─→│ Merge + Debate │
+│ tools_   │──→│ input +     │─→│ Build prompt     │──→│ Research     │─→│ Merge + Verify │
 │ config   │   │ metadata    │  │ Launch agents ◄──┼───┼── PARALLEL   │  │ Apply accepted │
 └──────────┘   └─────────────┘  └──────────────────┘   │ Compare &    │  └───────┬────────┘
                                                         │ Correct      │          │
-                                                        └──────────────┘    Phase 7
+                                                        └──────────────┘    Phase 6
+                                                                        ┌──────────────┐
+                                                                        │ Iterative    │
+                                                                        │ Refinement   │
+                                                                        └──────┬───────┘
+                                                                               │
+                                                                         Phase 8
                                                                         ┌──────────────┐
                                                                         │ Self-Check   │
                                                                         │ Advisory out │
@@ -76,8 +82,8 @@ Phase 2                           Phases 3-4 (foreground)           Phase 5
                                                                 │             │
                                                                 │ AGREE →    │
                                                                 │   apply    │
-                                                                │ DISAGREE → │
-                                                                │   debate   │
+                                                                │ REJECT →   │
+                                                                │   skip     │
                                                                 └─────────────┘
 ```
 
@@ -99,9 +105,13 @@ Claude                           Codex CLI                    Gemini CLI
   ├─ merge + dedup                  │                             │
   │                                 │                             │
   ├─ AGREE → apply fix              │                             │
-  ├─ DISAGREE → debate:             │                             │
-  │   ├─ Challenge (session resume)─┼→ response                   │
-  │   └─ Follow-up ────────────────→│                             │
+  ├─ REJECT → skip                  │                             │
+  │                                 │                             │
+  ├─ Iterative Refinement loop:     │                             │
+  │   ├─ Send artifact to Codex ───→│ review                      │
+  │   ├─ Parse suggestions ◄────────┤ suggestions[]               │
+  │   ├─ AGREE/REJECT each          │                             │
+  │   └─ Repeat until APPROVED      │                             │
   │                                 │                             │
   ├─ Save review_history.md         │                             │
   └─ Display summary                │                             │
@@ -159,7 +169,7 @@ AC Coverage: 100% = pass    80-99% = -3 penalty    <80% = -5, NO-GO
 
 | File | Purpose | Read in |
 |------|---------|---------|
-| `SKILL.md` | Full workflow spec (phases 0-7) | Entry point |
+| `SKILL.md` | Full workflow spec (phases 0-9) | Entry point |
 | **Validation criteria** | | |
 | `references/phase2_research_audit.md` | 28 criteria + auto-fix actions table | Phase 3 |
 | `references/penalty_points.md` | Calculation rules, caps, report format | Phase 3 |
@@ -179,7 +189,7 @@ AC Coverage: 100% = pass    80-99% = -3 penalty    <80% = -5, NO-GO
 | `references/domain_patterns.md` | Pattern registry for domain extraction | Phase 3 |
 | `references/mcp_ref_findings_template.md` | Output template for MCP findings | Phase 3 |
 | **Shared** | | |
-| `shared/references/agent_review_workflow.md` | Agent launch, merge, debate protocol | Phase 2, 5 |
+| `shared/references/agent_review_workflow.md` | Agent launch, merge, refinement protocol | Phase 2, 5, 6 |
 | `shared/references/agent_delegation_pattern.md` | Inline agent review architecture | Phase 2 |
 | `shared/references/agent_review_memory.md` | Review history dedup | Phase 5 |
 | `shared/agents/prompt_templates/review_base.md` | Base prompt for all agent modes | Phase 2 |
@@ -187,5 +197,5 @@ AC Coverage: 100% = pass    80-99% = -3 penalty    <80% = -5, NO-GO
 | `shared/references/research_tool_fallback.md` | MCP Ref → Context7 → WebSearch chain | Phase 3 |
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-03-10
+**Version:** 2.0.0
+**Last Updated:** 2026-03-22

@@ -210,6 +210,24 @@ Options:
 
 ---
 
+**TodoWrite format (mandatory):**
+```
+- Invoke ln-831-oss-replacer (in_progress)
+- Invoke ln-832-bundle-optimizer (pending)
+- Aggregate reports (pending)
+```
+
+## Worker Invocation (MANDATORY)
+
+| Phase | Worker | Context |
+|-------|--------|---------|
+| 2 | ln-831-oss-replacer | Isolated (Agent tool) — OSS replacements for custom code |
+| 2 | ln-832-bundle-optimizer | Isolated (Agent tool) — bundle size optimization (runs after ln-831) |
+
+**All workers:** Invoke via Agent tool with `isolation: "worktree"` — sequential execution, ln-831 before ln-832.
+
+---
+
 ## Definition of Done
 
 - [ ] Input analyzed (audit report or target module)

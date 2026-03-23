@@ -182,6 +182,24 @@ Next steps:
 
 ---
 
+**TodoWrite format (mandatory):**
+```
+- Invoke ln-161-skill-creator (in_progress)
+- Invoke ln-162-skill-reviewer (pending)
+- Aggregate report (pending)
+```
+
+## Worker Invocation (MANDATORY)
+
+| Phase | Worker | Context |
+|-------|--------|---------|
+| 4 | ln-161-skill-creator | Shared (Skill tool) — create commands from approved sections |
+| 5 | ln-162-skill-reviewer | Shared (Skill tool) — review created commands |
+
+**All workers:** Invoke via Skill tool — workers see coordinator context.
+
+---
+
 ## Definition of Done
 
 - [ ] Doc inventory built (all scan targets discovered)

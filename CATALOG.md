@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-03-22 06:26 UTC*
+*Last updated: 2026-03-23 06:38 UTC*
 
 Total skills: **2438**
 
@@ -987,7 +987,7 @@ Total skills: **2438**
 | `levn-ln-012-mcp-configurator` | Installs MCP servers, registers them in Claude Code, and grants user-level permissions. Use when MCP... |
 | `levn-ln-013-config-syncer` | Syncs skills, MCP settings, and hooks from Claude Code to Gemini CLI and Codex CLI via symlinks and ... |
 | `levn-ln-014-agent-instructions-auditor` | Audits CLAUDE.md, AGENTS.md, GEMINI.md for token budget, prompt cache safety, compact instructions, ... |
-| `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, impact checking, and architecture o... |
+| `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests, presentation).... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
@@ -1789,6 +1789,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-full-stack-orchestration-full-stack-feature` | Use when working with full stack orchestration full stack feature |
 | `antigravity-game-development` | Game development orchestrator. Routes to platform-specific skills based on project needs. |
 | `antigravity-gcp-cloud-run` | When to use: ['Web applications and APIs', 'Need any runtime or library', 'Complex services with mul... |
+| `antigravity-gdb-cli` | GDB debugging assistant for AI agents - analyze core dumps, debug live processes, investigate crashe... |
 | `antigravity-gdpr-data-handling` | Practical implementation guide for GDPR-compliant data processing, consent management, and privacy c... |
 | `antigravity-gemini-api-dev` | The Gemini API provides access to Google's most advanced AI models. Key capabilities include: |
 | `antigravity-gemini-api-integration` | Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, str... |
@@ -1817,7 +1818,6 @@ behavior. Use proactively when encoun... |
 | `antigravity-godot-4-migration` | Specialized guide for migrating Godot 3.x projects to Godot 4 (GDScript 2.0), covering syntax change... |
 | `antigravity-godot-gdscript-patterns` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use wh... |
 | `antigravity-golang-pro` | Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production... |
-| `antigravity-goldrush-api` | Query blockchain data across 100+ chains: wallet balances, token prices, transactions, DEX pairs, an... |
 | `antigravity-google-analytics-automation` | Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn... |
 | `antigravity-google-calendar-automation` | Lightweight Google Calendar integration with standalone OAuth authentication. No MCP server required... |
 | `antigravity-google-docs-automation` | Lightweight Google Docs integration with standalone OAuth authentication. No MCP server required. |
