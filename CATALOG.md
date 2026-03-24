@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-23 06:38 UTC*
+*Last updated: 2026-03-24 06:33 UTC*
 
-Total skills: **2438**
+Total skills: **2441**
 
 ## Skills by Source
 
@@ -982,13 +982,13 @@ Total skills: **2438**
 |-------|-------------|
 | `levn-ln-001-push-all` | Commits and pushes all changes (staged, unstaged, untracked) to remote. Use when you need a quick pu... |
 | `levn-ln-002-session-analyzer` | Analyzes current or recent session for errors, inefficiencies, and improvement opportunities across ... |
-| `levn-ln-010-dev-environment-setup` | Scans, installs, and configures dev environment: CLI agents, MCP servers, config sync, hooks. Use af... |
-| `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, and Claude Code to latest versions. Use when CLI agents n... |
-| `levn-ln-012-mcp-configurator` | Installs MCP servers, registers them in Claude Code, and grants user-level permissions. Use when MCP... |
+| `levn-ln-010-dev-environment-setup` | Installs agents, configures MCP servers, syncs configs, creates and audits instructions. Use after s... |
+| `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, and Claude Code. Use when CLI agents need installation or... |
+| `levn-ln-012-mcp-configurator` | Installs MCP packages, registers servers in Claude Code, configures hooks, permissions, and migratio... |
 | `levn-ln-013-config-syncer` | Syncs skills, MCP settings, and hooks from Claude Code to Gemini CLI and Codex CLI via symlinks and ... |
-| `levn-ln-014-agent-instructions-auditor` | Audits CLAUDE.md, AGENTS.md, GEMINI.md for token budget, prompt cache safety, compact instructions, ... |
+| `levn-ln-014-agent-instructions-manager` | Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md) and audits all for token budget,... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
-| `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests, presentation).... |
+| `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
 | `levn-ln-111-root-docs-creator` | Creates root documentation files (CLAUDE.md, docs/README.md, standards, principles, tools config). U... |
@@ -999,7 +999,6 @@ Total skills: **2438**
 | `levn-ln-120-reference-docs-creator` | Creates reference docs (ADRs, guides, manuals) for nontrivial tech stack choices. Use when project n... |
 | `levn-ln-130-tasks-docs-creator` | Creates task management docs (kanban board, workflow rules) with Linear integration. Use when settin... |
 | `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md, tests/README.md) with Risk-Based Testing philosophy... |
-| `levn-ln-150-presentation-creator` | Builds interactive HTML presentation from project docs with Mermaid diagrams. Use when sharing proje... |
 | `levn-ln-160-docs-skill-extractor` | Extracts procedural content from project docs into .claude/commands skills. Use when docs contain de... |
 | `levn-ln-161-skill-creator` | Creates .claude/commands from procedural doc sections. Use when transforming documentation prose int... |
 | `levn-ln-162-skill-reviewer` | Reviews skills (D1-D11 + M1-M6 criteria) or .claude/commands for quality. Use when validating skill ... |
@@ -1161,6 +1160,7 @@ Total skills: **2438**
 | `superpowers-lab-mcp-cli` | Use MCP servers on-demand via the mcp CLI tool - discover tools, resources, and prompts without poll... |
 | `superpowers-lab-slack-messaging` | Use when asked to send or read Slack messages, check Slack channels, test Slack integrations, or int... |
 | `superpowers-lab-using-tmux-for-interactive-commands` | Use when you need to run interactive CLI tools (vim, git rebase -i, Python REPL, etc.) that require ... |
+| `superpowers-lab-windows-vm` | Create, manage, or connect to a headless Windows 11 VM running in Docker with SSH access. Use when t... |
 
 ### obra/superpowers-skills
 
@@ -1899,6 +1899,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-javascript-testing-patterns` | Comprehensive guide for implementing robust testing strategies in JavaScript/TypeScript applications... |
 | `antigravity-javascript-typescript-typescript-scaffold` | You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.j... |
 | `antigravity-jira-automation` | Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw... |
+| `antigravity-jobgpt` | Job search automation, auto apply, resume generation, application tracking, salary intelligence, and... |
 | `antigravity-json-canvas` | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when wor... |
 | `antigravity-julia-pro` | Master Julia 1.10+ with modern features, performance optimization, multiple dispatch, and production... |
 | `antigravity-junta-leiloeiros` | Coleta e consulta dados de leiloeiros oficiais de todas as 27 Juntas Comerciais do Brasil. Scraper m... |
@@ -2024,6 +2025,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-monorepo-architect` | Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turb... |
 | `antigravity-monorepo-management` | Build efficient, scalable monorepos that enable code sharing, consistent tooling, and atomic changes... |
 | `antigravity-moodle-external-api-development` | This skill guides you through creating custom external web service APIs for Moodle LMS, following Mo... |
+| `antigravity-moyu` | Anti-over-engineering guardrail that activates when an AI coding agent expands scope, adds abstracti... |
 | `antigravity-mtls-configuration` | Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing z... |
 | `antigravity-multi-advisor` | Conselho de especialistas — consulta multiplos agentes do ecossistema em paralelo para analise multi... |
 | `antigravity-multi-agent-brainstorming` | Simulate a structured peer-review process using multiple specialized agents to validate designs, sur... |
@@ -2497,6 +2499,7 @@ calculations
 | `antigravity-wiki-researcher` | You are an expert software engineer and systems analyst. Use when user asks "how does X work" with e... |
 | `antigravity-wiki-vitepress` | Transform generated wiki Markdown files into a polished VitePress static site with dark theme and in... |
 | `antigravity-windows-privilege-escalation` | Provide systematic methodologies for discovering and exploiting privilege escalation vulnerabilities... |
+| `antigravity-windows-shell-reliability` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
 | `antigravity-wireshark-analysis` | Execute comprehensive network traffic analysis using Wireshark to capture, filter, and examine netwo... |
 | `antigravity-wordpress` | Complete WordPress development workflow covering theme development, plugin creation, WooCommerce int... |
 | `antigravity-wordpress-penetration-testing` | Conduct comprehensive security assessments of WordPress installations including enumeration of users... |

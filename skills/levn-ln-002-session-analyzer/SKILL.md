@@ -5,7 +5,7 @@ license: MIT
 allowed-tools: "Bash, Read, Glob, Grep, Agent, mcp__hex-line__read_file, mcp__hex-line__grep_search, mcp__hex-line__outline"
 ---
 
-> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/{path}`.
+> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
 
 # Session Analyzer (Standalone Utility)
 
@@ -88,22 +88,22 @@ Run for each found session file (`$F`):
 
 ```bash
 echo "=== TOOL CALLS ==="
-grep -oP '"name"\s*:\s*"[^"]*"' "$F" 2>/dev/null | sed 's/"name"\s*:\s*"//;s/"//' | sort | uniq -c | sort -rn | head -30
+grep -oE '"name"\s*:\s*"[^"]*"' "$F" 2>/dev/null | sed 's/"name"\s*:\s*"//;s/"//' | sort | uniq -c | sort -rn | head -30
 
 echo "=== ERRORS ==="
-grep -oP 'NOOP_EDIT|TEXT_NOT_FOUND|FILE_NOT_FOUND|HASH_HINT|DANGEROUS|out of range|mismatch|tool_use_error|permission denied' "$F" 2>/dev/null | sort | uniq -c | sort -rn
+grep -oE 'NOOP_EDIT|TEXT_NOT_FOUND|FILE_NOT_FOUND|HASH_HINT|DANGEROUS|out of range|mismatch|tool_use_error|permission denied' "$F" 2>/dev/null | sort | uniq -c | sort -rn
 
 echo "=== TOOL LOOPS (3+ consecutive) ==="
-grep -oP '"name"\s*:\s*"[^"]*"' "$F" 2>/dev/null | sed 's/"name"\s*:\s*"//;s/"//' | uniq -c | sort -rn | awk '$1 >= 3'
+grep -oE '"name"\s*:\s*"[^"]*"' "$F" 2>/dev/null | sed 's/"name"\s*:\s*"//;s/"//' | uniq -c | sort -rn | awk '$1 >= 3'
 
 echo "=== BUILT-IN vs MCP ==="
-grep -oP '"name"\s*:\s*"(Read|Edit|Write|Grep|mcp__hex-line__\w+)"' "$F" 2>/dev/null | sed 's/.*"name"\s*:\s*"//;s/"//' | sort | uniq -c | sort -rn
+grep -oE '"name"\s*:\s*"(Read|Edit|Write|Grep|mcp__hex-line__\w+)"' "$F" 2>/dev/null | sed 's/.*"name"\s*:\s*"//;s/"//' | sort | uniq -c | sort -rn
 
 echo "=== HOOK EVENTS ==="
-grep -oP 'hook_progress|blocking error|PreToolUse|PostToolUse|hex-confirmed|Obligatory use|Use mcp__hex-line' "$F" 2>/dev/null | sort | uniq -c | sort -rn
+grep -oE 'hook_progress|blocking error|PreToolUse|PostToolUse|hex-confirmed|Obligatory use|Use mcp__hex-line' "$F" 2>/dev/null | sort | uniq -c | sort -rn
 
 echo "=== SKILL/COMMAND INVOCATIONS ==="
-grep -oP '"display":\s*"/[a-z-]+' "$F" 2>/dev/null | sed 's/"display":\s*"//' | sort | uniq -c | sort -rn
+grep -oE '"display":\s*"/[a-z-]+' "$F" 2>/dev/null | sed 's/"display":\s*"//' | sort | uniq -c | sort -rn
 ```
 
 ---

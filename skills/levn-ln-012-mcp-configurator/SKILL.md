@@ -1,6 +1,6 @@
 ---
 name: ln-012-mcp-configurator
-description: "Installs MCP servers, registers them in Claude Code, and grants user-level permissions. Use when MCP servers need setup or reconfiguration."
+description: "Installs MCP packages, registers servers in Claude Code, configures hooks, permissions, and migrations. Use when MCP needs setup or reconfiguration."
 license: MIT
 ---
 
@@ -11,7 +11,7 @@ license: MIT
 **Type:** L3 Worker
 **Category:** 0XX Shared
 
-Configures MCP servers in Claude Code: audits state, registers servers, installs hooks and output style, migrates allowed-tools, updates instruction files, grants permissions, analyzes token budget.
+Configures MCP servers in Claude Code: installs npm packages, registers servers, installs hooks and output style, migrates allowed-tools, updates instruction files, grants permissions.
 
 ---
 
@@ -19,8 +19,8 @@ Configures MCP servers in Claude Code: audits state, registers servers, installs
 
 | Direction | Content |
 |-----------|---------|
-| **Input** | OS info, existing MCP state (optional, from scan), `dry_run` flag |
-| **Output** | Per-server status (`configured` / `added` / `skipped` / `failed`), budget analysis |
+| **Input** | OS info, `dry_run` flag |
+| **Output** | Per-server status (`configured` / `added` / `skipped` / `failed`) |
 
 ---
 
@@ -37,21 +37,70 @@ Two transport types: **stdio** (local process) and **HTTP** (cloud endpoint).
 | Ref | HTTP | `https://api.ref.tools/mcp` | Yes | Yes (prompt user) |
 | linear | HTTP | `https://mcp.linear.app/mcp` | Ask user | No (OAuth) |
 
-**hex-line/hex-ssh/hex-graph source selection:** Prefer global install (`npm i -g`). Hooks require stable absolute path — `npx` cache is ephemeral and rejected by `setup_hooks`. Use local `node {repo}/mcp/*/server.mjs` only for active MCP development.
 
 ---
 
 ## Workflow
 
-Audit  -->  Update  -->  Configure  -->  Register  -->  Permissions  -->  Budget  -->  Report
+```
+Install → Register & Configure → Hooks → Permissions → Migrate → Report
+```
 
-### Phase 1: Audit Current MCP State
+### Phase 1: Install & Verify MCP Packages
 
-1. Run `claude mcp list` — canonical source of truth for configured servers
-   - Parse output: server name, transport type, connection status
-   - Fallback if `claude` CLI unavailable: read `~/.claude.json` + `~/.claude/settings.json`, merge by server name
-2. Build table of configured vs missing servers (compare against registry)
-3. Check for deprecated servers and flag for removal:
+Smart install: check MCP status first, then npm versions. Skip what's already working.
+
+**Step 1a: Check MCP server status**
+
+Run `claude mcp list` → parse each hex server:
+
+| Server | Status | Action |
+|--------|--------|--------|
+| Registered + Connected | Working | Skip install, go to Step 1b (update check) |
+| Registered + Disconnected | Broken | Reinstall npm package (Step 1c) |
+| Not registered | Missing | Full install (Step 1c) + register in Phase 2 |
+
+**Step 1b: Check for npm updates (connected servers only)**
+
+Run `npm outdated -g @levnikolaevich/{pkg}` for each connected server's package:
+
+| Result | Action |
+|--------|--------|
+| No output (up to date) | SKIP — report "current: vX.Y.Z" |
+| Shows newer version | UPDATE — `npm i -g @levnikolaevich/{pkg}` |
+
+**Step 1c: Install missing / broken packages**
+
+For servers not found or disconnected in Step 1a:
+1. `npm i -g @levnikolaevich/{pkg}`
+2. Verify: `npm ls -g @levnikolaevich/{pkg} --json`
+
+**Decision flow per server:**
+
+```
+claude mcp list → connected? ─── yes ──→ npm outdated → outdated? ── yes ──→ npm i -g (update)
+                       │                                    │
+                       no                                   no → SKIP
+                       │
+                       ▼
+                 npm i -g (install)
+```
+
+**Skip conditions:**
+
+| Condition | Action |
+|-----------|---------|
+| `disabled: true` | SKIP |
+| `dry_run: true` | Show planned commands |
+| Connected + up to date | SKIP, report version |
+
+### Phase 2: Register & Configure
+
+One pass: use Phase 1 state (do NOT re-run `claude mcp list`) → remove deprecated → register missing → verify.
+
+1. **Reuse Phase 1 state** — server map from Step 1a already has registration + connection status
+   - Fallback (standalone only): read `~/.claude.json` + `~/.claude/settings.json`
+2. Remove deprecated servers:
 
 | Deprecated Server | Action |
 |-------------------|--------|
@@ -61,61 +110,23 @@ Audit  -->  Update  -->  Configure  -->  Register  -->  Permissions  -->  Budget
 | playwright | Remove if found |
 | browsermcp | Remove if found |
 
-### Phase 2: Update Outdated npm Packages
+3. Register missing servers:
+   - IF already configured AND connected → SKIP
+   - IF `dry_run: true` → show planned command
+   - IF **linear** → ask user: "Do you use Linear?" → no → SKIP
 
-For each hex MCP package (`@levnikolaevich/hex-line-mcp`, `hex-ssh-mcp`, `hex-graph-mcp`):
-
-1. Check if globally installed: `npm ls -g @levnikolaevich/hex-line-mcp --json 2>/dev/null`
-2. If installed, check for updates: `npm outdated -g @levnikolaevich/hex-line-mcp`
-3. If outdated → run `npm i -g @levnikolaevich/hex-line-mcp@latest`
-4. Report: `"hex-line: 1.1.0 → 1.1.2 (updated)"` or `"hex-line: 1.1.2 (current)"`
-
-```bash
-# Check and update all hex MCP packages:
-for pkg in @levnikolaevich/hex-line-mcp @levnikolaevich/hex-ssh-mcp @levnikolaevich/hex-graph-mcp; do
-  current=$(npm ls -g "$pkg" --json 2>/dev/null | node -e "try{console.log(JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).dependencies['${pkg}'].version)}catch{console.log('')}")
-  if [ -n "$current" ]; then
-    latest=$(npm view "$pkg" version 2>/dev/null)
-    if [ "$current" != "$latest" ]; then
-      npm i -g "${pkg}@latest"
-      echo "$pkg: $current → $latest (updated)"
-    else
-      echo "$pkg: $current (current)"
-    fi
-  fi
-done
-```
-
-**Skip conditions:**
-- Package not installed globally → skip (Phase 3 handles fresh installs)
-- `dry_run: true` → show planned update, do not execute
-- Dev mode servers (local `node {repo}/mcp/*/server.mjs`) → skip npm update
-
-### Phase 3: Configure Missing Servers
-
-For each server in registry not yet configured:
-
-1. IF already configured AND `claude mcp list` shows connected → SKIP
-2. IF `dry_run: true` → show planned `claude mcp add` command, do not execute
-3. IF **linear** → ask user: "Do you use Linear for task management?" → no → SKIP
-
-### Phase 4: Register via `claude mcp add`
-
-Registration commands by server and source:
+Registration commands:
 
 | Server | Command |
-|--------|---------|
-| hex-line (global) | `npm i -g @levnikolaevich/hex-line-mcp` then `claude mcp add -s user hex-line -- hex-line-mcp` |
-| hex-ssh (global) | `npm i -g @levnikolaevich/hex-ssh-mcp` then `claude mcp add -s user hex-ssh -- hex-ssh-mcp` |
-| hex-graph (global) | `npm i -g @levnikolaevich/hex-graph-mcp` then `claude mcp add -s user hex-graph -- hex-graph-mcp` |
-| hex-line (dev) | `claude mcp add -s user hex-line -- node {repo}/mcp/hex-line-mcp/server.mjs` |
-| hex-ssh (dev) | `claude mcp add -s user hex-ssh -- node {repo}/mcp/hex-ssh-mcp/server.mjs` |
-| hex-graph (dev) | `claude mcp add -s user hex-graph -- node {repo}/mcp/hex-graph-mcp/server.mjs` |
+|--------|----------|
+| hex-line | `claude mcp add -s user hex-line -- hex-line-mcp` |
+| hex-ssh | `claude mcp add -s user hex-ssh -- hex-ssh-mcp` |
+| hex-graph | `claude mcp add -s user hex-graph -- hex-graph-mcp` |
 | context7 | `claude mcp add -s user --transport http context7 https://mcp.context7.com/mcp` |
 | Ref | `claude mcp add -s user --transport http Ref https://api.ref.tools/mcp` |
 | linear | `claude mcp add -s user --transport http linear-server https://mcp.linear.app/mcp` |
 
-**Post-registration verification:** After ALL servers are registered, run `claude mcp list` once. For each hex MCP (hex-line, hex-ssh, hex-graph): verify status is `Connected`. If any shows disconnected or missing — retry `claude mcp add`, then re-check. Report failures explicitly.
+4. Verify: `claude mcp list` → check all registered show `Connected`. This is the only second `claude mcp list` call (post-mutation verify). Retry + report failures.
 
 **Error handling:**
 
@@ -126,7 +137,7 @@ Registration commands by server and source:
 | Connection failed after add | WARN, report detail from `claude mcp list` |
 | API key missing (Ref) | Prompt user for key, skip if declined |
 
-### Phase 4b: Install Hooks and Output Style [CRITICAL]
+### Phase 3: Hooks & Output Style [CRITICAL]
 
 MUST call `mcp__hex-line__setup_hooks(agent="claude")` immediately after hex-line registration. This configures:
 
@@ -140,24 +151,24 @@ MUST call `mcp__hex-line__setup_hooks(agent="claude")` immediately after hex-lin
 5. Copies `output-style.md` to `~/.claude/output-styles/hex-line.md`
 6. Sets `outputStyle: "hex-line"` if no style is active (preserves existing style)
 
-**Verification:** After setup_hooks returns, confirm the response contains `Hooks configured for` and does not contain `SKIPPED`, `UNKNOWN_AGENT`, `Error`, or `failed`. If error — STOP and report failure. Without hooks, hex-line pipeline does not work.
+**Verification:** Response must contain `Hooks configured for`. If `SKIPPED`, `UNKNOWN_AGENT`, `Error`, or `failed` — STOP.
 
-### Phase 4c: Graph Indexing
+### Phase 4: Graph Indexing
 
 After hex-graph registration + connected status:
 1. `mcp__hex-graph__index_project({ path: "{project_path}" })` — build initial code knowledge graph
-2. `mcp__hex-graph__watch_project({ path: "{project_path}" })` — enable live incremental updates on file changes
+2. `mcp__hex-graph__watch_project({ path: "{project_path}" })` — enable live incremental updates
 
 Skip if hex-graph not registered or not connected.
 
-### Phase 4d: Migrate Project allowed-tools [CRITICAL]
+### Phase 5: Migrate allowed-tools [CRITICAL]
 
-After hex-line is configured, MUST scan project commands and skills to replace built-in tools with hex-line equivalents in `allowed-tools` frontmatter. Failure to do this leaves commands using slow built-in tools despite hex-line being available.
+Scan project commands/skills to replace built-in tools with hex-line equivalents in `allowed-tools` frontmatter.
 
 **Tool mapping:**
 
 | Built-in | Hex equivalent |
-|----------|---------------|
+|----------|----------------|
 | `Read` | `mcp__hex-line__read_file` |
 | `Edit` | `mcp__hex-line__edit_file` |
 | `Write` | `mcp__hex-line__write_file` |
@@ -170,52 +181,41 @@ After hex-line is configured, MUST scan project commands and skills to replace b
 3. For each mapping entry:
    a. If built-in present AND hex equivalent absent → add hex equivalent, remove built-in (except `Read` and `Bash`)
    b. If built-in present AND hex equivalent already present → remove built-in (except `Read` and `Bash`)
-   c. Preserve ALL existing `mcp__*` tools not in the replacement table (e.g., `mcp__hex-ssh__remote-ssh`)
+   c. Preserve ALL existing `mcp__*` tools not in the replacement table
 4. Write back updated frontmatter (preserve quoting style)
-5. Report:
 
-```
-allowed-tools Migration:
-| File                        | Tools Added                    | Status           |
-|-----------------------------|--------------------------------|------------------|
-| commands/deploy.md          | read_file, edit_file           | migrated         |
-| commands/run-tests.md       | —                              | already migrated |
-| commands/review.md          | —                              | no allowed-tools |
-```
 
 **Skip conditions:**
 
 | Condition | Action |
 |-----------|--------|
 | No `.claude/` directory | Skip entire phase |
-| File has no `allowed-tools` | Skip file, report "no allowed-tools" |
-| All hex equivalents present, no stale built-ins, all `mcp__*` preserved | Skip file, report "already migrated" |
-| `dry_run: true` | Show planned changes, don't write |
+| File has no `allowed-tools` | Skip file |
+| All hex equivalents present | Skip file, report "already migrated" |
+| `dry_run: true` | Show planned changes |
 
-**Strategy:** REPLACE built-in tools with hex-line equivalents. Keep `Bash` and `Read` (always needed). Preserve all existing `mcp__*` tools (hex-ssh, linear, etc.) that are NOT being replaced.
+### Phase 6: Update Instruction Files [CRITICAL]
 
-### Phase 4e: Update Instruction Files [CRITICAL]
+Ensure instruction files have MCP Tool Preferences section.
 
-After hex-line is configured with hooks, ensure instruction files have MCP Tool Preferences section. Without this section, agents default to built-in tools in every session — negating the entire hex-line setup.
+**MANDATORY READ:** Load `mcp/hex-line-mcp/output-style.md` → use its `# MCP Tool Preferences` section as template.
 
-**MANDATORY READ:** Load `mcp/hex-line-mcp/output-style.md` → use its `# MCP Tool Preferences` section as template. MUST include the full table (Read, Edit for hash edits, Write, Grep, bulk_replace for text rename).
+**Steps:**
 
-**Steps (MUST execute all):**
-
-1. For each file: CLAUDE.md, GEMINI.md, AGENTS.md (if exists in project):
+1. For each file: CLAUDE.md, GEMINI.md, AGENTS.md (if exists in project)
 2. Search for `## MCP Tool Preferences` or `### MCP Tool Preferences`
-3. If MISSING → MUST insert section before `## Navigation` (or at end of conventions/rules block)
-4. If PRESENT but OUTDATED → MUST update table rows to match template
-5. For GEMINI.md: MUST adapt tool names (`Read` → `read_file`, `Edit` → `edit_file`, `Grep` → `search_files`)
+3. If MISSING → insert before `## Navigation` (or at end of conventions/rules block)
+4. If PRESENT but OUTDATED → update table rows to match template
+5. For GEMINI.md: adapt tool names (`Read` → `read_file`, `Edit` → `edit_file`, `Grep` → `search_files`)
 
 **Skip conditions:**
 
 | Condition | Action |
 |-----------|--------|
-| File doesn't exist | Skip (don't create instruction files) |
+| File doesn't exist | Skip |
 | Section already matches template | Skip, report "up to date" |
 
-### Phase 5: Grant Permissions
+### Phase 7: Grant Permissions
 
 For each **configured** MCP server, add `mcp__{name}` to `~/.claude/settings.json` → `permissions.allow[]`.
 
@@ -232,27 +232,12 @@ For each **configured** MCP server, add `mcp__{name}` to `~/.claude/settings.jso
 2. For each configured server: check if `mcp__{name}` already in `allow[]`
 3. Missing → append
 4. Write back (2-space indent JSON)
-5. Report: `"Granted N permissions (M already present)"`
 
 **Idempotent:** existing entries skipped.
 
-### Phase 6: Budget Analysis
+### Phase 8: Report + Benchmark
 
-| Metric | Formula | Threshold |
-|--------|---------|-----------|
-| Server count | count of `mcpServers` keys | recommended 5 or fewer |
-| Estimated tokens | count x 5000 | recommended 25,000 or fewer |
-| Context percentage | tokens / 200,000 x 100 | recommended 12.5% or less |
-
-Budget warnings:
-
-| Server Count | Level | Message |
-|--------------|-------|---------|
-| 1-5 | OK | "Budget within limits" |
-| 6-8 | WARN | "Consider disabling unused MCP servers to reduce context overhead" |
-| >8 | WARN | "Significant context impact — review which servers are actively used" |
-
-### Phase 7: Report
+**Status table:**
 
 ```
 MCP Configuration:
@@ -263,29 +248,15 @@ MCP Configuration:
 | context7  | HTTP      | configured    | granted    | mcp.context7.com        |
 | Ref       | HTTP      | configured    | granted    | api.ref.tools (key set) |
 | linear    | HTTP      | skipped       | skipped    | user declined           |
-
-Budget: 4 servers ~ 20K tokens (10.0% of context) — OK
 ```
 
----
-
-### Phase 8: Token Efficiency Benchmark
-
-After hex-line is configured, run benchmark on user's repo:
+**Token efficiency benchmark:**
 
 ```bash
 node "$(npm root -g)/@levnikolaevich/hex-line-mcp/benchmark/index.mjs"
 ```
 
-Display results to user — demonstrates value of the MCP setup just completed.
-
-Key metrics shown:
-- Outline vs full read savings (expect 57-93% on medium-XL files)
-- Compact diff savings (expect 32-38% on edits)
-- Hash overhead (expect ~0% — negligible)
-- Break-even point (typically ~30 lines)
-
-Report savings summary to user.
+Key metrics: outline vs full read savings, compact diff savings, hash overhead, break-even point.
 
 ---
 
@@ -294,38 +265,37 @@ Report savings summary to user.
 1. **Write only via sanctioned paths.** Register servers via `claude mcp add`. Write to `~/.claude/settings.json` ONLY for hooks (via `setup_hooks`), permissions (`permissions.allow[]`), and `outputStyle`
 2. **Verify after add.** Always run `claude mcp list` after registration to confirm connection
 3. **Ask before optional servers.** Linear requires explicit user consent
-4. **Prefer global install.** Use `npm i -g` for hex-line/hex-ssh/hex-graph — hooks need stable paths. Local only for active MCP development
+4. **Global install only.** Always `npm i -g` for hex MCP — hooks need stable absolute paths
 5. **Remove deprecated servers.** Clean up servers no longer in the registry
-6. **Grant permissions.** After registration, add `mcp__{server}` to user `~/.claude/settings.json`
+6. **Grant permissions.** After registration, add `mcp__{server}` to user settings
+7. **Minimize `claude mcp list` calls.** Phase 1 runs it once (discovery). Phase 2 reuses that data. Only Phase 2 Step 4 runs it again (post-mutation verify). Max 2 calls total
 
 ## Anti-Patterns
 
 | DON'T | DO |
 |-------|-----|
 | Write arbitrary fields to `~/.claude.json` | Use `claude mcp add` for servers, `setup_hooks` for hooks |
-| Skip verification after add | Always check `claude mcp list` |
+| Skip verification after add | Always check `claude mcp list` after mutations |
 | Auto-add optional servers | Ask user for Linear and other optional servers |
-| Ignore budget impact | Always calculate and report token budget |
 | Leave deprecated servers | Remove hashline-edit, pencil, etc. |
+| Calculate token budget | Not this worker's responsibility |
+| Run `claude mcp list` in every phase | Run once in Phase 1, reuse in Phase 2, verify once after mutations |
 
 ---
 
 ## Definition of Done
 
-- [ ] Current MCP state audited via `claude mcp list`
-- [ ] Outdated hex-* npm packages updated (or skipped if current)
-- [ ] Missing required servers registered via `claude mcp add`
-- [ ] Each registered server verified via `claude mcp list`
-- [ ] Hooks installed in settings.json (PreToolUse, PostToolUse, SessionStart) and `disableAllHooks: false`
-- [ ] Output style installed (`outputStyle: "hex-line"` or existing style preserved)
-- [ ] Token budget calculated and warnings shown if applicable
-- [ ] Final status table displayed with all servers
-- [ ] Permissions granted for all configured servers in user settings
-- [ ] Project allowed-tools migrated: built-ins replaced with hex-line, existing `mcp__*` preserved
-- [ ] MCP Tool Preferences section present in all existing instruction files
-- [ ] Token efficiency benchmark run and results shown
+- [ ] MCP packages installed and versions verified (Phase 1)
+- [ ] Missing servers registered and verified connected (Phase 2)
+- [ ] Hooks installed (PreToolUse, PostToolUse, SessionStart) and `disableAllHooks: false` (Phase 3)
+- [ ] Output style installed (Phase 3)
+- [ ] Permissions granted for all configured servers (Phase 7)
+- [ ] Project allowed-tools migrated (Phase 5)
+- [ ] MCP Tool Preferences in all instruction files (Phase 6)
+- [ ] Status table displayed (Phase 8)
+- [ ] Token efficiency benchmark run (Phase 8)
 
 ---
 
-**Version:** 1.1.0
-**Last Updated:** 2026-03-20
+**Version:** 1.2.0
+**Last Updated:** 2026-03-23

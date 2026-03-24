@@ -1,18 +1,21 @@
 ---
 name: ln-100-documents-pipeline
-description: "Creates complete project documentation system (project docs, reference, tasks, tests, presentation). Use when bootstrapping docs from scratch or regenerating all."
+description: "Creates complete project documentation system (project docs, reference, tasks, tests). Use when bootstrapping docs from scratch or regenerating all."
 license: MIT
 ---
 
-> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/{path}`.
+> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
+
+**Type:** L1 Top Orchestrator
+**Category:** 1XX Documentation Pipeline
 
 # Documentation Pipeline (Orchestrator)
 
-This skill orchestrates the creation of a complete documentation system by invoking L2 coordinator + 4 L2 workers. The coordinator (ln-110) delegates to 5 L3 workers for project docs; other L2 workers handle reference/tasks/test/presentation domains. Each component validates its own output.
+This skill orchestrates the creation of a complete documentation system by invoking L2 coordinator + 4 L2 workers. The coordinator (ln-110) delegates to 5 L3 workers for project docs; other L2 workers handle reference/tasks/test domains. Each component validates its own output.
 
 ## Purpose
 
-Top-level orchestrator that creates a complete project documentation system in one invocation. Chains ln-110 coordinator + ln-120/130/140/150 workers sequentially, then runs global cleanup (deduplication, orphan reporting, cross-link validation).
+Top-level orchestrator that creates a complete project documentation system in one invocation. Chains ln-110 coordinator + ln-120/130/140 workers sequentially, then runs global cleanup (deduplication, orphan reporting, cross-link validation).
 
 ## Architecture
 
@@ -27,7 +30,6 @@ ln-100-documents-pipeline (L1 Top Orchestrator - this skill)
 ├── ln-120-reference-docs-creator (L2 Worker)
 ├── ln-130-tasks-docs-creator (L2 Worker)
 ├── ln-140-test-docs-creator (L2 Worker - optional)
-├── ln-150-presentation-creator (L2 Worker)
 └── ln-610-docs-auditor (L2 Coordinator - optional, delegates to ln-611/612/613/614)
 ```
 
@@ -36,7 +38,7 @@ ln-100-documents-pipeline (L1 Top Orchestrator - this skill)
 This skill should be used when:
 - Start a new IT project and need complete documentation system at once
 - Use automated workflow instead of manually invoking multiple workers
-- Create entire documentation structure (CLAUDE.md → docs/ → presentation/) in one go
+- Create entire documentation structure (CLAUDE.md → docs/) in one go
 - Prefer orchestrated CREATE path over manual skill chaining
 - Need automatic global cleanup (deduplication, orphaned files, consolidation)
 
@@ -45,7 +47,6 @@ This skill should be used when:
 2. [ln-120-reference-docs-creator](../ln-120-reference-docs-creator/SKILL.md) - reference/ structure
 3. [ln-130-tasks-docs-creator](../ln-130-tasks-docs-creator/SKILL.md) - tasks/README.md + kanban
 4. [ln-140-test-docs-creator](../ln-140-test-docs-creator/SKILL.md) - tests/README.md (optional)
-5. [ln-150-presentation-creator](../ln-150-presentation-creator/SKILL.md) - HTML presentation
 
 **Note**: Each worker now validates its own output in Phase 2/3. Orchestrator handles global operations only.
 
@@ -185,7 +186,6 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
      - **Reference structure** (5 items): `docs/reference/README.md`, `docs/reference/adrs/`, `docs/reference/guides/`, `docs/reference/manuals/`, `docs/reference/research/`
      - **Tasks docs** (2 files): `docs/tasks/README.md`, `docs/tasks/kanban_board.md`
      - **Project docs** (up to 8 files): `docs/project/requirements.md`, `architecture.md`, `tech_stack.md`, `api_spec.md`, `database_schema.md`, `design_guidelines.md`, `infrastructure.md`, `runbook.md`
-     - **Presentation** (3 items): `docs/presentation/README.md`, `presentation_final.html`, `assets/` directory
      - **Test docs** (2 files): `docs/reference/guides/testing-strategy.md`, `tests/README.md`
    - Count existing vs missing files
    - Show user summary:
@@ -203,7 +203,6 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
    - Reference structure (docs/reference/ via ln-120-reference-docs-creator)
    - Task management docs (docs/tasks/ via ln-130-tasks-docs-creator)
    - Test documentation (tests/ via ln-140-test-docs-creator - optional)
-   - HTML presentation (docs/presentation/ via ln-150-presentation-creator)
    - Estimated time: 15-20 minutes with interactive dialog
 
 3. Ask: "Proceed with creating missing files? (yes/no)"
@@ -255,20 +254,16 @@ The skill follows a 6-phase orchestration workflow: **Legacy Migration (optional
 - **Validation**: ln-140 validates output in Phase 2/3
 - **Skip**: If "no" → can run ln-140-test-docs-creator later manually
 
-**2e. Create HTML Presentation**:
-- **Invocation**: `Skill(skill: "ln-150-presentation-creator")` → AUTOMATIC
-- **Output**: `docs/presentation/README.md` + `presentation_final.html` + `assets/`
-- **Validation**: ln-150 validates output in Phase 2/3
-- **Verify**: Presentation files exist before continuing
-
 **2f. Extract Skills from Documentation (Optional)**:
 - **Condition**: User approved skill extraction in Phase 1, or invoked manually later
 - **Invocation**: `Skill(skill: "ln-160-docs-skill-extractor")` → AUTOMATIC
-- **Input**: All docs created by ln-110—ln-150
+- **Input**: All docs created by ln-110—ln-140
 - **Output**: `.claude/commands/*.md` files extracted from procedural documentation sections
 - **Skip**: If not approved → can run ln-160-docs-skill-extractor later manually
 
 **Output**: Complete documentation system with coordinator + 4 workers completed and validated
+
+## Worker Invocation (MANDATORY)
 
 **TodoWrite format (mandatory):**
 Add ALL invocations to todos before starting:
@@ -277,7 +272,6 @@ Add ALL invocations to todos before starting:
 - Invoke ln-120-reference-docs-creator (pending)
 - Invoke ln-130-tasks-docs-creator (pending)
 - Invoke ln-140-test-docs-creator (pending)
-- Invoke ln-150-presentation-creator (pending)
 - Run Global Cleanup (Phase 3) (pending)
 - Run Documentation Audit (Phase 4 - optional) (pending)
 ```
@@ -488,7 +482,6 @@ See full reports above for detailed findings.
    - `docs/project/requirements.md`, `architecture.md`, `tech_stack.md` + conditional documents (3-7 total)
    - `docs/reference/README.md` (reference hub with empty adrs/, guides/, manuals/, research/ directories)
    - `docs/tasks/README.md` + optionally `kanban_board.md`
-   - `docs/presentation/README.md` + `presentation_final.html`
    - `tests/README.md` (if created)
 
 2. Show documentation system features:
@@ -502,7 +495,6 @@ See full reports above for detailed findings.
 
 3. Recommend next steps:
    - "Review generated documentation (CLAUDE.md → docs/)"
-   - "Open docs/presentation/presentation_final.html in browser"
    - "Run ln-210-epic-coordinator to decompose scope into Epics"
    - "Share documentation with technical stakeholders"
 
@@ -537,10 +529,6 @@ project_root/
 │   ├── tasks/
 │   │   ├── README.md                 # ← Task management system rules
 │   │   └── kanban_board.md           # ← Linear integration (optional)
-│   └── presentation/
-│       ├── README.md                 # ← Navigation hub for presentation
-│       ├── presentation_final.html   # ← Final standalone HTML (~130-180 KB)
-│       └── assets/                   # ← Modular HTML structure
 └── tests/
     └── README.md                     # ← Test documentation (optional)
 ```
@@ -569,7 +557,6 @@ project_root/
 - ⚠️ Global cleanup runs even if only one file was created
 
 **When to use manual approach instead:**
-- Need only HTML rebuild → use [ln-150-presentation-creator](../ln-150-presentation-creator/SKILL.md)
 - Need one specific ADR/guide/manual → use shared/templates/ + shared/references/documentation_creation.md
 
 ---
@@ -627,7 +614,7 @@ If any invoked skill fails:
 ## Critical Rules
 
 - **Idempotent:** Creates only missing files; existing files are preserved without overwrite
-- **Sequential invocation:** Workers must be invoked in order (ln-110 -> ln-120 -> ln-130 -> ln-140 -> ln-150); each verified before next
+- **Sequential invocation:** Workers must be invoked in order (ln-110 -> ln-120 -> ln-130 -> ln-140); each verified before next
 - **Global cleanup mandatory:** Phase 3 (deduplication, orphan reporting, SSoT consolidation, cross-link validation) runs after all workers complete
 - **User confirmation required:** Pre-flight check and explicit approval before any file creation
 - **NO_CODE Rule:** All generated documents use tables/ASCII/links; no code blocks >5 lines
@@ -641,7 +628,7 @@ Skill type: `planning-coordinator`. Run after all phases complete. Output to cha
 ## Reference Files
 
 - Legacy detection patterns: `references/legacy_detection_patterns.md`
-- Worker skills: `ln-110-project-docs-coordinator`, `ln-120-reference-docs-creator`, `ln-130-tasks-docs-creator`, `ln-140-test-docs-creator`, `ln-150-presentation-creator`
+- Worker skills: `ln-110-project-docs-coordinator`, `ln-120-reference-docs-creator`, `ln-130-tasks-docs-creator`, `ln-140-test-docs-creator`
 - Audit skill (optional): `ln-610-docs-auditor` (coordinates ln-611/612/613/614)
 
 ## Definition of Done
@@ -661,7 +648,7 @@ Before completing work, verify ALL checkpoints:
 
 **✅ User Confirmation (Phase 1):**
 - [ ] Migration summary shown (if Phase 0 ran)
-- [ ] Workflow explained to user (coordinator + 4 workers: ln-110 → ln-120 → ln-130 → ln-140 → ln-150)
+- [ ] Workflow explained to user (coordinator + 4 workers: ln-110 → ln-120 → ln-130 → ln-140)
 - [ ] User approved: "Proceed with complete documentation system creation? (yes/no)"
 - [ ] Test docs preference captured: "Include test documentation? (yes/no)"
 
@@ -670,7 +657,6 @@ Before completing work, verify ALL checkpoints:
 - [ ] ln-120-reference-docs-creator invoked → Output verified: `docs/reference/README.md` + directories (adrs/, guides/, manuals/, research/) + justified ADRs/Guides/Manuals based on TECH_STACK
 - [ ] ln-130-tasks-docs-creator invoked → Output verified: `docs/tasks/README.md` + optionally `kanban_board.md`
 - [ ] ln-140-test-docs-creator invoked (if enabled) → Output verified: `tests/README.md`
-- [ ] ln-150-presentation-creator invoked → Output verified: `docs/presentation/README.md` + `presentation_final.html` + `assets/`
 - [ ] Each component validated its own output (SCOPE tags, Maintenance sections, POSIX compliance)
 
 **✅ File Verification Complete:**
@@ -699,7 +685,7 @@ Before completing work, verify ALL checkpoints:
 **✅ Error Handling (if applicable):**
 - [ ] If any worker failed: User notified which worker failed, error message shown, manual invocation recommended, partial progress listed
 
-**Output:** Complete documentation system (CLAUDE.md + docs/ with README.md, documentation_standards.md, principles.md + presentation/ + optionally tests/) with global cleanup (no duplicates, orphaned files reported, consolidated knowledge, validated cross-links)
+**Output:** Complete documentation system (CLAUDE.md + docs/ with README.md, documentation_standards.md, principles.md + optionally tests/) with global cleanup (no duplicates, orphaned files reported, consolidated knowledge, validated cross-links)
 
 ---
 

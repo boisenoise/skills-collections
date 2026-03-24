@@ -5,7 +5,7 @@ allowed-tools: Read, Grep, Glob, Bash, mcp__Ref, mcp__context7, Skill
 license: MIT
 ---
 
-> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/{path}`.
+> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
 
 # Test Suite Auditor (L2 Coordinator)
 
@@ -50,7 +50,7 @@ Coordinates comprehensive test suite audit across 8 quality categories using 7 s
 2. Parse test file structure (test names, assertions count)
 3. Tag each file with `type: "automated"|"manual"`
 4. For manual tests: detect `has_expected_dir` (sibling `expected/` exists), `suite_dir`, `harness_sourced` (sources test_harness.sh)
-5. Auto-discover Team ID from [docs/tasks/kanban_board.md](../docs/tasks/kanban_board.md)
+5. Auto-discover Team ID from [docs/tasks/kanban_board.md](../../docs/tasks/kanban_board.md)
 
 **Output:** `testFilesMetadata` — list of test files with basic stats and `type` field
 

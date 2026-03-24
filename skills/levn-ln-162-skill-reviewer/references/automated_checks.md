@@ -158,3 +158,12 @@ for f in {scoped SKILL.md files}; do
   grep -q 'TodoWrite format (mandatory)' "$f" || echo "WARN: $level skill missing TodoWrite format section: $f"
 done
 ```
+
+## Check 18: Type line presence (D7)
+```bash
+for f in {scoped SKILL.md files}; do
+  grep -q '\*\*Type:\*\*' "$f" || echo "FAIL: no **Type:** line: $f"
+done
+```
+
+Every SKILL.md must have a `**Type:**` line (e.g., `**Type:** L1 Top Orchestrator`). Without it, Check 9 (Meta-Analysis) and Check 17 (Worker Invocation) silently skip the skill.

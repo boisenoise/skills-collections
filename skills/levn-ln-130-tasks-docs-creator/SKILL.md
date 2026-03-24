@@ -4,7 +4,10 @@ description: "Creates task management docs (kanban board, workflow rules) with L
 license: MIT
 ---
 
-> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/{path}`.
+> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
+
+**Type:** L2 Worker
+**Category:** 1XX Documentation Pipeline
 
 # Tasks Documentation Creator
 
@@ -24,7 +27,7 @@ Use this skill when:
 - Validating existing task documentation structure and content
 - Configuring Linear team settings (Team Name, UUID, Key)
 
-**Part of workflow**: ln-100-documents-pipeline → ln-110-project-docs-coordinator → ln-120-reference-docs-creator → **ln-130-tasks-docs-creator** → ln-140-test-docs-creator (optional) → ln-150-presentation-creator
+**Part of workflow**: ln-100-documents-pipeline → ln-110-project-docs-coordinator → ln-120-reference-docs-creator → **ln-130-tasks-docs-creator** → ln-140-test-docs-creator (optional)
 
 ## Workflow
 

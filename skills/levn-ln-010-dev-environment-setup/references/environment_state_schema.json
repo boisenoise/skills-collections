@@ -15,6 +15,8 @@
             "available": { "type": "boolean" },
             "disabled": { "type": "boolean" },
             "version": { "type": "string" },
+            "config_synced": { "type": "boolean" },
+            "servers_synced": { "type": "integer" },
             "detail": { "type": "string" }
           }
         },
@@ -25,6 +27,9 @@
             "available": { "type": "boolean" },
             "disabled": { "type": "boolean" },
             "version": { "type": "string" },
+            "config_synced": { "type": "boolean" },
+            "servers_synced": { "type": "integer" },
+            "hooks_synced": { "type": "integer" },
             "detail": { "type": "string" }
           }
         }
@@ -39,34 +44,21 @@
         "has_timestamps": { "type": "boolean" }
       }
     },
-    "config_sync": {
-      "type": "object",
-      "properties": {
-        "gemini": {
-          "type": "object",
-          "properties": {
-            "synced": { "type": "boolean" },
-            "servers_synced": { "type": "integer" },
-            "hooks_synced": { "type": "integer" },
-            "detail": { "type": "string" }
-          }
-        },
-        "codex": {
-          "type": "object",
-          "properties": {
-            "synced": { "type": "boolean" },
-            "servers_synced": { "type": "integer" },
-            "detail": { "type": "string" }
-          }
-        }
-      }
-    },
     "best_practices": {
       "type": "object",
       "properties": {
         "score": { "type": "string" },
         "warnings": { "type": "array", "items": { "type": "string" } },
         "info": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "last_assessment": {
+      "type": "object",
+      "properties": {
+        "assessed_at": { "type": "string", "format": "date-time" },
+        "all_green": { "type": "boolean" },
+        "workers_run": { "type": "array", "items": { "type": "string" } },
+        "workers_skipped": { "type": "array", "items": { "type": "string" } }
       }
     }
   }

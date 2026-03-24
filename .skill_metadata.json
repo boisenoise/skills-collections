@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-23T06:38:02.139182",
-  "skill_count": 2438,
+  "last_updated": "2026-03-24T06:33:32.164648",
+  "skill_count": 2441,
   "sources_processed": 19,
   "skills": [
     {
@@ -487,6 +487,14 @@
       "name": "superpowers-lab-finding-duplicate-functions",
       "original_name": "finding-duplicate-functions",
       "description": "Use when auditing a codebase for semantic duplication - functions that do the same thing but have different names or implementations. Especially useful for LLM-generated codebases where new functions are often created rather than reusing existing ones.",
+      "source": "obra/superpowers-lab",
+      "source_url": "https://github.com/obra/superpowers-lab",
+      "license": "MIT"
+    },
+    {
+      "name": "superpowers-lab-windows-vm",
+      "original_name": "windows-vm",
+      "description": "Create, manage, or connect to a headless Windows 11 VM running in Docker with SSH access. Use when the user wants to spin up, stop, restart, or SSH into a Windows VM.",
       "source": "obra/superpowers-lab",
       "source_url": "https://github.com/obra/superpowers-lab",
       "license": "MIT"
@@ -5060,6 +5068,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-windows-shell-reliability",
+      "original_name": "windows-shell-reliability",
+      "description": "Reliable command execution on Windows: paths, encoding, and common binary pitfalls.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-logistics-exception-management",
       "original_name": "logistics-exception-management",
       "description": "Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier disputes. Informed by logistics professionals with 15+ years operational experience.",
@@ -6540,6 +6556,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-moyu",
+      "original_name": "moyu",
+      "description": "Anti-over-engineering guardrail that activates when an AI coding agent expands scope, adds abstractions, or changes files the user did not request.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-lightning-architecture-review",
       "original_name": "lightning-architecture-review",
       "description": "Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze Layer 2 scaling tradeoffs. Covers trust models, on-chain footprint, consensus requirements, HTLC/PTLC compatibility, liveness, and watchtower support.",
@@ -6743,6 +6767,14 @@
       "name": "antigravity-frontend-dev-guidelines",
       "original_name": "frontend-dev-guidelines",
       "description": "You are a senior frontend engineer operating under strict architectural and performance standards. Use when creating components or pages, adding new features, or fetching or mutating data.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-jobgpt",
+      "original_name": "jobgpt",
+      "description": "Job search automation, auto apply, resume generation, application tracking, salary intelligence, and recruiter outreach using the JobGPT MCP server.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18228,14 +18260,6 @@
       "license": "MIT"
     },
     {
-      "name": "levn-ln-150-presentation-creator",
-      "original_name": "ln-150-presentation-creator",
-      "description": "Builds interactive HTML presentation from project docs with Mermaid diagrams. Use when sharing project overview with stakeholders.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
       "name": "levn-ln-771-logging-configurator",
       "original_name": "ln-771-logging-configurator",
       "description": "Configures structured JSON logging with Serilog (.NET) or structlog (Python). Use when adding logging to backend projects.",
@@ -18326,7 +18350,7 @@
     {
       "name": "levn-ln-012-mcp-configurator",
       "original_name": "ln-012-mcp-configurator",
-      "description": "Installs MCP servers, registers them in Claude Code, and grants user-level permissions. Use when MCP servers need setup or reconfiguration.",
+      "description": "Installs MCP packages, registers servers in Claude Code, configures hooks, permissions, and migrations. Use when MCP needs setup or reconfiguration.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18414,7 +18438,7 @@
     {
       "name": "levn-ln-011-agent-installer",
       "original_name": "ln-011-agent-installer",
-      "description": "Installs or updates Codex CLI, Gemini CLI, and Claude Code to latest versions. Use when CLI agents need installation or update.",
+      "description": "Installs or updates Codex CLI, Gemini CLI, and Claude Code. Use when CLI agents need installation or update.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18422,7 +18446,7 @@
     {
       "name": "levn-ln-100-documents-pipeline",
       "original_name": "ln-100-documents-pipeline",
-      "description": "Creates complete project documentation system (project docs, reference, tasks, tests, presentation). Use when bootstrapping docs from scratch or regenerating all.",
+      "description": "Creates complete project documentation system (project docs, reference, tasks, tests). Use when bootstrapping docs from scratch or regenerating all.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18526,7 +18550,7 @@
     {
       "name": "levn-ln-010-dev-environment-setup",
       "original_name": "ln-010-dev-environment-setup",
-      "description": "Scans, installs, and configures dev environment: CLI agents, MCP servers, config sync, hooks. Use after setup or when agents/MCP need alignment.",
+      "description": "Installs agents, configures MCP servers, syncs configs, creates and audits instructions. Use after setup or when agents/MCP need alignment.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18551,14 +18575,6 @@
       "name": "levn-ln-521-test-researcher",
       "original_name": "ln-521-test-researcher",
       "description": "Researches real-world problems, competitor solutions, and customer complaints for a feature domain. Use before test planning to ground tests in actual user pain points.",
-      "source": "levnikolaevich/claude-code-skills",
-      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "levn-ln-014-agent-instructions-auditor",
-      "original_name": "ln-014-agent-instructions-auditor",
-      "description": "Audits CLAUDE.md, AGENTS.md, GEMINI.md for token budget, prompt cache safety, compact instructions, and cross-agent consistency. Use after editing instruction files or before release.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18743,6 +18759,14 @@
       "name": "levn-ln-811-performance-profiler",
       "original_name": "ln-811-performance-profiler",
       "description": "Profiles runtime performance with CPU, memory, and I/O metrics. Use when measuring bottlenecks before optimization.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-014-agent-instructions-manager",
+      "original_name": "ln-014-agent-instructions-manager",
+      "description": "Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md) and audits all for token budget, prompt cache safety, and cross-agent consistency. Use after setup or when instruction files need alignment.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

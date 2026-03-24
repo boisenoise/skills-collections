@@ -8,13 +8,14 @@
 #   - grep -q returns exit code 1 on no match -> breaks && chains; use if/then
 #   - grep -c returns exit code 1 when count=0 -> append || true
 #   - passive ref grep needs || true to avoid false script failure
-#   - MANDATORY READ paths to target project files (docs/project/*) are
-#     runtime-only and cannot be verified from skills repo -> not false positives
-#     but expected; the script still reports them for transparency
+#   - MANDATORY READ paths outside skills/ (mcp/, docs/project/*) are runtime-only
+#     and skipped by Check 5 (only shared/, references/, ../ln-* are verified)
 #   - pipe | while read creates subshell -> FAILS counter lost; use < <(...) instead
 
 set -uo pipefail
 
+# Resolve skills repo root dynamically (works regardless of CWD depth)
+SKILLS_ROOT=$(cd "$(dirname "$0")/../../.." && pwd)/skills
 SCOPE="$@"
 FAILS=0
 
@@ -71,7 +72,10 @@ echo "=== CHECK 5: MANDATORY READ paths (D2) ==="
 for f in $SCOPE; do
   dir=$(dirname "$f")
   while read -r path; do
-    if [ ! -f "$dir/$path" ] && [ ! -f "$path" ]; then
+    # Only verify paths resolvable within skills/ (shared/, references/, ../ln-*)
+    # Paths outside skills tree (mcp/, docs/project/) are runtime — skip
+    if ! echo "$path" | grep -qE '^(shared/|references/|\.\./ln-)'; then continue; fi
+    if [ ! -f "$dir/$path" ] && [ ! -f "$path" ] && [ ! -f "$SKILLS_ROOT/$path" ]; then
       fail "missing MANDATORY READ target: $path (from $f)"
     fi
   done < <(grep "MANDATORY READ" "$f" | tr '`' '\n' | grep -E '\.(md|json|txt|yaml|sh)$' | grep -v '{' | sort -u)
@@ -121,7 +125,8 @@ echo ""
 echo "=== CHECK 9: Meta-Analysis L1/L2 (D7) ==="
 for f in $SCOPE; do
   level=$(grep '\*\*Type:\*\*' "$f" | grep -oE 'L[012]' | head -1 || true)
-  if [ -n "$level" ]; then
+  # Meta-Analysis: orchestrators and coordinators only (not Workers)
+  if [ -n "$level" ] && ! grep '\*\*Type:\*\*' "$f" | grep -qi 'worker'; then
     grep -q "Meta-Analysis" "$f" || fail "L1/L2 skill missing Meta-Analysis: $f"
     grep -q "meta_analysis_protocol" "$f" || fail "L1/L2 skill missing meta_analysis_protocol ref: $f"
   fi
@@ -188,6 +193,8 @@ echo "=== CHECK 17: Worker invocation enforcement (D8b) ==="
 for f in $SCOPE; do
   level=$(grep '\*\*Type:\*\*' "$f" | grep -oE 'L[12]' | head -1 || true)
   [ -z "$level" ] && continue
+  # Worker invocation: orchestrators and coordinators only (not Workers)
+  grep '\*\*Type:\*\*' "$f" | grep -qi 'worker' && continue
   self=$(basename $(dirname "$f") | grep -oE 'ln-[0-9]+-[a-z-]+')
   worker_count=$(grep -oE 'ln-[0-9]+-[a-z-]+' "$f" | sort -u | while read w; do
     [ "$w" != "$self" ] && echo "$w"
@@ -197,6 +204,14 @@ for f in $SCOPE; do
   [ "$skill_calls" -eq 0 ] && fail "$level skill delegates to $worker_count workers but has no Skill() invocation code blocks: $f"
   grep -q 'Worker Invocation (MANDATORY)' "$f" || fail "$level skill missing Worker Invocation (MANDATORY) section: $f"
   grep -q 'TodoWrite format (mandatory)' "$f" || warn "$level skill missing TodoWrite format section: $f"
+done
+echo "DONE"
+echo ""
+
+# ── CHECK 18: Type line presence (D7) ──────────────────────────────
+echo "=== CHECK 18: Type line presence (D7) ==="
+for f in $SCOPE; do
+  grep -q '\*\*Type:\*\*' "$f" || fail "no **Type:** line: $f"
 done
 echo "DONE"
 echo ""

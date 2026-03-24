@@ -4,7 +4,7 @@ description: "Validates Stories, plans, or context via parallel multi-agent revi
 license: MIT
 ---
 
-> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/{path}`.
+> **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
 
 # Multi-Agent Validator
 
@@ -147,7 +147,15 @@ Zero out penalty points as structural fixes applied (section added, format corre
 
 **MANDATORY READ:** Load `shared/references/agent_review_workflow.md` (Critical Verification + Iterative Refinement), `shared/references/agent_review_memory.md`
 
-1) **Wait for agent results** — process-as-arrive
+1) **BLOCKING GATE — Wait for ALL agents:**
+   - For EACH agent launched in Phase 2: check if result file exists
+   - Result file EXISTS → agent done, proceed to parse
+   - Result file MISSING → Use `TaskOutput` to check background task. If still running: **WAIT** (do NOT proceed to step 2). If completed: read result. If no background task found: run Liveness Protocol
+   - Liveness Protocol → ALIVE (log growing) → **KEEP WAITING**. DEAD (all 3 checks confirm) → mark failed
+   - **EXIT CONDITION:** ALL agents resolved (result file exists OR confirmed DEAD via full Liveness Protocol). Only then proceed to step 2
+   - ⛔ Proceeding to step 2 with ANY agent still ALIVE or UNRESOLVED is a PROTOCOL VIOLATION
+
+> **ANTI-PATTERN:** "Codex is still running, I'll process Gemini results and move on" — NO. You MUST wait for ALL agents. The only valid exit: every agent has a result file OR is confirmed DEAD via Liveness Protocol (all 3 checks with explicit output).
 2) **Parse agent suggestions** from both result files
 3) **MERGE** Claude's findings + Agent suggestions. Re-read lines modified in Phase 4 (agents saw pre-fix state)
 4) **For EACH suggestion:** dedup (own findings + history) → evaluate → AGREE (accept) or REJECT (Claude's independent judgment)
@@ -158,13 +166,16 @@ Zero out penalty points as structural fixes applied (section added, format corre
 
 ### Phase 6: Iterative Refinement (MANDATORY when Codex available)
 
-> **PROTOCOL RULE:** Iterative Refinement is MANDATORY for all modes when Codex is available. Valid skip reasons: (1) Codex unavailable in Phase 2 health check, (2) Codex disabled in `environment_state.json`. "Already reviewed" or "artifact is simple" is NOT a valid skip reason. If skipped → log `"Iterative Refinement: SKIPPED (Codex unavailable)"` and proceed to Phase 7.
+> **PROTOCOL RULE:** Iterative Refinement is MANDATORY for all modes when Codex is available. Valid skip reasons: (1) Codex disabled in `environment_state.json`, (2) Codex failed Phase 2 health check (`codex --version` failed), (3) Codex confirmed DEAD via Liveness Protocol (log stale + process dead). "Timeout pending" or "result not ready" is NOT a valid skip — run Liveness Protocol first. If Codex is ALIVE (log growing), WAIT for it. If skipped → log `"Iterative Refinement: SKIPPED (Codex dead — confirmed via Liveness Protocol)"` and proceed to Phase 7.
+>
+> **PRE-FLIGHT:** If Phase 5 resolved Codex as "failed" but did NOT run full Liveness Protocol (all 3 checks: log mtime, log content, process check — with explicit output for each), STOP — go back and run Liveness Protocol NOW. A missing result file without Liveness Protocol evidence is NOT confirmation of Codex death.
 
 Execute per `shared/references/agent_review_workflow.md` "Step: Iterative Refinement".
 
 1) **Determine artifact:** mode=story → Story + Tasks concatenated. mode=plan_review → plan file. mode=context → context docs
 2) **Loop (max 5 iterations):**
    - Build prompt from `shared/agents/prompt_templates/iterative_refinement.md` with full artifact content
+   - Delete previous iteration's result file (if iteration > 1) — prevents Codex from reading stale feedback
    - Send to Codex (foreground, synchronous)
    - Parse result: `verdict == "APPROVED"` → exit. `iteration == 5` → exit. Error → exit. 0 accepted → exit
    - Claude evaluates each suggestion (AGREE/REJECT), applies accepted fixes
@@ -221,7 +232,8 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 - [ ] Prompt file saved to `.agent-review/` (Phase 2)
 - [ ] Agent results read and parsed OR SKIPPED (Phase 5)
 - [ ] Critical Verification executed OR SKIPPED (Phase 5)
-- [ ] Iterative Refinement executed or SKIPPED: Codex unavailable (Phase 6)
+- [ ] Iterative Refinement executed or SKIPPED: Codex confirmed dead via Liveness Protocol (Phase 6)
+  > ⛔ If SKIPPED but Codex was launched in Phase 2 AND no Liveness Protocol output exists in conversation → CRITICAL VIOLATION. Return to Phase 5, run Liveness Protocol, then re-evaluate Phase 6.
 - [ ] Agent process trees verified dead OR SKIPPED (Phase 5)
 - [ ] Review summary saved to `review_history.md` OR SKIPPED (Phase 5)
 - [ ] MCP Ref research (#5, #6, #21, #28, AH) executed OR N/A (Phase 3)
