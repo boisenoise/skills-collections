@@ -1,7 +1,7 @@
 ---
 name: ln-630-test-auditor
 description: "Coordinates test suite audit across business logic, E2E coverage, value, isolation, manual quality, and structure. Use when auditing entire test suite."
-allowed-tools: Read, Grep, Glob, Bash, mcp__Ref, mcp__context7, Skill
+allowed-tools: Read, Grep, Glob, Bash, mcp__Ref, mcp__context7, Skill, mcp__hex-graph__index_project
 license: MIT
 ---
 
@@ -51,6 +51,9 @@ Coordinates comprehensive test suite audit across 8 quality categories using 7 s
 3. Tag each file with `type: "automated"|"manual"`
 4. For manual tests: detect `has_expected_dir` (sibling `expected/` exists), `suite_dir`, `harness_sourced` (sources test_harness.sh)
 5. Auto-discover Team ID from [docs/tasks/kanban_board.md](../../docs/tasks/kanban_board.md)
+6. **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
+   - `index_project(path=codebase_root)` — builds/refreshes code graph
+   - Add `graph_indexed: true` to contextStore for workers (ln-634 uses find_hotspots for critical path identification)
 
 **Output:** `testFilesMetadata` — list of test files with basic stats and `type` field
 

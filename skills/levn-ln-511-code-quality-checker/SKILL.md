@@ -1,6 +1,7 @@
 ---
 name: ln-511-code-quality-checker
 description: "Checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Use when implementation tasks are Done and need quality scoring."
+allowed-tools: Read, Grep, Glob, Bash, WebFetch, mcp__Ref, mcp__context7, mcp__hex-graph__find_clones, mcp__hex-graph__find_cycles, mcp__hex-graph__get_module_metrics, mcp__hex-graph__find_hotspots
 license: MIT
 ---
 

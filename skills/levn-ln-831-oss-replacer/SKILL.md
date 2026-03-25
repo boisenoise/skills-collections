@@ -1,6 +1,7 @@
 ---
 name: ln-831-oss-replacer
 description: "Replaces custom modules with OSS packages using atomic keep/discard testing. Use when migrating custom code to established libraries."
+allowed-tools: Read, Grep, Glob, Bash, WebFetch, mcp__Ref, mcp__context7, mcp__hex-line__outline, mcp__hex-line__bulk_replace, mcp__hex-graph__find_references
 license: MIT
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: ln-613-code-comments-auditor
 description: "Checks WHY-not-WHAT, density, forbidden content, docstrings quality, actuality, legacy cleanup. Use when auditing code comments."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline
 license: MIT
 ---
 
@@ -29,6 +29,7 @@ Receives `contextStore` with: `tech_stack`, `project_root`, `output_dir`.
 
 1) **Parse Context:** Extract tech stack, project root, output_dir from contextStore
 2) **Scan:** Find all source files (use `tech_stack` for detection)
+   **Hex-line acceleration:** Use `outline(path)` to understand code structure (functions, classes) before analyzing comments — identifies which code sections to scan.
 3) **Extract:** Parse inline comments + docstrings/JSDoc
 4) **Audit:** Run 6 category checks (see Audit Categories below)
 5) **Collect Findings:** Record each violation with severity, location (file:line), effort estimate (S/M/L), recommendation

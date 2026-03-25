@@ -1,7 +1,7 @@
 ---
 name: ln-628-concurrency-auditor
 description: "Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention. Use when auditing concurrency safety."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_dataflows, mcp__hex-graph__trace_paths
 license: MIT
 ---
 

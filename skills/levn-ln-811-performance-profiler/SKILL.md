@@ -44,7 +44,7 @@ Find or create commands that exercise the optimization target. Two outputs: `tes
 |----------|--------|--------|
 | 1 | User-provided | User specifies test command or API endpoint |
 | 2 | Discover existing E2E test | Grep test files for target entry point (stop at first match) |
-| 3 | Create test script | Generate per `shared/references/benchmark_generation.md` to `.optimization/{slug}/profile_test.sh` |
+| 3 | Create test script | Generate per `shared/references/benchmark_generation.md` to `.hex-skills/optimization/{slug}/profile_test.sh` |
 
 **E2E discovery protocol** (stop at first match):
 
@@ -242,7 +242,7 @@ Add timing/logging along the call stack at instrumentation points identified in 
 
 ## Phase 4: Build Performance Map
 
-Standardized format — feeds into `.optimization/{slug}/context.md` for downstream consumption.
+Standardized format — feeds into `.hex-skills/optimization/{slug}/context.md` for downstream consumption.
 
 ```yaml
 performance_map:

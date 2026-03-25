@@ -1,7 +1,7 @@
 ---
 name: ln-627-observability-auditor
 description: "Checks structured logging, health checks, metrics collection, request tracing, log levels. Use when auditing observability."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_references, mcp__hex-graph__trace_paths
 license: MIT
 ---
 

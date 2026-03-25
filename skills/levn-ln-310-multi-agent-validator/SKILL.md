@@ -6,6 +6,9 @@ license: MIT
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
 
+**Type:** L2 Coordinator
+**Category:** 3XX Planning
+
 # Multi-Agent Validator
 
 Validates Stories/Tasks (mode=story), implementation plans (mode=plan_review), or arbitrary context (mode=context) with parallel multi-agent review and critical verification.
@@ -22,7 +25,7 @@ Validates Stories/Tasks (mode=story), implementation plans (mode=plan_review), o
 
 > **Terminology:** `mode=plan_review` = review mode (evaluating a plan document). "Plan Mode" / "Read-Only Mode" = execution flag (framework-level, applies to ALL modes). These are independent concepts.
 
-> **Plan Mode compatibility:** ln-310 runs normally in Plan Mode. `.agent-review/` is git-ignored — writing prompts, results, and context there is NOT a project modification. If the framework blocks a write, request permission — the user expects file operations in `.agent-review/`. Agent launches (Bash background) are external processes and always work.
+> **Plan Mode compatibility:** ln-310 runs normally in Plan Mode. `.hex-skills/agent-review/` is git-ignored — writing prompts, results, and context there is NOT a project modification. If the framework blocks a write, request permission — the user expects file operations in `.hex-skills/agent-review/`. Agent launches (Bash background) are external processes and always work.
 
 **Resolution (mode=story):** Story Resolution Chain. **Status filter:** Backlog
 
@@ -70,20 +73,20 @@ Initialize: `agents_launched = UNSET`. MUST be set to `true` or `SKIPPED` in Pha
 
 > **BLOCKING GATE:** If you find yourself reasoning about skipping agents due to task simplicity, small scope, or "already reviewed" — STOP. Return to the start of Phase 2. The ONLY valid exit without launching is: health_check returned 0 agents.
 
-1) **Health Check** (all modes): Read `docs/environment_state.json` → exclude disabled. **File not found → proceed with all agents (default=enabled, no exclusions).** Run `node shared/agents/agent_runner.mjs --health-check`. 0 available → `agents_launched = SKIPPED`
+1) **Health Check** (all modes): Read `.hex-skills/environment_state.json` → exclude disabled. **File not found → proceed with all agents (default=enabled, no exclusions).** Run `node shared/agents/agent_runner.mjs --health-check`. 0 available → `agents_launched = SKIPPED`
 2) **Prepare references:**
    - mode=story: Story/Task URLs (linear) or file paths (file)
-   - mode=context: resolve identifier (default: `review_YYYYMMDD_HHMMSS`), materialize context if from chat → `.agent-review/context/{id}_context.md`
-   - mode=plan_review: auto-detect plan (Glob `.claude/plans/*.md`, most recent by mtime). No plan → error. Clean `.agent-review/context/` (delete all files). Materialize: copy plan file → `.agent-review/context/{identifier}_plan.md`. Use local path as `{plan_ref}`
-3) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/{mode}.md` (per shared workflow "Step: Build Prompt"). Replace mode-specific placeholders. Save to `.agent-review/{id}_{mode}review_prompt.md`
+   - mode=context: resolve identifier (default: `review_YYYYMMDD_HHMMSS`), materialize context if from chat → `.hex-skills/agent-review/context/{id}_context.md`
+   - mode=plan_review: auto-detect plan (Glob `.claude/plans/*.md`, most recent by mtime). No plan → error. Clean `.hex-skills/agent-review/context/` (delete all files). Materialize: copy plan file → `.hex-skills/agent-review/context/{identifier}_plan.md`. Use local path as `{plan_ref}`
+3) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/{mode}.md` (per shared workflow "Step: Build Prompt"). Replace mode-specific placeholders. Save to `.hex-skills/agent-review/{id}_{mode}review_prompt.md`
 4) **Launch BOTH agents** as background tasks. `agents_launched = true`
 
 **Exact command (per agent_delegation_pattern.md):**
 ```
-node shared/agents/agent_runner.mjs --agent {name} --prompt-file .agent-review/{agent}/{id}_{mode}review_prompt.md --output-file .agent-review/{agent}/{id}_{mode}review_result.md --cwd {project_dir}
+node shared/agents/agent_runner.mjs --agent {name} --prompt-file .hex-skills/agent-review/{agent}/{id}_{mode}review_prompt.md --output-file .hex-skills/agent-review/{agent}/{id}_{mode}review_result.md --cwd {project_dir}
 ```
 
-**Prompt persistence:** Save prompt to `.agent-review/` before launching agents. Agents are always launched as Bash background tasks — they are external OS processes and are not affected by Claude Code plan mode.
+**Prompt persistence:** Save prompt to `.hex-skills/agent-review/` before launching agents. Agents are always launched as Bash background tasks — they are external OS processes and are not affected by Claude Code plan mode.
 
 > **Parallelism:** Agents run in background through Phases 3-4. Results merged in Phase 5.
 
@@ -103,7 +106,7 @@ node shared/agents/agent_runner.mjs --agent {name} --prompt-file .agent-review/{
 - Step 6: Cross-Reference Analysis
 - Step 7: Penalty Points Calculation (28 criteria)
 - Display: Penalty Points table + Total + Fix Plan
-- Save audit to `.agent-review/{storyId}_phase3_audit.md`
+- Save audit to `.hex-skills/agent-review/{storyId}_phase3_audit.md`
 - **Plan Mode:** Show results → WAIT for approval
 - **Normal Mode:** Proceed to Phase 4
 
@@ -117,7 +120,7 @@ Pipeline (while agents run in background):
 3. **Extract Topics (3-5)** — technology decisions, score by weight
 4. **Research Execution** — apply #5, #6, #21, #28 + AH per `phase2_research_audit.md` (plan/context actions)
 5. **Compare & Correct** — max 5 corrections, cite RFC/standard. Apply: plan_review → edit plan file, context → edit documents. Inline rationale `"(per {RFC}: ...)"`
-6. **Save Findings** → `.agent-review/context/{id}_mcp_ref_findings.md`
+6. **Save Findings** → `.hex-skills/agent-review/context/{id}_mcp_ref_findings.md`
 
 Then proceed to Phase 5.
 
@@ -160,7 +163,7 @@ Zero out penalty points as structural fixes applied (section added, format corre
 3) **MERGE** Claude's findings + Agent suggestions. Re-read lines modified in Phase 4 (agents saw pre-fix state)
 4) **For EACH suggestion:** dedup (own findings + history) → evaluate → AGREE (accept) or REJECT (Claude's independent judgment)
 5) **Apply accepted** — mode=story: Story/Tasks, mode=context: documents, mode=plan_review: use best agent's `## Refined Plan` as base (prefer agent with more accepted suggestions), apply remaining accepted suggestions from other agent as patches. If no agent produced refined plan → fall back to individual suggestion application
-6) **Save review summary** → `.agent-review/review_history.md`
+6) **Save review summary** → `.hex-skills/agent-review/review_history.md`
 - SKIPPED verdict (0 agents) → proceed unchanged
 - **Display:** `"Agent Review: codex ({accepted}/{total}), gemini ({accepted}/{total}), {N} applied"`
 
@@ -181,7 +184,7 @@ Execute per `shared/references/agent_review_workflow.md` "Step: Iterative Refine
    - Claude evaluates each suggestion (AGREE/REJECT), applies accepted fixes
    - Update artifact, repeat
 3) **Display:** `"Iterative Refinement: {N} iterations, {total} suggestions, {applied} applied, exit: {reason}"`
-4) **Persist:** Save all prompts/results to `.agent-review/refinement/`, append summary to `review_history.md`
+4) **Persist:** Save all prompts/results to `.hex-skills/agent-review/refinement/`, append summary to `review_history.md`
 
 ### Phase 7: Approve & Notify (mode=story only)
 
@@ -229,7 +232,7 @@ Mark each `[x]` when verified. ALL must be checked. If ANY unchecked → go back
 - [ ] `agent_runner.mjs --health-check` executed (Phase 2)
 - [ ] Agents launched as background tasks OR SKIPPED: 0 agents (Phase 2)
   > ⛔ If unchecked AND environment_state.json showed ≥1 available agent → CRITICAL VIOLATION. Do NOT return results. Return to Phase 2.
-- [ ] Prompt file saved to `.agent-review/` (Phase 2)
+- [ ] Prompt file saved to `.hex-skills/agent-review/` (Phase 2)
 - [ ] Agent results read and parsed OR SKIPPED (Phase 5)
 - [ ] Critical Verification executed OR SKIPPED (Phase 5)
 - [ ] Iterative Refinement executed or SKIPPED: Codex confirmed dead via Liveness Protocol (Phase 6)

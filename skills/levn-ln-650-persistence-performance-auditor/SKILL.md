@@ -1,7 +1,7 @@
 ---
 name: ln-650-persistence-performance-auditor
 description: "Coordinates persistence and performance audit across queries, transactions, runtime, and resource lifecycle. Use when auditing data layer performance."
-allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill
+allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill, mcp__hex-graph__index_project
 license: MIT
 ---
 
@@ -41,6 +41,9 @@ Coordinates 4 specialized audit workers to perform database efficiency, transact
 - `docs/project/tech_stack.md` - detect DB, ORM, async framework
 - Package manifests: `requirements.txt`, `pyproject.toml`, `package.json`, `go.mod`
 - Auto-discover Team ID from `docs/tasks/kanban_board.md`
+- **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
+  - `index_project(path=codebase_root)` — builds/refreshes code graph
+  - Add `graph_indexed: true` to contextStore for workers (ln-651 uses find_references/trace_paths for N+1 detection, ln-652 uses trace_paths for event channels)
 
 **Extract DB-specific metadata:**
 

@@ -5,85 +5,104 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 ## File Location
 
 ```
-{project_root}/.pipeline/
-  state.json              # Global pipeline state (lead writes)
-  checkpoint-{storyId}.json  # Per-story checkpoint (lead writes after each stage)
+{project_root}/.hex-skills/pipeline/
+  state.json                 # Global pipeline state (CLI-managed)
+  checkpoint-{storyId}.json  # Per-story checkpoint (written by `node $PIPELINE checkpoint`)
 ```
 
 ## Checkpoint Schema
 
 | Field | Type | Stage | Description |
 |-------|------|-------|-------------|
-| `storyId` | string | All | Story identifier (e.g., "PROJ-42") |
 | `stage` | number | All | Current stage (0-3) |
-| `tasksCompleted` | string[] | All | Task IDs already finished |
-| `tasksRemaining` | string[] | All | Task IDs still pending |
-| `lastAction` | string | All | Description of last completed action |
-| `timestamp` | string | All | ISO 8601 timestamp |
-| `planScore` | number | 0 | Task plan quality score from ln-300 (0-4) |
+| `started_at` | string | All | Stage start timestamp (ISO 8601) |
+| `completed_at` | string | All | Stage completion timestamp (ISO 8601) |
+| `tasks_completed` | string[] | All | Task IDs already finished |
+| `tasks_remaining` | string[] | All | Task IDs still pending |
+| `last_action` | string | All | Description of last completed action |
+| `plan_score` | number | 0 | Task plan quality score from ln-300 (0-4) |
 | `readiness` | number | 1 | Story readiness score from ln-310 (1-10) |
 | `verdict` | string | 1, 3 | GO/NO-GO (Stage 1) or PASS/CONCERNS/WAIVED/FAIL (Stage 3) |
 | `reason` | string | 1 | NO-GO reason from ln-310 (optional, only if verdict=NO-GO) |
-| `qualityScore` | number | 3 | Quality gate score from ln-500 (0-100) |
+| `quality_score` | number | 3 | Quality gate score from ln-500 (0-100) |
 | `issues` | string | 3 | Quality issues if FAIL (optional, only if verdict=FAIL) |
+| `agents_info` | string | 1, 3 | Aggregated agent review summary |
+| `git_stats` | object | 2 | Parsed `git diff --stat` summary |
+| `architecture_delta` | object | 3 | Optional architecture comparison captured on STAGE_3 entry |
 
 **Example (Stage 3 checkpoint with all relevant fields):**
 ```json
 {
-  "storyId": "PROJ-42",
   "stage": 3,
-  "tasksCompleted": ["PROJ-101", "PROJ-102", "PROJ-103", "PROJ-104", "PROJ-105"],
-  "tasksRemaining": [],
-  "lastAction": "Quality gate completed, verdict: PASS",
-  "timestamp": "2026-02-14T14:30:00Z",
+  "started_at": "2026-02-14T14:10:00Z",
+  "completed_at": "2026-02-14T14:30:00Z",
+  "tasks_completed": ["PROJ-101", "PROJ-102", "PROJ-103", "PROJ-104", "PROJ-105"],
+  "tasks_remaining": [],
+  "last_action": "Quality gate completed, verdict: PASS",
   "verdict": "PASS",
-  "qualityScore": 92
+  "quality_score": 92,
+  "agents_info": "codex(2/3),gemini(1/2)"
 }
 ```
 
 ## Pipeline State Schema
 
-Lead writes ALL state variables to `.pipeline/state.json` on every stage transition. This enables full recovery on restart.
+CLI commands own `state.json`. The lead advances, pauses, and checkpoints via `node $PIPELINE ...` instead of mutating state fields manually.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `complete` | boolean | `false` while pipeline running, `true` before cleanup |
-| `selected_story_id` | string | Story ID selected by user for this pipeline run |
-| `stories_remaining` | number | 1 if story not yet DONE/PAUSED, else 0 |
-| `last_check` | string | ISO 8601 timestamp of last state update |
-| `story_state` | object | `{storyId: "STAGE_0"\|"STAGE_1"\|"STAGE_2"\|"STAGE_3"\|"DONE"\|"PAUSED"}` |
-| `quality_cycles` | object | `{storyId: count}` — FAIL->retry counter (limit 2) |
-| `previous_quality_score` | object | `{storyId: score}` — quality score from first Stage 3 FAIL (for rework degradation comparison). Absent until first FAIL. |
-| `validation_retries` | object | `{storyId: count}` — NO-GO retry counter (limit 1) |
-| `story_results` | object | `{storyId: {stage0: "...", stage1: "...", ...}}` — per-stage results for report |
-| `infra_issues` | array | `[{phase, type, message}]` — infrastructure issues for report |
-| `status_cache` | object | `{statusName: statusUUID}` — Linear status name->UUID mapping (empty if file mode) |
-| `stage_timestamps` | object | `{storyId: {stage_N_start: ISO, stage_N_end: ISO}}` — per-stage duration tracking |
-| `git_stats` | object | `{storyId: {lines_added, lines_deleted, files_changed}}` — code output metrics |
-| `pipeline_start_time` | string | ISO 8601 timestamp of pipeline start — for wall-clock duration |
-| `readiness_scores` | object | `{storyId: readiness_score}` — from Stage 1 GO, for Stage 3 fast-track decision |
-| `business_answers` | object | `{question: answer}` from Phase 2 — passed to Skill prompts |
-| `storage_mode` | string | `"file"` or `"linear"` — task storage backend |
-| `skill_repo_path` | string | Skills repository absolute path (for recovery) |
-| `project_brief` | object | `{name, tech, type, key_rules}` — project context from CLAUDE.md |
-| `story_briefs` | object | `{storyId: {tech, keyFiles, approach, complexity}}` — orchestrator brief from Linear |
+| `story_id` | string | Story ID selected for this pipeline run |
+| `story_title` | string | Selected Story title |
+| `stage` | string | `QUEUED`, `STAGE_0`, `STAGE_1`, `STAGE_2`, `STAGE_3`, `DONE`, or `PAUSED` |
+| `complete` | boolean | `false` while pipeline running, `true` after DONE/cancel |
+| `quality_cycles` | number | FAIL->retry counter (limit 2) |
+| `validation_retries` | number | NO-GO retry counter (limit 1) |
+| `crash_count` | number | Confirmed crash counter |
+| `storage_mode` | string | `"file"` or `"linear"` |
+| `pipeline_start_time` | string | ISO 8601 pipeline start timestamp |
+| `updated_at` | string | ISO 8601 timestamp of latest write |
+| `project_brief` | object | `{name, tech, type, key_rules}` from target project |
+| `story_briefs` | object | Orchestrator brief payloads keyed by story ID |
+| `business_answers` | object | Answers captured in Phase 2 |
+| `status_cache` | object | Linear status name->UUID mapping |
+| `skill_repo_path` | string | Skills repository absolute path |
+| `worktree_dir` | string | Active worktree path for this run |
+| `branch_name` | string | Active branch name |
+| `stage_timestamps` | object | `{stage_N_start, stage_N_end}` timestamps |
+| `git_stats` | object | Code output metrics captured from stage checkpoints |
+| `readiness_scores` | object | Readiness scores kept for reporting/quality decisions |
+| `infra_issues` | array | Infrastructure issues for report |
+| `previous_quality_score` | object | Previous FAIL score for degradation comparison |
+| `story_results` | object | Per-stage reporting payload |
+| `paused_reason` | string/null | Reason when pipeline is paused |
 
 **Example:**
 ```json
 {
+  "story_id": "API-427",
+  "story_title": "Implement API retry policy",
+  "stage": "STAGE_2",
   "complete": false,
-  "selected_story_id": "API-427",
-  "stories_remaining": 1,
-  "last_check": "2026-02-13T14:30:00Z",
-  "story_state": { "API-427": "STAGE_2" },
-  "quality_cycles": { "API-427": 0 },
-  "previous_quality_score": {},
-  "validation_retries": { "API-427": 0 },
-  "story_results": { "API-427": { "stage0": "skip", "stage1": "skip" } },
-  "infra_issues": [],
-  "stage_timestamps": { "API-427": { "stage_2_start": "2026-02-13T13:00:00Z" } },
+  "quality_cycles": 0,
+  "validation_retries": 0,
+  "crash_count": 0,
+  "storage_mode": "linear",
+  "pipeline_start_time": "2026-02-13T12:55:00Z",
+  "updated_at": "2026-02-13T14:30:00Z",
+  "project_brief": { "name": "API", "tech": "Node.js", "type": "API", "key_rules": ["Keep story status authoritative"] },
+  "story_briefs": { "API-427": { "tech": "Node.js", "keyFiles": ["src/api/retry.ts"] } },
+  "business_answers": {},
+  "status_cache": { "Todo": "uuid-todo" },
+  "skill_repo_path": "D:/Development/LevNikolaevich/claude-code-skills/skills-catalog",
+  "worktree_dir": "D:/project/.hex-skills/worktrees/story-API-427",
+  "branch_name": "feature/API-427-implement-api-retry-policy",
+  "stage_timestamps": { "stage_2_start": "2026-02-13T13:00:00Z" },
   "git_stats": {},
-  "pipeline_start_time": "2026-02-13T12:55:00Z"
+  "readiness_scores": {},
+  "infra_issues": [],
+  "previous_quality_score": {},
+  "story_results": {},
+  "paused_reason": null
 }
 ```
 
@@ -92,38 +111,30 @@ Lead writes ALL state variables to `.pipeline/state.json` on every stage transit
 Lead executes on crash recovery:
 
 ```
-1. Read checkpoint: .pipeline/checkpoint-{id}.json
-2. Read state.json -> restore pipeline state variables
-3. Resume from last checkpoint stage + 1
-   Re-invoke Skill() for the failed stage with CHECKPOINT_RESUME context
+1. Bash: node $PIPELINE status --story {id}
+2. Extract resume_action from JSON response
+3. Follow resume_action (e.g., "Invoke Skill(ln-400) for stage 2")
 ```
 
-**CHECKPOINT_RESUME block** (passed to Skill context):
-```
-CHECKPOINT RESUME — DO NOT re-execute completed work.
-Tasks already completed: {tasksCompleted joined by ", "}
-Tasks remaining: {tasksRemaining joined by ", "}
-Last action: {lastAction}
-Continue from remaining tasks only.
-```
+CLI status includes reconciliation: if state.json and checkpoint disagree, pipeline is auto-PAUSED with recovery reason.
 
 ## Checkpoint Write Protocol
 
-Lead writes checkpoints after each Skill() call completes:
+CLI writes checkpoints via `node $PIPELINE checkpoint` after each Skill() call:
 
-| Stage | When to Write | Required Fields | Stage-Specific Fields |
-|-------|--------------|----------------|----------------------|
-| 0 (ln-300) | After tasks created | storyId, stage, timestamp, lastAction | **planScore** (0-4), tasksCompleted=[], tasksRemaining=[created task IDs] |
-| 1 (ln-310) | After validation | storyId, stage, timestamp, lastAction | **readiness** (1-10), **verdict** (GO/NO-GO), **reason** (if NO-GO), tasksCompleted=[], tasksRemaining=[] |
-| 2 (ln-400) | After implementation | storyId, stage, timestamp, lastAction | tasksCompleted=[done task IDs], tasksRemaining=[pending task IDs] |
-| 3 (ln-500) | After quality gate | storyId, stage, timestamp, lastAction | **verdict** (PASS/CONCERNS/WAIVED/FAIL), **qualityScore** (0-100), **issues** (if FAIL), tasksCompleted=[all], tasksRemaining=[] |
+| Stage | CLI Command |
+|-------|-------------|
+| 0 | `node $PIPELINE checkpoint --story {id} --stage 0 --plan-score {N} --tasks-remaining '{[...]}' --last-action "..."` |
+| 1 | `node $PIPELINE checkpoint --story {id} --stage 1 --verdict GO --readiness {N} --agents-info "..." --last-action "..."` |
+| 2 | `node $PIPELINE checkpoint --story {id} --stage 2 --tasks-completed '{[...]}' --git-stats '{...}' --last-action "..."` |
+| 3 | `node $PIPELINE checkpoint --story {id} --stage 3 --verdict PASS --quality-score {N} --agents-info "..." --last-action "..."` |
 
 **Stage-Specific Field Requirements:**
-- **Stage 0:** MUST write `planScore` (task plan quality from ln-300)
-- **Stage 1:** MUST write `readiness`, `verdict`; MUST write `reason` if verdict=NO-GO
-- **Stage 2:** No stage-specific fields (task progress only)
-- **Stage 3:** MUST write `verdict`, `qualityScore`; MUST write `issues` if verdict=FAIL
+- **Stage 0:** `--plan-score` (0-4), `--tasks-remaining`
+- **Stage 1:** `--readiness` (1-10), `--verdict` (GO/NO-GO); `--reason` if NO-GO
+- **Stage 2:** `--tasks-completed`, `--git-stats`
+- **Stage 3:** `--verdict` (PASS/CONCERNS/WAIVED/FAIL), `--quality-score` (0-100); `--issues` if FAIL
 
 ---
-**Version:** 4.0.0
-**Last Updated:** 2026-03-19
+**Version:** 5.0.0
+**Last Updated:** 2026-03-24

@@ -1,6 +1,7 @@
 ---
 name: ln-645-open-source-replacer
 description: "Discovers custom modules replaceable by OSS, evaluates alternatives (stars, license, CVE), generates migration plan. Use when reducing custom code."
+allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, mcp__hex-graph__find_references, mcp__hex-graph__get_module_metrics
 license: MIT
 ---
 

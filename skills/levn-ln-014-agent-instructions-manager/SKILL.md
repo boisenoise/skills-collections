@@ -1,6 +1,6 @@
 ---
 name: ln-014-agent-instructions-manager
-description: "Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md) and audits all for token budget, prompt cache safety, and cross-agent consistency. Use after setup or when instruction files need alignment."
+description: "Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md), audits token budget, prompt cache safety, cross-agent consistency. Use after setup or when instruction files need alignment."
 license: MIT
 ---
 
@@ -32,6 +32,32 @@ Locate instruction files in target project:
 | Gemini | `GEMINI.md` | `AGENTS.md` (shared with Codex) |
 
 Report: which files exist (`found` / `missing`), which agents share files.
+
+## Phase 1b: Plugin Conflict Check
+
+**Skip condition:** No `enabledPlugins` in settings OR all plugins are `@levnikolaevich-skills-marketplace`.
+
+1. Read `~/.claude/settings.json` → parse `enabledPlugins`
+2. Filter: enabled=true AND publisher ≠ `levnikolaevich-skills-marketplace`
+3. For each external plugin:
+   - Locate cache: `~/.claude/plugins/cache/{publisher}/{plugin}/*/skills/*/SKILL.md`
+   - Read each skill description (frontmatter `description:` field)
+   - Match against conflict signal keywords:
+
+| Signal | Keywords in description | Overlap with |
+|--------|----------------------|--------|
+| Orchestration | "orchestrat", "pipeline", "end-to-end", "lifecycle" | ln-1000 pipeline |
+| Planning | "plan.*implement", "brainstorm", "design.*spec" | ln-300 task coordinator |
+| Execution | "execut.*plan", "subagent.*task", "task-by-task" | ln-400/ln-401 executors |
+| Code review | "code.review.*dispatch", "review.*quality.*spec" | ln-402/ln-310 |
+| Quality gate | "quality.*gate", "verification.*complet", "test-driven.*always" | ln-500 quality gate |
+| Debugging | "systematic.*debug", "root.*cause.*phase" | problem_solving.md |
+| Git isolation | "worktree.*creat", "git.*isolat" | git_worktree_fallback.md |
+
+   - Check for `hooks/session-start` directory (competing SessionStart injection)
+4. Score: 2+ signal categories → CONFLICT. 1 → WARN. 0 → safe
+5. CONFLICT: `"CONFLICT: {plugin} overlaps with ln-* pipeline ({signals}). Disable?"` → AskUserQuestion → if yes, set to `false` in settings.json
+6. WARN: report, continue
 
 ## Phase 2: Create Missing Files
 
@@ -163,6 +189,7 @@ Recommendations:
 - [ ] Content quality checks passed (or issues reported)
 - [ ] Cross-agent consistency verified
 - [ ] Report generated with creation log and actionable recommendations
+- [ ] No conflicting external plugins detected (or user confirmed keep)
 
-**Version:** 2.0.0
-**Last Updated:** 2026-03-23
+**Version:** 2.1.0
+**Last Updated:** 2026-03-24

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-24T06:33:32.164648",
-  "skill_count": 2441,
+  "last_updated": "2026-03-25T06:33:29.352381",
+  "skill_count": 2444,
   "sources_processed": 19,
   "skills": [
     {
@@ -9364,6 +9364,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-xvary-stock-research",
+      "original_name": "xvary-stock-research",
+      "description": "Thesis-driven equity analysis from public SEC EDGAR and market data; /analyze, /score, /compare workflows with bundled Python tools (Claude Code, Cursor, Codex).",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-yann-lecun",
       "original_name": "yann-lecun",
       "description": "Agente que simula Yann LeCun \u2014 inventor das Convolutional Neural Networks, Chief AI Scientist da Meta, Pr\u00eamio Turing 2018.",
@@ -9623,6 +9631,14 @@
       "name": "antigravity-awt-e2e-testing",
       "original_name": "awt-e2e-testing",
       "description": "AI-powered E2E web testing \u2014 eyes and hands for AI coding tools. Declarative YAML scenarios, Playwright execution, visual matching (OpenCV + OCR), platform auto-detection (Flutter/React/Vue), learning DB. Install: npx skills add ksgisang/awt-skill --skill awt -g",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-aegisops-ai",
+      "original_name": "aegisops-ai",
+      "description": "Autonomous DevSecOps & FinOps Guardrails. Orchestrates Gemini 3 Flash to audit Linux Kernel patches, Terraform cost drifts, and K8s compliance.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18292,6 +18308,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-840-benchmark-compare",
+      "original_name": "ln-840-benchmark-compare",
+      "description": "Runs a balanced built-in vs hex-line benchmark with scenario manifests, activation checks, diff-based correctness, and a final comparison report.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-724-artifact-cleaner",
       "original_name": "ln-724-artifact-cleaner",
       "description": "Removes platform-specific artifacts from Replit, StackBlitz, CodeSandbox, Glitch. Use when preparing exported projects for production.",
@@ -18766,7 +18790,7 @@
     {
       "name": "levn-ln-014-agent-instructions-manager",
       "original_name": "ln-014-agent-instructions-manager",
-      "description": "Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md) and audits all for token budget, prompt cache safety, and cross-agent consistency. Use after setup or when instruction files need alignment.",
+      "description": "Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md), audits token budget, prompt cache safety, cross-agent consistency. Use after setup or when instruction files need alignment.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

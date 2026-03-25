@@ -123,7 +123,7 @@ When a primary skill changes its behavioral contract (fast-track matrix, dispatc
 
 ## D11: Resource Lifecycle Integrity
 
-For skills that manage shared resources (worktrees, branches, `.pipeline/` state, `.agent-review/` files):
+For skills that manage shared resources (worktrees, branches, `.hex-skills/pipeline/` state, `.hex-skills/agent-review/` files):
 
 - **Creator-User-Cleaner chain:** Trace who creates, who uses, who cleans up each resource. Verify no gaps (resource created but never cleaned) or conflicts (cleanup while still in use)
 - **Inline vs Isolated execution:** If a skill may run both as Skill (inline) and as Agent (isolated), verify resource operations work in both modes. Example: `git worktree remove` fails if CWD is inside the worktree

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-24 06:33 UTC*
+*Last updated: 2026-03-25 06:33 UTC*
 
-Total skills: **2441**
+Total skills: **2444**
 
 ## Skills by Source
 
@@ -986,7 +986,7 @@ Total skills: **2441**
 | `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, and Claude Code. Use when CLI agents need installation or... |
 | `levn-ln-012-mcp-configurator` | Installs MCP packages, registers servers in Claude Code, configures hooks, permissions, and migratio... |
 | `levn-ln-013-config-syncer` | Syncs skills, MCP settings, and hooks from Claude Code to Gemini CLI and Codex CLI via symlinks and ... |
-| `levn-ln-014-agent-instructions-manager` | Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md) and audits all for token budget,... |
+| `levn-ln-014-agent-instructions-manager` | Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md), audits token budget, prompt cac... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
@@ -1102,6 +1102,7 @@ Total skills: **2441**
 | `levn-ln-830-code-modernization-coordinator` | Modernizes codebase via OSS replacement and bundle optimization. Use when acting on audit findings t... |
 | `levn-ln-831-oss-replacer` | Replaces custom modules with OSS packages using atomic keep/discard testing. Use when migrating cust... |
 | `levn-ln-832-bundle-optimizer` | Reduces JS/TS bundle size via tree-shaking, code splitting, and unused dependency removal. Use when ... |
+| `levn-ln-840-benchmark-compare` | Runs a balanced built-in vs hex-line benchmark with scenario manifests, activation checks, diff-base... |
 | `levn-ln-910-community-engagement` | Analyzes community health and delegates engagement tasks. Use when managing GitHub issues, discussio... |
 | `levn-ln-911-github-triager` | Produces prioritized triage report from open GitHub issues, PRs, and discussions. Use when reviewing... |
 | `levn-ln-912-community-announcer` | Composes and publishes announcements to GitHub Discussions. Use when sharing releases, updates, or n... |
@@ -1217,6 +1218,7 @@ Total skills: **2441**
 | `antigravity-advanced-evaluation` | This skill should be used when the user asks to "implement LLM-as-judge", "compare model outputs", "... |
 | `antigravity-advogado-criminal` | Advogado criminalista especializado em Maria da Penha, violencia domestica, feminicidio, direito pen... |
 | `antigravity-advogado-especialista` | Advogado especialista em todas as areas do Direito brasileiro: familia, criminal, trabalhista, tribu... |
+| `antigravity-aegisops-ai` | Autonomous DevSecOps & FinOps Guardrails. Orchestrates Gemini 3 Flash to audit Linux Kernel patches,... |
 | `antigravity-agent-evaluation` | You're a quality engineer who has seen agents that aced benchmarks fail spectacularly in production.... |
 | `antigravity-agent-framework-azure-ai-py` | Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK. |
 | `antigravity-agent-manager-skill` | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly sc... |
@@ -2517,6 +2519,7 @@ calculations
 | `antigravity-x-twitter-scraper` | X (Twitter) data platform skill — tweet search, user lookup, follower extraction, engagement metrics... |
 | `antigravity-xlsx` | Unless otherwise stated by the user or existing template |
 | `antigravity-xss-html-injection` | Execute comprehensive client-side injection vulnerability assessments on web applications to identif... |
+| `antigravity-xvary-stock-research` | Thesis-driven equity analysis from public SEC EDGAR and market data; /analyze, /score, /compare work... |
 | `antigravity-yann-lecun` | Agente que simula Yann LeCun — inventor das Convolutional Neural Networks, Chief AI Scientist da Met... |
 | `antigravity-yann-lecun-debate` | Sub-skill de debates e posições de Yann LeCun. Cobre críticas técnicas detalhadas aos LLMs, rivalida... |
 | `antigravity-yann-lecun-filosofia` | Sub-skill filosófica e pedagógica de Yann LeCun. |

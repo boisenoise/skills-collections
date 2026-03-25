@@ -8,7 +8,7 @@
 #   - grep -q returns exit code 1 on no match -> breaks && chains; use if/then
 #   - grep -c returns exit code 1 when count=0 -> append || true
 #   - passive ref grep needs || true to avoid false script failure
-#   - MANDATORY READ paths outside skills/ (mcp/, docs/project/*) are runtime-only
+#   - MANDATORY READ paths outside skills-catalog/ (mcp/, docs/project/*) are runtime-only
 #     and skipped by Check 5 (only shared/, references/, ../ln-* are verified)
 #   - pipe | while read creates subshell -> FAILS counter lost; use < <(...) instead
 
@@ -72,7 +72,7 @@ echo "=== CHECK 5: MANDATORY READ paths (D2) ==="
 for f in $SCOPE; do
   dir=$(dirname "$f")
   while read -r path; do
-    # Only verify paths resolvable within skills/ (shared/, references/, ../ln-*)
+    # Only verify paths resolvable within skills-catalog/ (shared/, references/, ../ln-*)
     # Paths outside skills tree (mcp/, docs/project/) are runtime — skip
     if ! echo "$path" | grep -qE '^(shared/|references/|\.\./ln-)'; then continue; fi
     if [ ! -f "$dir/$path" ] && [ ! -f "$path" ] && [ ! -f "$SKILLS_ROOT/$path" ]; then

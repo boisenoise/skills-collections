@@ -1,6 +1,7 @@
 ---
 name: ln-642-layer-boundary-auditor
 description: "Checks layer boundary violations, transaction boundaries, session ownership, cross-layer consistency. Use when auditing architecture layers."
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_references, mcp__hex-graph__trace_paths, mcp__hex-graph__get_module_metrics
 license: MIT
 ---
 
@@ -68,6 +69,12 @@ Build ruleset:
     forbidden_deps = layers that cannot be imported
 ```
 
+
+**Graph acceleration (if available):** IF `contextStore.graph_indexed` OR `.hex-skills/codegraph/index.db` exists:
+- **Module coupling:** `get_module_metrics(path=scan_root)` — Ca/Ce/Instability per module. Use to identify tightly-coupled layers.
+- **Cross-layer calls:** `find_references(symbol)` for transaction/session functions — trace commit/rollback ownership across layers.
+- **Orchestration depth:** `trace_paths(start=service_function, path_kind="calls", direction="forward", depth=3)` — measure chain depth for flat orchestration check.
+- Fall back to grep-based detection below if graph unavailable.
 ### Phase 2: Detect Layer Violations
 
 ```

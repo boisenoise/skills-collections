@@ -6,6 +6,9 @@ license: MIT
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
 
+**Type:** L2 Coordinator
+**Category:** 4XX Execution
+
 # Story Execution Orchestrator
 
 Executes a Story end-to-end by looping through its tasks in priority order. Sets Story to **To Review** when all tasks Done (quality gate decides Done).
@@ -47,7 +50,7 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 4. Generate branch name: `feature/{identifier}-{story-title-slug}` (lowercase, spaces→dashes, no special chars)
 5. **Self-detection:** `git branch --show-current`
    - If already on `feature/*` → use current worktree, skip to Phase 2
-   - If on develop/main/master → create worktree + branch (per git_worktree_fallback.md lifecycle steps 1-3, worktree dir: `.worktrees/story-{identifier}`)
+   - If on develop/main/master → create worktree + branch (per git_worktree_fallback.md lifecycle steps 1-3, worktree dir: `.hex-skills/worktrees/story-{identifier}`)
 
 ### Phase 2: Load Metadata
 Fetch Story metadata and all child task metadata (ID/title/status/labels only):
@@ -103,7 +106,7 @@ When all tasks Done:
 - **⚠️ NEVER set Story to Done.** Only the quality gate (5XX) can mark Story as Done after full quality check.
 - **Recommended next step:** quality gate for code quality and regression checks
 
-## Worker Invocation
+## Worker Invocation (MANDATORY)
 
 > **CRITICAL:** Executors (ln-401/ln-403/ln-404) use Agent tool for context isolation. Reviewer (ln-402) runs inline via Skill tool in main flow.
 

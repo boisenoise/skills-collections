@@ -1,10 +1,14 @@
 ---
 name: ln-510-quality-coordinator
 description: "Coordinates code quality checks: metrics, cleanup, agent review, regression, log analysis. Use when Story needs quality_verdict with aggregated results."
+allowed-tools: Read, Grep, Glob, Bash, Skill, mcp__hex-graph__index_project
 license: MIT
 ---
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
+
+**Type:** L2 Coordinator
+**Category:** 5XX Quality
 
 # Quality Coordinator
 
@@ -49,6 +53,10 @@ Sequential coordinator for code quality pipeline. Invokes workers (ln-511 → ln
 3) **Collect git scope** (sets `changed_files[]` for ln-511 via coordinator context):
    **MANDATORY READ:** Load `shared/references/git_scope_detection.md`
    Run algorithm from guide → build `changed_files[]`
+4) **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
+   - `index_project(path=codebase_root)` — builds/refreshes code graph for workers
+   - Add `graph_indexed: true` to coordinator context for ln-511
+   - Workers use graph tools (find_clones, find_hotspots, etc.) when graph_indexed=true
 
 **Fast-track mode:** When invoked with `--fast-track` flag (readiness 10/10), run Phase 2 with `--skip-mcp-ref` (metrics + static only, no MCP Ref), skip Phase 3 (ln-512), run Phase 4 with **1 agent minimum** (reduced from 2). Run Phase 5 (criteria), Phase 6 (linters), Phase 7 (ln-513), Phase 8 (ln-514).
 
@@ -96,14 +104,14 @@ Skill(skill: "ln-512-tech-debt-cleaner", args: "{storyId}")
 **MANDATORY READ:** Load `shared/references/agent_review_workflow.md`, `shared/references/agent_delegation_pattern.md`
 
 4a) **Health Check** (per shared workflow "Step: Health Check"):
-    - Read `docs/environment_state.json` → exclude agents with `disabled: true`
+    - Read `.hex-skills/environment_state.json` → exclude agents with `disabled: true`
     - Run `node shared/agents/agent_runner.mjs --health-check` for remaining agents
     - If 0 agents → agent review SKIPPED, go to Phase 5
 4b) **Get references:** `get_issue(storyId)` + `list_issues(parent=storyId, status=Done)` (exclude test tasks)
-4c) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/code.md` (per shared workflow "Step: Build Prompt"), replace `{story_ref}`, `{task_refs}`. Save to `.agent-review/{identifier}_codereview_prompt.md`
+4c) **Build prompt:** Assemble from `shared/agents/prompt_templates/review_base.md` + `modes/code.md` (per shared workflow "Step: Build Prompt"), replace `{story_ref}`, `{task_refs}`. Save to `.hex-skills/agent-review/{identifier}_codereview_prompt.md`
 4d) **Launch BOTH agents** as background tasks. `agents_launched = true`
     **Exact command (per agent_delegation_pattern.md):**
-    `node shared/agents/agent_runner.mjs --agent {name} --prompt-file .agent-review/{agent}/{id}_codereview_prompt.md --output-file .agent-review/{agent}/{id}_codereview_result.md --cwd {project_dir}`
+    `node shared/agents/agent_runner.mjs --agent {name} --prompt-file .hex-skills/agent-review/{agent}/{id}_codereview_prompt.md --output-file .hex-skills/agent-review/{agent}/{id}_codereview_result.md --cwd {project_dir}`
     → Continue to Phase 5 (Criteria Validation), Phase 6 (Linters), Phase 7 (Regression), Phase 8 (Log Analysis) while agents work
 
 ### Phase 5: Criteria Validation
@@ -156,7 +164,7 @@ Skill(skill: "ln-514-test-log-analyzer", args: "review logs since test run start
 9b) **Critical Verification** per shared workflow — Claude evaluates each suggestion on merits
 9c) **Merge accepted suggestions** into issues list (SEC-, PERF-, MNT-, ARCH-, BP-, OPT-)
     - If `area=security` or `area=correctness` → escalate aggregate to CONCERNS
-9d) **Save review summary** to `.agent-review/review_history.md`
+9d) **Save review summary** to `.hex-skills/agent-review/review_history.md`
 
 ### Phase 10: Iterative Refinement (MANDATORY when Codex available — SKIP if agents SKIPPED)
 
@@ -167,7 +175,7 @@ Execute per `shared/references/agent_review_workflow.md` "Step: Iterative Refine
 1) **Artifact:** Changed files from Story scope (post-Phase 9 merge state)
 2) **Loop (max 5 iterations):** Build prompt → send to Codex (foreground) → parse → AGREE/REJECT each suggestion → apply accepted → repeat until APPROVED or max
 3) **Display:** `"Iterative Refinement: {N} iterations, {total} suggestions, {applied} applied, exit: {reason}"`
-4) **Persist:** `.agent-review/refinement/`, append to `review_history.md`
+4) **Persist:** `.hex-skills/agent-review/refinement/`, append to `review_history.md`
 
 ### Phase 11: Calculate Verdict + Return Results
 

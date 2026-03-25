@@ -32,7 +32,7 @@ Indexes codebase into a layered graph (tree-sitter AST → SQLite) and provides 
 
 ### Phase 1: Index
 
-Check if graph exists (`.codegraph/index.db` in project root).
+Check if graph exists (`.hex-skills/codegraph/index.db` in project root).
 
 **If NOT exists:**
 ```

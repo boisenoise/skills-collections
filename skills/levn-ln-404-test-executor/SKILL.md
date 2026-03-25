@@ -1,6 +1,7 @@
 ---
 name: ln-404-test-executor
 description: "Executes test tasks (label 'tests') through Todo to To Review with risk-based limits. Use for test task execution. Not for implementation tasks."
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__directory_tree
 license: MIT
 ---
 
@@ -16,6 +17,7 @@ Runs a single Story final test task (label "tests") through implementation/execu
 - Enforce risk-based constraints: Priority ≥15 scenarios covered; each test passes Usefulness Criteria; no framework/DB/library/performance tests.
 - Update Linear/kanban for this task only: Todo -> In Progress -> To Review.
 
+**Hex-line acceleration (if available):** Use `outline(path)` before reading test targets. Use `directory_tree(path="tests/")` to understand test structure.
 ## Inputs
 
 | Input | Required | Source | Description |

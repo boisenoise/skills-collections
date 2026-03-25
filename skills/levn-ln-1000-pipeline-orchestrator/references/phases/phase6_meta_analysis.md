@@ -17,7 +17,7 @@ FOR stage IN 0..3:
   skill_status = "OK" IF:
     stage 0 -> plan_score >= 3
     stage 1 -> verdict == "GO"
-    stage 2 -> story_state[id] != "PAUSED"
+    stage 2 -> state.stage != "PAUSED"
     stage 3 -> verdict IN ("PASS", "CONCERNS", "WAIVED")
   ELSE "degraded" or "failed/not reached"
 
@@ -47,7 +47,7 @@ Per protocol S4: tied to specific weaknesses of THIS run, not generic.
 candidates = []
 IF any infra_issue:
   candidates += "Infrastructure issue -> review pipeline configuration"
-IF quality_cycles[id] > 1:
+IF quality_cycles > 1:
   candidates += "{quality_cycles} rework cycles -> improve test spec coverage in ln-520"
 IF stage_durations.get(2, 0) > 10800:  # 3h
   candidates += "Stage 2 > 3h -> consider task decomposition for complex stories"

@@ -1,7 +1,7 @@
 ---
 name: ln-624-code-quality-auditor
 description: "Checks cyclomatic complexity, nesting, long methods, god classes, O(n2), N+1 queries, constants management. Use when auditing code quality."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_hotspots, mcp__hex-graph__get_module_metrics, mcp__hex-line__outline
 license: MIT
 ---
 
@@ -34,6 +34,11 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 1) **Parse context** — extract fields, determine `scan_path` (domain-aware if specified), extract `output_dir`
 2) **Scan codebase for violations (Layer 1)**
    - All Grep/Glob patterns use `scan_path` (not codebase_root)
+   - **Graph acceleration (if available):** IF `contextStore.graph_indexed` OR `.hex-skills/codegraph/index.db` exists:
+     - **Complexity + God classes:** `find_hotspots(path=scan_path, min_complexity=10, min_callers=2)` — returns top functions by complexity × callers. Use for CC, nesting, god class pre-identification.
+     - **Module metrics:** `get_module_metrics(path=scan_path)` — Ca/Ce/Instability per module. Use for cascade depth and coupling analysis.
+     - Fall back to grep patterns below if graph unavailable.
+     - **Outline-first read:** `outline(path)` before reading large source files — understand function/class structure for complexity analysis.
    - Example: `Grep(pattern="if.*if.*if", path=scan_path)` for nesting detection
 3) **Analyze context per candidate (Layer 2 — MANDATORY)**
    Layer 1 finding without Layer 2 = NOT a valid finding. Before reporting, ask: "Is this violation intentional or justified by design?"

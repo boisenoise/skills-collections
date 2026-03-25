@@ -1,7 +1,7 @@
 ---
 name: ln-653-runtime-performance-auditor
 description: "Checks blocking IO in async, unnecessary allocations, sync sleep, string concat in loops, redundant copies. Use when auditing runtime performance."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_hotspots
 license: MIT
 ---
 

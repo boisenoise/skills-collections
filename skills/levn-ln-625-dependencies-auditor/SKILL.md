@@ -1,7 +1,7 @@
 ---
 name: ln-625-dependencies-auditor
 description: "Checks outdated packages, unused deps, reinvented wheels, CVE/CVSS vulnerability scan. Use when auditing dependencies."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_unused_exports, mcp__hex-graph__find_references
 license: MIT
 ---
 

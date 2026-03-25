@@ -1,6 +1,7 @@
 ---
 name: ln-641-pattern-analyzer
 description: "Analyzes single pattern implementation, calculates compliance/completeness/quality scores, identifies gaps. Use when auditing a specific pattern."
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_implementations, mcp__hex-graph__search_symbols
 license: MIT
 ---
 

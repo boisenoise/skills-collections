@@ -43,7 +43,7 @@ Iterative diagnostic pipeline for performance optimization. Profiles the full re
 | Test infrastructure | Yes | Block: "tests required for safe optimization" |
 | Stack detection | Yes | Detect via ci_tool_detection.md |
 | Service topology | No | Detect multi-service architecture (see below) |
-| State file | No | If `.optimization/{slug}/state.json` exists → resume from last completed gate |
+| State file | No | If `.hex-skills/optimization/{slug}/state.json` exists → resume from last completed gate |
 
 **MANDATORY READ:** Load `shared/references/ci_tool_detection.md` for test/build detection.
 
@@ -64,7 +64,7 @@ If single-service (no signals): `service_topology = null` — standard single-co
 
 ### State Persistence
 
-Save `.optimization/{slug}/state.json` after each phase completion. Enables resume on interruption.
+Save `.hex-skills/optimization/{slug}/state.json` after each phase completion. Enables resume on interruption.
 
 ```json
 {
@@ -97,7 +97,7 @@ Save `.optimization/{slug}/state.json` after each phase completion. Enables resu
 
 Update state BEFORE and AFTER each phase. For Agent-delegated phases (7, 8): set `running` before launch, `done`/`failed` after Agent returns.
 
-On startup: if `.optimization/{slug}/state.json` exists, ask user: "Resume from cycle {current_cycle}, phase {last incomplete}?" or "Start fresh?"
+On startup: if `.hex-skills/optimization/{slug}/state.json` exists, ask user: "Resume from cycle {current_cycle}, phase {last incomplete}?" or "Start fresh?"
 
 Phases are **per-cycle** — reset at each cycle boundary. `current_cycle` + phases tells the exact resumption point.
 
@@ -161,7 +161,7 @@ Derive `{slug}` from target for per-task isolation: sanitize to `[a-z0-9_-]`, ma
 | `test_idml_structure_preserved` | `test-idml-structure-preserved` |
 | `/api/v1/translate` | `api-v1-translate` |
 
-All artifacts go to `.optimization/{slug}/`: `context.md`, `state.json`, `ln-814-log.tsv`, `profile_test.sh`.
+All artifacts go to `.hex-skills/optimization/{slug}/`: `context.md`, `state.json`, `ln-814-log.tsv`, `profile_test.sh`.
 
 ---
 
@@ -284,7 +284,7 @@ Primary metric (for stop condition) = metric type from `observed_metric` (what u
 
 Serialize diagnostic results from Phases 2-5 into structured context.
 
-- **Normal mode:** write `.optimization/{slug}/context.md` in project root — input for ln-813/ln-814
+- **Normal mode:** write `.hex-skills/optimization/{slug}/context.md` in project root — input for ln-813/ln-814
 - **Plan mode:** write same structure to plan file (file writes restricted) → call ExitPlanMode
 
 Context file is **overwritten each cycle** — it is a transient handoff to workers. Cycle history lives in `state.json` and experiment log (`ln-814-log.tsv`).
@@ -332,7 +332,7 @@ Step 1: Invoke worker:
   Skill(skill: \"ln-813-optimization-plan-validator\")
 
 CONTEXT:
-{\"slug\": \"{slug}\", \"context_file\": \".optimization/{slug}/context.md\"}",
+{\"slug\": \"{slug}\", \"context_file\": \".hex-skills/optimization/{slug}/context.md\"}",
      subagent_type: "general-purpose")
 ```
 
@@ -342,7 +342,7 @@ ln-813 will: agent review (Codex + Gemini) + own feasibility check → GO/GO_WIT
 
 **Receive (from Agent return):** verdict (GO/GO_WITH_CONCERNS/NO_GO), corrections_applied count, hypotheses_removed list, concerns.
 
-After Agent returns — re-read `.optimization/{slug}/context.md` for applied corrections. Update `state.json`: set phase `7_validate` to `done` or `failed`.
+After Agent returns — re-read `.hex-skills/optimization/{slug}/context.md` for applied corrections. Update `state.json`: set phase `7_validate` to `done` or `failed`.
 
 | Verdict | Action |
 |---------|--------|
@@ -367,7 +367,7 @@ Step 1: Invoke worker:
   Skill(skill: \"ln-814-optimization-executor\")
 
 CONTEXT:
-{\"slug\": \"{slug}\", \"context_file\": \".optimization/{slug}/context.md\"}",
+{\"slug\": \"{slug}\", \"context_file\": \".hex-skills/optimization/{slug}/context.md\"}",
      subagent_type: "general-purpose")
 ```
 
@@ -377,7 +377,7 @@ ln-814 will: read context → create worktree → strike-first (apply all) → t
 
 **Receive (from Agent return):** branch, baseline, final, total_improvement_pct, target_met, strike_result, hypotheses_applied, hypotheses_removed, files_modified.
 
-After Agent returns — read `.optimization/{slug}/ln-814-log.tsv` for experiment details. Update `state.json`: set phase `8_execute` to `done` or `failed`.
+After Agent returns — read `.hex-skills/optimization/{slug}/ln-814-log.tsv` for experiment details. Update `state.json`: set phase `8_execute` to `done` or `failed`.
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: ln-512-tech-debt-cleaner
 description: "Auto-fixes low-risk tech debt (unused imports, dead code, commented-out code) with >=90% confidence. Use when audit findings need safe automated cleanup."
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_unused_exports, mcp__hex-graph__find_references, mcp__hex-line__bulk_replace, mcp__hex-line__verify
 license: MIT
 ---
 
@@ -77,6 +78,10 @@ Automated cleanup of safe, low-risk tech debt findings from codebase audits.
       - For deprecated aliases: verify no consumers remain
    d) Assign confidence score (0-100). Only proceed if confidence >=90
 
+   **Hex-line acceleration (if available):** IF hex-line MCP server is available:
+   - **Batch cleanup:** When fixing >3 files with same pattern (e.g., unused import removal), use `bulk_replace(dry_run=true)` to preview, then `bulk_replace()` to apply.
+   - **Verified edits:** After each fix, `verify(path, checksums)` to confirm no stale state.
+   - Fall back to per-file Edit if unavailable.
 4) **Apply fixes with per-fix keep/discard (autoresearch pattern):**
    **MANDATORY READ:** Load `shared/references/ci_tool_detection.md` for discovery hierarchy. Detect lint + typecheck commands once (reuse for all fixes).
 

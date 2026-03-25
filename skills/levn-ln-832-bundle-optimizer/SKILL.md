@@ -1,6 +1,7 @@
 ---
 name: ln-832-bundle-optimizer
 description: "Reduces JS/TS bundle size via tree-shaking, code splitting, and unused dependency removal. Use when optimizing frontend bundle size."
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_unused_exports
 license: MIT
 ---
 

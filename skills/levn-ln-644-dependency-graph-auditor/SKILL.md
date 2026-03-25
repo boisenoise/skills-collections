@@ -7,6 +7,9 @@ license: MIT
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.
 
+**Type:** L3 Worker
+**Category:** 6XX Audit
+
 # Dependency Graph Auditor
 
 L3 Worker that builds and analyzes the module dependency graph to enforce architectural boundaries.
@@ -154,7 +157,7 @@ FOR EACH source_file IN Glob(language_glob_pattern, root=scan_root):
 
 ### Phase 3: Detect Cycles (ADP)
 
-**hex-graph acceleration:** For projects with `.codegraph/index.db`, use `find_cycles` for instant cycle detection. Fall back to grep-based DFS when graph is unavailable.
+**hex-graph acceleration:** For projects with `.hex-skills/codegraph/index.db`, use `find_cycles` for instant cycle detection. Fall back to grep-based DFS when graph is unavailable.
 
 Per Robert C. Martin (Clean Architecture Ch14): "Allow no cycles in the component dependency graph."
 
@@ -266,7 +269,7 @@ FOR EACH rule IN rules.required:
 
 ### Phase 5: Calculate Graph Metrics
 
-**hex-graph acceleration:** For projects with `.codegraph/index.db`, use `get_module_metrics` for instant Ca/Ce/I calculation. Fall back to manual computation when graph is unavailable.
+**hex-graph acceleration:** For projects with `.hex-skills/codegraph/index.db`, use `get_module_metrics` for instant Ca/Ce/I calculation. Fall back to manual computation when graph is unavailable.
 
 **MANDATORY READ:** Load `references/graph_metrics.md` — use Metric Definitions, Thresholds per Layer, SDP Algorithm, Lakos Formulas.
 

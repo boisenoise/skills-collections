@@ -1,7 +1,7 @@
 ---
 name: ln-629-lifecycle-auditor
 description: "Checks bootstrap initialization, graceful shutdown, resource cleanup, signal handling, liveness/readiness probes. Use when auditing app lifecycle."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__trace_paths
 license: MIT
 ---
 

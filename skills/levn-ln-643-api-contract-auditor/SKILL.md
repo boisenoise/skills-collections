@@ -1,7 +1,7 @@
 ---
 name: ln-643-api-contract-auditor
 description: "Checks layer leakage in method signatures, missing DTOs, entity leakage to API, inconsistent error contracts. Use when auditing API contracts."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_references, mcp__hex-graph__search_symbols
 license: MIT
 ---
 

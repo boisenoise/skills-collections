@@ -1,7 +1,7 @@
 ---
 name: ln-621-security-auditor
 description: "Checks hardcoded secrets, SQL injection, XSS, insecure deps, input validation. Use when auditing security."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_dataflows
 license: MIT
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: ln-401-task-executor
 description: "Executes implementation tasks through Todo, In Progress, To Review. Use when task needs coding with KISS/YAGNI. Not for test tasks."
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__verify, mcp__hex-line__changes
 license: MIT
 ---
 
@@ -17,6 +18,7 @@ Executes a single implementation (or refactor) task from Todo to To Review using
 - Run typecheck/lint; update docs/tests/config per task instructions.
 - Not for test tasks (label "tests" goes to ln-404-test-executor).
 
+**Hex-line acceleration (if available):** Use `outline(path)` before reading large code files. After edits: `edit_file(base_revision=rev)` → `verify(checksums)`. Before handoff: `changes()` to review diff.
 ## Inputs
 
 | Input | Required | Source | Description |

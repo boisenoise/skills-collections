@@ -214,6 +214,7 @@ Pass rate: {X}%
 - **Automated checks:** `references/automated_checks.md` + `references/run_checks.sh`
 - **Deprecated APIs:** `references/deprecated_apis.md` (Check #15)
 - **Command review:** `references/command_review_criteria.md` (COMMAND mode)
+- **Marketplace checker:** `references/check_marketplace.mjs` (used by /review-skills command)
 
 ## Definition of Done
 

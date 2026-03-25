@@ -19,7 +19,7 @@ Validates optimization plan (performance_map + hypotheses + context) via paralle
 
 | Aspect | Details |
 |--------|---------|
-| **Input** | `.optimization/{slug}/context.md` (performance_map, hypotheses, suspicion_stack) |
+| **Input** | `.hex-skills/optimization/{slug}/context.md` (performance_map, hypotheses, suspicion_stack) |
 | **Output** | Verdict (GO / GO_WITH_CONCERNS / NO_GO), corrected context.md, agent feedback summary |
 | **Pattern** | Parallel agent review (Codex + Gemini) + own feasibility check → merge → verdict |
 
@@ -39,11 +39,11 @@ Validates optimization plan (performance_map + hypotheses + context) via paralle
 ### Slug Resolution
 
 - If invoked via Agent with contextStore containing `slug` — use directly.
-- If invoked standalone — ask user for `.optimization/` target directory or scan for single slug.
+- If invoked standalone — ask user for `.hex-skills/optimization/` target directory or scan for single slug.
 
 ### Step 1: Load Context
 
-Read `.optimization/{slug}/context.md` from project root. Verify required sections present:
+Read `.hex-skills/optimization/{slug}/context.md` from project root. Verify required sections present:
 
 | Section | Required | Verify |
 |---------|----------|--------|
@@ -67,10 +67,10 @@ node shared/agents/agent_runner.mjs --health-check
 
 ## Phase 1: Materialize Context for Agents
 
-Prepare context for external agents (they cannot read `.optimization/` directly):
+Prepare context for external agents (they cannot read `.hex-skills/optimization/` directly):
 
-1. Ensure `.agent-review/` directory exists (with `.gitignore` containing `*`)
-2. Copy `.optimization/{slug}/context.md` → `.agent-review/context/{id}_optimization_plan.md`
+1. Ensure `.hex-skills/agent-review/` directory exists (with `.gitignore` containing `*`)
+2. Copy `.hex-skills/optimization/{slug}/context.md` → `.hex-skills/agent-review/context/{id}_optimization_plan.md`
 3. Build per-agent prompts per `agent_review_workflow.md` Step: Build Prompt (steps 1-9). Use `review_base.md` + `modes/plan_review.md`
 
 ### Optimization-Specific Focus Areas
@@ -79,7 +79,7 @@ Replace default `{focus_areas}` in prompt with:
 
 **MANDATORY READ:** Load [optimization_review_focus.md](references/optimization_review_focus.md)
 
-4. Save per-agent prompts to `.agent-review/{agent}/{id}_optimization_review_prompt.md`
+4. Save per-agent prompts to `.hex-skills/agent-review/{agent}/{id}_optimization_review_prompt.md`
 
 ---
 
@@ -90,14 +90,14 @@ Launch BOTH agents as background Bash tasks:
 ```bash
 node shared/agents/agent_runner.mjs \
   --agent codex \
-  --prompt-file .agent-review/codex/{id}_optimization_review_prompt.md \
-  --output-file .agent-review/codex/{id}_optimization_review.md \
+  --prompt-file .hex-skills/agent-review/codex/{id}_optimization_review_prompt.md \
+  --output-file .hex-skills/agent-review/codex/{id}_optimization_review.md \
   --cwd {project_root}
 
 node shared/agents/agent_runner.mjs \
   --agent gemini \
-  --prompt-file .agent-review/gemini/{id}_optimization_review_prompt.md \
-  --output-file .agent-review/gemini/{id}_optimization_review.md \
+  --prompt-file .hex-skills/agent-review/gemini/{id}_optimization_review_prompt.md \
+  --output-file .hex-skills/agent-review/gemini/{id}_optimization_review.md \
   --cwd {project_root}
 ```
 
@@ -140,13 +140,13 @@ Wait for agent results, then merge per `shared/references/agent_review_workflow.
 1. Parse agent suggestions from both result files
 2. Merge with own feasibility findings (Phase 3)
 3. For EACH suggestion: dedup → evaluate → AGREE or REJECT (per shared workflow)
-4. Apply accepted corrections directly to `.optimization/{slug}/context.md`:
+4. Apply accepted corrections directly to `.hex-skills/optimization/{slug}/context.md`:
    - Remove invalid hypotheses
    - Add warnings to concerns
    - Adjust `conflicts_with` if agents found errors
    - Add missing hypotheses if agents identified gaps
 
-Save review summary → `.agent-review/review_history.md`
+Save review summary → `.hex-skills/agent-review/review_history.md`
 
 Display: `"Agent Review: codex ({accepted}/{total}), gemini ({accepted}/{total}), {N} corrections applied"`
 
@@ -158,7 +158,7 @@ Display: `"Agent Review: codex ({accepted}/{total}), gemini ({accepted}/{total})
 
 Execute per `shared/references/agent_review_workflow.md` "Step: Iterative Refinement".
 
-1) **Artifact:** `.optimization/{slug}/context.md` (post-Phase 4 merge state)
+1) **Artifact:** `.hex-skills/optimization/{slug}/context.md` (post-Phase 4 merge state)
 2) **Loop (max 5 iterations):** Build prompt → Codex (foreground) → parse → AGREE/REJECT → apply → repeat
 3) **Display + Persist** per shared workflow
 
@@ -212,7 +212,7 @@ Return verdict to coordinator. On NO_GO: coordinator presents issues to user.
 
 - [ ] Context file loaded and validated (all required sections present)
 - [ ] Agent health check performed
-- [ ] Context materialized to `.agent-review/` for agents
+- [ ] Context materialized to `.hex-skills/agent-review/` for agents
 - [ ] Both agents launched (or SKIPPED if unavailable)
 - [ ] Own feasibility check completed (files exist, no conflicts, evidence backing)
 - [ ] Agent results merged and verified
@@ -220,7 +220,7 @@ Return verdict to coordinator. On NO_GO: coordinator presents issues to user.
 - [ ] Corrections applied to context.md
 - [ ] Iterative Refinement executed or SKIPPED (Phase 5)
 - [ ] Verdict issued (GO / GO_WITH_CONCERNS / NO_GO)
-- [ ] Review summary saved to `.agent-review/review_history.md`
+- [ ] Review summary saved to `.hex-skills/agent-review/review_history.md`
 
 ---
 

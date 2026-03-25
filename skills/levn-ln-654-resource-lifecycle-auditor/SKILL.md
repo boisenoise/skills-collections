@@ -1,7 +1,7 @@
 ---
 name: ln-654-resource-lifecycle-auditor
 description: "Checks session scope mismatch, missing cleanup, pool config, error path leaks, resource holding. Use when auditing resource lifecycle."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_references, mcp__hex-graph__trace_paths
 license: MIT
 ---
 

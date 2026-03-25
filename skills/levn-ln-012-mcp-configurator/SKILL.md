@@ -20,7 +20,7 @@ Configures MCP servers in Claude Code: installs npm packages, registers servers,
 | Direction | Content |
 |-----------|---------|
 | **Input** | OS info, `dry_run` flag |
-| **Output** | Per-server status (`configured` / `added` / `skipped` / `failed`) |
+| **Output** | Per-server status (`configured` / `added` / `updated` / `skipped` / `failed`) |
 
 ---
 
@@ -28,11 +28,11 @@ Configures MCP servers in Claude Code: installs npm packages, registers servers,
 
 Two transport types: **stdio** (local process) and **HTTP** (cloud endpoint).
 
-| Server | Transport | Source | Required | API Key |
-|--------|-----------|--------|----------|---------|
-| hex-line | stdio | `npm i -g @levnikolaevich/hex-line-mcp` → `hex-line-mcp` | Yes | No |
-| hex-ssh | stdio | `npm i -g @levnikolaevich/hex-ssh-mcp` → `hex-ssh-mcp` | No | No |
-| hex-graph | stdio | `npm i -g @levnikolaevich/hex-graph-mcp` → `hex-graph-mcp` | No | No |
+| Server | Transport | Install | Required | API Key |
+|--------|-----------|---------|----------|---------|
+| hex-line | stdio | `npx -y @levnikolaevich/hex-line-mcp` | Yes | No |
+| hex-ssh | stdio | `npx -y @levnikolaevich/hex-ssh-mcp` | No | No |
+| hex-graph | stdio | `npx -y @levnikolaevich/hex-graph-mcp` | No | No |
 | context7 | HTTP | `https://mcp.context7.com/mcp` | Yes | Optional |
 | Ref | HTTP | `https://api.ref.tools/mcp` | Yes | Yes (prompt user) |
 | linear | HTTP | `https://mcp.linear.app/mcp` | Ask user | No (OAuth) |
@@ -43,48 +43,42 @@ Two transport types: **stdio** (local process) and **HTTP** (cloud endpoint).
 ## Workflow
 
 ```
-Install → Register & Configure → Hooks → Permissions → Migrate → Report
+Check Status & Version → Register & Configure → Hooks → Permissions → Migrate → Report
 ```
 
-### Phase 1: Install & Verify MCP Packages
+### Phase 1: Check Status & Version
 
-Smart install: check MCP status first, then npm versions. Skip what's already working.
+Smart install: check MCP status AND package drift. npx -y caches aggressively — a connected server may still be backed by an older cached package.
 
 **Step 1a: Check MCP server status**
 
-Run `claude mcp list` → parse each hex server:
+Run `claude mcp list` -> parse each hex server:
 
 | Server | Status | Action |
 |--------|--------|--------|
-| Registered + Connected | Working | Skip install, go to Step 1b (update check) |
-| Registered + Disconnected | Broken | Reinstall npm package (Step 1c) |
-| Not registered | Missing | Full install (Step 1c) + register in Phase 2 |
+| Registered + Connected | Working | Check version (Step 1b) |
+| Registered + Disconnected | Broken | Re-register (Phase 2) |
+| Not registered | Missing | Register in Phase 2 |
 
-**Step 1b: Check for npm updates (connected servers only)**
+**Step 1b: Version check for connected hex-* servers**
 
-Run `npm outdated -g @levnikolaevich/{pkg}` for each connected server's package:
-
-| Result | Action |
-|--------|--------|
-| No output (up to date) | SKIP — report "current: vX.Y.Z" |
-| Shows newer version | UPDATE — `npm i -g @levnikolaevich/{pkg}` |
-
-**Step 1c: Install missing / broken packages**
-
-For servers not found or disconnected in Step 1a:
-1. `npm i -g @levnikolaevich/{pkg}`
-2. Verify: `npm ls -g @levnikolaevich/{pkg} --json`
-
-**Decision flow per server:**
-
+For each connected hex server, run in parallel:
+```bash
+npm view @levnikolaevich/${PKG} version 2>/dev/null
 ```
-claude mcp list → connected? ─── yes ──→ npm outdated → outdated? ── yes ──→ npm i -g (update)
-                       │                                    │
-                       no                                   no → SKIP
-                       │
-                       ▼
-                 npm i -g (install)
-```
+
+Then compare npm latest against the newest locally cached npx package version using one cross-platform Node probe:
+1. `npm config get cache` -> capture cache root
+2. Run a Node script that scans `{cacheRoot}/_npx/**/node_modules/@levnikolaevich/${PKG}/package.json`
+3. Pick the newest discovered version by semver/mtime and treat it as the best local proxy for the package version that `npx` will reuse
+
+If the cache probe finds nothing, report `running=unknown` and treat the server as refresh-recommended rather than claiming it is current.
+
+| npm latest | cached local version | Action |
+|------------|---------|--------|
+| Same | Same | SKIP |
+| Newer | Older | Mark "needs update" -> Phase 2 re-registers |
+| Unknown | Any | WARN, proceed |
 
 **Skip conditions:**
 
@@ -92,11 +86,11 @@ claude mcp list → connected? ─── yes ──→ npm outdated → outdated
 |-----------|---------|
 | `disabled: true` | SKIP |
 | `dry_run: true` | Show planned commands |
-| Connected + up to date | SKIP, report version |
+| Connected + cached local version matches npm latest | SKIP, report version |
 
 ### Phase 2: Register & Configure
 
-One pass: use Phase 1 state (do NOT re-run `claude mcp list`) → remove deprecated → register missing → verify.
+One pass: use Phase 1 state (do NOT re-run `claude mcp list`) -> remove deprecated -> register/update -> verify.
 
 1. **Reuse Phase 1 state** — server map from Step 1a already has registration + connection status
    - Fallback (standalone only): read `~/.claude.json` + `~/.claude/settings.json`
@@ -110,23 +104,29 @@ One pass: use Phase 1 state (do NOT re-run `claude mcp list`) → remove depreca
 | playwright | Remove if found |
 | browsermcp | Remove if found |
 
-3. Register missing servers:
-   - IF already configured AND connected → SKIP
-   - IF `dry_run: true` → show planned command
-   - IF **linear** → ask user: "Do you use Linear?" → no → SKIP
+3. Register missing OR update outdated servers:
+   - IF already configured AND connected AND cached local version matches -> SKIP
+   - IF connected but outdated -> remove + re-add (forces npx to fetch latest)
+   - IF `dry_run: true` -> show planned command
+   - IF **linear** -> ask user: "Do you use Linear?" -> no -> SKIP
 
-Registration commands:
+Registration commands (OS-dependent prefix):
 
-| Server | Command |
+| OS | Prefix | Why |
+|----|--------|-----|
+| Windows | `cmd /c npx` | Windows requires `cmd /c` wrapper to execute npx |
+| macOS / Linux | `npx` | Direct execution |
+
+| Server | Command (replace `{NPX}` with OS prefix above) |
 |--------|----------|
-| hex-line | `claude mcp add -s user hex-line -- hex-line-mcp` |
-| hex-ssh | `claude mcp add -s user hex-ssh -- hex-ssh-mcp` |
-| hex-graph | `claude mcp add -s user hex-graph -- hex-graph-mcp` |
+| hex-line | `claude mcp add -s user hex-line -- {NPX} -y @levnikolaevich/hex-line-mcp` |
+| hex-ssh | `claude mcp add -s user hex-ssh -- {NPX} -y @levnikolaevich/hex-ssh-mcp` |
+| hex-graph | `claude mcp add -s user hex-graph -- {NPX} -y @levnikolaevich/hex-graph-mcp` |
 | context7 | `claude mcp add -s user --transport http context7 https://mcp.context7.com/mcp` |
 | Ref | `claude mcp add -s user --transport http Ref https://api.ref.tools/mcp` |
 | linear | `claude mcp add -s user --transport http linear-server https://mcp.linear.app/mcp` |
 
-4. Verify: `claude mcp list` → check all registered show `Connected`. This is the only second `claude mcp list` call (post-mutation verify). Retry + report failures.
+4. Verify: `claude mcp list` -> check all registered show `Connected`. This is the only second `claude mcp list` call (post-mutation verify). Retry + report failures.
 
 **Error handling:**
 
@@ -179,8 +179,8 @@ Scan project commands/skills to replace built-in tools with hex-line equivalents
 1. Glob `.claude/commands/*.md` + `.claude/skills/*/SKILL.md` in current project
 2. For each file: parse YAML frontmatter, extract `allowed-tools`
 3. For each mapping entry:
-   a. If built-in present AND hex equivalent absent → add hex equivalent, remove built-in (except `Read` and `Bash`)
-   b. If built-in present AND hex equivalent already present → remove built-in (except `Read` and `Bash`)
+   a. If built-in present AND hex equivalent absent -> add hex equivalent, remove built-in (except `Read` and `Bash`)
+   b. If built-in present AND hex equivalent already present -> remove built-in (except `Read` and `Bash`)
    c. Preserve ALL existing `mcp__*` tools not in the replacement table
 4. Write back updated frontmatter (preserve quoting style)
 
@@ -198,15 +198,15 @@ Scan project commands/skills to replace built-in tools with hex-line equivalents
 
 Ensure instruction files have MCP Tool Preferences section.
 
-**MANDATORY READ:** Load `mcp/hex-line-mcp/output-style.md` → use its `# MCP Tool Preferences` section as template.
+**MANDATORY READ:** Load `mcp/hex-line-mcp/output-style.md` -> use its `# MCP Tool Preferences` section as template.
 
 **Steps:**
 
 1. For each file: CLAUDE.md, GEMINI.md, AGENTS.md (if exists in project)
 2. Search for `## MCP Tool Preferences` or `### MCP Tool Preferences`
-3. If MISSING → insert before `## Navigation` (or at end of conventions/rules block)
-4. If PRESENT but OUTDATED → update table rows to match template
-5. For GEMINI.md: adapt tool names (`Read` → `read_file`, `Edit` → `edit_file`, `Grep` → `search_files`)
+3. If MISSING -> insert before `## Navigation` (or at end of conventions/rules block)
+4. If PRESENT but OUTDATED -> update table rows to match template
+5. For GEMINI.md: adapt tool names (`Read` -> `read_file`, `Edit` -> `edit_file`, `Grep` -> `search_files`)
 
 **Skip conditions:**
 
@@ -217,7 +217,7 @@ Ensure instruction files have MCP Tool Preferences section.
 
 ### Phase 7: Grant Permissions
 
-For each **configured** MCP server, add `mcp__{name}` to `~/.claude/settings.json` → `permissions.allow[]`.
+For each **configured** MCP server, add `mcp__{name}` to `~/.claude/settings.json` -> `permissions.allow[]`.
 
 | Server | Permission entry |
 |---|---|
@@ -230,33 +230,25 @@ For each **configured** MCP server, add `mcp__{name}` to `~/.claude/settings.jso
 
 1. Read `~/.claude/settings.json` (create if missing: `{"permissions":{"allow":[]}}`)
 2. For each configured server: check if `mcp__{name}` already in `allow[]`
-3. Missing → append
+3. Missing -> append
 4. Write back (2-space indent JSON)
 
 **Idempotent:** existing entries skipped.
 
-### Phase 8: Report + Benchmark
+### Phase 8: Report
 
 **Status table:**
 
 ```
 MCP Configuration:
-| Server    | Transport | Status        | Permission | Detail                  |
-|-----------|-----------|---------------|------------|-------------------------|
-| hex-line  | stdio     | configured    | granted    | global npm (hex-line-mcp) |
-| hex-ssh   | stdio     | added         | granted    | global npm (hex-ssh-mcp)  |
-| context7  | HTTP      | configured    | granted    | mcp.context7.com        |
-| Ref       | HTTP      | configured    | granted    | api.ref.tools (key set) |
-| linear    | HTTP      | skipped       | skipped    | user declined           |
+| Server    | Transport | Version | Status        | Permission | Detail                  |
+|-----------|-----------|---------|---------------|------------|-------------------------|
+| hex-line  | stdio     | 1.5.0   | configured    | granted    | global npm (hex-line-mcp) |
+| hex-ssh   | stdio     | 1.2.0   | updated       | granted    | was 1.1.6, now 1.2.0     |
+| context7  | HTTP      | —       | configured    | granted    | mcp.context7.com        |
+| Ref       | HTTP      | —       | configured    | granted    | api.ref.tools (key set) |
+| linear    | HTTP      | —       | skipped       | skipped    | user declined           |
 ```
-
-**Token efficiency benchmark:**
-
-```bash
-node "$(npm root -g)/@levnikolaevich/hex-line-mcp/benchmark/index.mjs"
-```
-
-Key metrics: outline vs full read savings, compact diff savings, hash overhead, break-even point.
 
 ---
 
@@ -265,10 +257,11 @@ Key metrics: outline vs full read savings, compact diff savings, hash overhead, 
 1. **Write only via sanctioned paths.** Register servers via `claude mcp add`. Write to `~/.claude/settings.json` ONLY for hooks (via `setup_hooks`), permissions (`permissions.allow[]`), and `outputStyle`
 2. **Verify after add.** Always run `claude mcp list` after registration to confirm connection
 3. **Ask before optional servers.** Linear requires explicit user consent
-4. **Global install only.** Always `npm i -g` for hex MCP — hooks need stable absolute paths
+4. **npx -y for all hex MCP.** Never `npm i -g` — npx provides process isolation and avoids EBUSY on Windows. On Windows, wrap with `cmd /c npx` (see Phase 2 OS prefix table)
 5. **Remove deprecated servers.** Clean up servers no longer in the registry
 6. **Grant permissions.** After registration, add `mcp__{server}` to user settings
 7. **Minimize `claude mcp list` calls.** Phase 1 runs it once (discovery). Phase 2 reuses that data. Only Phase 2 Step 4 runs it again (post-mutation verify). Max 2 calls total
+8. **Always check npm drift.** Connected != up to date. Compare npm latest against the newest locally cached npx package version before skipping
 
 ## Anti-Patterns
 
@@ -280,22 +273,23 @@ Key metrics: outline vs full read savings, compact diff savings, hash overhead, 
 | Leave deprecated servers | Remove hashline-edit, pencil, etc. |
 | Calculate token budget | Not this worker's responsibility |
 | Run `claude mcp list` in every phase | Run once in Phase 1, reuse in Phase 2, verify once after mutations |
+| Assume connected = up to date | Check `npm view` version vs newest cached npx package version |
 
 ---
 
 ## Definition of Done
 
-- [ ] MCP packages installed and versions verified (Phase 1)
+- [ ] MCP packages installed and versions verified against npm registry (Phase 1)
 - [ ] Missing servers registered and verified connected (Phase 2)
+- [ ] Outdated servers re-registered with latest version (Phase 2)
 - [ ] Hooks installed (PreToolUse, PostToolUse, SessionStart) and `disableAllHooks: false` (Phase 3)
 - [ ] Output style installed (Phase 3)
 - [ ] Permissions granted for all configured servers (Phase 7)
 - [ ] Project allowed-tools migrated (Phase 5)
 - [ ] MCP Tool Preferences in all instruction files (Phase 6)
-- [ ] Status table displayed (Phase 8)
-- [ ] Token efficiency benchmark run (Phase 8)
+- [ ] Status table with version column displayed (Phase 8)
 
 ---
 
-**Version:** 1.2.0
-**Last Updated:** 2026-03-23
+**Version:** 1.3.0
+**Last Updated:** 2026-03-24

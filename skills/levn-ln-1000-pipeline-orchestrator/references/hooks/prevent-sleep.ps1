@@ -4,7 +4,7 @@
 #
 # Lifecycle:
 #   Phase 3 starts this script as background process
-#   Script polls .pipeline/state.json every 30s
+#   Script polls .hex-skills/pipeline/state.json every 30s
 #   When complete=true or file disappears -> releases sleep block and exits
 #   If script crashes -> Windows auto-releases execution state (tied to process)
 #
@@ -26,8 +26,8 @@ public class SleepPreventer {
     [SleepPreventer]::ES_CONTINUOUS -bor [SleepPreventer]::ES_SYSTEM_REQUIRED
 ) | Out-Null
 
-# Poll .pipeline/state.json until complete=true or file disappears
-$stateFile = ".pipeline/state.json"
+# Poll .hex-skills/pipeline/state.json until complete=true or file disappears
+$stateFile = ".hex-skills/pipeline/state.json"
 while ($true) {
     Start-Sleep -Seconds 30
     if (-not (Test-Path $stateFile)) { break }

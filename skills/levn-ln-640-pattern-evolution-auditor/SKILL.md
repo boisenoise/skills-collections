@@ -1,6 +1,7 @@
 ---
 name: ln-640-pattern-evolution-auditor
 description: "Audits architectural patterns against best practices, maintains patterns catalog with compliance scores. Use when auditing pattern evolution."
+allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill, mcp__hex-graph__index_project, mcp__hex-graph__search_symbols, mcp__hex-graph__find_implementations
 license: MIT
 ---
 
@@ -72,6 +73,11 @@ All delegations use Agent with `subagent_type: "general-purpose"`. Keep Phase 4 
      Grep(detection_keywords) on codebase
      IF found but not in catalog → add as "Undocumented (Baseline)"
 ```
+
+4. **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
+   - `index_project(path=codebase_root)` — builds/refreshes code graph
+   - Add `graph_indexed: true` to contextStore for workers (ln-641 uses find_implementations, ln-642 uses trace_paths/find_references)
+   - **Graph-assisted pattern discovery:** `search_symbols(query=GoF_suffix, kind="class")` — find Factory*, Builder*, Strategy* etc. by structure, not just name. `find_implementations(symbol)` — discover all implementations of abstract/interface classes.
 
 ### Phase 1b: Adaptive Discovery
 

@@ -1,7 +1,7 @@
 ---
 name: ln-651-query-efficiency-auditor
 description: "Checks redundant fetches, N+1 loops, over-fetching, missing bulk operations, wrong caching scope. Use when auditing query efficiency."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_references, mcp__hex-graph__trace_paths
 license: MIT
 ---
 
