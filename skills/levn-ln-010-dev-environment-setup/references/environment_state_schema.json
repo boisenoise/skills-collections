@@ -60,6 +60,17 @@
         "workers_run": { "type": "array", "items": { "type": "string" } },
         "workers_skipped": { "type": "array", "items": { "type": "string" } }
       }
+    },
+    "hooks": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["blocking", "advisory"],
+          "default": "blocking",
+          "description": "blocking = deny built-in tools, advisory = allow with suggestion"
+        }
+      }
     }
   }
 }

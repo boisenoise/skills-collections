@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-25T06:33:29.352381",
-  "skill_count": 2444,
+  "last_updated": "2026-03-26T06:36:45.635381",
+  "skill_count": 2459,
   "sources_processed": 19,
   "skills": [
     {
@@ -1604,6 +1604,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-macos-menubar-tuist-app",
+      "original_name": "macos-menubar-tuist-app",
+      "description": "Build, refactor, or review SwiftUI macOS menubar apps that use Tuist.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-testing-patterns",
       "original_name": "testing-patterns",
       "description": "Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing unit tests, creating test factories, or following TDD red-green-refactor cycle.",
@@ -2404,6 +2412,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ios-debugger-agent",
+      "original_name": "ios-debugger-agent",
+      "description": "Debug the current iOS project on a booted simulator with XcodeBuildMCP.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-api-testing-observability-api-mock",
       "original_name": "api-testing-observability-api-mock",
       "description": "You are an API mocking expert specializing in realistic mock services for development, testing, and demos. Design mocks that simulate real API behavior and enable parallel development.",
@@ -2524,6 +2540,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-snowflake-development",
+      "original_name": "snowflake-development",
+      "description": "Comprehensive Snowflake development assistant covering SQL best practices, data pipeline design (Dynamic Tables, Streams, Tasks, Snowpipe), Cortex AI functions, Cortex Agents, Snowpark Python, dbt integration, performance tuning, and security hardening.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-cost-optimization",
       "original_name": "cost-optimization",
       "description": "Strategies and patterns for optimizing cloud costs across AWS, Azure, and GCP.",
@@ -2548,6 +2572,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-github",
+      "original_name": "github",
+      "description": "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-gitlab-ci-patterns",
       "original_name": "gitlab-ci-patterns",
       "description": "Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment.",
@@ -2566,7 +2598,7 @@
     {
       "name": "antigravity-wordpress-penetration-testing",
       "original_name": "wordpress-penetration-testing",
-      "description": "Conduct comprehensive security assessments of WordPress installations including enumeration of users, themes, and plugins, vulnerability scanning, credential attacks, and exploitation techniques. WordPress powers approximately 35% of websites, making it a critical target for security testing.",
+      "description": "Assess WordPress installations for common vulnerabilities and WordPress 7.0 attack surfaces.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3388,6 +3420,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-macos-spm-app-packaging",
+      "original_name": "macos-spm-app-packaging",
+      "description": "Scaffold, build, sign, and package SwiftPM macOS apps without Xcode projects.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-makepad-animation",
       "original_name": "makepad-animation",
       "description": "CRITICAL: Use for Makepad animation system. Triggers on:\nmakepad animation, makepad animator, makepad hover, makepad state,\nmakepad transition, \"from: { all: Forward\", makepad pressed,\nmakepad \u52a8\u753b, makepad \u72b6\u6001, makepad \u8fc7\u6e21, makepad \u60ac\u505c\u6548\u679c\n",
@@ -3559,6 +3599,14 @@
       "name": "antigravity-prometheus-configuration",
       "original_name": "prometheus-configuration",
       "description": "Complete guide to Prometheus setup, metric collection, scrape configuration, and recording rules.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-app-store-changelog",
+      "original_name": "app-store-changelog",
+      "description": "Generate user-facing App Store release notes from git history since the last tag.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3844,6 +3892,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-orchestrate-batch-refactor",
+      "original_name": "orchestrate-batch-refactor",
+      "description": "Plan and execute large refactors with dependency-aware work packets and parallel analysis.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-javascript-mastery",
       "original_name": "javascript-mastery",
       "description": "33+ essential JavaScript concepts every developer should know, inspired by [33-js-concepts](https://github.com/leonardomso/33-js-concepts).",
@@ -4103,6 +4159,14 @@
       "name": "antigravity-upstash-qstash",
       "original_name": "upstash-qstash",
       "description": "You are an Upstash QStash expert who builds reliable serverless messaging without infrastructure management. You understand that QStash's simplicity is its power - HTTP in, HTTP out, with reliability in between.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-project-skill-audit",
+      "original_name": "project-skill-audit",
+      "description": "Audit a project and recommend the highest-value skills to add or update.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4718,7 +4782,7 @@
     {
       "name": "antigravity-wordpress-theme-development",
       "original_name": "wordpress-theme-development",
-      "description": "WordPress theme development workflow covering theme architecture, template hierarchy, custom post types, block editor support, and responsive design.",
+      "description": "WordPress theme development workflow covering theme architecture, template hierarchy, custom post types, block editor support, responsive design, and WordPress 7.0 features: DataViews, Pattern Editing, Navigation Overlays, and admin refresh.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5191,6 +5255,14 @@
       "name": "antigravity-solidity-security",
       "original_name": "solidity-security",
       "description": "Master smart contract security best practices, vulnerability prevention, and secure Solidity development patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-swiftui-performance-audit",
+      "original_name": "swiftui-performance-audit",
+      "description": "Audit SwiftUI performance issues from code review and profiling evidence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6076,6 +6148,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-swiftui-view-refactor",
+      "original_name": "swiftui-view-refactor",
+      "description": "Refactor SwiftUI views into smaller components with stable, explicit data flow.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-backend-development-feature-development",
       "original_name": "backend-development-feature-development",
       "description": "Orchestrate end-to-end backend feature development from requirements to deployment. Use when coordinating multi-phase feature delivery across teams and services.",
@@ -6319,6 +6399,14 @@
       "name": "antigravity-fp-errors",
       "original_name": "fp-errors",
       "description": "Stop throwing everywhere - handle errors as values using Either and TaskEither for cleaner, more predictable code",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-swiftui-liquid-glass",
+      "original_name": "swiftui-liquid-glass",
+      "description": "Implement or review SwiftUI Liquid Glass APIs with correct fallbacks and modifier order.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6583,6 +6671,14 @@
       "name": "antigravity-constant-time-analysis",
       "original_name": "constant-time-analysis",
       "description": "Analyze cryptographic code to detect operations that leak secret data through execution timing variations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-swiftui-ui-patterns",
+      "original_name": "swiftui-ui-patterns",
+      "description": "Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6935,6 +7031,14 @@
       "name": "antigravity-wiki-researcher",
       "original_name": "wiki-researcher",
       "description": "You are an expert software engineer and systems analyst. Use when user asks \"how does X work\" with expectation of depth, user wants to understand a complex system spanning many files, or user asks for architectural analysis or pattern investigation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-react-component-performance",
+      "original_name": "react-component-performance",
+      "description": "Diagnose slow React components and suggest targeted performance fixes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9316,6 +9420,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-swift-concurrency-expert",
+      "original_name": "swift-concurrency-expert",
+      "description": "Review and fix Swift concurrency issues such as actor isolation and Sendable violations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-keyvault-py",
       "original_name": "azure-keyvault-py",
       "description": "Azure Key Vault SDK for Python. Use for secrets, keys, and certificates management with secure storage.",
@@ -9438,7 +9550,7 @@
     {
       "name": "antigravity-wordpress",
       "original_name": "wordpress",
-      "description": "Complete WordPress development workflow covering theme development, plugin creation, WooCommerce integration, performance optimization, and security hardening.",
+      "description": "Complete WordPress development workflow covering theme development, plugin creation, WooCommerce integration, performance optimization, and security hardening. Includes WordPress 7.0 features: Real-Time Collaboration, AI Connectors, Abilities API, DataViews, and PHP-only blocks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10174,7 +10286,7 @@
     {
       "name": "antigravity-wordpress-plugin-development",
       "original_name": "wordpress-plugin-development",
-      "description": "WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, REST API, and security best practices.",
+      "description": "WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, REST API, security best practices, and WordPress 7.0 features: Real-Time Collaboration, AI Connectors, Abilities API, DataViews, and PHP-only blocks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10692,6 +10804,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-simplify-code",
+      "original_name": "simplify-code",
+      "description": "Review a diff for clarity and safe simplifications, then optionally apply low-risk fixes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-citation-management",
       "original_name": "citation-management",
       "description": "Manage citations systematically throughout the research and writing process.",
@@ -10750,7 +10870,7 @@
     {
       "name": "antigravity-wordpress-woocommerce-development",
       "original_name": "wordpress-woocommerce-development",
-      "description": "WooCommerce store development workflow covering store setup, payment integration, shipping configuration, and customization.",
+      "description": "WooCommerce store development workflow covering store setup, payment integration, shipping configuration, customization, and WordPress 7.0 features: AI connectors, DataViews, and collaboration tools.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

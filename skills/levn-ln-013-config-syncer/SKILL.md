@@ -72,7 +72,6 @@ Decision logic:
 | No link exists | Create link |
 
 ### Phase 3: Sync MCP Settings
-
 IF agent `disabled: true` → SKIP for that target.
 
 **3a: Claude to Gemini (JSON to JSON)**
