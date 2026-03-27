@@ -9,6 +9,8 @@ license: MIT
 
 # Test Structure Auditor (L3 Worker)
 
+**Type:** L3 Worker
+
 Specialized worker auditing test file organization and directory structure for maintainability as the test suite grows.
 
 ## Purpose & Scope
@@ -58,7 +60,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata` (ALL types — b
 - If no pattern reaches 70% → hybrid
 
 **Layer 2:**
-- Hybrid is acceptable if different test TYPES use different patterns (e.g., unit tests co-located + integration tests in `tests/integration/`). Check if deviation correlates with test type
+- Hybrid is acceptable if different test TYPES use different patterns (e.g., unit tests co-located + integration tests in `tests/automated/integration/`). Check if deviation correlates with test type
 - Projects with <5 test files → skip (too small to establish pattern)
 
 **Severity:** **MEDIUM** if hybrid without clear type-based rule (>30% of same-type tests deviate from dominant pattern)

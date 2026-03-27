@@ -5,8 +5,31 @@
 **Status:** {{STATUS}}
 **Standard Compliance:** ISO/IEC/IEEE 29148:2018
 
+<!-- DOC_KIND: explanation -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need product scope, functional requirements, or acceptance boundaries. -->
+<!-- SKIP_WHEN: Skip when you only need implementation details, operations, or low-level schema facts. -->
+<!-- PRIMARY_SOURCES: docs/README.md, docs/project/architecture.md, docs/project/tech_stack.md -->
+
 <!-- SCOPE: Functional requirements (FR-XXX-NNN) with MoSCoW prioritization, acceptance criteria, constraints, assumptions, traceability ONLY. -->
 <!-- DO NOT add here: NFR (removed completely per project policy), Tech stack → tech_stack.md, Database → database_schema.md, API → api_spec.md, Design system → design_guidelines.md, Operations → runbook.md, Infrastructure inventory → infrastructure.md, Architecture → architecture.md, Implementation → technical_specification.md -->
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [Architecture](architecture.md)
+- [Tech Stack](tech_stack.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Defines functional scope, business expectations, and acceptance boundaries. |
+| Read When | You need feature scope, priorities, or requirement traceability. |
+| Skip When | You only need implementation details or runtime procedures. |
+| Canonical | Yes |
+| Next Docs | [Architecture](architecture.md), [Tech Stack](tech_stack.md) |
+| Primary Sources | `docs/README.md`, `docs/project/architecture.md`, `docs/project/tech_stack.md` |
 
 ---
 
@@ -163,6 +186,3 @@ This document specifies the functional requirements for {{PROJECT_NAME}}.
 | 1.0 | {{DATE}} | {{AUTHOR}} | Initial version |
 
 ---
-
-**Version:** 3.0.0 (BREAKING: NFR sections removed completely per project policy)
-**Template Last Updated:** 2025-11-16

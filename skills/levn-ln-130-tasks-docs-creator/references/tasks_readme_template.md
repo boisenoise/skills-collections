@@ -1,7 +1,29 @@
-﻿# Task Tracking System
+# Task Tracking System
 
+<!-- DOC_KIND: index -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need the task system workflow, state transitions, and provider rules. -->
+<!-- SKIP_WHEN: Skip when you only need the live board or a specific task artifact. -->
+<!-- PRIMARY_SOURCES: docs/tools_config.md, docs/tasks/kanban_board.md, docs/reference/guides/testing-strategy.md -->
 <!-- SCOPE: Task tracking system workflow and rules ONLY. Contains task lifecycle, naming conventions, and integration rules. -->
 <!-- DO NOT add here: actual task details → task files, kanban status → kanban_board.md, implementation guides → guides/ -->
+
+## Quick Navigation
+
+- [Kanban Board](kanban_board.md)
+- [Tools Config](../tools_config.md)
+- [Testing Strategy](../reference/guides/testing-strategy.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Defines task workflow, provider rules, status meanings, and task-document conventions. |
+| Read When | You need workflow rules, provider behavior, or task lifecycle guidance. |
+| Skip When | You only need the current active items. |
+| Canonical | Yes |
+| Next Docs | [Kanban Board](kanban_board.md), [Tools Config](../tools_config.md), [Testing Strategy](../reference/guides/testing-strategy.md) |
+| Primary Sources | docs/tools_config.md, docs/tasks/kanban_board.md, docs/reference/guides/testing-strategy.md |
 
 ---
 
@@ -114,7 +136,7 @@ Backlog/Postponed → Todo → In Progress → To Review → Done
 - Tests in implementation tasks (implementation tasks focus on feature code only)
 
 **Process**:
-1. Implementation tasks (1-6 tasks) → To Review → Done
+1. Implementation tasks (1-8 tasks) → To Review → Done
 2. Quality gate → Manual testing
 3. Test planner → Creates Story Finalizer test task
 4. Test executor → Implements all tests (E2E, Integration, Unit)
@@ -216,7 +238,7 @@ Single hierarchical view: **Status → Epic → User Story → Tasks**
 - Sweet spot (3-5 hours): Maximum productivity, clear acceptance criteria
 
 **Story Limits**:
-- Implementation tasks: 1-6 tasks per Story
+- Implementation tasks: 1-8 tasks per Story
 - Test task: 1 Story Finalizer test task (created after implementation)
 - Total: Max 7 tasks per Story
 
@@ -365,6 +387,3 @@ Every file mode document includes metadata headers:
 **Last Updated**: {{DATE}}
 
 ---
-
-**Template Version:** 1.0.0
-**Template Last Updated:** 2025-11-15

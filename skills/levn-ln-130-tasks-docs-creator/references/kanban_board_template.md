@@ -1,15 +1,37 @@
 # Task Navigation
 
 <!-- SCOPE: Quick navigation to active tasks. Links point to Linear (if provider=linear) or local files (if provider=file). Per docs/tools_config.md. -->
-<!-- DO NOT add here: task descriptions, implementation notes, workflow rules → tasks/README.md -->
+<!-- DOC_KIND: how-to -->
+<!-- DOC_ROLE: working -->
+<!-- READ_WHEN: Read when you need the current board, provider setup, or epic/story/task navigation. -->
+<!-- SKIP_WHEN: Skip when you only need workflow policy or template rules. -->
+<!-- PRIMARY_SOURCES: docs/tools_config.md, docs/tasks/README.md, task provider -->
+<!-- DO NOT add here: task descriptions, implementation notes, workflow rules -> tasks/README.md -->
 
-> **Last Updated**: [YYYY-MM-DD] (Hierarchical format: Status → Epic → Story → Tasks)
+> **Last Updated**: [YYYY-MM-DD] (Hierarchical format: Status -> Epic -> Story -> Tasks)
+
+## Quick Navigation
+
+- [Task Rules](./README.md)
+- [Tools Config](../tools_config.md)
+- [Testing Strategy](../reference/guides/testing-strategy.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Gives live navigation and provider-specific board setup for active work. |
+| Read When | You need current epics, stories, tasks, or provider coordinates. |
+| Skip When | You only need lifecycle policy or documentation standards. |
+| Canonical | No, this is a working document |
+| Next Docs | [Task Rules](./README.md), [Tools Config](../tools_config.md) |
+| Primary Sources | `docs/tools_config.md`, `docs/tasks/README.md`, task provider |
 
 ---
 
 ## Provider Configuration
 
-**Task provider:** Per `docs/tools_config.md` → Task Management → Provider
+**Task provider:** Per `docs/tools_config.md` -> Task Management -> Provider
 
 <!-- IF provider=linear: fill Linear Configuration below. IF provider=file: delete Linear Configuration, keep only Common Configuration. -->
 
@@ -34,7 +56,7 @@
 
 ---
 
-### Epic Story Counters
+## Epic Story Counters
 
 | Epic | Last Story | Next Story | Last Task | Next Task |
 |------|------------|------------|-----------|-----------|
@@ -48,11 +70,11 @@
 
 ## Work in Progress
 
-**Format:** Status → Epic → Story → Tasks hierarchy. Epic headers = no indent. Stories = 2-space indent. Tasks = 4-space indent.
+**Format:** Status -> Epic -> Story -> Tasks hierarchy. Epic headers have no indent. Stories use 2-space indent. Tasks use 4-space indent.
 
-**Important:** Stories without tasks ONLY in Backlog/Postponed with note: `_(tasks not created yet)_`
+**Important:** Stories without tasks appear only in Backlog/Postponed with note: `_(tasks not created yet)_`
 
-**Critical:** Done/Postponed sections contain ONLY Stories (no Tasks).
+**Critical:** Done/Postponed sections contain only Stories (no Tasks).
 
 <!-- Links below: use Linear URLs (provider=linear) or file paths (provider=file) -->
 
@@ -60,35 +82,47 @@
 
 **Epic 0: Common Tasks**
 
-  📖 [US001 Example Story Title](link-or-path)
+  - [US001 Example Story Title](link-or-path)
     _(tasks not created yet)_
 
 **Epic 1: Example Feature Area**
 
-  📖 [US001 Another Example Story](link-or-path)
+  - [US001 Another Example Story](link-or-path)
     - [T001 Example Task](link-or-path)
 
 ### Todo
 
+**Epic 1: Example Feature Area**
+
+  - [US002 Ready Story](link-or-path)
+    - [T001 Prepare implementation](link-or-path)
+
 ### In Progress
+
+**Epic 1: Example Feature Area**
+
+  - [US003 Active Story](link-or-path)
+    - [T001 Current implementation task](link-or-path)
 
 ### To Review
 
+**Epic 1: Example Feature Area**
+
+  - [US004 Review Story](link-or-path)
+    - [T001 Review pending task](link-or-path)
+
 ### To Rework
 
-### Done (Last 5 stories)
+**Epic 1: Example Feature Area**
 
-### Postponed
+  - [US005 Rework Story](link-or-path)
+    - [T001 Fix requested changes](link-or-path)
 
----
+### Done
 
-## Epics Overview
+**Epic 1: Example Feature Area**
 
-**Active:**
-_No active epics yet_
-
-**Completed:**
-_No completed epics yet_
+  - [US006 Completed Story](link-or-path)
 
 ---
 
@@ -108,11 +142,23 @@ _No completed epics yet_
 
 ---
 
-## Related Documentation
-- [tasks/README.md](./README.md) - Task system workflow and rules
-- [docs/tools_config.md](../../tools_config.md) - Provider configuration
+## Maintenance
+
+**Update Triggers:**
+- Epic, story, or task navigation changes
+- Provider settings change
+- Board numbering changes
+
+**Verification:**
+- [ ] Provider coordinates match the configured task provider
+- [ ] Board links resolve
+- [ ] Next counters reflect current board state
+
+**Last Updated:** [YYYY-MM-DD]
 
 ---
 
-**Template Version:** 5.0.0 (Provider-neutral: supports Linear and File Mode per tools_config.md)
-**Last Updated:** 2026-03-04
+## Related Documentation
+
+- [tasks/README.md](./README.md) - Task system workflow and rules
+- [docs/tools_config.md](../tools_config.md) - Provider configuration

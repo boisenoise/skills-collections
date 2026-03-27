@@ -17,6 +17,8 @@ license: MIT
 
 # Test Researcher
 
+**Type:** L3 Worker
+
 Researches real-world problems and edge cases before test planning to ensure tests cover actual user pain points, not just AC.
 
 ## Purpose & Scope
@@ -29,7 +31,7 @@ Researches real-world problems and edge cases before test planning to ensure tes
 ## When to Use
 
 This skill should be used when:
-- **Invoked by ln-520-test-planner** at start of test planning pipeline
+- Use at the start of a test-planning workflow when feature-domain evidence is needed
 - Story has non-trivial functionality (external APIs, file formats, authentication)
 - Need to discover edge cases beyond AC
 

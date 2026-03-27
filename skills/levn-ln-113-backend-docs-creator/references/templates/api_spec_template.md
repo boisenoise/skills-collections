@@ -5,6 +5,12 @@
 **Status:** {{STATUS}}
 **OpenAPI Version:** 3.0.3
 
+<!-- DOC_KIND: reference -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need endpoint contracts, auth rules, or request/response shapes. -->
+<!-- SKIP_WHEN: Skip when you only need architecture rationale or deployment procedures. -->
+<!-- PRIMARY_SOURCES: src/, openapi.*, package.json, docs/project/architecture.md -->
+
 <!-- SCOPE: API endpoints (methods, paths, parameters, responses), authentication mechanisms (JWT, OAuth2, API keys), error codes (HTTP status + custom codes), rate limiting, API versioning ONLY. -->
 <!-- DO NOT add here: Database schema → database_schema.md, Tech stack versions → tech_stack.md, Architecture patterns → architecture.md, Requirements → requirements.md, Deployment → runbook.md, Infrastructure inventory → infrastructure.md, Design system → design_guidelines.md -->
 
@@ -12,6 +18,24 @@
      ALLOWED: JSON request/response schemas (this IS the API contract), endpoint tables, error code tables
      FORBIDDEN: Controller implementations, validation classes, service code, middleware examples
      For implementation patterns → docs/reference/guides/ -->
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [Architecture](architecture.md)
+- [Database Schema](database_schema.md)
+- [Runbook](runbook.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Captures API contracts, auth requirements, responses, and error conventions. |
+| Read When | You need exact endpoint behavior or integration-facing details. |
+| Skip When | You only need database structure or operations guidance. |
+| Canonical | Yes |
+| Next Docs | [Architecture](architecture.md), [Database Schema](database_schema.md), [Runbook](runbook.md) |
+| Primary Sources | `src/`, `openapi.*`, `package.json`, `docs/project/architecture.md` |
 
 ---
 
@@ -354,7 +378,7 @@ paths:
 
 ---
 
-## 9. Maintenance
+## Maintenance
 
 **Last Updated:** {{DATE}}
 
@@ -373,6 +397,3 @@ paths:
 - [ ] Rate limits tested and validated
 
 ---
-
-**Version:** 2.0.0 (Added NO_CODE_EXAMPLES rule. API spec documents contracts, not implementations.)
-**Template Last Updated:** 2025-01-09

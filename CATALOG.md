@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-26 06:36 UTC*
+*Last updated: 2026-03-27 06:37 UTC*
 
-Total skills: **2459**
+Total skills: **2461**
 
 ## Skills by Source
 
@@ -991,7 +991,7 @@ Total skills: **2459**
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
-| `levn-ln-111-root-docs-creator` | Creates root documentation files (CLAUDE.md, docs/README.md, standards, principles, tools config). U... |
+| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles, tools... |
 | `levn-ln-112-project-core-creator` | Creates core project docs (requirements, architecture, tech stack, patterns catalog). Use for any pr... |
 | `levn-ln-113-backend-docs-creator` | Creates backend docs (api_spec.md, database_schema.md). Use when project has backend API or database... |
 | `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md with WCAG 2.1 compliance and design system docs. Use when project has a... |
@@ -1010,9 +1010,9 @@ Total skills: **2459**
 | `levn-ln-222-story-replanner` | Replans Stories by comparing IDEAL vs existing (KEEP/UPDATE/OBSOLETE/CREATE). Use when Epic requirem... |
 | `levn-ln-230-story-prioritizer` | RICE-scores Stories with market research and generates prioritization table. Use when Stories need b... |
 | `levn-ln-300-task-coordinator` | Analyzes Story and builds optimal task plan (1-8 tasks), then routes to create or replan. Use when S... |
-| `levn-ln-301-task-creator` | Creates implementation, refactoring, and test tasks from templates. Use when orchestrator plan needs... |
+| `levn-ln-301-task-creator` | Creates implementation, refactoring, and test tasks from templates. Use when an approved task plan n... |
 | `levn-ln-302-task-replanner` | Compares ideal plan vs existing tasks and applies KEEP/UPDATE/OBSOLETE/CREATE changes. Use when Stor... |
-| `levn-ln-310-multi-agent-validator` | Validates Stories, plans, or context via parallel multi-agent review with GO/NO-GO verdict. Use when... |
+| `levn-ln-310-multi-agent-validator` | Validates Stories, plans, or context via deterministic multi-agent review with runtime-controlled st... |
 | `levn-ln-400-story-executor` | Executes Story tasks in priority order (To Review, To Rework, Todo). Use when Story has planned task... |
 | `levn-ln-401-task-executor` | Executes implementation tasks through Todo, In Progress, To Review. Use when task needs coding with ... |
 | `levn-ln-402-task-reviewer` | Reviews task implementation for quality, code standards, and test coverage. Use when task is in To R... |
@@ -1028,10 +1028,10 @@ Total skills: **2459**
 | `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints for a feature domain. ... |
 | `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts in tests/manual/. Use when Story imp... |
 | `levn-ln-523-auto-test-planner` | Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Use when... |
-| `levn-ln-610-docs-auditor` | Coordinates documentation audit across structure, semantic content, fact-checking, and code comments... |
+| `levn-ln-610-docs-auditor` | Coordinates audit of project knowledge surfaces: markdown documentation plus inline code documentati... |
 | `levn-ln-611-docs-structure-auditor` | Checks hierarchy, links, SSOT, compression, requirements compliance, freshness, legacy cleanup. Use ... |
 | `levn-ln-612-semantic-content-auditor` | Checks document semantic content against SCOPE and project goals, coverage gaps, off-topic content, ... |
-| `levn-ln-613-code-comments-auditor` | Checks WHY-not-WHAT, density, forbidden content, docstrings quality, actuality, legacy cleanup. Use ... |
+| `levn-ln-613-code-comments-auditor` | Checks inline code documentation quality: WHY-not-WHAT, density, forbidden content, docstrings quali... |
 | `levn-ln-614-docs-fact-checker` | Verifies claims in .md files (paths, versions, counts, configs, endpoints) against codebase, cross-c... |
 | `levn-ln-620-codebase-auditor` | Coordinates codebase audit across security, build, code quality, dependencies, and architecture. Use... |
 | `levn-ln-621-security-auditor` | Checks hardcoded secrets, SQL injection, XSS, insecure deps, input validation. Use when auditing sec... |
@@ -1215,6 +1215,7 @@ Total skills: **2459**
 | `antigravity-activecampaign-automation` | Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, au... |
 | `antigravity-ad-creative` | Create, iterate, and scale paid ad creative for Google Ads, Meta, LinkedIn, TikTok, and similar plat... |
 | `antigravity-address-github-comments` | Use when you need to address review or issue comments on an open GitHub Pull Request using the gh CL... |
+| `antigravity-adhx` | Fetch any X/Twitter post as clean LLM-friendly JSON. Converts x.com, twitter.com, or adhx.com links ... |
 | `antigravity-advanced-evaluation` | This skill should be used when the user asks to "implement LLM-as-judge", "compare model outputs", "... |
 | `antigravity-advogado-criminal` | Advogado criminalista especializado em Maria da Penha, violencia domestica, feminicidio, direito pen... |
 | `antigravity-advogado-especialista` | Advogado especialista em todas as areas do Direito brasileiro: familia, criminal, trabalhista, tribu... |
@@ -1524,6 +1525,7 @@ pipelines, and system utilities.... |
 | `antigravity-citation-management` | Manage citations systematically throughout the research and writing process. |
 | `antigravity-claimable-postgres` | Provision instant temporary Postgres databases via Claimable Postgres by Neon (pg.new). No login or ... |
 | `antigravity-clarity-gate` | Pre-ingestion verification for epistemic quality in RAG systems. Ensures documents are properly qual... |
+| `antigravity-clarvia-aeo-check` | Score any MCP server, API, or CLI for agent-readiness using Clarvia AEO (Agent Experience Optimizati... |
 | `antigravity-claude-ally-health` | A health assistant skill for medical information analysis, symptom tracking, and wellness guidance. |
 | `antigravity-claude-api` | Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-... |
 | `antigravity-claude-code-expert` | Especialista profundo em Claude Code - CLI da Anthropic. Maximiza produtividade com atalhos, hooks, ... |

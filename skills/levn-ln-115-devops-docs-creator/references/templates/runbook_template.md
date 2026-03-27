@@ -4,8 +4,32 @@
 **Date:** {{DATE}}
 **Status:** {{STATUS}}
 
+<!-- DOC_KIND: how-to -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need setup, deploy, restart, troubleshoot, or recovery procedures. -->
+<!-- SKIP_WHEN: Skip when you only need static infrastructure inventory or architectural rationale. -->
+<!-- PRIMARY_SOURCES: package.json, docker-compose.yml, scripts/, docs/project/infrastructure.md -->
+
 <!-- SCOPE: ALL operational procedures (local development setup, Docker commands, environment variables, testing commands, build/deployment, production operations, troubleshooting, SSH access, logs, restart procedures) ONLY. -->
 <!-- DO NOT add here: Infrastructure inventory → infrastructure.md, Architecture patterns → architecture.md, Tech stack versions → tech_stack.md, Database schema → database_schema.md, API endpoints → api_spec.md, Testing strategy → tests/README.md, Design system → design_guidelines.md, Requirements → requirements.md -->
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [Infrastructure](infrastructure.md)
+- [Architecture](architecture.md)
+- [Tech Stack](tech_stack.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Provides executable operational procedures for local, staging, and production work. |
+| Read When | You need commands, setup steps, deployments, troubleshooting, or recovery actions. |
+| Skip When | You only need static topology or design rationale. |
+| Canonical | Yes |
+| Next Docs | [Infrastructure](infrastructure.md), [Architecture](architecture.md), [Tech Stack](tech_stack.md) |
+| Primary Sources | `package.json`, `docker-compose.yml`, `scripts/`, `docs/project/infrastructure.md` |
 
 ---
 
@@ -24,7 +48,7 @@ This runbook provides step-by-step operational procedures for {{PROJECT_NAME}} a
 {{KEY_CONTACTS}}
 <!--
 NOTE: Do NOT use placeholder names (John Doe, Jane Smith).
-Use auto-discovery (CODEOWNERS, package.json author, git log) or mark as [TBD].
+Use auto-discovery (CODEOWNERS, package.json author, git log) or write an explicit empty-state note if ownership cannot be derived.
 See Q50 in questions_devops.md for validation rules.
 -->
 
@@ -589,7 +613,7 @@ Do NOT include services not in docker-compose (e.g., no Redis if not used).
 
 ---
 
-## 9. Maintenance
+## Maintenance
 
 **Last Updated:** {{DATE}}
 
@@ -610,6 +634,3 @@ Do NOT include services not in docker-compose (e.g., no Redis if not used).
 - [ ] Contact information current
 
 ---
-
-**Version:** 1.0.0
-**Template Last Updated:** 2025-11-16

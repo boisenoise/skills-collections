@@ -1,13 +1,14 @@
 # Structural Review Dimensions (D1-D11)
 
 <!-- DO NOT add here: Workflow phases -> ln-162-skill-reviewer SKILL.md -->
+<!-- Contract source: shared/references/skill_contract.md -->
 
 Check ALL dimensions across ALL skills in scope. Phase 2 failures are pre-verified -- include directly.
 
 ## D1: Flow Integrity
 - Every `ln-NNN` reference in workflow/worker tables points to existing `ln-NNN-*/SKILL.md`
 - No circular delegation loops (A -> B -> A)
-- Every worker invocation has matching caller reference in target skill
+- Every worker invocation targets a real skill with compatible responsibility boundaries
 - No dead-end flows (delegation to worker with no output/return path)
 - Peer coordinators (L2 siblings under same L1) do not reference each other
 - Peer workers (L3 siblings under same L2) do not reference each other
@@ -15,7 +16,7 @@ Check ALL dimensions across ALL skills in scope. Phase 2 failures are pre-verifi
 ## D2: Cross-Reference Consistency
 - `MANDATORY READ` paths exist on disk (Glob each path)
 - `Reference Files` section paths exist on disk
-- Caller/callee references bidirectional: if A lists B as worker, B mentions A as caller
+- L3 workers stay caller-agnostic: no `Coordinator`, `Parent`, or required caller declaration
 - Skill invocation names (`skill: "ln-NNN-*"`) match actual directory names
 - No passive file references (`See`, `Per`, `Follows` pointing to files) -- must be `**MANDATORY READ:** Load`
 - Multiple `**MANDATORY READ:**` in same section -> group into ONE block at section start
@@ -82,6 +83,7 @@ Imperative actions in workflow steps (Launch, Run, Execute, Call) that depend on
 - Phase/step numbering sequential (1, 2, 3, 4 -- no gaps). Exception: 4a/4b for CREATE/REPLAN
 - Orchestrators (L1/L2) delegate work, not execute directly -- no detailed implementation logic
 - Workers (L3) execute, not decide workflow -- no routing/priority logic
+- Workers (L3) do not declare `Coordinator`, `Parent`, or peer-skill coupling in their public contract text
 - L2->L2 cross-category delegation follows forward-flow (0XX->1XX->...->6XX), except 0XX shared services
 - Coupling reduction in `shared/` files -- shared references describe patterns, NOT consumers. Forbidden in any form: `Used by`, `Skills using this:`, `For ln-NNN`, `via ln-NNN` suffixes, skill names in role descriptions, skill IDs in code examples. Use generic role names (`task executor`, `review worker`). Consumers reference shared via MANDATORY READ; reverse direction is never needed
 

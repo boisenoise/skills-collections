@@ -4,8 +4,32 @@
 **Date:** {{DATE}}
 **Status:** {{STATUS}}
 
+<!-- DOC_KIND: reference -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need entities, relationships, constraints, or migration-facing schema facts. -->
+<!-- SKIP_WHEN: Skip when you only need endpoint contracts or deployment steps. -->
+<!-- PRIMARY_SOURCES: migrations/, prisma/, schema files, docs/project/architecture.md -->
+
 <!-- SCOPE: Database schema (ER diagrams, table definitions, data dictionary, indexes, constraints, migrations, normalization) ONLY. -->
 <!-- DO NOT add here: API endpoints → api_spec.md, Tech stack versions → tech_stack.md, Architecture patterns → architecture.md, Requirements → requirements.md, Deployment → runbook.md, Infrastructure inventory → infrastructure.md -->
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [Architecture](architecture.md)
+- [API Spec](api_spec.md)
+- [Runbook](runbook.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Documents entities, relationships, indexes, constraints, and migration-facing schema details. |
+| Read When | You need exact database structure or integrity rules. |
+| Skip When | You only need API contracts or operational commands. |
+| Canonical | Yes |
+| Next Docs | [Architecture](architecture.md), [API Spec](api_spec.md), [Runbook](runbook.md) |
+| Primary Sources | `migrations/`, `prisma/`, schema files, `docs/project/architecture.md` |
 
 ---
 
@@ -273,7 +297,7 @@ ALTER TABLE users DROP COLUMN deleted_at;
 
 ---
 
-## 8. Maintenance
+## Maintenance
 
 **Last Updated:** {{DATE}}
 
@@ -292,6 +316,3 @@ ALTER TABLE users DROP COLUMN deleted_at;
 - [ ] Migrations tested (up + down)
 
 ---
-
-**Version:** 1.0.0
-**Template Last Updated:** 2025-11-16

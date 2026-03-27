@@ -5,6 +5,30 @@
 
 <!-- SCOPE: Reference documentation hub (ADRs, Guides, Manuals) with links to subdirectories -->
 <!-- DO NOT add here: ADR/Guide/Manual content → specific files, Project details → project/README.md -->
+<!-- DOC_KIND: index -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need to route to ADRs, guides, manuals, or research notes. -->
+<!-- SKIP_WHEN: Skip when you already know the exact reference document to open. -->
+<!-- PRIMARY_SOURCES: docs/reference/, docs/project/architecture.md, docs/project/tech_stack.md -->
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [ADRs](adrs/)
+- [Guides](guides/)
+- [Manuals](manuals/)
+- [Research](research/)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Routes agents and humans to the canonical reference artifacts for decisions and reusable knowledge. |
+| Read When | You need the right ADR, guide, manual, or research note. |
+| Skip When | You already know the exact file you need. |
+| Canonical | Yes |
+| Next Docs | [ADRs](adrs/), [Guides](guides/), [Manuals](manuals/), [Research](research/) |
+| Primary Sources | `docs/reference/`, `docs/project/architecture.md`, `docs/project/tech_stack.md` |
 
 ---
 
@@ -69,6 +93,3 @@ This directory contains reusable knowledge base and architecture decisions:
 - [ ] Placeholders {{ADR_LIST}}, {{GUIDE_LIST}}, {{MANUAL_LIST}}, {{RESEARCH_LIST}} synced with files
 
 ---
-
-**Template Version:** 3.0.0
-**Template Last Updated:** 2025-01-20

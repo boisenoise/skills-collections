@@ -9,6 +9,8 @@ license: MIT
 
 # Test Task Executor
 
+**Type:** L3 Worker
+
 Runs a single Story final test task (label "tests") through implementation/execution to To Review.
 
 ## Purpose & Scope
@@ -62,12 +64,19 @@ Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 - Respect limits and priority; if violated, stop and return with findings.
 - **Do NOT commit.** Leave all changes uncommitted — the reviewer reviews and commits.
 
+## Runtime Summary Artifact
+
+**MANDATORY READ:** Load `shared/references/coordinator_summary_contract.md`
+
+Write `.hex-skills/runtime-artifacts/runs/{run_id}/task-status/{task_id}.json` before finishing.
+
 ## Definition of Done
 - [ ] Task identified as test task and set to In Progress; kanban updated
 - [ ] Plan validated (priority/limits) and guides read
 - [ ] Tests implemented/updated and executed; existing failures fixed
 - [ ] Docs/infra updates applied per task plan
 - [ ] Task set to To Review; kanban moved; summary comment added with commands and coverage
+- [ ] Runtime summary artifact written to the shared task-status location.
 
 ## Test Failure Analysis Protocol
 

@@ -246,7 +246,7 @@ Standardized format — feeds into `.hex-skills/optimization/{slug}/context.md` 
 
 ```yaml
 performance_map:
-  test_command: "uv run pytest tests/e2e/test_example.py -s"
+  test_command: "uv run pytest tests/automated/e2e/test_example.py -s"
   baseline:
     wall_time_ms: 7280
     cpu_time_ms: 850
@@ -356,6 +356,12 @@ profile_result:
 
 ---
 
+## Runtime Summary Artifact
+
+**MANDATORY READ:** Load `shared/references/coordinator_summary_contract.md`
+
+Write `.hex-skills/runtime-artifacts/runs/{run_id}/optimization-profile/{slug}.json` before finishing.
+
 ## Definition of Done
 
 - [ ] Test command discovered or created for optimization target
@@ -369,7 +375,8 @@ profile_result:
 - [ ] Top 3 bottlenecks identified from measured data
 - [ ] Wrong tool indicators evaluated from real metrics
 - [ ] optimization_hints contain only CONFIRMED suspicions with measurement evidence
-- [ ] Report returned to coordinator
+- [ ] Report prepared with measured findings
+- [ ] Optimization profile artifact written to the shared location
 
 ---
 

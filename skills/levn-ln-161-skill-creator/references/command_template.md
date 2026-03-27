@@ -16,6 +16,13 @@ allowed-tools: {comma-separated: Read, Bash, Edit, Grep, Glob, Skill, AskUserQue
 
 {1-2 sentence purpose statement. What this command does and when to use it.}
 
+## Source
+
+| Field | Value |
+|-------|-------|
+| Source Document | [{source_doc}]({relative_path}) |
+| Source Section | {section_header} |
+
 ## Arguments
 
 **Mode:** `$ARGUMENTS` (default: {default_value})
@@ -56,7 +63,8 @@ allowed-tools: {comma-separated: Read, Bash, Edit, Grep, Glob, Skill, AskUserQue
 
 ## Related Documentation
 
-- [{source_doc}]({relative_path}) -- {what it contains}
+- [{source_doc}]({relative_path}) -- canonical source for this command
+- {additional related docs if needed}
 
 ---
 **Last Updated:** {YYYY-MM-DD}
@@ -70,6 +78,7 @@ allowed-tools: {comma-separated: Read, Bash, Edit, Grep, Glob, Skill, AskUserQue
 | Description trigger | Must include "Use when {context}" after purpose |
 | Title | H1, matches command purpose |
 | Purpose | 1-2 sentences max, no jargon |
+| Source | Required. Must identify source document and source section |
 | Arguments | Only if command accepts `$ARGUMENTS` |
 | Prerequisites | Table format, with check commands |
 | Workflow | Numbered ### steps with imperative verbs |
@@ -77,6 +86,7 @@ allowed-tools: {comma-separated: Read, Bash, Edit, Grep, Glob, Skill, AskUserQue
 | Verification | After each significant step where applicable |
 | Troubleshooting | Table format, common issues only (3-8 rows) |
 | Related docs | Relative paths from project root |
+| No doc shell | Do not copy doc metadata markers or `Quick Navigation` / `Agent Entry` / `Maintenance` sections |
 | Last Updated | Always present at end |
 
 ## Sections to Omit

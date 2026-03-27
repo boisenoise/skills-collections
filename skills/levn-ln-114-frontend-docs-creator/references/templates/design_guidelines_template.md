@@ -4,6 +4,12 @@
 **Date:** {{DATE}}
 **Status:** {{STATUS}}
 
+<!-- DOC_KIND: explanation -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need visual standards, accessibility rules, or component-level design constraints. -->
+<!-- SKIP_WHEN: Skip when you only need implementation details or backend contracts. -->
+<!-- PRIMARY_SOURCES: src/, styles/, design system config, docs/project/architecture.md -->
+
 <!-- SCOPE: UI/UX design system (typography, colors, spacing, grid), component library (buttons, forms, cards, navigation, modals), layout patterns (page templates), accessibility guidelines (WCAG AA, keyboard, ARIA), responsive behavior (breakpoints, adaptations), branding (logo, imagery, icons) ONLY. -->
 <!-- DO NOT add here: Technical implementation → tech_stack.md, React/Vue code examples → Task descriptions, API contracts → api_spec.md, State management → architecture.md, Performance optimization → runbook.md, Infrastructure inventory → infrastructure.md -->
 
@@ -12,6 +18,24 @@
      ALLOWED: CSS class names as specifications (text-xl, bg-primary), spacing values (px-4, py-3), color hex codes, Tailwind utility references
      Design tokens (colors, typography, spacing) ARE the contract - they specify WHAT, implementations live in code.
      For component implementations → Task descriptions or component library code -->
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [Architecture](architecture.md)
+- [Tech Stack](tech_stack.md)
+- [Tests README](../../tests/README.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Explains the visual system, accessibility rules, and UI consistency expectations. |
+| Read When | You need design constraints, token definitions, or accessibility guidance. |
+| Skip When | You only need implementation code or backend/system contracts. |
+| Canonical | Yes |
+| Next Docs | [Architecture](architecture.md), [Tech Stack](tech_stack.md), [Tests README](../../tests/README.md) |
+| Primary Sources | `src/`, `styles/`, design system config, `docs/project/architecture.md` |
 
 ---
 
@@ -331,7 +355,7 @@ Size variants: Small (px-4 py-2 text-sm), Medium (px-6 py-3 text-base), Large (p
 
 ---
 
-## 7. Maintenance
+## Maintenance
 
 **Last Updated:** {{DATE}}
 
@@ -352,6 +376,3 @@ Size variants: Small (px-4 py-2 text-sm), Medium (px-6 py-3 text-base), Large (p
 - [ ] Logo usage rules followed
 
 ---
-
-**Version:** 1.1.0 (Added NO_CODE_EXAMPLES rule. Design tokens ARE the contract, not code.)
-**Template Last Updated:** 2026-01-09

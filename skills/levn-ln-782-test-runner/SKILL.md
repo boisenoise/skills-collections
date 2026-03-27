@@ -10,7 +10,6 @@ license: MIT
 
 **Type:** L3 Worker
 **Category:** 7XX Project Bootstrap
-**Parent:** ln-780-bootstrap-verifier
 
 ---
 
@@ -35,7 +34,7 @@ Detects test frameworks, executes all test suites, and reports results including
 
 | Scenario | Use This Skill |
 |----------|---------------|
-| Called by ln-780 orchestrator | Yes |
+| Standalone-capable | Yes |
 | Standalone test execution | Yes |
 | CI/CD pipeline test step | Yes |
 | Build verification needed | No, use ln-781 |

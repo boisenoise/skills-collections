@@ -116,7 +116,7 @@
 <!-- QUESTION_START: 3 -->
 ### Question 3: How are tests organized in this project?
 
-**Expected Answer:** Directory structure (tests/e2e/, tests/integration/, tests/unit/), naming conventions (*.test.js or *.spec.js or test_*.py), Story-Level Test Task Pattern
+**Expected Answer:** Directory structure (tests/automated/e2e/, tests/automated/integration/, tests/automated/unit/), naming conventions (*.test.js or *.spec.js or test_*.py), Story-Level Test Task Pattern
 **Target Section:** ## Test Organization
 
 **Validation Heuristics:**
@@ -128,9 +128,9 @@
 
 **Auto-Discovery:**
 1. **Scan tests/ directory:**
-   - Use Glob tool: `pattern: "tests/e2e/**/*.{js,ts,py,go}"`
-   - Use Glob tool: `pattern: "tests/integration/**/*.{js,ts,py,go}"`
-   - Use Glob tool: `pattern: "tests/unit/**/*.{js,ts,py,go}"`
+   - Use Glob tool: `pattern: "tests/automated/e2e/**/*.{js,ts,py,go}"`
+   - Use Glob tool: `pattern: "tests/automated/integration/**/*.{js,ts,py,go}"`
+   - Use Glob tool: `pattern: "tests/automated/unit/**/*.{js,ts,py,go}"`
    - Count files in each directory
    - Example output: "✓ Test structure: 12 E2E, 45 Integration, 78 Unit tests"
 

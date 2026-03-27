@@ -8,6 +8,8 @@ license: MIT
 
 # Test Planning Orchestrator
 
+**Type:** L2 Coordinator
+
 Coordinates the complete test planning pipeline for a Story by delegating to specialized workers.
 
 ## Inputs
@@ -24,12 +26,11 @@ Coordinates the complete test planning pipeline for a Story by delegating to spe
 - **Orchestrate** test planning: research → manual testing → automated test planning
 - **Delegate** to workers: ln-521-test-researcher, ln-522-manual-tester, ln-523-auto-test-planner
 - **No direct work** — only coordination and delegation via Skill tool
-- **Called by** ln-500-story-quality-gate after regression tests pass
 
 ## When to Use
 
 This skill should be used when:
-- **Invoked by ln-500-story-quality-gate** after quality checks pass
+- Story passed implementation and regression work and needs full test planning
 - All implementation tasks in Story are Done
 - Need complete test planning (research + manual + auto)
 
@@ -119,6 +120,12 @@ ln-520-test-planner (Orchestrator)
    - Manual testing: passed / failed
    - Test task: created / updated + URL
 
+### Runtime Summary Artifact
+
+**MANDATORY READ:** Load `shared/references/coordinator_summary_contract.md`
+
+Write `.hex-skills/runtime-artifacts/runs/{run_id}/story-tests/{story_id}.json` before finishing.
+
 ## Worker Invocation (MANDATORY)
 
 > **CRITICAL:** All delegations use Agent tool with `subagent_type: "general-purpose"` for context isolation.
@@ -149,6 +156,19 @@ Story: {storyId}",
 - ❌ Creating test tasks directly (delegate to ln-523)
 - ❌ Skipping any phase without justification
 
+## TodoWrite format (mandatory)
+
+```
+- Resolve Story and prerequisites (pending)
+- Check or reuse research state (pending)
+- Invoke ln-521 or skip deterministically (pending)
+- Check or reuse manual testing state (pending)
+- Invoke ln-522 or skip deterministically (pending)
+- Invoke ln-523 and verify test-task result (pending)
+- Write story-tests summary artifact (pending)
+- Report final planning outcome (pending)
+```
+
 ## Critical Rules
 
 - **No direct work:** Orchestrator only delegates, never executes tasks itself
@@ -164,7 +184,8 @@ Story: {storyId}",
 - [ ] Manual testing phase: ln-522 invoked OR existing results found
 - [ ] Auto test planning phase: ln-523 invoked
 - [ ] Test task created/updated in Linear
-- [ ] Summary returned to ln-500-story-quality-gate
+- [ ] Summary prepared with phase results and test task URL
+- [ ] Story-test summary artifact written to the shared location
 
 **Output:** Summary with phase results + test task URL
 
@@ -177,7 +198,6 @@ Skill type: `planning-coordinator`. Run after all phases complete. Output to cha
 ## Reference Files
 
 - Workers: `../ln-521-test-researcher/SKILL.md`, `../ln-522-manual-tester/SKILL.md`, `../ln-523-auto-test-planner/SKILL.md`
-- Caller: `../ln-500-story-quality-gate/SKILL.md`
 - Risk-based testing: `shared/references/risk_based_testing_guide.md`
 
 ---

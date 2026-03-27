@@ -1,14 +1,5 @@
-# Prevent Windows sleep while pipeline is active
-# Uses SetThreadExecutionState (kernel32.dll) — official Windows Power API
-# https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate
-#
-# Lifecycle:
-#   Phase 3 starts this script as background process
-#   Script polls .hex-skills/pipeline/state.json every 30s
-#   When complete=true or file disappears -> releases sleep block and exits
-#   If script crashes -> Windows auto-releases execution state (tied to process)
-#
-# Verify: powercfg /requests (shows SYSTEM request while running)
+# Prevent Windows sleep while any pipeline run is active
+# Uses SetThreadExecutionState (kernel32.dll)
 
 Add-Type -TypeDefinition @"
 using System;
@@ -21,26 +12,39 @@ public class SleepPreventer {
 }
 "@
 
-# Block sleep: ES_CONTINUOUS | ES_SYSTEM_REQUIRED
 [SleepPreventer]::SetThreadExecutionState(
     [SleepPreventer]::ES_CONTINUOUS -bor [SleepPreventer]::ES_SYSTEM_REQUIRED
 ) | Out-Null
 
-# Poll .hex-skills/pipeline/state.json until complete=true or file disappears
-$stateFile = ".hex-skills/pipeline/state.json"
+$activeDir = ".hex-skills/pipeline/runtime/active/ln-1000"
+
 while ($true) {
     Start-Sleep -Seconds 30
-    if (-not (Test-Path $stateFile)) { break }
-    try {
-        $state = Get-Content $stateFile -Raw | ConvertFrom-Json
-        if ($state.complete -eq $true) { break }
-    } catch {
-        # JSON parse error (file being written) — retry next cycle
-        continue
+    if (-not (Test-Path $activeDir)) { break }
+
+    $activeFiles = Get-ChildItem -Path $activeDir -Filter *.json -ErrorAction SilentlyContinue
+    if (-not $activeFiles -or $activeFiles.Count -eq 0) { break }
+
+    $hasRunning = $false
+    foreach ($activeFile in $activeFiles) {
+        try {
+            $active = Get-Content $activeFile.FullName -Raw | ConvertFrom-Json
+            $stateFile = ".hex-skills/pipeline/runtime/runs/$($active.run_id)/state.json"
+            if (-not (Test-Path $stateFile)) { continue }
+            $state = Get-Content $stateFile -Raw | ConvertFrom-Json
+            if ($state.complete -ne $true) {
+                $hasRunning = $true
+                break
+            }
+        } catch {
+            $hasRunning = $true
+            break
+        }
     }
+
+    if (-not $hasRunning) { break }
 }
 
-# Release: ES_CONTINUOUS only (clears SYSTEM_REQUIRED)
 [SleepPreventer]::SetThreadExecutionState(
     [SleepPreventer]::ES_CONTINUOUS
 ) | Out-Null

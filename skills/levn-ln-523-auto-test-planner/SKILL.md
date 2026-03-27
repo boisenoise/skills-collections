@@ -8,6 +8,8 @@ license: MIT
 
 # Automated Test Planner
 
+**Type:** L3 Worker
+
 Creates Story test task with comprehensive automated test coverage (E2E/Integration/Unit) based on Risk-Based Testing methodology and REAL manual testing results.
 
 ## Inputs
@@ -28,7 +30,7 @@ Creates Story test task with comprehensive automated test coverage (E2E/Integrat
 
 ## When to Use
 
-- Invoked by ln-520-test-planner after implementation tasks Done
+- Use when implementation work is done and automated test coverage must be planned
 - All implementation Tasks in Story status = Done
 - ln-521 research: uses if available, generates minimal inline research if missing
 - ln-522 manual testing: uses if available, marks as 'skipped by policy' if missing

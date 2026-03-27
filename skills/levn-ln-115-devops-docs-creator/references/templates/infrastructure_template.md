@@ -2,9 +2,32 @@
 
 <!-- SCOPE: Server inventory, network/DNS configuration, port allocation, deployed services, artifact management, CI/CD pipeline, host requirements ONLY. -->
 <!-- DO NOT add here: Operational procedures → runbook.md, Architecture patterns → architecture.md, Tech stack versions → tech_stack.md, API contracts → api_spec.md -->
+<!-- DOC_KIND: explanation -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need deployment topology, infrastructure inventory, or host-level constraints. -->
+<!-- SKIP_WHEN: Skip when you only need operational procedures or feature-level system design. -->
+<!-- PRIMARY_SOURCES: docker-compose.yml, infra manifests, ci configs, docs/project/runbook.md -->
 
 > **Status:** {{STATUS}}
 > **Last Updated:** {{DATE}}
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [Architecture](architecture.md)
+- [Tech Stack](tech_stack.md)
+- [Runbook](runbook.md)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Explains deployed topology, hosts, networking, and environment inventory. |
+| Read When | You need server, DNS, CI/CD, or service deployment facts. |
+| Skip When | You only need operator steps or business architecture rationale. |
+| Canonical | Yes |
+| Next Docs | [Runbook](runbook.md), [Architecture](architecture.md), [Tech Stack](tech_stack.md) |
+| Primary Sources | `docker-compose.yml`, infra manifests, CI configs, `docs/project/runbook.md` |
 
 ## 1. Server Inventory
 
@@ -129,5 +152,3 @@ ss -tlnp
 ```
 
 ---
-**Version:** 1.0.0
-**Last Updated:** {{DATE}}

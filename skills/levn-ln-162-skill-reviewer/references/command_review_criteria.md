@@ -18,6 +18,8 @@ Review criteria for `.claude/commands/*.md` files in target projects.
 | C8 | No duplicate purpose | No other `.claude/commands/*.md` with overlapping `description` | Flag for merge/rename | WARN |
 | C9 | Stack consistency | Commands (npm/pip/dotnet/docker) match project's package manager | Flag mismatch | WARN |
 | C10 | Last Updated date | `**Last Updated:**` present at end of file | Add current date | FAIL |
+| C11 | Source provenance | `## Source` identifies source doc and section | Flag missing provenance | WARN |
+| C12 | No copied doc shell | No `DOC_KIND`, `DOC_ROLE`, `Quick Navigation`, `Agent Entry`, `Maintenance` sections | Remove copied shell sections if exact matches | FAIL |
 
 ## Verdicts
 

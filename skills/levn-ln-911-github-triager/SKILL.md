@@ -11,7 +11,7 @@ allowed-tools: Bash, Read
 
 **Type:** L3 Worker (standalone)
 **Category:** 9XX Community Engagement
-**Caller:** ln-910-community-engagement (or standalone)
+**Invocation:** Standalone or as part of a broader community triage workflow
 
 Scans all open issues, PRs, and discussions in the current repository. Categorizes by urgency. Produces an actionable triage report.
 

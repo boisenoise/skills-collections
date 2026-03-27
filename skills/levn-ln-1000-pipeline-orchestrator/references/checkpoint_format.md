@@ -5,9 +5,12 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 ## File Location
 
 ```
-{project_root}/.hex-skills/pipeline/
-  state.json                 # Global pipeline state (CLI-managed)
-  checkpoint-{storyId}.json  # Per-story checkpoint (written by `node $PIPELINE checkpoint`)
+{project_root}/.hex-skills/pipeline/runtime/
+  active/ln-1000/{storyId}.json
+  runs/{run_id}/manifest.json
+  runs/{run_id}/state.json
+  runs/{run_id}/checkpoints.json
+  runs/{run_id}/history.jsonl
 ```
 
 ## Checkpoint Schema
@@ -30,35 +33,19 @@ Checkpoint files enable crash recovery without restarting stages from scratch.
 | `git_stats` | object | 2 | Parsed `git diff --stat` summary |
 | `architecture_delta` | object | 3 | Optional architecture comparison captured on STAGE_3 entry |
 
-**Example (Stage 3 checkpoint with all relevant fields):**
-```json
-{
-  "stage": 3,
-  "started_at": "2026-02-14T14:10:00Z",
-  "completed_at": "2026-02-14T14:30:00Z",
-  "tasks_completed": ["PROJ-101", "PROJ-102", "PROJ-103", "PROJ-104", "PROJ-105"],
-  "tasks_remaining": [],
-  "last_action": "Quality gate completed, verdict: PASS",
-  "verdict": "PASS",
-  "quality_score": 92,
-  "agents_info": "codex(2/3),gemini(1/2)"
-}
-```
-
 ## Pipeline State Schema
 
-CLI commands own `state.json`. The lead advances, pauses, and checkpoints via `node $PIPELINE ...` instead of mutating state fields manually.
+CLI commands own the runtime snapshots and append-only history. The lead advances, pauses, and checkpoints via `node $PIPELINE ...` instead of mutating files manually.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `story_id` | string | Story ID selected for this pipeline run |
 | `story_title` | string | Selected Story title |
-| `stage` | string | `QUEUED`, `STAGE_0`, `STAGE_1`, `STAGE_2`, `STAGE_3`, `DONE`, or `PAUSED` |
+| `phase` | string | `QUEUED`, `STAGE_0`, `STAGE_1`, `STAGE_2`, `STAGE_3`, `DONE`, or `PAUSED` |
 | `complete` | boolean | `false` while pipeline running, `true` after DONE/cancel |
 | `quality_cycles` | number | FAIL->retry counter (limit 2) |
 | `validation_retries` | number | NO-GO retry counter (limit 1) |
 | `crash_count` | number | Confirmed crash counter |
-| `storage_mode` | string | `"file"` or `"linear"` |
 | `pipeline_start_time` | string | ISO 8601 pipeline start timestamp |
 | `updated_at` | string | ISO 8601 timestamp of latest write |
 | `project_brief` | object | `{name, tech, type, key_rules}` from target project |
@@ -76,36 +63,6 @@ CLI commands own `state.json`. The lead advances, pauses, and checkpoints via `n
 | `story_results` | object | Per-stage reporting payload |
 | `paused_reason` | string/null | Reason when pipeline is paused |
 
-**Example:**
-```json
-{
-  "story_id": "API-427",
-  "story_title": "Implement API retry policy",
-  "stage": "STAGE_2",
-  "complete": false,
-  "quality_cycles": 0,
-  "validation_retries": 0,
-  "crash_count": 0,
-  "storage_mode": "linear",
-  "pipeline_start_time": "2026-02-13T12:55:00Z",
-  "updated_at": "2026-02-13T14:30:00Z",
-  "project_brief": { "name": "API", "tech": "Node.js", "type": "API", "key_rules": ["Keep story status authoritative"] },
-  "story_briefs": { "API-427": { "tech": "Node.js", "keyFiles": ["src/api/retry.ts"] } },
-  "business_answers": {},
-  "status_cache": { "Todo": "uuid-todo" },
-  "skill_repo_path": "D:/Development/LevNikolaevich/claude-code-skills/skills-catalog",
-  "worktree_dir": "D:/project/.hex-skills/worktrees/story-API-427",
-  "branch_name": "feature/API-427-implement-api-retry-policy",
-  "stage_timestamps": { "stage_2_start": "2026-02-13T13:00:00Z" },
-  "git_stats": {},
-  "readiness_scores": {},
-  "infra_issues": [],
-  "previous_quality_score": {},
-  "story_results": {},
-  "paused_reason": null
-}
-```
-
 ## Resume Protocol
 
 Lead executes on crash recovery:
@@ -113,10 +70,10 @@ Lead executes on crash recovery:
 ```
 1. Bash: node $PIPELINE status --story {id}
 2. Extract resume_action from JSON response
-3. Follow resume_action (e.g., "Invoke Skill(ln-400) for stage 2")
+3. Follow resume_action
 ```
 
-CLI status includes reconciliation: if state.json and checkpoint disagree, pipeline is auto-PAUSED with recovery reason.
+CLI status resolves the active run for the current Story and its append-only history.
 
 ## Checkpoint Write Protocol
 
@@ -128,13 +85,3 @@ CLI writes checkpoints via `node $PIPELINE checkpoint` after each Skill() call:
 | 1 | `node $PIPELINE checkpoint --story {id} --stage 1 --verdict GO --readiness {N} --agents-info "..." --last-action "..."` |
 | 2 | `node $PIPELINE checkpoint --story {id} --stage 2 --tasks-completed '{[...]}' --git-stats '{...}' --last-action "..."` |
 | 3 | `node $PIPELINE checkpoint --story {id} --stage 3 --verdict PASS --quality-score {N} --agents-info "..." --last-action "..."` |
-
-**Stage-Specific Field Requirements:**
-- **Stage 0:** `--plan-score` (0-4), `--tasks-remaining`
-- **Stage 1:** `--readiness` (1-10), `--verdict` (GO/NO-GO); `--reason` if NO-GO
-- **Stage 2:** `--tasks-completed`, `--git-stats`
-- **Stage 3:** `--verdict` (PASS/CONCERNS/WAIVED/FAIL), `--quality-score` (0-100); `--issues` if FAIL
-
----
-**Version:** 5.0.0
-**Last Updated:** 2026-03-24

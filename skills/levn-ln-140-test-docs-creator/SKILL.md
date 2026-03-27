@@ -8,11 +8,13 @@ license: MIT
 
 # Test Documentation Creator
 
-This skill creates and validates test documentation: testing-strategy.md (universal testing philosophy) + tests/README.md (test organization structure and Story-Level Test Task Pattern).
+**Type:** L2 Worker
+
+This skill creates and validates test documentation: testing-strategy.md (universal testing philosophy) + tests/README.md (test organization structure with `tests/automated/` + Story-Level Test Task Pattern).
 
 ## Purpose
 
-Creates and validates test documentation (testing-strategy.md + tests/README.md) establishing universal testing philosophy, Risk-Based Testing strategy, and Story-Level Test Task Pattern for any project.
+Creates and validates test documentation (testing-strategy.md + tests/README.md) establishing universal testing philosophy, Risk-Based Testing strategy, `tests/automated/` as the default automated-test root, and the Story-Level Test Task Pattern for any project.
 
 ## When to Use This Skill
 
@@ -27,6 +29,8 @@ This skill should be used directly when:
 ## Workflow
 
 The skill follows a 3-phase workflow: **CREATE** → **VALIDATE STRUCTURE** → **VALIDATE CONTENT**. Each phase builds on the previous, ensuring complete structure and semantic validation.
+
+**MANDATORY READ:** Load `shared/references/docs_quality_contract.md`, `shared/references/docs_quality_rules.json`, and `shared/references/markdown_read_protocol.md`.
 
 ---
 
@@ -50,9 +54,10 @@ The skill follows a 3-phase workflow: **CREATE** → **VALIDATE STRUCTURE** → 
   - Skip creation
   - Log: "✓ testing-strategy.md already exists, proceeding to validation"
 - If NOT exists:
-  - Copy template: `ln-114-test-docs-creator/references/testing_strategy_template.md` → `docs/reference/guides/testing-strategy.md`
+  - Copy template: `ln-140-test-docs-creator/references/testing_strategy_template.md` → `docs/reference/guides/testing-strategy.md`
   - Replace placeholders:
     - `[CURRENT_DATE]` — current date (YYYY-MM-DD)
+  - Preserve shared metadata markers and standard top sections from the template
   - Log: "✓ Created testing-strategy.md from template"
 
 - Check if `tests/README.md` exists
@@ -60,9 +65,10 @@ The skill follows a 3-phase workflow: **CREATE** → **VALIDATE STRUCTURE** → 
   - Skip creation
   - Log: "✓ tests/README.md already exists, proceeding to validation"
 - If NOT exists:
-  - Copy template: `ln-114-test-docs-creator/references/tests_readme_template.md` → `tests/README.md`
+  - Copy template: `ln-140-test-docs-creator/references/tests_readme_template.md` → `tests/README.md`
   - Replace placeholders:
     - `{{DATE}}` — current date (YYYY-MM-DD)
+  - Preserve shared metadata markers and standard top sections from the template
   - Log: "✓ Created tests/README.md from template"
 
 **1.3 Output**:
@@ -85,8 +91,8 @@ tests/
 **Process**:
 
 **2.1 Check SCOPE tags**:
-- Read both files (testing-strategy.md, tests/README.md) - first 5 lines only
-- Check for `<!-- SCOPE: ... -->` tag in each
+- Read both files (testing-strategy.md, tests/README.md) - opening block first
+- Check for `<!-- SCOPE: ... -->` tag and metadata markers in each
 - Expected SCOPE tags:
   - testing-strategy.md: `<!-- SCOPE: Universal testing philosophy (Risk-Based Testing, test pyramid, isolation patterns) -->`
   - tests/README.md: `<!-- SCOPE: Test organization structure (directory layout, Story-Level Test Task Pattern) -->`
@@ -106,7 +112,7 @@ tests/
   - Read file content
   - Check if `## [Section Name]` header exists
   - If missing:
-    - Use Edit tool to add section with placeholder content from template
+    - Use Edit tool to add the section with minimal concrete guidance from the template, not a raw placeholder
     - Track violation: `missing_sections += 1`
 
 **2.3 Check Maintenance section**:
@@ -210,9 +216,9 @@ For this file, use **standard template content** (no auto-discovery needed):
 
 2. **Auto-discover test directory structure**:
    - Use Glob tool to scan tests/ directory:
-     - Pattern: `"tests/e2e/**/*.{js,ts,py,go}"`
-     - Pattern: `"tests/integration/**/*.{js,ts,py,go}"`
-     - Pattern: `"tests/unit/**/*.{js,ts,py,go}"`
+     - Pattern: `"tests/automated/e2e/**/*.{js,ts,py,go}"`
+     - Pattern: `"tests/automated/integration/**/*.{js,ts,py,go}"`
+     - Pattern: `"tests/automated/unit/**/*.{js,ts,py,go}"`
    - Count files in each directory:
      - `e2e_count = len(e2e_files)`
      - `integration_count = len(integration_files)`
@@ -223,9 +229,10 @@ For this file, use **standard template content** (no auto-discovery needed):
      - Create placeholder structure:
        ```
        tests/
-         e2e/       (empty, ready for E2E tests)
-         integration/  (empty, ready for Integration tests)
-         unit/      (empty, ready for Unit tests)
+         automated/
+           e2e/         (empty, ready for E2E tests)
+           integration/ (empty, ready for Integration tests)
+           unit/        (empty, ready for Unit tests)
        ```
      - Log: "✓ Created test directory structure (will be populated during Story test task execution)"
 
@@ -251,7 +258,7 @@ For this file, use **standard template content** (no auto-discovery needed):
 4. **Check Test Organization section content**:
    - Read section from tests/README.md
    - Check validation heuristics:
-     - ✅ Describes directory structure (e2e/integration/unit)
+     - ✅ Describes directory structure (`tests/automated/e2e`, `tests/automated/integration`, `tests/automated/unit`)
      - ✅ Mentions naming conventions
      - ✅ References Story-Level Test Task Pattern
      - ✅ Has framework mention
@@ -311,7 +318,7 @@ For this file, use **standard template content** (no auto-discovery needed):
     - testing-strategy.md: [2 sections checked]
     - tests/README.md: [2 sections checked]
     - Test framework: [detected framework or "Not detected"]
-    - Test structure: [e2e/integration/unit counts or "Created placeholder"]
+    - Test structure: [automated/e2e, automated/integration, automated/unit counts or "Created placeholder"]
     - Naming convention: [pattern or "Framework default"]
     - Test runner: [command]
     - Coverage command: [command]
@@ -339,7 +346,7 @@ tests/
 - **3-phase pipeline:** CREATE → VALIDATE STRUCTURE → VALIDATE CONTENT (no phase skipping)
 - **Auto-discovery first:** Scan test frameworks and directory structure before falling back to defaults
 - **Idempotent execution:** Checks existence before creation; re-validates on each run without duplication
-- **SCOPE tags required:** Both files must have `<!-- SCOPE: ... -->` tag in first 5 lines
+- **Shared opening contract required:** Both files must include `SCOPE`, metadata markers, `Quick Navigation`, `Agent Entry`, and `Maintenance`
 
 ---
 
@@ -355,7 +362,7 @@ tests/
   - Core Philosophy ("Test YOUR code, not frameworks")
   - Risk-Based Testing Strategy (Priority Matrix, test caps)
   - Story-Level Testing Pattern
-  - Test Organization (E2E/Integration/Unit definitions)
+  - Test Organization (`tests/automated/e2e`, `tests/automated/integration`, `tests/automated/unit` definitions)
   - Isolation Patterns (Data Deletion/Transaction Rollback/DB Recreation)
   - What To Test vs NOT Test (universal examples)
   - Testing Patterns (Arrange-Act-Assert, Mock at the Seam, Test Data Builders)
@@ -398,20 +405,48 @@ tests/
 - **NO_CODE Rule:** Test docs describe strategy, not test implementations
 - **Stack Adaptation:** Framework commands must match project stack
 - **Format Priority:** Tables (test levels, counts) > Lists > Text
+- **Shared docs-quality contract:** SCOPE tags, Maintenance sections, placeholder policy, and stack-specific link validation come from the shared docs-quality contract/rules
 
 ---
 
 ## Prerequisites
 
-**Invoked by**: ln-110-documents-pipeline orchestrator
+**Invoked by**: ln-100-documents-pipeline orchestrator
 
 **Requires**:
-- `docs/reference/guides/` directory (created by ln-112-reference-docs-creator or Phase 1 if missing)
+- `docs/reference/guides/` directory (created by ln-120-reference-docs-creator or Phase 1 if missing)
 
 **Creates**:
 - `docs/reference/guides/testing-strategy.md` (universal testing philosophy)
 - `tests/README.md` (test organization structure)
 - Validated structure and content (auto-discovery of test frameworks and directory structure)
+
+---
+
+## Return Contract
+
+Return a normalized summary so `ln-100` can run one centralized docs-quality gate:
+
+```json
+{
+  "created_files": [
+    "docs/reference/guides/testing-strategy.md",
+    "tests/README.md"
+  ],
+  "skipped_files": [],
+  "quality_inputs": {
+    "doc_paths": [
+      "docs/reference/guides/testing-strategy.md",
+      "tests/README.md"
+    ],
+    "owners": {
+      "docs/reference/guides/testing-strategy.md": "ln-140-test-docs-creator",
+      "tests/README.md": "ln-140-test-docs-creator"
+    }
+  },
+  "validation_status": "passed|passed_with_fixes|skipped"
+}
+```
 
 ---
 
@@ -449,6 +484,7 @@ Before completing work, verify ALL checkpoints:
 - [ ] Phase 1 logged: creation summary
 - [ ] Phase 2 logged: structural fixes (if any)
 - [ ] Phase 3 logged: content validation summary with auto-discovery results
+- [ ] Return contract emitted with `created_files`, `skipped_files`, `quality_inputs`, and `validation_status`
 
 ---
 

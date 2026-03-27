@@ -1,18 +1,24 @@
 #!/usr/bin/env node
-/**
- * Pipeline state CLI — deterministic state management for ln-1000.
- * Usage: node cli.mjs <command> [--args]
- * Output: JSON to stdout, errors to stderr.
- * Exit: 0=ok, 1=guard rejection, 2=error.
- */
 
 import { parseArgs } from "node:util";
 import {
-    startRun, getStatus, saveState, saveCheckpoint,
-    loadState, loadCheckpoint, completeRun, cancelRun, pauseRun, updateState,
+    cancelRun,
+    checkpointPhase,
+    completeRun,
+    getStatus,
+    listActiveRuns,
+    loadRun,
+    pauseRun,
+    resolveRunId,
+    saveState,
+    startRun,
 } from "./lib/store.mjs";
-import { validateTransition } from "./lib/guards.mjs";
 import { captureBaseline, computeDelta } from "./lib/arch-snapshot.mjs";
+import { computeResumeAction, validateTransition } from "./lib/guards.mjs";
+import {
+    failJson as fail,
+    outputJson as output,
+} from "../../shared/scripts/coordinator-runtime/lib/cli-helpers.mjs";
 
 const { values, positionals } = parseArgs({
     allowPositionals: true,
@@ -25,7 +31,6 @@ const { values, positionals } = parseArgs({
         reason: { type: "string" },
         force: { type: "boolean", default: false },
         resolve: { type: "boolean", default: false },
-        // Checkpoint fields
         "plan-score": { type: "string" },
         readiness: { type: "string" },
         verdict: { type: "string" },
@@ -36,7 +41,6 @@ const { values, positionals } = parseArgs({
         "tasks-remaining": { type: "string" },
         "agents-info": { type: "string" },
         "git-stats": { type: "string" },
-        // Start fields
         "project-brief": { type: "string" },
         "story-briefs": { type: "string" },
         "business-answers": { type: "string" },
@@ -49,13 +53,36 @@ const { values, positionals } = parseArgs({
 
 const command = positionals[0];
 
-function output(data) { process.stdout.write(JSON.stringify(data, null, 2) + "\n"); }
-function fail(msg, code = 2) { process.stderr.write(JSON.stringify({ error: msg }) + "\n"); process.exit(code); }
-function tryParse(str) { try { return JSON.parse(str); } catch { return str; } }
+function tryParse(str) {
+    try {
+        return JSON.parse(str);
+    } catch {
+        return str;
+    }
+}
+
+function resolvePipelineRun(projectRoot) {
+    const runId = resolveRunId(projectRoot, "ln-1000", null, values.story);
+    if (!runId) {
+        const activeRuns = listActiveRuns(projectRoot, "ln-1000");
+        if (activeRuns.length > 1 && !values.story) {
+            fail("Multiple active pipeline runs found. Pass --story.");
+        }
+        fail("No active pipeline run found. Pass --story.");
+    }
+    const run = loadRun(projectRoot, runId);
+    if (!run) {
+        fail(`Run not found: ${runId}`);
+    }
+    return { runId, run };
+}
 
 async function main() {
     switch (command) {
         case "start": {
+            if (!values.story) {
+                fail("start requires --story");
+            }
             const result = startRun(null, {
                 story: values.story,
                 title: values.title,
@@ -69,103 +96,121 @@ async function main() {
                 branchName: values["branch-name"],
             });
             if (!result.ok && result.recovery) {
-                output({ recovery: true, state: result.state });
+                output({
+                    recovery: true,
+                    manifest: result.run.manifest,
+                    state: result.run.state,
+                    checkpoints: result.run.checkpoints,
+                    resume_action: computeResumeAction(result.run.state, result.run.checkpoints),
+                });
                 return;
             }
-            if (!result.ok) fail(result.error);
+            if (!result.ok) {
+                fail(result.error);
+            }
             output(result);
-            break;
+            return;
         }
 
         case "status": {
-            const result = getStatus(null, values.story);
-            output(result);
-            break;
+            if (!values.story) {
+                const activeRuns = listActiveRuns(process.cwd(), "ln-1000");
+                if (activeRuns.length > 1) {
+                    output({ ok: false, error: "Multiple active pipeline runs found. Pass --story." });
+                    process.exit(1);
+                }
+            }
+            output(getStatus(null, values.story));
+            return;
         }
 
         case "advance": {
-            const toStage = values.to;
-            if (!toStage) fail("--to required");
+            if (!values.to) {
+                fail("advance requires --to");
+            }
+            const { runId, run } = resolvePipelineRun(process.cwd());
 
-            const state = loadState(null);
-            if (!state || state.complete) fail("No active run");
-
-            // Handle PAUSED -> resume with --resolve
-            if (state.stage === "PAUSED" && (values.resolve || values.force)) {
-                state.stage = toStage;
-                state.paused_reason = null;
-                saveState(null, state);
-                output({ ok: true, previous_stage: "PAUSED", current_stage: toStage });
-                break;
+            if (run.state.phase === "PAUSED" && (values.resolve || values.force)) {
+                const resumed = saveState(null, {
+                    ...run.state,
+                    phase: values.to,
+                    paused_reason: null,
+                });
+                output({ ok: true, state: resumed, resumed_from: "PAUSED" });
+                return;
             }
 
-            const checkpoint = loadCheckpoint(null, state.story_id);
-            const guard = validateTransition(state, toStage, checkpoint);
+            const mutableState = { ...run.state };
+            const guard = validateTransition(mutableState, values.to, run.checkpoints);
             if (!guard.ok) {
                 output({ ok: false, ...guard });
                 process.exit(1);
             }
 
-            const previous = state.stage;
-
-            // Architecture baseline on STAGE_2 entry
-            if (toStage === "STAGE_2" && previous !== "STAGE_2") {
+            if (values.to === "STAGE_2" && run.state.phase !== "STAGE_2") {
                 const baseline = await captureBaseline(process.cwd());
-                if (baseline) state.baseline_architecture = baseline;
-            }
-
-            // Architecture delta on STAGE_3 entry
-            if (toStage === "STAGE_3") {
-                const delta = await computeDelta(state.baseline_architecture || null, process.cwd());
-                if (delta) {
-                    // Store delta in checkpoint (will be picked up by next checkpoint write)
-                    state._pending_arch_delta = delta;
+                if (baseline) {
+                    mutableState.baseline_architecture = baseline;
                 }
             }
 
-            state.stage = toStage;
-            if (toStage === "DONE") {
-                state.complete = true;
-            }
-            // Record stage timestamp
-            const stageNum = toStage.replace("STAGE_", "");
-            if (!isNaN(parseInt(stageNum, 10))) {
-                state.stage_timestamps = state.stage_timestamps || {};
-                state.stage_timestamps[`stage_${stageNum}_start`] = new Date().toISOString();
+            if (values.to === "STAGE_3") {
+                const delta = await computeDelta(mutableState.baseline_architecture || null, process.cwd());
+                if (delta) {
+                    mutableState.pending_architecture_delta = delta;
+                }
             }
 
-            saveState(null, state);
+            const nextState = {
+                ...mutableState,
+                phase: values.to,
+                complete: values.to === "DONE",
+                paused_reason: null,
+            };
+
+            if (values.to.startsWith("STAGE_")) {
+                const stageNum = values.to.replace("STAGE_", "");
+                nextState.stage_timestamps = nextState.stage_timestamps || {};
+                nextState.stage_timestamps[`stage_${stageNum}_start`] = new Date().toISOString();
+            }
+
+            const saved = saveState(null, nextState);
             output({
                 ok: true,
-                previous_stage: previous,
-                current_stage: toStage,
+                previous_phase: run.state.phase,
+                current_phase: values.to,
                 counter_incremented: guard.counter_incremented || null,
+                state: saved,
+                run_id: runId,
             });
-            break;
+            return;
         }
 
         case "checkpoint": {
-            const stageStr = values.stage;
-            if (stageStr == null) fail("--stage required");
-            const stage = parseInt(stageStr, 10);
+            if (values.stage == null) {
+                fail("checkpoint requires --stage");
+            }
+            const stage = parseInt(values.stage, 10);
+            const phase = `STAGE_${stage}`;
+            const { runId, run } = resolvePipelineRun(process.cwd());
 
-            const state = loadState(null);
-            if (!state || state.complete) fail("No active run");
-
-            // Record stage end timestamp
-            state.stage_timestamps = state.stage_timestamps || {};
-            state.stage_timestamps[`stage_${stage}_end`] = new Date().toISOString();
+            const nextState = {
+                ...run.state,
+                stage_timestamps: {
+                    ...(run.state.stage_timestamps || {}),
+                    [`stage_${stage}_end`]: new Date().toISOString(),
+                },
+            };
 
             const checkpoint = {
                 stage,
-                started_at: state.stage_timestamps[`stage_${stage}_start`] || new Date().toISOString(),
+                started_at: nextState.stage_timestamps[`stage_${stage}_start`] || new Date().toISOString(),
                 completed_at: new Date().toISOString(),
                 tasks_completed: tryParse(values["tasks-completed"]) || [],
                 tasks_remaining: tryParse(values["tasks-remaining"]) || [],
                 last_action: values["last-action"] || "",
             };
 
-            // Stage-specific fields
             if (values["plan-score"] != null) checkpoint.plan_score = parseFloat(values["plan-score"]);
             if (values.readiness != null) checkpoint.readiness = parseFloat(values.readiness);
             if (values.verdict != null) checkpoint.verdict = values.verdict;
@@ -175,36 +220,65 @@ async function main() {
             if (values["agents-info"] != null) checkpoint.agents_info = values["agents-info"];
             if (values["git-stats"] != null) checkpoint.git_stats = tryParse(values["git-stats"]);
 
-            // Architecture delta from advance
-            if (state._pending_arch_delta) {
-                checkpoint.architecture_delta = state._pending_arch_delta;
-                delete state._pending_arch_delta;
+            if (nextState.pending_architecture_delta) {
+                checkpoint.architecture_delta = nextState.pending_architecture_delta;
+                nextState.pending_architecture_delta = null;
             }
 
-            saveCheckpoint(null, state.story_id, checkpoint);
-            saveState(null, state);
-            output({ ok: true, stage, story_id: state.story_id });
-            break;
+            const checkpointed = checkpointPhase(null, runId, phase, checkpoint);
+            if (!checkpointed.ok) {
+                fail(checkpointed.error);
+            }
+            const saved = saveState(null, nextState);
+            output({
+                ok: true,
+                phase,
+                story_id: saved.story_id,
+                checkpoint: checkpointed.checkpoints[phase],
+            });
+            return;
         }
 
         case "pause": {
-            if (!values.reason) fail("--reason required");
-            const result = pauseRun(null, values.reason);
-            if (!result.ok) fail(result.error);
+            if (!values.reason) {
+                fail("pause requires --reason");
+            }
+            const { runId } = resolvePipelineRun(process.cwd());
+            const result = pauseRun(null, runId, values.reason);
+            if (!result.ok) {
+                fail(result.error);
+            }
             output(result);
-            break;
+            return;
         }
 
         case "cancel": {
-            const result = cancelRun(null, values.reason || "Canceled by user");
-            if (!result.ok) fail(result.error);
+            const result = cancelRun(null, values.story, values.reason || "Canceled by user");
+            if (!result.ok) {
+                fail(result.error);
+            }
             output(result);
-            break;
+            return;
+        }
+
+        case "complete": {
+            const { runId, run } = resolvePipelineRun(process.cwd());
+            const guard = validateTransition(run.state, "DONE", run.checkpoints);
+            if (!guard.ok) {
+                output({ ok: false, ...guard });
+                process.exit(1);
+            }
+            const result = completeRun(null, runId);
+            if (!result.ok) {
+                fail(result.error);
+            }
+            output(result);
+            return;
         }
 
         default:
-            fail(`Unknown command: ${command}. Use: start, status, advance, checkpoint, pause, cancel`);
+            fail("Unknown command: start, status, advance, checkpoint, pause, cancel, complete");
     }
 }
 
-main().catch(err => fail(err.message));
+main().catch(error => fail(error.message));

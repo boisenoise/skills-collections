@@ -4,8 +4,32 @@
 **Date:** {{DATE}}
 **Status:** {{STATUS}}
 
+<!-- DOC_KIND: reference -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need exact technologies, versions, tooling, or external service choices. -->
+<!-- SKIP_WHEN: Skip when you only need business scope or runtime procedures. -->
+<!-- PRIMARY_SOURCES: package.json, requirements.txt, docker-compose.yml, docs/reference/adrs/ -->
+
 <!-- SCOPE: Technology stack (specific versions, libraries, frameworks), Docker configuration (Dockerfile, docker-compose.yml), development tools, naming conventions ONLY. -->
 <!-- DO NOT add here: API endpoints → api_spec.md, Database schema → database_schema.md, Architecture patterns → architecture.md, Requirements → requirements.md, Deployment procedures → runbook.md, Infrastructure inventory → infrastructure.md, Design system → design_guidelines.md -->
+
+## Quick Navigation
+
+- [Docs Hub](../README.md)
+- [Requirements](requirements.md)
+- [Architecture](architecture.md)
+- [ADRs](../reference/adrs/)
+
+## Agent Entry
+
+| Signal | Value |
+|--------|-------|
+| Purpose | Lists the actual stack, versions, tooling, and rationale for selected technologies. |
+| Read When | You need exact framework, library, runtime, or tool choices. |
+| Skip When | You only need workflow instructions or feature scope. |
+| Canonical | Yes |
+| Next Docs | [Architecture](architecture.md), [Runbook](runbook.md), [ADRs](../reference/adrs/) |
+| Primary Sources | `package.json`, `requirements.txt`, `docker-compose.yml`, `docs/reference/adrs/` |
 
 ---
 
@@ -227,7 +251,7 @@ services:
 
 ---
 
-## 6. Maintenance
+## Maintenance
 
 **Last Updated:** {{DATE}}
 
@@ -244,6 +268,3 @@ services:
 - [ ] All listed tools accessible with installation links
 
 ---
-
-**Version:** 1.0.0
-**Template Last Updated:** 2025-11-16

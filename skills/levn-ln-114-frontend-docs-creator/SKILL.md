@@ -8,6 +8,8 @@ license: MIT
 
 # Frontend Documentation Creator
 
+**Type:** L3 Worker
+
 L3 Worker that creates design_guidelines.md. CONDITIONAL - only invoked when project has frontend.
 
 ## Purpose & Scope
@@ -33,6 +35,8 @@ From coordinator:
 - `targetDir`: Project root directory
 - `flags`: { hasFrontend }
 
+**MANDATORY READ:** Load `shared/references/docs_quality_contract.md`, `shared/references/docs_quality_rules.json`, and `shared/references/markdown_read_protocol.md`.
+
 ## Documents Created (1, conditional)
 
 | File | Condition | Questions | Auto-Discovery |
@@ -51,25 +55,33 @@ From coordinator:
 3. If not exists:
    - Copy template
    - Replace placeholders with Context Store values
+   - Preserve the shared opening contract and standard top sections from the template
    - Populate design system section
-   - Mark `[TBD: X]` for missing data
+   - Never leave template markers in published frontend docs
+   - If data is missing: omit the claim or use a concise neutral fallback, but do NOT emit `[TBD: ...]`
 
 ### Phase 3: Self-Validate
-1. Check SCOPE tag
-2. Validate sections:
+1. Check SCOPE tag and metadata markers
+2. Check required top sections (`Quick Navigation`, `Agent Entry`, `Maintenance`)
+3. Validate sections:
    - Design System (component library)
    - Typography (font families, sizes)
    - Colors (hex codes, semantic colors)
-3. Check WCAG 2.1 references
-4. Check Maintenance section
+4. Check WCAG 2.1 references
+5. Check docs-quality contract compliance (no forbidden placeholders, no leaked template metadata, valid doc kind/role)
 
 ### Phase 4: Return Status
 ```json
 {
-  "created": ["docs/project/design_guidelines.md"],
-  "skipped": [],
-  "tbd_count": 1,
-  "validation": "OK"
+  "created_files": ["docs/project/design_guidelines.md"],
+  "skipped_files": [],
+  "quality_inputs": {
+    "doc_paths": ["docs/project/design_guidelines.md"],
+    "owners": {
+      "docs/project/design_guidelines.md": "ln-114-frontend-docs-creator"
+    }
+  },
+  "validation_status": "passed"
 }
 ```
 
@@ -80,6 +92,7 @@ From coordinator:
 - **WCAG compliance:** Document must reference accessibility standards
 - **Design tokens:** Extract from CSS variables, tailwind config, or theme files
 - **Idempotent:** Never overwrite existing files
+- **Publishable output:** No `[TBD: ...]`, `TODO`, or leaked template metadata in frontend docs
 
 ### NO_CODE_EXAMPLES Rule (MANDATORY)
 Design guidelines document **visual standards**, NOT code:

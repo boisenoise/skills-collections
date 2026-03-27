@@ -1,423 +1,142 @@
-# ln-1000 Pipeline Orchestrator — Architecture Reference
+# ln-1000 Pipeline Orchestrator - Architecture Reference
 
-> **Purpose:** Human-readable architecture reference for developers and maintainers. Describes how the pipeline works, its components, and runtime behaviour.
-> **Scope:** Conceptual overview, diagrams, per-stage breakdown, verification checklists, report format. NOT an execution spec — agents use `SKILL.md` and `references/` directly.
-> **Audience:** Developers reviewing or extending the pipeline. Not loaded by agents during execution.
+> **Purpose:** Human-readable architecture reference for maintainers.
+> **Scope:** Current production runtime only. This file documents the active `Skill() + Agent()` model used by `ln-1000`.
+> **Audience:** Developers extending or reviewing the pipeline. Execution details still live in `SKILL.md` and `references/`.
 
-For full implementation spec (all phases, pseudocode, error handling), see `SKILL.md`.
+For the executable specification, read [SKILL.md](SKILL.md).
 
-## Execution Levels
+## Runtime Model
 
-Three levels of agent execution, each with different isolation and lifecycle:
+`ln-1000` is a sequential stage orchestrator. It does not use experimental team sessions, peer-message orchestration, or team-specific hooks.
 
-```
-Level 1: TeamCreate Teammate          Level 2: Skill() call             Level 3: Agent() subagent
-─────────────────────────────          ──────────────────                ────────────────────────
-Spawned by ln-1000 Lead               Called WITHIN teammate            Spawned BY a coordinator skill
-Has own conversation context           Runs in caller's context          Has ISOLATED context
-Communicates via SendMessage           Direct return value               Direct return value
-Lives until shutdown_request           Lives within caller's turn        Lives until task complete
-One per stage (fresh each time)        No overhead, no isolation         Full isolation, parallel-capable
-```
+### Execution levels
 
-**Example chain:** ln-1000 spawns teammate (L1) → teammate calls `Skill("ln-400")` (L2, inline) → ln-400 calls `Agent("ln-401...")` (L3, isolated subagent).
+| Level | Primitive | Used by | Purpose |
+|------|-----------|---------|---------|
+| L1 | `Skill()` | `ln-1000` lead | Stage orchestration |
+| L2 | `Skill()` or `Agent()` | Stage coordinators | Internal dispatch |
+| L3 | `Agent()` subagent | Heavy workers | Isolated implementation or analysis |
 
-## Pipeline Flow with I/O
+### Active hierarchy
 
-```
-Phase 1: Discovery       Phase 2: Pre-flight       Phase 3: Team Setup
-┌──────────────────┐     ┌──────────────────┐      ┌────────────────────────┐
-│ IN:  kanban_board │────→│ IN:  Story desc  │─────→│ IN:  settings_template │
-│ OUT: Story list   │     │ OUT: answers{}   │      │ OUT: Team + worktree   │
-│      user picks 1 │     │      or skip     │      │      CLI state + cp    │
-└──────────────────┘     └──────────────────┘      │      hooks installed   │
-                                                    └──────────┬─────────────┘
-                                                               │
-Phase 4: Event Loop (heartbeat ~60s) ◄─────────────────────────┘
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                         │
-│  Per-stage sub-flow (Plan Gate):                                        │
-│  Plan Worker (read-only) → Lead evaluates criteria → Execute Worker     │
-│                                                                         │
-│  STAGE 0 ──→ STAGE 1 ──→ STAGE 2 ──→ STAGE 3 ──→ DONE                 │
-│  ln-300       ln-310       ln-400       ln-500                          │
-│  Task Plan    Validate     Execute      Quality Gate                    │
-│                                                                         │
-│  Safety: Sender validation → State guard → ACK protocol                 │
-│          Crash detection (3-step) → Lost message (done-flag poll)        │
-└─────────────────────────────────────────────────────────────────────────┘
-                                   │
-Phase 5: Cleanup ◄─────────────────┘
-┌──────────────────────────────────────────────────────┐
-│ IN:  pipeline state, stage_notes, git_stats          │
-│ OUT: Pipeline report, TeamDelete, .hex-skills/pipeline/ removed │
-└──────────────────────┬───────────────────────────────┘
-                       │
-Phase 6: Meta-Analysis ◄┘
-┌──────────────────────────────────────────────────────┐
-│ IN:  pipeline report, stage metrics, infra_issues    │
-│ OUT: ## Meta-Analysis appended to report             │
-│      docs/tasks/reports/quality-trend.md updated     │
-└──────────────────────────────────────────────────────┘
+```text
+ln-1000
+  -> Skill("ln-300-task-coordinator")
+  -> Skill("ln-310-multi-agent-validator")
+  -> Skill("ln-400-story-executor")
+  -> Skill("ln-500-story-quality-gate")
 ```
 
-## Plan Gate: Two-Agent Pattern
+Each coordinator owns its own worker strategy. `ln-1000` never reaches into worker internals.
 
-Every stage runs TWO agents sequentially ("Generator and Critic"):
+## Pipeline Flow
 
-```
-Plan Worker (read-only)                    Execute Worker (fresh)
-┌──────────────────────────┐               ┌──────────────────────────┐
-│ Reads codebase + Story   │   APPROVE     │ Calls Skill("ln-{NNN}") │
-│ Sends JSON plan ─────────┼──→ Lead ──────┼→ Full execution          │
-│ Cannot write files       │   evaluates   │ Writes code, updates     │
-│ Cannot call Skill()      │   criteria    │   kanban, checkpoints    │
-└──────────────────────────┘               └──────────────────────────┘
-        ▲                          │
-        └──── REVISE (max 2x) ─────┘
+```text
+Story selection
+  -> Stage 0: ln-300 task planning
+  -> Stage 1: ln-310 validation
+  -> Stage 2: ln-400 execution
+  -> Stage 3: ln-500 quality gate
+  -> report + cleanup
 ```
 
-Plan is NOT passed to Execute Worker. It's a gate check only — Lead evaluates, then spawns a fresh execute worker that works independently.
+### Status transitions
 
-## Teammates: Per-Stage Breakdown
+| Stage | Skill | Input | Output |
+|------|-------|-------|--------|
+| 0 | `ln-300` | Backlog without tasks | Backlog with tasks |
+| 1 | `ln-310` | Backlog with tasks | Todo |
+| 2 | `ln-400` | Todo or To Rework | To Review |
+| 3 | `ln-500` | To Review | Done or To Rework |
 
-### Stage 0 Teammate → ln-300 (Task Planning)
+## Core Principles
 
-```
-ln-1000 Lead
-  └─ Agent(name: "story-{id}-decompose", team: "pipeline-...")     ← L1: teammate
-       └─ Skill("ln-300-task-coordinator")                  ← L2: inline
-            ├─ Agent("ln-301-task-creator ...")               ← L3: subagent (creates tasks)
-            └─ Agent("ln-302-task-replanner ...")             ← L3: subagent (if replan needed)
-```
+| Principle | Meaning |
+|----------|---------|
+| Sequential lead | One lead skill advances one story through the stages |
+| Coordinator autonomy | Stage coordinators choose their own workers and tool mix |
+| Isolate heavy work | Code-writing and other large tasks run in subagents |
+| Inline control | Aggregation, routing, and stage decisions stay inline |
+| Checkpointed recovery | Resume from persisted state, not long-lived peer sessions |
+| Single kanban writer per stage | The active coordinator owns its own state transition |
 
-| Aspect | Detail |
-|--------|--------|
-| **Input** | Story in Backlog (no tasks), business_answers |
-| **What happens** | ln-300 analyzes Story, builds 1-8 task plan (Foundation-First), delegates to ln-301 |
-| **ln-301 (subagent)** | Creates task files/Linear issues, updates kanban |
-| **Output to Lead** | "Stage 0 COMPLETE. {N} tasks. Plan score: {X}/4" |
-| **Effort** | low (template-based, no deep analysis) |
-| **Duration** | 2-5 min |
+## Worker Pattern by Stage
 
-### Stage 1 Teammate → ln-310 (Validation)
+### Stage 0: `ln-300`
 
-```
-ln-1000 Lead
-  └─ Agent(name: "story-{id}-validate", team: "pipeline-...")     ← L1: teammate
-       └─ Skill("ln-310-multi-agent-validator")             ← L2: inline
-            ├─ Agent("codex", background=true)       ← external agent (Codex CLI)
-            ├─ Agent("gemini", background=true)      ← external agent (Gemini CLI)
-            ├─ MCP Ref research (foreground)                ← inline research
-            ├─ 27-criteria Penalty Points audit             ← inline
-            └─ Phase 5: Merge agent results + debate        ← inline
-```
+- Plans task breakdown for the selected story
+- Delegates task creation or replanning internally
+- Returns task-planning outcome to the lead
 
-| Aspect | Detail |
-|--------|--------|
-| **Input** | Story in Backlog (tasks exist), task metadata |
-| **What happens** | Parallel: Codex + Gemini review in background. Foreground: 27-criteria audit, MCP Ref research, auto-fix. Then merge + debate agent findings |
-| **External agents** | Codex CLI and Gemini CLI (not Claude subagents — separate processes via `agent_runner.mjs`) |
-| **Output to Lead** | "Stage 1 COMPLETE. Verdict: GO/NO-GO. Readiness: {X}. Agents: codex(2/3),gemini(1/2)" |
-| **Effort** | medium |
-| **Duration** | 5-15 min (agents run in parallel with audit) |
+### Stage 1: `ln-310`
 
-### Stage 2 Teammate → ln-400 (Execution)
+- Runs validation and readiness checks
+- May launch external review agents or subagents internally
+- Returns GO/NO-GO plus readiness signals
 
-```
-ln-1000 Lead
-  └─ Agent(name: "story-{id}-implement", team: "pipeline-...")     ← L1: teammate
-       └─ Skill("ln-400-story-executor")                    ← L2: inline
-            │
-            │  Task loop (per task, priority: To Review > To Rework > Todo):
-            │
-            ├─ Agent("ln-401-task-executor {taskId}")        ← L3: subagent (writes code)
-            │    └─ Skill("ln-402-task-reviewer {taskId}")  ← L2: inline in ln-400 (reviews + commits)
-            │
-            ├─ Agent("ln-403-task-rework {taskId}")          ← L3: subagent (fixes review issues)
-            │    └─ Skill("ln-402-task-reviewer {taskId}")  ← L2: inline in ln-400
-            │
-            └─ Agent("ln-404-test-executor {taskId}")        ← L3: subagent (runs test tasks)
-                 └─ Skill("ln-402-task-reviewer {taskId}")  ← L2: inline in ln-400
-```
+### Stage 2: `ln-400`
 
-| Aspect | Detail |
-|--------|--------|
-| **Input** | Story in Todo/To Rework, tasks with implementation details, feature branch |
-| **What happens** | Loop: pick task → delegate to executor (subagent) → immediate review (inline) → next |
-| **ln-401 (subagent)** | Implements task code in isolated context. Leaves changes uncommitted |
-| **ln-402 (inline)** | Reviews code in ln-400's context. Only ln-402 commits code |
-| **ln-403 (subagent)** | Fixes review findings. Isolated context for rework |
-| **ln-404 (subagent)** | Executes test tasks. Same lifecycle as ln-401 |
-| **Parallel groups** | Tasks in same parallel group spawn concurrently, then review sequentially |
-| **Output to Lead** | "Stage 2 COMPLETE. All tasks Done. Story set to To Review" |
-| **Effort** | medium |
-| **Duration** | 15-60+ min (most time-consuming stage) |
+- Executes tasks in priority order
+- Uses isolated subagents for implementation, rework, and test execution
+- Keeps review and control flow near the coordinator
 
-**Why ln-402 is inline:** Reviewer's result drives the next action (approve vs rework). Running inline in ln-400's context gives direct access to the decision flow. Subagent would only return a final result, losing interaction.
+### Stage 3: `ln-500`
 
-### Stage 3 Teammate → ln-500 (Quality Gate)
+- Runs quality gate and final verdict logic
+- Invokes quality and test-planning coordinators as needed
+- Finalizes story status and reporting
 
-```
-ln-1000 Lead
-  └─ Agent(name: "story-{id}-qa", team: "pipeline-...")     ← L1: teammate
-       └─ Skill("ln-500-story-quality-gate")                ← L2: inline
-            ├─ Skill("ln-510-quality-coordinator")          ← L2: inline
-            │    ├─ Agent("ln-511-code-quality-checker")     ← L3: subagent (metrics + static analysis)
-            │    ├─ Agent("ln-512-tech-debt-cleaner")        ← L3: subagent (auto-fixes)
-            │    ├─ Agent("ln-513-regression-checker")       ← L3: subagent (runs tests)
-            │    ├─ Agent("codex", background)       ← external agent
-            │    └─ Agent("gemini", background)      ← external agent
-            │
-            └─ Skill("ln-520-test-planner")                 ← L2: inline (skipped if fast-track)
-                 ├─ Agent("ln-521-test-researcher")          ← L3: subagent
-                 ├─ Agent("ln-522-manual-tester")            ← L3: subagent
-                 └─ Agent("ln-523-auto-test-planner")        ← L3: subagent
-```
+## Recovery and State
 
-| Aspect | Detail |
-|--------|--------|
-| **Input** | Story in To Review, code on feature branch, readiness_score |
-| **What happens** | Quality checks (ln-510) → test planning (ln-520, if not fast-track) → verdict |
-| **Fast-track** | If readiness == 10: skip MCP Ref, agent review, test planning. Still run metrics + regression |
-| **Verdict** | PASS/CONCERNS → Story → Done, branch pushed. FAIL → fix tasks created, Story → To Rework |
-| **ln-500 is sole kanban writer for Done** | Lead only ASSERTs (read-only verify), never updates kanban to Done |
-| **Output to Lead** | "Stage 3 COMPLETE. Verdict: {X}. Quality Score: {Y}/100. Agents: ..." |
-| **Effort** | medium |
-| **Duration** | 10-30 min |
+Pipeline state is persisted after each stage. Recovery reconstructs the next action from:
 
-## Teammate Lifecycle (all stages)
+1. persisted pipeline state
+2. current kanban or Linear truth
+3. git and worktree state
+4. stage outputs already written
 
-```
-  Lead                              Teammate                        Skill (inside teammate)
-   │                                   │                                   │
-   ├─ Agent(name, team)───────────────→│ SPAWNED                           │
-   │                                   ├─ Skill("ln-{NNN}")──────────────→│
-   │                                   │                                   ├─ Agent() subagents...
-   │                                   │                                   ├─ work...
-   │                                   │                                   ├─ done
-   │                                   │←──────────────────────────────────┤
-   │                                   ├─ Write checkpoint                 │
-   │                                   ├─ Write stage_notes                │
-   │    "Stage N COMPLETE"  ←──────────┤ SendMessage                       │
-   │                                   │                                   │
-   ├─ "ACK Stage N" ─────────────────→│                                   │
-   │                                   ├─ Write done.flag                  │
-   ├─ shutdown_request ──────────────→│                                   │
-   │                                   ├─ approve: true                    │
-   │                                   └─ EXIT                             │
-   │                                                                       │
-   ├─ Spawn next stage teammate...                                         │
-```
+This design replaced the older peer-session and heartbeat model. There is no separate team lifecycle to monitor.
 
-## Health Monitoring Summary
+## Worktree Model
 
-| Mechanism | Detects | Frequency |
-|-----------|---------|-----------|
-| **Stop hook** (exit 2) | Lead still running | Every ~60s (heartbeat) |
-| **TeammateIdle hook** (exit 2) | Worker idle without done.flag | On worker idle |
-| **Done-flag verification** | Lost completion messages | Every heartbeat |
-| **3-step crash detection** | Worker crash (no report, no flag) | On suspicious idle |
-| **Checkpoint + resume** | Crash recovery with context | On confirmed crash |
+| Rule | Behavior |
+|------|----------|
+| Worktree owner | `ln-1000` creates and removes the shared worktree when needed |
+| Inherited CWD | Stage coordinators and their subagents run inside the active worktree |
+| No nested worktrees | Worker agents must not create their own worktrees under the pipeline worktree |
+| Standalone execution | Coordinators can detect an existing feature branch and reuse it |
 
-## Per-Stage VERIFY Checklists
+## Verification Model
 
-Lead executes these read-only ASSERTs after each stage completion, **before** advancing state. If any ASSERT fails → `PAUSED` + escalate (except Stage 3 PASS which is non-blocking WARN).
+After each stage, the lead performs read-only verification before advancing:
 
-### After Stage 0 COMPLETE (Task Planning)
+| Stage | Key assertions |
+|------|----------------|
+| 0 | Tasks were created or replanned correctly |
+| 1 | Story is ready to move into execution |
+| 2 | Tasks are completed and story moved to `To Review` |
+| 3 | Final verdict and resulting state are coherent |
 
-| # | Check | Source |
-|---|-------|--------|
-| 1 | Re-read kanban board | Fresh state |
-| 2 | Tasks exist under Story {id} | Kanban/Linear |
-| 3 | Task count IN 1..8 | Kanban/Linear |
+If assertions fail, the pipeline pauses or retries according to [SKILL.md](SKILL.md).
 
-**On pass:** advance CLI state to `STAGE_1`, then spawn Stage 1 plan worker
-**On fail:** pause CLI state and escalate
+## Non-Goals
 
-### After Stage 1 GO (Validation)
+- No experimental team runtime
+- No peer-session message protocol
+- No team cleanup API dependency
+- No team-idle hooks
+- No heartbeat-based supervision
 
-| # | Check | Source |
-|---|-------|--------|
-| 1 | Re-read kanban board | Fresh state |
-| 2 | Story status = Todo | Kanban/Linear (ln-310 set this) |
-| 3 | Readiness score >= 5 | Worker report |
+## Related References
 
-**On pass:** advance CLI state to `STAGE_2`, then spawn Stage 2 plan worker
-**On fail:** pause CLI state and escalate
-**On NO-GO:** Retry once (fresh worker), then PAUSED
-
-### After Stage 2 COMPLETE (Execution)
-
-| # | Check | Source |
-|---|-------|--------|
-| 1 | Re-read kanban board | Fresh state |
-| 2 | Story status = To Review | Kanban/Linear (ln-400 set this) |
-| 3 | All tasks status = Done | Kanban/Linear |
-| 4 | Feature branch has commits | `git log origin/{base}..HEAD --oneline` > 0 |
-
-**On pass:** advance CLI state to `STAGE_3`, then spawn Stage 3 plan worker
-**On fail:** pause CLI state and escalate
-
-### After Stage 3 PASS/CONCERNS/WAIVED (Quality Gate)
-
-| # | Check | Source |
-|---|-------|--------|
-| 1 | Re-read kanban board | Fresh state |
-| 2 | Story status = Done | Kanban/Linear (ln-500 is sole writer) |
-| 3 | All tasks status = Done | Kanban/Linear |
-| 4 | Branch pushed to remote | `git branch -r` contains feature branch |
-| 5 | Extract git_stats | `stage_3_notes` or fallback `git diff --stat` |
-
-**On pass:** advance CLI state to `DONE`
-**On fail:** WARN user (non-blocking — story likely Done, verification incomplete)
-
-**Note:** Lead does NOT update kanban to Done — ln-500 is the sole kanban writer for Done status (per AGENT_TEAMS_PLATFORM_GUIDE §9: Single kanban writer). Lead only reads and ASSERTs.
-
-### After Stage 3 FAIL
-
-| # | Check | Source |
-|---|-------|--------|
-| 1 | Re-read kanban board | Fresh state |
-| 2 | Story status = To Rework | Kanban/Linear (ln-500 set this) |
-| 3 | quality_cycles < 2 | Pipeline state |
-
-**If rework allowed:** advance CLI state back to `STAGE_2`, then spawn Stage 2 (fix cycle)
-**If limit reached:** pause CLI state and escalate with score degradation analysis
-
-## Pipeline Report Format
-
-Generated in Phase 5 at `docs/tasks/reports/pipeline-{date}.md`. Combines worker stage notes with pipeline metrics.
-
-### Report Structure
-
-```
-# Pipeline Report — {date}
-
-**Story:** {id} — {title}
-**Branch:** {branch_name}
-**Final State:** DONE | PAUSED
-**Duration:** {wall-clock time}
-
-## Task Planning (ln-300)
-| Tasks | Plan Score | Duration |
-|-------|-----------|----------|
-| {N} created | {score}/4 | {time} |
-{stage_notes[0]: Key Decisions + Artifacts}
-
-## Validation (ln-310)
-| Verdict | Readiness | Agent Review | Duration |
-|---------|-----------|-------------|----------|
-| GO/NO-GO | {score}/10 | codex(N/M),gemini(N/M) | {time} |
-{stage_notes[1]: Key Decisions + Artifacts}
-
-## Implementation (ln-400)
-| Status | Files | Lines | Duration |
-|--------|-------|-------|----------|
-| Done | {files_changed} | +{added}/-{deleted} | {time} |
-{stage_notes[2]: Key Decisions + Artifacts}
-
-## Quality Gate (ln-500)
-| Verdict | Score | Agent Review | Rework | Duration |
-|---------|-------|-------------|--------|----------|
-| PASS/FAIL | {score}/100 | codex(N/M),gemini(N/M) | {cycles} | {time} |
-{stage_notes[3]: Key Decisions + Artifacts}
-
-## Pipeline Metrics
-| Wall-clock | Workers | Crashes | Retries | Infra Issues |
-|------------|---------|---------|---------|--------------|
-| {duration} | {count} | {N} | {N} | {N} |
-
-## Meta-Analysis
-| Stage | Skill  | Duration | Worker  | Skill Result                              |
-|-------|--------|----------|---------|-------------------------------------------|
-| 0     | ln-300 | {time}   | {✓/⚠/✗} | Plan {score}/4, {N} tasks                 |
-| 1     | ln-310 | {time}   | {✓/⚠/✗} | {GO/NO-GO}, Readiness {score}/10          |
-| 2     | ln-400 | {time}   | {✓/⚠/✗} | {files} files, +{add}/-{del}              |
-| 3     | ln-500 | {time}   | {✓/⚠/✗} | {verdict}, Score {score}/100, {rework} rework |
-### Problems & Limitations
-{infra issues table or "None detected."}
-### Improvement Candidates
-{numbered list or "None — pipeline ran clean."}
-```
-
-### Stage Notes (written by workers)
-
-Each worker writes `{PIPELINE_DIR}/stage_{N}_notes_{id}.md` with consistent structure:
-
-```
-## {Stage Name}
-**Skill:** ln-{NNN}
-**Agent Review:** codex(N/M),gemini(N/M) | SKIPPED({reason})
-### Key Decisions
-- {1-3 bullets: rationale, challenges, choices}
-### Artifacts
-- {file paths, Linear URLs, commit SHAs, branch info}
-```
-
-### Terminal Summary (shown to user)
-
-```
-Pipeline Complete:
-| Story | Branch | Planning | Validation | Implementation | Quality Gate | State |
-|-------|--------|----------|------------|----------------|-------------|-------|
-| {id} | {branch} | {N} tasks | GO {score} | Done | PASS {score} | DONE |
-
-Report saved: docs/tasks/reports/pipeline-{date}.md
-```
-
-## Pipeline Definition of Done
-
-Pipeline-level verification (Phase 5). Per-stage checks are in VERIFY blocks above.
-
-| # | Criterion | Verified By | Scope |
-|---|-----------|-------------|-------|
-| 1 | User selected Story | `state.story_id` is set | Always |
-| 2 | Business questions resolved | `business_answers` stored OR skip | Always |
-| 3 | Team created + operated | team exists in state | Always |
-| 4 | Story reached terminal state | `state.stage IN (DONE, PAUSED)` | Always |
-| 5 | Per-stage verifications passed | All VERIFY blocks above passed | DONE only |
-| 6 | Pipeline report generated | File exists at `docs/tasks/reports/` | Always |
-| 7 | Pipeline summary shown to user | Phase 5 table output | Always |
-| 8 | Team cleaned up | TeamDelete (or force-clean) | Always |
-| 9 | Worktree resolved | DONE: cleaned by ln-500. PAUSED: saved + cleaned by lead | Always |
-| 10 | Meta-Analysis run | Phase 6 completed, appended to pipeline report | Always |
-
-## Phase 5 Cleanup Sequence
-
-```
- 1. If current stage is not `DONE`, mark pipeline complete via CLI state transition (`advance --to DONE` or pause/cancel)
- 2. Self-verify DoD (table above)
- 3. Read stage notes from .hex-skills/pipeline/
- 4. Write pipeline report
- 5. Show terminal summary to user
- 6. Shutdown remaining workers             ← SendMessage(shutdown_request)
- 7. TeamDelete (force-clean if hung)       ← rm -rf ~/.claude/teams/{name} as fallback
- 8. Worktree cleanup:
-    DONE   → already cleaned by ln-500
-    PAUSED → git add -A → commit WIP → push → git worktree remove --force
- 9. Stop sleep prevention (Windows)
-10. Delete .hex-skills/pipeline/ directory
-11. Phase 6: Meta-Analysis (see SKILL.md `## Phase 6`)
-```
-
-## File Map
-
-| File | Purpose | Read by |
-|------|---------|---------|
-| `SKILL.md` | Full implementation spec (phases 0-6) | Lead agent |
-| `references/worker_prompts.md` | Prompt templates for all teammates | Lead (at spawn time) |
-| `references/phases/phase4_handlers.md` | ON message handlers (stage completion, crash) | Lead (Phase 4) |
-| `references/phases/phase4_heartbeat.md` | Health monitoring + structured heartbeat output | Lead (Phase 4) |
-| `references/worker_health_contract.md` | Lifecycle, keepalive hooks, respawn rules | Lead (reference) |
-| `references/pipeline_states.md` | State machine transitions + guards | Lead (routing) |
-| `references/checkpoint_format.md` | CLI-managed checkpoint + state schemas | Lead + workers |
-| `references/message_protocol.md` | Message formats + parsing regex | Lead + workers |
-| `references/kanban_parser.md` | Story extraction from kanban board | Lead (Phase 1) |
-| `references/settings_template.json` | Permissions + hooks config | Lead (Phase 3) |
-| `references/hooks/*.sh` | Keepalive hook scripts | Claude Code runtime |
-| `docs/tasks/reports/quality-trend.md` | Cross-run quality trend tracker (created in target project) | Lead (Phase 6) |
+| Topic | File |
+|------|------|
+| Executable specification | [SKILL.md](SKILL.md) |
+| State machine rules | [references/pipeline_states.md](references/pipeline_states.md) |
+| Delegation runtime | [../../docs/architecture/AGENT_DELEGATION_PLATFORM_GUIDE.md](../../docs/architecture/AGENT_DELEGATION_PLATFORM_GUIDE.md) |
+| Architecture principles | [../../docs/architecture/SKILL_ARCHITECTURE_GUIDE.md](../../docs/architecture/SKILL_ARCHITECTURE_GUIDE.md) |
 
 ---
-**Version:** 1.0.0
-**Last Updated:** 2026-03-09
+
+**Last Updated:** 2026-03-26

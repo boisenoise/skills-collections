@@ -1,224 +1,59 @@
-﻿# Documentation System
+# Documentation System
 
-**Version:** {{VERSION}}
-**Last Updated:** {{DATE}}
-**Status:** {{STATUS}}
-
-<!-- SCOPE: Root documentation hub with general standards and navigation ONLY. Contains documentation structure overview, SCOPE tags rules, maintenance conventions, sequential numbering, placeholder conventions. NO content duplication - all details in subdirectory READMEs. -->
-<!-- DO NOT add here: Project-specific details → project/README.md, Reference documentation → reference/README.md, Task management rules → tasks/README.md, Implementation code → Task descriptions -->
-
----
-
-## Overview
-
-This documentation system provides comprehensive technical and operational documentation following industry standards (ISO/IEC/IEEE 29148, arc42, C4 Model, Michael Nygard's ADR format).
-
-**Documentation is organized into three main areas:**
-- **Project Documentation** - Requirements, architecture, technical specifications
-- **Reference Documentation** - Architecture decisions (ADRs), reusable patterns (Guides), API references (Manuals)
-- **Task Management** - Task workflow, tracking rules, kanban board
-
----
-
-## General Documentation Standards
-
-All documentation in this system follows these conventions:
-
-### SCOPE Tags
-
-Every document contains HTML comment tags defining its boundaries:
-
-```html
-<!-- SCOPE: What this document CONTAINS -->
-<!-- DO NOT add here: What belongs elsewhere → where to find it -->
-```
-
-**Purpose**: Prevent content duplication, maintain single source of truth, redirect to correct location.
-
-**Example**:
-```html
-<!-- SCOPE: Project requirements ONLY. Functional requirements ONLY. -->
-<!-- DO NOT add here: Architecture details → architecture.md, Implementation → Task descriptions -->
-```
-
-### Maintenance Sections
-
-All documents contain a **Maintenance** section with:
-
-| Field | Description | Example |
-|-------|-------------|---------|
-| **Update Triggers** | When to update the document | "When changing acceptance criteria (Non-Functional Requirements are forbidden here)" |
-| **Verification** | How to verify document is current | "Check all FR-XXX IDs referenced in tests exist" |
-| **Last Updated** | Date of last modification | "2025-11-15" |
-
-### Sequential Numbering
-
-**Rule**: Phases/Sections/Steps use sequential integers: 1, 2, 3, 4 (NOT 1, 1.5, 2).
-
-**Exceptions**:
-
-| Case | Format | Example | When Valid |
-|------|--------|---------|------------|
-| **Conditional Branching** | Letter suffixes | Phase 4a (CREATE), Phase 4b (REPLAN), Phase 5 | Mutually exclusive paths (EITHER A OR B) |
-| **Loop Internals** | Steps inside Phase | Phase 3: Loop → Step 1 → Step 2 → Repeat | Cyclic workflows with repeated sub-steps |
-
-**Important**: When inserting new items, renumber all subsequent items.
-
-### Placeholder Conventions
-
-Documents use placeholders for registry updates:
-
-| Placeholder | Location | Purpose | Updated By |
-|-------------|----------|---------|------------|
-| `{{ADR_LIST}}` | reference/README.md | ADR registry | ln-310 Phase 3 Step 2 (inline) |
-| `{{GUIDE_LIST}}` | reference/README.md | Guide registry | ln-310 Phase 3 Step 2 (inline) |
-| `{{MANUAL_LIST}}` | reference/README.md | Manual registry | ln-310 Phase 3 Step 2 (inline) |
-
-**Usage**: Skills automatically add new entries BEFORE the placeholder using Edit tool.
-
-### Writing Guidelines (Progressive Disclosure Pattern)
-
-All documentation follows token-efficient formatting rules:
-
-| Content Type | Format | Rationale |
-|--------------|--------|-----------|
-| **Skill descriptions** | < 200 chars in SKILL.md frontmatter | Clarity, focused scope |
-| **Workflows** | Reference table with link to SKILL.md | Avoid duplication (DRY) |
-| **Examples** | Table rows (verdict + rationale) | 60-80% more compact than paragraphs |
-| **Lists** | Bullet points with inline details | Progressive disclosure |
-| **References** | One-line format (source - topics - insight) | Scannable, no verbose paragraphs |
-| **Comparisons** | Table with columns | Visual clarity, easy scanning |
-| **Step-by-step processes** | Inline arrow notation (Step 1 → Step 2 → Step 3) | Compact flow representation |
-
-**Verbose content is justified for:**
-- ❌ Anti-patterns (educational value - prevents mistakes)
-- 🎓 Complex architectural explanations (orchestrator patterns, state machines)
-- ⚠️ Critical rules with rationale (INVEST criteria, task sizing)
-
-**Compression targets:**
-- Main documentation files: < 500 lines (optimal: 300-400 lines)
-- README hubs: < 200 lines
-- Individual guides: < 800 lines (optimal: 400-600 lines)
-
-### Documentation Standards
-
-**Full documentation requirements:** See [documentation_standards.md](documentation_standards.md)
-
-Key highlights:
-- **Claude Code Integration** - CLAUDE.md ≤100 lines, @-sourcing, sessionStart hooks
-- **AI-Friendly Writing** - Second person, active voice, max 25 words/sentence
-- **Code Examples** - All examples runnable, realistic names, show expected output
-- **DIATAXIS Framework** - Organize docs into Tutorial/How-to/Reference/Explanation
-- **Security** - Never commit secrets, use .env.example templates
-- **Conventional Commits** - Structured commit messages for auto-changelog
-
-**Total:** 60 requirements in 12 categories. See documentation_standards.md for complete details.
-
----
-
-## Documentation Structure
-
-### 1. [Project Documentation](project/README.md)
-
-Core project documentation created by ln-111-project-docs-creator skill:
-
-- **[README.md](project/README.md)** - Project documentation hub
-- **[requirements.md](project/requirements.md)** - Functional requirements (FR-XXX-NNN) with MoSCoW prioritization
-- **[architecture.md](project/architecture.md)** - System architecture (C4 Model, arc42)
-- **[technical_specification.md](project/technical_specification.md)** - Implementation details
-
-**Purpose**: Define WHAT we build and WHY.
-
-**Created by**: ln-111-project-docs-creator
-
----
-
-### 2. [Reference Documentation](reference/README.md)
-
-Reusable knowledge base and architecture decisions:
-
-- **[ADRs](reference/adrs/)** - Architecture Decision Records (format: `adr-NNN-slug.md`)
-- **[Guides](reference/guides/)** - Project patterns and best practices (format: `NN-pattern-name.md`)
-- **[Manuals](reference/manuals/)** - Package API references (format: `package-version.md`)
-
-**Purpose**: Document HOW we build (patterns, decisions, APIs).
-
-**Created by**: ln-310 Phase 3 Step 2 (inline)
-
----
-
-### 3. [Task Management System](tasks/README.md)
-
-Task provider integration and workflow rules:
-
-- **[README.md](tasks/README.md)** - Task lifecycle, provider integration rules, workflow skills
-- **[kanban_board.md](tasks/kanban_board.md)** - Live navigation to active tasks
-
-**Purpose**: Define HOW we track and manage work.
-
-**Created by**: ln-111-docs-creator (Phase 2, Phase 9-10)
-
----
-
-## Standards Compliance
-
-This documentation system follows:
-
-| Standard | Application | Reference |
-|----------|-------------|-----------|
-| **ISO/IEC/IEEE 29148:2018** | Requirements Engineering | [requirements.md](project/requirements.md) |
-| **ISO/IEC/IEEE 42010:2022** | Architecture Description | [architecture.md](project/architecture.md) |
-| **arc42 Template** | Software architecture documentation | [architecture.md](project/architecture.md) |
-| **C4 Model** | Software architecture visualization | [architecture.md](project/architecture.md) |
-| **Michael Nygard's ADR Format** | Architecture Decision Records | [reference/adrs/](reference/adrs/) |
-| **MoSCoW Prioritization** | Requirements prioritization | [requirements.md](project/requirements.md) |
-
----
-
-## Contributing to Documentation
-
-When updating documentation:
-
-1. **Check SCOPE tags** at top of document to ensure changes belong there
-2. **Update Maintenance > Last Updated** date in the modified document
-3. **Update registry** if adding new documents:
-   - ADRs, Guides, Manuals → automatically updated by skills
-   - Project docs → update [project/README.md](project/README.md) manually
-4. **Follow sequential numbering** rules (no decimals unless conditional branching)
-5. **Add placeholders** if creating new document types
-6. **Verify links** after structural changes
-
----
+<!-- SCOPE: Documentation hub and navigation layer ONLY. Routes readers to canonical documents and explains the documentation map. -->
+<!-- DOC_KIND: index -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when you need the documentation map or want to locate the canonical doc for a topic. -->
+<!-- SKIP_WHEN: Skip when you already know the exact canonical document. -->
+<!-- PRIMARY_SOURCES: docs/README.md, docs/documentation_standards.md, docs/principles.md -->
 
 ## Quick Navigation
 
-| Area | Key Documents | Skills |
-|------|---------------|--------|
-| **Standards** | [documentation_standards.md](documentation_standards.md) | ln-111-project-docs-creator, ln-121-structure-validator |
-| **Project** | [requirements.md](project/requirements.md), [architecture.md](project/architecture.md), [technical_specification.md](project/technical_specification.md) | ln-111-project-docs-creator, ln-122-content-updater |
-| **Reference** | [ADRs](reference/adrs/), [Guides](reference/guides/), [Manuals](reference/manuals/) | ln-310 Phase 3 Step 2 (inline) |
-| **Tasks** | [kanban_board.md](tasks/kanban_board.md), [README.md](tasks/README.md) | ln-210-epic-coordinator, ln-220-story-coordinator, ln-300-task-coordinator |
+| Area | Canonical Docs | Purpose |
+|------|----------------|---------|
+| Root map | [AGENTS.md](../AGENTS.md), [CLAUDE.md](../CLAUDE.md) | Entry points |
+| Standards | [documentation_standards.md](documentation_standards.md) | Documentation rules |
+| Principles | [principles.md](principles.md) | Project development principles |
+| Tooling | [tools_config.md](tools_config.md) | Configured tools and providers |
+| Project docs | [project/requirements.md](project/requirements.md), [project/architecture.md](project/architecture.md), [project/tech_stack.md](project/tech_stack.md) | Core project knowledge |
+| Tasks | [tasks/README.md](tasks/README.md), [tasks/kanban_board.md](tasks/kanban_board.md) | Workflow and live task state |
+| Tests | [../tests/README.md](../tests/README.md), [reference/guides/testing-strategy.md](reference/guides/testing-strategy.md) | Testing map and strategy |
 
----
+## Agent Entry
+
+- Purpose: Route readers to the right canonical document and avoid duplicate reads.
+- Read when: You need to find the next relevant documentation source.
+- Skip when: You already know the target canonical doc.
+- Canonical: Yes.
+- Read next: The canonical doc in the area you need.
+- Primary sources: `docs/README.md`, `docs/documentation_standards.md`, `docs/principles.md`.
+
+## Documentation Map
+
+| Area | What It Owns | What It Does Not Own |
+|------|---------------|----------------------|
+| `docs/project/` | Requirements, architecture, stack, operations | Reference patterns, tasks, tests |
+| `docs/reference/` | ADRs, guides, manuals | Core project state |
+| `docs/tasks/` | Workflow rules and live task navigation | Implementation details |
+| `tests/` | Test organization and execution docs | Product requirements or architecture |
+
+## Writing Rules
+
+- Use one canonical document per topic.
+- Keep routing docs short and link outward.
+- Follow the header contract and top-section contract from [documentation_standards.md](documentation_standards.md).
+- Keep generated docs publishable: no raw placeholders outside allowlisted setup docs.
 
 ## Maintenance
 
-**Update Triggers**:
-- When adding new documentation areas (new subdirectories)
-- When changing general documentation standards (SCOPE, Maintenance, Sequential Numbering)
-- When changing writing guidelines or documentation formatting standards
-- When adding new placeholder conventions
-- When updating compliance standards
+**Update Triggers:**
+- When canonical docs are added, removed, or renamed
+- When documentation ownership boundaries change
+- When documentation standards or principles move
 
-**Verification**:
-- All links to subdirectory READMEs are valid
-- SCOPE tags accurately reflect document boundaries
-- Placeholder conventions documented for all registries
-- Standards Compliance table references correct documents
+**Verification:**
+- [ ] All listed canonical docs exist
+- [ ] Links resolve
+- [ ] Ownership boundaries remain accurate
 
-**Last Updated**: {{DATE}}
-
----
-
-**Template Version:** 1.1.0
-**Template Last Updated:** 2025-11-16
+**Last Updated:** {{DATE}}

@@ -1,6 +1,28 @@
 # Tools Configuration
 
-<!-- SCOPE: Available tools, their status, detection instructions, and troubleshooting. Created by ln-111 or auto-bootstrapped by first skill needing external tools. Edit manually to override. -->
+<!-- SCOPE: Available tools, configured providers, detection rules, and troubleshooting ONLY. -->
+<!-- DOC_KIND: reference -->
+<!-- DOC_ROLE: canonical -->
+<!-- READ_WHEN: Read when choosing tools, providers, or fallback chains for project work. -->
+<!-- SKIP_WHEN: Skip when you only need project architecture or product requirements. -->
+<!-- PRIMARY_SOURCES: docs/tools_config.md, docs/README.md -->
+
+## Quick Navigation
+
+| Need | Read |
+|------|------|
+| Documentation map | [README.md](README.md) |
+| Standards | [documentation_standards.md](documentation_standards.md) |
+| Task workflow | [tasks/README.md](tasks/README.md) |
+
+## Agent Entry
+
+- Purpose: Canonical reference for configured tools and fallback chains.
+- Read when: You need to know which provider or tool path to use.
+- Skip when: Tool choice is irrelevant to the current task.
+- Canonical: Yes.
+- Read next: The relevant workflow doc that uses the tool.
+- Primary sources: `docs/tools_config.md`, `docs/README.md`.
 
 ## Task Management
 
@@ -9,22 +31,7 @@
 | **Provider** | {{TASK_PROVIDER}} |
 | **Status** | {{TASK_STATUS}} |
 | **Team ID** | {{TEAM_ID}} |
-| **Fallback** | file (docs/tasks/epics/) |
-
-**Detection:** Call `list_teams()` via mcp__linear-server. If responds with teams → `active`. If tool not found → `unavailable`. If 401/403 → `auth expired`.
-
-**Troubleshooting:**
-
-| Problem | Fix |
-|---------|-----|
-| Tool not found | Add linear-server to MCP settings (claude_desktop_config.json or .mcp.json) |
-| 401/403 Unauthorized | Regenerate Linear API token: Linear → Settings → API → Personal API keys |
-| 429 Rate limit | Wait 60s or switch Provider to `file` |
-| Timeout | Check network. If persistent, switch Provider to `file` |
-
-**File Mode:** When Provider=file, tasks stored in `docs/tasks/epics/` structure. Operations per `shared/references/storage_mode_detection.md`.
-
----
+| **Fallback** | file (`docs/tasks/epics/`) |
 
 ## Research
 
@@ -34,23 +41,9 @@
 | **Fallback chain** | {{RESEARCH_CHAIN}} |
 | **Status** | {{RESEARCH_STATUS}} |
 
-**Detection:** Call `ref_search_documentation(query="test")`. If responds → `active`. For context7: call `resolve-library-id(libraryName="react")`. If both fail → `websearch`.
-
-**Troubleshooting:**
-
-| Problem | Fix |
-|---------|-----|
-| Ref not found | Add Ref MCP server to settings |
-| Context7 not found | Add Context7 MCP server to settings |
-| Both unavailable | Provider auto-degrades to `websearch` (built-in, always available) |
-
----
-
 ## File Editing
 
-**File Editing:** Per `shared/references/mcp_tool_preferences.md` detection sequence (hex-line MCP → standard tools).
-
----
+Follow `shared/references/mcp_tool_preferences.md` for file-editing tool selection.
 
 ## External Agents
 
@@ -59,18 +52,6 @@
 | codex | {{CODEX_STATUS}} | {{CODEX_COMMENT}} |
 | gemini | {{GEMINI_STATUS}} | {{GEMINI_COMMENT}} |
 
-**Detection:** Run `codex --version` and `gemini --version` via Bash. Exit 0 → `available`. Health check: `node shared/agents/agent_runner.mjs --health`.
-
-**Troubleshooting:**
-
-| Problem | Fix |
-|---------|-----|
-| Agent not in PATH | Install: `npm i -g @openai/codex` or see agent docs |
-| Agent crashes (<5s) | Check stderr for MCP init errors. Common: missing API key |
-| Both unavailable | Skills auto-fallback to Self-Review (Claude-only analysis) |
-
----
-
 ## Git
 
 | Setting | Value |
@@ -78,12 +59,16 @@
 | **Worktree** | {{GIT_WORKTREE}} |
 | **Branch strategy** | {{GIT_STRATEGY}} |
 
-**Detection:** Run `git worktree list`. If succeeds → `available`, strategy = `worktree`. If fails → `unavailable`, strategy = `branch`.
+## Maintenance
 
-**Troubleshooting:**
+**Update Triggers:**
+- When configured providers change
+- When fallback chains change
+- When tool availability or health-check logic changes
 
-| Problem | Fix |
-|---------|-----|
-| Worktree unavailable | Fallback: plain branches. Set Branch strategy = `branch` |
-| Push fails (auth) | Check git credentials: `git config credential.helper` |
-| Push fails (network) | Local changes safe. Retry when network restored |
+**Verification:**
+- [ ] Provider names match actual configured tools
+- [ ] Fallback chains are still valid
+- [ ] External agent status detection remains accurate
+
+**Last Updated:** {{DATE}}
