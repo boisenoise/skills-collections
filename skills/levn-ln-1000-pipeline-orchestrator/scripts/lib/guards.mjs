@@ -1,19 +1,21 @@
-const TRANSITIONS = new Map([
-    ["QUEUED->STAGE_0", () => ({ ok: true })],
-    ["QUEUED->STAGE_1", () => ({ ok: true })],
-    ["QUEUED->STAGE_2", () => ({ ok: true })],
-    ["QUEUED->STAGE_3", () => ({ ok: true })],
+import { PHASES } from "./phases.mjs";
 
-    ["STAGE_0->STAGE_1", (state, checkpoints) => {
-        const checkpoint = checkpoints?.STAGE_0?.payload;
+const TRANSITIONS = new Map([
+    [`${PHASES.QUEUED}->${PHASES.STAGE_0}`, () => ({ ok: true })],
+    [`${PHASES.QUEUED}->${PHASES.STAGE_1}`, () => ({ ok: true })],
+    [`${PHASES.QUEUED}->${PHASES.STAGE_2}`, () => ({ ok: true })],
+    [`${PHASES.QUEUED}->${PHASES.STAGE_3}`, () => ({ ok: true })],
+
+    [`${PHASES.STAGE_0}->${PHASES.STAGE_1}`, (state, checkpoints) => {
+        const checkpoint = checkpoints?.[PHASES.STAGE_0]?.payload;
         if (!checkpoint || checkpoint.stage !== 0) {
             return { ok: false, error: "Stage 0 checkpoint missing", recovery: "Run ln-300 first" };
         }
         return { ok: true };
     }],
 
-    ["STAGE_1->STAGE_2", (state, checkpoints) => {
-        const checkpoint = checkpoints?.STAGE_1?.payload;
+    [`${PHASES.STAGE_1}->${PHASES.STAGE_2}`, (state, checkpoints) => {
+        const checkpoint = checkpoints?.[PHASES.STAGE_1]?.payload;
         if (!checkpoint || checkpoint.stage !== 1) {
             return { ok: false, error: "Stage 1 checkpoint missing", recovery: "Run ln-310 first" };
         }
@@ -26,7 +28,7 @@ const TRANSITIONS = new Map([
         return { ok: true };
     }],
 
-    ["STAGE_1->STAGE_1", state => {
+    [`${PHASES.STAGE_1}->${PHASES.STAGE_1}`, state => {
         if (state.validation_retries >= 1) {
             return { ok: false, error: "Validation retry exhausted", recovery: "Escalate to user" };
         }
@@ -34,16 +36,16 @@ const TRANSITIONS = new Map([
         return { ok: true, counter_incremented: "validation_retries" };
     }],
 
-    ["STAGE_2->STAGE_3", (state, checkpoints) => {
-        const checkpoint = checkpoints?.STAGE_2?.payload;
+    [`${PHASES.STAGE_2}->${PHASES.STAGE_3}`, (state, checkpoints) => {
+        const checkpoint = checkpoints?.[PHASES.STAGE_2]?.payload;
         if (!checkpoint || checkpoint.stage !== 2) {
             return { ok: false, error: "Stage 2 checkpoint missing", recovery: "Run ln-400 first" };
         }
         return { ok: true };
     }],
 
-    ["STAGE_3->DONE", (state, checkpoints) => {
-        const checkpoint = checkpoints?.STAGE_3?.payload;
+    [`${PHASES.STAGE_3}->${PHASES.DONE}`, (state, checkpoints) => {
+        const checkpoint = checkpoints?.[PHASES.STAGE_3]?.payload;
         if (!checkpoint || checkpoint.stage !== 3) {
             return { ok: false, error: "Stage 3 checkpoint missing", recovery: "Run ln-500 first" };
         }
@@ -54,7 +56,7 @@ const TRANSITIONS = new Map([
         return { ok: true };
     }],
 
-    ["STAGE_3->STAGE_2", state => {
+    [`${PHASES.STAGE_3}->${PHASES.STAGE_2}`, state => {
         if (state.quality_cycles >= 2) {
             return { ok: false, error: "Quality cycle limit reached (2)", recovery: "Escalate to user" };
         }
@@ -64,7 +66,7 @@ const TRANSITIONS = new Map([
 ]);
 
 export function validateTransition(state, toPhase, checkpoints) {
-    if (toPhase === "PAUSED") {
+    if (toPhase === PHASES.PAUSED) {
         return { ok: true };
     }
     const key = `${state.phase}->${toPhase}`;
@@ -76,28 +78,28 @@ export function validateTransition(state, toPhase, checkpoints) {
 }
 
 export function computeResumeAction(state, checkpoints) {
-    if (!state || state.complete || state.phase === "DONE") {
+    if (!state || state.complete || state.phase === PHASES.DONE) {
         return "Pipeline complete";
     }
-    if (state.phase === "PAUSED") {
+    if (state.phase === PHASES.PAUSED) {
         return `Paused: ${state.paused_reason || "manual intervention required"}`;
     }
-    if (state.phase === "QUEUED") {
+    if (state.phase === PHASES.QUEUED) {
         return "Determine target stage from kanban, then advance";
     }
     if (!checkpoints?.[state.phase]) {
         return `Invoke Skill for ${state.phase} and write its checkpoint`;
     }
-    if (state.phase === "STAGE_0") {
+    if (state.phase === PHASES.STAGE_0) {
         return "Advance to STAGE_1 and invoke ln-310";
     }
-    if (state.phase === "STAGE_1") {
+    if (state.phase === PHASES.STAGE_1) {
         return "Advance to STAGE_2 and invoke ln-400";
     }
-    if (state.phase === "STAGE_2") {
+    if (state.phase === PHASES.STAGE_2) {
         return "Advance to STAGE_3 and invoke ln-500";
     }
-    if (state.phase === "STAGE_3") {
+    if (state.phase === PHASES.STAGE_3) {
         return "Complete pipeline";
     }
     return "No automatic resume action available";
@@ -105,10 +107,10 @@ export function computeResumeAction(state, checkpoints) {
 
 export function determineTargetStage(kanbanStatus, hasTasks) {
     const status = kanbanStatus.toLowerCase().trim();
-    if ((status === "backlog") && !hasTasks) return "STAGE_0";
-    if ((status === "backlog") && hasTasks) return "STAGE_1";
-    if (["todo", "in progress", "to rework"].includes(status)) return "STAGE_2";
-    if (status === "to review") return "STAGE_3";
+    if ((status === "backlog") && !hasTasks) return PHASES.STAGE_0;
+    if ((status === "backlog") && hasTasks) return PHASES.STAGE_1;
+    if (["todo", "in progress", "to rework"].includes(status)) return PHASES.STAGE_2;
+    if (status === "to review") return PHASES.STAGE_3;
     if (["done", "postponed", "canceled"].includes(status)) return null;
-    return "STAGE_0";
+    return PHASES.STAGE_0;
 }

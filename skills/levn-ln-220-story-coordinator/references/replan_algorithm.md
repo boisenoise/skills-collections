@@ -89,7 +89,7 @@ Existing:
 
 **Constraints:**
 - Status: Backlog or Todo ONLY
-- If In Progress/To Review/Done → Show warning, no auto-update
+- If `In Progress`, `To Review`, or `Done` → show warning, no auto-update
 
 **Action:** `update_issue(id, description=new_description)`
 
@@ -290,7 +290,7 @@ Before implementing replan in ln-220-story-coordinator, verify:
 **✅ Data Loading:**
 - [ ] Fetch all existing Stories from Epic: `list_issues(project=Epic.id, label="user-story")`
 - [ ] Load FULL descriptions (all 9 sections) for each Story
-- [ ] Note Story status (Backlog/Todo/In Progress/To Review/Done)
+- [ ] Note Story status (`Backlog | Todo | In Progress | To Review | Done`)
 
 **✅ IDEAL Plan Building:**
 - [ ] Build IDEAL plan from Epic Scope (Phase 4)

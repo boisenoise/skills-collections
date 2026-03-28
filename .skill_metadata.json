@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-27T06:37:15.978500",
-  "skill_count": 2461,
+  "last_updated": "2026-03-28T06:29:55.769564",
+  "skill_count": 2463,
   "sources_processed": 19,
   "skills": [
     {
@@ -8655,6 +8655,14 @@
       "name": "antigravity-track-management",
       "original_name": "track-management",
       "description": "Use this skill when creating, managing, or working with Conductor tracks - the logical work units for features, bugs, and refactors. Applies to spec.md, plan.md, and track lifecycle operations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-akf-trust-metadata",
+      "original_name": "akf-trust-metadata",
+      "description": "The AI native file format. EXIF for AI \u2014 stamps every file with trust scores, source provenance, and compliance metadata. Embeds into 20+ formats (DOCX, PDF, images, code). EU AI Act, SOX, HIPAA auditing.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19135,6 +19143,14 @@
       "name": "brunoasm-phylo_from_buscos",
       "original_name": "busco-phylogeny",
       "description": "Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with scheduler-aware workflow generation",
+      "source": "brunoasm/my_claude_skills",
+      "source_url": "https://github.com/brunoasm/my_claude_skills",
+      "license": "MIT"
+    },
+    {
+      "name": "brunoasm-Emu_bulk_upload_FMNH",
+      "original_name": "emu-bulk-upload",
+      "description": "Help museum insect curators bulk upload specimen data to the Emu database. Matches locality data to existing Emu site records, finds parent sites, creates bulk upload tables, and walks users through the upload process.",
       "source": "brunoasm/my_claude_skills",
       "source_url": "https://github.com/brunoasm/my_claude_skills",
       "license": "MIT"

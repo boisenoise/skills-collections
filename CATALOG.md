@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-27 06:37 UTC*
+*Last updated: 2026-03-28 06:29 UTC*
 
-Total skills: **2461**
+Total skills: **2463**
 
 ## Skills by Source
 
@@ -910,6 +910,7 @@ Total skills: **2461**
 
 | Skill | Description |
 |-------|-------------|
+| `brunoasm-Emu_bulk_upload_FMNH` | Help museum insect curators bulk upload specimen data to the Emu database. Matches locality data to ... |
 | `brunoasm-biogeobears` | Set up and execute phylogenetic biogeographic analyses using BioGeoBEARS in R. Use when users reques... |
 | `brunoasm-extract_from_pdfs` | This skill should be used when extracting structured data from scientific PDFs for systematic review... |
 | `brunoasm-phylo_from_buscos` | Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with s... |
@@ -1248,6 +1249,7 @@ Total skills: **2461**
 | `antigravity-ai-wrapper-product` | You know AI wrappers get a bad rap, but the good ones solve real problems. You build products where ... |
 | `antigravity-airflow-dag-patterns` | Build production Apache Airflow DAGs with best practices for operators, sensors, testing, and deploy... |
 | `antigravity-airtable-automation` | Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always searc... |
+| `antigravity-akf-trust-metadata` | The AI native file format. EXIF for AI — stamps every file with trust scores, source provenance, and... |
 | `antigravity-algolia-search` | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and rel... |
 | `antigravity-algorithmic-art` | Algorithmic philosophies are computational aesthetic movements that are then expressed through code.... |
 | `antigravity-alpha-vantage` | Access 20+ years of global financial data: equities, options, forex, crypto, commodities, economic i... |

@@ -9,8 +9,9 @@ license: MIT
 # Test Planning Orchestrator
 
 **Type:** L2 Coordinator
+**Category:** 5XX Quality
 
-Coordinates the complete test planning pipeline for a Story by delegating to specialized workers.
+Runtime-backed test-planning coordinator. The runtime owns skip/reuse gates, worker summary tracking, and deterministic resume.
 
 ## Inputs
 
@@ -26,6 +27,29 @@ Coordinates the complete test planning pipeline for a Story by delegating to spe
 - **Orchestrate** test planning: research → manual testing → automated test planning
 - **Delegate** to workers: ln-521-test-researcher, ln-522-manual-tester, ln-523-auto-test-planner
 - **No direct work** — only coordination and delegation via Skill tool
+
+## Runtime Contract
+
+**MANDATORY READ:** Load `shared/references/coordinator_runtime_contract.md`, `shared/references/test_planning_runtime_contract.md`, `shared/references/test_planning_summary_contract.md`
+
+Runtime family: `test-planning-runtime`
+
+Identifier:
+- Story ID
+
+Phases:
+1. `PHASE_0_CONFIG`
+2. `PHASE_1_DISCOVERY`
+3. `PHASE_2_RESEARCH`
+4. `PHASE_3_MANUAL_TESTING`
+5. `PHASE_4_AUTO_TEST_PLANNING`
+6. `PHASE_5_FINALIZE`
+7. `PHASE_6_SELF_CHECK`
+
+Worker summary contract:
+- `ln-521`, `ln-522`, `ln-523` may receive `summaryArtifactPath`
+- each worker writes or returns `test-planning-worker` summary envelope
+- ln-520 consumes worker summaries, not free-text worker prose
 
 ## When to Use
 

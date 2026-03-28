@@ -9,6 +9,8 @@ license: MIT
 
 # Business Logic Focus Auditor (L3 Worker)
 
+**Type:** L3 Worker
+
 Specialized worker auditing tests for Business Logic Focus (Category 1).
 
 ## Purpose & Scope
@@ -30,10 +32,10 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 1) **Parse Context:** Extract tech stack, framework detection patterns, test file list, output_dir from contextStore
 2) **Scan Codebase (Layer 1):** Scan test files for framework/library tests (see Audit Rules below)
-2b) **Context Analysis (Layer 2 — MANDATORY):** For each candidate, read test code and ask:
-   - Does this test custom code that *wraps* a framework primitive (e.g., custom hook using useState)? → **KEEP** (testing integration, not framework)
-   - Does this test ONLY call framework API with no custom logic? → flag for removal
-   - Is this a test helper/utility that imports libraries for mocking setup? → **skip** (not a test of framework behavior)
+2b) **Context Analysis (Layer 2 -- MANDATORY):** For each candidate, read test code and ask:
+   - Does this test custom code that *wraps* a framework primitive (e.g., custom hook using useState)? -> **KEEP** (testing integration, not framework)
+   - Does this test ONLY call framework API with no custom logic? -> flag for removal
+   - Is this a test helper/utility that imports libraries for mocking setup? -> **skip** (not a test of framework behavior)
 3) **Collect Findings:** Record each violation with severity, location (file:line), effort estimate (S/M/L), recommendation
 4) **Calculate Score:** Count violations by severity, calculate compliance score (X/10)
 5) **Write Report:** Build full markdown report in memory per `shared/templates/audit_worker_report_template.md`, write to `{output_dir}/631-business-logic.md` in single Write call
@@ -51,7 +53,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Consider removing IF test only validates framework behavior. If testing integration of custom code with framework → KEEP
+**Recommendation:** Consider removing IF test only validates framework behavior. If testing integration of custom code with framework -> KEEP
 
 **Effort:** S (delete test file or test block)
 
@@ -65,7 +67,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Consider removing IF test only validates ORM behavior. If testing custom query logic or repository patterns → KEEP
+**Recommendation:** Consider removing IF test only validates ORM behavior. If testing custom query logic or repository patterns -> KEEP
 
 **Effort:** S
 
@@ -79,7 +81,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Consider removing IF test only validates library behavior. If testing custom password policy or hashing wrapper → KEEP
+**Recommendation:** Consider removing IF test only validates library behavior. If testing custom password policy or hashing wrapper -> KEEP
 
 **Effort:** S
 
@@ -93,7 +95,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Consider removing IF test only validates JWT library. If testing custom token payload, claims logic, or auth flow → KEEP
+**Recommendation:** Consider removing IF test only validates JWT library. If testing custom token payload, claims logic, or auth flow -> KEEP
 
 **Effort:** S
 
@@ -107,7 +109,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Consider removing IF test only validates HTTP client behavior. If testing custom API wrapper, retry logic, or error mapping → KEEP
+**Recommendation:** Consider removing IF test only validates HTTP client behavior. If testing custom API wrapper, retry logic, or error mapping -> KEEP
 
 **Effort:** S
 
@@ -121,7 +123,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **LOW** (acceptable if testing OUR custom hook logic)
 
-**Recommendation:** REVIEW — if testing framework behavior → DELETE; if testing custom hook → KEEP
+**Recommendation:** REVIEW -- if testing framework behavior -> DELETE; if testing custom hook -> KEEP
 
 **Effort:** S-M
 
@@ -133,11 +135,15 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
+If summaryArtifactPath is present, write JSON summary per shared/references/audit_summary_contract.md. Compact text output is fallback only.
+
 Write report to `{output_dir}/631-business-logic.md` with `category: "Business Logic Focus"` and checks: framework_tests, orm_tests, crypto_tests, jwt_tests, http_client_tests, react_hooks_tests.
 
-Return summary to coordinator:
+Return summary per `shared/references/audit_summary_contract.md`.
+
+Legacy compact text output is allowed only when `summaryArtifactPath` is absent:
 ```
-Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/631-business-logic.md
+Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/631-business-logic.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
@@ -148,7 +154,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Do not auto-fix:** Report only
 - **Framework-specific patterns:** Match detection patterns to project's actual tech stack
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
-- **Context-aware:** Custom wrappers around libraries (e.g., custom hook using useState) are OUR code — do not flag
+- **Context-aware:** Custom wrappers around libraries (e.g., custom hook using useState) are OUR code -- do not flag
 - **Exclude test helpers:** Do not flag shared test utilities that import libraries for mocking setup
 
 ## Definition of Done
@@ -160,7 +166,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - [ ] Findings collected with severity, location, effort, recommendation
 - [ ] Score calculated using penalty algorithm
 - [ ] Report written to `{output_dir}/631-business-logic.md` (atomic single Write call)
-- [ ] Summary returned to coordinator
+- [ ] Summary written per contract
 
 ## Reference Files
 

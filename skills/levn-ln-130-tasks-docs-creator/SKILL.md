@@ -426,6 +426,26 @@ Return a normalized summary so `ln-100` can run a centralized docs-quality gate 
 }
 ```
 
+## Runtime Summary Artifact
+
+**MANDATORY READ:** Load `shared/references/docs_generation_summary_contract.md`
+
+Accept optional `summaryArtifactPath`.
+
+Summary kind:
+- `docs-generation`
+
+Required payload semantics:
+- `worker = "ln-130"`
+- `status`
+- `created_files`
+- `skipped_files`
+- `quality_inputs`
+- `validation_status`
+- `warnings`
+
+Write the summary to the provided artifact path or return the same envelope in structured output.
+
 ## Definition of Done
 
 - [ ] Phase 1: tasks/README.md created from template (or preserved if exists); setup placeholders contained only within allowlisted task docs

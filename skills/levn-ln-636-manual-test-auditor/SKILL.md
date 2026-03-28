@@ -9,6 +9,8 @@ license: MIT
 
 # Manual Test Quality Auditor (L3 Worker)
 
+**Type:** L3 Worker
+
 Specialized worker auditing manual test scripts for quality and best-practice compliance.
 
 ## Purpose & Scope
@@ -32,11 +34,11 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
 
 1) **Parse Context:** Extract manual test file list, output_dir, codebase_root from contextStore
 2) **Discover Infrastructure:** Detect shared infrastructure files:
-   - `tests/manual/config.sh` — shared configuration
-   - `tests/manual/test_harness.sh` — shared test framework (if exists)
-   - `tests/manual/test-all.sh` — master runner
-   - `tests/manual/TEMPLATE-*.sh` — test templates (if exist)
-   - `tests/manual/regenerate-golden.sh` — golden file regeneration (if exists)
+   - `tests/manual/config.sh` -- shared configuration
+   - `tests/manual/test_harness.sh` -- shared test framework (if exists)
+   - `tests/manual/test-all.sh` -- master runner
+   - `tests/manual/TEMPLATE-*.sh` -- test templates (if exist)
+   - `tests/manual/regenerate-golden.sh` -- golden file regeneration (if exists)
 3) **Scan Scripts (Layer 1):** For each manual test script, check 7 quality dimensions (see Audit Rules)
 3b) **Context Analysis (Layer 2 -- MANDATORY):** For each candidate finding, ask:
    - Is this a setup/utility script (e.g., `00-setup/*.sh`, `tools/*.sh`)? Setup scripts have different requirements -- skip harness/golden checks
@@ -55,8 +57,8 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
 
 **Detection:**
 - Grep for `run_test`, `init_test_state` in script
-- If absent AND script contains custom test loops/assertions → custom logic
-- If `test_harness.sh` does not exist in project → skip this check entirely
+- If absent AND script contains custom test loops/assertions -> custom logic
+- If `test_harness.sh` does not exist in project -> skip this check entirely
 
 **Severity:** **HIGH** (custom logic = maintenance burden, inconsistent reporting)
 
@@ -71,9 +73,9 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
 **Detection:**
 - Check if suite directory has `expected/` subdirectory
 - Compare: number of test scenarios (grep `run_test` calls) vs number of expected files
-- If test uses `diff` against expected files but expected dir is missing → finding
+- If test uses `diff` against expected files but expected dir is missing -> finding
 
-**Layer 2:** Not all tests need golden files. Tests validating HTTP status codes, timing, or dynamic data may legitimately skip golden comparison → skip if test has no `diff` or comparison against files
+**Layer 2:** Not all tests need golden files. Tests validating HTTP status codes, timing, or dynamic data may legitimately skip golden comparison -> skip if test has no `diff` or comparison against files
 
 **Severity:** **HIGH** (no golden files = no regression detection for output correctness)
 
@@ -87,9 +89,9 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
 
 **Detection:**
 - Grep for `source.*config.sh` or `. .*config.sh`
-- If absent → script manages its own BASE_URL, tokens, etc.
+- If absent -> script manages its own BASE_URL, tokens, etc.
 
-**Layer 2:** If script is self-contained utility (e.g., `tools/*.sh`) → skip
+**Layer 2:** If script is self-contained utility (e.g., `tools/*.sh`) -> skip
 
 **Severity:** **MEDIUM**
 
@@ -120,7 +122,7 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
   - Header comment block with description, ACs tested, prerequisites
   - Standard variable naming (`THIS_DIR`, `EXPECTED_DIR`)
   - Standard setup pattern (`source config.sh`, `check_jq`, `setup_auth`)
-- If NO templates exist in project → skip this check entirely
+- If NO templates exist in project -> skip this check entirely
 
 **Layer 2:** Older scripts written before templates may diverge. Flag as MEDIUM, not HIGH
 
@@ -139,7 +141,7 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
 - Check for temp file creation without cleanup
 - Check for hardcoded resource names that would conflict on rerun (e.g., creating user with fixed email without checking existence)
 
-**Layer 2:** Scripts that only READ data (GET requests, queries) are inherently idempotent → skip
+**Layer 2:** Scripts that only READ data (GET requests, queries) are inherently idempotent -> skip
 
 **Severity:** **MEDIUM**
 
@@ -153,9 +155,9 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
 
 **Detection:**
 - Check if suite directory (`NN-feature/`) contains README.md
-- If missing → finding
+- If missing -> finding
 
-**Layer 2:** Setup directories (`00-setup/`) and utility directories (`tools/`) may not need README → skip
+**Layer 2:** Setup directories (`00-setup/`) and utility directories (`tools/`) may not need README -> skip
 
 **Severity:** **LOW**
 
@@ -168,19 +170,23 @@ Manual test metadata includes: `suite_dir`, `has_expected_dir`, `harness_sourced
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping:**
-- Missing harness adoption (when harness exists), No golden files (when expected-based), No fail-fast → HIGH
-- Missing config sourcing, Template divergence, No idempotency → MEDIUM
-- Missing README → LOW
+- Missing harness adoption (when harness exists), No golden files (when expected-based), No fail-fast -> HIGH
+- Missing config sourcing, Template divergence, No idempotency -> MEDIUM
+- Missing README -> LOW
 
 ## Output Format
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
+If summaryArtifactPath is present, write JSON summary per shared/references/audit_summary_contract.md. Compact text output is fallback only.
+
 Write report to `{output_dir}/636-manual-test-quality.md` with `category: "Manual Test Quality"` and checks: harness_adoption, golden_file_completeness, config_sourcing, fail_fast_compliance, template_compliance, idempotency, documentation.
 
-Return summary to coordinator:
+Return summary per `shared/references/audit_summary_contract.md`.
+
+Legacy compact text output is allowed only when `summaryArtifactPath` is absent:
 ```
-Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/636-manual-test-quality.md
+Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/636-manual-test-quality.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
@@ -205,7 +211,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - [ ] Findings collected with severity, location, effort, recommendation
 - [ ] Score calculated using penalty algorithm
 - [ ] Report written to `{output_dir}/636-manual-test-quality.md` (atomic single Write call)
-- [ ] Summary returned to coordinator
+- [ ] Summary written per contract
 
 ## Reference Files
 

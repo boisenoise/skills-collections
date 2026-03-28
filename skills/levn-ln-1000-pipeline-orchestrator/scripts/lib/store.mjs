@@ -1,6 +1,7 @@
 import { resolve } from "node:path";
 import { computeResumeAction } from "./guards.mjs";
 import { createRuntimeStore } from "../../../shared/scripts/coordinator-runtime/lib/core.mjs";
+import { PHASES } from "./phases.mjs";
 
 const pipelineManifestSchema = {
     type: "object",
@@ -51,9 +52,11 @@ const pipelineStore = createRuntimeStore({
             identifier: manifest.identifier,
             story_id: manifest.story_id,
             story_title: manifest.story_title,
-            phase: "QUEUED",
+            phase: PHASES.QUEUED,
             complete: false,
             paused_reason: null,
+            pending_decision: null,
+            decisions: [],
             quality_cycles: 0,
             validation_retries: 0,
             crash_count: 0,

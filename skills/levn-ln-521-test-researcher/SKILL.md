@@ -149,6 +149,23 @@ _This research informs both manual tests (ln-522) and automated tests (ln-523)._
 - **Actionable findings:** Each problem should suggest a test case.
 - **Skip trivial Stories:** Don't research "Add button to page".
 
+## Runtime Summary Artifact
+
+**MANDATORY READ:** Load `shared/references/test_planning_summary_contract.md`
+
+Accept optional `summaryArtifactPath`.
+
+Summary kind:
+- `test-planning-worker`
+
+Required payload semantics:
+- `worker = "ln-521"`
+- `status`
+- `warnings`
+- `research_comment_path`
+
+Write the summary to the provided artifact path or return the same envelope in structured output.
+
 ## Definition of Done
 
 - [ ] Feature domain extracted from Story (technology/API/format identified)

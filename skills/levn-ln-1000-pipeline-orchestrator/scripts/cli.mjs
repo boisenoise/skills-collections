@@ -15,6 +15,7 @@ import {
 } from "./lib/store.mjs";
 import { captureBaseline, computeDelta } from "./lib/arch-snapshot.mjs";
 import { computeResumeAction, validateTransition } from "./lib/guards.mjs";
+import { PHASES } from "./lib/phases.mjs";
 import {
     failJson as fail,
     outputJson as output,
@@ -130,7 +131,7 @@ async function main() {
             }
             const { runId, run } = resolvePipelineRun(process.cwd());
 
-            if (run.state.phase === "PAUSED" && (values.resolve || values.force)) {
+            if (run.state.phase === PHASES.PAUSED && (values.resolve || values.force)) {
                 const resumed = saveState(null, {
                     ...run.state,
                     phase: values.to,
@@ -147,14 +148,14 @@ async function main() {
                 process.exit(1);
             }
 
-            if (values.to === "STAGE_2" && run.state.phase !== "STAGE_2") {
+            if (values.to === PHASES.STAGE_2 && run.state.phase !== PHASES.STAGE_2) {
                 const baseline = await captureBaseline(process.cwd());
                 if (baseline) {
                     mutableState.baseline_architecture = baseline;
                 }
             }
 
-            if (values.to === "STAGE_3") {
+            if (values.to === PHASES.STAGE_3) {
                 const delta = await computeDelta(mutableState.baseline_architecture || null, process.cwd());
                 if (delta) {
                     mutableState.pending_architecture_delta = delta;
@@ -164,7 +165,7 @@ async function main() {
             const nextState = {
                 ...mutableState,
                 phase: values.to,
-                complete: values.to === "DONE",
+                complete: values.to === PHASES.DONE,
                 paused_reason: null,
             };
 

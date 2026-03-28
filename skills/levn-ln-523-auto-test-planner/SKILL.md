@@ -181,6 +181,26 @@ Invoke ln-302-task-replanner worker with taskType: "test"
 
 ---
 
+## Runtime Summary Artifact
+
+**MANDATORY READ:** Load `shared/references/test_planning_summary_contract.md`
+
+Accept optional `summaryArtifactPath`.
+
+Summary kind:
+- `test-planning-worker`
+
+Required payload semantics:
+- `worker = "ln-523"`
+- `status`
+- `warnings`
+- `test_task_id`
+- `test_task_url`
+- `coverage_summary`
+- `planned_scenarios`
+
+Write the summary to the provided artifact path or return the same envelope in structured output.
+
 ## Definition of Done
 
 **Research and Manual Results Loaded:**

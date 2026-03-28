@@ -9,6 +9,8 @@ license: MIT
 
 # Test Isolation & Anti-Patterns Auditor (L3 Worker)
 
+**Type:** L3 Worker
+
 Specialized worker auditing test isolation and detecting anti-patterns.
 
 ## Purpose & Scope
@@ -31,10 +33,10 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 1) **Parse Context:** Extract tech stack, isolation checklist, anti-patterns catalog, test file list, output_dir from contextStore
 2) **Check Isolation (Layer 1):** Check isolation for 6 categories (APIs, DB, FS, Time, Random, Network)
-2b) **Context Analysis (Layer 2 — MANDATORY):** For each isolation violation, ask:
-   - Is this an **integration test**? (real dependencies are intentional) → **do NOT flag**. Only flag isolation issues in **unit tests**
-   - Is in-memory DB configured via test config (not visible in grep)? → **skip**
-   - Is this a test helper that sets up mocks for other tests? → **skip**
+2b) **Context Analysis (Layer 2 -- MANDATORY):** For each isolation violation, ask:
+   - Is this an **integration test**? (real dependencies are intentional) -> **do NOT flag**. Only flag isolation issues in **unit tests**
+   - Is in-memory DB configured via test config (not visible in grep)? -> **skip**
+   - Is this a test helper that sets up mocks for other tests? -> **skip**
 3) **Check Determinism:** Check for flaky tests, time-dependent assertions, order-dependent tests, shared mutable state
 4) **Detect Anti-Patterns:** Detect 6 anti-patterns (Liar, Giant, Slow Poke, Conjoined Twins, Happy Path, Framework Tester)
 5) **Collect Findings:** Record each violation with severity, location (file:line), effort estimate (S/M/L), recommendation
@@ -55,7 +57,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **HIGH**
 
-**Recommendation:** Ensure external API calls are controlled (mock, stub, or test server). Tool choice depends on project stack. **Exception:** Integration tests are EXPECTED to use real dependencies — do NOT flag
+**Recommendation:** Ensure external API calls are controlled (mock, stub, or test server). Tool choice depends on project stack. **Exception:** Integration tests are EXPECTED to use real dependencies -- do NOT flag
 
 **Effort:** M
 
@@ -70,7 +72,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Severity:** **MEDIUM**
 
-**Recommendation:** Ensure DB state is controlled and isolated between test runs. **Exception:** Integration tests with in-memory DB via config → skip
+**Recommendation:** Ensure DB state is controlled and isolated between test runs. **Exception:** Integration tests with in-memory DB via config -> skip
 
 **Effort:** M-L
 
@@ -198,7 +200,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Detection:**
 - Count assertions per test
-- If 0 assertions or only `toBeTruthy()` → Liar
+- If 0 assertions or only `toBeTruthy()` -> Liar
 
 **Severity:** **HIGH**
 
@@ -207,7 +209,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **Effort:** S
 
 **Example:**
-- **BAD (Liar):** Test calls `createUser()` but has NO assertions — always passes even if function breaks
+- **BAD (Liar):** Test calls `createUser()` but has NO assertions -- always passes even if function breaks
 - **GOOD:** Test calls `createUser()` and asserts `user.name` equals 'Alice', `user.id` is defined
 
 ### 2. The Giant (>100 lines)
@@ -216,7 +218,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Detection:**
 - Count lines per test
-- If >100 lines → Giant
+- If >100 lines -> Giant
 
 **Severity:** **MEDIUM**
 
@@ -230,7 +232,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Detection:**
 - Measure test duration
-- If >5s → Slow Poke
+- If >5s -> Slow Poke
 
 **Severity:** **MEDIUM**
 
@@ -245,7 +247,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **Detection:**
 - Check if test name includes "Unit"
 - Verify all dependencies are mocked
-- If no mocks → actually Integration test
+- If no mocks -> actually Integration test
 
 **Severity:** **LOW**
 
@@ -259,7 +261,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Detection:**
 - For each function, check if test covers error cases
-- If only positive scenarios → Happy Path Only
+- If only positive scenarios -> Happy Path Only
 
 **Severity:** **MEDIUM**
 
@@ -287,7 +289,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ### 7. Default Value Blindness (Tests with default config)
 
-**What:** Tests with default config values only. **MANDATORY READ:** Load `shared/references/risk_based_testing_guide.md` → Anti-Pattern 9.
+**What:** Tests with default config values only. **MANDATORY READ:** Load `shared/references/risk_based_testing_guide.md` -> Anti-Pattern 9.
 
 **Detection:**
 - Grep for common defaults in test setup: `:8080`, `:3000`, `30000`, `limit: 20`, `offset: 0`
@@ -303,19 +305,23 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping:**
-- Flaky tests, External API not mocked, The Liar, Default Value Blindness → HIGH
-- Real database, File system, Time/Date, Network, The Giant, Happy Path Only → MEDIUM
-- Random without seed, Order-dependent, Conjoined Twins → LOW
+- Flaky tests, External API not mocked, The Liar, Default Value Blindness -> HIGH
+- Real database, File system, Time/Date, Network, The Giant, Happy Path Only -> MEDIUM
+- Random without seed, Order-dependent, Conjoined Twins -> LOW
 
 ## Output Format
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
+If summaryArtifactPath is present, write JSON summary per shared/references/audit_summary_contract.md. Compact text output is fallback only.
+
 Write report to `{output_dir}/635-isolation.md` with `category: "Isolation & Anti-Patterns"` and checks: api_isolation, db_isolation, fs_isolation, time_isolation, random_isolation, network_isolation, flaky_tests, anti_patterns, default_value_blindness.
 
-Return summary to coordinator:
+Return summary per `shared/references/audit_summary_contract.md`.
+
+Legacy compact text output is allowed only when `summaryArtifactPath` is absent:
 ```
-Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/635-isolation.md
+Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/635-isolation.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
@@ -328,7 +334,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Do not auto-fix:** Report only
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
 - **Flat findings:** Merge isolation + determinism + anti-patterns into single findings array, use `principle` prefix to distinguish
-- **Framework Tester dedup:** Category 1 (Business Logic Focus) covers framework tests separately — coordinator deduplicates overlapping findings
+- **Framework Tester dedup:** Category 1 (Business Logic Focus) covers framework tests separately -- coordinator deduplicates overlapping findings
 - **Context-aware:** Supertest with real Express app is acceptable for integration tests
 
 ## Definition of Done
@@ -343,7 +349,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - [ ] Findings collected with severity, location, effort, recommendation
 - [ ] Score calculated using penalty algorithm
 - [ ] Report written to `{output_dir}/635-isolation.md` (atomic single Write call)
-- [ ] Summary returned to coordinator
+- [ ] Summary written per contract
 
 ---
 **Version:** 3.0.0

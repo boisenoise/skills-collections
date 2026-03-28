@@ -17,7 +17,7 @@ FOR stage IN 0..3:
   skill_status = "OK" IF:
     stage 0 -> plan_score >= 3
     stage 1 -> verdict == "GO"
-    stage 2 -> state.stage != "PAUSED"
+    stage 2 -> state.phase != "PAUSED"
     stage 3 -> verdict IN ("PASS", "CONCERNS", "WAIVED")
   ELSE "degraded" or "failed/not reached"
 

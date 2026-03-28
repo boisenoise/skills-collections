@@ -9,6 +9,8 @@ license: MIT
 
 # Coverage Gaps Auditor (L3 Worker)
 
+**Type:** L3 Worker
+
 Specialized worker identifying missing tests for critical business logic.
 
 ## Purpose & Scope
@@ -31,7 +33,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
-1) **Parse context** — extract fields, determine `scan_path` (domain-aware if specified)
+1) **Parse context** -- extract fields, determine `scan_path` (domain-aware if specified)
      ELSE:
        scan_path = codebase_root
        domain_name = null
@@ -45,10 +47,10 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 3) **Check test coverage for each critical path (Layer 1)**
    - Search ALL test files for coverage (tests may be in different location than production code)
    - Match by function name, module name, or test description
-3b) **Context Analysis (Layer 2 — MANDATORY):** For each gap candidate, ask:
-   - Is this function already covered by E2E/integration test? → **downgrade to LOW**
-   - Is this a helper function with <10 lines called from tested code? → **skip**
-   - Is keyword match a false positive (e.g., `paymentIcon()` is UI, not payment logic)? → **skip**
+3b) **Context Analysis (Layer 2 -- MANDATORY):** For each gap candidate, ask:
+   - Is this function already covered by E2E/integration test? -> **downgrade to LOW**
+   - Is this a helper function with <10 lines called from tested code? -> **skip**
+   - Is keyword match a false positive (e.g., `paymentIcon()` is UI, not payment logic)? -> **skip**
 
 4) **Collect missing tests**
    - Tag each finding with `domain: domain_name` (if domain-aware)
@@ -113,10 +115,10 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **What:** Multi-step flows critical to business
 
 **Examples:**
-- Registration → Email verification → Onboarding
-- Search → Product details → Add to cart → Checkout
-- Upload file → Process → Download result
-- Submit form → Approval workflow → Notification
+- Registration -> Email verification -> Onboarding
+- Search -> Product details -> Add to cart -> Checkout
+- Upload file -> Process -> Download result
+- Submit form -> Approval workflow -> Notification
 
 **Min Priority:** 15
 
@@ -136,8 +138,8 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **For each critical path:**
 - Search test files for matching test name/description
-- If NO test found → add to missing tests list
-- If test found but inadequate (only positive, no edge cases) → add to gaps list
+- If NO test found -> add to missing tests list
+- If test found but inadequate (only positive, no edge cases) -> add to gaps list
 
 ### 3. Categorize Gaps
 
@@ -145,7 +147,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 - **CRITICAL:** Priority 20+ (Money, Security)
 - **HIGH:** Priority 15-19 (Data, Core Flows)
 - **MEDIUM:** Priority 10-14 (Important but not critical)
-- **Downgrade when:** Function already covered by E2E test → LOW. Helper with <10 lines called from tested code → skip
+- **Downgrade when:** Function already covered by E2E test -> LOW. Helper with <10 lines called from tested code -> skip
 
 ### 4. Provide Justification
 
@@ -159,20 +161,24 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping by Priority:**
-- Priority 20+ (Money, Security) missing test → CRITICAL
-- Priority 15-19 (Data Integrity, Core Flows) missing test → HIGH
-- Priority 10-14 (Important) missing test → MEDIUM
-- Priority <10 (Nice-to-have) → LOW
+- Priority 20+ (Money, Security) missing test -> CRITICAL
+- Priority 15-19 (Data Integrity, Core Flows) missing test -> HIGH
+- Priority 10-14 (Important) missing test -> MEDIUM
+- Priority <10 (Nice-to-have) -> LOW
 
 ## Output Format
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
+If summaryArtifactPath is present, write JSON summary per shared/references/audit_summary_contract.md. Compact text output is fallback only.
+
 Write report to `{output_dir}/634-coverage-gaps.md` (global) or `{output_dir}/634-coverage-gaps-{domain}.md` (domain-aware) with `category: "Coverage Gaps"` and checks: money_flow_coverage, security_flow_coverage, data_integrity_coverage, core_journey_coverage.
 
-Return summary to coordinator:
+Return summary per `shared/references/audit_summary_contract.md`.
+
+Legacy compact text output is allowed only when `summaryArtifactPath` is absent:
 ```
-Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/634-coverage-gaps.md
+Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/634-coverage-gaps.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
@@ -196,7 +202,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - [ ] Missing tests collected with severity, priority, justification, domain
 - [ ] Score calculated using penalty algorithm
 - [ ] Report written to `{output_dir}/634-coverage-gaps.md` or `634-coverage-gaps-{domain}.md` (atomic single Write call)
-- [ ] Summary returned to coordinator
+- [ ] Summary written per contract
 
 ## Reference Files
 

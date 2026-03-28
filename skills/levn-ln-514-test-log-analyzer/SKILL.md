@@ -8,6 +8,9 @@ license: MIT
 
 # Test Log Analyzer
 
+**Type:** L3 Worker
+**Category:** 5XX Quality
+
 Two-layer analysis of application logs. Node.js script handles collection and quantitative analysis; AI handles classification, quality assessment, and fix recommendations.
 
 ## Inputs
@@ -182,6 +185,25 @@ Log quality/format issues are INFORMATIONAL — do not affect quality verdict. O
 - Log quality issues are advisory — inform, don't block.
 - Script must handle gracefully: no Docker, no log files, no Loki → `NO_LOG_SOURCES`.
 - Language preservation in comments (EN/RU).
+
+## Runtime Summary Artifact
+
+**MANDATORY READ:** Load `shared/references/quality_summary_contract.md`
+
+Accept optional `summaryArtifactPath`.
+
+Summary kind:
+- `quality-worker`
+
+Required payload semantics:
+- `worker = "ln-514"`
+- `status`
+- `verdict`
+- `issues`
+- `warnings`
+- `artifact_path`
+
+Write the summary to the provided artifact path or return the same envelope in structured output.
 
 ## Definition of Done
 

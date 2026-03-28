@@ -35,7 +35,7 @@ Optional transport inputs:
 - `runId`
 - `summaryArtifactPath`
 
-The worker must remain fully usable without `runId` and without `summaryArtifactPath`.
+The worker must remain fully usable without caller-provided `runId` and without `summaryArtifactPath`. In standalone mode it generates its own `run_id` before emitting the summary envelope.
 
 ## Output Contract
 

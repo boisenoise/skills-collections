@@ -25,7 +25,7 @@ Specialized worker auditing test file organization and directory structure for m
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
 
-Receives `contextStore` with: `tech_stack`, `testFilesMetadata` (ALL types — both automated and manual), `codebase_root`, `output_dir`, `domain_mode`, `all_domains`.
+Receives `contextStore` with: `tech_stack`, `testFilesMetadata` (ALL types -- both automated and manual), `codebase_root`, `output_dir`, `domain_mode`, `all_domains`.
 
 **Note:** Unlike other workers that receive type-filtered metadata, this worker receives ALL test files because directory structure analysis requires the full picture of where both automated and manual tests are placed.
 
@@ -37,7 +37,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata` (ALL types — b
 2) **Map Source Structure:** Glob source directories (`src/`, `app/`, `lib/`) to build source domain/module tree
 3) **Map Test Structure:** Group test files by parent directory, count files per directory, classify locations
 4) **Scan Checks (Layer 1):** Run 5 audit checks (see Audit Rules) using Glob/Grep patterns
-5) **Context Analysis (Layer 2 — MANDATORY):** For each candidate finding, apply Layer 2 filters (see each check)
+5) **Context Analysis (Layer 2 -- MANDATORY):** For each candidate finding, apply Layer 2 filters (see each check)
 6) **Collect Findings:** Record violations with severity, location, effort, recommendation
 7) **Calculate Score:** Count violations by severity, calculate compliance score (X/10)
 8) **Write Report:** Build full markdown report in memory per `shared/templates/audit_worker_report_template.md`, write to `{output_dir}/637-test-structure.md` in single Write call
@@ -56,16 +56,16 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata` (ALL types — b
   - **Centralized-flat:** all tests in single directory (e.g., `tests/` or `__tests__/`)
   - **Manual:** files in `tests/manual/` (informational, not flagged)
 - Calculate distribution percentages across patterns
-- If >70% files follow one pattern → that is the dominant pattern
-- If no pattern reaches 70% → hybrid
+- If >70% files follow one pattern -> that is the dominant pattern
+- If no pattern reaches 70% -> hybrid
 
 **Layer 2:**
 - Hybrid is acceptable if different test TYPES use different patterns (e.g., unit tests co-located + integration tests in `tests/automated/integration/`). Check if deviation correlates with test type
-- Projects with <5 test files → skip (too small to establish pattern)
+- Projects with <5 test files -> skip (too small to establish pattern)
 
 **Severity:** **MEDIUM** if hybrid without clear type-based rule (>30% of same-type tests deviate from dominant pattern)
 
-**Recommendation:** Standardize test placement — choose one pattern per test type and document in testing guidelines
+**Recommendation:** Standardize test placement -- choose one pattern per test type and document in testing guidelines
 
 **Effort:** L
 
@@ -75,10 +75,10 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata` (ALL types — b
 
 **Detection:**
 - For each test file, extract the implied source module:
-  - `users.test.ts` → `users.ts` or `users/index.ts`
-  - `test_payments.py` → `payments.py`
+  - `users.test.ts` -> `users.ts` or `users/index.ts`
+  - `test_payments.py` -> `payments.py`
 - Check if the implied source file exists in the expected location
-- If source file not found → orphaned test candidate
+- If source file not found -> orphaned test candidate
 
 **Layer 2:**
 - Skip integration/e2e tests (test multiple modules, no 1:1 source mapping)
@@ -99,10 +99,10 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata` (ALL types — b
 **Detection:**
 - Count test files per directory (excluding `node_modules`, `dist`, `build`)
 - Thresholds:
-  - 15-20 files in one flat directory → LOW (approaching limit)
-  - \>20 files in one flat directory → MEDIUM (restructure recommended)
+  - 15-20 files in one flat directory -> LOW (approaching limit)
+  - \>20 files in one flat directory -> MEDIUM (restructure recommended)
 - For MEDIUM findings, suggest domain-based grouping by analyzing file name prefixes:
-  - Group by common prefix (e.g., `test_auth_*.py` → `auth/` subdirectory)
+  - Group by common prefix (e.g., `test_auth_*.py` -> `auth/` subdirectory)
   - Cross-reference with source domain structure if available
 
 **Layer 2:**
@@ -152,20 +152,20 @@ tests/auth/test_login.py, tests/auth/test_tokens.py, tests/users/test_crud.py, .
 **Detection:**
 - Count test files placed next to source files vs. in dedicated test directories
 - Calculate ratio: co-located / (co-located + centralized)
-- If ratio 0.0-0.2 → centralized pattern
-- If ratio 0.8-1.0 → co-located pattern
-- If ratio 0.2-0.8 → mixed (potential inconsistency)
+- If ratio 0.0-0.2 -> centralized pattern
+- If ratio 0.8-1.0 -> co-located pattern
+- If ratio 0.2-0.8 -> mixed (potential inconsistency)
 - For mixed: identify which modules deviate from the dominant pattern
 
 **Layer 2:**
 - Mixed is acceptable if different test types use different placement:
-  - Unit tests co-located + integration/e2e tests centralized → valid hybrid
+  - Unit tests co-located + integration/e2e tests centralized -> valid hybrid
   - Check test file naming/location correlation with type
-- Projects with <5 test files → skip
+- Projects with <5 test files -> skip
 
 **Severity:** **MEDIUM** if >20% of same-type tests deviate from dominant placement pattern
 
-**Recommendation:** Consolidate test placement — move deviating tests to follow the project's dominant pattern
+**Recommendation:** Consolidate test placement -- move deviating tests to follow the project's dominant pattern
 
 **Effort:** M-L
 
@@ -174,18 +174,22 @@ tests/auth/test_login.py, tests/auth/test_tokens.py, tests/users/test_crud.py, .
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping:**
-- Orphaned tests, Excessive flat directory (>20), Inconsistent layout, Inconsistent co-location → MEDIUM
-- Approaching flat directory limit (15-20), Missing domain test group (small domain), Path mismatch → LOW
+- Orphaned tests, Excessive flat directory (>20), Inconsistent layout, Inconsistent co-location -> MEDIUM
+- Approaching flat directory limit (15-20), Missing domain test group (small domain), Path mismatch -> LOW
 
 ## Output Format
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
+If summaryArtifactPath is present, write JSON summary per shared/references/audit_summary_contract.md. Compact text output is fallback only.
+
 Write report to `{output_dir}/637-test-structure.md` with `category: "Test Structure"` and checks: layout_pattern, test_source_mapping, flat_dir_growth, domain_grouping, colocation_consistency.
 
-Return summary to coordinator:
+Return summary per `shared/references/audit_summary_contract.md`.
+
+Legacy compact text output is allowed only when `summaryArtifactPath` is absent:
 ```
-Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/637-test-structure.md
+Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/637-test-structure.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
@@ -196,7 +200,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Do not auto-fix:** Report only, suggest restructuring
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
 - **Skip when trivial:** If <5 test files total, return score 10/10 with zero findings
-- **No naming check:** Test naming consistency (`.test.` vs `.spec.`) is out of scope — do not duplicate
+- **No naming check:** Test naming consistency (`.test.` vs `.spec.`) is out of scope -- do not duplicate
 - **Both types:** Analyze both automated and manual test file locations for complete layout picture
 - **Concrete suggestions:** For flat directory growth findings, always suggest specific subdirectory grouping based on file name prefix analysis
 
@@ -214,7 +218,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - [ ] Findings collected with severity, location, effort, recommendation
 - [ ] Score calculated using penalty algorithm
 - [ ] Report written to `{output_dir}/637-test-structure.md` (atomic single Write call)
-- [ ] Summary returned to coordinator
+- [ ] Summary written per contract
 
 ---
 **Version:** 1.0.0

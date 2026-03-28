@@ -9,6 +9,8 @@ license: MIT
 
 # Test Suite Auditor (L2 Coordinator)
 
+**Type:** L2 Coordinator
+
 Coordinates comprehensive test suite audit across 8 quality categories using 7 specialized workers. Discovers both automated tests (`*.test.*`, `*.spec.*`) and manual tests (`tests/manual/**/*.sh`).
 
 ## Purpose & Scope
@@ -22,18 +24,67 @@ Coordinates comprehensive test suite audit across 8 quality categories using 7 s
 - Write report to `docs/project/test_audit.md` (file-based, no task creation)
 - Manual invocation by user; not part of Story pipeline
 
+**MANDATORY READ:** Load `shared/references/audit_runtime_contract.md`, `shared/references/audit_summary_contract.md`, `shared/references/audit_coordinator_aggregation.md`, and `shared/references/audit_coordinator_domain_mode.md`.
+
+## Runtime Contract
+
+Use `shared/scripts/audit-runtime/cli.mjs` as orchestration SSOT.
+
+Runtime phase map:
+1. `PHASE_0_CONFIG`
+2. `PHASE_1_DISCOVERY`
+3. `PHASE_2_RESEARCH`
+4. `PHASE_3_DOMAIN_DISCOVERY`
+5. `PHASE_4_DELEGATE`
+6. `PHASE_5_AGGREGATE`
+7. `PHASE_6_WRITE_REPORT`
+8. `PHASE_7_RESULTS_LOG`
+9. `PHASE_8_CLEANUP`
+10. `PHASE_9_SELF_CHECK`
+11. `DONE`
+12. `PAUSED`
+
+Run-scoped worker artifacts:
+- reports: `.hex-skills/runtime-artifacts/runs/{run_id}/audit-report/`
+- summaries: `.hex-skills/runtime-artifacts/runs/{run_id}/audit-worker/`
+- public report: `docs/project/test_audit.md`
+- public trend log: `docs/project/.audit/results_log.md`
+
+## Worker Invocation (MANDATORY)
+
+| Phase | Worker | Context | Condition |
+|-------|--------|---------|-----------|
+| 4 | ln-631, ln-632, ln-633, ln-635, ln-636, ln-637 | Agent -> shared contextStore + filtered `testFilesMetadata` + `summaryArtifactPath` | always |
+| 4 | ln-634 | Agent -> per-domain context + `summaryArtifactPath` | `domain_mode="domain-aware"` |
+| 4 | ln-634 | Agent -> shared contextStore + `summaryArtifactPath` | `domain_mode="global"` |
+
+**TodoWrite format (mandatory):**
+```
+- Resolve runtime config and phase order (pending)
+- Discover test inventory and graph availability (pending)
+- Research test best practices (pending)
+- Detect domains and prepare runtime artifact dirs (pending)
+- Invoke global test workers with summaryArtifactPath (pending)
+- Invoke coverage worker with summaryArtifactPath [conditional] (pending)
+- Aggregate JSON worker summaries and report evidence (pending)
+- Write consolidated report (pending)
+- Append results log (pending)
+- Cleanup runtime artifacts (pending)
+- Run self-check and complete runtime (pending)
+```
+
 ## Core Philosophy
 
-> "Write tests. Not too many. Mostly integration." — Kent Beck
-> "Test based on risk, not coverage." — ISO 29119
+> "Write tests. Not too many. Mostly integration." -- Kent Beck
+> "Test based on risk, not coverage." -- ISO 29119
 
 **Key Principles:**
-1. **Test business logic, not frameworks** — bcrypt/Prisma/Express already tested
-2. **No performance/load/stress tests** — Tests infrastructure, not code correctness (use k6/JMeter separately)
-3. **Risk-based prioritization** — Priority ≥15 or remove
-4. **E2E for critical paths only** — Money/Security/Data (Priority ≥20)
-5. **Usefulness over quantity** — One useful test > 10 useless tests
-6. **Every test must justify existence** — Impact × Probability ≥15
+1. **Test business logic, not frameworks** -- bcrypt/Prisma/Express already tested
+2. **No performance/load/stress tests** -- Tests infrastructure, not code correctness (use k6/JMeter separately)
+3. **Risk-based prioritization** -- Priority >=15 or remove
+4. **E2E for critical paths only** -- Money/Security/Data (Priority >=20)
+5. **Usefulness over quantity** -- One useful test > 10 useless tests
+6. **Every test must justify existence** -- Impact x Probability >=15
 
 ## Workflow
 
@@ -52,10 +103,10 @@ Coordinates comprehensive test suite audit across 8 quality categories using 7 s
 4. For manual tests: detect `has_expected_dir` (sibling `expected/` exists), `suite_dir`, `harness_sourced` (sources test_harness.sh)
 5. Auto-discover Team ID from [docs/tasks/kanban_board.md](../../docs/tasks/kanban_board.md)
 6. **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
-   - `index_project(path=codebase_root)` — builds/refreshes code graph
+   - `index_project(path=codebase_root)` -- builds/refreshes code graph
    - Add `graph_indexed: true` to contextStore for workers (ln-634 uses find_hotspots for critical path identification)
 
-**Output:** `testFilesMetadata` — list of test files with basic stats and `type` field
+**Output:** `testFilesMetadata` -- list of test files with basic stats and `type` field
 
 ### Phase 2: Research Best Practices (ONCE)
 
@@ -66,7 +117,7 @@ Coordinates comprehensive test suite audit across 8 quality categories using 7 s
 2. Load [../shared/references/risk_based_testing_guide.md](../shared/references/risk_based_testing_guide.md)
 3. Build `contextStore` with:
    - Testing philosophy (E2E primary, Unit supplementary)
-   - Usefulness Score formulas (Impact × Probability)
+   - Usefulness Score formulas (Impact x Probability)
    - Anti-patterns catalog
    - Framework detection patterns
    - Manual test quality criteria (harness adoption, golden files, fail-fast, config sourcing)
@@ -74,18 +125,20 @@ Coordinates comprehensive test suite audit across 8 quality categories using 7 s
 **Add output_dir to contextStore:**
 ```json
 {
-  "output_dir": "docs/project/.audit/ln-630/{YYYY-MM-DD}"
+  "output_dir": ".hex-skills/runtime-artifacts/runs/{run_id}/audit-report"
 }
 ```
 
-**Output:** `contextStore` — shared context for all workers
+Coordinator also computes one `summaryArtifactPath` per worker invocation under `.hex-skills/runtime-artifacts/runs/{run_id}/audit-worker/`.
 
-**Key Benefit:** Context gathered ONCE → passed to all workers → token-efficient
+**Output:** `contextStore` -- shared context for all workers
+
+**Key Benefit:** Context gathered ONCE -> passed to all workers -> token-efficient
 
 ### Phase 3: Domain Discovery
 
 ```bash
-mkdir -p {output_dir}   # Worker files cleaned up after consolidation (Phase 7)
+mkdir -p {output_dir}   # plus sibling audit-worker summary directory
 ```
 
 **MANDATORY READ:** Load `shared/references/audit_coordinator_domain_mode.md`.
@@ -102,9 +155,9 @@ Detect `domain_mode` and `all_domains` with the shared pattern. This coordinator
 
 | # | Worker | Category | What It Audits |
 |---|--------|----------|----------------|
-| 1 | [ln-631-test-business-logic-auditor](../ln-631-test-business-logic-auditor/) | Business Logic Focus | Framework/Library tests (Prisma, Express, bcrypt, JWT, axios, React hooks) → REMOVE |
+| 1 | [ln-631-test-business-logic-auditor](../ln-631-test-business-logic-auditor/) | Business Logic Focus | Framework/Library tests (Prisma, Express, bcrypt, JWT, axios, React hooks) -> REMOVE |
 | 2 | [ln-632-test-e2e-priority-auditor](../ln-632-test-e2e-priority-auditor/) | E2E Priority | E2E baseline (2/endpoint), Pyramid validation, Missing E2E tests |
-| 3 | [ln-633-test-value-auditor](../ln-633-test-value-auditor/) | Risk-Based Value | Usefulness Score = Impact × Probability<br>Decisions: ≥15 KEEP, 10-14 REVIEW, <10 REMOVE |
+| 3 | [ln-633-test-value-auditor](../ln-633-test-value-auditor/) | Risk-Based Value | Usefulness Score = Impact x Probability<br>Decisions: >=15 KEEP, 10-14 REVIEW, <10 REMOVE |
 | 5 | [ln-635-test-isolation-auditor](../ln-635-test-isolation-auditor/) | Isolation + Anti-Patterns | Isolation (6 categories), Determinism, Anti-Patterns (7 types) |
 | 6 | [ln-636-manual-test-auditor](../ln-636-manual-test-auditor/) | Manual Test Quality | Harness adoption, golden files, fail-fast, config sourcing, template compliance, idempotency |
 | 7 | [ln-637-test-structure-auditor](../ln-637-test-structure-auditor/) | Test Structure | Directory layout, test-to-source mapping, flat directory growth signals, co-location consistency |
@@ -112,12 +165,17 @@ Detect `domain_mode` and `all_domains` with the shared pattern. This coordinator
 **Type-filtered delegation:** Coordinator splits `testFilesMetadata` by `type` before passing to workers:
 - ln-631..635 receive `testFilesMetadata.filter(f => f.type == "automated")` only
 - ln-636 receives `testFilesMetadata.filter(f => f.type == "manual")` only
-- ln-637 receives ALL `testFilesMetadata` (both types — structure analysis requires full picture)
+- ln-637 receives ALL `testFilesMetadata` (both types -- structure analysis requires full picture)
 
 **Invocation (6 workers in PARALLEL):**
 ```javascript
 // filteredByType: automated for ln-631..635, manual for ln-636, ALL for ln-637
 FOR EACH worker IN [ln-631, ln-632, ln-633, ln-635, ln-636, ln-637]:
+  worker_context = {
+    ...contextStore,
+    testFilesMetadata: filteredByType,
+    summaryArtifactPath: ".hex-skills/runtime-artifacts/runs/{run_id}/audit-worker/" + worker + "-global.json"
+  }
   Agent(description: "Test audit via " + worker,
        prompt: "Execute audit worker.
 
@@ -125,7 +183,7 @@ Step 1: Invoke worker:
   Skill(skill: \"" + worker + "\")
 
 CONTEXT:
-" + JSON.stringify({...contextStore, testFilesMetadata: filteredByType}),
+" + JSON.stringify(worker_context),
        subagent_type: "general-purpose")
 ```
 
@@ -144,7 +202,8 @@ IF domain_mode == "domain-aware":
     domain_context = {
       ...contextStore,
       domain_mode: "domain-aware",
-      current_domain: { name: domain.name, path: domain.path }
+      current_domain: { name: domain.name, path: domain.path },
+      summaryArtifactPath: ".hex-skills/runtime-artifacts/runs/{run_id}/audit-worker/ln-634-" + domain.name + ".json"
     }
     Agent(description: "Test coverage " + domain.name + " via ln-634",
          prompt: "Execute audit worker.
@@ -157,6 +216,10 @@ CONTEXT:
          subagent_type: "general-purpose")
 ELSE:
   // Fallback: invoke once for entire codebase (global mode)
+  worker_context = {
+    ...contextStore,
+    summaryArtifactPath: ".hex-skills/runtime-artifacts/runs/{run_id}/audit-worker/ln-634-global.json"
+  }
   Agent(description: "Test coverage via ln-634",
        prompt: "Execute audit worker.
 
@@ -164,14 +227,14 @@ Step 1: Invoke worker:
   Skill(skill: \"ln-634-test-coverage-auditor\")
 
 CONTEXT:
-" + JSON.stringify(contextStore),
+" + JSON.stringify(worker_context),
        subagent_type: "general-purpose")
 ```
 
 **Parallelism strategy:**
 - Phase 4a: All 6 global workers run in PARALLEL
 - Phase 4b: All N domain-aware invocations run in PARALLEL
-- Example: 3 domains → 6 global + 3 ln-634 invocations in single message
+- Example: 3 domains -> 6 global + 3 ln-634 invocations in single message
 
 **Domain-aware workers** add optional fields: `domain`, `scan_path`
 
@@ -179,7 +242,7 @@ CONTEXT:
 
 **MANDATORY READ:** Load `shared/references/audit_coordinator_aggregation.md` and `shared/references/context_validation.md`.
 
-Use the shared aggregation pattern for output directory checks, return-value parsing, severity rollups, file reads, and final report assembly.
+Use the shared aggregation pattern for runtime artifact checks, JSON summary parsing, severity rollups, file reads, and final report assembly.
 
 Local rules for this coordinator:
 - Categories 1-3, 5-7 stay global in the final report.
@@ -192,24 +255,24 @@ Apply Rules 1, 5 + test-specific filters to merged findings:
 ```
 FOR EACH finding WHERE severity IN (HIGH, MEDIUM):
   # Rule 1: ADR/Planned Override
-  IF finding matches ADR → advisory "[Planned: ADR-XXX]"
+  IF finding matches ADR -> advisory "[Planned: ADR-XXX]"
 
   # Rule 5: Locality/Single-Consumer
-  IF "extract shared helper" suggestion AND consumer_count == 1 → advisory
+  IF "extract shared helper" suggestion AND consumer_count == 1 -> advisory
 
   # Test-specific: Custom wrapper detection
   IF "framework test" finding (ln-631) AND test imports custom wrapper class:
-    → advisory (tests custom logic, not framework)
+    -> advisory (tests custom logic, not framework)
 
   # Test-specific: Setup/fixture code
   IF "The Liar" finding (ln-635) AND file is conftest/fixture/setup:
-    → advisory (setup code, no assertions expected)
+    -> advisory (setup code, no assertions expected)
 
   # Test-specific: Parameterized test
   IF "The Giant" finding (ln-635) AND test is parameterized/data-driven:
-    → severity -= 1 (size from data, not complexity)
+    -> severity -= 1 (size from data, not complexity)
 
-Downgraded findings → "Advisory Findings" section in report.
+Downgraded findings -> "Advisory Findings" section in report.
 Recalculate scores excluding advisory findings from penalty.
 ```
 
@@ -260,12 +323,12 @@ Recalculate scores excluding advisory findings from penalty.
 | Severity | Location | Issue | Principle | Recommendation | Effort |
 |----------|----------|-------|-----------|----------------|--------|
 | **CRITICAL** | routes/payment.ts:45 | Missing E2E for payment processing (Priority 25) | E2E Critical Coverage / Money Flow | Add E2E: successful payment + discount edge cases | M |
-| **HIGH** | auth.test.ts:45-52 | Test 'bcrypt hashes password' validates library behavior | Business Logic Focus / Crypto Testing | Delete — bcrypt already tested by maintainers | S |
-| **HIGH** | db.test.ts:78-85 | Test 'Prisma findMany returns array' validates ORM | Business Logic Focus / ORM Testing | Delete — Prisma already tested | S |
-| **HIGH** | user.test.ts:45 | Anti-pattern 'The Liar' — no assertions | Anti-Patterns / The Liar | Add specific assertions or delete test | S |
-| **MEDIUM** | utils.test.ts:23-27 | Test 'validateEmail' has Usefulness Score 4 | Risk-Based Value / Low Priority | Delete — likely covered by E2E registration | S |
-| **MEDIUM** | order.test.ts:200-350 | Anti-pattern 'The Giant' — 150 lines | Anti-Patterns / The Giant | Split into focused tests | M |
-| **LOW** | payment.test.ts | Anti-pattern 'Happy Path Only' — no error tests | Anti-Patterns / Happy Path | Add negative tests | M |
+| **HIGH** | auth.test.ts:45-52 | Test 'bcrypt hashes password' validates library behavior | Business Logic Focus / Crypto Testing | Delete -- bcrypt already tested by maintainers | S |
+| **HIGH** | db.test.ts:78-85 | Test 'Prisma findMany returns array' validates ORM | Business Logic Focus / ORM Testing | Delete -- Prisma already tested | S |
+| **HIGH** | user.test.ts:45 | Anti-pattern 'The Liar' -- no assertions | Anti-Patterns / The Liar | Add specific assertions or delete test | S |
+| **MEDIUM** | utils.test.ts:23-27 | Test 'validateEmail' has Usefulness Score 4 | Risk-Based Value / Low Priority | Delete -- likely covered by E2E registration | S |
+| **MEDIUM** | order.test.ts:200-350 | Anti-pattern 'The Giant' -- 150 lines | Anti-Patterns / The Giant | Split into focused tests | M |
+| **LOW** | payment.test.ts | Anti-pattern 'Happy Path Only' -- no error tests | Anti-Patterns / Happy Path | Add negative tests | M |
 
 ### Coverage Gaps by Domain (if domain_mode="domain-aware")
 
@@ -301,13 +364,13 @@ Each worker:
 
 ## Critical Rules
 
-- **Two-stage delegation:** Global workers (6) + Domain-aware worker (ln-634 × N domains)
+- **Two-stage delegation:** Global workers (6) + Domain-aware worker (ln-634 x N domains)
 - **Domain discovery:** Auto-detect domains from folder structure; fallback to global mode if <2 domains
 - **Parallel execution:** All workers (global + domain-aware) run in PARALLEL
 - **Domain-grouped output:** Coverage Gaps findings grouped by domain (if domain_mode="domain-aware")
 - **Delete > Archive:** Remove useless tests, don't comment out
 - **E2E baseline:** Every endpoint needs 2 E2E (positive + negative)
-- **Justify each test:** If can't explain Priority ≥15, remove it
+- **Justify each test:** If can't explain Priority >=15, remove it
 - **Trust frameworks:** Don't test Express/Prisma/bcrypt behavior
 - **No performance/load tests:** Flag and REMOVE tests measuring throughput/latency/memory (DevOps Epic territory)
 - **Code is truth:** If test contradicts code behavior, update test
@@ -325,7 +388,7 @@ Append one row to `docs/project/.audit/results_log.md` with: Skill=`ln-630`, Met
 rm -rf {output_dir}
 ```
 
-Delete the dated output directory (`docs/project/.audit/ln-630/{YYYY-MM-DD}/`). The consolidated report and results log already preserve all audit data.
+Delete the run-scoped runtime artifact directory (`.hex-skills/runtime-artifacts/runs/{run_id}/`) after consolidation. The consolidated report and results log already preserve the required audit outputs.
 
 ## Definition of Done
 
@@ -352,7 +415,7 @@ Delete the dated output directory (`docs/project/.audit/ln-630/{YYYY-MM-DD}/`). 
 
 **MANDATORY READ:** Load `shared/references/meta_analysis_protocol.md`
 
-Skill type: `review-coordinator` (workers only). Run after all phases complete. Output to chat using the `review-coordinator — workers only` format.
+Skill type: `review-coordinator` (workers only). Run after all phases complete. Output to chat using the `review-coordinator -- workers only` format.
 
 ## Reference Files
 
@@ -366,16 +429,16 @@ Skill type: `review-coordinator` (workers only). Run after all phases complete. 
 ## Related Skills
 
 - **Workers:**
-  - [ln-631-test-business-logic-auditor](../ln-631-test-business-logic-auditor/) — Framework tests detection
-  - [ln-632-test-e2e-priority-auditor](../ln-632-test-e2e-priority-auditor/) — E2E baseline validation
-  - [ln-633-test-value-auditor](../ln-633-test-value-auditor/) — Usefulness Score calculation
-  - [ln-634-test-coverage-auditor](../ln-634-test-coverage-auditor/) — Coverage gaps identification
-  - [ln-635-test-isolation-auditor](../ln-635-test-isolation-auditor/) — Isolation + Anti-Patterns
-  - [ln-636-manual-test-auditor](../ln-636-manual-test-auditor/) — Manual Test Quality
-  - [ln-637-test-structure-auditor](../ln-637-test-structure-auditor/) — Test Structure
+  - [ln-631-test-business-logic-auditor](../ln-631-test-business-logic-auditor/) -- Framework tests detection
+  - [ln-632-test-e2e-priority-auditor](../ln-632-test-e2e-priority-auditor/) -- E2E baseline validation
+  - [ln-633-test-value-auditor](../ln-633-test-value-auditor/) -- Usefulness Score calculation
+  - [ln-634-test-coverage-auditor](../ln-634-test-coverage-auditor/) -- Coverage gaps identification
+  - [ln-635-test-isolation-auditor](../ln-635-test-isolation-auditor/) -- Isolation + Anti-Patterns
+  - [ln-636-manual-test-auditor](../ln-636-manual-test-auditor/) -- Manual Test Quality
+  - [ln-637-test-structure-auditor](../ln-637-test-structure-auditor/) -- Test Structure
 
 - **Reference:**
-  - [../shared/references/risk_based_testing_guide.md](../shared/references/risk_based_testing_guide.md) — Risk-Based Testing Guide
+  - [../shared/references/risk_based_testing_guide.md](../shared/references/risk_based_testing_guide.md) -- Risk-Based Testing Guide
 
 ---
 **Version:** 4.0.0

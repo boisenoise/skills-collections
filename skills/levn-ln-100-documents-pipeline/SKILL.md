@@ -17,6 +17,28 @@ This skill orchestrates the creation of a complete documentation system by invok
 
 Top-level orchestrator that creates a complete project documentation system in one invocation. Chains ln-110 coordinator + ln-120/130/140 workers sequentially, then runs global cleanup (deduplication, orphan reporting, cross-link validation).
 
+## Runtime Contract
+
+**MANDATORY READ:** Load `shared/references/coordinator_runtime_contract.md`, `shared/references/docs_pipeline_runtime_contract.md`, `shared/references/docs_generation_summary_contract.md`
+
+Runtime family: `docs-pipeline-runtime`
+
+Identifier:
+- `docs-pipeline`
+
+Phases:
+1. `PHASE_0_CONFIG`
+2. `PHASE_1_LEGACY_SCAN`
+3. `PHASE_2_CONFIRMATION`
+4. `PHASE_3_DELEGATE`
+5. `PHASE_4_QUALITY_GATE`
+6. `PHASE_5_CLEANUP`
+7. `PHASE_6_SELF_CHECK`
+
+Component summary contract:
+- `ln-110`, `ln-120`, `ln-130`, `ln-140` write or return `docs-generation` envelopes
+- `ln-100` consumes those summaries plus docs-quality checkpoints as orchestration SSOT
+
 ## Architecture
 
 ```
@@ -266,7 +288,7 @@ The skill follows a 5-phase orchestration workflow: **Legacy Migration (optional
 
 ## Worker Invocation (MANDATORY)
 
-**TodoWrite format (mandatory):**
+## TodoWrite format (mandatory)
 Add ALL invocations to todos before starting:
 ```
 - Invoke ln-110-project-docs-coordinator (pending)

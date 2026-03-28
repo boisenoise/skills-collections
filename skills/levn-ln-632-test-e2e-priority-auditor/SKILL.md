@@ -9,13 +9,15 @@ license: MIT
 
 # E2E Critical Coverage Auditor (L3 Worker)
 
+**Type:** L3 Worker
+
 Specialized worker auditing E2E test coverage for critical paths (risk-based).
 
 ## Purpose & Scope
 
 - **Worker in ln-630 coordinator pipeline**
 - Audit **E2E Critical Coverage** (Category 2: High Priority)
-- Validate E2E coverage for critical paths (Money/Security/Data Priority ≥20)
+- Validate E2E coverage for critical paths (Money/Security/Data Priority >=20)
 - Validate E2E coverage for core user journeys (Priority 15-19)
 - Identify wasteful E2E tests (Usefulness Score <15)
 - Calculate compliance score (X/10)
@@ -32,10 +34,10 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 1) **Parse Context:** Extract tech stack, critical paths, user journeys, test file list, output_dir from contextStore
 2) **Identify Critical Paths (Layer 1):** Scan codebase for critical paths (Money, Security, Data)
-2b) **Context Analysis (Layer 2 — MANDATORY):** For each candidate critical path, ask:
-   - Is this a helper function called from an already-E2E-tested path? → **downgrade to MEDIUM**
-   - Is this already covered by integration test with real assertions? → **downgrade to LOW**
-   - Is keyword match a false positive (e.g., `calculateDiscount()` is pure math, already unit-tested)? → **skip**
+2b) **Context Analysis (Layer 2 -- MANDATORY):** For each candidate critical path, ask:
+   - Is this a helper function called from an already-E2E-tested path? -> **downgrade to MEDIUM**
+   - Is this already covered by integration test with real assertions? -> **downgrade to LOW**
+   - Is keyword match a false positive (e.g., `calculateDiscount()` is pure math, already unit-tested)? -> **skip**
 3) **Identify Core Journeys:** Identify core user journeys (multi-step flows)
 4) **Check Critical Path Coverage:** Check E2E coverage for critical paths (Priority >=20)
 5) **Check Journey Coverage:** Check E2E coverage for user journeys (Priority 15-19)
@@ -51,7 +53,7 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 **Rule:** Every critical path MUST have E2E test
 
-**Critical Paths (Priority ≥20):**
+**Critical Paths (Priority >=20):**
 - **Money** (Priority 25): Payment processing, refunds, discounts, tax calculation
 - **Security** (Priority 25): Login, auth, password reset, token refresh, permissions
 - **Data Export** (Priority 20): Reports, CSV generation, data migration
@@ -60,12 +62,12 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 1. Scan codebase for critical keywords: `payment`, `refund`, `login`, `auth`, `export`
 2. Extract critical functions/endpoints
 3. Check if E2E test exists for each critical path
-4. Missing E2E for Priority ≥20 → CRITICAL severity
+4. Missing E2E for Priority >=20 -> CRITICAL severity
 
 **Severity:**
 - **CRITICAL:** No E2E for Priority 25 (Money, Security)
 - **HIGH:** No E2E for Priority 20 (Data Export)
-- **Downgrade when:** Function is helper called from already-E2E-tested path → MEDIUM. Already covered by integration test → LOW
+- **Downgrade when:** Function is helper called from already-E2E-tested path -> MEDIUM. Already covered by integration test -> LOW
 
 **Recommendation:** Add E2E tests for critical paths immediately
 
@@ -76,17 +78,17 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 **Rule:** Multi-step critical flows MUST have E2E test
 
 **Core Journeys (Priority 15-19):**
-- Registration → Email verification → First login (Priority 16)
-- Product search → Add to cart → Checkout (Priority 18)
-- File upload → Processing → Download result (Priority 15)
+- Registration -> Email verification -> First login (Priority 16)
+- Product search -> Add to cart -> Checkout (Priority 18)
+- File upload -> Processing -> Download result (Priority 15)
 
 **Detection:**
 1. Identify multi-step flows in routes/controllers
 2. Check if end-to-end journey test exists
-3. Missing E2E for Priority ≥15 → HIGH severity
+3. Missing E2E for Priority >=15 -> HIGH severity
 
 **Severity:**
-- **HIGH:** Missing E2E for core user journey (Priority ≥15)
+- **HIGH:** Missing E2E for core user journey (Priority >=15)
 - **MEDIUM:** Incomplete journey coverage (only partial steps tested)
 
 **Recommendation:** Add end-to-end journey tests
@@ -95,16 +97,16 @@ Receives `contextStore` with: `tech_stack`, `testFilesMetadata`, `codebase_root`
 
 ### 3. E2E Test Usefulness Validation
 
-**Rule:** Every E2E test MUST justify Priority ≥15
+**Rule:** Every E2E test MUST justify Priority >=15
 
 **Check:**
-For each E2E test, calculate Usefulness Score = Impact × Probability
-- If Score <15 → Flag as "Potentially wasteful E2E"
+For each E2E test, calculate Usefulness Score = Impact x Probability
+- If Score <15 -> Flag as "Potentially wasteful E2E"
 - Recommendation: Convert to Integration or Unit test (cheaper)
 
 **Example:**
-- E2E test for "API returns 200 OK" → Impact 2, Probability 1 → Score 2 → **WASTEFUL**
-- E2E test for "Payment with discount calculates correctly" → Impact 5, Probability 5 → Score 25 → **VALUABLE**
+- E2E test for "API returns 200 OK" -> Impact 2, Probability 1 -> Score 2 -> **WASTEFUL**
+- E2E test for "Payment with discount calculates correctly" -> Impact 5, Probability 5 -> Score 25 -> **VALUABLE**
 
 **Severity:**
 - **MEDIUM:** E2E test with Usefulness Score <15
@@ -119,21 +121,25 @@ For each E2E test, calculate Usefulness Score = Impact × Probability
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/audit_scoring.md`.
 
 **Severity mapping:**
-- Missing E2E for Priority 25 (Money, Security) → CRITICAL
-- Missing E2E for Priority 20 (Data Export) → HIGH
-- Missing E2E for Priority 15-19 (Core Journeys) → HIGH
-- Wasteful E2E (Score <15) → MEDIUM
-- Incomplete journey coverage → LOW
+- Missing E2E for Priority 25 (Money, Security) -> CRITICAL
+- Missing E2E for Priority 20 (Data Export) -> HIGH
+- Missing E2E for Priority 15-19 (Core Journeys) -> HIGH
+- Wasteful E2E (Score <15) -> MEDIUM
+- Incomplete journey coverage -> LOW
 
 ## Output Format
 
 **MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/templates/audit_worker_report_template.md`.
 
+If summaryArtifactPath is present, write JSON summary per shared/references/audit_summary_contract.md. Compact text output is fallback only.
+
 Write report to `{output_dir}/632-e2e-priority.md` with `category: "E2E Critical Coverage"` and checks: critical_path_coverage, user_journey_coverage, e2e_usefulness_validation.
 
-Return summary to coordinator:
+Return summary per `shared/references/audit_summary_contract.md`.
+
+Legacy compact text output is allowed only when `summaryArtifactPath` is absent:
 ```
-Report written: docs/project/.audit/ln-630/{YYYY-MM-DD}/632-e2e-priority.md
+Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/632-e2e-priority.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 ```
 
@@ -145,7 +151,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Risk-based only:** Prioritize by business impact (Money > Security > Data), not by code coverage percentage
 - **Effort realism:** S = <1h, M = 1-4h, L = >4h
 - **Usefulness Score threshold:** Only flag E2E tests with Score <15 as wasteful
-- **No pyramid enforcement:** Do not recommend E2E/Integration/Unit ratios — focus on critical path coverage
+- **No pyramid enforcement:** Do not recommend E2E/Integration/Unit ratios -- focus on critical path coverage
 
 ## Definition of Done
 
@@ -157,7 +163,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - [ ] Findings collected with severity, location, effort, recommendation
 - [ ] Score calculated using penalty algorithm
 - [ ] Report written to `{output_dir}/632-e2e-priority.md` (atomic single Write call)
-- [ ] Summary returned to coordinator
+- [ ] Summary written per contract
 
 ## Reference Files
 
