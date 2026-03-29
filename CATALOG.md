@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-28 06:29 UTC*
+*Last updated: 2026-03-29 06:34 UTC*
 
-Total skills: **2463**
+Total skills: **2467**
 
 ## Skills by Source
 
@@ -930,6 +930,7 @@ Total skills: **2463**
 | `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
 | `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment... |
 | `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, ... |
+| `marketing-customer-research` | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions... |
 | `marketing-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
 | `marketing-form-cro` | When the user wants to optimize any form that is NOT signup/registration — including lead capture fo... |
 | `marketing-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
@@ -988,6 +989,7 @@ Total skills: **2463**
 | `levn-ln-012-mcp-configurator` | Installs MCP packages, registers servers in Claude Code, configures hooks, permissions, and migratio... |
 | `levn-ln-013-config-syncer` | Syncs skills, MCP settings, and hooks from Claude Code to Gemini CLI and Codex CLI via symlinks and ... |
 | `levn-ln-014-agent-instructions-manager` | Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md), audits token budget, prompt cac... |
+| `levn-ln-015-hex-line-uninstaller` | Removes hex-line hooks, output style, and cached files from the system. Use when hex-line MCP needs ... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
@@ -2134,6 +2136,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-performance-testing-review-ai-review` | You are an expert AI-powered code review specialist combining automated static analysis, intelligent... |
 | `antigravity-performance-testing-review-multi-agent-review` | Use when working with performance testing review multi agent review |
 | `antigravity-personal-tool-builder` | You believe the best tools come from real problems. You've built dozens of personal tools - some sta... |
+| `antigravity-phase-gated-debugging` | Use when debugging any bug. Enforces a 5-phase protocol where code edits are blocked until root caus... |
 | `antigravity-php-pro` | Write idiomatic PHP code with generators, iterators, SPL data
 structures, and modern OOP features. U... |
 | `antigravity-pipecat-friday-agent` | Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini... |
@@ -2241,6 +2244,7 @@ coll... |
 | `antigravity-ruby-pro` | Write idiomatic Ruby code with metaprogramming, Rails patterns, and performance optimization. Specia... |
 | `antigravity-rust-async-patterns` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns. Use... |
 | `antigravity-rust-pro` | Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready sy... |
+| `antigravity-saas-multi-tenant` | Design and implement multi-tenant SaaS architectures with row-level security, tenant-scoped queries,... |
 | `antigravity-saas-mvp-launcher` | Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech s... |
 | `antigravity-saga-orchestration` | Patterns for managing distributed transactions and long-running business processes. |
 | `antigravity-sales-automator` | Draft cold emails, follow-ups, and proposal templates. Creates
