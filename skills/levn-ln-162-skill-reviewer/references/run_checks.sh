@@ -201,6 +201,7 @@ for f in $SCOPE; do
     [ "$w" != "$self" ] && echo "$w"
   done | sort -u | wc -l)
   [ "$worker_count" -eq 0 ] && continue
+  grep -qF '| None |' "$f" && continue
   skill_calls=$(grep -c 'Skill(skill:' "$f" || true)
   [ "$skill_calls" -eq 0 ] && fail "$level skill delegates to $worker_count workers but has no Skill() invocation code blocks: $f"
   grep -q 'Worker Invocation (MANDATORY)' "$f" || fail "$level skill missing Worker Invocation (MANDATORY) section: $f"

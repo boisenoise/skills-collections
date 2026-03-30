@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-29 06:34 UTC*
+*Last updated: 2026-03-30 06:49 UTC*
 
-Total skills: **2467**
+Total skills: **2476**
 
 ## Skills by Source
 
@@ -1105,7 +1105,7 @@ Total skills: **2467**
 | `levn-ln-830-code-modernization-coordinator` | Modernizes codebase via OSS replacement and bundle optimization. Use when acting on audit findings t... |
 | `levn-ln-831-oss-replacer` | Replaces custom modules with OSS packages using atomic keep/discard testing. Use when migrating cust... |
 | `levn-ln-832-bundle-optimizer` | Reduces JS/TS bundle size via tree-shaking, code splitting, and unused dependency removal. Use when ... |
-| `levn-ln-840-benchmark-compare` | Runs a balanced built-in vs hex-line benchmark with scenario manifests, activation checks, diff-base... |
+| `levn-ln-840-benchmark-compare` | Runs built-in vs hex-line benchmark with scenario manifests, activation checks, and diff-based corre... |
 | `levn-ln-910-community-engagement` | Analyzes community health and delegates engagement tasks. Use when managing GitHub issues, discussio... |
 | `levn-ln-911-github-triager` | Produces prioritized triage report from open GitHub issues, PRs, and discussions. Use when reviewing... |
 | `levn-ln-912-community-announcer` | Composes and publishes announcements to GitHub Discussions. Use when sharing releases, updates, or n... |
@@ -1866,14 +1866,19 @@ behavior. Use proactively when encoun... |
 | `antigravity-html-injection-testing` | Identify and exploit HTML injection vulnerabilities that allow attackers to inject malicious HTML co... |
 | `antigravity-hubspot-automation` | Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using... |
 | `antigravity-hubspot-integration` | Authentication for single-account integrations |
-| `antigravity-hugging-face-cli` | The hf CLI provides direct terminal access to the Hugging Face Hub for downloading, uploading, and m... |
-| `antigravity-hugging-face-dataset-viewer` | Use this skill for Hugging Face Dataset Viewer API workflows that fetch subset/split metadata, pagin... |
+| `antigravity-hugging-face-cli` | Use the Hugging Face Hub CLI (`hf`) to download, upload, and manage models, datasets, and Spaces. |
+| `antigravity-hugging-face-community-evals` | Run local evaluations for Hugging Face Hub models with inspect-ai or lighteval. |
+| `antigravity-hugging-face-dataset-viewer` | Query Hugging Face datasets through the Dataset Viewer API for splits, rows, search, filters, and pa... |
 | `antigravity-hugging-face-datasets` | Create and manage datasets on Hugging Face Hub. Supports initializing repos, defining configs/system... |
 | `antigravity-hugging-face-evaluation` | Add and manage evaluation results in Hugging Face model cards. Supports extracting eval tables from ... |
-| `antigravity-hugging-face-jobs` | Run any workload on fully managed Hugging Face infrastructure. No local setup required—jobs run on c... |
-| `antigravity-hugging-face-model-trainer` | Train language models using TRL (Transformer Reinforcement Learning) on fully managed Hugging Face i... |
+| `antigravity-hugging-face-gradio` | Build or edit Gradio apps, layouts, components, and chat interfaces in Python. |
+| `antigravity-hugging-face-jobs` | Run workloads on Hugging Face Jobs with managed CPUs, GPUs, TPUs, secrets, and Hub persistence. |
+| `antigravity-hugging-face-model-trainer` | Train or fine-tune TRL language models on Hugging Face Jobs, including SFT, DPO, GRPO, and GGUF expo... |
 | `antigravity-hugging-face-paper-publisher` | Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking paper... |
+| `antigravity-hugging-face-papers` | Read and analyze Hugging Face paper pages or arXiv papers with markdown and papers API metadata. |
 | `antigravity-hugging-face-tool-builder` | Your purpose is now is to create reusable command line scripts and utilities for using the Hugging F... |
+| `antigravity-hugging-face-trackio` | Track ML experiments with Trackio using Python logging, alerts, and CLI metric retrieval. |
+| `antigravity-hugging-face-vision-trainer` | Train or fine-tune vision models on Hugging Face Jobs for detection, classification, and SAM or SAM2... |
 | `antigravity-hybrid-cloud-architect` | Expert hybrid cloud architect specializing in complex multi-cloud solutions across AWS/Azure/GCP and... |
 | `antigravity-hybrid-cloud-networking` | Configure secure, high-performance connectivity between on-premises and cloud environments using VPN... |
 | `antigravity-hybrid-search-implementation` | Combine vector and keyword search for improved retrieval. Use when implementing RAG systems, buildin... |
@@ -1911,6 +1916,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-javascript-typescript-typescript-scaffold` | You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.j... |
 | `antigravity-jira-automation` | Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw... |
 | `antigravity-jobgpt` | Job search automation, auto apply, resume generation, application tracking, salary intelligence, and... |
+| `antigravity-jq` | Expert jq usage for JSON querying, filtering, transformation, and pipeline integration. Practical pa... |
 | `antigravity-json-canvas` | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when wor... |
 | `antigravity-julia-pro` | Master Julia 1.10+ with modern features, performance optimization, multiple dispatch, and production... |
 | `antigravity-junta-leiloeiros` | Coleta e consulta dados de leiloeiros oficiais de todas as 27 Juntas Comerciais do Brasil. Scraper m... |
@@ -2448,11 +2454,13 @@ calculations
 | `antigravity-threejs-skills` | Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user requests... |
 | `antigravity-threejs-textures` | Three.js textures - texture types, UV mapping, environment maps, texture settings. Use when working ... |
 | `antigravity-tiktok-automation` | Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a... |
+| `antigravity-tmux` | Expert tmux session, window, and pane management for terminal multiplexing, persistent remote workfl... |
 | `antigravity-todoist-automation` | Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (C... |
 | `antigravity-tool-design` | Build tools that agents can use effectively, including architectural reduction patterns. Use when cr... |
 | `antigravity-tool-use-guardian` | FREE — Intelligent tool-call reliability wrapper. Monitors, retries, fixes, and learns from tool fai... |
 | `antigravity-top-web-vulnerabilities` | Provide a comprehensive, structured reference for the 100 most critical web application vulnerabilit... |
 | `antigravity-track-management` | Use this skill when creating, managing, or working with Conductor tracks - the logical work units fo... |
+| `antigravity-transformers-js` | Run Hugging Face models in JavaScript or TypeScript with Transformers.js in Node.js or the browser. |
 | `antigravity-travel-health-analyzer` | 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。 |
 | `antigravity-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `antigravity-trigger-dev` | You are a Trigger.dev expert who builds reliable background jobs with exceptional developer experien... |
@@ -2494,6 +2502,7 @@ calculations
 | `antigravity-vexor-cli` | Semantic file discovery via `vexor`. Use whenever locating where something is implemented/loaded/def... |
 | `antigravity-vibe-code-auditor` | Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks. |
 | `antigravity-vibers-code-review` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, an... |
+| `antigravity-viboscope` | Psychological compatibility matching — find cofounders, collaborators, and friends through validated... |
 | `antigravity-videodb` | Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spok... |
 | `antigravity-videodb-skills` | Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK. |
 | `antigravity-viral-generator-builder` | You understand why people share things. You build tools that create "identity moments" - results peo... |

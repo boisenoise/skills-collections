@@ -126,9 +126,12 @@ Record the result through runtime `record-plan`.
 
 Verify worker result and resulting task plan outcome.
 
+**Template compliance gate:** Fetch each created Task via `get_issue`. Run `validateTemplateCompliance(description, 'task')` from `planning-runtime/lib/template-compliance.mjs`. All tasks must pass (7 sections in order). Record `template_compliance_passed` in state. Guard blocks SELF_CHECK without it.
+
 Checkpoint payload:
 - `verification_summary`
 - `final_result`
+- `template_compliance_passed`
 
 ### Phase 7: Self-Check
 

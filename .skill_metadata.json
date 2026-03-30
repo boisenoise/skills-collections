@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-29T06:34:11.135926",
-  "skill_count": 2467,
+  "last_updated": "2026-03-30T06:49:48.745250",
+  "skill_count": 2476,
   "sources_processed": 19,
   "skills": [
     {
@@ -1516,6 +1516,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-tmux",
+      "original_name": "tmux",
+      "description": "Expert tmux session, window, and pane management for terminal multiplexing, persistent remote workflows, and shell scripting automation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-biopython",
       "original_name": "biopython",
       "description": "Biopython is a comprehensive set of freely available Python tools for biological computation. It provides functionality for sequence manipulation, file I/O, database access, structural bioinformatics, phylogenetics, and many other bioinformatics tasks.",
@@ -1711,6 +1719,14 @@
       "name": "antigravity-docusign-automation",
       "original_name": "docusign-automation",
       "description": "Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document management. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-viboscope",
+      "original_name": "viboscope",
+      "description": "Psychological compatibility matching \u2014 find cofounders, collaborators, and friends through validated psychometrics",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2004,6 +2020,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-hugging-face-trackio",
+      "original_name": "hugging-face-trackio",
+      "description": "Track ML experiments with Trackio using Python logging, alerts, and CLI metric retrieval.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-seo-images",
       "original_name": "seo-images",
       "description": "Image optimization analysis for SEO and performance. Checks alt text, file sizes, formats, responsive images, lazy loading, and CLS prevention. Use when user says \"image optimization\", \"alt text\", \"image SEO\", \"image size\", or \"image audit\".\n",
@@ -2244,6 +2268,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-hugging-face-community-evals",
+      "original_name": "hugging-face-community-evals",
+      "description": "Run local evaluations for Hugging Face Hub models with inspect-ai or lighteval.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-bamboohr-automation",
       "original_name": "bamboohr-automation",
       "description": "Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee updates. Always search tools first for current schemas.",
@@ -2255,6 +2287,14 @@
       "name": "antigravity-shellcheck-configuration",
       "original_name": "shellcheck-configuration",
       "description": "Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting up linting infrastructure, fixing code issues, or ensuring script portability.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-hugging-face-vision-trainer",
+      "original_name": "hugging-face-vision-trainer",
+      "description": "Train or fine-tune vision models on Hugging Face Jobs for detection, classification, and SAM or SAM2 segmentation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2351,6 +2391,14 @@
       "name": "antigravity-tiktok-automation",
       "original_name": "tiktok-automation",
       "description": "Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, and view user profiles/stats. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-hugging-face-gradio",
+      "original_name": "hugging-face-gradio",
+      "description": "Build or edit Gradio apps, layouts, components, and chat interfaces in Python.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3180,6 +3228,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-jq",
+      "original_name": "jq",
+      "description": "Expert jq usage for JSON querying, filtering, transformation, and pipeline integration. Practical patterns for real shell workflows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-makepad-dsl",
       "original_name": "makepad-dsl",
       "description": "CRITICAL: Use for Makepad DSL syntax and inheritance. Triggers on:\nmakepad dsl, live_design, makepad inheritance, makepad prototype,\n\"<Widget>\", \"Foo = { }\", makepad object, makepad property,\nmakepad DSL \u8bed\u6cd5, makepad \u7ee7\u627f, makepad \u539f\u578b, \u5982\u4f55\u5b9a\u4e49 makepad \u7ec4\u4ef6\n",
@@ -3198,7 +3254,7 @@
     {
       "name": "antigravity-hugging-face-model-trainer",
       "original_name": "hugging-face-model-trainer",
-      "description": "Train language models using TRL (Transformer Reinforcement Learning) on fully managed Hugging Face infrastructure. No local GPU setup required\u2014models train on cloud GPUs and results are automatically saved to the Hugging Face Hub.",
+      "description": "Train or fine-tune TRL language models on Hugging Face Jobs, including SFT, DPO, GRPO, and GGUF export.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Complete terms in LICENSE.txt"
@@ -5030,7 +5086,7 @@
     {
       "name": "antigravity-hugging-face-dataset-viewer",
       "original_name": "hugging-face-dataset-viewer",
-      "description": "Use this skill for Hugging Face Dataset Viewer API workflows that fetch subset/split metadata, paginate rows, search text, apply filters, download parquet URLs, and read size or statistics.",
+      "description": "Query Hugging Face datasets through the Dataset Viewer API for splits, rows, search, filters, and parquet links.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7838,10 +7894,10 @@
     {
       "name": "antigravity-hugging-face-jobs",
       "original_name": "hugging-face-jobs",
-      "description": "Run any workload on fully managed Hugging Face infrastructure. No local setup required\u2014jobs run on cloud CPUs, GPUs, or TPUs and can persist results to the Hugging Face Hub.",
+      "description": "Run workloads on Hugging Face Jobs with managed CPUs, GPUs, TPUs, secrets, and Hub persistence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Complete terms in LICENSE.txt"
     },
     {
       "name": "antigravity-error-handling-patterns",
@@ -8724,6 +8780,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-hugging-face-papers",
+      "original_name": "hugging-face-papers",
+      "description": "Read and analyze Hugging Face paper pages or arXiv papers with markdown and papers API metadata.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-skill-installer",
       "original_name": "skill-installer",
       "description": "Instala, valida, registra e verifica novas skills no ecossistema. 10 checks de seguranca, copia, registro no orchestrator e verificacao pos-instalacao.",
@@ -9010,6 +9074,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-transformers-js",
+      "original_name": "transformers-js",
+      "description": "Run Hugging Face models in JavaScript or TypeScript with Transformers.js in Node.js or the browser.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-expo-tailwind-setup",
@@ -10134,7 +10206,7 @@
     {
       "name": "antigravity-hugging-face-cli",
       "original_name": "hugging-face-cli",
-      "description": "The hf CLI provides direct terminal access to the Hugging Face Hub for downloading, uploading, and managing repositories, cache, and compute resources.",
+      "description": "Use the Hugging Face Hub CLI (`hf`) to download, upload, and manage models, datasets, and Spaces.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18966,7 +19038,7 @@
     {
       "name": "levn-ln-840-benchmark-compare",
       "original_name": "ln-840-benchmark-compare",
-      "description": "Runs a balanced built-in vs hex-line benchmark with scenario manifests, activation checks, diff-based correctness, and a final comparison report.",
+      "description": "Runs built-in vs hex-line benchmark with scenario manifests, activation checks, and diff-based correctness. Use when measuring hex-line MCP performance against built-in tools.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

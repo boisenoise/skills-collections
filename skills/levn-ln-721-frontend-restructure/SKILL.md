@@ -10,7 +10,6 @@ license: MIT
 
 **Type:** L3 Worker
 **Category:** 7XX Project Bootstrap
-**Parent:** ln-720-structure-migrator
 
 Frontend structure worker with two modes: SCAFFOLD (generate minimal React project from template) or RESTRUCTURE (migrate monolith to component-based architecture).
 
