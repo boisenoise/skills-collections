@@ -214,6 +214,7 @@ Skill(skill: "ln-222-story-replanner", args: "{epicId}")
 - [ ] Mode detection checkpointed
 - [ ] All expected worker summaries recorded
 - [ ] Final result checkpointed
+- [ ] Template compliance passed for all created Stories
 - [ ] Self-check passed
 
 ## Meta-Analysis

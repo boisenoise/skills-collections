@@ -205,6 +205,8 @@ Skill(skill: "ln-302-task-replanner", args: "{storyId}")
 - [ ] Mode detection checkpointed
 - [ ] Task-plan worker summary recorded
 - [ ] Verification checkpointed
+- [ ] Template compliance passed for all created Tasks
+- [ ] Final result recorded
 - [ ] Self-check passed
 
 ## Meta-Analysis

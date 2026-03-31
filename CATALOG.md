@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-03-30 06:49 UTC*
+*Last updated: 2026-03-31 06:40 UTC*
 
 Total skills: **2476**
 
@@ -1815,7 +1815,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-github` | Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. |
 | `antigravity-github-actions-templates` | Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications. |
 | `antigravity-github-automation` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (... |
-| `antigravity-github-issue-creator` | Transform messy input (error logs, voice notes, screenshots) into clean, actionable GitHub issues. |
+| `antigravity-github-issue-creator` | Turn error logs, screenshots, voice notes, and rough bug reports into crisp, developer-ready GitHub ... |
 | `antigravity-github-workflow-automation` | Patterns for automating GitHub workflows with AI assistance, inspired by [Gemini CLI](https://github... |
 | `antigravity-gitlab-automation` | Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations... |
 | `antigravity-gitlab-ci-patterns` | Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment. |
