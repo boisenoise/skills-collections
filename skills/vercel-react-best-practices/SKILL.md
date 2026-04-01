@@ -9,7 +9,7 @@ metadata:
 
 # Vercel React Best Practices
 
-Comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 67 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
+Comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 68 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
 
 ## When to Apply
 
@@ -59,6 +59,7 @@ Reference these guidelines when:
 - `server-cache-lru` - Use LRU cache for cross-request caching
 - `server-dedup-props` - Avoid duplicate serialization in RSC props
 - `server-hoist-static-io` - Hoist static I/O (fonts, logos) to module level
+- `server-no-shared-module-state` - Avoid module-level mutable request state in RSC/SSR
 - `server-serialization` - Minimize data passed to client components
 - `server-parallel-fetching` - Restructure components to parallelize fetches
 - `server-parallel-nested-fetching` - Chain nested fetches per item in Promise.all

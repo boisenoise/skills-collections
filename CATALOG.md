@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-03-31 06:40 UTC*
+*Last updated: 2026-04-01 06:46 UTC*
 
-Total skills: **2476**
+Total skills: **2477**
 
 ## Skills by Source
 
@@ -2575,6 +2575,7 @@ calculations
 | `vercel-deploy-to-vercel` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "depl... |
 | `vercel-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be ... |
 | `vercel-react-native-skills` | React Native and Expo best practices for building performant mobile apps. Use when building React Na... |
+| `vercel-react-view-transitions` | Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTr... |
 | `vercel-vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel ... |
 | `vercel-web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check acc... |
 

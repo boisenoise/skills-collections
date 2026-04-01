@@ -36,13 +36,14 @@ Comprehensive performance optimization guide for React and Next.js applications,
 3. [Server-Side Performance](#3-server-side-performance) — **HIGH**
    - 3.1 [Authenticate Server Actions Like API Routes](#31-authenticate-server-actions-like-api-routes)
    - 3.2 [Avoid Duplicate Serialization in RSC Props](#32-avoid-duplicate-serialization-in-rsc-props)
-   - 3.3 [Cross-Request LRU Caching](#33-cross-request-lru-caching)
-   - 3.4 [Hoist Static I/O to Module Level](#34-hoist-static-io-to-module-level)
-   - 3.5 [Minimize Serialization at RSC Boundaries](#35-minimize-serialization-at-rsc-boundaries)
-   - 3.6 [Parallel Data Fetching with Component Composition](#36-parallel-data-fetching-with-component-composition)
-   - 3.7 [Parallel Nested Data Fetching](#37-parallel-nested-data-fetching)
-   - 3.8 [Per-Request Deduplication with React.cache()](#38-per-request-deduplication-with-reactcache)
-   - 3.9 [Use after() for Non-Blocking Operations](#39-use-after-for-non-blocking-operations)
+   - 3.3 [Avoid Shared Module State for Request Data](#33-avoid-shared-module-state-for-request-data)
+   - 3.4 [Cross-Request LRU Caching](#34-cross-request-lru-caching)
+   - 3.5 [Hoist Static I/O to Module Level](#35-hoist-static-io-to-module-level)
+   - 3.6 [Minimize Serialization at RSC Boundaries](#36-minimize-serialization-at-rsc-boundaries)
+   - 3.7 [Parallel Data Fetching with Component Composition](#37-parallel-data-fetching-with-component-composition)
+   - 3.8 [Parallel Nested Data Fetching](#38-parallel-nested-data-fetching)
+   - 3.9 [Per-Request Deduplication with React.cache()](#39-per-request-deduplication-with-reactcache)
+   - 3.10 [Use after() for Non-Blocking Operations](#310-use-after-for-non-blocking-operations)
 4. [Client-Side Data Fetching](#4-client-side-data-fetching) — **MEDIUM-HIGH**
    - 4.1 [Deduplicate Global Event Listeners](#41-deduplicate-global-event-listeners)
    - 4.2 [Use Passive Event Listeners for Scrolling Performance](#42-use-passive-event-listeners-for-scrolling-performance)
@@ -781,7 +782,55 @@ Deduplication works recursively. Impact varies by data type:
 
 **Exception:** Pass derived data when transformation is expensive or client doesn't need original.
 
-### 3.3 Cross-Request LRU Caching
+### 3.3 Avoid Shared Module State for Request Data
+
+**Impact: HIGH (prevents concurrency bugs and request data leaks)**
+
+For React Server Components and client components rendered during SSR, avoid using mutable module-level variables to share request-scoped data. Server renders can run concurrently in the same process. If one render writes to shared module state and another render reads it, you can get race conditions, cross-request contamination, and security bugs where one user's data appears in another user's response.
+
+Treat module scope on the server as process-wide shared memory, not request-local state.
+
+**Incorrect: request data leaks across concurrent renders**
+
+```tsx
+let currentUser: User | null = null
+
+export default async function Page() {
+  currentUser = await auth()
+  return <Dashboard />
+}
+
+async function Dashboard() {
+  return <div>{currentUser?.name}</div>
+}
+```
+
+If two requests overlap, request A can set `currentUser`, then request B overwrites it before request A finishes rendering `Dashboard`.
+
+**Correct: keep request data local to the render tree**
+
+```tsx
+export default async function Page() {
+  const user = await auth()
+  return <Dashboard user={user} />
+}
+
+function Dashboard({ user }: { user: User | null }) {
+  return <div>{user?.name}</div>
+}
+```
+
+Safe exceptions:
+
+- Immutable static assets or config loaded once at module scope
+
+- Shared caches intentionally designed for cross-request reuse and keyed correctly
+
+- Process-wide singletons that do not store request- or user-specific mutable data
+
+For static assets and config, see [Hoist Static I/O to Module Level](./server-hoist-static-io.md).
+
+### 3.4 Cross-Request LRU Caching
 
 **Impact: HIGH (caches across requests)**
 
@@ -818,7 +867,7 @@ Use when sequential user actions hit multiple endpoints needing the same data wi
 
 Reference: [https://github.com/isaacs/node-lru-cache](https://github.com/isaacs/node-lru-cache)
 
-### 3.4 Hoist Static I/O to Module Level
+### 3.5 Hoist Static I/O to Module Level
 
 **Impact: HIGH (avoids repeated file/network I/O per request)**
 
@@ -968,7 +1017,7 @@ With Vercel's [Fluid Compute](https://vercel.com/docs/fluid-compute), module-lev
 
 In traditional serverless, each cold start re-executes module-level code, but subsequent warm invocations reuse the loaded assets until the instance is recycled.
 
-### 3.5 Minimize Serialization at RSC Boundaries
+### 3.6 Minimize Serialization at RSC Boundaries
 
 **Impact: HIGH (reduces data transfer size)**
 
@@ -1002,7 +1051,7 @@ function Profile({ name }: { name: string }) {
 }
 ```
 
-### 3.6 Parallel Data Fetching with Component Composition
+### 3.7 Parallel Data Fetching with Component Composition
 
 **Impact: CRITICAL (eliminates server-side waterfalls)**
 
@@ -1081,7 +1130,7 @@ export default function Page() {
 }
 ```
 
-### 3.7 Parallel Nested Data Fetching
+### 3.8 Parallel Nested Data Fetching
 
 **Impact: CRITICAL (eliminates server-side waterfalls)**
 
@@ -1111,7 +1160,7 @@ const chatAuthors = await Promise.all(
 
 Each item independently chains `getChat` → `getUser`, so a slow chat doesn't block author fetches for the others.
 
-### 3.8 Per-Request Deduplication with React.cache()
+### 3.9 Per-Request Deduplication with React.cache()
 
 **Impact: MEDIUM (deduplicates within request)**
 
@@ -1177,7 +1226,7 @@ Use `React.cache()` to deduplicate these operations across your component tree.
 
 Reference: [https://react.dev/reference/react/cache](https://react.dev/reference/react/cache)
 
-### 3.9 Use after() for Non-Blocking Operations
+### 3.10 Use after() for Non-Blocking Operations
 
 **Impact: MEDIUM (faster response times)**
 

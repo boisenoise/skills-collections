@@ -3,6 +3,7 @@ name: ln-634-test-coverage-auditor
 description: "Identifies missing tests for critical paths (money, security, data integrity, core flows). Use when auditing test coverage gaps."
 allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_hotspots
 license: MIT
+model: claude-haiku-4-5
 ---
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.

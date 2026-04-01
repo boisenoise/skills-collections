@@ -3,6 +3,7 @@ name: ln-637-test-structure-auditor
 description: "Checks test file organization, directory layout, test-to-source mapping, domain grouping, co-location. Use when auditing test structure."
 allowed-tools: Read, Grep, Glob, Bash
 license: MIT
+model: claude-sonnet-4-6
 ---
 
 > **Paths:** File paths (`shared/`, `references/`, `../ln-*`) are relative to skills repo root. If not found at CWD, locate this SKILL.md directory and go up one level for repo root. If `shared/` is missing, fetch files via WebFetch from `https://raw.githubusercontent.com/levnikolaevich/claude-code-skills/master/skills/{path}`.

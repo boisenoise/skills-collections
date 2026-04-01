@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-31T06:40:07.133379",
-  "skill_count": 2476,
+  "last_updated": "2026-04-01T06:46:32.725062",
+  "skill_count": 2477,
   "sources_processed": 19,
   "skills": [
     {
@@ -551,6 +551,14 @@
       "name": "vercel-composition-patterns",
       "original_name": "vercel-composition-patterns",
       "description": "React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes.",
+      "source": "vercel-labs/agent-skills",
+      "source_url": "https://github.com/vercel-labs/agent-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "vercel-react-view-transitions",
+      "original_name": "vercel-react-view-transitions",
+      "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries.",
       "source": "vercel-labs/agent-skills",
       "source_url": "https://github.com/vercel-labs/agent-skills",
       "license": "MIT"
