@@ -1,28 +1,10 @@
 # Phase 3: Research & Audit
 
-**Always execute — no exceptions.** Steps 1-2 and 5-7 are mode=story only. Steps 3-4 and criteria #5, #6, #21, #28 apply to ALL modes (story, plan_review, context).
+**Always execute — no exceptions.** Steps 1-5 are mode=story only. Steps 3-4 and criteria #5, #6, #21, #28 apply to ALL modes (story, plan_review, context).
 
-## Step 1: Domain Extraction
+> **Note:** Domain Extraction and Inline Documentation Creation have moved to Phase 4 (Documentation). This file covers Research & Audit only.
 
-- Extract technical domains from Story title + Technical Notes + Implementation Tasks
-- Load pattern registry from `references/domain_patterns.md`
-- Scan Story content for pattern matches via keyword detection
-- Build list of detected domains requiring documentation
-
-## Step 2: Inline Documentation Creation
-
-**MANDATORY READ:** Load `shared/references/documentation_creation.md`
-
-For EACH detected pattern:
-1. Check if doc already exists (Glob by pattern path from domain_patterns.md)
-2. IF missing → load template from `shared/templates/{doc_type}_template.md`
-3. Research per `shared/references/research_methodology.md` + fallback chain
-4. For doc_type=adr: answer the 5 ADR questions (per documentation_creation.md) internally before generation
-5. Generate document (per documentation_creation.md rules: NO CODE, tables first, 300-500 words)
-6. Save to `docs/{type}s/{naming}.md`
-7. Add link to Story Technical Notes
-
-## Step 3: Research via MCP (ALL MODES)
+## Step 1: Research via MCP (ALL MODES)
 
 **MANDATORY READ:** Load `shared/references/research_methodology.md`
 
@@ -31,7 +13,7 @@ For EACH detected pattern:
 - Extract: standards (RFC numbers, OWASP rules), library versions, patterns
 - **mode=plan_review/context:** pipeline entry via `references/context_review_pipeline.md` (Applicability Check → Stack Detection → this step)
 
-## Step 4: Anti-Hallucination Verification (ALL MODES)
+## Step 2: Anti-Hallucination Verification (ALL MODES)
 
 **MANDATORY READ:** Load `shared/references/epistemic_protocol.md`
 
@@ -39,14 +21,14 @@ For EACH detected pattern:
   - Version numbers, API signatures, deprecation claims
   - Standards/RFC references, security severity levels
   - Market/competitor data, performance characteristics
-- For each claim, check evidence from Steps 1-3 research results:
+- For each claim, check evidence from Step 1 research results:
   - Has MCP Ref/Context7/WebSearch evidence → mark `VERIFIED`
   - No tool evidence but claim is plausible → mark `FROM TRAINING` + add to fix list
   - Contradicts tool evidence → mark `FLAGGED` (CRITICAL)
-- Note: Step 4 VERIFIES claims against existing research. It does NOT run new searches — new tool queries happen in auto-fix (#6 for story, Compare & Correct for plan/context).
+- Note: Step 2 VERIFIES claims against existing research. It does NOT run new searches — new tool queries happen in auto-fix (#6 for story, Compare & Correct for plan/context).
 - Status: VERIFIED (all sourced) | FLAGGED (list unverified with trigger category)
 
-## Step 5: Pre-mortem Analysis
+## Step 3: Pre-mortem Analysis
 
 **MANDATORY READ:** Load `references/premortem_validation.md`
 
@@ -57,7 +39,7 @@ For EACH detected pattern:
 - Paper Tigers (fears without evidence) → document and dismiss
 - Include pre-mortem table in Phase 3 audit report
 
-## Step 6: Cross-Reference Analysis
+## Step 4: Cross-Reference Analysis
 
 **MANDATORY READ:** Load `references/cross_reference_validation.md`
 
@@ -67,7 +49,7 @@ For EACH detected pattern:
 - Check task duplication (#26): structured match (Affected Components, file paths) primary
 - Include cross-reference findings in Phase 3 audit report
 
-## Step 7: Penalty Points Calculation
+## Step 5: Penalty Points Calculation
 
 - Evaluate all 28 criteria against Story/Tasks (see Auto-Fix Actions Reference below)
 - Assign penalty points per violation (CRITICAL=10, HIGH=5, MEDIUM=3, LOW=1)

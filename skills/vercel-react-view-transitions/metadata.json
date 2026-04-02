@@ -7,7 +7,6 @@
     "https://react.dev/reference/react/ViewTransition",
     "https://react.dev/reference/react/addTransitionType",
     "https://nextjs.org/docs/app/api-reference/config/next-config-js/viewTransition",
-    "https://github.com/aurorascharff/next16-conferences",
     "https://github.com/vercel/next-app-router-playground/tree/main/app/view-transitions"
   ]
 }

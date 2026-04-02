@@ -110,6 +110,7 @@ Run targeted verification against the post-worker state:
 - hook status
 - sync status
 - instruction file quality
+- runtime dependency status (ripgrep, optional language servers)
 
 Checkpoint payload:
 - `verification_summary`

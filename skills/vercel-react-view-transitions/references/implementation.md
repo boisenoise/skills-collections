@@ -41,16 +41,7 @@ For every persistent element identified in Step 1, add a `viewTransitionName` st
 <header style={{ viewTransitionName: "site-header" }}>...</header>
 ```
 
-Then add CSS to prevent the element from animating during page transitions:
-
-```css
-::view-transition-group(site-header) {
-  animation: none;
-  z-index: 100;
-}
-```
-
-If the element uses `backdrop-blur` or `backdrop-filter`, use the backdrop-blur workaround from `css-recipes.md` instead (hide old snapshot, disable animation on new).
+Then add the persistent element isolation CSS from `css-recipes.md` (prevents the element from animating during page transitions). If the element uses `backdrop-blur` or `backdrop-filter`, use the backdrop-blur workaround from `css-recipes.md` instead.
 
 If a Suspense fallback mirrors a persistent control (e.g., a skeleton search input), give both the real control and the skeleton the same `viewTransitionName` so they morph in place.
 
@@ -135,13 +126,13 @@ For every shared visual element identified in Step 1, add matching named `<ViewT
 
 The `share="morph"` class uses the morph recipe from `css-recipes.md` (controlled duration + motion blur). For a simpler cross-fade, use `share="auto"` (browser default).
 
-For list items that should animate individually on enter/exit, add a per-item `<ViewTransition key={id}>` wrapper:
+When list items contain shared elements, compose both patterns — these are two independent `<ViewTransition>` layers:
 
 ```jsx
 {items.map(item => (
-  <ViewTransition key={item.id}>
+  <ViewTransition key={item.id}>                                        {/* list identity */}
     <Link href={`/detail/${item.id}`}>
-      <ViewTransition name={`item-${item.id}`} share="morph" default="none">
+      <ViewTransition name={`item-${item.id}`} share="morph" default="none">  {/* shared element */}
         <Image src={item.image} ... />
       </ViewTransition>
     </Link>
@@ -149,10 +140,11 @@ For list items that should animate individually on enter/exit, add a per-item `<
 ))}
 ```
 
+The outer VT handles list reorder/enter animations. The inner VT handles the cross-route shared element morph. Missing either layer means that animation silently doesn't happen.
+
 **Rules:**
 - Names must be globally unique — use prefixes like `photo-${id}`.
 - Add `default="none"` on list-side shared elements to prevent per-item cross-fades on filter/search updates.
-- Never use a fade-out exit on pages with shared element morphs — the page dissolving conflicts with the morph, causing a flash. Use a directional slide exit instead.
 
 ## Step 7: Verify Each Navigation Path
 
@@ -178,6 +170,8 @@ If any path produces no animation or competing animations, revisit the relevant 
 - **Type maps on Suspense reveals** — Suspense resolves fire as separate transitions with no type. Type-keyed props won't match — use simple string props instead.
 - **Raw `viewTransitionName` CSS to trigger animations** — React only calls `document.startViewTransition` when `<ViewTransition>` components are in the tree. A bare `viewTransitionName` style is for isolating elements from a parent's snapshot, not for triggering animations.
 - **`update` trigger for same-route navigations** — nested VTs inside the content steal the mutation from the parent, so `update` never fires on the outer VT. Use `key` + `name` + `share` instead.
+- **Named VT in a reusable component** — if a component with a named VT is rendered in both a modal/popover *and* a page, both mount simultaneously and break the morph. Make the name conditional or move it to the specific consumer.
+- **`router.back()` for back navigation** — `router.back()` triggers synchronous `popstate`, incompatible with view transitions. Use `router.push()` with an explicit URL.
 
 ---
 

@@ -122,14 +122,7 @@ Persistent elements (headers, navbars, sidebars) get captured in the page's tran
 <nav style={{ viewTransitionName: "persistent-nav" }}>{/* ... */}</nav>
 ```
 
-```css
-::view-transition-group(persistent-nav) {
-  animation: none;
-  z-index: 100;
-}
-```
-
-For `backdrop-blur`/`backdrop-filter`, see Backdrop-Blur Workaround in `css-recipes.md`.
+Then add the persistent element isolation CSS from `css-recipes.md`. For `backdrop-blur`/`backdrop-filter`, use the backdrop-blur workaround from `css-recipes.md`.
 
 ### Floating Elements
 
@@ -139,7 +132,7 @@ Give popovers/tooltips their own `viewTransitionName`:
 <SelectPopover style={{ viewTransitionName: 'popover' }}>{options}</SelectPopover>
 ```
 
-Global fix: `::view-transition-group(*) { z-index: 100; }`
+Global fix: see persistent element isolation in `css-recipes.md`.
 
 ## Shared Controls Between Skeleton and Content
 
@@ -246,7 +239,7 @@ The `types` array (second argument) lets you vary animation based on transition 
 
 **"Two ViewTransition components with the same name":** Names must be globally unique. Use IDs: `name={`hero-${item.id}`}`.
 
-**Back button skips animation:** Legacy `popstate` conflicts with view transitions. Use Navigation API.
+**`router.back()` and browser back/forward skip animation:** `router.back()` triggers a synchronous `popstate` event incompatible with `document.startViewTransition`. Use `router.push()` with an explicit URL instead. The browser's native back/forward buttons also skip animations — this is a browser/router limitation, not fixable in app code.
 
 **`flushSync` skips animations:** Use `startTransition` instead.
 
@@ -260,7 +253,7 @@ The `types` array (second argument) lets you vary animation based on transition 
 
 **Hash fragments cause scroll jumps:** Navigate without hash; scroll programmatically after navigation.
 
-**Backdrop-blur flickers:** Use `::view-transition-old(name) { display: none }` + `::view-transition-new(name) { animation: none }`.
+**Backdrop-blur flickers:** Use the backdrop-blur workaround from `css-recipes.md`.
 
 **`border-radius` lost during transitions:** Apply `border-radius` directly to the captured element.
 

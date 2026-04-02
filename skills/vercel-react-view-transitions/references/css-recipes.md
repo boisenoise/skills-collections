@@ -136,14 +136,6 @@ Usage:
 }
 ```
 
-Triggering programmatically:
-```jsx
-startTransition(() => {
-  addTransitionType('nav-forward');
-  router.push('/next-page');
-});
-```
-
 ---
 
 ## Shared Element Morph
