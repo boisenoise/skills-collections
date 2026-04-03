@@ -14,7 +14,7 @@ module.exports = nextConfig;
 
 This wraps every `<Link>` navigation in `document.startViewTransition`. Any VT with `default="auto"` fires on **every** link click — use `default="none"` to prevent competing animations.
 
-The Next.js App Router internally uses React canary, so `ViewTransition` works without manually installing `react@canary`. `npm ls react` may show a stable-looking version — this is expected. Only run `npm install react@canary react-dom@canary` for standalone React projects (without Next.js).
+Do **not** install `react@canary` — see SKILL.md "Availability" for details.
 
 ---
 
@@ -24,14 +24,7 @@ When following `implementation.md`, apply these additions:
 
 **After Step 2:** Enable the experimental flag above.
 
-**Step 4:** Use `transitionTypes` on `<Link>` (if available — see availability note in the `transitionTypes` section below). Fall back to `startTransition` + `addTransitionType` + `router.push()` if the prop doesn't exist:
-
-```tsx
-<Link href="/photo/1" transitionTypes={["nav-forward"]}>View</Link>
-<Link href="/" transitionTypes={["nav-back"]}>Back</Link>
-```
-
-Reserve manual `startTransition` for programmatic navigation (buttons, forms).
+**Step 4:** Use `transitionTypes` on `<Link>` — see "The `transitionTypes` Prop" section below for usage and availability.
 
 **After Step 6:** For same-route dynamic segments (e.g., `/collection/[slug]`), use the `key` + `name` + `share` pattern — see Same-Route Dynamic Segment Transitions below.
 
@@ -39,16 +32,11 @@ Reserve manual `startTransition` for programmatic navigation (buttons, forms).
 
 ## Layout-Level ViewTransition
 
-**Do NOT add a layout-level VT wrapping `{children}` if pages have their own VTs.** Both fire simultaneously, producing competing animations.
+**Do NOT add a layout-level VT wrapping `{children}` if pages have their own VTs.** Nested VTs never fire enter/exit when inside a parent VT — page-level enter/exit will silently not work. Remove the layout VT entirely.
 
-A bare `<ViewTransition>` in layout works only if pages have **no** VTs of their own. Once any page adds a VT, use `default="none"` on the layout VT or remove it.
+A bare `<ViewTransition>` in layout works only if pages have **no** VTs of their own.
 
 **Layouts persist across navigations** — `enter`/`exit` only fire on initial mount, not on route changes. Don't use type-keyed maps in layouts.
-
-```tsx
-// Prevents layout from interfering with per-page VTs
-<ViewTransition default="none">{children}</ViewTransition>
-```
 
 ---
 
@@ -82,6 +70,28 @@ function handleNavigate(href: string) {
   });
 }
 ```
+
+---
+
+## Server-Side Filtering with `router.replace`
+
+For search/sort/filter that re-renders on the server (via URL params), use `startTransition` + `router.replace`. VTs activate because the state update is inside `startTransition`:
+
+```tsx
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { startTransition } from 'react';
+
+function handleSort(sort: string) {
+  const router = useRouter();
+  startTransition(() => {
+    router.replace(`?sort=${sort}`);
+  });
+}
+```
+
+List items wrapped in `<ViewTransition key={item.id}>` will animate reorder. This is the server-component alternative to the client-side `useDeferredValue` pattern in `patterns.md`.
 
 ---
 

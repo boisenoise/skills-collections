@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-02 06:38 UTC*
+*Last updated: 2026-04-03 06:37 UTC*
 
-Total skills: **2477**
+Total skills: **2478**
 
 ## Skills by Source
 
@@ -910,7 +910,8 @@ Total skills: **2477**
 
 | Skill | Description |
 |-------|-------------|
-| `brunoasm-Emu_bulk_upload_FMNH` | Help museum insect curators bulk upload specimen data to the Emu database. Matches locality data to ... |
+| `brunoasm-Emu_bulk_upload_FMNH` | Help museum insect curators bulk upload specimen data to the Emu database. Maps any input format to ... |
+| `brunoasm-accounting` | Process receipts, track expenses in Google Sheets, reconcile records, and generate entertainment sup... |
 | `brunoasm-biogeobears` | Set up and execute phylogenetic biogeographic analyses using BioGeoBEARS in R. Use when users reques... |
 | `brunoasm-extract_from_pdfs` | This skill should be used when extracting structured data from scientific PDFs for systematic review... |
 | `brunoasm-phylo_from_buscos` | Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with s... |

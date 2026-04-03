@@ -239,13 +239,13 @@ The `types` array (second argument) lets you vary animation based on transition 
 
 **"Two ViewTransition components with the same name":** Names must be globally unique. Use IDs: `name={`hero-${item.id}`}`.
 
-**`router.back()` and browser back/forward skip animation:** `router.back()` triggers a synchronous `popstate` event incompatible with `document.startViewTransition`. Use `router.push()` with an explicit URL instead. The browser's native back/forward buttons also skip animations — this is a browser/router limitation, not fixable in app code.
+**`router.back()` and browser back/forward skip animation:** Use `router.push()` with an explicit URL instead. See SKILL.md "router.back() and Browser Back Button."
 
 **`flushSync` skips animations:** Use `startTransition` instead.
 
 **Only updates animate (no enter/exit):** Without `<Suspense>`, React treats swaps as updates. Conditionally render the VT itself, or wrap in `<Suspense>`.
 
-**Competing double animations:** Multiple VTs at different tree levels fire simultaneously. Use `default="none"` on layout-level VTs.
+**Layout VT prevents page VTs from animating:** Nested VTs never fire enter/exit inside a parent VT. If your layout has a VT wrapping `{children}`, page-level enter/exit will silently not work. Remove the layout VT.
 
 **List reorder not animating with `useOptimistic`:** Optimistic values resolve before snapshot. Use committed state for list order.
 

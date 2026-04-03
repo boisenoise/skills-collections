@@ -62,7 +62,7 @@ Implement **all** applicable patterns from this list, in this order:
 | 4 | **State change** (`enter`/`exit`) | "Something appeared/disappeared" |
 | 5 | **Route change** (layout-level) | "Going to a new place" |
 
-This is an implementation order, not a "pick one" list. Most apps need #1–#3 at minimum. Only one tree level should animate at a time.
+This is an implementation order, not a "pick one" list. Implement every pattern that fits the app. Only skip a pattern if the app has no use case for it.
 
 ### Choosing Animation Style
 
@@ -73,13 +73,14 @@ This is an implementation order, not a "pick one" list. Most apps need #1–#3 a
 | Suspense reveal | `enter`/`exit` string props | Content arriving |
 | Revalidation / background refresh | `default="none"` | Silent — no animation needed |
 
-Reserve directional slides for hierarchical navigation only.
+Reserve directional slides for hierarchical navigation (list → detail) and ordered sequences (prev/next photo, carousel, paginated results). For ordered sequences, the direction communicates position: "next" slides from right, "previous" from left. Lateral/unordered navigation (tab-to-tab) should not use directional slides — it falsely implies spatial depth.
 
 ---
 
 ## Availability
 
-- `ViewTransition` is in `react@canary` / `react@experimental` — not in stable React. However, **Next.js App Router internally uses React canary**, so `ViewTransition` works in Next.js without manually installing canary. `npm ls react` may show a stable-looking version — this is expected; do **not** reinstall or downgrade React based on that output.
+- **Next.js:** Do **not** install `react@canary` — the App Router already bundles React canary internally. `ViewTransition` works out of the box. `npm ls react` may show a stable-looking version; this is expected.
+- **Without Next.js:** Install `react@canary react-dom@canary` (`ViewTransition` is not in stable React).
 - Browser support: Chromium 111+, Firefox 144+, Safari 18.2+. Graceful degradation.
 
 ---
@@ -165,6 +166,16 @@ Map types to CSS classes. Works on `enter`, `exit`, **and** `share`:
 >
   <Page />
 </ViewTransition>
+```
+
+`enter` and `exit` don't have to be symmetric. For example, fade in but slide out directionally:
+
+```jsx
+<ViewTransition
+  enter={{ 'nav-forward': 'fade-in', 'nav-back': 'fade-in', default: 'none' }}
+  exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
+  default="none"
+>
 ```
 
 **TypeScript:** `ViewTransitionClassPerType` requires a `default` key.
@@ -333,7 +344,7 @@ Then classify every navigation and produce a navigation map:
 |-----------------|----------------------|--------------|-----------------------|
 | /               | /detail/[id]         | forward      | directional slide     |
 | /detail/[id]    | /                    | back         | directional slide     |
-| /detail/[id]    | /detail/[other]      | lateral      | key+share crossfade   |
+| /detail/[id]    | /detail/[other]      | sequential   | directional slide (ordered prev/next) or key+share crossfade |
 | /tab/[a]        | /tab/[b]             | lateral      | key+share crossfade   |
 | (Suspense)      | (content loads)      | —            | slide-up reveal       |
 ```
@@ -380,7 +391,23 @@ Wrap each **page component** (not layout) in a type-keyed VT:
 </ViewTransition>
 ```
 
-**Rules:** Always pair `enter` with `exit`. Always include `default: "none"`. Place in page components, not layouts. Only use directional slides for hierarchical navigation.
+Extract into a reusable component so every page doesn't repeat the type map:
+
+```jsx
+export function DirectionalTransition({ children }: { children: React.ReactNode }) {
+  return (
+    <ViewTransition
+      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
+      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
+      default="none"
+    >
+      {children}
+    </ViewTransition>
+  );
+}
+```
+
+**Rules:** Always pair `enter` with `exit`. Always include `default: "none"`. Place in page components, not layouts. Only use directional slides for hierarchical navigation or ordered sequences (prev/next).
 
 ## Step 5: Add Suspense Reveals
 
@@ -610,11 +637,11 @@ Imperative control via `onEnter`, `onExit`, `onUpdate`, `onShare`. Always return
 
 **"Two VTs with same name":** Names must be globally unique. Use IDs.
 
-**`router.back()` and browser back/forward skip animation:** `router.back()` triggers synchronous `popstate`, incompatible with view transitions. Use `router.push()` with an explicit URL. Browser back/forward buttons also skip — not fixable in app code.
+**`router.back()` and browser back/forward skip animation:** Use `router.push()` with an explicit URL instead.
 
 **Only updates animate:** Without `<Suspense>`, React treats swaps as updates. Conditionally render the VT itself, or wrap in `<Suspense>`.
 
-**Competing double animations:** Use `default="none"` on layout-level VTs.
+**Layout VT prevents page VTs from animating:** Nested VTs never fire enter/exit inside a parent VT. If your layout has a VT wrapping `{children}`, page-level enter/exit will silently not work. Remove the layout VT.
 
 **TS error "Property 'default' is missing":** Type-keyed objects require a `default` key.
 
@@ -761,6 +788,26 @@ Ready-to-use CSS for `<ViewTransition>` props. Copy into global stylesheet.
 }
 ```
 
+**Note:** Shared element transitions take raster snapshots. For text with significant size differences (e.g., `<h3>` → `<h1>`), the old snapshot gets scaled up, producing a visible ghost artifact. Use `text-morph` for text shared elements.
+
+## Text Morph
+
+Avoids raster scaling artifacts on text by hiding the old snapshot and showing the new text at full resolution:
+
+```css
+::view-transition-group(.text-morph) {
+  animation-duration: var(--duration-move);
+}
+::view-transition-old(.text-morph) {
+  display: none;
+}
+::view-transition-new(.text-morph) {
+  animation: none;
+  object-fit: none;
+  object-position: left top;
+}
+```
+
 ## Scale
 
 ```css
@@ -820,7 +867,7 @@ Ready-to-use CSS for `<ViewTransition>` props. Copy into global stylesheet.
 experimental: { viewTransition: true }
 ```
 
-Wraps every `<Link>` navigation in `document.startViewTransition`. Use `default="none"` to prevent competing animations. Next.js App Router internally uses React canary — no extra React install needed.
+Wraps every `<Link>` navigation in `document.startViewTransition`. Use `default="none"` to prevent competing animations. Do **not** install `react@canary` — the App Router already bundles it.
 
 ## Next.js Implementation Additions
 
@@ -836,7 +883,7 @@ Wraps every `<Link>` navigation in `document.startViewTransition`. Use `default=
 
 ## Layout-Level ViewTransition
 
-Don't add layout-level VT if pages have their own VTs. Layouts persist — enter/exit only fire on initial mount. Use `default="none"` on layout VTs.
+Don't add a layout-level VT wrapping `{children}` if pages have their own VTs — nested VTs never fire enter/exit inside a parent VT, so page-level enter/exit will silently not work. Remove the layout VT entirely. A bare VT in layout works only if pages have no VTs of their own. Layouts persist across navigations — don't use type-keyed maps in layouts.
 
 ## The `transitionTypes` Prop
 
@@ -850,6 +897,10 @@ Works in Server Components, no wrapper needed:
 ## `loading.tsx` as Suspense Boundary
 
 Next.js `loading.tsx` files are implicit `<Suspense>` boundaries. Wrap the skeleton in `<ViewTransition exit="...">` in `loading.tsx`, and the content in `<ViewTransition enter="..." default="none">` in the page. This is the Next.js-idiomatic equivalent of explicit `<Suspense fallback={...}>`. Same rules apply: use simple string props (not type maps) since Suspense reveals fire without transition types.
+
+## Server-Side Filtering with `router.replace`
+
+For search/sort/filter that re-renders on the server (via URL params), use `startTransition` + `router.replace`. VTs activate because the update is inside `startTransition`. List items wrapped in `<ViewTransition key={item.id}>` animate reorder. This is the server-component alternative to the client-side `useDeferredValue` pattern.
 
 ## Two-Layer Pattern (Directional + Suspense)
 
