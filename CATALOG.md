@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-03 06:37 UTC*
+*Last updated: 2026-04-04 06:31 UTC*
 
-Total skills: **2478**
+Total skills: **2482**
 
 ## Skills by Source
 
@@ -1233,9 +1233,11 @@ Total skills: **2478**
 | `antigravity-agent-orchestration-multi-agent-optimize` | Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orche... |
 | `antigravity-agent-orchestrator` | Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capac... |
 | `antigravity-agent-tool-builder` | You are an expert in the interface between LLMs and the outside world. You've seen tools that work b... |
+| `antigravity-agentflow` | Orchestrate autonomous AI development pipelines through your Kanban board (Asana, GitHub Projects, L... |
 | `antigravity-agentfolio` | Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFol... |
 | `antigravity-agentic-actions-auditor` | Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Cla... |
 | `antigravity-agentmail` | Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check... |
+| `antigravity-agentphone` | Build AI phone agents with AgentPhone API. Use when the user wants to make phone calls, send/receive... |
 | `antigravity-agents-md` | This skill should be used when the user asks to "create AGENTS.md", "update AGENTS.md", "maintain ag... |
 | `antigravity-agents-v2-py` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). U... |
 | `antigravity-ai-agent-development` | AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchest... |
@@ -1880,6 +1882,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-hugging-face-tool-builder` | Your purpose is now is to create reusable command line scripts and utilities for using the Hugging F... |
 | `antigravity-hugging-face-trackio` | Track ML experiments with Trackio using Python logging, alerts, and CLI metric retrieval. |
 | `antigravity-hugging-face-vision-trainer` | Train or fine-tune vision models on Hugging Face Jobs for detection, classification, and SAM or SAM2... |
+| `antigravity-humanize-chinese` | Detect and rewrite AI-like Chinese text with a practical workflow for scoring, humanization, academi... |
 | `antigravity-hybrid-cloud-architect` | Expert hybrid cloud architect specializing in complex multi-cloud solutions across AWS/Azure/GCP and... |
 | `antigravity-hybrid-cloud-networking` | Configure secure, high-performance connectivity between on-premises and cloud environments using VPN... |
 | `antigravity-hybrid-search-implementation` | Combine vector and keyword search for improved retrieval. Use when implementing RAG systems, buildin... |
@@ -2490,6 +2493,7 @@ calculations
 | `antigravity-using-neon` | Neon is a serverless Postgres platform that separates compute and storage to offer autoscaling, bran... |
 | `antigravity-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool in... |
 | `antigravity-uv-package-manager` | Comprehensive guide to using uv, an extremely fast Python package installer and resolver written in ... |
+| `antigravity-uxui-principles` | Evaluate interfaces against 168 research-backed UX/UI principles, detect antipatterns, and inject UX... |
 | `antigravity-variant-analysis` | Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when huntin... |
 | `antigravity-varlock` | Secure-by-default environment variable management for Claude Code sessions. |
 | `antigravity-varlock-claude-skill` | Secure environment variable management ensuring secrets are never exposed in Claude sessions, termin... |

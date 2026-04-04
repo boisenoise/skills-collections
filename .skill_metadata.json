@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-03T06:37:27.281076",
-  "skill_count": 2478,
+  "last_updated": "2026-04-04T06:31:41.756241",
+  "skill_count": 2482,
   "sources_processed": 19,
   "skills": [
     {
@@ -1015,6 +1015,14 @@
       "name": "antigravity-yann-lecun-filosofia",
       "original_name": "yann-lecun-filosofia",
       "description": "Sub-skill filos\u00f3fica e pedag\u00f3gica de Yann LeCun.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-humanize-chinese",
+      "original_name": "humanize-chinese",
+      "description": "Detect and rewrite AI-like Chinese text with a practical workflow for scoring, humanization, academic AIGC reduction, and style conversion. Use when the user asks to \u53bbAI\u5473, \u964dAIGC, \u53bb\u9664AI\u75d5\u8ff9, \u8bba\u6587\u964d\u91cd, \u77e5\u7f51\u68c0\u6d4b, \u7ef4\u666e\u68c0\u6d4b, humanize chinese, detect AI text, or make Chinese text sound more natural.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2108,6 +2116,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-agentphone",
+      "original_name": "agentphone",
+      "description": "Build AI phone agents with AgentPhone API. Use when the user wants to make phone calls, send/receive SMS, manage phone numbers, create voice agents, set up webhooks, or check usage \u2014 anything related to telephony, phone numbers, or voice AI.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-postmortem-writing",
       "original_name": "postmortem-writing",
       "description": "Comprehensive guide to writing effective, blameless postmortems that drive organizational learning and prevent incident recurrence.",
@@ -2287,6 +2303,14 @@
       "name": "antigravity-bamboohr-automation",
       "original_name": "bamboohr-automation",
       "description": "Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee updates. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-uxui-principles",
+      "original_name": "uxui-principles",
+      "description": "Evaluate interfaces against 168 research-backed UX/UI principles, detect antipatterns, and inject UX context into AI coding sessions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10239,6 +10263,14 @@
       "name": "antigravity-cc-skill-project-guidelines-example",
       "original_name": "cc-skill-project-guidelines-example",
       "description": "Project Guidelines Skill (Example)",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agentflow",
+      "original_name": "agentflow",
+      "description": "Orchestrate autonomous AI development pipelines through your Kanban board (Asana, GitHub Projects, Linear). Manages multi-worker Claude Code dispatch, deterministic quality gates, adversarial review, per-task cost tracking, and crash-proof pipeline execution.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
