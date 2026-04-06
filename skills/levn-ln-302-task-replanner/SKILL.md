@@ -17,7 +17,7 @@ Standalone-first worker for task replanning. It compares the ideal task plan wit
 
 Load these before execution:
 - `shared/references/coordinator_summary_contract.md`
-- `shared/references/tools_config_guide.md`
+- `shared/references/environment_state_contract.md`
 - `shared/references/storage_mode_detection.md`
 - `shared/references/template_loading_pattern.md`
 - `shared/references/destructive_operation_safety.md`

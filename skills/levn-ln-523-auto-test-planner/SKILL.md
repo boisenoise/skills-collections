@@ -41,7 +41,7 @@ Creates Story test task with comprehensive automated test coverage (E2E/Integrat
 
 ### Phase 0: Tools Config
 
-**MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
+**MANDATORY READ:** Load `shared/references/environment_state_contract.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
@@ -232,7 +232,7 @@ Write the summary to the provided artifact path or return the same envelope in s
 
 ## Reference Files
 
-- **Tools config:** `shared/references/tools_config_guide.md`
+- **Environment state:** `shared/references/environment_state_contract.md`
 - **Storage mode operations:** `shared/references/storage_mode_detection.md`
 - **Risk-based testing methodology:** `shared/references/risk_based_testing_guide.md`
 - **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`

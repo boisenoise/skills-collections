@@ -14,7 +14,7 @@
 | Root map | [AGENTS.md](../AGENTS.md), [CLAUDE.md](../CLAUDE.md) | Entry points |
 | Standards | [documentation_standards.md](documentation_standards.md) | Documentation rules |
 | Principles | [principles.md](principles.md) | Project development principles |
-| Tooling | [tools_config.md](tools_config.md) | Configured tools and providers |
+
 | Project docs | [project/requirements.md](project/requirements.md), [project/architecture.md](project/architecture.md), [project/tech_stack.md](project/tech_stack.md) | Core project knowledge |
 | Tasks | [tasks/README.md](tasks/README.md), [tasks/kanban_board.md](tasks/kanban_board.md) | Workflow and live task state |
 | Tests | [../tests/README.md](../tests/README.md), [reference/guides/testing-strategy.md](reference/guides/testing-strategy.md) | Testing map and strategy |

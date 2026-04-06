@@ -1,7 +1,7 @@
 ---
 name: ln-404-test-executor
 description: "Executes test tasks (label 'tests') through Todo to To Review with risk-based limits. Use for test task execution. Not for implementation tasks."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__directory_tree
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__read_file, mcp__hex-line__edit_file, mcp__hex-line__write_file, mcp__hex-line__verify, mcp__hex-line__changes, mcp__hex-line__inspect_path
 license: MIT
 ---
 
@@ -19,7 +19,9 @@ Runs a single Story final test task (label "tests") through implementation/execu
 - Enforce risk-based constraints: Priority ≥15 scenarios covered; each test passes Usefulness Criteria; no framework/DB/library/performance tests.
 - Update Linear/kanban for this task only: Todo -> In Progress -> To Review.
 
-**Hex-line acceleration (if available):** Use `outline(path)` before reading test targets. Use `directory_tree(path="tests/")` to understand test structure.
+**Hex-line acceleration (if available):** Use `outline(path)` before reading test targets. Use `inspect_path(path="tests/")` to understand test structure.
+Use `read_file()` and `edit_file()` as the primary path for test/code/config files. Use `verify()` and `changes()` before handoff. Built-in Read/Edit are fallback only when hex-line is unavailable.
+
 ## Inputs
 
 | Input | Required | Source | Description |
@@ -31,7 +33,7 @@ Runs a single Story final test task (label "tests") through implementation/execu
 
 ## Task Storage Mode
 
-**MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
+**MANDATORY READ:** Load `shared/references/environment_state_contract.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
@@ -136,7 +138,7 @@ Write `.hex-skills/runtime-artifacts/runs/{run_id}/task-status/{task_id}.json` b
 **Forbidden:** Using loose assertions to "make test pass" when exact value is known.
 
 ## Reference Files
-- **Tools config:** `shared/references/tools_config_guide.md`
+- **Environment state:** `shared/references/environment_state_contract.md`
 - **Storage mode operations:** `shared/references/storage_mode_detection.md`
 - Kanban format: `docs/tasks/kanban_board.md`
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`

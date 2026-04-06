@@ -5,7 +5,7 @@
 <!-- DOC_ROLE: canonical -->
 <!-- READ_WHEN: Read when creating, updating, auditing, or validating project documentation. -->
 <!-- SKIP_WHEN: Skip when you only need the project map or a specific project-domain fact. -->
-<!-- PRIMARY_SOURCES: docs/documentation_standards.md, docs/principles.md, docs/tools_config.md -->
+<!-- PRIMARY_SOURCES: docs/documentation_standards.md, docs/principles.md -->
 
 ## Quick Navigation
 
@@ -13,7 +13,7 @@
 |------|------|
 | Project map | [README.md](README.md) |
 | Principles behind the rules | [principles.md](principles.md) |
-| Tooling details | [tools_config.md](tools_config.md) |
+
 
 ## Agent Entry
 
@@ -22,7 +22,7 @@
 - Skip when: You only need a domain-specific project fact.
 - Canonical: Yes.
 - Read next: `principles.md` for rationale or the target doc you are editing.
-- Primary sources: `docs/documentation_standards.md`, `docs/principles.md`, `docs/tools_config.md`.
+- Primary sources: `docs/documentation_standards.md`, `docs/principles.md`.
 
 ## Critical Requirements
 

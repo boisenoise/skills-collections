@@ -1,7 +1,7 @@
 ---
 name: ln-624-code-quality-auditor
 description: "Checks cyclomatic complexity, nesting, long methods, god classes, O(n2), N+1 queries, constants management. Use when auditing code quality."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_hotspots, mcp__hex-graph__get_module_metrics, mcp__hex-line__outline
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__audit_workspace, mcp__hex-graph__analyze_architecture, mcp__hex-line__outline
 license: MIT
 ---
 
@@ -37,8 +37,8 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 2) **Scan codebase for violations (Layer 1)**
    - All Grep/Glob patterns use `scan_path` (not codebase_root)
    - **Graph acceleration (if available):** IF `contextStore.graph_indexed` OR `.hex-skills/codegraph/index.db` exists:
-     - **Complexity + God classes:** `find_hotspots(path=scan_path, min_complexity=10, min_callers=2)` -- returns top functions by complexity x callers. Use for CC, nesting, god class pre-identification.
-     - **Module metrics:** `get_module_metrics(path=scan_path)` -- Ca/Ce/Instability per module. Use for cascade depth and coupling analysis.
+     - **Complexity + God classes:** `audit_workspace(path=scan_path, detail_level="full")` -- use returned hotspots to pre-identify complex functions and god classes.
+     - **Module metrics:** `analyze_architecture(path=scan_path, detail_level="full")` -- use returned coupling metrics for cascade depth and coupling analysis.
      - Fall back to grep patterns below if graph unavailable.
      - **Outline-first read:** `outline(path)` before reading large source files -- understand function/class structure for complexity analysis.
    - Example: `Grep(pattern="if.*if.*if", path=scan_path)` for nesting detection

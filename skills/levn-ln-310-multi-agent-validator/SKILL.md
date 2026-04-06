@@ -47,12 +47,12 @@ Create TodoWrite items from phase headings below:
 
 ### Phase 0: Config + Runtime Start
 
-**MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, `shared/references/input_resolution_pattern.md`
+**MANDATORY READ:** Load `shared/references/environment_state_contract.md`, `shared/references/storage_mode_detection.md`, `shared/references/input_resolution_pattern.md`
 **MANDATORY READ:** Load `shared/references/review_runtime_contract.md`
 
-1. Detect `task_provider` from tools config.
-   - `mode=plan_review`: `tools_config.md` optional. If absent, use `task_provider = "N/A"`.
-   - `mode=story | mode=context`: `tools_config.md` required.
+1. Detect `task_provider` from `.hex-skills/environment_state.json`.
+   - `mode=plan_review`: `environment_state.json` optional. If absent, use `task_provider = "N/A"`.
+   - `mode=story | mode=context`: `environment_state.json` required.
 2. Resolve `mode`, `identifier`, and storage mode.
 3. Build runtime manifest with:
    - `storage_mode`
@@ -149,7 +149,7 @@ Common work:
 
 Checkpoint Phase 3 with audit/research summary.
 
-### Phase 4: Documentation (`mode=story` only)
+### Phase 4a: Documentation (`mode=story` only)
 
 **MANDATORY READ:** Load `shared/references/documentation_creation.md`, `references/domain_patterns.md`
 
@@ -169,7 +169,7 @@ Checkpoint Phase 3 with audit/research summary.
 
 For `mode=plan_review | mode=context`, checkpoint Phase 4 as `{"status":"skipped_by_mode"}`.
 
-### Phase 4: Auto-Fix (`mode=story` only)
+### Phase 4b: Auto-Fix (`mode=story` only)
 
 **MANDATORY READ per group:** Load the checklist as you execute each group.
 
@@ -235,7 +235,7 @@ node shared/scripts/review-runtime/cli.mjs sync-agent --skill ln-310
    >
    > **Process cleanup per iteration:** After each Codex call, extract `pid` from runner output and run `--verify-dead {pid}`. Codex processes accumulate on Windows if not killed. This is MANDATORY.
    >
-   > **Fresh session only:** NEVER use `--resume-session` in refinement. Each iteration = new Codex session. Clean previous iteration's result + log files before launching. Phase 2 session data pollutes context window.
+   > **Fresh session only:** NEVER use `--resume-session` in refinement. Each iteration = new Codex session in its own `iter{N}/` subdirectory. Phase 2 session data pollutes context window.
 3. Skip only with machine-readable reason:
    - disabled
    - unavailable in health check
@@ -326,7 +326,7 @@ Skill type: `review-coordinator` (with agents). Run after Phase 9 completes. Out
 
 ## Reference Files
 
-- Core config: `shared/references/tools_config_guide.md`, `storage_mode_detection.md`, `input_resolution_pattern.md`, `plan_mode_pattern.md`
+- Core config: `shared/references/environment_state_contract.md`, `storage_mode_detection.md`, `input_resolution_pattern.md`, `plan_mode_pattern.md`
 - Runtime: `shared/references/review_runtime_contract.md`, `shared/scripts/review-runtime/cli.mjs`
 - Validation criteria: `references/phase2_research_audit.md`, `references/penalty_points.md`
 - Validation checklists: `references/structural_validation.md`, `standards_validation.md`, `solution_validation.md`, `workflow_validation.md`, `quality_validation.md`, `dependency_validation.md`, `risk_validation.md`, `cross_reference_validation.md`, `premortem_validation.md`, `traceability_validation.md`

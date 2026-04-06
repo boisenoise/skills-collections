@@ -104,7 +104,7 @@ Run-scoped worker artifacts:
 5. Auto-discover Team ID from [docs/tasks/kanban_board.md](../../docs/tasks/kanban_board.md)
 6. **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
    - `index_project(path=codebase_root)` -- builds/refreshes code graph
-   - Add `graph_indexed: true` to contextStore for workers (ln-634 uses find_hotspots for critical path identification)
+   - Add `graph_indexed: true` to contextStore for workers (ln-634 uses audit_workspace for critical path identification)
 
 **Output:** `testFilesMetadata` -- list of test files with basic stats and `type` field
 

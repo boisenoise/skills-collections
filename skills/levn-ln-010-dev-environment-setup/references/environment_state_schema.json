@@ -8,6 +8,16 @@
       "type": "object",
       "required": ["codex", "gemini"],
       "properties": {
+        "claude": {
+          "type": "object",
+          "required": ["available"],
+          "properties": {
+            "available": { "type": "boolean" },
+            "disabled": { "type": "boolean" },
+            "version": { "type": "string" },
+            "detail": { "type": "string" }
+          }
+        },
         "codex": {
           "type": "object",
           "required": ["available"],
@@ -17,6 +27,7 @@
             "version": { "type": "string" },
             "config_synced": { "type": "boolean" },
             "servers_synced": { "type": "integer" },
+            "sync_actions": { "type": "array", "items": { "type": "string" } },
             "detail": { "type": "string" }
           }
         },
@@ -30,9 +41,39 @@
             "config_synced": { "type": "boolean" },
             "servers_synced": { "type": "integer" },
             "hooks_synced": { "type": "integer" },
+            "sync_actions": { "type": "array", "items": { "type": "string" } },
             "detail": { "type": "string" }
           }
         }
+      }
+    },
+    "task_management": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string", "enum": ["linear", "file", "github"] },
+        "status": { "type": "string" },
+        "fallback": { "type": "string", "enum": ["file"] },
+        "linear": {
+          "type": "object",
+          "properties": {
+            "team_id": { "type": "string" }
+          }
+        },
+        "github": {
+          "type": "object",
+          "properties": {
+            "repository": { "type": "string" },
+            "project_number": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "research": {
+      "type": "object",
+      "properties": {
+        "provider": { "type": "string" },
+        "fallback_chain": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string" }
       }
     },
     "claude_md": {
@@ -40,23 +81,20 @@
       "properties": {
         "exists": { "type": "boolean" },
         "has_compact_instructions": { "type": "boolean" },
+        "has_mcp_preferences": { "type": "boolean" },
+        "has_date_stamp": { "type": "boolean" },
         "line_count": { "type": "integer" },
         "has_timestamps": { "type": "boolean" }
       }
     },
-    "best_practices": {
-      "type": "object",
-      "properties": {
-        "score": { "type": "string" },
-        "warnings": { "type": "array", "items": { "type": "string" } },
-        "info": { "type": "array", "items": { "type": "string" } }
-      }
-    },
-    "last_assessment": {
+    "assessment": {
       "type": "object",
       "properties": {
         "assessed_at": { "type": "string", "format": "date-time" },
         "all_green": { "type": "boolean" },
+        "score": { "type": "string" },
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "info": { "type": "array", "items": { "type": "string" } },
         "workers_run": { "type": "array", "items": { "type": "string" } },
         "workers_skipped": { "type": "array", "items": { "type": "string" } }
       }

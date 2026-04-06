@@ -37,7 +37,7 @@ Stories appear under Epic headers with 2-space indent and book emoji:
 | **Linear** | `^\s{2}-\s+.*\[([A-Z]+-\d+):\s+(.+?)\]\((.+?)\)(.*)$` | `PROJ-42` (with dash) |
 | **File** | `^\s{2}-\s+.*\[([A-Z]+\d+):\s+(.+?)\]\((.+?)\)(.*)$` | `US001` (no dash) |
 
-Select regex based on `storage_mode` from `docs/tools_config.md` (detected in Phase 0).
+Select regex based on `storage_mode` from `.hex-skills/environment_state.json` (detected in Phase 0).
 
 Captures: StoryId (group 1), Title (group 2), URL (group 3), Markers (group 4)
 

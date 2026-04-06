@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-05T06:36:08.383079",
+  "last_updated": "2026-04-06T06:50:42.947710",
   "skill_count": 2510,
   "sources_processed": 19,
   "skills": [
@@ -18414,7 +18414,7 @@
     {
       "name": "levn-ln-111-root-docs-creator",
       "original_name": "ln-111-root-docs-creator",
-      "description": "Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles, tools config). Use for initial project doc setup.",
+      "description": "Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles). Use for initial project doc setup.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

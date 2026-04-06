@@ -1,7 +1,7 @@
 ---
 name: ln-403-task-rework
 description: "Fixes tasks in To Rework by applying reviewer feedback, then returns to To Review. Use when task was rejected during review."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__verify, mcp__hex-line__changes
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__read_file, mcp__hex-line__edit_file, mcp__hex-line__write_file, mcp__hex-line__verify, mcp__hex-line__changes, mcp__hex-line__inspect_path
 license: MIT
 ---
 
@@ -21,6 +21,8 @@ Executes rework for a single task marked To Rework and hands it back for review.
 **Hex-line acceleration (if available):** Use `outline(path)` before reading large code files. After edits: `edit_file(base_revision=rev)` → `verify(checksums)`. Use `changes()` to show what was fixed.
 ## Inputs
 
+Use `read_file()` and `edit_file()` as the primary path for code/config/script/test files during rework. Built-in Read/Edit are fallback only when hex-line is unavailable.
+
 | Input | Required | Source | Description |
 |-------|----------|--------|-------------|
 | `taskId` | Yes | args, parent Story, kanban, user | Task to rework |
@@ -30,7 +32,7 @@ Executes rework for a single task marked To Rework and hands it back for review.
 
 ## Task Storage Mode
 
-**MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
+**MANDATORY READ:** Load `shared/references/environment_state_contract.md`, `shared/references/storage_mode_detection.md`, and `shared/references/input_resolution_pattern.md`
 
 Extract: `task_provider` = Task Management → Provider (`linear` | `file`).
 
@@ -76,7 +78,7 @@ Write `.hex-skills/runtime-artifacts/runs/{run_id}/task-status/{task_id}.json` b
 - [ ] Runtime summary artifact written to the shared task-status location.
 
 ## Reference Files
-- **Tools config:** `shared/references/tools_config_guide.md`
+- **Environment state:** `shared/references/environment_state_contract.md`
 - **Storage mode operations:** `shared/references/storage_mode_detection.md`
 - **[MANDATORY] Problem-solving approach:** `shared/references/problem_solving.md`
 - Kanban format: `docs/tasks/kanban_board.md`

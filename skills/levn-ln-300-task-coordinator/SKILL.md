@@ -1,6 +1,7 @@
 ---
 name: ln-300-task-coordinator
 description: "Analyzes Story and builds optimal task plan (1-8 tasks), then routes to create or replan. Use when Story needs task breakdown or replanning."
+allowed-tools: Read, Grep, Glob, Bash, Skill, mcp__hex-graph__index_project, mcp__hex-graph__analyze_architecture, mcp__hex-graph__find_symbols, mcp__hex-graph__inspect_symbol
 license: MIT
 ---
 
@@ -19,10 +20,12 @@ Load these before execution:
 - `shared/references/coordinator_runtime_contract.md`
 - `shared/references/task_planning_runtime_contract.md`
 - `shared/references/coordinator_summary_contract.md`
-- `shared/references/tools_config_guide.md`
+- `shared/references/environment_state_contract.md`
 - `shared/references/storage_mode_detection.md`
 - `shared/references/problem_solving.md`
 - `shared/references/creation_quality_checklist.md`
+- `shared/references/mcp_tool_preferences.md`
+- `shared/references/mcp_integration_patterns.md`
 
 ## Purpose
 
@@ -69,6 +72,11 @@ Resolve Story and collect only the inputs required for task planning:
 - Technical Notes
 - Context
 - task provider
+- For Stories that modify existing code in supported languages, build graph context once:
+  - `index_project(path=project_root)`
+  - `analyze_architecture(path=project_root, detail_level="compact")`
+  - `find_symbols` + `inspect_symbol` for named components from Story AC or Technical Notes
+- Use graph context to confirm real affected modules and entrypoints before decomposition
 
 Checkpoint payload:
 - `discovery_ready`
@@ -83,6 +91,10 @@ Rules:
 - no tests or refactoring tasks here
 - preserve foundation-first order
 - assign meaningful verification intent
+- when graph context exists, use it to:
+  - split tasks by actual modules or symbol ownership, not guessed file groups
+  - keep dependency order aligned with real callers, framework entrypoints, and public APIs
+  - enrich Affected Components with real modules/symbols returned by graph analysis
 
 Checkpoint payload:
 - `ideal_plan_summary`
@@ -195,6 +207,8 @@ Skill(skill: "ln-302-task-replanner", args: "{storyId}")
 - Do not create test or refactoring tasks in this skill.
 - Do not keep approval state in chat-only form.
 - Consume worker summaries, not free-text worker prose.
+- If Story affects existing code and hex-graph is available, do one graph discovery pass before decomposition.
+- Use graph output to reduce planning ambiguity; do not invent affected components when symbol or module evidence is available.
 
 ## Definition of Done
 

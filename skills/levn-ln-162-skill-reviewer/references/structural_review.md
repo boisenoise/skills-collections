@@ -44,6 +44,7 @@ Imperative actions in workflow steps (Launch, Run, Execute, Call) that depend on
 - Status transitions consistent (who sets which status)
 - Rules about same concept do not conflict between caller and callee
 - Verdict names and categories match across prompt templates, workflows, SKILL.md files
+- MCP primary/fallback ordering is consistent with `shared/references/mcp_applicability_matrix.md`
 
 ## D5: Context Economy
 - No large inline blocks that could be conditional MANDATORY READs
@@ -76,6 +77,10 @@ Imperative actions in workflow steps (Launch, Run, Execute, Call) that depend on
 - `## Definition of Done` section present (all skills -- L1, L2, L3) with items as checkboxes (`- [ ]`)
 - `## Meta-Analysis` phase present with `MANDATORY READ` to `shared/references/meta_analysis_protocol.md` (L1 orchestrators and L2 coordinators only)
 - Publishing skills (contain `gh api graphql.*mutation` or `gh issue comment`) must have: a Fact-Check phase AND `MANDATORY READ` to `shared/references/humanizer_checklist.md`
+- Skills that edit code/config/scripts must load `shared/references/mcp_tool_preferences.md` and make `hex-line` primary
+- Skills that depend on semantic code reasoning must load `shared/references/mcp_tool_preferences.md` plus `shared/references/mcp_integration_patterns.md` and make `hex-graph` primary
+- Skills in non-code or non-semantic families must not cargo-cult `hex-graph` or `hex-line` requirements without a real workflow need
+- Wrong MCP namespaces (`mcp__hex_graph__...`) are FAIL, not WARN
 
 ## D8: Architecture Conformance
 - SKILL.md <= 800 lines total

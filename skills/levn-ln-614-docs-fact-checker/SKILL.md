@@ -1,7 +1,7 @@
 ---
 name: ln-614-docs-fact-checker
 description: "Verifies claims in .md files (paths, versions, counts, configs, endpoints) against codebase, cross-checks contradictions. Use when auditing docs accuracy."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex_graph__index_project, mcp__hex_graph__search_symbols, mcp__hex_graph__find_references
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__read_file, mcp__hex-graph__index_project, mcp__hex-graph__find_symbols, mcp__hex-graph__find_references
 license: MIT
 ---
 
@@ -25,7 +25,7 @@ Specialized worker that extracts verifiable claims from documentation and valida
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`, `shared/references/docs_quality_contract.md`, `shared/references/docs_quality_rules.json`, and `shared/references/markdown_read_protocol.md`.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`, `shared/references/docs_quality_contract.md`, `shared/references/docs_quality_rules.json`, `shared/references/markdown_read_protocol.md`, `shared/references/mcp_tool_preferences.md`, and `shared/references/mcp_integration_patterns.md`.
 
 Receives `contextStore` with: `tech_stack`, `project_root`, `output_dir`.
 
@@ -53,6 +53,8 @@ If `docs/project/.context/doc_registry.json` exists:
 **MANDATORY READ:** Load `shared/references/two_layer_detection.md` for detection methodology.
 
 For each prioritized document, use section-first reads to extract verifiable claims using Grep/regex patterns.
+
+For code files referenced by docs, use `outline()` and `read_file()` before built-in reads. Use `hex-graph` only when entity identity or reference resolution remains ambiguous after direct manifest/file checks.
 
 **MANDATORY READ:** Load [references/claim_extraction_rules.md](references/claim_extraction_rules.md) for detailed extraction patterns per claim type.
 
@@ -190,7 +192,7 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Cross-doc matters:** Contradictions between documents erode trust more than single-doc errors
 - **Batch efficiently:** Extract all claims first, then verify in batches by type (all paths together, all versions together)
 - **Shared placeholder policy:** Respect allowlisted setup placeholders from `docs_quality_rules.json`; do not escalate them in task setup docs
-- **Use hex-graph when useful:** For code entities and references, prefer graph queries over repeated grep when it reduces ambiguity
+- **Use hex-graph only for semantic ambiguity:** For code entities and references, prefer graph queries over repeated grep only when direct manifest/file checks leave symbol identity or reference resolution ambiguous
 
 ## Definition of Done
 

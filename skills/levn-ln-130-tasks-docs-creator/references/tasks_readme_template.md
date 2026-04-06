@@ -4,14 +4,14 @@
 <!-- DOC_ROLE: canonical -->
 <!-- READ_WHEN: Read when you need the task system workflow, state transitions, and provider rules. -->
 <!-- SKIP_WHEN: Skip when you only need the live board or a specific task artifact. -->
-<!-- PRIMARY_SOURCES: docs/tools_config.md, docs/tasks/kanban_board.md, docs/reference/guides/testing-strategy.md -->
+<!-- PRIMARY_SOURCES: .hex-skills/environment_state.json, docs/tasks/kanban_board.md, docs/reference/guides/testing-strategy.md -->
 <!-- SCOPE: Task tracking system workflow and rules ONLY. Contains task lifecycle, naming conventions, and integration rules. -->
 <!-- DO NOT add here: actual task details → task files, kanban status → kanban_board.md, implementation guides → guides/ -->
 
 ## Quick Navigation
 
 - [Kanban Board](kanban_board.md)
-- [Tools Config](../tools_config.md)
+- [Tools Config](../environment_state.json)
 - [Testing Strategy](../reference/guides/testing-strategy.md)
 
 ## Agent Entry
@@ -22,8 +22,8 @@
 | Read When | You need workflow rules, provider behavior, or task lifecycle guidance. |
 | Skip When | You only need the current active items. |
 | Canonical | Yes |
-| Next Docs | [Kanban Board](kanban_board.md), [Tools Config](../tools_config.md), [Testing Strategy](../reference/guides/testing-strategy.md) |
-| Primary Sources | docs/tools_config.md, docs/tasks/kanban_board.md, docs/reference/guides/testing-strategy.md |
+| Next Docs | [Kanban Board](kanban_board.md), [Tools Config](../environment_state.json), [Testing Strategy](../reference/guides/testing-strategy.md) |
+| Primary Sources | .hex-skills/environment_state.json, docs/tasks/kanban_board.md, docs/reference/guides/testing-strategy.md |
 
 ---
 
@@ -41,7 +41,7 @@ docs/tasks/
 
 > [!NOTE]
 
-> All task tracking (Epics, User Stories, Tasks) follows the provider configured in docs/tools_config.md. The task provider is the single source of truth.
+> All task tracking (Epics, User Stories, Tasks) follows the provider configured in .hex-skills/environment_state.json. The task provider is the single source of truth.
 
 **Live Navigation**: [Kanban Board](kanban_board.md)
 
@@ -111,7 +111,7 @@ Backlog/Postponed → Todo → In Progress → To Review → Done
 
 ### Rule 1: Task Provider Integration
 
-**CRITICAL**: Use the task provider configured in `docs/tools_config.md` for all task operations.
+**CRITICAL**: Use the task provider configured in `.hex-skills/environment_state.json` for all task operations.
 
 **Linear Mode** (`provider: linear`):
 - Use ONLY `mcp__linear-server__*` methods
@@ -309,7 +309,7 @@ Core documentation:
 
 ## Task Provider Operations Reference
 
-> Operations vary by provider configured in `docs/tools_config.md`. See `shared/references/storage_mode_detection.md` for complete operation tables.
+> Operations vary by provider configured in `.hex-skills/environment_state.json`. See `shared/references/storage_mode_detection.md` for complete operation tables.
 
 ### Epic Operations
 

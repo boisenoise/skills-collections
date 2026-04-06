@@ -33,7 +33,7 @@ Runtime-backed gate coordinator. Owns fast-track routing, quality/test summaries
 
 ## Runtime Contract
 
-**MANDATORY READ:** Load `shared/references/tools_config_guide.md`, `shared/references/storage_mode_detection.md`, `shared/references/input_resolution_pattern.md`
+**MANDATORY READ:** Load `shared/references/environment_state_contract.md`, `shared/references/storage_mode_detection.md`, `shared/references/input_resolution_pattern.md`
 **MANDATORY READ:** Load `shared/references/coordinator_runtime_contract.md`, `shared/references/story_gate_runtime_contract.md`, `shared/references/coordinator_summary_contract.md`
 **MANDATORY READ:** Load `shared/references/git_worktree_fallback.md`
 **MANDATORY READ:** Load `references/minimum_quality_checks.md`

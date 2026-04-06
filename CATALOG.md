@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-04-05 06:36 UTC*
+*Last updated: 2026-04-06 06:50 UTC*
 
 Total skills: **2510**
 
@@ -995,7 +995,7 @@ Total skills: **2510**
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
-| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles, tools... |
+| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles). Use ... |
 | `levn-ln-112-project-core-creator` | Creates core project docs (requirements, architecture, tech stack, patterns catalog). Use for any pr... |
 | `levn-ln-113-backend-docs-creator` | Creates backend docs (api_spec.md, database_schema.md). Use when project has backend API or database... |
 | `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md with WCAG 2.1 compliance and design system docs. Use when project has a... |

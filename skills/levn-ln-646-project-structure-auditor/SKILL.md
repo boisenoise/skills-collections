@@ -1,7 +1,7 @@
 ---
 name: ln-646-project-structure-auditor
 description: "Checks file hygiene, ignore files, framework conventions, domain/layer organization, naming. Use when auditing project structure."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__get_architecture
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__analyze_architecture
 license: MIT
 model: claude-haiku-4-5
 ---

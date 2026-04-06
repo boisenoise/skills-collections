@@ -1,7 +1,7 @@
 ---
 name: ln-510-quality-coordinator
 description: "Coordinates code quality checks: metrics, cleanup, agent review, regression, log analysis. Use when Story needs quality_verdict with aggregated results."
-allowed-tools: Read, Grep, Glob, Bash, Skill, mcp__hex-graph__index_project
+allowed-tools: Read, Grep, Glob, Bash, Skill, mcp__hex-graph__index_project, mcp__hex-graph__analyze_changes
 license: MIT
 ---
 
@@ -82,7 +82,8 @@ Worker summary contract:
 4) **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
    - `index_project(path=codebase_root)` — builds/refreshes code graph for workers
    - Add `graph_indexed: true` to coordinator context for ln-511
-   - Workers use graph tools (find_clones, find_hotspots, etc.) when graph_indexed=true
+   - Workers use graph tools (`audit_workspace`, `analyze_architecture`, `find_references`, `trace_paths`) when graph_indexed=true
+   - If indexing fails or graph path is unavailable, record `graph_indexed: false` and continue without graph-backed evidence
 
 **Fast-track mode:** When invoked with `--fast-track` flag (readiness 10/10), run Phase 2 with `--skip-mcp-ref` (metrics + static only, no MCP Ref), skip Phase 3 (ln-512), run Phase 4 with **1 agent minimum** (reduced from 2). Run Phase 5 (criteria), Phase 6 (linters), Phase 7 (ln-513), Phase 8 (ln-514).
 
@@ -195,6 +196,9 @@ Skill(skill: "ln-514-test-log-analyzer", args: "review logs since test run start
 9b) **Critical Verification** per shared workflow — Claude evaluates each suggestion on merits
 9c) **Merge accepted suggestions** into issues list (SEC-, PERF-, MNT-, ARCH-, BP-, OPT-)
     - If `area=security` or `area=correctness` → escalate aggregate to CONCERNS
+9c.1) **Semantic diff snapshot (if graph indexed):**
+    - Run `analyze_changes(path=codebase_root, base_ref="HEAD~1")` to capture changed symbols, deleted API warnings, and high-risk items for the current review branch state
+    - Merge semantic diff findings into the same issue list before final verdict calculation
 9d) **Save review summary** to `.hex-skills/agent-review/review_history.md`
 9e) Checkpoint merge summary in review runtime
 

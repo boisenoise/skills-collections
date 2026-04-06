@@ -1,7 +1,7 @@
 ---
 name: ln-626-dead-code-auditor
 description: "Checks unreachable code, unused imports/variables/functions, commented-out code, deprecated patterns. Use when auditing dead code."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__index_project, mcp__hex-graph__find_unused_exports
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__index_project, mcp__hex-graph__audit_workspace
 license: MIT
 ---
 
@@ -32,7 +32,7 @@ Receives `contextStore` with tech stack, codebase root, output_dir.
 
 1) Parse context + output_dir
 2) Run dead code detection (Layer 1: linters, grep)
-   - **Graph-capable projects:** For JavaScript, TypeScript/TSX, Python, C#, and PHP, use `index_project` then `find_unused_exports` as primary detection for unused exports when graph indexing is available.
+   - **Graph-capable projects:** For JavaScript, TypeScript/TSX, Python, C#, and PHP, use `index_project` then `audit_workspace(detail_level="full")` as primary detection for unused exports when graph indexing is available.
    - Keep grep/linter fallback for unsupported languages, graph-unavailable runs, and checks outside export liveness.
 3) Analyze context per candidate (Layer 2):
    - Unused functions: used via dynamic import/reflection? Exported in public API? Used in other packages (monorepo)?

@@ -1,7 +1,7 @@
 ---
 name: ln-640-pattern-evolution-auditor
 description: "Audits architectural patterns against best practices, maintains patterns catalog with compliance scores. Use when auditing pattern evolution."
-allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill, mcp__hex-graph__index_project, mcp__hex-graph__search_symbols, mcp__hex-graph__find_implementations
+allowed-tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, mcp__Ref, mcp__context7, Skill, mcp__hex-graph__index_project, mcp__hex-graph__find_symbols, mcp__hex-graph__find_implementations
 license: MIT
 ---
 
@@ -123,7 +123,7 @@ All delegations use Agent with `subagent_type: "general-purpose"`. Keep Phase 4 
 4. **Index codebase graph (if available):** IF `hex-graph` MCP server is available:
    - `index_project(path=codebase_root)` -- builds/refreshes code graph
    - Add `graph_indexed: true` to contextStore for workers (ln-641 uses find_implementations, ln-642 uses trace_paths/find_references)
-   - **Graph-assisted pattern discovery:** `search_symbols(query=GoF_suffix, kind="class")` -- find Factory*, Builder*, Strategy* etc. by structure, not just name. `find_implementations(symbol)` -- discover all implementations of abstract/interface classes.
+  - **Graph-assisted pattern discovery:** `find_symbols(query=GoF_suffix, kind="class")` -- name-based discovery for classes like Factory*, Builder*, Strategy*. `find_implementations(symbol)` -- discover concrete implementations after exact symbol selection. Structural pattern detection still needs grep/manual verification.
 
 ### Phase 1b: Adaptive Discovery
 
@@ -609,7 +609,7 @@ Skill type: `review-coordinator` (workers only). Run after all phases complete. 
 - Project structure audit: `../ln-646-project-structure-auditor/SKILL.md`
 - Env config audit: `../ln-647-env-config-auditor/SKILL.md`
 - **MANDATORY READ:** `shared/references/research_tool_fallback.md`
-- **MANDATORY READ:** `shared/references/tools_config_guide.md`
+- **MANDATORY READ:** `shared/references/environment_state_contract.md`
 - **MANDATORY READ:** `shared/references/storage_mode_detection.md`
 
 ---

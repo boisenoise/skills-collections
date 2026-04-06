@@ -21,7 +21,7 @@ Scan context (conversation history + git diff) for technology decision signals. 
 Priority order for `query_prefix`:
 
 1. Conversation context (technology mentions) → use directly
-2. `docs/tools_config.md` Research section → extract stack hints
+2. `.hex-skills/environment_state.json` research section → extract stack hints
 3. Glob for indicator files:
 
 | Indicator | Stack | Query Prefix |

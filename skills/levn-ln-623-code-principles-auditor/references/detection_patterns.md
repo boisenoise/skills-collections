@@ -19,7 +19,7 @@ Before scanning, exclude false-positive sources:
 
 ### 1.1 Identical Code Duplication
 
-**Preferred:** Use `find_clones(type="exact")` — see `two_layer_detection.md` § Layer 1 Acceleration. Fall back to Grep patterns below when hex-graph unavailable.
+**Preferred:** Use `audit_workspace(detail_level="full")` and inspect returned clone groups for exact matches — see `two_layer_detection.md` § Layer 1 Acceleration. Fall back to Grep patterns below when hex-graph unavailable.
 
 
 **Strategy:** Find functions/methods with identical names in different files, then Read bodies to confirm duplication.
@@ -72,7 +72,7 @@ Before scanning, exclude false-positive sources:
 
 ### 1.4 Similar Code Patterns (Structural Similarity)
 
-**Preferred:** Use `find_clones(type="normalized")` for renamed clones, `find_clones(type="near_miss")` for structural similarity — see `two_layer_detection.md` § Layer 1 Acceleration. Fall back to Grep patterns below when hex-graph unavailable.
+**Preferred:** Use `audit_workspace(detail_level="full")` and inspect returned clone groups for `normalized` or `near_miss` matches — see `two_layer_detection.md` § Layer 1 Acceleration. Fall back to Grep patterns below when hex-graph unavailable.
 
 
 **Strategy:** Find functions with similar names/prefixes, then compare call sequences.

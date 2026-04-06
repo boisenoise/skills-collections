@@ -51,7 +51,7 @@ Read target project files if they exist: `docs/project/infrastructure.md`, `docs
 |------|-----------|--------|
 | `docker` | `docker compose ps` returns running containers | `docker compose logs --since {window}` |
 | `file` | `.log` files exist, or `tests/manual/results/` has output | File paths from infrastructure.md or `*.log` glob |
-| `loki` | `LOKI_URL` env var or `tools_config.md` observability section | Loki HTTP query_range API |
+| `loki` | `LOKI_URL` env var or `environment_state.json` observability section | Loki HTTP query_range API |
 
 3) Run script: `node scripts/analyze_test_logs.mjs --mode {detected} [options]`
 4) If no log sources found → return `NO_LOG_SOURCES` status, skip to Phase 5.

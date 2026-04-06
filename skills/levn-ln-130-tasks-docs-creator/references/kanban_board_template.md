@@ -1,11 +1,11 @@
 # Task Navigation
 
-<!-- SCOPE: Quick navigation to active tasks. Links point to Linear (if provider=linear) or local files (if provider=file). Per docs/tools_config.md. -->
+<!-- SCOPE: Quick navigation to active tasks. Links point to Linear (if provider=linear) or local files (if provider=file). Per .hex-skills/environment_state.json. -->
 <!-- DOC_KIND: how-to -->
 <!-- DOC_ROLE: working -->
 <!-- READ_WHEN: Read when you need the current board, provider setup, or epic/story/task navigation. -->
 <!-- SKIP_WHEN: Skip when you only need workflow policy or template rules. -->
-<!-- PRIMARY_SOURCES: docs/tools_config.md, docs/tasks/README.md, task provider -->
+<!-- PRIMARY_SOURCES: .hex-skills/environment_state.json, docs/tasks/README.md, task provider -->
 <!-- DO NOT add here: task descriptions, implementation notes, workflow rules -> tasks/README.md -->
 
 > **Last Updated**: [YYYY-MM-DD] (Hierarchical format: Status -> Epic -> Story -> Tasks)
@@ -13,7 +13,7 @@
 ## Quick Navigation
 
 - [Task Rules](./README.md)
-- [Tools Config](../tools_config.md)
+- [Tools Config](../environment_state.json)
 - [Testing Strategy](../reference/guides/testing-strategy.md)
 
 ## Agent Entry
@@ -24,14 +24,14 @@
 | Read When | You need current epics, stories, tasks, or provider coordinates. |
 | Skip When | You only need lifecycle policy or documentation standards. |
 | Canonical | No, this is a working document |
-| Next Docs | [Task Rules](./README.md), [Tools Config](../tools_config.md) |
-| Primary Sources | `docs/tools_config.md`, `docs/tasks/README.md`, task provider |
+| Next Docs | [Task Rules](./README.md), [Tools Config](../environment_state.json) |
+| Primary Sources | `.hex-skills/environment_state.json`, `docs/tasks/README.md`, task provider |
 
 ---
 
 ## Provider Configuration
 
-**Task provider:** Per `docs/tools_config.md` -> Task Management -> Provider
+**Task provider:** Per `.hex-skills/environment_state.json` -> Task Management -> Provider
 
 <!-- IF provider=linear: fill Linear Configuration below. IF provider=file: delete Linear Configuration, keep only Common Configuration. -->
 
@@ -161,4 +161,4 @@
 ## Related Documentation
 
 - [tasks/README.md](./README.md) - Task system workflow and rules
-- [docs/tools_config.md](../tools_config.md) - Provider configuration
+- [.hex-skills/environment_state.json](../environment_state.json) - Provider configuration

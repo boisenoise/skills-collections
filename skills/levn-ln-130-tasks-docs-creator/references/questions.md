@@ -31,7 +31,7 @@
 
 **Rules for this document:**
 - Must have SCOPE tag in first 10 lines
-- Must explain task provider integration (per docs/tools_config.md)
+- Must explain task provider integration (per .hex-skills/environment_state.json)
 - Must document state transitions and review criteria
 - Must list available task templates
 
@@ -40,12 +40,12 @@
 <!-- QUESTION_START: 1 -->
 ### Question 1: How is the task provider integrated into the task management system?
 
-**Expected Answer:** Provider configuration (per docs/tools_config.md), issue statuses (Backlog, Todo, In Progress, To Review, Done), label conventions, task provider operations reference, workflow configuration
+**Expected Answer:** Provider configuration (per .hex-skills/environment_state.json), issue statuses (Backlog, Todo, In Progress, To Review, Done), label conventions, task provider operations reference, workflow configuration
 
 **Target Section:** ## Core Concepts, ## Critical Rules, ## Task Provider Operations Reference
 
 **Validation Heuristics:**
-- ✅ Contains "task provider" or "tools_config" → pass
+- ✅ Contains "task provider" or "environment_state" → pass
 - ✅ Has workflow states: Backlog, Todo, In Progress, To Review, Done → pass
 - ✅ Has "Task Provider Operations" section with operation tables → pass
 - ✅ Length > 100 words → pass
@@ -132,7 +132,7 @@
 <!-- QUESTION_START: 1 -->
 ### Question 1: What is the task provider configuration?
 
-**Expected Answer:** Provider type (linear/file per tools_config.md). If Linear: Team Name, Team UUID, Team Key, Workspace URL. Always: Next Epic Number (≥1), Next Story Number (≥1)
+**Expected Answer:** Provider type (linear/file per environment_state.json). If Linear: Team Name, Team UUID, Team Key, Workspace URL. Always: Next Epic Number (≥1), Next Story Number (≥1)
 
 **Target Section:** ## Provider Configuration, ## Epic Story Counters
 
@@ -154,7 +154,7 @@
 
 **Provider Detection:**
 ```
-1. Read docs/tools_config.md → task_provider
+1. Read .hex-skills/environment_state.json → task_provider
 2. IF task_provider == "linear":
    - Check for placeholders: [TEAM_NAME], [TEAM_UUID], [TEAM_KEY]
    - If ANY placeholder → Interactive Setup Mode (Linear)

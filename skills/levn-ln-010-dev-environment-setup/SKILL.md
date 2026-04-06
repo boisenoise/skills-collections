@@ -22,7 +22,6 @@ Load these before execution:
 - `shared/references/coordinator_summary_contract.md`
 - `shared/references/environment_state_contract.md`
 - `shared/references/environment_state_schema.json`
-- `shared/references/tools_config_guide.md`
 
 ## When to Use
 
@@ -69,10 +68,12 @@ Collect one environment snapshot:
 - config sync state
 - instruction file state
 - disabled flags from `.hex-skills/environment_state.json` if present
+- task management provider detection (Linear → GitHub → file)
+- research tool detection (Ref → Context7 → websearch)
+- git worktree availability
 
 Checkpoint payload:
 - `assess_summary`
-
 ### Phase 2: Dispatch Plan
 
 Build selective dispatch plan. Only invoke workers that have work.
@@ -119,6 +120,8 @@ Checkpoint payload:
 
 Write final durable state to:
 - `.hex-skills/environment_state.json`
+
+Includes all detected sections: agents (with sync status), task_management, research, claude_md, assessment, hooks.
 
 Rules:
 - runtime state is not environment state
@@ -204,5 +207,5 @@ Skill type: `domain-coordinator`. Run after all phases complete. Output to chat 
 
 ---
 
-**Version:** 5.0.0
-**Last Updated:** 2026-03-24
+**Version:** 6.0.0
+**Last Updated:** 2026-04-05

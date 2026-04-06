@@ -1,7 +1,7 @@
 ---
 name: ln-623-code-principles-auditor
 description: "Checks DRY, KISS/YAGNI, error handling, DI patterns. Use when auditing code principles compliance."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_clones, mcp__hex-graph__find_implementations, mcp__hex-graph__find_hotspots, mcp__hex-line__outline
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__audit_workspace, mcp__hex-graph__find_implementations, mcp__hex-line__outline
 license: MIT
 ---
 
@@ -39,9 +39,9 @@ Receives `contextStore` with: `tech_stack`, `best_practices`, `principles`, `cod
 3) **Scan codebase for violations (Layer 1)**
    - All Grep/Glob patterns use `scan_path` (not codebase_root)
    - **Graph acceleration (if available):** IF `contextStore.graph_indexed` OR `.hex-skills/codegraph/index.db` exists:
-     - **DRY (1.1-1.10):** `find_clones(scope=scan_path, type="normalized", cross_file=true)` -- each clone group = DRY candidate. Use clone `type` for severity triage. Fall back to grep patterns if unavailable.
+     - **DRY (1.1-1.10):** `audit_workspace(path=scan_path, detail_level="full")` -- each returned clone group = DRY candidate. Use clone kind and hotspot context for severity triage. Fall back to grep patterns if unavailable.
      - **KISS inheritance:** `find_implementations(symbol)` for abstract classes -- count implementations (1 = KISS candidate). Trace inheritance depth via graph.
-     - **Complexity:** `find_hotspots(path=scan_path, min_complexity=15)` -- pre-identify complex functions for KISS/quality analysis.
+     - **Complexity:** `audit_workspace(path=scan_path, detail_level="full")` -- use returned hotspots to pre-identify complex functions for KISS/quality analysis.
      - **Outline-first read:** `outline(path)` before reading large source files -- understand structure before analyzing principles.
    - Follow step-by-step detection from `detection_patterns.md`
    - Apply exclusions from `detection_patterns.md#exclusions`

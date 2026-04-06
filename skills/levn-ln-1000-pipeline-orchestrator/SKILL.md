@@ -36,7 +36,7 @@ L0: ln-1000-pipeline-orchestrator (sequential Skill calls, single context)
 
 ## Task Storage Mode
 
-**MANDATORY READ:** Load `shared/references/tools_config_guide.md` and `shared/references/storage_mode_detection.md`
+**MANDATORY READ:** Load `shared/references/environment_state_contract.md` and `shared/references/storage_mode_detection.md`
 
 Extract: `task_provider` = Task Management -> Provider (`linear` | `file`).
 
@@ -190,7 +190,8 @@ ELSE:
     git diff HEAD > .hex-skills/pipeline/carry-changes.patch
 
   git fetch origin
-  git worktree add -b {branch} {worktree_dir} origin/master
+  base_branch = detect per shared/references/git_scope_detection.md §Base Branch Detection
+  git worktree add -b {branch} {worktree_dir} origin/{base_branch}
 
   IF .hex-skills/pipeline/carry-changes.patch exists:
     git -C {worktree_dir} apply .hex-skills/pipeline/carry-changes.patch && rm .hex-skills/pipeline/carry-changes.patch
@@ -289,7 +290,7 @@ WHILE true:
     Skill(skill: "ln-400-story-executor", args: "{id}")
     Re-read kanban -> ASSERT Story status = To Review AND all tasks = Done
     IF ASSERT fails: Bash: node $PIPELINE pause --story {id} --reason "Stage 2 incomplete"; ESCALATE; BREAK
-    git_stats = parse `git diff --stat origin/master..HEAD`
+    git_stats = parse `git diff --stat origin/{base_branch}..HEAD`
     Write stage notes: .hex-skills/pipeline/stage_2_notes_{id}.md (Key Decisions, Git commits)
     Bash: node $PIPELINE checkpoint --story {id} --stage 2 --tasks-completed '{JSON done}' --git-stats '{JSON stats}' --last-action "Implementation complete"
 
@@ -355,7 +356,7 @@ FOR N IN 0..3:
 
 # 3. Extract branch info
 branch_name = git branch --show-current
-git_stats_final = git diff --stat origin/master..HEAD (if not already captured)
+git_stats_final = git diff --stat origin/{base_branch}..HEAD (if not already captured)
 
 # 4. Finalize pipeline report
 durations = {N: stage_timestamps.stage_{N}_end - stage_timestamps.stage_{N}_start
@@ -569,7 +570,7 @@ Skill type: `execution-orchestrator`. Runs after Phase 5. Pipeline-specific impl
 - **Kanban update algorithm:** `shared/references/kanban_update_algorithm.md`
 - **Settings template:** `references/settings_template.json`
 - **Sleep prevention:** `references/hooks/prevent-sleep.ps1`
-- **Tools config:** `shared/references/tools_config_guide.md`
+- **Environment state:** `shared/references/environment_state_contract.md`
 - **Storage mode operations:** `shared/references/storage_mode_detection.md`
 - **Auto-discovery patterns:** `shared/references/auto_discovery_pattern.md`
 

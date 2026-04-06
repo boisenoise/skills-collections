@@ -60,7 +60,7 @@ For each target where `disabled` is not `true`:
 
 | OS | Command |
 |----|---------|
-| Windows | `cmd /c mklink /J "{target}" "{source}"` |
+| Windows | `node -e "require('fs').symlinkSync('{source}', '{target}', 'junction')"` |
 | macOS/Linux | `ln -s "{source}" "{target}"` |
 
 Decision logic:
@@ -102,6 +102,8 @@ Codex-only fields (preserve during merge, not mapped from Claude):
 `bearer_token_env_var`, `enabled_tools`, `disabled_tools`, `startup_timeout_sec`, `tool_timeout_sec`, `enabled`, `required`
 
 **Merge strategy (both targets):** Claude servers override target by key name. Target-only servers preserved. Backup `.bak` before writing.
+
+**Windows implementation note:** Config format conversions with regex or backslash escaping (especially JSON→TOML for Codex) MUST use a temporary `.mjs` script file, not inline `node -e` or bash heredocs. Git Bash/MSYS2 mangles backslashes in both forms. Pattern: write temp file → `node "$TEMP/sync.mjs"` → delete after.
 
 ### Phase 4: Sync Hooks
 
@@ -182,6 +184,7 @@ Config Sync:
 | Create symlinks inside symlinks (circular) | Check link target before creating |
 | Modify config files without backup | Always create `.bak` first |
 | Try to sync hooks to Codex | Report "not supported", skip |
+| Use `cmd /c mklink /J` from Git Bash | Use `fs.symlinkSync(source, target, 'junction')` via Node.js — works from any shell |
 | Auto-replace mispointed symlinks | Ask user before replacing |
 
 ---
@@ -199,5 +202,5 @@ Config Sync:
 
 ---
 
-**Version:** 1.0.0
-**Last Updated:** 2026-03-20
+**Version:** 1.1.0
+**Last Updated:** 2026-04-05

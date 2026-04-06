@@ -7,7 +7,7 @@
 <!-- DOC_ROLE: canonical -->
 <!-- READ_WHEN: Start here when you need the project map, local rules, or the next canonical document. -->
 <!-- SKIP_WHEN: Skip when you already know the exact target document or code area. -->
-<!-- PRIMARY_SOURCES: AGENTS.md, docs/README.md, docs/tools_config.md -->
+<!-- PRIMARY_SOURCES: AGENTS.md, docs/README.md -->
 
 ## Quick Navigation
 
@@ -16,7 +16,7 @@
 | Documentation map | [docs/README.md](docs/README.md) |
 | Standards | [docs/documentation_standards.md](docs/documentation_standards.md) |
 | Principles | [docs/principles.md](docs/principles.md) |
-| Tooling | [docs/tools_config.md](docs/tools_config.md) |
+
 
 ## Agent Entry
 
@@ -25,7 +25,7 @@
 - Skip when: You already know the exact file or document to inspect.
 - Canonical: Yes.
 - Read next: `docs/README.md`, then the relevant canonical doc for the task.
-- Primary sources: `AGENTS.md`, `docs/README.md`, `docs/tools_config.md`.
+- Primary sources: `AGENTS.md`, `docs/README.md`.
 
 ## Critical Rules
 
@@ -33,7 +33,7 @@
 |----------|------|---------------|
 | Documentation | Read the relevant canonical doc before editing a domain | Before making non-trivial changes |
 | Navigation | Respect `SCOPE` and `Agent Entry` in each document | Before reading deep content |
-| Task Management | Follow the provider in [docs/tools_config.md](docs/tools_config.md) | For all task operations |
+| Task Management | Follow the provider in `.hex-skills/environment_state.json` | For all task operations |
 | Language | Keep project code and documentation in English | For all written project artifacts |
 | Research | Prefer configured official documentation sources | Before stack-specific decisions |
 

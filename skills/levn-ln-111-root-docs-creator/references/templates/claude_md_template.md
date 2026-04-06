@@ -13,7 +13,7 @@
 |------|------|
 | Canonical project map | [AGENTS.md](AGENTS.md) |
 | Documentation hub | [docs/README.md](docs/README.md) |
-| Tooling | [docs/tools_config.md](docs/tools_config.md) |
+
 
 ## Agent Entry
 

@@ -1,7 +1,7 @@
 ---
 name: ln-634-test-coverage-auditor
 description: "Identifies missing tests for critical paths (money, security, data integrity, core flows). Use when auditing test coverage gaps."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__find_hotspots
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-graph__audit_workspace
 license: MIT
 model: claude-haiku-4-5
 ---

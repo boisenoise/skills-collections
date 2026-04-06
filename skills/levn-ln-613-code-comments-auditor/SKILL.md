@@ -1,7 +1,7 @@
 ---
 name: ln-613-code-comments-auditor
 description: "Checks inline code documentation quality: WHY-not-WHAT, density, forbidden content, docstrings quality, actuality, legacy cleanup. Use when auditing comments and docstrings."
-allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline
+allowed-tools: Read, Grep, Glob, Bash, mcp__hex-line__outline, mcp__hex-line__read_file
 license: MIT
 model: claude-sonnet-4-6
 ---
@@ -26,7 +26,7 @@ Specialized worker auditing inline code documentation quality: comments, docstri
 
 ## Inputs (from Coordinator)
 
-**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md`.
+**MANDATORY READ:** Load `shared/references/audit_worker_core_contract.md` and `shared/references/mcp_tool_preferences.md`.
 
 Receives `contextStore` with: `tech_stack`, `project_root`, `output_dir`.
 
@@ -34,7 +34,7 @@ Receives `contextStore` with: `tech_stack`, `project_root`, `output_dir`.
 
 1) **Parse Context:** Extract tech stack, project root, output_dir from contextStore
 2) **Scan:** Find all source files (use `tech_stack` for detection)
-   **Hex-line acceleration:** Use `outline(path)` to understand code structure (functions, classes) before analyzing comments -- identifies which code sections to scan.
+   **Hex-line primary path:** Use `outline(path)` and `read_file()` for code files before analyzing comments. Do not use `hex-graph` here - comment quality is a code-reading problem, not a semantic graph problem.
 3) **Extract:** Parse inline comments + docstrings/JSDoc
 4) **Audit:** Run 6 category checks (see Audit Categories below)
 5) **Collect Findings:** Record each violation with severity, location (file:line), effort estimate (S/M/L), recommendation
