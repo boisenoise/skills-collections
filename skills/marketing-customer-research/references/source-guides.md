@@ -282,6 +282,61 @@ Comments on review videos are especially valuable — these are people actively 
 
 ---
 
+## SparkToro (Audience Intelligence)
+
+SparkToro is a behavioral audience research tool. Instead of mining individual posts and comments, it aggregates clickstream, search, and social data to show what your audience does at scale — what they read, watch, listen to, follow, and search for.
+
+### When to Use SparkToro vs. Manual Research
+
+- **SparkToro first** when you need to understand where your ICP spends time, what content they consume, and which influencers they follow — it answers these questions in seconds with aggregated data
+- **Manual research first** (Reddit, G2, communities) when you need raw language, exact quotes, emotional context, and the "why" behind behavior
+- **Best together**: Use SparkToro to identify which podcasts, subreddits, and websites matter, then go mine those sources manually for voice-of-customer language
+
+### Key Queries to Run
+
+**By competitor:**
+- "People who follow @competitor" — reveals shared audience affinities
+- "People who visit competitor.com" — shows what else they consume
+
+**By audience description:**
+- "People who frequently talk about [topic]" — finds audience behaviors
+- "People whose bio contains [job title]" — profiles a role-based segment
+
+**By your own audience:**
+- "People who visit yourdomain.com" — understand your actual audience
+- Compare against competitor audience profiles to find gaps
+
+### What to Extract
+
+| Data Type | What It Tells You | Use It For |
+|-----------|------------------|------------|
+| Top websites visited | Where your audience reads | Content partnerships, guest posting targets |
+| Top podcasts | What they listen to | Podcast guesting, sponsorship decisions |
+| Top YouTube channels | What they watch | Video content strategy, ad placements |
+| Top subreddits | Where they discuss | Community participation, Reddit ad targeting |
+| Search keywords | What they Google | SEO and content topic planning |
+| AI prompt topics | What they ask AI tools | Emerging content opportunities |
+| Social accounts followed | Who influences them | Influencer partnerships, co-marketing |
+| Demographics | Who they are | Persona building, ad targeting |
+
+### Source Weighting
+
+SparkToro data is aggregated and anonymized — it shows patterns, not individual opinions. Treat it as:
+- **High confidence** for behavioral data (what they visit, follow, search for)
+- **Medium confidence** for demographic data (self-reported, may be incomplete)
+- **Not a substitute** for qualitative research (doesn't capture language, emotions, or the "why")
+
+### Limitations
+
+- Free tier: 5 reports/month, shallow results (top 5–10)
+- No public API — all research done through web interface
+- Skews English-language, US-centric
+- Shows what audiences do, not why — pair with qualitative sources
+
+See [tools/integrations/sparktoro.md](../../../tools/integrations/sparktoro.md) for full tool details and pricing.
+
+---
+
 ## Organizing Your Research
 
 Use a simple tagging system across all sources:
@@ -319,6 +374,7 @@ Not all sources carry equal weight. Use this guide when assigning confidence lab
 | Survey (multiple choice) | Low-medium | Artifacts of the options you provided |
 | NPS verbatims | Medium | Correlates with score; prompted by the survey moment |
 | YouTube/TikTok comments | Medium | Skews toward engaged viewers; social performance |
+| SparkToro audience data | Medium-high | Aggregated behavioral data; strong for "what" but not "why" |
 | Job postings | Low-medium | Aspirational, not necessarily reflective of current pain |
 
 ### Confidence Labels in Practice

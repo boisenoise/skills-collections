@@ -121,17 +121,18 @@ Choose sources based on your ICP type — then read `references/source-guides.md
 
 | ICP Type | Primary Sources |
 |----------|----------------|
-| B2B SaaS / technical buyers | Reddit (role-specific subs), G2/Capterra, Hacker News, LinkedIn, Indie Hackers |
-| SMB / founders | Reddit (r/entrepreneur, r/smallbusiness), Indie Hackers, Product Hunt, Facebook Groups |
+| B2B SaaS / technical buyers | Reddit (role-specific subs), G2/Capterra, Hacker News, LinkedIn, Indie Hackers, SparkToro |
+| SMB / founders | Reddit (r/entrepreneur, r/smallbusiness), Indie Hackers, Product Hunt, Facebook Groups, SparkToro |
 | Developer / DevOps | r/devops, r/programming, Hacker News, Stack Overflow, Discord servers |
 | B2C / consumer | App store reviews (1-3 star), Reddit hobby/lifestyle subs, YouTube comments, TikTok/Instagram comments |
-| Enterprise | LinkedIn, industry analyst reports, G2 Enterprise filter, job postings |
+| Enterprise | LinkedIn, industry analyst reports, G2 Enterprise filter, job postings, SparkToro |
 
 **Quick decision guide:**
 - Have a product category? → Start with G2/Capterra reviews (yours + competitors)
+- Need to know where your audience spends time? → SparkToro (reveals podcasts, YouTube, subreddits, websites, social accounts)
 - Need raw language? → Reddit and YouTube comments
 - Need trigger events? → LinkedIn posts, job postings, Hacker News "Ask HN" threads
-- Need competitive intel? → Competitor 4-star reviews on G2; Product Hunt discussions
+- Need competitive intel? → Competitor 4-star reviews on G2; Product Hunt discussions; SparkToro competitor audience analysis
 
 ### What to Extract from Each Source
 

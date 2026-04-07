@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-06 06:50 UTC*
+*Last updated: 2026-04-07 06:42 UTC*
 
-Total skills: **2510**
+Total skills: **2515**
 
 ## Skills by Source
 
@@ -921,7 +921,7 @@ Total skills: **2510**
 
 | Skill | Description |
 |-------|-------------|
-| `marketing-ab-test-setup` | When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user ... |
+| `marketing-ab-test-setup` | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth exper... |
 | `marketing-ad-creative` | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary te... |
 | `marketing-ai-seo` | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-ge... |
 | `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
@@ -929,7 +929,7 @@ Total skills: **2510**
 | `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
 | `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
 | `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
-| `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy. Also use when the user ment... |
+| `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content... |
 | `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, ... |
 | `marketing-customer-research` | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions... |
 | `marketing-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
@@ -1828,6 +1828,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gitlab-automation` | Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations... |
 | `antigravity-gitlab-ci-patterns` | Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment. |
 | `antigravity-gitops-workflow` | Complete guide to implementing GitOps workflows with ArgoCD and Flux for automated Kubernetes deploy... |
+| `antigravity-global-chat-agent-discovery` | Discover and search 18K+ MCP servers and AI agents across 6+ registries using Global Chat's cross-pr... |
 | `antigravity-gmail-automation` | Lightweight Gmail integration with standalone OAuth authentication. No MCP server required. |
 | `antigravity-go-concurrency-patterns` | Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building con... |
 | `antigravity-go-playwright` | Expert capability for robust, stealthy, and efficient browser automation using Playwright Go. |
@@ -2062,6 +2063,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-multi-advisor` | Conselho de especialistas — consulta multiplos agentes do ecossistema em paralelo para analise multi... |
 | `antigravity-multi-agent-brainstorming` | Simulate a structured peer-review process using multiple specialized agents to validate designs, sur... |
 | `antigravity-multi-agent-patterns` | This skill should be used when the user asks to "design multi-agent system", "implement supervisor p... |
+| `antigravity-multi-agent-task-orchestrator` | Route tasks to specialized AI agents with anti-duplication, quality gates, and 30-minute heartbeat m... |
 | `antigravity-multi-cloud-architecture` | Decision framework and patterns for architecting applications across AWS, Azure, and GCP. |
 | `antigravity-multi-platform-apps-multi-platform` | Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-f... |
 | `antigravity-n8n-code-javascript` | Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$nod... |
@@ -2207,6 +2209,7 @@ structures, and modern OOP features. U... |
 | `antigravity-prompt-engineering` | Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when u... |
 | `antigravity-prompt-engineering-patterns` | Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controll... |
 | `antigravity-prompt-library` | A comprehensive collection of battle-tested prompts inspired by [awesome-chatgpt-prompts](https://gi... |
+| `antigravity-protect-mcp-governance` | Agent governance skill for MCP tool calls — Cedar policy authoring, shadow-to-enforce rollout, and E... |
 | `antigravity-protocol-reverse-engineering` | Comprehensive techniques for capturing, analyzing, and documenting network protocols for security re... |
 | `antigravity-pubmed-database` | Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, ... |
 | `antigravity-pydantic-ai` | Build production-ready AI agents with PydanticAI — type-safe tool use, structured outputs, dependenc... |
@@ -2217,6 +2220,7 @@ structures, and modern OOP features. U... |
 | `antigravity-python-packaging` | Comprehensive guide to creating, structuring, and distributing Python packages using modern packagin... |
 | `antigravity-python-patterns` | Python development principles and decision-making. Framework selection, async patterns, type hints, ... |
 | `antigravity-python-performance-optimization` | Profile and optimize Python code using cProfile, memory profilers, and performance best practices. U... |
+| `antigravity-python-pptx-generator` | Generate complete Python scripts that build polished PowerPoint decks with python-pptx and real slid... |
 | `antigravity-python-pro` | Master Python 3.12+ with modern features, async programming, performance optimization, and productio... |
 | `antigravity-python-testing-patterns` | Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven developme... |
 | `antigravity-qiskit` | Qiskit is the world's most popular open-source quantum computing framework with 13M+ downloads. Buil... |
@@ -2451,6 +2455,7 @@ calculations
 | `antigravity-team-collaboration-issue` | You are a GitHub issue resolution expert specializing in systematic bug investigation, feature imple... |
 | `antigravity-team-collaboration-standup-notes` | You are an expert team communication specialist focused on async-first standup practices, AI-assiste... |
 | `antigravity-team-composition-analysis` | Design optimal team structures, hiring plans, compensation strategies, and equity allocation for ear... |
+| `antigravity-technical-change-tracker` | Track code changes with structured JSON records, state machine enforcement, and AI session handoff f... |
 | `antigravity-telegram` | Integracao completa com Telegram Bot API. Setup com BotFather, mensagens, webhooks, inline keyboards... |
 | `antigravity-telegram-automation` | Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents... |
 | `antigravity-telegram-bot-builder` | You build bots that people actually use daily. You understand that bots should feel like helpful ass... |

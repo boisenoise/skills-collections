@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-06T06:50:42.947710",
-  "skill_count": 2510,
+  "last_updated": "2026-04-07T06:42:00.136359",
+  "skill_count": 2515,
   "sources_processed": 19,
   "skills": [
     {
@@ -4228,6 +4228,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-global-chat-agent-discovery",
+      "original_name": "global-chat-agent-discovery",
+      "description": "Discover and search 18K+ MCP servers and AI agents across 6+ registries using Global Chat's cross-protocol directory and MCP server.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-seo-aeo-content-cluster",
       "original_name": "seo-aeo-content-cluster",
       "description": "Builds a topical authority map with a pillar page, prioritised cluster articles, content types, internal link map, and content gap analysis. Activate when the user wants to build a content cluster, topic map, or content strategy.",
@@ -5415,6 +5423,14 @@
       "name": "antigravity-secrets-management",
       "original_name": "secrets-management",
       "description": "Secure secrets management practices for CI/CD pipelines using Vault, AWS Secrets Manager, and other tools.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-protect-mcp-governance",
+      "original_name": "protect-mcp-governance",
+      "description": "Agent governance skill for MCP tool calls \u2014 Cedar policy authoring, shadow-to-enforce rollout, and Ed25519 receipt verification.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7004,6 +7020,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-multi-agent-task-orchestrator",
+      "original_name": "multi-agent-task-orchestrator",
+      "description": "Route tasks to specialized AI agents with anti-duplication, quality gates, and 30-minute heartbeat monitoring",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-clerk-auth",
       "original_name": "clerk-auth",
       "description": "Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync Use when: adding authentication, clerk auth, user authentication, sign in, sign up.",
@@ -7583,6 +7607,14 @@
       "name": "antigravity-web3-testing",
       "original_name": "web3-testing",
       "description": "Master comprehensive testing strategies for smart contracts using Hardhat, Foundry, and advanced testing patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-technical-change-tracker",
+      "original_name": "technical-change-tracker",
+      "description": "Track code changes with structured JSON records, state machine enforcement, and AI session handoff for bot continuity",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8943,6 +8975,14 @@
       "name": "antigravity-blog-writing-guide",
       "original_name": "blog-writing-guide",
       "description": "This skill enforces Sentry's blog writing standards across every post \u2014 whether you're helping an engineer write their first blog post or a marketer draft a product announcement.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-python-pptx-generator",
+      "original_name": "python-pptx-generator",
+      "description": "Generate complete Python scripts that build polished PowerPoint decks with python-pptx and real slide content.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18725,7 +18765,7 @@
     },
     {
       "name": "levn-ln-612-semantic-content-auditor",
-      "original_name": "ln-612-semantic-content-auditor",
+      "original_name": "ln-ln-612--content-auditor",
       "description": "Checks document semantic content against SCOPE and project goals, coverage gaps, off-topic content, SSOT. Use when auditing documentation relevance.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
@@ -19774,7 +19814,7 @@
     {
       "name": "marketing-ab-test-setup",
       "original_name": "ab-test-setup",
-      "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\" \"which version is better,\" \"test two versions,\" \"statistical significance,\" or \"how long should I run this test.\" Use this whenever someone is comparing two approaches and wants to measure which performs better. For tracking implementation, see analytics-tracking. For page-level conversion optimization, see page-cro.",
+      "description": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\" \"which version is better,\" \"test two versions,\" \"statistical significance,\" \"how long should I run this test,\" \"growth experiments,\" \"experiment velocity,\" \"experiment backlog,\" \"ICE score,\" \"experimentation program,\" or \"experiment playbook.\" Use this whenever someone is comparing two approaches and wants to measure which performs better, or when they want to build a systematic experimentation practice. For tracking implementation, see analytics-tracking. For page-level conversion optimization, see page-cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -19790,7 +19830,7 @@
     {
       "name": "marketing-copy-editing",
       "original_name": "copy-editing",
-      "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' 'copy sweep,' 'tighten this up,' 'this reads awkwardly,' 'clean up this text,' 'too wordy,' or 'sharpen the messaging.' Use this when the user already has copy and wants it improved rather than rewritten from scratch. For writing new copy, see copywriting.",
+      "description": "When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' 'copy sweep,' 'tighten this up,' 'this reads awkwardly,' 'clean up this text,' 'too wordy,' 'sharpen the messaging,' 'refresh this content,' 'update this page,' 'this content is outdated,' or 'content audit.' Use this when the user already has copy and wants it improved or refreshed rather than rewritten from scratch. For writing new copy, see copywriting.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
