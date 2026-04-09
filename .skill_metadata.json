@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-08T06:43:38.415624",
-  "skill_count": 2519,
+  "last_updated": "2026-04-09T06:43:35.869400",
+  "skill_count": 2529,
   "sources_processed": 19,
   "skills": [
     {
@@ -58,14 +58,6 @@
       "source": "anthropics/skills",
       "source_url": "https://github.com/anthropics/skills",
       "license": "Apache-2.0"
-    },
-    {
-      "name": "anthropic-claude-api",
-      "original_name": "claude-api",
-      "description": "Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use Claude API, Anthropic SDKs, or Agent SDK. DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or ML/data-science tasks.",
-      "source": "anthropics/skills",
-      "source_url": "https://github.com/anthropics/skills",
-      "license": "Complete terms in LICENSE.txt"
     },
     {
       "name": "anthropic-frontend-design",
@@ -871,6 +863,14 @@
       "name": "antigravity-leiloeiro-avaliacao",
       "original_name": "leiloeiro-avaliacao",
       "description": "Avaliacao pericial de imoveis em leilao. Valor de mercado, liquidacao forcada, ABNT NBR 14653, metodos comparativo/renda/custo, CUB e margem de seguranca.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ui-setup",
+      "original_name": "ui-setup",
+      "description": "Interactive StyleSeed setup wizard for choosing app type, brand color, visual style, typography, and the first screen scaffold.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2796,6 +2796,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ui-tokens",
+      "original_name": "ui-tokens",
+      "description": "List, add, and update StyleSeed design tokens while keeping JSON sources, CSS variables, and dark-mode values in sync.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-storage-blob-rust",
       "original_name": "azure-storage-blob-rust",
       "description": "Azure Blob Storage SDK for Rust. Use for uploading, downloading, and managing blobs and containers.",
@@ -3487,6 +3495,14 @@
       "name": "antigravity-wiki-vitepress",
       "original_name": "wiki-vitepress",
       "description": "Transform generated wiki Markdown files into a polished VitePress static site with dark theme and interactive Mermaid diagrams. Use when user asks to \"build a site\" or \"package as VitePress\", user runs the /deep-wiki, or user wants a browsable HTML output from generated wiki pages.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ux-feedback",
+      "original_name": "ux-feedback",
+      "description": "Add loading, empty, error, and success feedback states to StyleSeed components and pages with practical mobile-first rules.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4356,6 +4372,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ui-page",
+      "original_name": "ui-page",
+      "description": "Scaffold a new mobile-first page using StyleSeed Toss layout patterns, section rhythm, and existing shell components.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-recallmax",
       "original_name": "recallmax",
       "description": "FREE \u2014 God-tier long-context memory for AI agents. Injects 500K-1M clean tokens, auto-summarizes with tone/intent preservation, compresses 14-turn history into 800 tokens.",
@@ -4775,6 +4799,14 @@
       "name": "antigravity-threejs-materials",
       "original_name": "threejs-materials",
       "description": "Three.js materials - PBR, basic, phong, shader materials, material properties. Use when styling meshes, working with textures, creating custom shaders, or optimizing material performance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ux-audit",
+      "original_name": "ux-audit",
+      "description": "Audit screens against Nielsen's heuristics and mobile UX best practices using the StyleSeed Toss design language as the implementation context.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5292,6 +5324,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ui-a11y",
+      "original_name": "ui-a11y",
+      "description": "Audit a StyleSeed-based component or page for WCAG 2.2 AA issues and apply practical accessibility fixes where the code makes them safe.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-n8n-node-configuration",
       "original_name": "n8n-node-configuration",
       "description": "Operation-aware node configuration guidance. Use when configuring nodes, understanding property dependencies, determining required fields, choosing between get_node detail levels, or learning common configuration patterns by node type.",
@@ -5399,6 +5439,14 @@
       "name": "antigravity-azure-keyvault-secrets-ts",
       "original_name": "azure-keyvault-secrets-ts",
       "description": "Manage secrets using Azure Key Vault Secrets SDK for JavaScript (@azure/keyvault-secrets). Use when storing and retrieving application secrets or configuration values.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ui-pattern",
+      "original_name": "ui-pattern",
+      "description": "Generate reusable UI patterns such as card sections, grids, lists, forms, and chart wrappers using StyleSeed Toss primitives.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6335,6 +6383,14 @@
       "name": "antigravity-stitch-ui-design",
       "original_name": "stitch-ui-design",
       "description": "Expert guidance for crafting effective prompts in Google Stitch, the AI-powered UI design tool by Google Labs. This skill helps create precise, actionable prompts that generate high-quality UI designs for web and mobile applications.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ui-review",
+      "original_name": "ui-review",
+      "description": "Review UI code for StyleSeed design-system compliance, accessibility, mobile ergonomics, spacing discipline, and implementation quality.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8308,6 +8364,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ui-component",
+      "original_name": "ui-component",
+      "description": "Generate a new UI component that follows StyleSeed Toss conventions for structure, tokens, accessibility, and component ergonomics.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-variant-analysis",
       "original_name": "variant-analysis",
       "description": "Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when hunting bug variants, building CodeQL/Semgrep queries, analyzing security vulnerabilities, or performing systematic code audits after finding an initial issue.",
@@ -8999,6 +9063,14 @@
       "name": "antigravity-blog-writing-guide",
       "original_name": "blog-writing-guide",
       "description": "This skill enforces Sentry's blog writing standards across every post \u2014 whether you're helping an engineer write their first blog post or a marketer draft a product announcement.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ux-flow",
+      "original_name": "ux-flow",
+      "description": "Design user flows and screen structure using StyleSeed UX patterns such as progressive disclosure, hub-and-spoke navigation, and information pyramids.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11159,6 +11231,14 @@
       "name": "antigravity-startup-business-analyst-market-opportunity",
       "original_name": "startup-business-analyst-market-opportunity",
       "description": "Generate comprehensive market opportunity analysis with TAM/SAM/SOM\ncalculations\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ux-copy",
+      "original_name": "ux-copy",
+      "description": "Generate UX microcopy in StyleSeed's Toss-inspired voice for buttons, empty states, errors, toasts, confirmations, and form guidance.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

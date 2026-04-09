@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-08 06:43 UTC*
+*Last updated: 2026-04-09 06:43 UTC*
 
-Total skills: **2519**
+Total skills: **2529**
 
 ## Skills by Source
 
@@ -895,7 +895,6 @@ Total skills: **2519**
 | `anthropic-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `anthropic-brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
 | `anthropic-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
-| `anthropic-claude-api` | Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-... |
 | `anthropic-doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri... |
 | `anthropic-frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill wh... |
 | `anthropic-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
@@ -2511,7 +2510,14 @@ calculations
 | `antigravity-typescript-advanced-types` | Comprehensive guidance for mastering TypeScript's advanced type system including generics, condition... |
 | `antigravity-typescript-expert` | TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimiza... |
 | `antigravity-typescript-pro` | Master TypeScript with advanced types, generics, and strict type safety. Handles complex type system... |
+| `antigravity-ui-a11y` | Audit a StyleSeed-based component or page for WCAG 2.2 AA issues and apply practical accessibility f... |
+| `antigravity-ui-component` | Generate a new UI component that follows StyleSeed Toss conventions for structure, tokens, accessibi... |
+| `antigravity-ui-page` | Scaffold a new mobile-first page using StyleSeed Toss layout patterns, section rhythm, and existing ... |
+| `antigravity-ui-pattern` | Generate reusable UI patterns such as card sections, grids, lists, forms, and chart wrappers using S... |
+| `antigravity-ui-review` | Review UI code for StyleSeed design-system compliance, accessibility, mobile ergonomics, spacing dis... |
+| `antigravity-ui-setup` | Interactive StyleSeed setup wizard for choosing app type, brand color, visual style, typography, and... |
 | `antigravity-ui-skills` | Opinionated, evolving constraints to guide agents when building interfaces |
+| `antigravity-ui-tokens` | List, add, and update StyleSeed design tokens while keeping JSON sources, CSS variables, and dark-mo... |
 | `antigravity-ui-ux-designer` | Create interface designs, wireframes, and design systems. Masters user research, accessibility stand... |
 | `antigravity-ui-ux-pro-max` | Comprehensive design guide for web and mobile applications. Use when designing new UI components or ... |
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
@@ -2528,6 +2534,10 @@ calculations
 | `antigravity-using-neon` | Neon is a serverless Postgres platform that separates compute and storage to offer autoscaling, bran... |
 | `antigravity-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool in... |
 | `antigravity-uv-package-manager` | Comprehensive guide to using uv, an extremely fast Python package installer and resolver written in ... |
+| `antigravity-ux-audit` | Audit screens against Nielsen's heuristics and mobile UX best practices using the StyleSeed Toss des... |
+| `antigravity-ux-copy` | Generate UX microcopy in StyleSeed's Toss-inspired voice for buttons, empty states, errors, toasts, ... |
+| `antigravity-ux-feedback` | Add loading, empty, error, and success feedback states to StyleSeed components and pages with practi... |
+| `antigravity-ux-flow` | Design user flows and screen structure using StyleSeed UX patterns such as progressive disclosure, h... |
 | `antigravity-ux-persuasion-engineer` | One sentence - what this skill does and when to invoke it |
 | `antigravity-uxui-principles` | Evaluate interfaces against 168 research-backed UX/UI principles, detect antipatterns, and inject UX... |
 | `antigravity-variant-analysis` | Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when huntin... |
