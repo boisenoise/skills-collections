@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-09 06:43 UTC*
+*Last updated: 2026-04-10 06:48 UTC*
 
-Total skills: **2529**
+Total skills: **2534**
 
 ## Skills by Source
 
@@ -1105,7 +1105,7 @@ Total skills: **2529**
 | `levn-ln-830-code-modernization-coordinator` | Modernizes codebase via OSS replacement and bundle optimization. Use when acting on audit findings t... |
 | `levn-ln-831-oss-replacer` | Replaces custom modules with OSS packages using atomic keep/discard testing. Use when migrating cust... |
 | `levn-ln-832-bundle-optimizer` | Reduces JS/TS bundle size via tree-shaking, code splitting, and unused dependency removal. Use when ... |
-| `levn-ln-840-benchmark-compare` | Runs built-in vs hex-line benchmark with scenario manifests, activation checks, and diff-based corre... |
+| `levn-ln-840-benchmark-compare` | Runs a canonical built-in vs hex-line benchmark with scenario manifests, activation checks, and diff... |
 | `levn-ln-910-community-engagement` | Analyzes community health and delegates engagement tasks. Use when managing GitHub issues, discussio... |
 | `levn-ln-911-github-triager` | Produces prioritized triage report from open GitHub issues, PRs, and discussions. Use when reviewing... |
 | `levn-ln-912-community-announcer` | Composes and publishes announcements to GitHub Discussions. Use when sharing releases, updates, or n... |
@@ -2024,6 +2024,7 @@ makepad shader, makepad draw_bg, Sdf2d, makepa... |
 splash language, makepad script, m... |
 | `antigravity-makepad-widgets` | Version: makepad-widgets (dev branch) | Last Updated: 2026-01-19 > > Check for updates: https://crat... |
 | `antigravity-malware-analyst` | Expert malware analyst specializing in defensive malware research, threat intelligence, and incident... |
+| `antigravity-manage-skills` | Discover, list, create, edit, toggle, copy, move, and delete AI agent skills across 11 tools (Cursor... |
 | `antigravity-manifest` | Install and configure the Manifest observability plugin for your agents. Use when setting up telemet... |
 | `antigravity-market-sizing-analysis` | Comprehensive market sizing methodologies for calculating Total Addressable Market (TAM), Serviceabl... |
 | `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
@@ -2059,6 +2060,10 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-monetization` | Estrategia e implementacao de monetizacao para produtos digitais - Stripe, subscriptions, pricing ex... |
 | `antigravity-monorepo-architect` | Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turb... |
 | `antigravity-monorepo-management` | Build efficient, scalable monorepos that enable code sharing, consistent tooling, and atomic changes... |
+| `antigravity-monte-carlo-monitor-creation` | Guides creation of Monte Carlo monitors via MCP tools, producing monitors-as-code YAML for CI/CD dep... |
+| `antigravity-monte-carlo-prevent` | Surfaces Monte Carlo data observability context (table health, alerts, lineage, blast radius) before... |
+| `antigravity-monte-carlo-push-ingestion` | Expert guide for pushing metadata, lineage, and query logs to Monte Carlo from any data warehouse. |
+| `antigravity-monte-carlo-validation-notebook` | Generates SQL validation notebooks for dbt PR changes with before/after comparison queries. |
 | `antigravity-moodle-external-api-development` | This skill guides you through creating custom external web service APIs for Moodle LMS, following Mo... |
 | `antigravity-moyu` | Anti-over-engineering guardrail that activates when an AI coding agent expands scope, adds abstracti... |
 | `antigravity-mtls-configuration` | Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing z... |
