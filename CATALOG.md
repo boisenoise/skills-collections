@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-10 06:48 UTC*
+*Last updated: 2026-04-11 06:32 UTC*
 
-Total skills: **2534**
+Total skills: **2540**
 
 ## Skills by Source
 
@@ -986,10 +986,10 @@ Total skills: **2534**
 | `levn-ln-002-session-analyzer` | Analyzes current or recent session for errors, inefficiencies, and improvement opportunities across ... |
 | `levn-ln-010-dev-environment-setup` | Installs agents, configures MCP servers, syncs configs, creates and audits instructions. Use after s... |
 | `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, and Claude Code. Use when CLI agents need installation or... |
-| `levn-ln-012-mcp-configurator` | Installs MCP packages, registers servers in Claude Code, configures hooks, permissions, IDE extensio... |
-| `levn-ln-013-config-syncer` | Syncs skills, MCP settings, and hooks from Claude Code to Gemini CLI and Codex CLI via symlinks and ... |
+| `levn-ln-012-mcp-configurator` | Use when installing MCP packages and configuring Claude-side MCP registration, hooks, permissions, I... |
+| `levn-ln-013-config-syncer` | Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI and Codex ... |
 | `levn-ln-014-agent-instructions-manager` | Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md), audits token budget, prompt cac... |
-| `levn-ln-015-hex-line-uninstaller` | Removes hex-line hooks, output style, and cached files from the system. Use when hex-line MCP needs ... |
+| `levn-ln-015-hex-line-uninstaller` | Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, h... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
@@ -1015,14 +1015,20 @@ Total skills: **2534**
 | `levn-ln-300-task-coordinator` | Analyzes Story and builds optimal task plan (1-8 tasks), then routes to create or replan. Use when S... |
 | `levn-ln-301-task-creator` | Creates implementation, refactoring, and test tasks from templates. Use when an approved task plan n... |
 | `levn-ln-302-task-replanner` | Compares ideal plan vs existing tasks and applies KEEP/UPDATE/OBSOLETE/CREATE changes. Use when Stor... |
-| `levn-ln-310-multi-agent-validator` | Validates Stories, plans, or context via deterministic multi-agent review with runtime-controlled st... |
+| `levn-ln-310-multi-agent-validator` | Use when validating Stories, plans, or context through the evaluation platform with mandatory resear... |
+| `levn-ln-311-review-research-worker` | Use when an evaluation run needs mandatory official-doc, MCP Ref, Context7, and current best-practic... |
+| `levn-ln-312-review-findings-worker` | Use when an evaluation coordinator needs normalized findings from target artifacts and research evid... |
+| `levn-ln-313-review-docs-worker` | Use when an evaluation run needs review-driven documentation updates and a structured documentation ... |
+| `levn-ln-314-review-repair-worker` | Use when accepted findings require bounded repair changes and a structured repair summary. |
+| `levn-ln-315-review-merge-worker` | Use when an evaluation run must merge research, findings, documentation, and repair outputs into one... |
+| `levn-ln-316-review-refinement-worker` | Use when an evaluation run requires bounded iterative refinement with trace and cleanup evidence. |
 | `levn-ln-400-story-executor` | Executes Story tasks in priority order (To Review, To Rework, Todo). Use when Story has planned task... |
 | `levn-ln-401-task-executor` | Executes implementation tasks through Todo, In Progress, To Review. Use when task needs coding with ... |
 | `levn-ln-402-task-reviewer` | Reviews task implementation for quality, code standards, and test coverage. Use when task is in To R... |
 | `levn-ln-403-task-rework` | Fixes tasks in To Rework by applying reviewer feedback, then returns to To Review. Use when task was... |
 | `levn-ln-404-test-executor` | Executes test tasks (label 'tests') through Todo to To Review with risk-based limits. Use for test t... |
 | `levn-ln-500-story-quality-gate` | Story-level quality gate with 4-level verdict (PASS/CONCERNS/FAIL/WAIVED) and Quality Score. Use whe... |
-| `levn-ln-510-quality-coordinator` | Coordinates code quality checks: metrics, cleanup, agent review, regression, log analysis. Use when ... |
+| `levn-ln-510-quality-coordinator` | Use when coordinating story quality evaluation with mandatory research, worker summaries, agent revi... |
 | `levn-ln-511-code-quality-checker` | Checks DRY/KISS/YAGNI/architecture compliance with quantitative Code Quality Score. Use when impleme... |
 | `levn-ln-512-tech-debt-cleaner` | Auto-fixes low-risk tech debt (unused imports, dead code, commented-out code) with >=90% confidence.... |
 | `levn-ln-513-regression-checker` | Runs existing test suite to catch regressions after implementation changes. Use when Story needs reg... |
@@ -1031,12 +1037,12 @@ Total skills: **2534**
 | `levn-ln-521-test-researcher` | Researches real-world problems, competitor solutions, and customer complaints for a feature domain. ... |
 | `levn-ln-522-manual-tester` | Performs manual testing of Story AC via executable bash scripts in tests/manual/. Use when Story imp... |
 | `levn-ln-523-auto-test-planner` | Plans automated tests (E2E/Integration/Unit) using Risk-Based Testing after manual testing. Use when... |
-| `levn-ln-610-docs-auditor` | Coordinates audit of project knowledge surfaces: markdown documentation plus inline code documentati... |
+| `levn-ln-610-docs-auditor` | Use when auditing project documentation through the evaluation platform with mandatory research, coo... |
 | `levn-ln-611-docs-structure-auditor` | Checks hierarchy, links, SSOT, compression, requirements compliance, freshness, legacy cleanup. Use ... |
 | `levn-ln-612-semantic-content-auditor` | Checks document semantic content against SCOPE and project goals, coverage gaps, off-topic content, ... |
 | `levn-ln-613-code-comments-auditor` | Checks inline code documentation quality: WHY-not-WHAT, density, forbidden content, docstrings quali... |
 | `levn-ln-614-docs-fact-checker` | Verifies claims in .md files (paths, versions, counts, configs, endpoints) against codebase, cross-c... |
-| `levn-ln-620-codebase-auditor` | Coordinates codebase audit across security, build, code quality, dependencies, and architecture. Use... |
+| `levn-ln-620-codebase-auditor` | Use when auditing the codebase through the evaluation platform with mandatory research, coordinated ... |
 | `levn-ln-621-security-auditor` | Checks hardcoded secrets, SQL injection, XSS, insecure deps, input validation. Use when auditing sec... |
 | `levn-ln-622-build-auditor` | Checks compiler/linter errors, deprecation warnings, type errors, failed tests, build config issues.... |
 | `levn-ln-623-code-principles-auditor` | Checks DRY, KISS/YAGNI, error handling, DI patterns. Use when auditing code principles compliance. |
@@ -1046,7 +1052,7 @@ Total skills: **2534**
 | `levn-ln-627-observability-auditor` | Checks structured logging, health checks, metrics collection, request tracing, log levels. Use when ... |
 | `levn-ln-628-concurrency-auditor` | Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention. Use when au... |
 | `levn-ln-629-lifecycle-auditor` | Checks bootstrap initialization, graceful shutdown, resource cleanup, signal handling, liveness/read... |
-| `levn-ln-630-test-auditor` | Coordinates test suite audit across business logic, E2E coverage, value, isolation, manual quality, ... |
+| `levn-ln-630-test-auditor` | Use when auditing the test surface through the evaluation platform with mandatory research, coordina... |
 | `levn-ln-631-test-business-logic-auditor` | Detects tests validating framework/library behavior instead of project code. Use when auditing test ... |
 | `levn-ln-632-test-e2e-priority-auditor` | Validates E2E coverage for critical paths (money, security, data integrity). Risk-based prioritizati... |
 | `levn-ln-633-test-value-auditor` | Scores each test by Impact x Probability, returns KEEP/REVIEW/REMOVE decisions. Use when auditing te... |
@@ -1054,7 +1060,7 @@ Total skills: **2534**
 | `levn-ln-635-test-isolation-auditor` | Checks test isolation (API/DB/FS/Time/Network), determinism, flaky tests, order-dependency, anti-pat... |
 | `levn-ln-636-manual-test-auditor` | Checks manual test scripts for harness adoption, golden files, fail-fast, config sourcing, idempoten... |
 | `levn-ln-637-test-structure-auditor` | Checks test file organization, directory layout, test-to-source mapping, domain grouping, co-locatio... |
-| `levn-ln-640-pattern-evolution-auditor` | Audits architectural patterns against best practices, maintains patterns catalog with compliance sco... |
+| `levn-ln-640-pattern-evolution-auditor` | Use when auditing architectural patterns through the evaluation platform with mandatory best-practic... |
 | `levn-ln-641-pattern-analyzer` | Analyzes single pattern implementation, calculates compliance/completeness/quality scores, identifie... |
 | `levn-ln-642-layer-boundary-auditor` | Checks layer boundary violations, transaction boundaries, session ownership, cross-layer consistency... |
 | `levn-ln-643-api-contract-auditor` | Checks layer leakage in method signatures, missing DTOs, entity leakage to API, inconsistent error c... |
@@ -1062,7 +1068,7 @@ Total skills: **2534**
 | `levn-ln-645-open-source-replacer` | Discovers custom modules replaceable by OSS, evaluates alternatives (stars, license, CVE), generates... |
 | `levn-ln-646-project-structure-auditor` | Checks file hygiene, ignore files, framework conventions, domain/layer organization, naming. Use whe... |
 | `levn-ln-647-env-config-auditor` | Checks env var config sync, missing defaults, naming conventions, startup validation. Use when audit... |
-| `levn-ln-650-persistence-performance-auditor` | Coordinates persistence and performance audit across queries, transactions, runtime, and resource li... |
+| `levn-ln-650-persistence-performance-auditor` | Use when auditing persistence and runtime performance through the evaluation platform with mandatory... |
 | `levn-ln-651-query-efficiency-auditor` | Checks redundant fetches, N+1 loops, over-fetching, missing bulk operations, wrong caching scope. Us... |
 | `levn-ln-652-transaction-correctness-auditor` | Checks transaction scope, missing rollback handling, long-held transactions, trigger/notify interact... |
 | `levn-ln-653-runtime-performance-auditor` | Checks blocking IO in async, unnecessary allocations, sync sleep, string concat in loops, redundant ... |
@@ -1096,7 +1102,7 @@ Total skills: **2534**
 | `levn-ln-810-performance-optimizer` | Multi-cycle performance optimization with profiling and bottleneck analysis. Use when optimizing app... |
 | `levn-ln-811-performance-profiler` | Profiles runtime performance with CPU, memory, and I/O metrics. Use when measuring bottlenecks befor... |
 | `levn-ln-812-optimization-researcher` | Researches competitive benchmarks and generates optimization hypotheses for identified bottlenecks. ... |
-| `levn-ln-813-optimization-plan-validator` | Validates optimization plan via multi-agent review before execution. Use when verifying feasibility ... |
+| `levn-ln-813-optimization-plan-validator` | Use when validating optimization plans through the evaluation platform with mandatory research, para... |
 | `levn-ln-814-optimization-executor` | Executes optimization hypotheses with keep/discard testing loop. Use when applying validated perform... |
 | `levn-ln-820-dependency-optimization-coordinator` | Upgrades dependencies across all detected package managers. Use when updating npm, NuGet, or pip pac... |
 | `levn-ln-821-npm-upgrader` | Upgrades npm/yarn/pnpm dependencies with breaking change handling. Use when updating JavaScript/Type... |
@@ -1105,7 +1111,7 @@ Total skills: **2534**
 | `levn-ln-830-code-modernization-coordinator` | Modernizes codebase via OSS replacement and bundle optimization. Use when acting on audit findings t... |
 | `levn-ln-831-oss-replacer` | Replaces custom modules with OSS packages using atomic keep/discard testing. Use when migrating cust... |
 | `levn-ln-832-bundle-optimizer` | Reduces JS/TS bundle size via tree-shaking, code splitting, and unused dependency removal. Use when ... |
-| `levn-ln-840-benchmark-compare` | Runs a canonical built-in vs hex-line benchmark with scenario manifests, activation checks, and diff... |
+| `levn-ln-840-benchmark-compare` | Use when benchmarking hex-line MCP against Claude built-in tools with scenario manifests, activation... |
 | `levn-ln-910-community-engagement` | Analyzes community health and delegates engagement tasks. Use when managing GitHub issues, discussio... |
 | `levn-ln-911-github-triager` | Produces prioritized triage report from open GitHub issues, PRs, and discussions. Use when reviewing... |
 | `levn-ln-912-community-announcer` | Composes and publishes announcements to GitHub Discussions. Use when sharing releases, updates, or n... |

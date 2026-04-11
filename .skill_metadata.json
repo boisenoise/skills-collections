@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-10T06:48:29.847027",
-  "skill_count": 2534,
+  "last_updated": "2026-04-11T06:32:19.004021",
+  "skill_count": 2540,
   "sources_processed": 19,
   "skills": [
     {
@@ -18574,7 +18574,7 @@
     {
       "name": "levn-ln-640-pattern-evolution-auditor",
       "original_name": "ln-640-pattern-evolution-auditor",
-      "description": "Audits architectural patterns against best practices, maintains patterns catalog with compliance scores. Use when auditing pattern evolution.",
+      "description": "Use when auditing architectural patterns through the evaluation platform with mandatory best-practice research, coordinated pattern workers, and structured summaries.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18614,7 +18614,7 @@
     {
       "name": "levn-ln-650-persistence-performance-auditor",
       "original_name": "ln-650-persistence-performance-auditor",
-      "description": "Coordinates persistence and performance audit across queries, transactions, runtime, and resource lifecycle. Use when auditing data layer performance.",
+      "description": "Use when auditing persistence and runtime performance through the evaluation platform with mandatory research, coordinated data-layer workers, and structured summaries.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18639,6 +18639,14 @@
       "name": "levn-ln-401-task-executor",
       "original_name": "ln-401-task-executor",
       "description": "Executes implementation tasks through Todo, In Progress, To Review. Use when task needs coding with KISS/YAGNI. Not for test tasks.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-314-review-repair-worker",
+      "original_name": "ln-314-review-repair-worker",
+      "description": "Use when accepted findings require bounded repair changes and a structured repair summary.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18780,6 +18788,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-312-review-findings-worker",
+      "original_name": "ln-312-review-findings-worker",
+      "description": "Use when an evaluation coordinator needs normalized findings from target artifacts and research evidence.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-011-agent-installer",
       "original_name": "ln-011-agent-installer",
       "description": "Installs or updates Codex CLI, Gemini CLI, and Claude Code. Use when CLI agents need installation or update.",
@@ -18838,7 +18854,7 @@
     {
       "name": "levn-ln-840-benchmark-compare",
       "original_name": "ln-840-benchmark-compare",
-      "description": "Runs a canonical built-in vs hex-line benchmark with scenario manifests, activation checks, and diff-based correctness. Use when measuring hex-line MCP performance against Claude built-in tools or when preparing the canonical suite for later external baselines.",
+      "description": "Use when benchmarking hex-line MCP against Claude built-in tools with scenario manifests, activation checks, and diff-based correctness.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18847,6 +18863,14 @@
       "name": "levn-ln-730-devops-setup",
       "original_name": "ln-730-devops-setup",
       "description": "Sets up Docker, CI/CD, and environment configuration with auto-detection. Use when adding DevOps infrastructure to a project.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-313-review-docs-worker",
+      "original_name": "ln-313-review-docs-worker",
+      "description": "Use when an evaluation run needs review-driven documentation updates and a structured documentation summary.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18902,7 +18926,7 @@
     {
       "name": "levn-ln-630-test-auditor",
       "original_name": "ln-630-test-auditor",
-      "description": "Coordinates test suite audit across business logic, E2E coverage, value, isolation, manual quality, and structure. Use when auditing entire test suite.",
+      "description": "Use when auditing the test surface through the evaluation platform with mandatory research, coordinated test audit workers, and structured summaries.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -18918,7 +18942,7 @@
     {
       "name": "levn-ln-310-multi-agent-validator",
       "original_name": "ln-310-multi-agent-validator",
-      "description": "Validates Stories, plans, or context via deterministic multi-agent review with runtime-controlled status gates. Use before execution or approval.",
+      "description": "Use when validating Stories, plans, or context through the evaluation platform with mandatory research, parallel evidence lanes, sequential merge, and bounded refinement.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19030,7 +19054,7 @@
     {
       "name": "levn-ln-012-mcp-configurator",
       "original_name": "ln-012-mcp-configurator",
-      "description": "Installs MCP packages, registers servers in Claude Code, configures hooks, permissions, IDE extension permission mode, and migrations. Use when MCP needs setup or reconfiguration.",
+      "description": "Use when installing MCP packages and configuring Claude-side MCP registration, hooks, permissions, IDE extension mode, and migrations.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19068,6 +19092,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-315-review-merge-worker",
+      "original_name": "ln-315-review-merge-worker",
+      "description": "Use when an evaluation run must merge research, findings, documentation, and repair outputs into one verified result.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-700-project-bootstrap",
       "original_name": "ln-700-project-bootstrap",
       "description": "Bootstraps projects to production-ready structure. Use when creating new or transforming existing projects.",
@@ -19086,7 +19118,7 @@
     {
       "name": "levn-ln-510-quality-coordinator",
       "original_name": "ln-510-quality-coordinator",
-      "description": "Coordinates code quality checks: metrics, cleanup, agent review, regression, log analysis. Use when Story needs quality_verdict with aggregated results.",
+      "description": "Use when coordinating story quality evaluation with mandatory research, worker summaries, agent review, regression evidence, and bounded refinement.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19103,6 +19135,14 @@
       "name": "levn-ln-622-build-auditor",
       "original_name": "ln-622-build-auditor",
       "description": "Checks compiler/linter errors, deprecation warnings, type errors, failed tests, build config issues. Use when auditing build health.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-316-review-refinement-worker",
+      "original_name": "ln-316-review-refinement-worker",
+      "description": "Use when an evaluation run requires bounded iterative refinement with trace and cleanup evidence.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19158,7 +19198,7 @@
     {
       "name": "levn-ln-610-docs-auditor",
       "original_name": "ln-610-docs-auditor",
-      "description": "Coordinates audit of project knowledge surfaces: markdown documentation plus inline code documentation (comments/docstrings). Use when auditing project documentation.",
+      "description": "Use when auditing project documentation through the evaluation platform with mandatory research, coordinated audit workers, and structured summaries.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19175,6 +19215,14 @@
       "name": "levn-ln-633-test-value-auditor",
       "original_name": "ln-633-test-value-auditor",
       "description": "Scores each test by Impact x Probability, returns KEEP/REVIEW/REMOVE decisions. Use when auditing test value and pruning low-value tests.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-311-review-research-worker",
+      "original_name": "ln-311-review-research-worker",
+      "description": "Use when an evaluation run needs mandatory official-doc, MCP Ref, Context7, and current best-practice research with a structured research summary.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19230,7 +19278,7 @@
     {
       "name": "levn-ln-813-optimization-plan-validator",
       "original_name": "ln-813-optimization-plan-validator",
-      "description": "Validates optimization plan via multi-agent review before execution. Use when verifying feasibility of optimization hypotheses.",
+      "description": "Use when validating optimization plans through the evaluation platform with mandatory research, parallel agent evidence, sequential merge, and bounded refinement.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19246,7 +19294,7 @@
     {
       "name": "levn-ln-620-codebase-auditor",
       "original_name": "ln-620-codebase-auditor",
-      "description": "Coordinates codebase audit across security, build, code quality, dependencies, and architecture. Use when auditing entire codebase.",
+      "description": "Use when auditing the codebase through the evaluation platform with mandatory research, coordinated domain audit workers, and structured summaries.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19390,7 +19438,7 @@
     {
       "name": "levn-ln-015-hex-line-uninstaller",
       "original_name": "ln-015-hex-line-uninstaller",
-      "description": "Removes hex-line hooks, output style, and cached files from the system. Use when hex-line MCP needs to be fully uninstalled.",
+      "description": "Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, hooks, and output style.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19462,7 +19510,7 @@
     {
       "name": "levn-ln-013-config-syncer",
       "original_name": "ln-013-config-syncer",
-      "description": "Syncs skills, MCP settings, and hooks from Claude Code to Gemini CLI and Codex CLI via symlinks and config conversion. Use when agent configs need alignment.",
+      "description": "Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI and Codex CLI with symlink support for Gemini and install-based sync for Codex.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
