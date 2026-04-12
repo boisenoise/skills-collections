@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-11 06:32 UTC*
+*Last updated: 2026-04-12 06:42 UTC*
 
-Total skills: **2540**
+Total skills: **2544**
 
 ## Skills by Source
 
@@ -2225,6 +2225,7 @@ structures, and modern OOP features. U... |
 | `antigravity-protect-mcp-governance` | Agent governance skill for MCP tool calls — Cedar policy authoring, shadow-to-enforce rollout, and E... |
 | `antigravity-protocol-reverse-engineering` | Comprehensive techniques for capturing, analyzing, and documenting network protocols for security re... |
 | `antigravity-pubmed-database` | Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, ... |
+| `antigravity-puzzle-activity-planner` | Plan puzzle-based activities for classrooms, parties, and events with pre-configured generator links |
 | `antigravity-pydantic-ai` | Build production-ready AI agents with PydanticAI — type-safe tool use, structured outputs, dependenc... |
 | `antigravity-pydantic-models-py` | Create Pydantic models following the multi-model pattern for clean API contracts. |
 | `antigravity-pypict-skill` | Pairwise test generation |
@@ -2242,6 +2243,8 @@ structures, and modern OOP features. U... |
 | `antigravity-radix-ui-design-system` | Build accessible design systems with Radix UI primitives. Headless component customization, theming ... |
 | `antigravity-rag-engineer` | Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector database... |
 | `antigravity-rag-implementation` | RAG (Retrieval-Augmented Generation) implementation workflow covering embedding selection, vector da... |
+| `antigravity-rayden-code` | Generate React code with Rayden UI components using correct props, tokens, and premium layout patter... |
+| `antigravity-rayden-use` | Build and maintain Rayden UI components and screens in Figma via Figma MCP with full design token en... |
 | `antigravity-react-best-practices` | Comprehensive performance optimization guide for React and Next.js applications, maintained by Verce... |
 | `antigravity-react-component-performance` | Diagnose slow React components and suggest targeted performance fixes. |
 | `antigravity-react-flow-architect` | Build production-ready ReactFlow applications with hierarchical navigation, performance optimization... |
@@ -2287,8 +2290,7 @@ coll... |
 | `antigravity-saas-multi-tenant` | Design and implement multi-tenant SaaS architectures with row-level security, tenant-scoped queries,... |
 | `antigravity-saas-mvp-launcher` | Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech s... |
 | `antigravity-saga-orchestration` | Patterns for managing distributed transactions and long-running business processes. |
-| `antigravity-sales-automator` | Draft cold emails, follow-ups, and proposal templates. Creates
-pricing pages, case studies, and sale... |
+| `antigravity-sales-automator` | Draft cold emails, follow-ups, and proposal templates. Creates pricing pages, case studies, and sale... |
 | `antigravity-sales-enablement` | Create sales collateral such as decks, one-pagers, objection docs, demo scripts, playbooks, and prop... |
 | `antigravity-salesforce-automation` | Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL qu... |
 | `antigravity-salesforce-development` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex t... |
@@ -2388,6 +2390,7 @@ Plans content calendars and ident... |
 | `antigravity-skill-developer` | Comprehensive guide for creating and managing skills in Claude Code with auto-activation system, fol... |
 | `antigravity-skill-improver` | Iteratively improve a Claude Code skill using the skill-reviewer agent until it meets quality standa... |
 | `antigravity-skill-installer` | Instala, valida, registra e verifica novas skills no ecossistema. 10 checks de seguranca, copia, reg... |
+| `antigravity-skill-optimizer` | Diagnose and optimize Agent Skills (SKILL.md) with real session data and research-backed static anal... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
 | `antigravity-skill-router` | Use when the user is unsure which skill to use or where to start. Interviews the user with targeted ... |
 | `antigravity-skill-scanner` | Scan agent skills for security issues before adoption. Detects prompt injection, malicious code, exc... |

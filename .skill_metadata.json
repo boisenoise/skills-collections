@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-11T06:32:19.004021",
-  "skill_count": 2540,
+  "last_updated": "2026-04-12T06:42:43.280901",
+  "skill_count": 2544,
   "sources_processed": 19,
   "skills": [
     {
@@ -2500,6 +2500,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-puzzle-activity-planner",
+      "original_name": "puzzle-activity-planner",
+      "description": "Plan puzzle-based activities for classrooms, parties, and events with pre-configured generator links",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-agent-orchestration-multi-agent-optimize",
       "original_name": "agent-orchestration-multi-agent-optimize",
       "description": "Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orchestration. Use when improving agent performance, throughput, or reliability.",
@@ -2764,6 +2772,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-rayden-use",
+      "original_name": "rayden-use",
+      "description": "Build and maintain Rayden UI components and screens in Figma via Figma MCP with full design token enforcement",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-whatsapp-automation",
       "original_name": "whatsapp-automation",
       "description": "Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload media, and handle contacts. Always search tools first for current schemas.",
@@ -2798,7 +2814,7 @@
     {
       "name": "antigravity-sales-automator",
       "original_name": "sales-automator",
-      "description": "Draft cold emails, follow-ups, and proposal templates. Creates\npricing pages, case studies, and sales scripts. Use PROACTIVELY for sales\noutreach or lead nurturing.\n",
+      "description": "Draft cold emails, follow-ups, and proposal templates. Creates pricing pages, case studies, and sales scripts. Use PROACTIVELY for sales outreach or lead nurturing. ",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7220,6 +7236,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-skill-optimizer",
+      "original_name": "skill-optimizer",
+      "description": "Diagnose and optimize Agent Skills (SKILL.md) with real session data and research-backed static analysis. Works with Claude Code, Codex, and any Agent Skills-compatible agent.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-identity-dotnet",
       "original_name": "azure-identity-dotnet",
       "description": "Azure Identity SDK for .NET. Authentication library for Azure SDK clients using Microsoft Entra ID. Use for DefaultAzureCredential, managed identity, service principals, and developer credentials.",
@@ -7599,6 +7623,14 @@
       "name": "antigravity-seo-snippet-hunter",
       "original_name": "seo-snippet-hunter",
       "description": "Formats content to be eligible for featured snippets and SERP features. Creates snippet-optimized content blocks based on best practices. Use PROACTIVELY for question-based content.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-rayden-code",
+      "original_name": "rayden-code",
+      "description": "Generate React code with Rayden UI components using correct props, tokens, and premium layout patterns",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
