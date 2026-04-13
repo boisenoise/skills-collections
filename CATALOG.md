@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-12 06:42 UTC*
+*Last updated: 2026-04-13 06:58 UTC*
 
-Total skills: **2544**
+Total skills: **2547**
 
 ## Skills by Source
 
@@ -988,13 +988,13 @@ Total skills: **2544**
 | `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, and Claude Code. Use when CLI agents need installation or... |
 | `levn-ln-012-mcp-configurator` | Use when installing MCP packages and configuring Claude-side MCP registration, hooks, permissions, I... |
 | `levn-ln-013-config-syncer` | Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI and Codex ... |
-| `levn-ln-014-agent-instructions-manager` | Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md), audits token budget, prompt cac... |
+| `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md/GEMINI.md @AGENTS.md stubs; audits token budget, cache saf... |
 | `levn-ln-015-hex-line-uninstaller` | Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, h... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
-| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles). Use ... |
+| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, GEMINI.md, docs/README.md, standards, princi... |
 | `levn-ln-112-project-core-creator` | Creates core project docs (requirements, architecture, tech stack, patterns catalog). Use for any pr... |
 | `levn-ln-113-backend-docs-creator` | Creates backend docs (api_spec.md, database_schema.md). Use when project has backend API or database... |
 | `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md with WCAG 2.1 compliance and design system docs. Use when project has a... |
@@ -1002,8 +1002,8 @@ Total skills: **2544**
 | `levn-ln-120-reference-docs-creator` | Creates reference docs (ADRs, guides, manuals) for nontrivial tech stack choices. Use when project n... |
 | `levn-ln-130-tasks-docs-creator` | Creates task management docs (kanban board, workflow rules) with Linear integration. Use when settin... |
 | `levn-ln-140-test-docs-creator` | Creates test documentation (testing-strategy.md, tests/README.md) with Risk-Based Testing philosophy... |
-| `levn-ln-160-docs-skill-extractor` | Extracts procedural content from project docs into .claude/commands skills. Use when docs contain de... |
-| `levn-ln-161-skill-creator` | Creates .claude/commands from procedural doc sections. Use when transforming documentation prose int... |
+| `levn-ln-160-docs-skill-extractor` | Extracts procedural content from project docs into slash commands. Use when docs contain deploy, tes... |
+| `levn-ln-161-skill-creator` | Creates slash commands from procedural doc sections. Use when transforming documentation prose into ... |
 | `levn-ln-162-skill-reviewer` | Reviews skills (D1-D11 + M1-M6 criteria) or .claude/commands for quality. Use when validating skill ... |
 | `levn-ln-200-scope-decomposer` | Decomposes scope into Epics, Stories, and RICE priorities. Use when user has project scope and wants... |
 | `levn-ln-201-opportunity-discoverer` | Discovers growth opportunities using Traffic-First KILL funnel. Use when searching for next product ... |
@@ -1576,6 +1576,7 @@ pipelines, and system utilities.... |
 | `antigravity-codebase-cleanup-deps-audit` | You are a dependency security expert specializing in vulnerability scanning, license compliance, and... |
 | `antigravity-codebase-cleanup-refactor-clean` | You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and ... |
 | `antigravity-codebase-cleanup-tech-debt` | You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical... |
+| `antigravity-codebase-to-wordpress-converter` | Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, a... |
 | `antigravity-codex-review` | Professional code review with auto CHANGELOG generation, integrated with Codex AI. Use when you want... |
 | `antigravity-cold-email` | Write B2B cold emails and follow-up sequences that earn replies. Use when creating outbound prospect... |
 | `antigravity-comfyui-gateway` | REST API gateway for ComfyUI servers. Workflow management, job queuing, webhooks, caching, auth, rat... |
@@ -2576,6 +2577,7 @@ calculations
 | `antigravity-voice-agents` | Voice agents represent the frontier of AI interaction - humans speaking naturally with AI systems. |
 | `antigravity-voice-ai-development` | Expert in building voice AI applications - from real-time voice agents to voice-enabled apps. Covers... |
 | `antigravity-voice-ai-engine-development` | Build real-time conversational AI voice engines using async worker pipelines, streaming transcriptio... |
+| `antigravity-vscode-extension-guide-en` | Guide for VS Code extension development from scaffolding to Marketplace publication |
 | `antigravity-vulnerability-scanner` | Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mappin... |
 | `antigravity-warren-buffett` | Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, CEO da Berkshire Hathaway,... |
 | `antigravity-wcag-audit-patterns` | Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation ... |
@@ -2602,6 +2604,7 @@ calculations
 | `antigravity-windows-shell-reliability` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
 | `antigravity-wireshark-analysis` | Execute comprehensive network traffic analysis using Wireshark to capture, filter, and examine netwo... |
 | `antigravity-wordpress` | Complete WordPress development workflow covering theme development, plugin creation, WooCommerce int... |
+| `antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill` | Use this skill when the user asks to write a blog post, article, or SEO content. This applies a prof... |
 | `antigravity-wordpress-penetration-testing` | Assess WordPress installations for common vulnerabilities and WordPress 7.0 attack surfaces. |
 | `antigravity-wordpress-plugin-development` | WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, REST AP... |
 | `antigravity-wordpress-theme-development` | WordPress theme development workflow covering theme architecture, template hierarchy, custom post ty... |

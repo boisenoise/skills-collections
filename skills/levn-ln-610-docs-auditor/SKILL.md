@@ -51,13 +51,13 @@ Phase order:
 Use the Skill tool for delegated workers. Do not inline worker logic inside the coordinator.
 
 TodoWrite format (mandatory):
-- `Config`
-- `Discovery`
-- `Research`
-- `Delegate`
-- `Aggregate`
-- `Report`
-- `Self-check`
+- `Resolve audit scope and build manifest`
+- `Load project documentation tree`
+- `Run best-practice research`
+- `Delegate to domain audit workers`
+- `Aggregate worker findings`
+- `Generate audit report`
+- `Verify cleanup and self-check`
 
 Representative invocations:
 
@@ -90,7 +90,7 @@ Mandatory research sources:
 
 Delegate specialized audit workers.
 
-Child workers may remain on `audit-worker-runtime`, but the coordinator records every worker summary through `evaluation-runtime`.
+Child workers must use `evaluation-worker-runtime` and emit evaluation-compatible summaries recorded through `evaluation-runtime`.
 
 ### Phase 4: Aggregate
 

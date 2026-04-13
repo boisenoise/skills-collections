@@ -319,7 +319,7 @@ Write report to `{output_dir}/ln-635--global.md` with `category: "Isolation & An
 
 Return summary per `shared/references/audit_summary_contract.md`.
 
-When `summaryArtifactPath` is absent, write the standalone runtime summary under `.hex-skills/runtime-artifacts/runs/{run_id}/audit-worker/{worker}--{identifier}.json` and optionally echo the same summary in structured output.
+When `summaryArtifactPath` is absent, write the standalone runtime summary under `.hex-skills/runtime-artifacts/runs/{run_id}/evaluation-worker/{worker}--{identifier}.json` and optionally echo the same summary in structured output.
 ```
 Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/ln-635--global.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
@@ -336,6 +336,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Flat findings:** Merge isolation + determinism + anti-patterns into single findings array, use `principle` prefix to distinguish
 - **Framework Tester dedup:** Category 1 (Business Logic Focus) covers framework tests separately -- coordinator deduplicates overlapping findings
 - **Context-aware:** Supertest with real Express app is acceptable for integration tests
+
+**Monitor (2.1.98+):** For repeated test runs expected >30s each, use `Monitor`. Fallback: `Bash(run_in_background=true)`.
 
 ## Definition of Done
 

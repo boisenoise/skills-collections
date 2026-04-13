@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-12T06:42:43.280901",
-  "skill_count": 2544,
+  "last_updated": "2026-04-13T06:58:10.678529",
+  "skill_count": 2547,
   "sources_processed": 19,
   "skills": [
     {
@@ -3516,6 +3516,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-vscode-extension-guide-en",
+      "original_name": "vscode-extension-guide-en",
+      "description": "Guide for VS Code extension development from scaffolding to Marketplace publication",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-outlook-automation",
       "original_name": "outlook-automation",
       "description": "Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Always search tools first for current schemas.",
@@ -3591,6 +3599,14 @@
       "name": "antigravity-skin-health-analyzer",
       "original_name": "skin-health-analyzer",
       "description": "Analyze skin health data, identify skin problem patterns, assess skin health status. Supports correlation analysis with nutrition, chronic diseases, and medication data.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-codebase-to-wordpress-converter",
+      "original_name": "codebase-to-wordpress-converter",
+      "description": "Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, and dynamic WordPress theme.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6119,6 +6135,14 @@
       "name": "antigravity-office-productivity",
       "original_name": "office-productivity",
       "description": "Office productivity workflow covering document creation, spreadsheet automation, presentation generation, and integration with LibreOffice and Microsoft Office formats.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill",
+      "original_name": "wordpress-centric-high-seo-optimized-blogwriting-skill",
+      "description": "Use this skill when the user asks to write a blog post, article, or SEO content. This applies a professional structure, truth boxes, click-bait-free accurate information, and outputs direct WordPress-ready content.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18686,7 +18710,7 @@
     {
       "name": "levn-ln-014-agent-instructions-manager",
       "original_name": "ln-014-agent-instructions-manager",
-      "description": "Creates missing instruction files (CLAUDE.md, AGENTS.md, GEMINI.md), audits token budget, prompt cache safety, cross-agent consistency. Use after setup or when instruction files need alignment.",
+      "description": "Creates AGENTS.md canonical and CLAUDE.md/GEMINI.md @AGENTS.md stubs; audits token budget, cache safety, import-pattern compliance. Use when instruction files need alignment.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19397,7 +19421,7 @@
     },
     {
       "name": "levn-ln-612-semantic-content-auditor",
-      "original_name": "ln-ln-612--content-auditor",
+      "original_name": "ln-612-semantic-content-auditor",
       "description": "Checks document semantic content against SCOPE and project goals, coverage gaps, off-topic content, SSOT. Use when auditing documentation relevance.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
@@ -19438,7 +19462,7 @@
     {
       "name": "levn-ln-111-root-docs-creator",
       "original_name": "ln-111-root-docs-creator",
-      "description": "Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles). Use for initial project doc setup.",
+      "description": "Creates root documentation files (AGENTS.md, CLAUDE.md, GEMINI.md, docs/README.md, standards, principles). Use for initial project doc setup.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19462,7 +19486,7 @@
     {
       "name": "levn-ln-161-skill-creator",
       "original_name": "ln-161-skill-creator",
-      "description": "Creates .claude/commands from procedural doc sections. Use when transforming documentation prose into executable skill files.",
+      "description": "Creates slash commands from procedural doc sections. Use when transforming documentation prose into executable commands.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19574,7 +19598,7 @@
     {
       "name": "levn-ln-160-docs-skill-extractor",
       "original_name": "ln-160-docs-skill-extractor",
-      "description": "Extracts procedural content from project docs into .claude/commands skills. Use when docs contain deploy, test, or troubleshoot procedures.",
+      "description": "Extracts procedural content from project docs into slash commands. Use when docs contain deploy, test, or troubleshoot procedures.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"

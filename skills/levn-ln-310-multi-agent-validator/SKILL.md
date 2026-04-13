@@ -16,7 +16,7 @@ Evaluation-platform coordinator for:
 - `mode=plan_review`
 - `mode=context`
 
-This skill replaces the old review-runtime-centric flow with:
+This skill uses the evaluation platform for:
 - mandatory official-doc, MCP Ref, Context7, and current-web research
 - parallel read-only evidence lanes
 - sequential documentation, repair, merge, refinement, and approval
@@ -57,16 +57,16 @@ The coordinator uses these evaluation workers:
 Use the Skill tool for delegated workers. Do not inline worker logic inside the coordinator.
 
 TodoWrite format (mandatory):
-- `Config`
-- `Discovery`
-- `Agent launch`
-- `Evidence lanes`
-- `Docs`
-- `Repair`
-- `Merge`
-- `Refinement`
-- `Approval`
-- `Self-check`
+- `Resolve target and build runtime manifest`
+- `Load target artifacts and metadata`
+- `Launch external agents and verify health`
+- `Run research and findings workers in parallel`
+- `Generate documentation updates`
+- `Apply accepted low-risk repairs`
+- `Sync agents and merge all evidence`
+- `Run bounded refinement loop`
+- `Compute verdict and write review output`
+- `Verify runtime cleanup and self-check`
 
 Representative invocations:
 
@@ -136,6 +136,7 @@ Sequential only:
    - exact `phase_order`
    - `phase_policy`
    - report path
+   - `extra_evidence_workers` — optional list of additional read-only workers. Each entry: `{"worker": "ln-511", "lane": "code_quality", "join_group": "evidence", "depends_on": []}`. Default: empty list. Auto-selection in `mode=story`: label `security` → add `ln-621`, label `performance` → add `ln-653`.
 4. Start runtime:
 
 ```bash
@@ -186,12 +187,14 @@ node shared/scripts/evaluation-runtime/cli.mjs register-agent \
 This phase is the mandatory parallel evidence barrier.
 
 1. Build `worker_plan` with:
-   - `ln-311` lane `research`
-   - `ln-312` lane `findings`
-2. Launch both workers in parallel.
-3. While those workers run, continue local repo inspection and collect additional evidence.
-4. Sync agents opportunistically, but do not block on them until merge.
-5. Record each worker summary with:
+   - `ln-311` lane `research` (mandatory)
+   - `ln-312` lane `findings` (mandatory)
+   - optional audit lanes from manifest `extra_evidence_workers`
+2. **Runtime gate:** For each extra worker, verify it emits an `evaluation-worker` summary with `worker`, `status`, `operation`, and `warnings`. Skip unknown or non-evaluation summary formats with a warning.
+3. Launch all planned workers in parallel.
+4. While those workers run, continue local repo inspection and collect additional evidence.
+5. Sync agents opportunistically, but do not block on them until merge.
+6. Record each worker summary with:
 
 ```bash
 node shared/scripts/evaluation-runtime/cli.mjs record-worker-result \
@@ -245,16 +248,18 @@ node shared/scripts/evaluation-runtime/cli.mjs sync-agent --skill ln-310 --ident
 
 ### Phase 7: Refinement
 
-Run `ln-316-review-refinement-worker` with fixed step order:
-1. `dry_run_executor`
-2. `adversarial_reviewer`
+Run `ln-316-review-refinement-worker` with perspective order per `refinement_perspectives.md`:
+1. `generic_quality`
+2. `dry_run_executor`
 3. `new_dev_tester`
-4. `generic_quality`
+4. `adversarial_reviewer`
 5. `final_sweep`
+
+Refinement launches Codex via `agent_runner.mjs` (NOT Claude sub-agents).
 
 Rules:
 - sequential only
-- bounded loop
+- bounded loop (max 5 iterations)
 - no quality-based skip when Codex is available
 - every launched process requires cleanup evidence
 - refinement trace is mandatory
@@ -263,9 +268,24 @@ Rules:
 
 Story mode:
 1. Compute final gate from post-merge and post-refinement state.
-2. `GO` only when no remaining blocking issues exist.
-3. Mutate Story status only on `GO`.
-4. Write user-facing review output.
+2. Final Assessment Model:
+
+| Metric | Before | After | Meaning |
+|--------|--------|-------|---------|
+| Penalty Points | from ln-312 | from ln-314 | 0 = all fixed |
+| Readiness Score | `clamp(1,10,10-floor(before/5))` | `clamp(1,10,10-floor(after/5))` | Quality (1-10) |
+| Anti-Hallucination | — | from ln-311 | VERIFIED/FLAGGED |
+| AC Coverage | — | N/N | 100% = pass |
+| Gate | — | GO/NO_GO | Final verdict |
+
+3. Gate rules:
+   - `GO` = `penalty_after=0` AND no `FLAGGED` items AND `ac_coverage=100%`
+   - `NO_GO` = otherwise
+   - Coverage: 80-99% = +3 penalty and forced `NO_GO`
+   - Coverage: <80% = +5 penalty and forced `NO_GO`
+4. On `GO`: mutate Story status to `Todo`; update `kanban_board.md` to `APPROVED`.
+5. Retry status transition once; if failure → `NO_GO`.
+6. Write user-facing review output with per-criterion penalty before/after breakdown.
 
 Plan/context mode:
 - write final review output without workflow mutation
@@ -317,6 +337,12 @@ Recommended payload fields:
 - `warnings`
 - `cleanup_verified`
 - `research_completed`
+- `penalty_before`
+- `penalty_after`
+- `readiness_score`
+- `ac_coverage`
+- `gate` (GO/NO_GO)
+- `flagged_items`
 
 ## Definition of Done
 

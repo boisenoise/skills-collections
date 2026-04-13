@@ -143,7 +143,7 @@ Write report to `{output_dir}/ln-622--global.md` with `category: "Build Health"`
 
 Return summary per `shared/references/audit_summary_contract.md`.
 
-When `summaryArtifactPath` is absent, write the standalone runtime summary under `.hex-skills/runtime-artifacts/runs/{run_id}/audit-worker/{worker}--{identifier}.json` and optionally echo the same summary in structured output.
+When `summaryArtifactPath` is absent, write the standalone runtime summary under `.hex-skills/runtime-artifacts/runs/{run_id}/evaluation-worker/{worker}--{identifier}.json` and optionally echo the same summary in structured output.
 ```
 Report written: .hex-skills/runtime-artifacts/runs/{run_id}/audit-report/ln-622--global.md
 Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
@@ -158,6 +158,8 @@ Score: X.X/10 | Issues: N (C:N H:N M:N L:N)
 - **Exit code checking:** Always check exit code (0 = success, non-zero = failure)
 - **Timeout handling:** Set timeout for build/test commands (default 5 minutes)
 - **Environment aware:** Run in CI mode if detected (no interactive prompts)
+
+**Monitor (2.1.98+):** For build/lint/typecheck/test commands expected >30s, use `Monitor`. Fallback: `Bash(run_in_background=true)`.
 
 ## Definition of Done
 
