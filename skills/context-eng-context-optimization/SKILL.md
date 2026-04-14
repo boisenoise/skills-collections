@@ -167,6 +167,7 @@ context += [unique_content]  # Unique
 This skill builds on context-fundamentals and context-degradation. It connects to:
 
 - multi-agent-patterns - Partitioning as isolation
+- latent-briefing - Selective KV retention across orchestrator–worker boundaries (compatible models)
 - evaluation - Measuring optimization effectiveness
 - memory-systems - Offloading context to memory
 

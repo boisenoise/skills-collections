@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-13 06:58 UTC*
+*Last updated: 2026-04-14 06:49 UTC*
 
-Total skills: **2547**
+Total skills: **2555**
 
 ## Skills by Source
 
@@ -895,6 +895,7 @@ Total skills: **2547**
 | `anthropic-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `anthropic-brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
 | `anthropic-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
+| `anthropic-claude-api` | Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should includ... |
 | `anthropic-doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri... |
 | `anthropic-frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill wh... |
 | `anthropic-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
@@ -924,6 +925,7 @@ Total skills: **2547**
 | `marketing-ad-creative` | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary te... |
 | `marketing-ai-seo` | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-ge... |
 | `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
+| `marketing-aso-audit` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user... |
 | `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
 | `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
 | `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
@@ -1131,6 +1133,7 @@ Total skills: **2547**
 | `context-eng-evaluation` | This skill should be used when the user asks to "evaluate agent performance", "build test framework"... |
 | `context-eng-filesystem-context` | This skill should be used when the user asks to "offload context to files", "implement dynamic conte... |
 | `context-eng-hosted-agents` | This skill should be used when the user asks to "build background agent", "create hosted coding agen... |
+| `context-eng-latent-briefing` | This skill should be used when the user asks to "share memory between agents", "KV cache compaction ... |
 | `context-eng-memory-systems` | Guides implementation of agent memory systems, compares production frameworks (Mem0, Zep/Graphiti, L... |
 | `context-eng-multi-agent-patterns` | This skill should be used when the user asks to "design multi-agent system", "implement supervisor p... |
 | `context-eng-project-development` | This skill should be used when the user asks to "start an LLM project", "design batch pipeline", "ev... |
@@ -1341,6 +1344,7 @@ Total skills: **2547**
 | `antigravity-aws-serverless` | Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functi... |
 | `antigravity-aws-skills` | AWS development with infrastructure automation and cloud architecture patterns |
 | `antigravity-awt-e2e-testing` | AI-powered E2E web testing — eyes and hands for AI coding tools. Declarative YAML scenarios, Playwri... |
+| `antigravity-axiom` | First-principles assumption auditor. Classifies each hidden assumption (fact / convention / belief /... |
 | `antigravity-azd-deployment` | Deploy containerized frontend + backend applications to Azure Container Apps with remote builds, man... |
 | `antigravity-azure-ai-agents-persistent-dotnet` | Azure AI Agents Persistent SDK for .NET. Low-level SDK for creating and managing AI agents with thre... |
 | `antigravity-azure-ai-agents-persistent-java` | Azure AI Agents Persistent SDK for Java. Low-level SDK for creating and managing AI agents with thre... |
@@ -1860,6 +1864,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-haskell-pro` | Expert Haskell engineer specializing in advanced type systems, pure |
 | `antigravity-headline-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-health-trend-analyzer` | 分析一段时间内健康数据的趋势和模式。关联药物、症状、生命体征、化验结果和其他健康指标的变化。识别令人担忧的趋势、改善情况，并提供数据驱动的洞察。当用户询问健康趋势、模式、随时间的变化或"我的健康状况有... |
+| `antigravity-helium-mcp` | Connect to Helium's MCP server for news research, media bias analysis, balanced perspectives, stock/... |
 | `antigravity-helm-chart-scaffolding` | Comprehensive guidance for creating, organizing, and managing Helm charts for packaging and deployin... |
 | `antigravity-helpdesk-automation` | Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, a... |
 | `antigravity-hierarchical-agent-memory` | Scoped CLAUDE.md memory system that reduces context token spend. Creates directory-level context fil... |
@@ -1914,6 +1919,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-incident-response-incident-response` | Use when working with incident response incident response |
 | `antigravity-incident-response-smart-fix` | [Extended thinking: This workflow implements a sophisticated debugging and resolution pipeline that ... |
 | `antigravity-incident-runbook-templates` | Production-ready templates for incident response runbooks covering detection, triage, mitigation, re... |
+| `antigravity-indexing-issue-auditor` | High-level technical SEO and site architecture auditor. Invoke to scan local or live environments fo... |
 | `antigravity-infinite-gratitude` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case ... |
 | `antigravity-inngest` | Inngest expert for serverless-first background jobs, event-driven workflows, and durable execution w... |
 | `antigravity-instagram` | Integracao completa com Instagram via Graph API. Publicacao, analytics, comentarios, DMs, hashtags, ... |
@@ -1978,6 +1984,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-linear-claude-skill` | Manage Linear issues, projects, and teams |
 | `antigravity-linkedin-automation` | Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comment... |
 | `antigravity-linkedin-cli` | Use when automating LinkedIn via CLI: fetch profiles, search people/companies, send messages, manage... |
+| `antigravity-linkedin-profile-optimizer` | High-intent expert for LinkedIn profile checks, authority building, and SEO optimization. Invoke to ... |
 | `antigravity-linkerd-patterns` | Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kube... |
 | `antigravity-lint-and-validate` | MANDATORY: Run appropriate validation tools after EVERY code change. Do not finish a task until the ... |
 | `antigravity-linux-privilege-escalation` | Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconf... |
@@ -2631,6 +2638,7 @@ calculations
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
 | `antigravity-zeroize-audit` | Detects missing zeroization of sensitive data in source code and identifies zeroization removed by c... |
+| `antigravity-zipai-optimizer` | Behavioral protocol engineered for extreme AI agent token optimization, eliminating I/O noise via co... |
 | `antigravity-zod-validation-expert` | Expert in Zod — TypeScript-first schema validation. Covers parsing, custom errors, refinements, type... |
 | `antigravity-zoho-crm-automation` | Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage lead... |
 | `antigravity-zoom-automation` | Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube ... |
@@ -2652,7 +2660,7 @@ calculations
 
 | Skill | Description |
 |-------|-------------|
-| `aws-dev-aws-agentic-ai` | AWS Bedrock AgentCore comprehensive expert for deploying and managing all AgentCore services. Use wh... |
+| `aws-dev-aws-agentic-ai` | AWS Bedrock AgentCore comprehensive expert for deploying and managing AI agents at scale. Use when w... |
 | `aws-dev-aws-cdk-development` | AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python. Use... |
 | `aws-dev-aws-cost-operations` | AWS cost optimization, monitoring, and operational excellence expert. Use when analyzing AWS bills, ... |
 | `aws-dev-aws-mcp-setup` | Configure AWS MCP servers for documentation search and API access. Use when setting up AWS MCP, conf... |
