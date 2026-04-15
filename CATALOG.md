@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-14 06:49 UTC*
+*Last updated: 2026-04-15 06:49 UTC*
 
-Total skills: **2555**
+Total skills: **2556**
 
 ## Skills by Source
 
@@ -987,16 +987,16 @@ Total skills: **2555**
 | `levn-ln-001-push-all` | Commits and pushes all changes (staged, unstaged, untracked) to remote. Use when you need a quick pu... |
 | `levn-ln-002-session-analyzer` | Analyzes current or recent session for errors, inefficiencies, and improvement opportunities across ... |
 | `levn-ln-010-dev-environment-setup` | Installs agents, configures MCP servers, syncs configs, creates and audits instructions. Use after s... |
-| `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, and Claude Code. Use when CLI agents need installation or... |
+| `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, Claude Code, and detects Google Antigravity IDE. Use when... |
 | `levn-ln-012-mcp-configurator` | Use when installing MCP packages and configuring Claude-side MCP registration, hooks, permissions, I... |
-| `levn-ln-013-config-syncer` | Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI and Codex ... |
-| `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md/GEMINI.md @AGENTS.md stubs; audits token budget, cache saf... |
+| `levn-ln-013-config-syncer` | Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI, Codex CLI... |
+| `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md/GEMINI.md/ANTIGRAVITY.md @AGENTS.md stubs; audits token bu... |
 | `levn-ln-015-hex-line-uninstaller` | Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, h... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
-| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, GEMINI.md, docs/README.md, standards, princi... |
+| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, GEMINI.md, ANTIGRAVITY.md, docs/README.md, s... |
 | `levn-ln-112-project-core-creator` | Creates core project docs (requirements, architecture, tech stack, patterns catalog). Use for any pr... |
 | `levn-ln-113-backend-docs-creator` | Creates backend docs (api_spec.md, database_schema.md). Use when project has backend API or database... |
 | `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md with WCAG 2.1 compliance and design system docs. Use when project has a... |
@@ -2064,6 +2064,7 @@ splash language, makepad script, m... |
 | `antigravity-ml-engineer` | Build production ML systems with PyTorch 2.x, TensorFlow, and modern ML frameworks. Implements model... |
 | `antigravity-ml-pipeline-workflow` | Complete end-to-end MLOps pipeline orchestration from data preparation through model deployment. |
 | `antigravity-mlops-engineer` | Build comprehensive ML pipelines, experiment tracking, and model registries with MLflow, Kubeflow, a... |
+| `antigravity-mmx-cli` | Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the... |
 | `antigravity-mobile-design` | (Mobile-First · Touch-First · Platform-Respectful) |
 | `antigravity-mobile-developer` | Develop React Native, Flutter, or native mobile apps with modern architecture patterns. Masters cros... |
 | `antigravity-mobile-security-coder` | Expert in secure mobile coding practices specializing in input validation, WebView security, and mob... |
@@ -2638,7 +2639,7 @@ calculations
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
 | `antigravity-zeroize-audit` | Detects missing zeroization of sensitive data in source code and identifies zeroization removed by c... |
-| `antigravity-zipai-optimizer` | Behavioral protocol engineered for extreme AI agent token optimization, eliminating I/O noise via co... |
+| `antigravity-zipai-optimizer` | Adaptive token optimizer: intelligent filtering, surgical output, ambiguity-first, context-window-aw... |
 | `antigravity-zod-validation-expert` | Expert in Zod — TypeScript-first schema validation. Covers parsing, custom errors, refinements, type... |
 | `antigravity-zoho-crm-automation` | Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage lead... |
 | `antigravity-zoom-automation` | Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube ... |
