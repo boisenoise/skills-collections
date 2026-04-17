@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-16 06:50 UTC*
+*Last updated: 2026-04-17 06:50 UTC*
 
-Total skills: **2556**
+Total skills: **2558**
 
 ## Skills by Source
 
@@ -1639,6 +1639,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-customer-support` | Elite AI-powered customer support specialist mastering conversational AI, automated ticketing, senti... |
 | `antigravity-customs-trade-compliance` | Codified expertise for customs documentation, tariff classification, duty optimisation, restricted p... |
 | `antigravity-daily` | Documentation and capabilities reference for Daily |
+| `antigravity-daily-gift` | Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, synthes... |
 | `antigravity-daily-news-report` | Scrapes content based on a preset URL list, filters high-quality technical information, and generate... |
 | `antigravity-data-engineer` | Build scalable data pipelines, modern data warehouses, and real-time streaming architectures. Implem... |
 | `antigravity-data-engineering-data-driven-feature` | Build features guided by data insights, A/B testing, and continuous measurement using specialized ag... |
@@ -1958,6 +1959,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-kpi-dashboard-design` | Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
 | `antigravity-kubernetes-deployment` | Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and productio... |
+| `antigravity-lambdatest-agent-skills` | Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and... |
 | `antigravity-landing-page-generator` | Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB fra... |
 | `antigravity-langchain-architecture` | Master the LangChain framework for building sophisticated LLM applications with agents, chains, memo... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |

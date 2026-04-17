@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-04-16 06:50 UTC*
+*Last updated: 2026-04-17 06:50 UTC*
 
 ## Source Repositories
 
@@ -132,9 +132,10 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | CC-BY-4.0 | 1 |
 | Complete terms in LICENSE.txt | 36 |
 | LICENSE | 1 |
-| MIT | 2484 |
+| MIT | 2485 |
 | MIT License | 2 |
 | MIT license | 2 |
+| MIT-0 | 1 |
 | SD-3-Clause license | 1 |
 | Unknown | 3 |
 | https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 1 |
