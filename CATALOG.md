@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-17 06:50 UTC*
+*Last updated: 2026-04-18 06:36 UTC*
 
-Total skills: **2558**
+Total skills: **2569**
 
 ## Skills by Source
 
@@ -1251,6 +1251,7 @@ Total skills: **2558**
 | `antigravity-ai-agent-development` | AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchest... |
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
 | `antigravity-ai-analyzer` | AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、预测健康风险、提供个性化建议。支持智能问答和AI健康报告生成。 |
+| `antigravity-ai-dev-jobs-mcp` | Search 8,400+ AI and ML jobs across 489 companies, inspect listings and employers, match roles, and ... |
 | `antigravity-ai-engineer` | Build production-ready LLM applications, advanced RAG systems, and intelligent agents. Implements ve... |
 | `antigravity-ai-engineering-toolkit` | 6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget... |
 | `antigravity-ai-md` | Convert human-written CLAUDE.md into AI-native structured-label format. Battle-tested across 4 model... |
@@ -1682,6 +1683,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-design-md` | Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files |
 | `antigravity-design-orchestration` | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and executi... |
 | `antigravity-design-spells` | Curated micro-interactions and design details that add "magic" and personality to websites and apps. |
+| `antigravity-design-taste-frontend` | Use when building high-agency frontend interfaces with strict design taste, calibrated color, respon... |
 | `antigravity-devcontainer-setup` | Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persist... |
 | `antigravity-development` | Comprehensive web, mobile, and backend development workflow bundling frontend, backend, full-stack, ... |
 | `antigravity-devops-deploy` | DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infrae... |
@@ -1816,6 +1818,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-frontend-security-coder` | Expert in secure frontend coding practices specializing in XSS prevention, output sanitization, and ... |
 | `antigravity-frontend-slides` | Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. |
 | `antigravity-frontend-ui-dark-ts` | A modern dark-themed React UI system using Tailwind CSS and Framer Motion. Designed for dashboards, ... |
+| `antigravity-full-output-enforcement` | Use when a task requires exhaustive unabridged output, complete files, or strict prevention of place... |
 | `antigravity-full-stack-orchestration-full-stack-feature` | Use when working with full stack orchestration full stack feature |
 | `antigravity-game-development` | Game development orchestrator. Routes to platform-specific skills based on project needs. |
 | `antigravity-gcp-cloud-run` | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run ser... |
@@ -1857,6 +1860,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-google-sheets-automation` | Lightweight Google Sheets integration with standalone OAuth authentication. No MCP server required. ... |
 | `antigravity-google-slides-automation` | Lightweight Google Slides integration with standalone OAuth authentication. No MCP server required. ... |
 | `antigravity-googlesheets-automation` | Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (C... |
+| `antigravity-gpt-taste` | Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography... |
 | `antigravity-grafana-dashboards` | Create and manage production-ready Grafana dashboards for comprehensive system observability. |
 | `antigravity-graphql` | GraphQL gives clients exactly the data they need - no more, no less. One endpoint, typed schema, int... |
 | `antigravity-graphql-architect` | Master modern GraphQL with federation, performance optimization, and enterprise security. Build scal... |
@@ -1883,6 +1887,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-hig-platforms` | Apple Human Interface Guidelines for platform-specific design. |
 | `antigravity-hig-project-context` | Create or update a shared Apple design context document that other HIG skills use to tailor guidance... |
 | `antigravity-hig-technologies` | Check for .claude/apple-design-context.md before asking questions. Use existing context and only ask... |
+| `antigravity-high-end-visual-design` | Use when designing expensive agency-grade interfaces with premium fonts, spatial rhythm, soft depth,... |
 | `antigravity-hono` | Build ultra-fast web APIs and full-stack apps with Hono — runs on Cloudflare Workers, Deno, Bun, Nod... |
 | `antigravity-hosted-agents` | Build background agents in sandboxed environments. Use for hosted coding agents, sandboxed VMs, Moda... |
 | `antigravity-hosted-agents-v2-py` | Build hosted agents using Azure AI Projects SDK with ImageBasedHostedAgentDefinition. Use when creat... |
@@ -1921,6 +1926,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-incident-response-smart-fix` | [Extended thinking: This workflow implements a sophisticated debugging and resolution pipeline that ... |
 | `antigravity-incident-runbook-templates` | Production-ready templates for incident response runbooks covering detection, triage, mitigation, re... |
 | `antigravity-indexing-issue-auditor` | High-level technical SEO and site architecture auditor. Invoke to scan local or live environments fo... |
+| `antigravity-industrial-brutalist-ui` | Use when creating raw industrial or tactical telemetry UIs with rigid grids, stark typography, CRT e... |
 | `antigravity-infinite-gratitude` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case ... |
 | `antigravity-inngest` | Inngest expert for serverless-first background jobs, event-driven workflows, and durable execution w... |
 | `antigravity-instagram` | Integracao completa com Instagram via Graph API. Publicacao, analytics, comentarios, DMs, hashtags, ... |
@@ -2061,7 +2067,9 @@ splash language, makepad script, m... |
 | `antigravity-microsoft-azure-webjobs-extensions-authentication-events-dotnet` | Microsoft Entra Authentication Events SDK for .NET. Azure Functions triggers for custom authenticati... |
 | `antigravity-microsoft-teams-automation` | Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meeti... |
 | `antigravity-minecraft-bukkit-pro` | Master Minecraft server plugin development with Bukkit, Spigot, and Paper APIs. |
+| `antigravity-minimalist-ui` | Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restraine... |
 | `antigravity-miro-automation` | Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connector... |
+| `antigravity-mise-configurator` | Generate production-ready mise.toml setups for local development, CI/CD pipelines, and toolchain sta... |
 | `antigravity-mixpanel-automation` | Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profil... |
 | `antigravity-ml-engineer` | Build production ML systems with PyTorch 2.x, TensorFlow, and modern ML frameworks. Implements model... |
 | `antigravity-ml-pipeline-workflow` | Complete end-to-end MLOps pipeline orchestration from data preparation through model deployment. |
@@ -2114,6 +2122,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-nodejs-backend-patterns` | Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend app... |
 | `antigravity-nodejs-best-practices` | Node.js development principles and decision-making. Framework selection, async patterns, security, a... |
 | `antigravity-nosql-expert` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, que... |
+| `antigravity-not-human-search-mcp` | Search AI-ready websites, inspect indexed site details, verify MCP endpoints, and discover tools and... |
 | `antigravity-notebooklm` | Interact with Google NotebookLM to query documentation with Gemini's source-grounded answers. Each q... |
 | `antigravity-notion-automation` | Automate Notion tasks via Rube MCP (Composio): pages, databases, blocks, comments, users. Always sea... |
 | `antigravity-notion-template-business` | Expert in building and selling Notion templates as a business - not just making templates, but build... |
@@ -2272,6 +2281,7 @@ structures, and modern OOP features. U... |
 | `antigravity-red-team-tactics` | Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting. |
 | `antigravity-red-team-tools` | Implement proven methodologies and tool workflows from top security researchers for effective reconn... |
 | `antigravity-reddit-automation` | Automate Reddit tasks via Rube MCP (Composio): search subreddits, create posts, manage comments, and... |
+| `antigravity-redesign-existing-projects` | Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium de... |
 | `antigravity-reference-builder` | Creates exhaustive technical references and API documentation. Generates comprehensive parameter lis... |
 | `antigravity-referral-program` | You are an expert in viral growth and referral marketing with access to referral program data and th... |
 | `antigravity-rehabilitation-analyzer` | 分析康复训练数据、识别康复模式、评估康复进展，并提供个性化康复建议 |
@@ -2448,6 +2458,7 @@ calculations
 | `antigravity-startup-metrics-framework` | Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different s... |
 | `antigravity-statsmodels` | Statsmodels is Python's premier library for statistical modeling, providing tools for estimation, in... |
 | `antigravity-steve-jobs` | Agente que simula Steve Jobs — cofundador da Apple, CEO da Pixar, fundador da NeXT, o maior designer... |
+| `antigravity-stitch-design-taste` | Use when generating Google Stitch DESIGN.md systems for premium typography, color, layout, motion in... |
 | `antigravity-stitch-loop` | Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop patt... |
 | `antigravity-stitch-ui-design` | Expert guidance for crafting effective prompts in Google Stitch, the AI-powered UI design tool by Go... |
 | `antigravity-stride-analysis-patterns` | Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, con... |
