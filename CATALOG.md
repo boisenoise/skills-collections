@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-19 06:45 UTC*
+*Last updated: 2026-04-20 06:59 UTC*
 
-Total skills: **2569**
+Total skills: **2577**
 
 ## Skills by Source
 
@@ -1915,6 +1915,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-i18n-localization` | Internationalization and localization patterns. Detecting hardcoded strings, managing translations, ... |
 | `antigravity-iconsax-library` | Extensive icon library and AI-driven icon generation skill for premium UI/UX design. |
 | `antigravity-idea-darwin` | Darwinian idea evolution engine — toss rough ideas onto an evolution island, let them compete, cross... |
+| `antigravity-idea-os` | Five-phase pipeline (triage → clarify → research → PRD → plan) that turns a raw idea into four linke... |
 | `antigravity-identity-mirror` | One sentence - what this skill does and when to invoke it |
 | `antigravity-idor-testing` | Provide systematic methodologies for identifying and exploiting Insecure Direct Object Reference (ID... |
 | `antigravity-ilya-sutskever` | Agente que simula Ilya Sutskever — co-fundador da OpenAI, ex-Chief Scientist, fundador da SSI. Use q... |
@@ -1942,7 +1943,10 @@ behavior. Use proactively when encoun... |
 | `antigravity-ios-developer` | Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core... |
 | `antigravity-issues` | Interact with GitHub issues - create, list, and view issues. |
 | `antigravity-istio-traffic-management` | Comprehensive guide to Istio traffic management for production service mesh deployments. |
+| `antigravity-it-manager-hospital` | World-class Hospital IT Management Advisor specializing in clinical safety, digital maturity (HIMSS/... |
+| `antigravity-it-manager-pro` | Elite IT Management Advisor specializing in data-driven strategy, executive communication, and human... |
 | `antigravity-iterate-pr` | Iterate on a PR until CI passes. Use when you need to fix CI failures, address review feedback, or c... |
+| `antigravity-itil-expert` | Expert advisor for ITIL 4 and ITIL 5 (2026 digital product paradigm), specialized in AI-native gover... |
 | `antigravity-java-pro` | Master Java 21+ with modern features like virtual threads, pattern matching, and Spring Boot 3.x. Ex... |
 | `antigravity-javascript-mastery` | 33+ essential JavaScript concepts every developer should know, inspired by [33-js-concepts](https://... |
 | `antigravity-javascript-pro` | Master modern JavaScript with ES6+, async patterns, and Node.js APIs. Handles promises, event loops,... |
@@ -1961,6 +1965,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-kaizen` | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user ... |
 | `antigravity-keyword-extractor` | Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract... |
 | `antigravity-klaviyo-automation` | Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign message... |
+| `antigravity-kotler-macro-analyzer` | Professional PESTEL/SWOT analysis agent based on Kotler's methodology for strategic market audits. |
 | `antigravity-kotlin-coroutines-expert` | Expert patterns for Kotlin Coroutines and Flow, covering structured concurrency, error handling, and... |
 | `antigravity-kpi-dashboard-design` | Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
@@ -2172,6 +2177,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-orchestrate-batch-refactor` | Plan and execute large refactors with dependency-aware work packets and parallel analysis. |
 | `antigravity-os-scripting` | Operating system and shell scripting troubleshooting workflow for Linux, macOS, and Windows. Covers ... |
 | `antigravity-oss-hunter` | Automatically hunt for high-impact OSS contribution opportunities in trending repositories. |
+| `antigravity-osterwalder-canvas-architect` | Iterative consultant agent for building and validating logically consistent 9-block Business Model C... |
 | `antigravity-outlook-automation` | Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Al... |
 | `antigravity-outlook-calendar-automation` | Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeti... |
 | `antigravity-page-cro` | Analyze and optimize individual pages for conversion performance. |
@@ -2428,6 +2434,7 @@ Plans content calendars and ident... |
 | `antigravity-snowflake-development` | Comprehensive Snowflake development assistant covering SQL best practices, data pipeline design (Dyn... |
 | `antigravity-social-content` | You are an expert social media strategist with direct access to a scheduling platform that publishes... |
 | `antigravity-social-orchestrator` | Orquestrador unificado de canais sociais — coordena Instagram, Telegram e WhatsApp em um unico fluxo... |
+| `antigravity-social-post-writer-seo` | Social Media Strategist and Content Writer. Creates clear, engaging social media posts for Instagram... |
 | `antigravity-social-proof-architect` | One sentence - what this skill does and when to invoke it |
 | `antigravity-software-architecture` | Guide for quality focused software architecture. This skill should be used when users want to write ... |
 | `antigravity-solidity-security` | Master smart contract security best practices, vulnerability prevention, and secure Solidity develop... |
@@ -2639,6 +2646,7 @@ calculations
 | `antigravity-writing-skills` | Use when creating, updating, or improving agent skills. |
 | `antigravity-x-article-publisher-skill` | Publish articles to X/Twitter |
 | `antigravity-x-twitter-scraper` | X (Twitter) data platform skill — tweet search, user lookup, follower extraction, engagement metrics... |
+| `antigravity-x402-express-wrapper` | Wrapper oficial de M2MCent (Node.js) para inyectar muros de pago x402 en APIs o servidores Model Con... |
 | `antigravity-xlsx` | Unless otherwise stated by the user or existing template |
 | `antigravity-xss-html-injection` | Execute comprehensive client-side injection vulnerability assessments on web applications to identif... |
 | `antigravity-xvary-stock-research` | Thesis-driven equity analysis from public SEC EDGAR and market data; /analyze, /score, /compare work... |
