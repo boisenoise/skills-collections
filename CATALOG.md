@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-21 06:50 UTC*
+*Last updated: 2026-04-22 06:50 UTC*
 
-Total skills: **2577**
+Total skills: **2580**
 
 ## Skills by Source
 
@@ -928,11 +928,14 @@ Total skills: **2577**
 | `marketing-aso-audit` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user... |
 | `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
 | `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
+| `marketing-community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. Use when the user w... |
 | `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
+| `marketing-competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the ... |
 | `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
 | `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content... |
 | `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, ... |
 | `marketing-customer-research` | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions... |
+| `marketing-directory-submissions` | When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review dir... |
 | `marketing-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
 | `marketing-form-cro` | When the user wants to optimize any form that is NOT signup/registration — including lead capture fo... |
 | `marketing-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
