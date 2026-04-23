@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22T06:50:24.406608",
+  "last_updated": "2026-04-23T06:50:48.435550",
   "skill_count": 2580,
   "sources_processed": 19,
   "skills": [
@@ -19790,7 +19790,7 @@
     {
       "name": "levn-ln-013-config-syncer",
       "original_name": "ln-013-config-syncer",
-      "description": "Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI, Codex CLI, and Google Antigravity. Verifies language-analyzer providers for synced MCP servers match the project's languages.",
+      "description": "Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI, Codex CLI, and Google Antigravity, with provider checks for synced MCP servers.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
