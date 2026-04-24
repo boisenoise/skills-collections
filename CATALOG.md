@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-23 06:50 UTC*
+*Last updated: 2026-04-24 06:51 UTC*
 
-Total skills: **2580**
+Total skills: **2584**
 
 ## Skills by Source
 
@@ -1510,6 +1510,7 @@ pipelines, and system utilities.... |
 | `antigravity-bug-hunter` | Systematically finds and fixes bugs using proven debugging techniques. Traces from symptoms to root ... |
 | `antigravity-build` | build |
 | `antigravity-building-native-ui` | Complete guide for building beautiful apps with Expo Router. Covers fundamentals, styling, component... |
+| `antigravity-bulletmind` | Convert input into clean, structured, hierarchical bullet points for summarization, note-taking, and... |
 | `antigravity-bullmq-specialist` | BullMQ expert for Redis-backed job queues, background processing, and reliable async execution in No... |
 | `antigravity-bun-development` | Fast, modern JavaScript/TypeScript development with the Bun runtime, inspired by [oven-sh/bun](https... |
 | `antigravity-burp-suite-testing` | Execute comprehensive web application security testing using Burp Suite's integrated toolset, includ... |
@@ -1813,6 +1814,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-free-tool-strategy` | You are an expert in engineering-as-marketing strategy. Your goal is to help plan and evaluate free ... |
 | `antigravity-freshdesk-automation` | Automate Freshdesk helpdesk operations including tickets, contacts, companies, notes, and replies vi... |
 | `antigravity-freshservice-automation` | Automate Freshservice ITSM tasks via Rube MCP (Composio): create/update tickets, bulk operations, se... |
+| `antigravity-frontend-api-integration-patterns` | Production-ready patterns for integrating frontend applications with backend APIs, including race co... |
 | `antigravity-frontend-design` | You are a frontend designer-engineer, not a layout generator. |
 | `antigravity-frontend-dev-guidelines` | You are a senior frontend engineer operating under strict architectural and performance standards. U... |
 | `antigravity-frontend-developer` | Build React components, implement responsive layouts, and handle client-side state management. Maste... |
@@ -1973,6 +1975,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-kpi-dashboard-design` | Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
 | `antigravity-kubernetes-deployment` | Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and productio... |
+| `antigravity-lambda-lang` | Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak direc... |
 | `antigravity-lambdatest-agent-skills` | Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and... |
 | `antigravity-landing-page-generator` | Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB fra... |
 | `antigravity-langchain-architecture` | Master the LangChain framework for building sophisticated LLM applications with agents, chains, memo... |
@@ -2428,6 +2431,7 @@ Plans content calendars and ident... |
 | `antigravity-skill-sentinel` | Auditoria e evolucao do ecossistema de skills. Qualidade de codigo, seguranca, custos, gaps, duplica... |
 | `antigravity-skill-writer` | Create and improve agent skills following the Agent Skills specification. Use when asked to create, ... |
 | `antigravity-skin-health-analyzer` | Analyze skin health data, identify skin problem patterns, assess skin health status. Supports correl... |
+| `antigravity-skyvern-browser-automation` | AI-powered browser automation — navigate sites, fill forms, extract structured data, log in with sto... |
 | `antigravity-slack-automation` | Automate Slack workspace operations including messaging, search, channel management, and reaction wo... |
 | `antigravity-slack-bot-builder` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for ... |
 | `antigravity-slack-gif-creator` | A toolkit providing utilities and knowledge for creating animated GIFs optimized for Slack. |

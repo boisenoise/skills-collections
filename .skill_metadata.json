@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-23T06:50:48.435550",
-  "skill_count": 2580,
+  "last_updated": "2026-04-24T06:51:49.641033",
+  "skill_count": 2584,
   "sources_processed": 19,
   "skills": [
     {
@@ -751,6 +751,14 @@
       "name": "antigravity-n8n-code-javascript",
       "original_name": "n8n-code-javascript",
       "description": "Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$node syntax, making HTTP requests with $helpers, working with dates using DateTime, troubleshooting Code node errors, or choosing between Code node modes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-lambda-lang",
+      "original_name": "lambda-lang",
+      "description": "Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak directly, not a translation layer. 340+ atoms across 7 domains; 3x smaller than natural language.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4212,6 +4220,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-skyvern-browser-automation",
+      "original_name": "skyvern-browser-automation",
+      "description": "AI-powered browser automation \u2014 navigate sites, fill forms, extract structured data, log in with stored credentials, and build reusable workflows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "AGPL-3.0"
+    },
+    {
       "name": "antigravity-azure-servicebus-py",
       "original_name": "azure-servicebus-py",
       "description": "Azure Service Bus SDK for Python messaging. Use for queues, topics, subscriptions, and enterprise messaging patterns.",
@@ -4727,6 +4743,14 @@
       "name": "antigravity-azure-storage-queue-ts",
       "original_name": "azure-storage-queue-ts",
       "description": "Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue) for message queue operations. Use for sending, receiving, peeking, and deleting messages in queues.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-frontend-api-integration-patterns",
+      "original_name": "frontend-api-integration-patterns",
+      "description": "Production-ready patterns for integrating frontend applications with backend APIs, including race condition handling, request cancellation, retry strategies, error normalization, and UI state management.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7375,6 +7399,14 @@
       "name": "antigravity-ai-engineering-toolkit",
       "original_name": "ai-engineering-toolkit",
       "description": "6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget planning, RAG pipeline design, agent security audit (65-point checklist), eval harness building, and product sense coaching.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-bulletmind",
+      "original_name": "bulletmind",
+      "description": "Convert input into clean, structured, hierarchical bullet points for summarization, note-taking, and structured thinking.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
