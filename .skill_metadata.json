@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-24T06:51:49.641033",
-  "skill_count": 2584,
+  "last_updated": "2026-04-25T06:41:00.579670",
+  "skill_count": 2586,
   "sources_processed": 19,
   "skills": [
     {
@@ -18966,7 +18966,7 @@
     {
       "name": "levn-ln-014-agent-instructions-manager",
       "original_name": "ln-014-agent-instructions-manager",
-      "description": "Creates AGENTS.md canonical and CLAUDE.md/GEMINI.md/ANTIGRAVITY.md @AGENTS.md stubs; audits token budget, cache safety, import-pattern compliance. Use when instruction files need alignment.",
+      "description": "Creates AGENTS.md canonical and CLAUDE.md @AGENTS.md stub; audits token budget, cache safety, import-pattern compliance. Use when instruction files need alignment.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19110,7 +19110,7 @@
     {
       "name": "levn-ln-011-agent-installer",
       "original_name": "ln-011-agent-installer",
-      "description": "Installs or updates Codex CLI, Gemini CLI, Claude Code, and detects Google Antigravity IDE. Use when CLI agents need installation or update.",
+      "description": "Installs or updates Codex CLI and Claude Code. Use when CLI agents need installation or update.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19422,7 +19422,7 @@
     {
       "name": "levn-ln-010-dev-environment-setup",
       "original_name": "ln-010-dev-environment-setup",
-      "description": "Installs agents, configures MCP servers, syncs configs, creates and audits instructions. Use after setup or when agents/MCP need alignment.",
+      "description": "Installs agents, configures MCP servers, aligns marketplace plugins, creates and audits instructions. Use after setup or when agents/MCP/plugins need alignment.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19718,7 +19718,7 @@
     {
       "name": "levn-ln-111-root-docs-creator",
       "original_name": "ln-111-root-docs-creator",
-      "description": "Creates root documentation files (AGENTS.md, CLAUDE.md, GEMINI.md, ANTIGRAVITY.md, docs/README.md, standards, principles). Use for initial project doc setup.",
+      "description": "Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles). Use for initial project doc setup.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19734,7 +19734,7 @@
     {
       "name": "levn-ln-626-dead-code-auditor",
       "original_name": "ln-626-dead-code-auditor",
-      "description": "Checks unreachable code, unused imports/variables/functions, commented-out code, deprecated patterns. Use when auditing dead code.",
+      "description": "Checks unreachable code, unused imports/variables/functions, commented-out code, unsupported patterns. Use when auditing dead code.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19822,7 +19822,7 @@
     {
       "name": "levn-ln-013-config-syncer",
       "original_name": "ln-013-config-syncer",
-      "description": "Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI, Codex CLI, and Google Antigravity, with provider checks for synced MCP servers.",
+      "description": "Use when installing or verifying this marketplace in Claude and Codex, aligning selected plugins, MCP settings, and Codex execution defaults.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -20220,6 +20220,14 @@
       "license": "MIT"
     },
     {
+      "name": "marketing-video",
+      "original_name": "video",
+      "description": "When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use when the user mentions 'video production,' 'AI video,' 'Remotion,' 'Hyperframes,' 'HeyGen,' 'Synthesia,' 'Veo,' 'Runway,' 'Kling,' 'Pika,' 'video generation,' 'AI avatar,' 'talking head video,' 'programmatic video,' 'video template,' 'explainer video,' 'product demo video,' 'video pipeline,' or 'make me a video.' Use this for video creation, generation, and production workflows. For video content strategy and what to post, see social-content. For paid video ad creative, see ad-creative.",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "license": "MIT"
+    },
+    {
       "name": "marketing-form-cro",
       "original_name": "form-cro",
       "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" \"contact form,\" \"nobody fills out our form,\" \"form abandonment,\" \"too many fields,\" \"demo request form,\" or \"lead form isn't converting.\" Use this for any non-signup form that captures information. For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
@@ -20348,6 +20356,14 @@
       "license": "MIT"
     },
     {
+      "name": "marketing-image",
+      "original_name": "image",
+      "description": "When the user wants to create, generate, edit, or optimize images for marketing \u2014 blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets. Also use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' 'product mockup,' 'hero image,' 'social media graphic,' 'banner image,' 'cover photo,' 'profile banner,' 'listing screenshot,' 'Flux,' 'Midjourney,' 'DALL-E,' 'GPT Image,' 'Ideogram,' 'Gemini image,' 'Canva,' 'Figma,' 'image optimization,' 'compress images,' 'WebP,' or 'OG image.' Use this for general-purpose marketing image creation and optimization. For paid ad image creative and platform-specific ad specs, see ad-creative. For video production, see video.",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "license": "MIT"
+    },
+    {
       "name": "marketing-marketing-psychology",
       "original_name": "marketing-psychology",
       "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavior,' 'anchoring,' 'social proof,' 'scarcity,' 'loss aversion,' 'framing,' or 'nudge.' Use this whenever someone wants to understand or leverage how people think and make decisions in a marketing context.",
@@ -20446,7 +20462,7 @@
     {
       "name": "marketing-social-content",
       "original_name": "social-content",
-      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' or 'grow my following.' Use this for any social media content creation, repurposing, or scheduling task. For broader content strategy, see content-strategy.",
+      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' 'grow my following,' 'TikTok video,' 'Reels,' 'Shorts,' 'video script,' 'video hook,' 'short-form video,' or 'create a reel.' Use this for social media content creation, repurposing, scheduling, and short-form video scripting. For broader content strategy, see content-strategy. For paid video ads, see ad-creative.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"

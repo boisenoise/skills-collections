@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-24 06:51 UTC*
+*Last updated: 2026-04-25 06:41 UTC*
 
-Total skills: **2584**
+Total skills: **2586**
 
 ## Skills by Source
 
@@ -939,6 +939,7 @@ Total skills: **2584**
 | `marketing-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
 | `marketing-form-cro` | When the user wants to optimize any form that is NOT signup/registration — including lead capture fo... |
 | `marketing-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
+| `marketing-image` | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, socia... |
 | `marketing-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `marketing-lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.... |
 | `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
@@ -959,6 +960,7 @@ Total skills: **2584**
 | `marketing-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `marketing-site-architecture` | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL str... |
 | `marketing-social-content` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twit... |
+| `marketing-video` | When the user wants to create, generate, or produce video content using AI tools or programmatic fra... |
 
 ### itsmostafa/aws-agent-skills
 
@@ -989,17 +991,17 @@ Total skills: **2584**
 |-------|-------------|
 | `levn-ln-001-push-all` | Commits and pushes all changes (staged, unstaged, untracked) to remote. Use when you need a quick pu... |
 | `levn-ln-002-session-analyzer` | Analyzes current or recent session for errors, inefficiencies, and improvement opportunities across ... |
-| `levn-ln-010-dev-environment-setup` | Installs agents, configures MCP servers, syncs configs, creates and audits instructions. Use after s... |
-| `levn-ln-011-agent-installer` | Installs or updates Codex CLI, Gemini CLI, Claude Code, and detects Google Antigravity IDE. Use when... |
+| `levn-ln-010-dev-environment-setup` | Installs agents, configures MCP servers, aligns marketplace plugins, creates and audits instructions... |
+| `levn-ln-011-agent-installer` | Installs or updates Codex CLI and Claude Code. Use when CLI agents need installation or update. |
 | `levn-ln-012-mcp-configurator` | Use when installing MCP packages and configuring Claude-side MCP registration, hooks, permissions, I... |
-| `levn-ln-013-config-syncer` | Use when syncing skills, MCP settings, defaults, and hooks from Claude Code to Gemini CLI, Codex CLI... |
-| `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md/GEMINI.md/ANTIGRAVITY.md @AGENTS.md stubs; audits token bu... |
+| `levn-ln-013-config-syncer` | Use when installing or verifying this marketplace in Claude and Codex, aligning selected plugins, MC... |
+| `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md @AGENTS.md stub; audits token budget, cache safety, import... |
 | `levn-ln-015-hex-line-uninstaller` | Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, h... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
-| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, GEMINI.md, ANTIGRAVITY.md, docs/README.md, s... |
+| `levn-ln-111-root-docs-creator` | Creates root documentation files (AGENTS.md, CLAUDE.md, docs/README.md, standards, principles). Use ... |
 | `levn-ln-112-project-core-creator` | Creates core project docs (requirements, architecture, tech stack, patterns catalog). Use for any pr... |
 | `levn-ln-113-backend-docs-creator` | Creates backend docs (api_spec.md, database_schema.md). Use when project has backend API or database... |
 | `levn-ln-114-frontend-docs-creator` | Creates design_guidelines.md with WCAG 2.1 compliance and design system docs. Use when project has a... |
@@ -1053,7 +1055,7 @@ Total skills: **2584**
 | `levn-ln-623-code-principles-auditor` | Checks DRY, KISS/YAGNI, error handling, DI patterns. Use when auditing code principles compliance. |
 | `levn-ln-624-code-quality-auditor` | Checks cyclomatic complexity, nesting, long methods, god classes, O(n2), N+1 queries, constants mana... |
 | `levn-ln-625-dependencies-auditor` | Checks outdated packages, unused deps, reinvented wheels, CVE/CVSS vulnerability scan. Use when audi... |
-| `levn-ln-626-dead-code-auditor` | Checks unreachable code, unused imports/variables/functions, commented-out code, deprecated patterns... |
+| `levn-ln-626-dead-code-auditor` | Checks unreachable code, unused imports/variables/functions, commented-out code, unsupported pattern... |
 | `levn-ln-627-observability-auditor` | Checks structured logging, health checks, metrics collection, request tracing, log levels. Use when ... |
 | `levn-ln-628-concurrency-auditor` | Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention. Use when au... |
 | `levn-ln-629-lifecycle-auditor` | Checks bootstrap initialization, graceful shutdown, resource cleanup, signal handling, liveness/read... |
