@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-26T06:49:20.309348",
-  "skill_count": 2586,
+  "last_updated": "2026-04-27T07:08:29.285501",
+  "skill_count": 2587,
   "sources_processed": 19,
   "skills": [
     {
@@ -2748,6 +2748,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-unslop",
+      "original_name": "unslop",
+      "description": "Post-process AI-generated text through the unslop CLI to strip AI writing patterns before publishing",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-communication-sms-java",
       "original_name": "azure-communication-sms-java",
       "description": "Send SMS messages with Azure Communication Services SMS Java SDK. Use when implementing SMS notifications, alerts, OTP delivery, bulk messaging, or delivery reports.",
@@ -2863,6 +2871,14 @@
       "name": "antigravity-scala-pro",
       "original_name": "scala-pro",
       "description": "Master enterprise-grade Scala development with functional programming, distributed systems, and big data processing. Expert in Apache Pekko, Akka, Spark, ZIO/Cats Effect, and reactive architectures.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-x402-express-wrapper",
+      "original_name": "x402-express-wrapper",
+      "description": "Wrapper oficial de M2MCent (Node.js) para inyectar muros de pago x402 en APIs o servidores Model Context Protocol (MCP). Usar al construir nuevos servicios que requieran monetizaci\u00f3n m\u00e1quina a m\u00e1quina.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6286,7 +6302,7 @@
     {
       "name": "antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill",
       "original_name": "wordpress-centric-high-seo-optimized-blogwriting-skill",
-      "description": "Use this skill when the user asks to write a blog post, article, or SEO content. This applies a professional structure, truth boxes, click-bait-free accurate information, and outputs direct WordPress-ready content.",
+      "description": "Create long-form, high-quality, SEO-optimized blog posts ready for WordPress with truth boxes and FAQ schema.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11006,7 +11022,7 @@
     {
       "name": "antigravity-zipai-optimizer",
       "original_name": "zipai-optimizer",
-      "description": "Adaptive token optimizer: intelligent filtering, surgical output, ambiguity-first, context-window-aware, VCS-aware.",
+      "description": "Adaptive token optimizer: intelligent filtering, surgical output, ambiguity-first, context-window-aware, VCS-aware, MCP-aware.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11538,14 +11554,6 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0 license"
-    },
-    {
-      "name": "antigravity-x402-express-wrapper",
-      "original_name": "x402-express-wrapper",
-      "description": "Wrapper oficial de M2MCent (Node.js) para inyectar muros de pago x402 en APIs o servidores Model Context Protocol (MCP). Usar al construir nuevos servicios que requieran monetizaci\u00f3n m\u00e1quina a m\u00e1quina.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
     },
     {
       "name": "antigravity-wordpress-woocommerce-development",

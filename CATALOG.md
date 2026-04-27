@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-26 06:49 UTC*
+*Last updated: 2026-04-27 07:08 UTC*
 
-Total skills: **2586**
+Total skills: **2587**
 
 ## Skills by Source
 
@@ -2579,6 +2579,7 @@ calculations
 | `antigravity-unity-developer` | Build Unity games with optimized C# scripts, efficient rendering, and proper asset management. Maste... |
 | `antigravity-unity-ecs-patterns` | Production patterns for Unity's Data-Oriented Technology Stack (DOTS) including Entity Component Sys... |
 | `antigravity-unreal-engine-cpp-pro` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, ... |
+| `antigravity-unslop` | Post-process AI-generated text through the unslop CLI to strip AI writing patterns before publishing |
 | `antigravity-unsplash-integration` | Integration skill for searching and fetching high-quality, free-to-use professional photography from... |
 | `antigravity-upgrading-expo` | Upgrade Expo SDK versions |
 | `antigravity-upstash-qstash` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task de... |
@@ -2641,7 +2642,7 @@ calculations
 | `antigravity-windows-shell-reliability` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
 | `antigravity-wireshark-analysis` | Execute comprehensive network traffic analysis using Wireshark to capture, filter, and examine netwo... |
 | `antigravity-wordpress` | Complete WordPress development workflow covering theme development, plugin creation, WooCommerce int... |
-| `antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill` | Use this skill when the user asks to write a blog post, article, or SEO content. This applies a prof... |
+| `antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill` | Create long-form, high-quality, SEO-optimized blog posts ready for WordPress with truth boxes and FA... |
 | `antigravity-wordpress-penetration-testing` | Assess WordPress installations for common vulnerabilities and WordPress 7.0 attack surfaces. |
 | `antigravity-wordpress-plugin-development` | WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, REST AP... |
 | `antigravity-wordpress-theme-development` | WordPress theme development workflow covering theme architecture, template hierarchy, custom post ty... |
