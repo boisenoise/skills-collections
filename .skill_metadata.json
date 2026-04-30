@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-29T07:02:16.173551",
-  "skill_count": 2587,
+  "last_updated": "2026-04-30T07:05:17.019944",
+  "skill_count": 2592,
   "sources_processed": 19,
   "skills": [
     {
@@ -866,6 +866,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-kubestellar-console",
+      "original_name": "kubestellar-console",
+      "description": "Multi-cluster Kubernetes dashboard with AI-powered operations via MCP server and 10+ built-in agent skills",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-referral-program",
@@ -3740,6 +3748,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-logic-lens",
+      "original_name": "logic-lens",
+      "description": "AI-powered Claude Code skill that performs deep code review using formal logic and reasoning frameworks to detect bugs, anti-patterns, and security risks beyond what linters catch.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-design-taste-frontend",
       "original_name": "design-taste-frontend",
       "description": "Use when building high-agency frontend interfaces with strict design taste, calibrated color, responsive layout, and motion rules.",
@@ -4434,6 +4450,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-buywhere-product-catalog",
+      "original_name": "buywhere-product-catalog",
+      "description": "Use BuyWhere's MCP and API surfaces to add product search, price comparison, and deal discovery to AI shopping agents.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Not declared"
     },
     {
       "name": "antigravity-api-security-best-practices",
@@ -8860,6 +8884,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-squirrel",
+      "original_name": "squirrel",
+      "description": "Full-cycle AI coding skill: plans, builds, tests, lints, fixes bugs, and writes production-grade docs. Auto-detects project state and adapts its 8-phase pipeline.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-plan-writing",
       "original_name": "plan-writing",
       "description": "Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work.",
@@ -9079,6 +9111,14 @@
       "name": "antigravity-turborepo-caching",
       "original_name": "turborepo-caching",
       "description": "Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up Turborepo, optimizing build pipelines, or implementing distributed caching.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-brooks-lint",
+      "original_name": "brooks-lint",
+      "description": "AI code reviewer grounded in classic software engineering books for catching design smells, coupling issues, and architectural risks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

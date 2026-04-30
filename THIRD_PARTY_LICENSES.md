@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-04-29 07:02 UTC*
+*Last updated: 2026-04-30 07:05 UTC*
 
 ## Source Repositories
 
@@ -127,16 +127,17 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | 3-clause BSD license | 1 |
 | AGPL-3.0 | 1 |
 | AGPL-3.0 (referencing Twitter's algorithm source) | 1 |
-| Apache-2.0 | 15 |
+| Apache-2.0 | 17 |
 | Apache-2.0 license | 2 |
 | BSD-3-Clause license | 4 |
 | CC-BY-4.0 | 1 |
 | Complete terms in LICENSE.txt | 36 |
 | LICENSE | 1 |
-| MIT | 2513 |
+| MIT | 2515 |
 | MIT License | 2 |
 | MIT license | 2 |
 | MIT-0 | 1 |
+| Not declared | 1 |
 | SD-3-Clause license | 1 |
 | Unknown | 3 |
 | https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 1 |

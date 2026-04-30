@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-29 07:02 UTC*
+*Last updated: 2026-04-30 07:05 UTC*
 
-Total skills: **2587**
+Total skills: **2592**
 
 ## Skills by Source
 
@@ -1507,6 +1507,7 @@ pipelines, and system utilities.... |
 | `antigravity-brand-perception-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-brevo-automation` | Automate Brevo (formerly Sendinblue) email marketing operations through Composio's Brevo toolkit via... |
 | `antigravity-broken-authentication` | Identify and exploit authentication and session management vulnerabilities in web applications. Brok... |
+| `antigravity-brooks-lint` | AI code reviewer grounded in classic software engineering books for catching design smells, coupling... |
 | `antigravity-browser-automation` | Browser automation powers web testing, scraping, and AI agent interactions. The difference between a... |
 | `antigravity-browser-extension-builder` | Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser ... |
 | `antigravity-bug-hunter` | Systematically finds and fixes bugs using proven debugging techniques. Traces from symptoms to root ... |
@@ -1519,6 +1520,7 @@ pipelines, and system utilities.... |
 | `antigravity-burpsuite-project-parser` | Searches and explores Burp Suite project files (.burp) from the command line. Use when searching res... |
 | `antigravity-business-analyst` | Master modern business analysis with AI-powered analytics, real-time dashboards, and data-driven ins... |
 | `antigravity-busybox-on-windows` | How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows. |
+| `antigravity-buywhere-product-catalog` | Use BuyWhere's MCP and API surfaces to add product search, price comparison, and deal discovery to A... |
 | `antigravity-c-pro` | Write efficient C code with proper memory management, pointer |
 | `antigravity-c4-architecture-c4-architecture` | Generate comprehensive C4 architecture documentation for an existing repository/codebase using a bot... |
 | `antigravity-c4-code` | Expert C4 Code-level documentation specialist. Analyzes code directories to create comprehensive C4 ... |
@@ -1977,6 +1979,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-kpi-dashboard-design` | Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
 | `antigravity-kubernetes-deployment` | Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and productio... |
+| `antigravity-kubestellar-console` | Multi-cluster Kubernetes dashboard with AI-powered operations via MCP server and 10+ built-in agent ... |
 | `antigravity-lambda-lang` | Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak direc... |
 | `antigravity-lambdatest-agent-skills` | Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and... |
 | `antigravity-landing-page-generator` | Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB fra... |
@@ -2021,6 +2024,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-llm-structured-output` | Get reliable JSON, enums, and typed objects from LLMs using response_format, tool_use, and schema-co... |
 | `antigravity-local-legal-seo-audit` | Audit and improve local SEO for law firms, attorneys, forensic experts and legal/professional servic... |
 | `antigravity-local-llm-expert` | Master local LLM inference, model selection, VRAM optimization, and local deployment using Ollama, l... |
+| `antigravity-logic-lens` | AI-powered Claude Code skill that performs deep code review using formal logic and reasoning framewo... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
 | `antigravity-loki-mode` | Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced: OpenAI SDK, DeepMi... |
 | `antigravity-loss-aversion-designer` | One sentence - what this skill does and when to invoke it |
@@ -2457,6 +2461,7 @@ Plans content calendars and ident... |
 | `antigravity-sql-pro` | Master modern SQL with cloud-native databases, OLTP/OLAP optimization, and advanced query techniques... |
 | `antigravity-sqlmap-database-pentesting` | Provide systematic methodologies for automated SQL injection detection and exploitation using SQLMap... |
 | `antigravity-square-automation` | Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search ... |
+| `antigravity-squirrel` | Full-cycle AI coding skill: plans, builds, tests, lints, fixes bugs, and writes production-grade doc... |
 | `antigravity-sred-project-organizer` | Take a list of projects and their related documentation, and organize them into the SRED format for ... |
 | `antigravity-sred-work-summary` | Go back through the previous year of work and create a Notion doc that groups relevant links into pr... |
 | `antigravity-ssh-penetration-testing` | Conduct comprehensive SSH security assessments including enumeration, credential attacks, vulnerabil... |
