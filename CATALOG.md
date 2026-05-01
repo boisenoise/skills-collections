@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-04-30 07:05 UTC*
+*Last updated: 2026-05-01 07:07 UTC*
 
-Total skills: **2592**
+Total skills: **2593**
 
 ## Skills by Source
 
@@ -998,6 +998,7 @@ Total skills: **2592**
 | `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md @AGENTS.md stub; audits token budget, cache safety, import... |
 | `levn-ln-015-hex-line-uninstaller` | Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, h... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
+| `levn-ln-030-vps-bootstrap` | One-shot Linux VPS bootstrap for autonomous Claude Code + Codex workloads: packages, agent user, CLI... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-30T07:05:17.019944",
-  "skill_count": 2592,
+  "last_updated": "2026-05-01T07:07:03.892557",
+  "skill_count": 2593,
   "sources_processed": 19,
   "skills": [
     {
@@ -19911,6 +19911,14 @@
       "name": "levn-ln-140-test-docs-creator",
       "original_name": "ln-140-test-docs-creator",
       "description": "Creates test documentation (testing-strategy.md, tests/README.md) with Risk-Based Testing philosophy. Use when setting up test strategy for a project.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-030-vps-bootstrap",
+      "original_name": "ln-030-vps-bootstrap",
+      "description": "One-shot Linux VPS bootstrap for autonomous Claude Code + Codex workloads: packages, agent user, CLIs, MCP, god-session, hourly dispatch, usage, optional Telegram bridge.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
