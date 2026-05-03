@@ -9,7 +9,7 @@
 #
 # Resume-by-default: on fresh tmux create, if a prior session exists for ${PROJECT_DIR},
 # claude is started with --continue (latest) or --resume <id> based on the atomic
-# command file ${STATE_DIR}/god-command.json (written by claude-relay-bot.py on
+# command file ${STATE_DIR}/god-command.json (written by relay-bot on
 # /new_session or [▶ Resume] button click).
 #
 # Telegram integration is handled by a SEPARATE ${SERVICE_PREFIX}-relay-bot.service that
@@ -39,12 +39,10 @@ case "$SESSION" in
   *'$'*) log "FATAL: SERVICE_PREFIX placeholder not substituted (got SESSION=$SESSION)"; exit 4 ;;
 esac
 
-# Bring nvm + bun into PATH (cron-style minimal env)
+# Bring nvm into PATH (cron-style minimal env)
 export NVM_DIR="$HOME/.nvm"
 # shellcheck disable=SC1091
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 command -v claude >/dev/null || { log "FATAL: claude not on PATH"; exit 2; }
 command -v tmux   >/dev/null || { log "FATAL: tmux not on PATH"; exit 2; }
@@ -110,14 +108,37 @@ case "$RESOLVED" in
   resume:*)
     SID=${RESOLVED#resume:}
     log "command consumed: action=resume sid=$SID"
-    CLAUDE_CMD="$CLAUDE_BASE --resume $SID"
+    # Claude Code 2.1.126+: --resume requires a prompt arg (deferred-tool-marker check)
+    CLAUDE_CMD="$CLAUDE_BASE --resume $SID ."
     ;;
   "")
-    # No command file. Default behavior: resume latest if any session exists.
-    if [[ -n "$SESSIONS_DIR" ]] && compgen -G "$SESSIONS_DIR/*.jsonl" >/dev/null 2>&1; then
-      log "default: --continue (latest session in $SESSIONS_DIR)"
-      CLAUDE_CMD="$CLAUDE_BASE --continue"
-    else
+    # No command file. Default behavior: explicit --resume of last-active
+    # session-id (Fix #4b). Claude Code 2.1.123's --continue cannot find
+    # legacy jsonl on session-index changes; using --resume <uuid> from
+    # last-session.id (written by relay-bot SessionStart hook) is reliable.
+    LAST_SID_FILE=$STATE_DIR/last-session.id
+    CHOSE=""
+    if [[ -r "$LAST_SID_FILE" ]] && [[ -n "$SESSIONS_DIR" ]]; then
+      LAST_SID=$(cat "$LAST_SID_FILE" 2>/dev/null | tr -d '[:space:]')
+      if [[ "$LAST_SID" =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]] \
+         && [[ -f "$SESSIONS_DIR/$LAST_SID.jsonl" ]]; then
+        log "default: --resume $LAST_SID (from last-session.id)"
+        CLAUDE_CMD="$CLAUDE_BASE --resume $LAST_SID ."
+        CHOSE="resume_explicit"
+      fi
+    fi
+    if [[ -z "$CHOSE" ]] && [[ -n "$SESSIONS_DIR" ]] && compgen -G "$SESSIONS_DIR/*.jsonl" >/dev/null 2>&1; then
+      # Don't fall back to --continue (broken on Claude Code 2.1.123).
+      # Pick newest jsonl by mtime, validate UUID, --resume it.
+      NEWEST_SID=$(ls -1t "$SESSIONS_DIR"/*.jsonl 2>/dev/null | head -1 | xargs -n1 basename 2>/dev/null | sed 's/\.jsonl$//')
+      if [[ -n "$NEWEST_SID" ]] \
+         && [[ "$NEWEST_SID" =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]]; then
+        log "fallback: --resume $NEWEST_SID (newest jsonl by mtime; last-session.id missing)"
+        CLAUDE_CMD="$CLAUDE_BASE --resume $NEWEST_SID ."
+        CHOSE="resume_mtime"
+      fi
+    fi
+    if [[ -z "$CHOSE" ]]; then
       log "no prior sessions; fresh start"
     fi
     ;;
@@ -132,17 +153,16 @@ if tmux has-session -t "$SESSION" 2>/dev/null; then
   fi
 else
   log "creating fresh tmux session $SESSION (cmd: $CLAUDE_CMD)"
-  # If claude exits (e.g. `--continue` says "no conversation found"), retry
-  # without resume flags before falling back to bash. This keeps the TUI alive
-  # even when Claude Code's session index cannot pick up the project JSONLs
-  # after a CLI storage-layout change.
-  CLAUDE_FALLBACK="claude --dangerously-skip-permissions"
-  RETRY_GUARD=""
-  if [[ "$CLAUDE_CMD" != "$CLAUDE_FALLBACK" ]]; then
-    RETRY_GUARD=" || ($CLAUDE_FALLBACK)"
-  fi
+  # No fallback. If `claude --continue` cannot find a prior session, or
+  # `claude --resume <id>` fails, or claude crashes — the pane closes,
+  # tmux session dies, the watcher loop exits, and systemd restarts the
+  # wrapper. Operator gets a visible signal (journal + /sessions list)
+  # instead of a silently-spawned fresh session that would hijack the
+  # next ${SERVICE_PREFIX}-dispatch.timer fire as its first user input.
+  # Rule: a new session is created ONLY when (a) no prior sessions exist
+  # at all, or (b) the operator explicitly issues /new_session.
   tmux new-session -d -s "$SESSION" -x 200 -y 50 \
-    "cd ${PROJECT_DIR} && ($CLAUDE_CMD)${RETRY_GUARD} ; bash -l"
+    "cd ${PROJECT_DIR} && $CLAUDE_CMD"
   log "tmux + claude launched"
 
   # Scheduling is external (${SERVICE_PREFIX}-dispatch.timer fires /${DISPATCH_COMMAND_NAME} via

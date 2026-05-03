@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-02 06:50 UTC*
+*Last updated: 2026-05-03 07:02 UTC*
 
-Total skills: **2593**
+Total skills: **2595**
 
 ## Skills by Source
 
@@ -998,7 +998,7 @@ Total skills: **2593**
 | `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md @AGENTS.md stub; audits token budget, cache safety, import... |
 | `levn-ln-015-hex-line-uninstaller` | Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, h... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
-| `levn-ln-030-vps-bootstrap` | One-shot Linux VPS bootstrap for autonomous Claude Code + Codex workloads: packages, agent user, CLI... |
+| `levn-ln-030-vps-bootstrap` | Use when bootstrapping a Linux VPS for autonomous Claude Code + Codex: packages, agent user, CLIs, M... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |
@@ -1023,7 +1023,7 @@ Total skills: **2593**
 | `levn-ln-300-task-coordinator` | Analyzes Story and builds optimal task plan (1-8 tasks), then routes to create or replan. Use when S... |
 | `levn-ln-301-task-creator` | Creates implementation, refactoring, and test tasks from templates. Use when an approved task plan n... |
 | `levn-ln-302-task-replanner` | Compares ideal plan vs existing tasks and applies KEEP/UPDATE/OBSOLETE/CREATE changes. Use when Stor... |
-| `levn-ln-310-multi-agent-validator` | Use when validating Stories, plans, or context through the evaluation platform with mandatory resear... |
+| `levn-ln-310-multi-agent-validator` | Use when validating Stories, plans, or tasks through the evaluation platform with mandatory research... |
 | `levn-ln-311-review-research-worker` | Use when an evaluation run needs mandatory official-doc, MCP Ref, Context7, and current best-practic... |
 | `levn-ln-312-review-findings-worker` | Use when an evaluation coordinator needs normalized findings from target artifacts and research evid... |
 | `levn-ln-313-review-docs-worker` | Use when an evaluation run needs review-driven documentation updates and a structured documentation ... |
@@ -1842,6 +1842,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gha-security-review` | Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete ... |
 | `antigravity-git-advanced-workflows` | Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from ... |
 | `antigravity-git-hooks-automation` | Master Git hooks setup with Husky, lint-staged, pre-commit framework, and commitlint. Automate code ... |
+| `antigravity-git-pr-review` | Generate a concise and structured PR description from commit history with minimal token usage |
 | `antigravity-git-pr-workflows-git-workflow` | Orchestrate a comprehensive git workflow from code review through PR creation, leveraging specialize... |
 | `antigravity-git-pr-workflows-onboard` | You are an **expert onboarding specialist and knowledge transfer architect** with deep experience in... |
 | `antigravity-git-pr-workflows-pr-enhance` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate... |
@@ -2424,6 +2425,7 @@ Plans content calendars and ident... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
 | `antigravity-simplify-code` | Review a diff for clarity and safe simplifications, then optionally apply low-risk fixes. |
 | `antigravity-site-architecture` | Plan or restructure website hierarchy, navigation, URL patterns, breadcrumbs, and internal linking. ... |
+| `antigravity-skill-audit` | Pre-install security scanner for AI agent skills. 7.5% of 14,706 skills are malicious. Audit before ... |
 | `antigravity-skill-check` | Validate Claude Code skills against the agentskills specification. Catches structural, semantic, and... |
 | `antigravity-skill-creator` | To create new CLI skills following Anthropic's official best practices with zero manual configuratio... |
 | `antigravity-skill-creator-ms` | Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Found... |
