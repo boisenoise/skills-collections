@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly system-wide agent toolchain update timer (one-per-VPS, fires for all projects)
+
+[Timer]
+OnCalendar=*-*-* 03:37:00
+RandomizedDelaySec=20m
+Persistent=true
+
+[Install]
+WantedBy=timers.target
