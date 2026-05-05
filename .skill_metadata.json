@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T07:17:09.717985",
-  "skill_count": 2595,
+  "last_updated": "2026-05-05T06:58:43.807513",
+  "skill_count": 2597,
   "sources_processed": 19,
   "skills": [
     {
@@ -118,7 +118,7 @@
     {
       "name": "superpowers-using-git-worktrees",
       "original_name": "using-git-worktrees",
-      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification",
+      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
       "source": "obra/superpowers",
       "source_url": "https://github.com/obra/superpowers",
       "license": "MIT"
@@ -4764,6 +4764,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-production-audit",
+      "original_name": "production-audit",
+      "description": "Audit a shipped repo for production-readiness gaps across RLS, webhooks, secrets, grants, Stripe idempotency, mobile UX, and deployment health.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-odoo-ecommerce-configurator",
       "original_name": "odoo-ecommerce-configurator",
       "description": "Expert guide for Odoo eCommerce and Website: product catalog, payment providers, shipping methods, SEO, and order-to-fulfillment workflow.",
@@ -6063,6 +6071,14 @@
       "name": "antigravity-odoo-orm-expert",
       "original_name": "odoo-orm-expert",
       "description": "Master Odoo ORM patterns: search, browse, create, write, domain filters, computed fields, and performance-safe query techniques.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-recursive-context-pruning-token-budgeting",
+      "original_name": "recursive-context-pruning-token-budgeting",
+      "description": "Optimizes AI agent performance by pruning redundant context, managing token usage, and enforcing ultra-concise, direct-to-value responses.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

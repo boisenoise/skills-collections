@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS messages (
   text            TEXT NOT NULL,
   tg_chat_id      INTEGER,
   tg_msg_id       INTEGER,
+  from_user_id    INTEGER,
   session_id      TEXT,
   replied_to_id   INTEGER,
   error           TEXT,
@@ -151,4 +152,11 @@ CREATE TABLE IF NOT EXISTS todo_state (
   PRIMARY KEY (session_id, task_id)
 );
 CREATE INDEX IF NOT EXISTS idx_todo_state_session ON todo_state(session_id);
+
+CREATE TABLE IF NOT EXISTS task_poll_state (
+  id               INTEGER PRIMARY KEY CHECK (id = 1),
+  last_notified_at INTEGER,
+  last_count       INTEGER NOT NULL DEFAULT 0,
+  updated_at       INTEGER NOT NULL
+);
 `;

@@ -1,81 +1,131 @@
 #!/bin/bash
-# ${SERVICE_PREFIX}-god — long-running god-session wrapper, started by systemd.
-# Maintains a tmux session named `${SERVICE_PREFIX}-god` with a single claude TUI
-# running headless. systemd Restart=always covers crashes.
-#
-# Idempotent: if tmux session exists, attaches as watcher; otherwise creates fresh.
-# Scheduling is external: ${SERVICE_PREFIX}-dispatch.timer (systemd) injects /${DISPATCH_COMMAND_NAME}
-# hourly via tmux send-keys; this wrapper does NOT register an in-session /loop.
-#
-# Resume-by-default: on fresh tmux create, if a prior session exists for ${PROJECT_DIR},
-# claude is started with --continue (latest) or --resume <id> based on the atomic
-# command file ${STATE_DIR}/god-command.json (written by relay-bot on
-# /new_session or [▶ Resume] button click).
-#
-# Telegram integration is handled by a SEPARATE ${SERVICE_PREFIX}-relay-bot.service that
-# uses tmux send-keys to deliver inbound messages into this session's pane and
-# owns the command-queue + Telegram /sessions UI.
+# ${SERVICE_PREFIX}-god@<telegram_user_id> — per-user long-running Claude wrapper.
+# Each allowed Telegram user gets a separate tmux session in the same project:
+#   socket:  ${SERVICE_PREFIX}
+#   target:  ${SERVICE_PREFIX}-god-<telegram_user_id>
+#   state:   /var/lib/${PROJECT_NAME}/users/<telegram_user_id>/
 set -euo pipefail
 
-SESSION=${SERVICE_PREFIX}-god
+OPERATOR_USER_ID=${OPERATOR_USER_ID:-${1:-}}
+[[ "$OPERATOR_USER_ID" =~ ^[0-9]+$ ]] || { echo "FATAL: OPERATOR_USER_ID must be numeric" >&2; exit 4; }
+
+SESSION=${SERVICE_PREFIX}-god-${OPERATOR_USER_ID}
 SECRETS=/etc/${PROJECT_NAME}/secrets.env
 STATE_DIR=/var/lib/${PROJECT_NAME}
+USER_STATE_DIR=$STATE_DIR/users/$OPERATOR_USER_ID
 LOG=/var/log/${PROJECT_NAME}-god.log
-CMD_FILE=$STATE_DIR/god-command.json
-LAST_CMD_FILE=$STATE_DIR/last-god-command.json
+CMD_FILE=$USER_STATE_DIR/god-command.json
+LAST_CMD_FILE=$USER_STATE_DIR/last-god-command.json
 ERROR_FILE=$STATE_DIR/last-god-error.json
-SESSIONS_DIR_FILE=$STATE_DIR/sessions-dir.path
-LOCK_FILE=$STATE_DIR/.cmd-lock
+LOCK_FILE=$USER_STATE_DIR/.cmd-lock
 
-mkdir -p "$STATE_DIR"
-log() { echo "$(date -Iseconds) [${SERVICE_PREFIX}-god] $*" >> "$LOG"; }
+mkdir -p "$USER_STATE_DIR"
+SESSIONS_DIR_FILE=$USER_STATE_DIR/sessions-dir.path
+LAST_SID_FILE=$USER_STATE_DIR/last-session.id
+log() { echo "$(date -Iseconds) [${SERVICE_PREFIX}-god user=$OPERATOR_USER_ID] $*" >> "$LOG"; }
+json_escape() {
+  printf '%s' "$1" | sed \
+    -e 's/\\/\\\\/g' \
+    -e 's/"/\\"/g' \
+    -e 's/\t/\\t/g' \
+    -e 's/\r/\\r/g' \
+    -e 's/\n/\\n/g'
+}
+write_error() {
+  local kind=${1:-unknown}
+  local reason=${2:-}
+  local details=${3:-}
+  local session_id=${4:-}
+  local runtime=${5:-}
+  local tmp="${ERROR_FILE}.$$"
+  {
+    printf '{'
+    printf '"ts":%s' "$(date +%s)"
+    printf ',"kind":"%s"' "$(json_escape "$kind")"
+    printf ',"reason":"%s"' "$(json_escape "$reason")"
+    printf ',"details":"%s"' "$(json_escape "$details")"
+    printf ',"project_name":"%s"' "$(json_escape "$PROJECT_NAME")"
+    printf ',"service_prefix":"%s"' "$(json_escape "$SERVICE_PREFIX")"
+    printf ',"user_id":"%s"' "$(json_escape "$OPERATOR_USER_ID")"
+    printf ',"session":"%s"' "$(json_escape "$SESSION")"
+    [[ -n "$session_id" ]] && printf ',"session_id":"%s"' "$(json_escape "$session_id")"
+    [[ -n "$runtime" ]] && printf ',"runtime_seconds":%s' "$runtime"
+    printf '}\n'
+  } > "$tmp" 2>/dev/null && mv -f "$tmp" "$ERROR_FILE" 2>/dev/null || true
+}
+classify_session_failure() {
+  local sid=${1:-}
+  local default_kind=${2:-session_crashed}
+  local transcript=""
+  if [[ -n "$sid" && -n "${SESSIONS_DIR:-}" ]]; then
+    transcript="$SESSIONS_DIR/$sid.jsonl"
+  fi
+  if [[ -n "$transcript" && -r "$transcript" ]]; then
+    if tail -200 "$transcript" | grep -Eiq 'authentication_error|Invalid authentication credentials|Please run /login|API Error: 401'; then
+      echo "auth_failed"
+      return 0
+    fi
+    if tail -200 "$transcript" | grep -Eiq 'context_length|Context low|compaction'; then
+      echo "context_failure"
+      return 0
+    fi
+  fi
+  echo "$default_kind"
+}
+fatal() {
+  local exit_code=$1
+  local kind=$2
+  local details=$3
+  log "FATAL: $details"
+  write_error "$kind" "god-session startup failed" "$details"
+  exit "$exit_code"
+}
 
-log "boot: uid=$(id -u) user=$(whoami)"
-
-# Verify SERVICE_PREFIX was substituted at install time (envsubst should have
-# replaced the literal). If still "${SERVICE_PREFIX}", template was uploaded
-# verbatim — abort to avoid creating a tmux session named literally "${SERVICE_PREFIX}-god".
 case "$SESSION" in
-  *'$'*) log "FATAL: SERVICE_PREFIX placeholder not substituted (got SESSION=$SESSION)"; exit 4 ;;
+  *'$'*) fatal 4 "config_placeholder" "SERVICE_PREFIX placeholder not substituted (got SESSION=$SESSION)" ;;
 esac
+TMUX=(tmux -L "$SERVICE_PREFIX")
 
-# Bring nvm into PATH (cron-style minimal env)
 export NVM_DIR="$HOME/.nvm"
 # shellcheck disable=SC1091
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
 
-command -v claude >/dev/null || { log "FATAL: claude not on PATH"; exit 2; }
-command -v tmux   >/dev/null || { log "FATAL: tmux not on PATH"; exit 2; }
-command -v jq     >/dev/null || { log "FATAL: jq not on PATH"; exit 2; }
-[[ -r "$SECRETS" ]] || { log "FATAL: cannot read $SECRETS"; exit 3; }
+command -v claude >/dev/null || fatal 2 "missing_runtime" "claude not on PATH"
+command -v tmux   >/dev/null || fatal 2 "missing_runtime" "tmux not on PATH"
+command -v jq     >/dev/null || fatal 2 "missing_runtime" "jq not on PATH"
+[[ -r "$SECRETS" ]] || fatal 3 "secrets_unreadable" "cannot read $SECRETS"
 set -a; . "$SECRETS"; set +a
 
-# Resolve sessions dir (auto-discovered by relay-bot at first run).
-# Empty string is OK — fallback to fresh start.
 SESSIONS_DIR=""
 if [[ -r "$SESSIONS_DIR_FILE" ]]; then
   SESSIONS_DIR=$(cat "$SESSIONS_DIR_FILE" 2>/dev/null | tr -d '[:space:]')
   [[ -d "$SESSIONS_DIR" ]] || { log "WARN: sessions-dir.path points to non-existent dir: $SESSIONS_DIR"; SESSIONS_DIR=""; }
 fi
 
-CLAUDE_BASE="claude --dangerously-skip-permissions"
+CLAUDE_BASE="OPERATOR_USER_ID=$OPERATOR_USER_ID AGENT_SKILLS_DIR=${AGENT_SKILLS_DIR:-/opt/agent-skills} /usr/local/bin/${SERVICE_PREFIX}-agent-sandbox claude --dangerously-skip-permissions"
 CLAUDE_CMD="$CLAUDE_BASE"
 RESOLVED=""
+BOOT_RESUME_SID=""
+RESUME_SOURCE=""
 
-# Atomic command consume under flock. Wrapper deletes the file after read.
-# Use a subshell so the fd-200 redirect lives only as long as needed.
 if [[ -f "$CMD_FILE" ]]; then
   RESOLVED=$(
     (
       flock -x 200
       CMD_JSON=$(cat "$CMD_FILE" 2>/dev/null || echo '{}')
-      # Preserve a copy so relay-bot's SessionStart hook can attribute the
-      # new session to the operator who issued the command (operator_chat_id).
       cp -f "$CMD_FILE" "$LAST_CMD_FILE" 2>/dev/null || true
       rm -f "$CMD_FILE"
+      if ! echo "$CMD_JSON" | jq -e . >/dev/null 2>&1; then
+        write_error "command_invalid_json" "invalid god-command.json" "$CMD_FILE"
+        echo ""
+        exit 0
+      fi
       ACTION=$(echo "$CMD_JSON" | jq -r '.action // empty')
       SID=$(echo "$CMD_JSON" | jq -r '.session_id // empty')
       case "$ACTION" in
+        default)
+          echo ""
+          ;;
         new)
           echo "fresh"
           ;;
@@ -85,21 +135,21 @@ if [[ -f "$CMD_FILE" ]]; then
             echo "resume:$SID"
           else
             AVAIL=$(ls "$SESSIONS_DIR" 2>/dev/null | head -20 | jq -R . | jq -s . 2>/dev/null || echo '[]')
-            jq -n --arg sid "$SID" --argjson avail "$AVAIL" \
-              '{ts: now, kind: "resume_invalid", requested_sid: $sid, available_sids: $avail}' \
+            jq -n --arg sid "$SID" --arg user "$OPERATOR_USER_ID" --argjson avail "$AVAIL" \
+              --arg project "$PROJECT_NAME" --arg prefix "$SERVICE_PREFIX" --arg session "$SESSION" \
+              '{ts: now, kind: "resume_invalid", user_id: $user, requested_sid: $sid, available_sids: $avail, project_name: $project, service_prefix: $prefix, session: $session}' \
               > "$ERROR_FILE" 2>/dev/null || true
             echo "fresh"
           fi
           ;;
         *)
-          echo "fresh"
+          echo ""
           ;;
       esac
     ) 200>"$LOCK_FILE"
   )
 fi
 
-# Apply resolved command, or default to --continue if any session exists.
 case "$RESOLVED" in
   fresh)
     log "command consumed: action=new (fresh start)"
@@ -108,76 +158,66 @@ case "$RESOLVED" in
   resume:*)
     SID=${RESOLVED#resume:}
     log "command consumed: action=resume sid=$SID"
-    # Claude Code 2.1.126+: --resume requires a prompt arg (deferred-tool-marker check)
     CLAUDE_CMD="$CLAUDE_BASE --resume $SID ."
+    BOOT_RESUME_SID="$SID"
+    RESUME_SOURCE="command"
     ;;
   "")
-    # No command file. Default behavior: explicit --resume of last-active
-    # session-id (Fix #4b). Claude Code 2.1.123's --continue can miss
-    # session jsonl files after index changes; using --resume <uuid> from
-    # last-session.id (written by relay-bot SessionStart hook) is reliable.
-    LAST_SID_FILE=$STATE_DIR/last-session.id
     CHOSE=""
     if [[ -r "$LAST_SID_FILE" ]] && [[ -n "$SESSIONS_DIR" ]]; then
       LAST_SID=$(cat "$LAST_SID_FILE" 2>/dev/null | tr -d '[:space:]')
       if [[ "$LAST_SID" =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]] \
          && [[ -f "$SESSIONS_DIR/$LAST_SID.jsonl" ]]; then
-        log "default: --resume $LAST_SID (from last-session.id)"
+        log "default: --resume $LAST_SID (from user last-session.id)"
         CLAUDE_CMD="$CLAUDE_BASE --resume $LAST_SID ."
         CHOSE="resume_explicit"
-      fi
-    fi
-    if [[ -z "$CHOSE" ]] && [[ -n "$SESSIONS_DIR" ]] && compgen -G "$SESSIONS_DIR/*.jsonl" >/dev/null 2>&1; then
-      # Don't fall back to --continue (broken on Claude Code 2.1.123).
-      # Pick newest jsonl by mtime, validate UUID, --resume it.
-      NEWEST_SID=$(ls -1t "$SESSIONS_DIR"/*.jsonl 2>/dev/null | head -1 | xargs -n1 basename 2>/dev/null | sed 's/\.jsonl$//')
-      if [[ -n "$NEWEST_SID" ]] \
-         && [[ "$NEWEST_SID" =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]]; then
-        log "fallback: --resume $NEWEST_SID (newest jsonl by mtime; last-session.id missing)"
-        CLAUDE_CMD="$CLAUDE_BASE --resume $NEWEST_SID ."
-        CHOSE="resume_mtime"
+        BOOT_RESUME_SID="$LAST_SID"
+        RESUME_SOURCE="last-session"
       fi
     fi
     if [[ -z "$CHOSE" ]]; then
-      log "no prior sessions; fresh start"
+      log "no prior session for this user; fresh start"
     fi
     ;;
 esac
 
-# If already running, just keep this process alive watching tmux. systemd will
-# restart us if tmux dies; we restart tmux if claude dies inside.
-if tmux has-session -t "$SESSION" 2>/dev/null; then
+if "${TMUX[@]}" has-session -t "$SESSION" 2>/dev/null; then
   log "tmux session $SESSION already exists; attaching as watcher"
   if [[ -n "$RESOLVED" ]]; then
-    log "WARN: command was consumed but tmux already alive — command had no effect on this boot"
+    log "WARN: command was consumed but tmux already alive; command had no effect on this boot"
   fi
 else
-  log "creating fresh tmux session $SESSION (cmd: $CLAUDE_CMD)"
-  # No fallback. If `claude --continue` cannot find a prior session, or
-  # `claude --resume <id>` fails, or claude crashes — the pane closes,
-  # tmux session dies, the watcher loop exits, and systemd restarts the
-  # wrapper. Operator gets a visible signal (journal + /sessions list)
-  # instead of a silently-spawned fresh session that would hijack the
-  # next ${SERVICE_PREFIX}-dispatch.timer fire as its first user input.
-  # Rule: a new session is created ONLY when (a) no prior sessions exist
-  # at all, or (b) the operator explicitly issues /new_session.
-  tmux new-session -d -s "$SESSION" -x 200 -y 50 \
+  log "creating tmux session $SESSION (cmd: $CLAUDE_CMD)"
+  STARTED_AT=$(date +%s)
+  "${TMUX[@]}" new-session -d -s "$SESSION" -x 200 -y 50 \
     "cd ${PROJECT_DIR} && $CLAUDE_CMD"
   log "tmux + claude launched"
-
-  # Scheduling is external (${SERVICE_PREFIX}-dispatch.timer fires /${DISPATCH_COMMAND_NAME} via
-  # tmux send-keys hourly at :07). The wrapper does NOT register an in-session
-  # /loop because tmux/claude respawn must be controlled by systemd.
-  sleep 5
-  log "fresh session up; ${SERVICE_PREFIX}-dispatch.timer will inject /${DISPATCH_COMMAND_NAME} hourly"
 fi
 
-# Watcher loop: keep this systemd process alive while tmux session lives.
-# If tmux dies, exit non-zero so systemd restarts us (and we re-create tmux).
-# Sleep 5s (was 30s in v3) for snappier respawn after /new_session kill-session.
-while tmux has-session -t "$SESSION" 2>/dev/null; do
+while "${TMUX[@]}" has-session -t "$SESSION" 2>/dev/null; do
   sleep 5
 done
 
-log "tmux session $SESSION disappeared; exiting (systemd will restart)"
+ENDED_AT=$(date +%s)
+RUNTIME=$((ENDED_AT - ${STARTED_AT:-ENDED_AT}))
+if [[ -n "$BOOT_RESUME_SID" && "$RUNTIME" -le 20 ]]; then
+  CURRENT_LAST=""
+  [[ -r "$LAST_SID_FILE" ]] && CURRENT_LAST=$(cat "$LAST_SID_FILE" 2>/dev/null | tr -d '[:space:]')
+  if [[ "$CURRENT_LAST" == "$BOOT_RESUME_SID" ]]; then
+    FAILED_LAST_FILE=$USER_STATE_DIR/last-session.failed.$(date -u +%Y%m%dT%H%M%SZ).id
+    mv -f "$LAST_SID_FILE" "$FAILED_LAST_FILE" 2>/dev/null || true
+    ERROR_KIND=$(classify_session_failure "$BOOT_RESUME_SID" "resume_crashed")
+    jq -n --arg sid "$BOOT_RESUME_SID" --arg user "$OPERATOR_USER_ID" \
+      --arg source "$RESUME_SOURCE" --arg failed_last "$FAILED_LAST_FILE" --arg kind "$ERROR_KIND" \
+      --arg project "$PROJECT_NAME" --arg prefix "$SERVICE_PREFIX" --arg session "$SESSION" --argjson runtime "$RUNTIME" \
+      '{ts: now, kind: $kind, reason: "resume crashed quickly", user_id: $user, session_id: $sid, source: $source, runtime_seconds: $runtime, failed_last_session_file: $failed_last, project_name: $project, service_prefix: $prefix, session: $session}' \
+      > "$ERROR_FILE" 2>/dev/null || true
+    log "WARN: resume sid=$BOOT_RESUME_SID crashed after ${RUNTIME}s; moved last-session.id aside so restart starts fresh"
+  fi
+elif [[ "$RUNTIME" -le 20 ]]; then
+  ERROR_KIND=$(classify_session_failure "" "session_crashed")
+  write_error "$ERROR_KIND" "god-session tmux exited quickly" "tmux session disappeared before it became stable" "" "$RUNTIME"
+fi
+
+log "tmux session $SESSION disappeared; exiting (systemd will restart this user instance)"
 exit 1
