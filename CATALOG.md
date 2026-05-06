@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-05 06:58 UTC*
+*Last updated: 2026-05-06 07:09 UTC*
 
-Total skills: **2597**
+Total skills: **2602**
 
 ## Skills by Source
 
@@ -927,6 +927,7 @@ Total skills: **2597**
 | `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
 | `marketing-aso-audit` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user... |
 | `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
+| `marketing-co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership o... |
 | `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
 | `marketing-community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. Use when the user w... |
 | `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
@@ -998,7 +999,11 @@ Total skills: **2597**
 | `levn-ln-014-agent-instructions-manager` | Creates AGENTS.md canonical and CLAUDE.md @AGENTS.md stub; audits token budget, cache safety, import... |
 | `levn-ln-015-hex-line-uninstaller` | Use when removing Claude-side hex-line integration surfaces such as MCP registration, permissions, h... |
 | `levn-ln-020-codegraph` | Builds and queries code knowledge graph for dependency analysis, references, implementations, and ar... |
-| `levn-ln-030-vps-bootstrap` | Use when bootstrapping a Linux VPS for autonomous Claude Code + Codex: packages, agent user, CLIs, M... |
+| `levn-ln-030-vps-bootstrap` | Use when bootstrapping or managing VPS agent environments: fresh install, add project, hex-relay red... |
+| `levn-ln-031-vps-host-runtime` | Use when installing, verifying, or updating the shared VPS host runtime for Claude Code, Codex, MCP,... |
+| `levn-ln-032-vps-project-runtime` | Use when creating or verifying one project runtime on a prepared VPS, including god-session, provide... |
+| `levn-ln-033-hex-relay-lifecycle` | Use when deploying, redeploying, verifying, migrating, or syncing users for the hex-relay Telegram/A... |
+| `levn-ln-034-vps-environment-diagnostics` | Use when inspecting health, drift, logs, auth, ports, systemd, tmux, or safe repair needs for one VP... |
 | `levn-ln-100-documents-pipeline` | Creates complete project documentation system (project docs, reference, tasks, tests). Use when boot... |
 | `levn-ln-1000-pipeline-orchestrator` | Drives a Story through full pipeline (tasks, validation, execution, quality). Use when executing a S... |
 | `levn-ln-110-project-docs-coordinator` | Coordinates project documentation creation with single context gathering and project type detection.... |

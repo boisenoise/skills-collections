@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-05T06:58:43.807513",
-  "skill_count": 2597,
+  "last_updated": "2026-05-06T07:09:07.503927",
+  "skill_count": 2602,
   "sources_processed": 19,
   "skills": [
     {
@@ -19012,6 +19012,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-033-hex-relay-lifecycle",
+      "original_name": "ln-033-hex-relay-lifecycle",
+      "description": "Use when deploying, redeploying, verifying, migrating, or syncing users for the hex-relay Telegram/API control plane on a VPS.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-628-concurrency-auditor",
       "original_name": "ln-628-concurrency-auditor",
       "description": "Checks async races, thread safety, TOCTOU, deadlocks, blocking I/O, resource contention. Use when auditing concurrency safety.",
@@ -19127,6 +19135,14 @@
       "name": "levn-ln-822-nuget-upgrader",
       "original_name": "ln-822-nuget-upgrader",
       "description": "Upgrades .NET NuGet packages with breaking change handling. Use when updating .NET dependencies.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-032-vps-project-runtime",
+      "original_name": "ln-032-vps-project-runtime",
+      "description": "Use when creating or verifying one project runtime on a prepared VPS, including god-session, provider credentials, and local dispatcher setup.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19287,6 +19303,14 @@
       "name": "levn-ln-911-github-triager",
       "original_name": "ln-911-github-triager",
       "description": "Produces prioritized triage report from open GitHub issues, PRs, and discussions. Use when reviewing community backlog.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "levn-ln-031-vps-host-runtime",
+      "original_name": "ln-031-vps-host-runtime",
+      "description": "Use when installing, verifying, or updating the shared VPS host runtime for Claude Code, Codex, MCP, and marketplace plugins.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -19748,6 +19772,14 @@
       "license": "MIT"
     },
     {
+      "name": "levn-ln-034-vps-environment-diagnostics",
+      "original_name": "ln-034-vps-environment-diagnostics",
+      "description": "Use when inspecting health, drift, logs, auth, ports, systemd, tmux, or safe repair needs for one VPS project environment.",
+      "source": "levnikolaevich/claude-code-skills",
+      "source_url": "https://github.com/levnikolaevich/claude-code-skills",
+      "license": "MIT"
+    },
+    {
       "name": "levn-ln-130-tasks-docs-creator",
       "original_name": "ln-130-tasks-docs-creator",
       "description": "Creates task management docs (kanban board, workflow rules) with Linear integration. Use when setting up task tracking for a project.",
@@ -19950,7 +19982,7 @@
     {
       "name": "levn-ln-030-vps-bootstrap",
       "original_name": "ln-030-vps-bootstrap",
-      "description": "Use when bootstrapping a Linux VPS for autonomous Claude Code + Codex: packages, agent user, CLIs, MCP, god-session, scheduler, optional Telegram bridge.",
+      "description": "Use when bootstrapping or managing VPS agent environments: fresh install, add project, hex-relay redeploy, diagnostics, or fleet plan/apply.",
       "source": "levnikolaevich/claude-code-skills",
       "source_url": "https://github.com/levnikolaevich/claude-code-skills",
       "license": "MIT"
@@ -20399,6 +20431,14 @@
       "name": "marketing-paid-ads",
       "original_name": "paid-ads",
       "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' 'Facebook ads,' 'LinkedIn ads,' 'ad budget,' 'cost per click,' 'ad spend,' or 'should I run ads.' Use this for campaign strategy, audience targeting, bidding, and optimization. For bulk ad creative generation and iteration, see ad-creative. For landing page optimization, see page-cro.",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "license": "MIT"
+    },
+    {
+      "name": "marketing-co-marketing",
+      "original_name": "co-marketing",
+      "description": "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborate with another company,' 'partnership ideas,' or 'co-brand.' For customer referral programs, see referral-program. For launch-specific partnerships, see launch-strategy.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
