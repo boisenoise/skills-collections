@@ -2,7 +2,7 @@
 name: production-audit
 description: "Audit a shipped repo for production-readiness gaps across RLS, webhooks, secrets, grants, Stripe idempotency, mobile UX, and deployment health."
 category: security
-risk: safe
+risk: critical
 source: community
 source_repo: commitshow/production-audit
 source_type: community
@@ -22,7 +22,7 @@ A skill that runs an external audit on a shipped repo's deployed state — live 
 
 This is **complementary** to in-session security skills (`security-review`, OWASP-style, VibeSec, Trail of Bits). Those scan the editor buffer at write-time. This scans the deployed product after you commit. Different timing, different inputs, different findings. Run both for serious launches.
 
-The skill wraps the [commit.show](https://commit.show) audit engine via the public CLI (`npx commitshow audit . --json`). Stable JSON envelope (`schema_version: "1"`, additive-only). Writes a `.commitshow/audit.{md,json}` sidecar so future agent sessions can read prior state without re-running the engine.
+The skill wraps the [commit.show](https://commit.show) audit engine via the public CLI (`npx commitshow@0.3.23 audit . --json`). Stable JSON envelope (`schema_version: "1"`, additive-only). Writes a `.commitshow/audit.{md,json}` sidecar so future agent sessions can read prior state without re-running the engine.
 
 ## When to Use This Skill
 
@@ -42,11 +42,11 @@ The skill wraps the [commit.show](https://commit.show) audit engine via the publ
 
 ### Step 1: Run the audit
 
-From the repo root. The CLI is pinned to a known-good range (an attacker-pushed `0.4.x` won't be picked up silently — bumping the floor is a deliberate edit), the sidecar directory is created up-front, and stderr is split off so install/deprecation warnings can't corrupt the JSON envelope:
+From the repo root. The CLI is pinned to an exact reviewed version so future npm releases are not selected silently. Because `npx` downloads and runs npm package code locally with the current user's permissions, run it only after the user explicitly approves this external execution and only in a repository where local files and environment variables are safe for that process to access. The sidecar directory is created up-front, and stderr is split off so install/deprecation warnings can't corrupt the JSON envelope:
 
 ```bash
 mkdir -p .commitshow
-npx commitshow@^0.3.23 audit . --json \
+npx commitshow@0.3.23 audit . --json \
   > .commitshow/audit.json \
   2> .commitshow/audit.stderr.log
 ```
@@ -57,7 +57,7 @@ If the user pointed at a remote URL instead of `.`, swap `.` for the URL — kee
 
 ```bash
 mkdir -p .commitshow
-npx commitshow@^0.3.23 audit github.com/owner/repo --json \
+npx commitshow@0.3.23 audit github.com/owner/repo --json \
   > .commitshow/audit.json \
   2> .commitshow/audit.stderr.log
 ```
@@ -111,7 +111,7 @@ After applying a fix, suggest re-running with `--refresh` (same canonical form a
 
 ```bash
 mkdir -p .commitshow
-npx commitshow@^0.3.23 audit . --json --refresh \
+npx commitshow@0.3.23 audit . --json --refresh \
   > .commitshow/audit.json \
   2> .commitshow/audit.stderr.log
 ```
@@ -122,7 +122,7 @@ npx commitshow@^0.3.23 audit . --json --refresh \
 
 ```bash
 mkdir -p .commitshow
-npx commitshow@^0.3.23 audit . --json \
+npx commitshow@0.3.23 audit . --json \
   > .commitshow/audit.json \
   2> .commitshow/audit.stderr.log
 ```
@@ -172,7 +172,8 @@ Find the file path in the bullet, read it, confirm the gap matches.
 
 ## Security & Safety Notes
 
-- The skill executes `npx commitshow@latest audit ...` which is a network call to a public API at `https://api.commit.show` (proxied to Supabase Edge Functions). No credentials are sent — anonymous usage subject to per-IP / per-URL / global rate limits.
+- The skill executes `npx commitshow@0.3.23 audit ...`, which downloads and runs that exact npm package version locally, then calls the public API at `https://api.commit.show` (proxied to Supabase Edge Functions). Do not replace the exact version with `latest` or a semver range during normal use.
+- Treat the CLI as external code with local process privileges. It must not be run in repositories containing secrets or sensitive uncommitted files unless the user has explicitly accepted that risk. No credentials are intentionally sent to the API, but the local process can access files and environment variables available to the current user.
 - The CLI writes `.commitshow/audit.{md,json}` in the current working directory. These files are safe to commit (no secrets) but conventionally gitignored as transient artifacts.
 - The audit engine **only reads** public GitHub signals. It does not modify the user's repo or push commits.
 - All per-finding fix proposals must be shown as diffs and approved by the user before any edit. Never apply without explicit confirmation.

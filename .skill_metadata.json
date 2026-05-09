@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-08T06:47:36.169833",
-  "skill_count": 2462,
+  "last_updated": "2026-05-09T06:54:18.946148",
+  "skill_count": 2467,
   "sources_processed": 19,
   "skills": [
     {
@@ -695,6 +695,14 @@
       "name": "antigravity-gdpr-data-handling",
       "original_name": "gdpr-data-handling",
       "description": "Practical implementation guide for GDPR-compliant data processing, consent management, and privacy controls.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-multi-agent-architect",
+      "original_name": "multi-agent-architect",
+      "description": "Design and optimize production-grade multi-agent systems with LangGraph, LangChain, and DeepAgents for complex AI workflows.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2636,6 +2644,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-rich-elicitation",
+      "original_name": "rich-elicitation",
+      "description": "Asks clarifying questions in multiple rounds before starting ambiguous tasks. Fires when 2+ task dimensions each have 3+ viable answers.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-linux-privilege-escalation",
       "original_name": "linux-privilege-escalation",
       "description": "Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconfigurations, vulnerable services, and security weaknesses that allow elevation from low-privilege user access to root-level control.",
@@ -3423,6 +3439,14 @@
       "name": "antigravity-architecture",
       "original_name": "architecture",
       "description": "Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-mock-hunter",
+      "original_name": "mock-hunter",
+      "description": "Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data, hardcoded values, LLM-generated metrics, and broken endpoints. Outputs a markdown report with REAL/MOCK/LLM/HARDCODED/BROKEN/UNKNOWN verdicts per visible value.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5692,6 +5716,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-aomi-transact",
+      "original_name": "aomi-transact",
+      "description": "Build natural-language crypto/DeFi agents and EVM MCP plugins (Claude Code, Cursor, Codex, Gemini). Aomi turns prompts into wallet-signed txs on Ethereum, Base, Arbitrum, Optimism, Polygon, Linea \u2014 non-custodial, fork-simulated. 40+ apps: Uniswap, Aave, Lido, Morpho, GMX, Hyperliquid, Polymarket.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-flutter-expert",
       "original_name": "flutter-expert",
       "description": "Master Flutter development with Dart 3, advanced widgets, and multi-platform deployment.",
@@ -6639,6 +6671,14 @@
       "name": "antigravity-database-optimizer",
       "original_name": "database-optimizer",
       "description": "Expert database optimizer specializing in modern performance tuning, query optimization, and scalable architectures.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-unity-ai-game-creator",
+      "original_name": "unity-ai-game-creator",
+      "description": "Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene blueprints, music/SFX prompts, and step-by-step development procedures using Unity 6+ and modern AI tools.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
