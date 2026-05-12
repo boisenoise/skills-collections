@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-11T07:29:46.919769",
-  "skill_count": 2467,
+  "last_updated": "2026-05-12T07:12:52.460100",
+  "skill_count": 2470,
   "sources_processed": 19,
   "skills": [
     {
@@ -3518,7 +3518,7 @@
     {
       "name": "antigravity-x-twitter-scraper",
       "original_name": "x-twitter-scraper",
-      "description": "X (Twitter) data platform skill \u2014 tweet search, user lookup, follower extraction, engagement metrics, giveaway draws, monitoring, webhooks, 19 extraction tools, MCP server.",
+      "description": "X/Twitter automation skill for tweet search, follower export, media download, posting, replies, DMs, webhooks, MCP, SDKs, and the TweetClaw OpenClaw plugin.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5612,6 +5612,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ingest-youtube",
+      "original_name": "ingest-youtube",
+      "description": "Pull a YouTube video transcript into a queryable markdown vault with yt-dlp subtitle discovery, VTT cleanup, metadata frontmatter, and capture-seed stubs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-google-analytics-automation",
       "original_name": "google-analytics-automation",
       "description": "Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funnels, pivots, key events. Always search tools first for current schemas.",
@@ -6647,6 +6655,14 @@
       "name": "antigravity-makepad-reference",
       "original_name": "makepad-reference",
       "description": "This category provides reference materials for debugging, code quality, and advanced layout patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ejentum-reasoning-harness",
+      "original_name": "ejentum-reasoning-harness",
+      "description": "MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each call returns an engineered scaffold (failure pattern, procedure, suppression vectors, falsification test) the agent ingests before generating.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10615,6 +10631,14 @@
       "name": "antigravity-junta-leiloeiros",
       "original_name": "junta-leiloeiros",
       "description": "Coleta e consulta dados de leiloeiros oficiais de todas as 27 Juntas Comerciais do Brasil. Scraper multi-UF, banco SQLite, API FastAPI e exportacao CSV/JSON.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agenttrace-session-audit",
+      "original_name": "agenttrace-session-audit",
+      "description": "Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, health, diffs, and CI gates.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
