@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-05-12 07:12 UTC*
+*Last updated: 2026-05-13 07:17 UTC*
 
 Total skills: **2470**
 
@@ -973,7 +973,7 @@ Total skills: **2470**
 | `aws-cloudwatch` | AWS CloudWatch monitoring for logs, metrics, alarms, and dashboards. Use when setting up monitoring,... |
 | `aws-cognito` | AWS Cognito user authentication and authorization service. Use when setting up user pools, configuri... |
 | `aws-dynamodb` | AWS DynamoDB NoSQL database for scalable data storage. Use when designing table schemas, writing que... |
-| `aws-ec2` | AWS EC2 virtual machine management for instances, AMIs, and networking. Use when launching instances... |
+| `aws-ec2` | AWS EC2 virtual machine management — instances, security groups, key pairs, AMIs, EBS volumes, Auto ... |
 | `aws-ecs` | AWS ECS container orchestration for running Docker containers. Use when deploying containerized appl... |
 | `aws-eks` | AWS EKS Kubernetes management for clusters, node groups, and workloads. Use when creating clusters, ... |
 | `aws-eventbridge` | AWS EventBridge serverless event bus for event-driven architectures. Use when creating rules, config... |
