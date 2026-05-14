@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-13 07:17 UTC*
+*Last updated: 2026-05-14 07:14 UTC*
 
-Total skills: **2470**
+Total skills: **2475**
 
 ## Skills by Source
 
@@ -921,46 +921,45 @@ Total skills: **2470**
 
 | Skill | Description |
 |-------|-------------|
-| `marketing-ab-test-setup` | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth exper... |
+| `marketing-ab-testing` | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth exper... |
 | `marketing-ad-creative` | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary te... |
+| `marketing-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
 | `marketing-ai-seo` | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-ge... |
-| `marketing-analytics-tracking` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
-| `marketing-aso-audit` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user... |
+| `marketing-analytics` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
+| `marketing-aso` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user... |
 | `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
 | `marketing-co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership o... |
 | `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
 | `marketing-community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. Use when the user w... |
-| `marketing-competitor-alternatives` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
 | `marketing-competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the ... |
+| `marketing-competitors` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablemen... |
 | `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
 | `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content... |
 | `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, ... |
+| `marketing-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page or form — in... |
 | `marketing-customer-research` | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions... |
 | `marketing-directory-submissions` | When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review dir... |
-| `marketing-email-sequence` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
-| `marketing-form-cro` | When the user wants to optimize any form that is NOT signup/registration — including lead capture fo... |
-| `marketing-free-tool-strategy` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
+| `marketing-emails` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
+| `marketing-free-tools` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
 | `marketing-image` | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, socia... |
-| `marketing-launch-strategy` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
+| `marketing-launch` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `marketing-lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.... |
 | `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
 | `marketing-marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marke... |
-| `marketing-onboarding-cro` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
-| `marketing-page-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page — including ... |
-| `marketing-paid-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
-| `marketing-paywall-upgrade-cro` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
-| `marketing-popup-cro` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
-| `marketing-pricing-strategy` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
-| `marketing-product-marketing-context` | When the user wants to create or update their product marketing context document. Also use when the ... |
+| `marketing-onboarding` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
+| `marketing-paywalls` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
+| `marketing-popups` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
+| `marketing-pricing` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
+| `marketing-product-marketing` | When the user wants to create or update their product marketing context document. Also use when the ... |
 | `marketing-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
-| `marketing-referral-program` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
+| `marketing-referrals` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
 | `marketing-revops` | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales h... |
 | `marketing-sales-enablement` | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or... |
-| `marketing-schema-markup` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u... |
+| `marketing-schema` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u... |
 | `marketing-seo-audit` | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user m... |
-| `marketing-signup-flow-cro` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
+| `marketing-signup` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `marketing-site-architecture` | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL str... |
-| `marketing-social-content` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twit... |
+| `marketing-social` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twit... |
 | `marketing-video` | When the user wants to create, generate, or produce video content using AI tools or programmatic fra... |
 
 ### itsmostafa/aws-agent-skills
@@ -1939,6 +1938,7 @@ splash language, makepad script, m... |
 | `antigravity-maxia` | Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP ... |
 | `antigravity-mcp-builder` | Create MCP (Model Context Protocol) servers that enable LLMs to interact with external services thro... |
 | `antigravity-mcp-builder-ms` | Use this skill when building MCP servers to integrate external APIs or services, whether in Python (... |
+| `antigravity-mcp-tool-developer` | Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with T... |
 | `antigravity-memory-forensics` | Comprehensive techniques for acquiring, analyzing, and extracting artifacts from memory dumps for in... |
 | `antigravity-memory-safety-patterns` | Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and r... |
 | `antigravity-memory-systems` | Design short-term, long-term, and graph-based memory architectures. Use when building agents that mu... |
@@ -2000,6 +2000,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-network-engineer` | Expert network engineer specializing in modern cloud networking, security architectures, and perform... |
 | `antigravity-networkx` | NetworkX is a Python package for creating, manipulating, and analyzing complex networks and graphs. |
 | `antigravity-new-rails-project` | Create a new Rails project |
+| `antigravity-news-sentiment-engine` | Multi-source RSS news aggregation with Claude-powered sentiment analysis and structured briefing out... |
 | `antigravity-nextjs-app-router-patterns` | Comprehensive patterns for Next.js 14+ App Router architecture, Server Components, and modern full-s... |
 | `antigravity-nextjs-best-practices` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
 | `antigravity-nextjs-supabase-auth` | Expert integration of Supabase Auth with Next.js App Router |
@@ -2053,6 +2054,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-one-drive-automation` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder oper... |
 | `antigravity-openapi-spec-generation` | Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patte... |
 | `antigravity-openclaw-github-repo-commander` | 7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis |
+| `antigravity-options-flow-analyzer` | Real vs lottery call separation for options P/C ratio analysis — prevents signal inversion from deep... |
 | `antigravity-oral-health-analyzer` | 分析口腔健康数据、识别口腔问题模式、评估口腔健康状况、提供个性化口腔健康建议。支持与营养、慢性病、用药等其他健康数据的关联分析。 |
 | `antigravity-orchestrate-batch-refactor` | Plan and execute large refactors with dependency-aware work packets and parallel analysis. |
 | `antigravity-os-scripting` | Operating system and shell scripting troubleshooting workflow for Linux, macOS, and Windows. Covers ... |
@@ -2422,6 +2424,7 @@ calculations
 | `antigravity-tiktok-automation` | Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a... |
 | `antigravity-tmux` | Expert tmux session, window, and pane management for terminal multiplexing, persistent remote workfl... |
 | `antigravity-todoist-automation` | Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (C... |
+| `antigravity-tokenwise` | Measurement-driven model router for Claude Code. Routes Haiku/Sonnet/Opus per task class, logs every... |
 | `antigravity-tool-design` | Build tools that agents can use effectively, including architectural reduction patterns. Use when cr... |
 | `antigravity-tool-use-guardian` | FREE — Intelligent tool-call reliability wrapper. Monitors, retries, fixes, and learns from tool fai... |
 | `antigravity-top-web-vulnerabilities` | Provide a comprehensive, structured reference for the 100 most critical web application vulnerabilit... |
@@ -2505,6 +2508,7 @@ calculations
 | `antigravity-web3-testing` | Master comprehensive testing strategies for smart contracts using Hardhat, Foundry, and advanced tes... |
 | `antigravity-webapp-testing` | To test local web applications, write native Python Playwright scripts. |
 | `antigravity-webflow-automation` | Automate Webflow CMS collections, site publishing, page management, asset uploads, and ecommerce ord... |
+| `antigravity-wechat-official-account-strategist` | Grow WeChat Official Accounts (微信公众号) with high-conversion content strategy, title formulas, article... |
 | `antigravity-weightloss-analyzer` | 分析减肥数据、计算代谢率、追踪能量缺口、管理减肥阶段 |
 | `antigravity-wellally-tech` | Integrate multiple digital health data sources, connect to [WellAlly.tech](https://www.wellally.tech... |
 | `antigravity-whatsapp-automation` | Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload me... |
@@ -2533,8 +2537,9 @@ calculations
 | `antigravity-writing-plans` | Use when you have a spec or requirements for a multi-step task, before touching code |
 | `antigravity-writing-skills` | Use when creating, updating, or improving agent skills. |
 | `antigravity-x-article-publisher-skill` | Publish articles to X/Twitter |
-| `antigravity-x-twitter-scraper` | X/Twitter automation skill for tweet search, follower export, media download, posting, replies, DMs,... |
+| `antigravity-x-twitter-scraper` | X/Twitter automation skill for tweet search, follower export, posting, DMs, webhooks, MCP, SDKs, Her... |
 | `antigravity-x402-express-wrapper` | Wrapper oficial de M2MCent (Node.js) para inyectar muros de pago x402 en APIs o servidores Model Con... |
+| `antigravity-xiaohongshu-content-strategist` | Create viral Xiaohongshu (小红书) content with platform-native strategy, save-rate optimization, trendi... |
 | `antigravity-xlsx` | Unless otherwise stated by the user or existing template |
 | `antigravity-xss-html-injection` | Execute comprehensive client-side injection vulnerability assessments on web applications to identif... |
 | `antigravity-xvary-stock-research` | Thesis-driven equity analysis from public SEC EDGAR and market data; /analyze, /score, /compare work... |

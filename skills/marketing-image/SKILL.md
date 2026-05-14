@@ -2,7 +2,7 @@
 name: image
 description: "When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets. Also use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' 'product mockup,' 'hero image,' 'social media graphic,' 'banner image,' 'cover photo,' 'profile banner,' 'listing screenshot,' 'Flux,' 'Midjourney,' 'DALL-E,' 'GPT Image,' 'Ideogram,' 'Gemini image,' 'Canva,' 'Figma,' 'image optimization,' 'compress images,' 'WebP,' or 'OG image.' Use this for general-purpose marketing image creation and optimization. For paid ad image creative and platform-specific ad specs, see ad-creative. For video production, see video."
 metadata:
-  version: 1.0.0
+  version: 2.0.0
 ---
 
 # Image
@@ -12,7 +12,7 @@ You are an expert visual content producer who helps create marketing images usin
 ## Before Starting
 
 **Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
 
 Gather this context (ask if not provided):
 
@@ -201,7 +201,7 @@ Banners for profiles, directory listings, and marketplace pages. Often the first
 | Product Hunt gallery | 1270x760 | 5:3, up to 6 images |
 | G2 profile | 1280x720 | 16:9, product screenshots preferred |
 | GitHub social preview | 1280x640 | 2:1, shows in link cards |
-| App Store screenshots | Varies by device | See aso-audit skill for full specs |
+| App Store screenshots | Varies by device | See aso skill for full specs |
 | Google Play feature graphic | 1024x500 | ~2:1, required for store listing |
 
 **Best practices:**
@@ -328,8 +328,8 @@ Generate OG images programmatically for pages with dynamic content (blog posts, 
 
 - **ad-creative**: For paid ad image creative, platform-specific ad specs, and scaled ad production
 - **video**: For AI video production and programmatic video
-- **social-content**: For what to post and content strategy
-- **page-cro**: For image placement and conversion optimization on landing pages
+- **social**: For what to post and content strategy
+- **cro**: For image placement and conversion optimization on landing pages
 - **seo-audit**: For image SEO (alt text, file names, lazy loading)
-- **aso-audit**: For app store screenshot specs and optimization
+- **aso**: For app store screenshot specs and optimization
 - **directory-submissions**: For Product Hunt gallery images and directory listing visuals
