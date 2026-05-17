@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-16 06:58 UTC*
+*Last updated: 2026-05-17 07:10 UTC*
 
-Total skills: **2475**
+Total skills: **2476**
 
 ## Skills by Source
 
@@ -2167,6 +2167,7 @@ structures, and modern OOP features. U... |
 | `antigravity-readme` | You are an expert technical writer creating comprehensive project documentation. Your goal is to wri... |
 | `antigravity-recallmax` | FREE — God-tier long-context memory for AI agents. Injects 500K-1M clean tokens, auto-summarizes wit... |
 | `antigravity-receiving-code-review` | Code review requires technical evaluation, not emotional performance. |
+| `antigravity-recsys-pipeline-architect` | Designs composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→F... |
 | `antigravity-recursive-context-pruning-token-budgeting` | Optimizes AI agent performance by pruning redundant context, managing token usage, and enforcing ult... |
 | `antigravity-red-team-tactics` | Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting. |
 | `antigravity-red-team-tools` | Implement proven methodologies and tool workflows from top security researchers for effective reconn... |

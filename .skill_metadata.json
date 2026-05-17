@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-16T06:58:35.548628",
-  "skill_count": 2475,
+  "last_updated": "2026-05-17T07:10:07.421654",
+  "skill_count": 2476,
   "sources_processed": 19,
   "skills": [
     {
@@ -9903,6 +9903,14 @@
       "name": "antigravity-sleep-analyzer",
       "original_name": "sleep-analyzer",
       "description": "\u5206\u6790\u7761\u7720\u6570\u636e\u3001\u8bc6\u522b\u7761\u7720\u6a21\u5f0f\u3001\u8bc4\u4f30\u7761\u7720\u8d28\u91cf\uff0c\u5e76\u63d0\u4f9b\u4e2a\u6027\u5316\u7761\u7720\u6539\u5584\u5efa\u8bae\u3002\u652f\u6301\u4e0e\u5176\u4ed6\u5065\u5eb7\u6570\u636e\u7684\u5173\u8054\u5206\u6790\u3002",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-recsys-pipeline-architect",
+      "original_name": "recsys-pipeline-architect",
+      "description": "Designs composable recommendation, ranking, and feed pipelines using the six-stage Source\u2192Hydrator\u2192Filter\u2192Scorer\u2192Selector\u2192SideEffect framework",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
