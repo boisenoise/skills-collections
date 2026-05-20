@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-19T07:28:46.110356",
-  "skill_count": 2476,
+  "last_updated": "2026-05-20T07:28:41.508209",
+  "skill_count": 2479,
   "sources_processed": 19,
   "skills": [
     {
@@ -543,6 +543,14 @@
       "name": "vercel-react-native-skills",
       "original_name": "vercel-react-native-skills",
       "description": "React Native and Expo best practices for building performant mobile apps. Use when building React Native components, optimizing list performance, implementing animations, or working with native modules. Triggers on tasks involving React Native, Expo, mobile performance, or native platform APIs.",
+      "source": "vercel-labs/agent-skills",
+      "source_url": "https://github.com/vercel-labs/agent-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "vercel-vercel-optimize",
+      "original_name": "vercel-optimize",
+      "description": "Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in verified files and version-aware Vercel/framework docs. Trigger for Vercel bill reduction, slow or expensive routes, caching opportunities, Function Invocations, Build Minutes, Fast Data Transfer, Core Web Vitals, Bot Management, Fluid compute, or cost breakdown requests.",
       "source": "vercel-labs/agent-skills",
       "source_url": "https://github.com/vercel-labs/agent-skills",
       "license": "MIT"
@@ -7836,6 +7844,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-mercury-mcp",
+      "original_name": "mercury-mcp",
+      "description": "Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look up which mercury_* tool to call for messaging teammates, threads, tasks, automations, or admin team-graph edits.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-carrier-relationship-management",
       "original_name": "carrier-relationship-management",
       "description": "Codified expertise for managing carrier portfolios, negotiating freight rates, tracking carrier performance, allocating freight, and maintaining strategic carrier relationships.",
@@ -9991,6 +10007,14 @@
       "name": "antigravity-seo-aeo-schema-generator",
       "original_name": "seo-aeo-schema-generator",
       "description": "Generates valid JSON-LD structured data for 10 schema types with rich result eligibility validation and implementation-ready script blocks. Activate when the user wants to generate schema markup, JSON-LD, or structured data for any page.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-photopea-embedded-editor",
+      "original_name": "photopea-embedded-editor",
+      "description": "Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and the full Photoshop-compatible API.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-19 07:28 UTC*
+*Last updated: 2026-05-20 07:28 UTC*
 
-Total skills: **2476**
+Total skills: **2479**
 
 ## Skills by Source
 
@@ -1943,6 +1943,7 @@ splash language, makepad script, m... |
 | `antigravity-memory-safety-patterns` | Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and r... |
 | `antigravity-memory-systems` | Design short-term, long-term, and graph-based memory architectures. Use when building agents that mu... |
 | `antigravity-mental-health-analyzer` | 分析心理健康数据、识别心理模式、评估心理健康状况、提供个性化心理健康建议。支持与睡眠、运动、营养等其他健康数据的关联分析。 |
+| `antigravity-mercury-mcp` | Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look ... |
 | `antigravity-mermaid-expert` | Create Mermaid diagrams for flowcharts, sequences, ERDs, and architectures. Masters syntax for all d... |
 | `antigravity-metasploit-framework` | ⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments o... |
 | `antigravity-micro-saas-launcher` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profit... |
@@ -2081,6 +2082,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-performance-testing-review-multi-agent-review` | Use when working with performance testing review multi agent review |
 | `antigravity-personal-tool-builder` | Expert in building custom tools that solve your own problems first. The best products often start as... |
 | `antigravity-phase-gated-debugging` | Use when debugging any bug. Enforces a 5-phase protocol where code edits are blocked until root caus... |
+| `antigravity-photopea-embedded-editor` | Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, laye... |
 | `antigravity-php-pro` | Write idiomatic PHP code with generators, iterators, SPL data
 structures, and modern OOP features. U... |
 | `antigravity-pipecat-friday-agent` | Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini... |
@@ -2570,6 +2572,7 @@ calculations
 | `vercel-react-native-skills` | React Native and Expo best practices for building performant mobile apps. Use when building React Na... |
 | `vercel-react-view-transitions` | Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTr... |
 | `vercel-vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel ... |
+| `vercel-vercel-optimize` | Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit... |
 | `vercel-web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check acc... |
 
 ### zxkane/aws-skills
