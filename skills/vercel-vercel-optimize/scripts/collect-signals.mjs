@@ -11,6 +11,7 @@ import {
   checkObservabilityPlusConfiguration,
   getMetricsSchema,
   getProjectConfig,
+  getAccountPlan,
   getContract,
   getUsage,
   filterUsageByProject,
@@ -214,9 +215,10 @@ async function main() {
     log('continuing after Observability Plus blocker because --continue-without-observability was set');
   }
 
-  log('pulling project config + contract + usage in parallel…');
-  const [projectCfg, contract, usageResult] = await Promise.all([
+  log('pulling project config + account plan + contract + usage in parallel…');
+  const [projectCfg, accountPlan, contract, usageResult] = await Promise.all([
     getProjectConfig(project.projectId, project.orgId),
+    getAccountPlan(scope),
     getContract(scope),
     getUsage({ days: 14, scope }),
   ]);
@@ -251,8 +253,7 @@ async function main() {
     log(`usage: unavailable (${usageResult?.code ?? 'unknown'}) — degrading to scanner+metrics-only mode`);
   }
 
-  // Hobby teams don't bill, so commitments=[] + usage>$0 ⇒ Pro pay-as-you-go.
-  const planInfo = inferPlan(contract, { usageTotalCost });
+  const planInfo = inferPlan(contract, { accountPlan, usageTotalCost });
   log(`plan=${planInfo.plan} (${planInfo.reason})`);
 
   if (projectCfg?.error) {

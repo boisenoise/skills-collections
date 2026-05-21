@@ -383,9 +383,81 @@ export async function getContract(scope) {
   return r.ok ? r.data : null;
 }
 
-// Hobby teams don't bill — commitments=[] AND usage>$0 ⇒ Pro pay-as-you-go.
-// `commitments=[] AND usage=$0` is genuinely uncertain (Hobby OR Pro with no recent billing).
+export async function getAccountPlan(scope) {
+  const currentTeamId = scope ? null : await getCurrentTeamId();
+  const teamScope = scope || currentTeamId;
+
+  if (teamScope && !String(teamScope).startsWith('usr_')) {
+    const team = await getBillingPlanFromPath(`/v2/teams/${encodeURIComponent(teamScope)}`, 'team.billing.plan');
+    if (team.plan !== 'unknown' || !/not_found|404/i.test(String(team.error ?? ''))) {
+      return team;
+    }
+    // Older project links can carry a user/org id instead of a team id. If the
+    // team lookup misses, fall back to the authenticated user's billing record.
+  }
+
+  return await getBillingPlanFromPath('/v2/user', 'user.billing.plan');
+}
+
+async function getCurrentTeamId() {
+  const r = await runVercelJson(['whoami', '--format', 'json']);
+  return r.ok ? (r.data?.team?.id ?? null) : null;
+}
+
+async function getBillingPlanFromPath(path, source) {
+  const r = await runVercelJson(['api', path]);
+  if (!r.ok) {
+    return {
+      plan: 'unknown',
+      reason: `${source} unavailable (${r.code ?? 'unknown'})`,
+      source,
+      error: r.code ?? 'unknown',
+    };
+  }
+
+  const parsed = extractBillingPlan(r.data);
+  if (!parsed) {
+    return {
+      plan: 'unknown',
+      reason: `${source} missing from Vercel API response`,
+      source,
+    };
+  }
+
+  return {
+    ...parsed,
+    reason: `${source}=${parsed.plan}`,
+    source,
+  };
+}
+
+export function extractBillingPlan(data) {
+  const raw =
+    data?.billing?.plan ??
+    data?.team?.billing?.plan ??
+    data?.user?.billing?.plan ??
+    null;
+  const plan = normalizeBillingPlan(raw);
+  return plan ? { plan, rawPlan: raw } : null;
+}
+
+function normalizeBillingPlan(raw) {
+  const value = String(raw ?? '').trim().toLowerCase();
+  if (value === 'hobby' || value === 'pro' || value === 'enterprise') return value;
+  return null;
+}
+
+// Primary source: billing.plan from `/v2/teams/:team` or `/v2/user`.
+// Fallbacks: contract category, then recent billed usage for legacy CLI/API gaps.
 export function inferPlan(contract, opts = {}) {
+  const accountPlan = extractPlanOption(opts?.accountPlan);
+  if (accountPlan) {
+    return {
+      plan: accountPlan.plan,
+      reason: accountPlan.reason ?? `${accountPlan.source ?? 'billing.plan'}=${accountPlan.plan}`,
+    };
+  }
+
   const commits = contract?.commitments ?? [];
 
   if (commits.length > 0) {
@@ -414,6 +486,26 @@ export function inferPlan(contract, opts = {}) {
     reason: typeof totalCost === 'number' && totalCost === 0
       ? 'no commitments and no billed usage in window (could be Hobby, or Pro with no recent billing)'
       : 'no commitments on contract; usage unavailable',
+  };
+}
+
+function extractPlanOption(accountPlan) {
+  if (!accountPlan) return null;
+  if (typeof accountPlan === 'string') {
+    const plan = normalizeBillingPlan(accountPlan);
+    return plan ? { plan, reason: `billing.plan=${plan}` } : null;
+  }
+
+  const plan = normalizeBillingPlan(accountPlan.plan);
+  if (!plan) return null;
+  return {
+    plan,
+    reason: accountPlan.reason ?? (
+      accountPlan.source
+        ? `${accountPlan.source}=${plan}`
+        : `billing.plan=${plan}`
+    ),
+    source: accountPlan.source ?? null,
   };
 }
 

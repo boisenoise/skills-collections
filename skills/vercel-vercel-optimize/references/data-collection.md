@@ -41,7 +41,7 @@ The merged `signals.json` has this top-level shape:
   "observabilityPlusUsable": true | false | null,
   "observabilityPlusBlocker": null | "no_oplus_probe" | "project_disabled" | "payment_required" | "forbidden" | "daily_quota_exceeded" | "project_not_found" | "not_linked" | "all_failed_other" | "no_traffic",
   "observabilityPlusBlockerDetail": "...",
-  "plan": { "plan": "pro" | "enterprise" | "uncertain", "reason": "..." },
+  "plan": { "plan": "hobby" | "pro" | "enterprise" | "uncertain", "reason": "..." },
   "project": { /* /v9/projects/:id response, scoped to orgId via ?teamId */ },
   "contract": { "context": "...", "commitments": [], "totalCommitments": 0 },
   "usage": { /* vercel usage --format json --breakdown daily, or null */ },
@@ -68,7 +68,7 @@ Downstream consumers reference `signals.<field>` paths verbatim. Bumping `schema
 | Observability Plus configuration | Vercel CLI/API probe plus one metric access check | All `metrics.*` signals | Stop early when the team lacks Observability Plus or this project is disabled |
 | Observability Plus metrics access | One canary `vercel metrics vercel.request.count --since 14d --limit 1`, then full fan-out only if it succeeds | All `metrics.*` signals | Set `observabilityPlusUsable=false` with blocker detail; emit a minimal blocker document before slower project config / usage collection unless `--continue-without-observability` is passed |
 | Project config | `vercel api /v9/projects/:id?teamId=<orgId>` | Fluid Compute, BotID, Speed Insights, security flags | `{error: "..."}` placeholder; gates that need it skip |
-| Plan tier | `vercel contract --format json --scope <orgId>` → `inferPlan()` | Cost-context framing only | `plan="uncertain"`; cost magnitudes still computed from `usage.services[].billedCost` |
+| Plan tier | `vercel api /v2/teams/:orgId` (or `/v2/user` for user-owned projects) → `billing.plan`, then `vercel contract --format json --scope <orgId>` fallback → `inferPlan()` | Cost-context framing only | `plan="uncertain"`; cost magnitudes still computed from `usage.services[].billedCost` |
 | Billing usage | `vercel usage --format json --from <14d> --to <today>` with best-effort project grouping when supported by the installed CLI | Cost magnitude framing, billing-driven candidates | `null` + `usageError` set; cost magnitudes degrade to "small" by default |
 | Stack | local `package.json` + dir scan | Version-aware citation filtering, scanner gating | "unknown" framework → all framework-specific citations filtered |
 | `metrics.fnDurationP95ByRoute` | `vercel metrics vercel.function_invocation.function_duration_ms -a p95 --group-by route --since 14d` | `slow_route`, `platform_fluid_compute` gates | `{ok:false}`; gate emits no candidates |
@@ -184,7 +184,9 @@ Calling without `?teamId=` returns 404 when the project belongs to a team other 
 { "context": "example-team", "commitments": [], "totalCommitments": 0 }
 ```
 
-`commitments[]` field names are not stable. `inferPlan()` tries `category`, `commitmentCategory`, and `type`; empty array → `plan="uncertain"`.
+The direct account billing record is the primary plan signal: `billing.plan` from `vercel api /v2/teams/:orgId` or `vercel api /v2/user` is expected to be `hobby`, `pro`, or `enterprise`.
+
+`vercel contract` is only a fallback. `commitments[]` field names are not stable, so `inferPlan()` tries `category`, `commitmentCategory`, and `type`; category `Spend` means Pro and `Usage` means Enterprise. Empty commitments no longer imply Hobby by themselves.
 
 ### `vercel usage --format json`
 
