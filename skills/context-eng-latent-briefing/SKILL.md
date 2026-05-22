@@ -19,6 +19,12 @@ Activate this skill when:
 - Debugging token explosion in recursive, hierarchical, or tool-heavy agent graphs
 - Interpreting benchmarks that report worker-token savings, total-token savings, compaction overhead, and accuracy together
 
+Do not activate this skill for adjacent work owned by other skills:
+- API-only stacks where internal KV tensors are inaccessible: use `context-compression`, `memory-systems`, or `multi-agent-patterns`.
+- Ordinary persistent memory, entity tracking, or graph retrieval: `memory-systems`.
+- General multi-agent topology without representation-level state sharing: `multi-agent-patterns`.
+- Prefix caching, masking, or budget policy that does not transform KV state: `context-optimization`.
+
 ## Core Concepts
 
 **The token explosion pattern.** In recursive or REPL-style systems, the orchestrator repeatedly calls a worker to inspect evidence, verify hypotheses, or answer subquestions. The orchestrator's trajectory grows with partial conclusions, dead ends, tool output, and prior worker responses. If that trajectory is passed in full on every worker call, cost compounds quickly.
@@ -31,7 +37,7 @@ Activate this skill when:
 2. Aggregate scores into a **shared global mask** instead of per-head independent subsets.
 3. Use a robust threshold such as `median + tau * MAD` rather than fixed top-k per head.
 
-**Reference result shape.** The public write-up reports substantial worker-token reduction, material total-token savings, and low-single-digit-second compaction overhead on long-document QA workloads. Treat these numbers as workload-specific evidence, not a general guarantee.
+**Reference result shape.** The public write-up reports substantial worker-token reduction, material total-token savings, and low-single-digit-second compaction overhead on long-document QA workloads (claim-latent-briefing-public-results). Treat these numbers as workload-specific evidence, not a general guarantee.
 
 ## Detailed Topics
 
@@ -107,6 +113,10 @@ Call 2: trajectory T2 = T1 + new reasoning + reply A
 
 The task prompt for B decides which parts of `T2` survive into the compacted worker state.
 
+**Negative example: API-only worker**
+
+If the worker runs behind a hosted text-generation API that does not expose KV tensors, Latent Briefing cannot be implemented directly. Use a structured text handoff from `context-compression` or retrieve state from `memory-systems` instead.
+
 ## Guidelines
 
 1. Prefer Latent Briefing when the main waste comes from replaying orchestrator state into workers, not from retrieving source documents.
@@ -152,6 +162,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2026-04-14
-**Last Updated**: 2026-04-14
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors; primary technical source Ramp Labs (public post)
-**Version**: 1.1.0
+**Version**: 1.2.0

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-21 07:32 UTC*
+*Last updated: 2026-05-22 07:28 UTC*
 
-Total skills: **2479**
+Total skills: **2472**
 
 ## Skills by Source
 
@@ -959,6 +959,7 @@ Total skills: **2479**
 | `marketing-seo-audit` | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user m... |
 | `marketing-signup` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
 | `marketing-site-architecture` | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL str... |
+| `marketing-sms` | When the user wants to plan, build, or optimize SMS or MMS marketing — including welcome flows, aban... |
 | `marketing-social` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twit... |
 | `marketing-video` | When the user wants to create, generate, or produce video content using AI tools or programmatic fra... |
 
@@ -989,20 +990,10 @@ Total skills: **2479**
 
 | Skill | Description |
 |-------|-------------|
-| `context-eng-advanced-evaluation` | This skill should be used when the user asks to "implement LLM-as-judge", "compare model outputs", "... |
-| `context-eng-bdi-mental-states` | This skill should be used when the user asks to "model agent mental states", "implement BDI architec... |
-| `context-eng-context-compression` | This skill should be used when the user asks to "compress context", "summarize conversation history"... |
-| `context-eng-context-degradation` | This skill should be used when the user asks to "diagnose context problems", "fix lost-in-middle iss... |
-| `context-eng-context-fundamentals` | This skill should be used when the user asks to "understand context", "explain context windows", "de... |
-| `context-eng-context-optimization` | This skill should be used when the user asks to "optimize context", "reduce token costs", "improve c... |
-| `context-eng-evaluation` | This skill should be used when the user asks to "evaluate agent performance", "build test framework"... |
-| `context-eng-filesystem-context` | This skill should be used when the user asks to "offload context to files", "implement dynamic conte... |
-| `context-eng-hosted-agents` | This skill should be used when the user asks to "build background agent", "create hosted coding agen... |
+| `context-eng-context-compression` | This skill should be used when long-running agent sessions need context compression, structured summ... |
 | `context-eng-latent-briefing` | This skill should be used when the user asks to "share memory between agents", "KV cache compaction ... |
-| `context-eng-memory-systems` | Guides implementation of agent memory systems, compares production frameworks (Mem0, Zep/Graphiti, L... |
-| `context-eng-multi-agent-patterns` | This skill should be used when the user asks to "design multi-agent system", "implement supervisor p... |
-| `context-eng-project-development` | This skill should be used when the user asks to "start an LLM project", "design batch pipeline", "ev... |
-| `context-eng-tool-design` | This skill should be used when the user asks to "design agent tools", "create tool descriptions", "r... |
+| `context-eng-memory-systems` | This skill should be used for persistent semantic memory in agent systems: cross-session knowledge r... |
+| `context-eng-multi-agent-patterns` | This skill should be used when designing multi-agent systems that need context isolation, supervisor... |
 
 ### obra/superpowers
 
@@ -1352,6 +1343,7 @@ pipelines, and system utilities.... |
 | `antigravity-beautiful-prose` | A hard-edged writing style contract for timeless, forceful English prose without modern AI tics. Use... |
 | `antigravity-behavioral-modes` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt ... |
 | `antigravity-bevy-ecs-expert` | Master Bevy's Entity Component System (ECS) in Rust, covering Systems, Queries, Resources, and paral... |
+| `antigravity-bilig-workpaper` | Use formula-backed WorkPaper JSON and MCP tools for agent spreadsheet tasks without driving Excel or... |
 | `antigravity-bill-gates` | Agente que simula Bill Gates — cofundador da Microsoft, arquiteto da industria de software comercial... |
 | `antigravity-billing-automation` | Master automated billing systems including recurring billing, invoice generation, dunning management... |
 | `antigravity-binary-analysis-patterns` | Comprehensive patterns and techniques for analyzing compiled binaries, understanding assembly code, ... |
@@ -2363,6 +2355,7 @@ calculations
 | `antigravity-stripe-automation` | Automate Stripe tasks via Rube MCP (Composio): customers, charges, subscriptions, invoices, products... |
 | `antigravity-stripe-integration` | Master Stripe payment processing integration for robust, PCI-compliant payment flows including check... |
 | `antigravity-subagent-driven-development` | Use when executing implementation plans with independent tasks in the current session |
+| `antigravity-subagent-orchestrator` | Coordinate quota-aware parallel subagents for large, multi-file Antigravity tasks. |
 | `antigravity-subject-line-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-supabase-automation` | Automate Supabase database queries, table management, project administration, storage, edge function... |
 | `antigravity-superpowers-lab` | Lab environment for Claude superpowers |

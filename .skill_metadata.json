@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-21T07:32:35.198858",
-  "skill_count": 2479,
+  "last_updated": "2026-05-22T07:28:43.294313",
+  "skill_count": 2472,
   "sources_processed": 19,
   "skills": [
     {
@@ -655,6 +655,14 @@
       "name": "antigravity-n8n-code-javascript",
       "original_name": "n8n-code-javascript",
       "description": "Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$node syntax, making HTTP requests with $helpers, working with dates using DateTime, troubleshooting Code node errors, or choosing between Code node modes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-bilig-workpaper",
+      "original_name": "bilig-workpaper",
+      "description": "Use formula-backed WorkPaper JSON and MCP tools for agent spreadsheet tasks without driving Excel or a browser UI.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6127,6 +6135,14 @@
       "name": "antigravity-api-testing-observability-api-mock",
       "original_name": "api-testing-observability-api-mock",
       "description": "You are an API mocking expert specializing in realistic mock services for development, testing, and demos. Design mocks that simulate real API behavior and enable parallel development.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-subagent-orchestrator",
+      "original_name": "subagent-orchestrator",
+      "description": "Coordinate quota-aware parallel subagents for large, multi-file Antigravity tasks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19078,39 +19094,7 @@
     {
       "name": "context-eng-context-compression",
       "original_name": "context-compression",
-      "description": "This skill should be used when the user asks to \"compress context\", \"summarize conversation history\", \"implement compaction\", \"reduce token usage\", or mentions context compression, structured summarization, tokens-per-task optimization, or long-running agent sessions exceeding context limits.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-project-development",
-      "original_name": "project-development",
-      "description": "This skill should be used when the user asks to \"start an LLM project\", \"design batch pipeline\", \"evaluate task-model fit\", \"structure agent project\", or mentions pipeline architecture, agent-assisted development, cost estimation, or choosing between LLM and traditional approaches.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-advanced-evaluation",
-      "original_name": "advanced-evaluation",
-      "description": "This skill should be used when the user asks to \"implement LLM-as-judge\", \"compare model outputs\", \"create evaluation rubrics\", \"mitigate evaluation bias\", or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines, or automated quality assessment.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-context-optimization",
-      "original_name": "context-optimization",
-      "description": "This skill should be used when the user asks to \"optimize context\", \"reduce token costs\", \"improve context efficiency\", \"implement KV-cache optimization\", \"partition context\", or mentions context limits, observation masking, context budgeting, or extending effective context capacity.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-tool-design",
-      "original_name": "tool-design",
-      "description": "This skill should be used when the user asks to \"design agent tools\", \"create tool descriptions\", \"reduce tool complexity\", \"implement MCP tools\", or mentions tool consolidation, architectural reduction, tool naming conventions, or agent-tool interfaces.",
+      "description": "This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.",
       "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
       "license": "MIT"
@@ -19124,57 +19108,9 @@
       "license": "MIT"
     },
     {
-      "name": "context-eng-context-degradation",
-      "original_name": "context-degradation",
-      "description": "This skill should be used when the user asks to \"diagnose context problems\", \"fix lost-in-middle issues\", \"debug agent failures\", \"understand context poisoning\", or mentions context degradation, attention patterns, context clash, context confusion, or agent performance degradation. Provides patterns for recognizing and mitigating context failures.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
       "name": "context-eng-multi-agent-patterns",
       "original_name": "multi-agent-patterns",
-      "description": "This skill should be used when the user asks to \"design multi-agent system\", \"implement supervisor pattern\", \"create swarm architecture\", \"coordinate multiple agents\", or mentions multi-agent patterns, context isolation, agent handoffs, sub-agents, or parallel agent execution.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-filesystem-context",
-      "original_name": "filesystem-context",
-      "description": "This skill should be used when the user asks to \"offload context to files\", \"implement dynamic context discovery\", \"use filesystem for agent memory\", \"reduce context window bloat\", or mentions file-based context management, tool output persistence, agent scratch pads, or just-in-time context loading.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-hosted-agents",
-      "original_name": "hosted-agents",
-      "description": "This skill should be used when the user asks to \"build background agent\", \"create hosted coding agent\", \"set up sandboxed execution\", \"implement multiplayer agent\", or mentions background agents, sandboxed VMs, agent infrastructure, Modal sandboxes, self-spawning agents, or remote coding environments.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-context-fundamentals",
-      "original_name": "context-fundamentals",
-      "description": "This skill should be used when the user asks to \"understand context\", \"explain context windows\", \"design agent architecture\", \"debug context issues\", \"optimize context usage\", or discusses context components, attention mechanics, progressive disclosure, or context budgeting. Provides foundational understanding of context engineering for AI agent systems.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-evaluation",
-      "original_name": "evaluation",
-      "description": "This skill should be used when the user asks to \"evaluate agent performance\", \"build test framework\", \"measure agent quality\", \"create evaluation rubrics\", or mentions LLM-as-judge, multi-dimensional evaluation, agent testing, or quality gates for agent pipelines.",
-      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "license": "MIT"
-    },
-    {
-      "name": "context-eng-bdi-mental-states",
-      "original_name": "bdi-mental-states",
-      "description": "This skill should be used when the user asks to \"model agent mental states\", \"implement BDI architecture\", \"create belief-desire-intention models\", \"transform RDF to beliefs\", \"build cognitive agent\", or mentions BDI ontology, mental state modeling, rational agency, or neuro-symbolic AI integration.",
+      "description": "This skill should be used when designing multi-agent systems that need context isolation, supervisor or swarm coordination, explicit handoffs, parallel execution, or a decision on whether multiple agents are justified.",
       "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
       "license": "MIT"
@@ -19182,7 +19118,7 @@
     {
       "name": "context-eng-memory-systems",
       "original_name": "memory-systems",
-      "description": "Guides implementation of agent memory systems, compares production frameworks (Mem0, Zep/Graphiti, Letta, LangMem, Cognee), and designs persistence architectures for cross-session knowledge retention. Use when the user asks to \"implement agent memory\", \"persist state across sessions\", \"build knowledge graph for agents\", \"track entities over time\", \"add long-term memory\", \"choose a memory framework\", or mentions temporal knowledge graphs, vector stores, entity memory, adaptive memory, dynamic memory or memory benchmarks (LoCoMo, LongMemEval).\n",
+      "description": "This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.\n",
       "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
       "license": "MIT"
@@ -19375,6 +19311,14 @@
       "name": "marketing-copy-editing",
       "original_name": "copy-editing",
       "description": "When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' 'copy sweep,' 'tighten this up,' 'this reads awkwardly,' 'clean up this text,' 'too wordy,' 'sharpen the messaging,' 'refresh this content,' 'update this page,' 'this content is outdated,' or 'content audit.' Use this when the user already has copy and wants it improved or refreshed rather than rewritten from scratch. For writing new copy, see copywriting.",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "license": "MIT"
+    },
+    {
+      "name": "marketing-sms",
+      "original_name": "sms",
+      "description": "When the user wants to plan, build, or optimize SMS or MMS marketing \u2014 including welcome flows, abandoned cart texts, post-purchase, win-back, promotional sends, or transactional/auth SMS. Also use when the user mentions \"SMS marketing,\" \"text message campaigns,\" \"SMS sequence,\" \"SMS automation,\" \"abandoned cart text,\" \"post-purchase SMS,\" \"Klaviyo SMS,\" \"Postscript,\" \"Attentive,\" \"Twilio,\" \"A2P 10DLC,\" \"TCPA,\" \"SMS compliance,\" \"short code,\" \"toll-free SMS,\" \"MMS campaign,\" \"should I do SMS,\" or \"SMS vs email.\" For email sequences, see emails. For SMS copy framing, see copywriting. For opt-in popups that capture phone numbers, see popups.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"

@@ -98,7 +98,7 @@ The agent renders this as the final output of Step 4. The shape is fixed; the co
 **Stack**: {framework}@{frameworkVersion} | {router} | {orm}
 **Plan**: {plan.plan} ({plan.reason})
 **Period**: {usage.period.from} → {usage.period.to}
-**Observability**: {observabilityPlus ? "Observability Plus enabled — per-route metrics included" : "Not enabled — analysis based on billing + scanner findings"}
+**Observability**: {observability status}
 
 ## Cost breakdown
 
@@ -108,7 +108,15 @@ The agent renders this as the final output of Step 4. The shape is fixed; the co
 
 Total billed: {usage.totals.billedCost} (we render the precise current cost — we just don't project future precise savings)
 
-If `vercel usage` is unavailable (free-tier teams, Costs feature disabled), the cost breakdown is replaced by an observability-derived cost ranking from `metrics.fnGbHrByRoute` + `metrics.fnCpuMsByRoute` + `metrics.fdtByRoute`. These don't translate directly to dollars — they show *which routes consume the billable units* so the user knows what to attack first.
+If `vercel usage` was queried and unavailable, the cost breakdown is replaced by an observability-derived cost ranking from `metrics.fnGbHrByRoute` + `metrics.fnCpuMsByRoute` + `metrics.fdtByRoute` when those metrics exist. These don't translate directly to dollars — they show *which routes consume the billable units* so the user knows what to attack first. If `usageError` is `NOT_COLLECTED_OBSERVABILITY_BLOCKED` or another `NOT_COLLECTED_*` value, say usage was not collected; do not describe it as a billing-plan or Costs-feature finding.
+
+Render Observability status from the actual collection state:
+- `Observability Plus enabled — per-route metrics included` when `observabilityPlusUsable=true`.
+- `Per-route metrics unavailable — audit paused before metric-backed route ranking` when an Observability Plus blocker stopped the run before billing/scanner collection.
+- `Per-route metrics unavailable — analysis based on billing + scanner findings` when the user accepted a limited audit and billing/scanner signals were collected.
+- `Per-route metrics unavailable — limited analysis based on scanner findings` when the user accepted a limited audit but billing usage was queried and unavailable.
+- `Not checked — audit paused at unsupported-framework preflight` when framework support stopped the run before the Observability Plus check.
+- `Not enabled — analysis based on billing + scanner findings` only for legacy/limited reports where Observability Plus is known false and billing/scanner signals exist.
 
 ## Highest-impact recommendations
 
@@ -164,9 +172,9 @@ This section earns the user's trust. For every metric signal we considered but d
 (what we couldn't measure — Observability Plus disabled means no per-route latency, etc.)
 ```
 
-Common data gaps to call out when the underlying metric returned empty rows:
+Common data gaps to call out when the underlying metric returned empty rows. If the metric query failed (`ok=false`), say the metric was not usable with the code; do not convert failed queries into "no measurements" or "not used" claims.
 
-- **Core Web Vitals empty.** Speed Insights not wired up on this project (or no client traffic in the last 14 days). The `cwv_poor` gate stayed dormant; no claims about LCP/INP/CLS are made.
+- **Core Web Vitals empty.** The Speed Insights metric returned no measurements for the 14-day window. The `cwv_poor` gate stayed dormant; no claims about LCP/INP/CLS are made.
 - **ISR empty.** Project doesn't use Incremental Static Regeneration. The `isr_overrevalidation` gate stayed dormant.
 - **Middleware empty.** No `middleware.ts` (or matcher excludes all observed traffic). The `middleware_heavy` gate stayed dormant.
 - **Image transformations empty.** No `next/image` usage or no images served in the window.

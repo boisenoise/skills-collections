@@ -272,6 +272,7 @@ export const KIND_INTERPRETATION_HINTS = {
   slow_route: [
     'Compare `cpu.p95` vs `latency.p95`. If cpu << latency, the bottleneck is wall-clock / external IO / awaits — look for sequential awaits, slow DB queries, slow external APIs. If cpu ≈ latency, look for in-process compute (rendering, JSON serialization, crypto).',
     'Compare `ttfb.p95` vs `latency.p95`. If ttfb ≈ latency, response generation finishes near the end — streaming or `after()` may shift perceived latency.',
+    'For streaming, SSE, resumable chat, or other intentionally long-lived routes, do not treat high wall-clock duration alone as a bug. Recommend a change only when evidence shows avoidable pre-first-byte work, high active CPU, duplicate invocations, or post-response work that can move out of the user-visible path.',
     'Inspect `perDeployment`: a 2x step between deployments points to a regression introduced in the newer deployment. Frame the rec as "regression introduced in <deployment_id>" rather than a generic perf claim.',
     'Inspect `startTypeSplit.cold` share. >5% cold means cold starts contribute meaningfully — Fluid Compute or warmer keep-alive is on the table.',
     'Inspect `statusDistribution`. A non-trivial 3xx/4xx slice may be inflating p95 because redirects/auth bounces still count as invocations.',

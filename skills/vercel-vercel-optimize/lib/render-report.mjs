@@ -17,7 +17,6 @@ export function renderReport({ recommendations = [], gated = [], abstentions = [
   const projectName = opts.projectName ?? signals.project?.name ?? '<project>';
   const stack = signals.stack ?? signals.codebase?.stack ?? {};
   const usage = signals.usage ?? null;
-  const oplus = signals.observabilityPlus !== false;
   const plan = signals.plan ?? { plan: 'unknown', reason: '(not detected)' };
 
   // Sub-agents don't always propagate o11ySignal/aliasRoutes — look them up by candidateRef and canonicalize the displayed ref.
@@ -27,7 +26,7 @@ export function renderReport({ recommendations = [], gated = [], abstentions = [
   const lines = [];
   lines.push(`# Vercel Optimization Report — ${projectName}`);
   lines.push('');
-  lines.push(renderMetadataLine(stack, plan, usage, oplus));
+  lines.push(renderMetadataLine(stack, plan, usage, signals));
   const coverageLine = renderCoverageLine(candidates, recommendations, signals, {
     abstentions,
     heldBackCount: opts.heldBackCount,
@@ -307,7 +306,7 @@ function renderCoverageLine(candidates, recommendations, signals, opts = {}) {
   return `**Coverage**: ${parts.join('  ·  ')} · [details](#not-investigated-in-this-run)`;
 }
 
-function renderMetadataLine(stack, plan, usage, oplus) {
+function renderMetadataLine(stack, plan, usage, signals = {}) {
   const fw = `${stack.framework ?? 'unknown'}@${stack.frameworkVersion ?? '?'}`;
   const router = stack.hasAppRouter ? 'app-router' : stack.hasPagesRouter ? 'pages-router' : null;
   const orm = stack.orm && stack.orm !== 'none' ? stack.orm : null;
@@ -315,14 +314,43 @@ function renderMetadataLine(stack, plan, usage, oplus) {
   const period = usage?.period
     ? `${usage.period.from ?? '?'} → ${usage.period.to ?? '?'}`
     : '(unavailable)';
-  const oplusLabel = oplus
-    ? 'Observability Plus enabled — per-route metrics included'
-    : 'Not enabled — analysis based on billing + scanner findings';
+  const oplusLabel = observabilityLabel(signals, usage);
   // Plan-inference reason is debug detail — only surface when plan is uncertain.
   const planLabel = plan.plan === 'uncertain'
     ? `${plan.plan} (${plan.reason ?? 'no signal'})`
     : (plan.plan ?? 'unknown');
   return `**Stack**: ${stackParts}  ·  **Plan**: ${planLabel}  ·  **Period**: ${period}  ·  **Observability**: ${oplusLabel}`;
+}
+
+function observabilityLabel(signals, usage) {
+  if (signals.observabilityPlusUsable === true) {
+    return 'Observability Plus enabled — per-route metrics included';
+  }
+  if (signals.observabilityPlusUsable === false) {
+    if (usage) {
+      return 'Per-route metrics unavailable — analysis based on billing + scanner findings';
+    }
+    if (signals.usageError === 'NOT_COLLECTED_OBSERVABILITY_BLOCKED') {
+      return 'Per-route metrics unavailable — audit paused before metric-backed route ranking';
+    }
+    return 'Per-route metrics unavailable — limited analysis based on scanner findings';
+  }
+  if (signals.observabilityPlus === true) {
+    return 'Observability Plus enabled — per-route metrics included';
+  }
+  if (signals.usageError === 'NOT_COLLECTED_UNSUPPORTED_FRAMEWORK') {
+    return 'Not checked — audit paused at unsupported-framework preflight';
+  }
+  if (signals.usageError === 'NOT_COLLECTED_OBSERVABILITY_BLOCKED') {
+    return 'Per-route metrics unavailable — audit paused before metric-backed route ranking';
+  }
+  if (usage) {
+    return 'Not enabled — analysis based on billing + scanner findings';
+  }
+  if (signals.observabilityPlus === false) {
+    return 'Not enabled — limited analysis only';
+  }
+  return 'Not checked — limited analysis only';
 }
 
 function renderCostHeader(signals) {
@@ -374,14 +402,15 @@ function renderCostBreakdown(usage, signals) {
 
   // Fallback to o11y-derived ranking when usage payload missing.
   const gbHr = signals.metrics?.fnGbHrByRoute?.rows ?? [];
+  const usageGap = missingUsageSentence(signals);
   if (gbHr.length === 0) {
-    lines.push('_`vercel usage` was not available (free-tier or Costs feature disabled). Without per-route observability data either, we cannot rank cost drivers._');
+    lines.push(`_${usageGap} Without per-route function GB-hour data, this report cannot rank cost drivers._`);
     return lines;
   }
   const top = groupGbHoursByCanonicalRoute(gbHr)
     .sort((a, b) => (b.value ?? 0) - (a.value ?? 0))
     .slice(0, 10);
-  lines.push('_`vercel usage` unavailable; ranking by `function_duration_gbhr` instead. These do not translate to dollars directly, but they show which routes consume billable units._');
+  lines.push(`_${usageGap} Ranking by \`function_duration_gbhr\` instead. These do not translate to dollars directly, but they show which routes consume billable units._`);
   lines.push('');
   lines.push('| Route | GB-hr (sum, 14d) |');
   lines.push('|---|---|');
@@ -540,6 +569,7 @@ function splitInvestigationOutcomes(abstentions) {
 
 function publicGatedReason(reason) {
   return formatPublicText(String(reason))
+    .replace(/\bhardGated:\s*/gi, '')
     .replace(/skippedByBudget\s*\(max-candidates=([^);]+)(?:;[^)]*)?\)/i, 'left for a larger run (max candidates: $1)')
     .replace(/skippedByBudget\b/gi, 'left for a larger run')
     .replace(/\s*;\s*raise with --max-candidates N or =all/gi, '')
@@ -660,18 +690,109 @@ function renderConfigurationNotes(signals) {
 
 function renderDataGaps(signals) {
   const lines = [];
-  if (signals.observabilityPlus === false) lines.push('- Observability Plus not enabled — per-route latency / cache-hit / cold-start metrics unavailable.');
-  if (!signals.usage) lines.push('- `vercel usage` was unavailable — cost breakdown derived from observability where possible.');
-  const cwv = signals.metrics?.cwvCount?.rows?.[0]?.value ?? 0;
-  if (cwv === 0) lines.push('- No Speed Insights measurements — Core Web Vitals analysis dormant. Wire up Speed Insights to enable LCP/INP/CLS recommendations.');
-  const isrR = signals.metrics?.isrReadsByRoute?.rows ?? [];
-  if (isrR.length === 0) lines.push('- No ISR activity observed — either the project does not use ISR or no eligible routes had traffic in the window.');
-  const images = signals.metrics?.imageCount?.rows?.[0]?.value ?? 0;
-  if (images === 0) lines.push('- No image transformations observed — either `next/image` is not used or no images served in the window.');
-  const middleware = signals.metrics?.middlewareCount?.rows ?? [];
-  if (middleware.length === 0) lines.push('- No middleware invocations — either no `middleware.ts` is shipped or its matcher excludes all observed traffic.');
+  const observabilityGap = observabilityDataGap(signals);
+  if (observabilityGap) lines.push(observabilityGap);
+  if (!signals.usage) lines.push(`- ${missingUsageSentence(signals)}`);
+  const cwvMetric = metricState(signals, 'cwvCount');
+  if (cwvMetric.failed) {
+    lines.push(`- Speed Insights metrics were not usable (\`${cwvMetric.code}\`), so LCP/INP/CLS analysis was skipped.`);
+  } else if (cwvMetric.collected) {
+    const cwv = cwvMetric.rows?.[0]?.value ?? 0;
+    if (cwv === 0) lines.push('- No Speed Insights measurements — Core Web Vitals analysis dormant. Wire up Speed Insights to enable LCP/INP/CLS recommendations.');
+  }
+  const isrMetric = metricState(signals, 'isrReadsByRoute');
+  if (isrMetric.collected) {
+    const isrR = isrMetric.rows ?? [];
+    if (isrR.length === 0) lines.push('- No ISR activity observed — either the project does not use ISR or no eligible routes had traffic in the window.');
+  }
+  const imageMetric = metricState(signals, 'imageCount');
+  if (imageMetric.collected) {
+    const images = imageMetric.rows?.[0]?.value ?? 0;
+    if (images === 0) lines.push('- No image transformations observed — either `next/image` is not used or no images served in the window.');
+  }
+  const middlewareMetric = metricState(signals, 'middlewareCount');
+  if (middlewareMetric.collected) {
+    const middleware = middlewareMetric.rows ?? [];
+    if (middleware.length === 0) lines.push('- No middleware invocations — either no `middleware.ts` is shipped or its matcher excludes all observed traffic.');
+  }
   if (lines.length === 0) lines.push('_(no relevant gaps — every signal had data)_');
   return lines;
+}
+
+function observabilityDataGap(signals = {}) {
+  if (signals.usageError === 'NOT_COLLECTED_UNSUPPORTED_FRAMEWORK') {
+    return '- Observability Plus was not checked because the audit paused at the unsupported-framework preflight.';
+  }
+  if (signals.observabilityPlusUsable === false) {
+    const blocker = signals.observabilityPlusBlocker;
+    if (blocker === 'project_disabled') {
+      return '- Per-route metrics unavailable — Observability Plus is disabled for this project.';
+    }
+    if (blocker === 'forbidden' || blocker === 'project_not_found') {
+      return '- Per-route metrics unavailable — the authenticated Vercel scope cannot read this project.';
+    }
+    if (blocker === 'not_linked') {
+      return '- Per-route metrics unavailable — the app directory is not linked to the Vercel project.';
+    }
+    if (blocker === 'no_oplus_probe') {
+      return '- Per-route metrics unavailable — Observability Plus was not detected for this scope.';
+    }
+    if (blocker === 'payment_required') {
+      return '- Per-route metrics unavailable — Observability Plus metrics were not usable for this scope.';
+    }
+    if (blocker === 'daily_quota_exceeded') {
+      return '- Per-route metrics unavailable — the Observability Plus query quota is exhausted for today.';
+    }
+    if (blocker === 'no_traffic') {
+      return '- Per-route metrics sparse — no route-level traffic was returned in the metrics window.';
+    }
+    if (blocker === 'all_failed_other') {
+      return '- Per-route metrics unavailable — all Observability Plus metric queries failed.';
+    }
+    if (blocker) {
+      return `- Per-route metrics unavailable — Observability Plus metrics returned \`${blocker}\`.`;
+    }
+    return '- Per-route metrics unavailable — Observability Plus data was not usable for this run.';
+  }
+  if (signals.observabilityPlus === false) {
+    return '- Observability Plus not enabled — per-route latency / cache-hit / cold-start metrics unavailable.';
+  }
+  return null;
+}
+
+function missingUsageSentence(signals = {}) {
+  const code = signals.usageError;
+  if (code === 'NOT_COLLECTED_OBSERVABILITY_BLOCKED') {
+    return '`vercel usage` was not collected because the audit paused before billing collection on the Observability Plus blocker.';
+  }
+  if (code === 'NOT_COLLECTED_UNSUPPORTED_FRAMEWORK') {
+    return '`vercel usage` was not collected because the audit paused at the unsupported-framework preflight.';
+  }
+  if (code === 'USAGE_CONTEXT_MISMATCH') {
+    return '`vercel usage` returned data for a different team context, so the billing breakdown was not used.';
+  }
+  if (code === 'USAGE_UNAVAILABLE') {
+    return '`vercel usage` returned `USAGE_UNAVAILABLE`; no billing breakdown was available from the Vercel CLI.';
+  }
+  if (typeof code === 'string' && code.trim() !== '') {
+    return `\`vercel usage\` returned \`${code}\`; no billing breakdown was available from the Vercel CLI.`;
+  }
+  return '`vercel usage` did not return a billing payload.';
+}
+
+function metricState(signals, id) {
+  const metrics = signals.metrics ?? {};
+  if (!Object.prototype.hasOwnProperty.call(metrics, id)) {
+    return { collected: false, failed: false, rows: null, code: null };
+  }
+  const metric = metrics[id] ?? {};
+  const failed = metric.ok === false;
+  return {
+    collected: !failed,
+    failed,
+    rows: Array.isArray(metric.rows) ? metric.rows : [],
+    code: metric.code ?? 'UNKNOWN',
+  };
 }
 
 function sortRecs(recs) {

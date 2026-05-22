@@ -1,12 +1,11 @@
 ---
 name: memory-systems
 description: >
-  Guides implementation of agent memory systems, compares production frameworks
-  (Mem0, Zep/Graphiti, Letta, LangMem, Cognee), and designs persistence architectures
-  for cross-session knowledge retention. Use when the user asks to "implement
-  agent memory", "persist state across sessions", "build knowledge graph for agents",
-  "track entities over time", "add long-term memory", "choose a memory framework",
-  or mentions temporal knowledge graphs, vector stores, entity memory, adaptive memory, dynamic memory or memory benchmarks (LoCoMo, LongMemEval).
+  This skill should be used for persistent semantic memory in agent systems:
+  cross-session knowledge retention, entity tracking, temporal validity,
+  graph or vector retrieval, memory consolidation, and memory benchmark selection.
+  Route file-backed scratchpads to filesystem-context, handoff summaries to
+  context-compression, and token-efficiency tactics to context-optimization.
 ---
 
 # Memory System Design
@@ -24,9 +23,15 @@ Activate this skill when:
 - Evaluating memory systems against benchmarks (LoCoMo, LongMemEval, DMR)
 - Building dynamic memory with automatic entity/relationship extraction and self-improving memory (Cognee)
 
+Do not activate this skill for adjacent work owned by other skills:
+- File-backed scratchpads, run logs, and tool-output offloading: `filesystem-context`.
+- Conversation compaction or human-readable handoff summaries: `context-compression`.
+- Masking, prefix caching, token budgets, or retrieval scoping inside one trajectory: `context-optimization`.
+- Formal belief/desire/intention models over RDF state: `bdi-mental-states`.
+
 ## Core Concepts
 
-Think of memory as a spectrum from volatile context window to persistent storage. Default to the simplest layer that meets retrieval needs, because benchmark evidence shows **tool complexity matters less than reliable retrieval** — Letta's filesystem agents scored 74% on LoCoMo using basic file operations, beating Mem0's specialized tools at 68.5%. Add structure (graphs, temporal validity) only when retrieval quality degrades or the agent needs multi-hop reasoning, relationship traversal, or time-travel queries.
+Think of memory as a spectrum from volatile context window to persistent storage. Default to the simplest layer that meets retrieval needs, because benchmark evidence suggests tool complexity matters less than reliable retrieval for some memory workloads (claim-memory-locomo-filesystem-baseline). Add structure (graphs, temporal validity) only when retrieval quality degrades or the agent needs multi-hop reasoning, relationship traversal, or time-travel queries.
 
 ## Detailed Topics
 
@@ -47,19 +52,19 @@ Choose Zep/Graphiti when the agent needs bi-temporal modeling (tracking both whe
 
 **Benchmark Performance Comparison**
 
-Consult these benchmarks to set expectations, but treat them as signals for specific retrieval dimensions rather than absolute rankings. No single benchmark is definitive.
+Consult these benchmarks to set expectations, but treat them as source-specific signals for retrieval dimensions rather than absolute rankings. No single benchmark is definitive.
 
 | System | DMR Accuracy | LoCoMo | HotPotQA (multi-hop) | Latency |
 |--------|-------------|--------|---------------------|---------|
-| Cognee | — | — | Highest on EM, F1, Correctness | Variable |
-| Zep (Temporal KG) | 94.8% | — | Mid-range across metrics | 2.58s |
-| Letta (filesystem) | — | 74.0% | — | — |
-| Mem0 | — | 68.5% | Lowest across metrics | — |
-| MemGPT | 93.4% | — | — | Variable |
-| GraphRAG | ~75-85% | — | — | Variable |
-| Vector RAG baseline | ~60-70% | — | — | Fast |
+| Cognee | — | — | Published high score | Variable |
+| Zep (Temporal KG) | Published high score | — | Mid-range across metrics | Low-latency reported |
+| Letta (filesystem) | — | Published filesystem baseline | — | — |
+| Mem0 | — | Published specialized-tool baseline | Lower in one comparison | — |
+| MemGPT | Published high score | — | — | Variable |
+| GraphRAG | Published mid/high range | — | — | Variable |
+| Vector RAG baseline | Published lower range | — | — | Fast |
 
-Key takeaways: Zep achieves up to 18.5% accuracy improvement on LongMemEval while reducing latency by 90%. Cognee outperformed Mem0, Graphiti, and LightRAG on HotPotQA multi-hop reasoning benchmarks across Exact Match, F1, and human-like correctness metrics. Letta's filesystem-based agents achieved 74% on LoCoMo using basic file operations, confirming that reliable retrieval beats tool sophistication.
+Key takeaway: compare memory systems by retrieval shape, not brand. Use benchmark numbers as dated evidence that must be rechecked before making product claims; the stable design rule is to start shallow, measure retrieval quality, then add semantic or graph structure only when a simpler layer fails.
 
 ### Memory Layers (Decision Points)
 
@@ -84,7 +89,7 @@ Match the retrieval strategy to the query shape. Semantic search handles direct 
 | **Temporal** (validity filter) | Facts change over time | Requires validity metadata |
 | **Hybrid** (semantic + keyword + graph) | Best overall accuracy | Most infrastructure |
 
-Zep's hybrid approach achieves 90% latency reduction (2.58s vs 28.9s) by retrieving only relevant subgraphs. Cognee implements hybrid retrieval through its 14 search modes — each mode combines different strategies from its three-store architecture (graph, vector, relational), letting agents select the retrieval strategy that fits the query type rather than using a one-size-fits-all approach.
+Hybrid approaches reduce active context by retrieving only relevant subgraphs or memories. Cognee implements hybrid retrieval through multiple search modes across graph, vector, and relational stores, letting agents select the retrieval strategy that fits the query type rather than using a one-size-fits-all approach.
 
 ### Memory Consolidation
 
@@ -181,7 +186,7 @@ results = await cognee.search(
 
 1. **Stuffing everything into context**: Loading all available memories into the prompt is expensive and degrades attention quality. Use just-in-time retrieval with relevance filtering instead.
 2. **Ignoring temporal validity**: Facts go stale. Without validity tracking, outdated information poisons the context and the agent acts on wrong assumptions.
-3. **Over-engineering early**: A filesystem agent can outperform complex memory tooling (Letta scored 74% vs Mem0's 68.5% on LoCoMo). Add sophistication only when simple approaches demonstrably fail.
+3. **Over-engineering early**: Simple filesystem-backed memory can outperform more specialized tooling on some benchmarks (claim-memory-locomo-filesystem-baseline). Add sophistication only when simple approaches demonstrably fail.
 4. **No consolidation strategy**: Unbounded memory growth degrades retrieval quality over time. Set memory count thresholds or scheduled intervals to trigger consolidation.
 5. **Embedding model mismatch**: Writing memories with one embedding model and reading with another produces poor retrieval because vector spaces are not interchangeable. Pin a single embedding model for each memory store and re-embed all entries if the model changes.
 6. **Graph schema rigidity**: Over-structured graph schemas (rigid node types, fixed relationship labels) break when the domain evolves. Prefer generic relation types and flexible property bags so new entity kinds do not require schema migrations.
@@ -190,11 +195,15 @@ results = await cognee.search(
 
 ## Integration
 
-This skill builds on context-fundamentals. It connects to:
+This skill owns persistent semantic memory. Adjacent skills own scratch storage, compaction, and context tactics:
 
-- multi-agent-patterns - Shared memory across agents
-- context-optimization - Memory-based context loading
-- evaluation - Evaluating memory quality
+- `filesystem-context`: file-backed scratchpads, logs, and simple run state before semantic retrieval is needed.
+- `context-compression`: summaries and handoffs that preserve session state in prose.
+- `context-optimization`: just-in-time memory loading and retrieval scoping inside active context budgets.
+- `context-degradation`: stale or conflicting memories as context poisoning or clash.
+- `bdi-mental-states`: formal mental-state modeling when beliefs, desires, intentions, and provenance chains matter.
+- `multi-agent-patterns`: shared memory across agents.
+- `evaluation`: memory quality, retrieval correctness, and benchmark selection.
 
 ## References
 
@@ -220,6 +229,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-20
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 4.0.0
+**Version**: 4.1.0

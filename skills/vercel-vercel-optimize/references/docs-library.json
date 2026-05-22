@@ -1,7 +1,7 @@
 {
   "$schema": "Curated documentation allow-list for the vercel-optimize skill. Entries are version-aware via applicableFrameworks (semver). The recommender prompt receives only the subset valid for the user's stack. Citations outside this allow-list are stripped by the unknown-citation sanitizer.",
-  "version": "1.1.0",
-  "lastVerified": "2026-05-19",
+  "version": "1.1.1",
+  "lastVerified": "2026-05-21",
   "schemaVersion": "1.0",
   "applicableFrameworksSyntax": "Semver-style. '*' = any framework. 'next@*' = any Next.js. 'next@14' = Next 14.x. 'next@>=15.0.0' = Next 15+. Multiple via '||': 'next@14 || next@>=15.0.0'.",
   "urls": [
@@ -253,8 +253,32 @@
     },
     {
       "url": "https://vercel.com/docs/workflow",
-      "topic": "Vercel Workflow — beta durable workflows for multi-step logic that can pause and resume over time",
-      "appliesTo": ["route_errors"],
+      "topic": "Vercel Workflow — beta durable workflows, observability, Workflow Steps/Storage pricing, and compute billing caveats",
+      "appliesTo": ["route_errors", "slow_route"],
+      "applicableFrameworks": ["*"]
+    },
+    {
+      "url": "https://workflow-sdk.dev/docs/foundations/starting-workflows",
+      "topic": "Workflow SDK starting workflows — start() returns after enqueueing, returnValue waits for completion, streams/status can be read later",
+      "appliesTo": ["route_errors", "slow_route"],
+      "applicableFrameworks": ["*"]
+    },
+    {
+      "url": "https://workflow-sdk.dev/docs/foundations/workflows-and-steps",
+      "topic": "Workflow SDK workflows and steps — workflow orchestration, step execution, persisted results, retries, sleep, and suspension",
+      "appliesTo": ["route_errors", "slow_route"],
+      "applicableFrameworks": ["*"]
+    },
+    {
+      "url": "https://workflow-sdk.dev/docs/foundations/streaming",
+      "topic": "Workflow SDK streaming — durable streams, getReadable startIndex, getWritable, lock release, stream close, and retry caveats",
+      "appliesTo": ["slow_route"],
+      "applicableFrameworks": ["*"]
+    },
+    {
+      "url": "https://workflow-sdk.dev/docs/ai/resumable-streams",
+      "topic": "Workflow SDK resumable streams — reconnecting AI chat streams with run IDs, stream startIndex, and tail-index headers",
+      "appliesTo": ["slow_route"],
       "applicableFrameworks": ["*"]
     },
     {

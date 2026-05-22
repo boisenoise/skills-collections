@@ -1,6 +1,6 @@
 ---
 name: context-compression
-description: This skill should be used when the user asks to "compress context", "summarize conversation history", "implement compaction", "reduce token usage", or mentions context compression, structured summarization, tokens-per-task optimization, or long-running agent sessions exceeding context limits.
+description: This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.
 ---
 
 # Context Compression Strategies
@@ -15,6 +15,13 @@ Activate this skill when:
 - Designing conversation summarization strategies
 - Debugging cases where agents "forget" what files they modified
 - Building evaluation frameworks for compression quality
+- Creating durable handoff summaries that preserve decisions, files, risks, and next actions
+
+Do not activate this skill for adjacent work owned by other skills:
+- General token-efficiency tactics such as masking, prefix caching, or partitioning: `context-optimization`.
+- Diagnosing why a long context is failing before choosing a mitigation: `context-degradation`.
+- Writing raw outputs, logs, or plans to files without summarizing them: `filesystem-context`.
+- Designing long-term semantic memory across sessions: `memory-systems`.
 
 ## Core Concepts
 
@@ -34,7 +41,7 @@ Measure total tokens consumed from task start to completion, not tokens per indi
 
 ### Solve the Artifact Trail Problem First
 
-Artifact trail integrity is the weakest dimension across all compression methods, scoring only 2.2-2.5 out of 5.0 in evaluations. Address this proactively because general summarization cannot reliably maintain it.
+Artifact trail integrity is often the weakest dimension in compression evaluations (claim-context-compression-factory-benchmark). Address this proactively because general summarization cannot reliably maintain it.
 
 Preserve these categories explicitly in every compression cycle:
 - Which files were created (full paths)
@@ -101,7 +108,7 @@ Use probe-based evaluation: after compression, pose questions that test whether 
 
 ### Score Compression Across Six Dimensions
 
-Evaluate compression quality for coding agents across these dimensions. Accuracy shows the largest variation between methods (0.6 point gap), making it the strongest discriminator. Artifact trail is universally weak (2.2-2.5), confirming it needs specialized handling beyond general summarization.
+Evaluate compression quality for coding agents across these dimensions. Accuracy and artifact-trail preservation tend to separate methods more clearly than lexical similarity (claim-context-compression-factory-benchmark), so compression needs specialized handling beyond general summarization.
 
 1. **Accuracy**: Are technical details correct — file paths, function names, error codes?
 2. **Context Awareness**: Does the response reflect current conversation state?
@@ -161,7 +168,7 @@ This matters most when the agent cannot distinguish essential complexity (busine
 | Regenerative | 98.7% | 3.44 | Good quality, moderate compression |
 | Opaque | 99.3% | 3.35 | Best compression, quality loss |
 
-The 0.7% additional tokens retained by structured summarization buys 0.35 quality points — a significant gap when compounded over multiple compression cycles. For any task where re-fetching costs exist, this tradeoff favors structured approaches.
+Use these as source-specific benchmark figures, not universal constants (claim-context-compression-factory-benchmark). For any task where re-fetching costs exist, this tradeoff generally favors structured approaches.
 
 ## Examples
 
@@ -267,6 +274,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-22
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 1.2.0
+**Version**: 1.3.0
