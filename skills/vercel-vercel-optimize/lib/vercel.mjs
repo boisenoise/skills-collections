@@ -78,20 +78,53 @@ export async function readProjectJson(cwd = process.cwd()) {
 // Does NOT auto-run `vercel link` — interactive surprises bad.
 export async function resolveProjectId(explicit, cwd = process.cwd()) {
   if (explicit) {
+    const linked = process.env.VERCEL_ORG_ID
+      ? null
+      : await readLinkedOwnerForProjectId(explicit, cwd);
     return {
       projectId: explicit,
-      orgId: process.env.VERCEL_ORG_ID || null,
-      source: 'arg',
+      orgId: process.env.VERCEL_ORG_ID || linked?.orgId || null,
+      source: linked?.source ? `arg+${linked.source}` : 'arg',
     };
   }
   if (process.env.VERCEL_PROJECT_ID) {
+    const linked = process.env.VERCEL_ORG_ID
+      ? null
+      : await readLinkedOwnerForProjectId(process.env.VERCEL_PROJECT_ID, cwd);
     return {
       projectId: process.env.VERCEL_PROJECT_ID,
-      orgId: process.env.VERCEL_ORG_ID || null,
-      source: 'env',
+      orgId: process.env.VERCEL_ORG_ID || linked?.orgId || null,
+      source: linked?.source ? `env+${linked.source}` : 'env',
     };
   }
   return await readProjectJson(cwd);
+}
+
+async function readLinkedOwnerForProjectId(projectId, cwd = process.cwd()) {
+  try {
+    const raw = await readFile(join(cwd, '.vercel', 'repo.json'), 'utf-8');
+    const parsed = JSON.parse(raw);
+    const matches = (Array.isArray(parsed?.projects) ? parsed.projects : [])
+      .filter((p) => p?.id && String(p.id) === String(projectId));
+    if (matches.length > 1) {
+      throw new Error('AMBIGUOUS_PROJECT_LINK: `.vercel/repo.json` contains multiple entries for the requested projectId. Ask the user to confirm the intended Vercel team/personal scope.');
+    }
+    const match = matches[0];
+    if (match?.orgId) return { orgId: match.orgId, source: 'repo.json' };
+  } catch (err) {
+    if (err?.message?.startsWith('AMBIGUOUS_PROJECT_LINK:')) throw err;
+    /* fall through */
+  }
+
+  try {
+    const raw = await readFile(join(cwd, '.vercel', 'project.json'), 'utf-8');
+    const parsed = JSON.parse(raw);
+    if (String(parsed?.projectId ?? '') === String(projectId) && parsed?.orgId) {
+      return { orgId: parsed.orgId, source: 'project.json' };
+    }
+  } catch { /* fall through */ }
+
+  return null;
 }
 
 export async function resolveCommandScope(project = {}) {

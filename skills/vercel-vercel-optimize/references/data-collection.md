@@ -25,7 +25,7 @@ The merged `signals.json` has this top-level shape:
   "timeWindow": "14d",
   "projectId": "prj_xxx",
   "orgId": "team_xxx",
-  "projectIdSource": "repo.json" | "project.json" | "arg" | "env",
+  "projectIdSource": "repo.json" | "project.json" | "arg" | "env" | "arg+repo.json" | "arg+project.json" | "env+repo.json" | "env+project.json",
   "commandScope": {
     "ok": true,
     "cliScope": "team-slug-or-username",
@@ -72,12 +72,13 @@ Downstream consumers reference `signals.<field>` paths verbatim. Bumping `schema
 |---|---|---|---|
 | Auth | `vercel whoami` | Everything | Exit with "run `vercel login`" |
 | CLI version | `vercel --version` | Everything | Exit with "upgrade to v53+" — v53 is the skill's compatibility floor |
-| Project ID + Org ID | `.vercel/repo.json` (newer) or `.vercel/project.json` (legacy) → `VERCEL_PROJECT_ID` + `VERCEL_ORG_ID` → argv | Everything | Exit with "run `vercel link` or pass projectId". Multi-project `repo.json` or project ID without owner account scope is ambiguous; ask the user to clarify the intended project/account |
+| Project ID + Org ID | `.vercel/repo.json` (newer) or `.vercel/project.json` (legacy) → `VERCEL_PROJECT_ID` + `VERCEL_ORG_ID` → argv. When the user passes a project ID and multi-project `repo.json` contains exactly one matching entry, the collector uses that entry's owner account. | Everything | Exit with "run `vercel link` or pass projectId". Multi-project `repo.json` without an explicit matching project ID, or any project ID without owner account scope, is ambiguous; ask the user to clarify the intended project/account |
 | Framework support | local `package.json` via `detectStack()` + `classifyFrameworkSupport()` | Code-backed route recommendations | Stop before metric fan-out on unsupported frameworks unless the user chooses `--continue-unsupported-framework` |
 | CLI command scope | `vercel whoami --format json`, then `vercel api /v2/teams/:orgId` when a linked `team_...` ID must be converted to a slug | Keeps `vercel metrics`, `vercel usage`, and `vercel contract` on the linked project's account instead of the user's current/personal scope | `PROJECT_SCOPE_UNRESOLVED` or `SCOPE_UNRESOLVED`; stop and ask the user to clarify the intended project/account, then re-link under the intended team or personal account |
+| Project/scope verification | `vercel api /v9/projects/:id?teamId=<orgId>` for team-owned projects; omit `teamId` for `usr_...` user-owned projects | Proves the resolved account can read the resolved project before Observability Plus or billing conclusions | `PROJECT_SCOPE_MISMATCH`; stop and ask the user to confirm the exact project and team/personal scope. Do not report Observability Plus as missing until this check passes |
 | Observability Plus configuration | Vercel CLI/API probe plus one metric access check; user-owned projects skip the team configuration endpoint and rely on the scoped metrics probe | All `metrics.*` signals | Stop early when the account lacks Observability Plus or this project is disabled |
-| Observability Plus metrics access | One canary `vercel metrics vercel.request.count --since 14d --limit 1`, then full fan-out only if it succeeds | All `metrics.*` signals | Set `observabilityPlusUsable=false` with blocker detail; emit a minimal blocker document before slower project config / usage collection unless `--continue-without-observability` is passed |
-| Project config | `vercel api /v9/projects/:id?teamId=<orgId>` for team-owned projects; omit `teamId` for `usr_...` user-owned projects | Fluid Compute, BotID, Speed Insights, security flags | `{error: "..."}` placeholder; gates that need it skip |
+| Observability Plus metrics access | One canary `vercel metrics vercel.request.count --since 14d --limit 1`, then full fan-out only if it succeeds | All `metrics.*` signals | Set `observabilityPlusUsable=false` with blocker detail; emit a blocker document after project/scope verification but before billing collection unless `--continue-without-observability` is passed |
+| Project config | Verified project API response from project/scope verification | Fluid Compute, BotID, Speed Insights, security flags | Stop on ownership mismatch; otherwise gates that need missing optional fields skip |
 | Plan tier | `vercel api /v2/teams/:orgId` (or `/v2/user` for user-owned projects) → `billing.plan`, then scoped `vercel contract --format json` fallback → `inferPlan()` | Cost-context framing only | `plan="uncertain"`; cost magnitudes still computed from `usage.services[].billedCost` |
 | Billing usage | Scoped `vercel usage --format json --from <14d> --to <today>` with best-effort project grouping when supported by the installed CLI | Cost magnitude framing, billing-driven candidates | `null` + `usageError` set when queried and unavailable; `NOT_COLLECTED_*` when a preflight stop happened before billing collection |
 | Stack | local `package.json` + dir scan | Version-aware citation filtering, scanner gating | "unknown" framework → all framework-specific citations filtered |
@@ -114,8 +115,9 @@ Downstream consumers reference `signals.<field>` paths verbatim. Bumping `schema
 | Code | Meaning | Skill behavior |
 |---|---|---|
 | `unsupported_framework` | Detected framework cannot reliably map Vercel route metrics back to source files | Stop before metric fan-out; ask whether to continue with a limited platform/scanner audit |
-| `PROJECT_SCOPE_UNRESOLVED` | The project was found without an owner account, or `.vercel/repo.json` contains multiple linked projects | Stop before `vercel metrics`, `vercel usage`, or `vercel contract`; ask the user which Vercel project and team/personal scope to audit |
+| `PROJECT_SCOPE_UNRESOLVED` | The project was found without an owner account, or `.vercel/repo.json` contains multiple linked projects and no explicit matching project ID was supplied | Stop before `vercel metrics`, `vercel usage`, or `vercel contract`; ask the user which Vercel project and team/personal scope to audit |
 | `SCOPE_UNRESOLVED` | The linked project belongs to a specific team/user, but the collector could not resolve a CLI-safe `--scope` value | Stop before `vercel metrics`, `vercel usage`, or `vercel contract`; ask the user to switch/re-link with the correct team |
+| `PROJECT_SCOPE_MISMATCH` | The resolved team/personal account cannot read the resolved project, or the project API returns a different owner/project | Stop before Observability Plus, metrics, usage, or contract checks; ask the user to confirm the exact Vercel project and team/personal scope |
 | `no_oplus_probe` | Observability Plus not enabled on team | Stop before full metric fan-out; ask whether to enable Observability Plus or run scanner-only |
 | `project_disabled` | Observability Plus enabled for team but disabled for project | Stop before full metric fan-out; ask the user to enable Observability Plus for this project or continue scanner-only |
 | `daily_quota_exceeded` | Observability Plus query quota is exhausted for the day | Stop before full metric fan-out; tell the user to retry after the next UTC midnight reset or ask whether to continue scanner-only |

@@ -130,6 +130,14 @@ async function main() {
   const scope = commandScope.cliScope || undefined;
   log(`command scope resolved (source=${commandScope.source}; scoped=${scope ? 'yes' : 'no'})`);
 
+  log('validating linked project belongs to the resolved scope…');
+  const projectCfg = await getProjectConfig(project.projectId, project.orgId);
+  const projectScope = validateProjectScope(projectCfg, project);
+  if (!projectScope.ok) {
+    throw new Error(`PROJECT_SCOPE_MISMATCH: ${projectScope.detail} Ask the user to confirm the exact Vercel project and team/personal scope, then rerun after \`vercel link --yes --project <project-name-or-id> --team <team-slug>\` or after setting both VERCEL_PROJECT_ID and VERCEL_ORG_ID for the intended scope.`);
+  }
+  log(`project scope verified (source=${projectScope.source})`);
+
   log('checking Observability Plus configuration…');
   const observabilityPlusConfig = await checkObservabilityPlusConfiguration({
     orgId: project.orgId,
@@ -211,7 +219,7 @@ async function main() {
         plan: 'uncertain',
         reason: 'not collected before Observability Plus blocker confirmation',
       },
-      project: null,
+      project: projectCfg,
       contract: null,
       usage: null,
       usageScope: null,
@@ -228,9 +236,8 @@ async function main() {
     log('continuing after Observability Plus blocker because --continue-without-observability was set');
   }
 
-  log('pulling project config + account plan + contract + usage in parallel…');
-  const [projectCfg, accountPlan, contract, usageResult] = await Promise.all([
-    getProjectConfig(project.projectId, project.orgId),
+  log('pulling account plan + contract + usage in parallel…');
+  const [accountPlan, contract, usageResult] = await Promise.all([
     getAccountPlan(project.orgId || scope),
     getContract(scope),
     getUsage({ days: 14, scope }),
@@ -351,6 +358,50 @@ function writeOutput(output, oplusDiag, frameworkSupport = output.frameworkSuppo
 
   process.stdout.write(JSON.stringify(output, null, 2) + '\n');
   log('done');
+}
+
+function validateProjectScope(projectCfg, project) {
+  if (!projectCfg || projectCfg.error) {
+    return {
+      ok: false,
+      source: 'project-api',
+      detail: `The resolved account could not read the resolved project (project API error=${projectCfg?.error ?? 'unknown'}).`,
+    };
+  }
+
+  if (projectCfg.id && String(projectCfg.id) !== String(project.projectId)) {
+    return {
+      ok: false,
+      source: 'project-api',
+      detail: 'The project API returned a different project than the collector resolved from the link or environment.',
+    };
+  }
+
+  const ownerId = firstString(
+    projectCfg.accountId,
+    projectCfg.orgId,
+    projectCfg.ownerId,
+    projectCfg.teamId,
+    projectCfg.team?.id,
+    projectCfg.account?.id,
+    projectCfg.owner?.id,
+  );
+  if (ownerId && project.orgId && String(ownerId) !== String(project.orgId)) {
+    return {
+      ok: false,
+      source: 'project-api',
+      detail: 'The project API returned an owner account that differs from the collector-resolved account.',
+    };
+  }
+
+  return {
+    ok: true,
+    source: ownerId ? 'project-api-owner' : 'project-api-readable',
+  };
+}
+
+function firstString(...values) {
+  return values.find((value) => typeof value === 'string' && value.trim() !== '') ?? null;
 }
 
 async function collectMetrics(scope) {
