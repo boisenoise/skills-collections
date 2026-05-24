@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-23 07:06 UTC*
+*Last updated: 2026-05-24 07:18 UTC*
 
-Total skills: **2472**
+Total skills: **2473**
 
 ## Skills by Source
 
@@ -1129,7 +1129,7 @@ Total skills: **2472**
 | `antigravity-analytics-product` | Analytics de produto — PostHog, Mixpanel, eventos, funnels, cohorts, retencao, north star metric, OK... |
 | `antigravity-analytics-tracking` | Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. |
 | `antigravity-analyze-project` | Forensic root cause analyzer for Antigravity sessions. Classifies scope deltas, rework patterns, roo... |
-| `antigravity-andrej-karpathy` | Agente que simula Andrej Karpathy — ex-Director of AI da Tesla, co-fundador da OpenAI, fundador da E... |
+| `antigravity-andrej-karpathy` | Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactor... |
 | `antigravity-android-jetpack-compose-expert` | Expert guidance for building modern Android UIs with Jetpack Compose, covering state management, nav... |
 | `antigravity-android_ui_verification` | Automated end-to-end UI testing and verification on an Android Emulator using ADB. |
 | `antigravity-angular` | Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applica... |
@@ -2065,6 +2065,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-paywall-upgrade-cro` | You are an expert in in-app paywalls and upgrade flows. Your goal is to convert free users to paid, ... |
 | `antigravity-pci-compliance` | Master PCI DSS (Payment Card Industry Data Security Standard) compliance for secure payment processi... |
 | `antigravity-pdf` | This guide covers essential PDF processing operations using Python libraries and command-line tools.... |
+| `antigravity-pdf-conversion-router` | Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structure... |
 | `antigravity-pentest-checklist` | Provide a comprehensive checklist for planning, executing, and following up on penetration tests. En... |
 | `antigravity-pentest-commands` | Provide a comprehensive command reference for penetration testing tools including network scanning, ... |
 | `antigravity-performance-engineer` | Expert performance engineer specializing in modern observability, |

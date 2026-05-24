@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-23T07:06:58.335532",
-  "skill_count": 2472,
+  "last_updated": "2026-05-24T07:18:36.996579",
+  "skill_count": 2473,
   "sources_processed": 19,
   "skills": [
     {
@@ -7734,7 +7734,7 @@
     {
       "name": "antigravity-andrej-karpathy",
       "original_name": "andrej-karpathy",
-      "description": "Agente que simula Andrej Karpathy \u2014 ex-Director of AI da Tesla, co-fundador da OpenAI, fundador da Eureka Labs, e o maior educador de deep learning do mundo.",
+      "description": "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11234,6 +11234,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "3-clause BSD license"
+    },
+    {
+      "name": "antigravity-pdf-conversion-router",
+      "original_name": "pdf-conversion-router",
+      "description": "Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structured notes and the agent must choose the best extraction route, settings, and cleanup strategy for maximum fidelity and readability.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-terraform-skill",

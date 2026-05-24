@@ -6,8 +6,6 @@ source: community
 date_added: "2026-02-27"
 ---
 
-<!-- security-allowlist: curl-pipe-bash -->
-
 # GitOps Workflow
 
 Complete guide to implementing GitOps workflows with ArgoCD and Flux for automated Kubernetes deployments.
@@ -140,7 +138,12 @@ spec:
 
 ```bash
 # Install Flux CLI
-curl -s https://fluxcd.io/install.sh | sudo bash
+brew install fluxcd/tap/flux
+
+# Alternative: download the official installer, inspect it, then execute it
+curl -fsSLo /tmp/flux-install.sh https://fluxcd.io/install.sh
+sed -n '1,160p' /tmp/flux-install.sh
+sudo bash /tmp/flux-install.sh
 
 # Bootstrap Flux
 flux bootstrap github \

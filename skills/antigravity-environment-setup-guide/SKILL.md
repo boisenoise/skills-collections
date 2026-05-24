@@ -6,8 +6,6 @@ source: community
 date_added: "2026-02-27"
 ---
 
-<!-- security-allowlist: curl-pipe-bash -->
-
 # Environment Setup Guide
 
 ## Overview
@@ -85,7 +83,9 @@ Provide verification steps to ensure everything works:
 **macOS (using Homebrew):**
 \`\`\`bash
 # Install Homebrew if not installed
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+curl -fsSLo /tmp/homebrew-install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+sed -n '1,160p' /tmp/homebrew-install.sh
+/bin/bash /tmp/homebrew-install.sh
 
 # Install Node.js
 brew install node
@@ -97,7 +97,9 @@ brew install node
 sudo apt update
 
 # Install Node.js and npm
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+curl -fsSLo /tmp/nodesource-setup.sh https://deb.nodesource.com/setup_20.x
+sed -n '1,160p' /tmp/nodesource-setup.sh
+sudo -E bash /tmp/nodesource-setup.sh
 sudo apt install -y nodejs
 \`\`\`
 
