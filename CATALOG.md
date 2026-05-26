@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-25 07:51 UTC*
+*Last updated: 2026-05-26 07:27 UTC*
 
-Total skills: **2473**
+Total skills: **2478**
 
 ## Skills by Source
 
@@ -1649,6 +1649,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-fixing-accessibility` | Audit and fix HTML accessibility issues including ARIA labels, keyboard navigation, focus management... |
 | `antigravity-fixing-metadata` | Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tag... |
 | `antigravity-fixing-motion-performance` | Audit and fix animation performance issues including layout thrashing, compositor properties, scroll... |
+| `antigravity-flowhunt-skill` | Automation discovery audit skill. Walks through a 5-question workflow intake, then audits Gmail/Cale... |
 | `antigravity-flutter-expert` | Master Flutter development with Dart 3, advanced widgets, and multi-platform deployment. |
 | `antigravity-food-database-query` | Food Database Query |
 | `antigravity-form-cro` | Optimize any form that is NOT signup or account registration — including lead capture, contact, demo... |
@@ -1690,6 +1691,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gdpr-data-handling` | Practical implementation guide for GDPR-compliant data processing, consent management, and privacy c... |
 | `antigravity-gemini-api-dev` | The Gemini API provides access to Google's most advanced AI models. Key capabilities include: |
 | `antigravity-gemini-api-integration` | Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, str... |
+| `antigravity-geminiignore-finops` | Configure and optimize .geminiignore files for AI context window efficiency and token cost reduction... |
 | `antigravity-geo-fundamentals` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
 | `antigravity-geoffrey-hinton` | Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio Turing 2018, criador do backp... |
 | `antigravity-gh-review-requests` | Fetch unread GitHub notifications for open PRs where review is requested from a specified team or op... |
@@ -1783,6 +1785,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-idea-os` | Five-phase pipeline (triage → clarify → research → PRD → plan) that turns a raw idea into four linke... |
 | `antigravity-identity-mirror` | One sentence - what this skill does and when to invoke it |
 | `antigravity-idor-testing` | Provide systematic methodologies for identifying and exploiting Insecure Direct Object Reference (ID... |
+| `antigravity-ii-commons` | Deterministic search across arXiv, PubMed/PMC, and US policy corpora with daily freshness cutoffs. |
 | `antigravity-ilya-sutskever` | Agente que simula Ilya Sutskever — co-fundador da OpenAI, ex-Chief Scientist, fundador da SSI. Use q... |
 | `antigravity-image-studio` | Studio de geracao de imagens inteligente — roteamento automatico entre ai-studio-image (fotos humani... |
 | `antigravity-imagen` | AI image generation skill powered by Google Gemini, enabling seamless visual content creation for UI... |
@@ -1937,6 +1940,7 @@ splash language, makepad script, m... |
 | `antigravity-mental-health-analyzer` | 分析心理健康数据、识别心理模式、评估心理健康状况、提供个性化心理健康建议。支持与睡眠、运动、营养等其他健康数据的关联分析。 |
 | `antigravity-mercury-mcp` | Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look ... |
 | `antigravity-mermaid-expert` | Create Mermaid diagrams for flowcharts, sequences, ERDs, and architectures. Masters syntax for all d... |
+| `antigravity-mesh-memory` | Self-hosted semantic memory for AI agents via MCP. Save worklogs, decisions, and notes, then recall ... |
 | `antigravity-metasploit-framework` | ⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments o... |
 | `antigravity-micro-saas-launcher` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profit... |
 | `antigravity-microservices-patterns` | Master microservices architecture patterns including service boundaries, inter-service communication... |
@@ -2319,6 +2323,7 @@ Plans content calendars and ident... |
 | `antigravity-social-orchestrator` | Orquestrador unificado de canais sociais — coordena Instagram, Telegram e WhatsApp em um unico fluxo... |
 | `antigravity-social-post-writer-seo` | Social Media Strategist and Content Writer. Creates clear, engaging social media posts for Instagram... |
 | `antigravity-social-proof-architect` | One sentence - what this skill does and when to invoke it |
+| `antigravity-socialclaw` | Agent-first social media publishing skill — schedule and publish posts across 13 platforms (X, Linke... |
 | `antigravity-software-architecture` | Guide for quality focused software architecture. This skill should be used when users want to write ... |
 | `antigravity-solidity-security` | Master smart contract security best practices, vulnerability prevention, and secure Solidity develop... |
 | `antigravity-spark-optimization` | Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use ... |

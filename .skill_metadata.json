@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-25T07:51:43.401719",
-  "skill_count": 2473,
+  "last_updated": "2026-05-26T07:27:59.279113",
+  "skill_count": 2478,
   "sources_processed": 19,
   "skills": [
     {
@@ -2564,6 +2564,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-mesh-memory",
+      "original_name": "mesh-memory",
+      "description": "Self-hosted semantic memory for AI agents via MCP. Save worklogs, decisions, and notes, then recall them across sessions by meaning, not keyword. Postgres + pgvector with auto-tagging.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-database-migration",
       "original_name": "database-migration",
       "description": "Master database schema and data migrations across ORMs (Sequelize, TypeORM, Prisma), including rollback strategies and zero-downtime deployments.",
@@ -3106,6 +3114,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-ii-commons",
+      "original_name": "ii-commons",
+      "description": "Deterministic search across arXiv, PubMed/PMC, and US policy corpora with daily freshness cutoffs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-mlops-engineer",
@@ -5732,6 +5748,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-flowhunt-skill",
+      "original_name": "flowhunt-skill",
+      "description": "Automation discovery audit skill. Walks through a 5-question workflow intake, then audits Gmail/Calendar/Slack/task trackers to identify automation opportunities. Use when a user wants to discover what processes in their business can be automated.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-mgmt-botservice-dotnet",
       "original_name": "azure-mgmt-botservice-dotnet",
       "description": "Azure Resource Manager SDK for Bot Service in .NET. Management plane operations for creating and managing Azure Bot resources, channels (Teams, DirectLine, Slack), and connection settings.",
@@ -6303,6 +6327,14 @@
       "name": "antigravity-performance-testing-review-ai-review",
       "original_name": "performance-testing-review-ai-review",
       "description": "You are an expert AI-powered code review specialist combining automated static analysis, intelligent pattern recognition, and modern DevOps practices. Leverage AI tools (GitHub Copilot, Qodo, GPT-5, C",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-geminiignore-finops",
+      "original_name": "geminiignore-finops",
+      "description": "Configure and optimize .geminiignore files for AI context window efficiency and token cost reduction (FinOps).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7431,6 +7463,14 @@
       "name": "antigravity-klaviyo-automation",
       "original_name": "klaviyo-automation",
       "description": "Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign messages, track tags, and monitor send jobs. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-socialclaw",
+      "original_name": "socialclaw",
+      "description": "Agent-first social media publishing skill \u2014 schedule and publish posts across 13 platforms (X, LinkedIn, Instagram, Facebook Pages, TikTok, Discord, Telegram, YouTube, Reddit, WordPress, Pinterest) via a single workspace API key.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
