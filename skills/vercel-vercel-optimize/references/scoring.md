@@ -104,9 +104,11 @@ The agent renders this as the final output of Step 4. The shape is fixed; the co
 
 | Service | Usage | Billed Cost |
 |---|---|---|
-| (rows from usage.services, sorted by billedCost desc) |
+| (non-zero rows from usage.services, sorted by billedCost desc) |
 
 Total billed: {usage.totals.billedCost} (we render the precise current cost — we just don't project future precise savings)
+
+Omit zero-cost service rows from the table at the same cent precision shown to customers. If every row has `$0.00` billed cost but `effectiveCost` / USD `pricingQuantity` is non-zero, explain that net billed cost is `$0.00` after included credits or allotments and show the effective usage cost table instead. If both billed and effective costs are `$0.00`, replace the table with a concise note that `vercel usage` returned a billing payload but every reported service cost was `$0.00` for the window.
 
 If `vercel usage` was queried and unavailable, the cost breakdown is replaced by an observability-derived cost ranking from `metrics.fnGbHrByRoute` + `metrics.fnCpuMsByRoute` + `metrics.fdtByRoute` when those metrics exist. These don't translate directly to dollars — they show *which routes consume the billable units* so the user knows what to attack first. If `usageError` is `NOT_COLLECTED_OBSERVABILITY_BLOCKED` or another `NOT_COLLECTED_*` value, say usage was not collected; do not describe it as a billing-plan or Costs-feature finding.
 
@@ -145,6 +147,8 @@ For each high-priority rec, in order:
 ## Observations from investigation
 
 Non-recommendation findings from reconciliation or investigation: deployment regressions, route-error storms, metric mismatches, and other real signals that should not become speculative performance recommendations.
+
+Observations must not contain implementation-grade actions. If the suggested action says to enable, add, wrap, apply, move, configure, challenge, deny, or otherwise change code or project settings, the renderer must hold it back until it passes the ready-to-apply recommendation evidence bar. Customer-visible observations can ask for narrower evidence collection: inspect logs, compare deployments, check headers, or confirm cacheability.
 
 ## Investigated, no change recommended
 

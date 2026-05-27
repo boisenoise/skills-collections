@@ -595,14 +595,14 @@ function cachePolicyGuidance(kind, stack = {}) {
   const framework = stack.framework ?? 'unknown';
   const cacheComponents = stack.cacheComponents === true;
   const hints = [
-    'Whole public GET response: recommend `Cache-Control` / `CDN-Cache-Control` with `s-maxage` and `stale-while-revalidate`; name the TTL/freshness window and required `Vary` headers.',
+    'Whole public GET response: recommend `Cache-Control` / `CDN-Cache-Control` with `s-maxage` and `stale-while-revalidate`; name the TTL/freshness window and required `Vary` headers. Avoid high-cardinality `Vary` headers such as `X-Vercel-IP-Latitude` or `X-Vercel-IP-Longitude`; use coarser geography only when the product can tolerate it.',
     'Fallback, 404, auth, preview, webhook, mutation, and per-user branches: keep them uncached or short-lived while caching only the safe success branch.',
   ];
   if (framework === 'next') {
     if (cacheComponents) {
       hints.push('Next.js with Cache Components: for reusable data inside the render path, prefer `use cache` / `use cache: remote` plus `cacheLife()` and `cacheTag()` when invalidation evidence exists.');
     } else {
-      hints.push('Next.js data fetch path: use `fetch(..., { next: { revalidate: seconds } })` or route-level `revalidate` only when it matches the project version and route semantics.');
+      hints.push('Next.js data fetch path: use `fetch(..., { next: { revalidate: seconds } })` or route-level `revalidate` only when it matches the project version and route semantics. Before recommending route-level `export const revalidate`, inspect the page/layout route chain for `cookies()`, `headers()`, `draftMode()`, `connection()`, and auth helpers; if any parent layout is request-time dynamic, require `next build` or manifest proof that the route is still ISR/static, otherwise abstain.');
     }
   }
   hints.push('Reusable server data where whole-response CDN caching is unsafe: recommend Runtime Cache only when the same result is reused across requests and the freshness/invalidation story is explicit.');

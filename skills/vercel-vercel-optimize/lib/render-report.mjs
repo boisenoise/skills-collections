@@ -7,11 +7,15 @@ import { canonicalizeRoute } from './route-normalize.mjs';
 import { computeCostCoverage, renderCostCoverageMarkdown } from './cost-coverage.mjs';
 import { gates as registeredGates } from './gates/index.mjs';
 import { formatCandidateLabel, formatKind, formatPublicText, formatRoute, formatSignal } from './display-labels.mjs';
+import { splitCustomerSafeObservations } from './observation-safety.mjs';
 
 const PLATFORM_CAP = 3;
 const GATED_TARGET_PREVIEW = 5;
 
 export function renderReport({ recommendations = [], gated = [], abstentions = [], observations = [], signals = {}, candidates = [], opts = {} } = {}) {
+  const safety = splitCustomerSafeObservations(observations, abstentions, signals);
+  observations = safety.observations;
+  abstentions = [...abstentions, ...safety.heldBackObservations];
   assertValidObservations(observations);
 
   const projectName = opts.projectName ?? signals.project?.name ?? '<project>';
@@ -291,7 +295,9 @@ function renderCoverageLine(candidates, recommendations, signals, opts = {}) {
   }
   const recCount = (recommendations ?? []).filter((r) => !r.abstain && !isPlatformScope(r)).length;
   parts.push(`${recCount} recommendation${recCount === 1 ? '' : 's'} ready`);
-  const rawHeldBackCount = Number.isInteger(opts.heldBackCount) ? opts.heldBackCount : 0;
+  const rawHeldBackCount = Number.isInteger(opts.heldBackCount)
+    ? opts.heldBackCount
+    : (Array.isArray(opts.abstentions) ? opts.abstentions.filter((a) => a?.needsEvidence === true).length : 0);
   const heldBackCount = Math.min(rawHeldBackCount, Math.max(0, launched.length - recCount));
   if (heldBackCount > 0) {
     parts.push(`${heldBackCount} need more evidence`);
@@ -372,32 +378,43 @@ function renderCostBreakdown(usage, signals) {
   const lines = [];
   const services = Array.isArray(usage?.services) ? usage.services : null;
   if (services && services.length > 0) {
-    const rows = services.slice().sort((a, b) => (b.billedCost ?? 0) - (a.billedCost ?? 0));
-    // Drop Usage column when every cell is "(unspecified)" — happens when CLI emits pricingUnit=USD.
-    const usageCells = rows.map((s) => formatUsage(s));
-    const hasRealUsage = usageCells.some((c) => c !== '(unspecified)');
-    if (hasRealUsage) {
-      lines.push('| Service | Usage | Billed cost |');
-      lines.push('|---|---|---|');
-      for (let i = 0; i < rows.length; i++) {
-        const s = rows[i];
-        const cost = typeof s.billedCost === 'number' ? `$${s.billedCost.toFixed(2)}` : '(n/a)';
-        lines.push(`| ${escape(s.name ?? '(unnamed)')} | ${escape(usageCells[i])} | ${cost} |`);
-      }
-    } else {
-      lines.push('| Service | Billed cost |');
-      lines.push('|---|---|');
-      for (const s of rows) {
-        const cost = typeof s.billedCost === 'number' ? `$${s.billedCost.toFixed(2)}` : '(n/a)';
-        lines.push(`| ${escape(s.name ?? '(unnamed)')} | ${cost} |`);
-      }
+    const chargedRows = services.filter((s) => {
+      const cost = serviceCost(s);
+      return cost === null || costRoundsToCents(cost) > 0;
+    });
+    if (chargedRows.length > 0) {
+      return renderServiceCostRows(chargedRows, {
+        costLabel: 'Billed cost',
+        costOf: serviceCost,
+        omittedZeroRows: services.length - chargedRows.length,
+        total: usage.totals?.billedCost,
+        totalLabel: 'Total billed',
+        totalSuffix: ' _(precise observed cost; future-savings framing is magnitude, never precise)_',
+      });
     }
-    const total = usage.totals?.billedCost;
-    if (typeof total === 'number') {
+
+    const effectiveRows = services.filter((s) => costRoundsToCents(serviceEffectiveCost(s)) > 0);
+    if (effectiveRows.length > 0) {
+      lines.push('_Net billed cost is $0.00 after included credits or allotments. Showing effective usage cost so active cost drivers are still visible._');
       lines.push('');
-      lines.push(`**Total billed: $${total.toFixed(2)}** _(precise observed cost; future-savings framing is magnitude, never precise)_`);
+      return [
+        ...lines,
+        ...renderServiceCostRows(effectiveRows, {
+          costLabel: 'Effective cost',
+          costOf: serviceEffectiveCost,
+          omittedZeroRows: services.length - effectiveRows.length,
+          total: usage.totals?.effectiveCost,
+          totalLabel: 'Total effective cost',
+          totalSuffix: ' _(usage cost before included-credit or allotment offsets)_',
+        }),
+      ];
     }
-    return lines;
+
+    if (chargedRows.length === 0) {
+      const scope = signals.usageScope === 'team' ? 'team-wide ' : '';
+      lines.push(`_\`vercel usage\` returned a ${scope}billing payload, but every reported service cost was $0.00 for this window._`);
+      return lines;
+    }
   }
 
   // Fallback to o11y-derived ranking when usage payload missing.
@@ -418,6 +435,58 @@ function renderCostBreakdown(usage, signals) {
     lines.push(`| ${escape(r.route ?? '(unnamed)')} | ${(r.value ?? 0).toFixed(4)} |`);
   }
   return lines;
+}
+
+function renderServiceCostRows(services, { costLabel, costOf, omittedZeroRows = 0, total = null, totalLabel, totalSuffix = '' }) {
+  const lines = [];
+  const rows = services.slice().sort((a, b) => (costOf(b) ?? 0) - (costOf(a) ?? 0));
+  // Drop Usage column when every cell is "(unspecified)" — happens when CLI emits pricingUnit=USD.
+  const usageCells = rows.map((s) => formatUsage(s));
+  const hasRealUsage = usageCells.some((c) => c !== '(unspecified)');
+  if (hasRealUsage) {
+    lines.push(`| Service | Usage | ${costLabel} |`);
+    lines.push('|---|---|---|');
+    for (let i = 0; i < rows.length; i++) {
+      const s = rows[i];
+      const costValue = costOf(s);
+      const cost = typeof costValue === 'number' ? `$${costValue.toFixed(2)}` : '(n/a)';
+      lines.push(`| ${escape(s.name ?? '(unnamed)')} | ${escape(usageCells[i])} | ${cost} |`);
+    }
+  } else {
+    lines.push(`| Service | ${costLabel} |`);
+    lines.push('|---|---|');
+    for (const s of rows) {
+      const costValue = costOf(s);
+      const cost = typeof costValue === 'number' ? `$${costValue.toFixed(2)}` : '(n/a)';
+      lines.push(`| ${escape(s.name ?? '(unnamed)')} | ${cost} |`);
+    }
+  }
+  if (omittedZeroRows > 0) {
+    lines.push('');
+    lines.push(`_${omittedZeroRows} zero-cost service ${omittedZeroRows === 1 ? 'row was' : 'rows were'} omitted._`);
+  }
+  if (typeof total === 'number') {
+    lines.push('');
+    lines.push(`**${totalLabel}: $${total.toFixed(2)}**${totalSuffix}`);
+  }
+  return lines;
+}
+
+function serviceCost(service) {
+  if (typeof service?.billedCost === 'number') return service.billedCost;
+  if (typeof service?.cost === 'number') return service.cost;
+  return null;
+}
+
+function serviceEffectiveCost(service) {
+  if (typeof service?.effectiveCost === 'number') return service.effectiveCost;
+  if (typeof service?.pricingQuantity === 'number' && service?.pricingUnit === 'USD') return service.pricingQuantity;
+  return 0;
+}
+
+function costRoundsToCents(cost) {
+  if (typeof cost !== 'number' || !Number.isFinite(cost)) return 0;
+  return Math.round(cost * 100) / 100;
 }
 
 function renderRecTable(recs, signals = {}) {

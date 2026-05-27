@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-26 07:27 UTC*
+*Last updated: 2026-05-27 07:42 UTC*
 
-Total skills: **2478**
+Total skills: **2479**
 
 ## Skills by Source
 
@@ -952,6 +952,7 @@ Total skills: **2478**
 | `marketing-pricing` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
 | `marketing-product-marketing` | When the user wants to create or update their product marketing context document. Also use when the ... |
 | `marketing-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
+| `marketing-prospecting` | When the user wants to find, qualify, and build a list of prospects to reach out to — across B2B Saa... |
 | `marketing-referrals` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
 | `marketing-revops` | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales h... |
 | `marketing-sales-enablement` | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or... |
