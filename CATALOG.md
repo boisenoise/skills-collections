@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-27 07:42 UTC*
+*Last updated: 2026-05-28 07:37 UTC*
 
-Total skills: **2479**
+Total skills: **2629**
 
 ## Skills by Source
 
@@ -888,6 +888,151 @@ Total skills: **2479**
 | `composio-zylvie-automation` | Automate Zylvie tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | `composio-zyte-api-automation` | Automate Zyte API tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 
+### K-Dense-AI/claude-scientific-skills
+
+| Skill | Description |
+|-------|-------------|
+| `kdense-adaptyv` | How to use the Adaptyv Bio Foundry API and Python SDK for protein experiment design, submission, and... |
+| `kdense-aeon` | This skill should be used for time series machine learning tasks including classification, regressio... |
+| `kdense-anndata` | Data structure for annotated matrices in single-cell analysis. Use when working with .h5ad files or ... |
+| `kdense-arboreto` | Infer gene regulatory networks (GRNs) from gene expression data using scalable algorithms (GRNBoost2... |
+| `kdense-astropy` | Core Python library for astronomy and astrophysics workflows that need Astropy APIs, including units... |
+| `kdense-autoskill` | Observe the user's screen via screenpipe, detect repeated research workflows, match them against exi... |
+| `kdense-benchling-integration` | Benchling Python SDK and REST API integration for registry entities, inventory, ELN entries, workflo... |
+| `kdense-bgpt-paper-search` | Search scientific papers and retrieve structured experimental data extracted from full-text studies ... |
+| `kdense-bids` | Use this skill when working with Brain Imaging Data Structure (BIDS) datasets: organizing neuroscien... |
+| `kdense-biopython` | Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/... |
+| `kdense-bioservices` | Unified Python interface to 40+ bioinformatics services. Use when querying multiple databases (UniPr... |
+| `kdense-cellxgene-census` | Query the CELLxGENE Census (61M+ cells) programmatically. Use when you need expression data across t... |
+| `kdense-cirq` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-a... |
+| `kdense-citation-management` | Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers... |
+| `kdense-clinical-decision-support` | Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical rese... |
+| `kdense-clinical-reports` | Write comprehensive clinical reports including case reports (CARE guidelines), diagnostic reports (r... |
+| `kdense-cobrapy` | Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, f... |
+| `kdense-consciousness-council` | Run a multi-perspective Mind Council deliberation on any question, decision, or creative challenge. ... |
+| `kdense-dask` | Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existin... |
+| `kdense-database-lookup` | Search 78 public scientific, biomedical, materials science, and economic databases via REST APIs. Co... |
+| `kdense-datamol` | Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standar... |
+| `kdense-deepchem` | Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, to... |
+| `kdense-deeptools` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profil... |
+| `kdense-depmap` | Query the Cancer Dependency Map (DepMap) for cancer cell line gene dependency scores (CRISPR Chronos... |
+| `kdense-dhdna-profiler` | Extract cognitive patterns and thinking fingerprints from any text. Use this skill when the user wan... |
+| `kdense-diffdock` | Diffusion-based molecular docking. Predict protein-ligand binding poses from PDB/SMILES, confidence ... |
+| `kdense-dnanexus-integration` | DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download), dxpy Python SDK... |
+| `kdense-docx` | Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx fi... |
+| `kdense-esm` | Comprehensive toolkit for EvolutionaryScale protein language models including ESM3 (generative multi... |
+| `kdense-etetoolkit` | Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, ortho... |
+| `kdense-exa-search` | Web toolkit powered by Exa, tuned for scientific and technical content. Use this skill when the user... |
+| `kdense-exploratory-data-analysis` | Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. T... |
+| `kdense-flowio` | Parse FCS (Flow Cytometry Standard) files v2.0-3.1. Extract events as NumPy arrays, read metadata/ch... |
+| `kdense-fluidsim` | Framework for computational fluid dynamics simulations using Python. Use when running fluid dynamics... |
+| `kdense-generate-image` | Generate or edit images using AI models (FLUX, Nano Banana 2). Use for general-purpose image generat... |
+| `kdense-geniml` | This skill should be used when working with genomic interval data (BED files) for machine learning t... |
+| `kdense-geomaster` | Comprehensive geospatial science skill covering remote sensing, GIS, spatial analysis, machine learn... |
+| `kdense-geopandas` | Python library for working with geospatial vector data including shapefiles, GeoJSON, and GeoPackage... |
+| `kdense-get-available-resources` | This skill should be used at the start of any computationally intensive scientific task to detect an... |
+| `kdense-gget` | Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick lookups: gene info, BLAST sea... |
+| `kdense-ginkgo-cloud-lab` | Submit and manage protocols on Ginkgo Bioworks Cloud Lab (cloud.ginkgo.bio), a web-based interface f... |
+| `kdense-glycoengineering` | Analyze and engineer protein glycosylation. Scan sequences for N-glycosylation sequons (N-X-S/T), pr... |
+| `kdense-gtars` | High-performance toolkit for genomic interval analysis in Rust with Python bindings. Use when workin... |
+| `kdense-histolab` | Lightweight WSI tile extraction and preprocessing. Use for basic slide processing, tissue detection,... |
+| `kdense-hugging-science` | Use when the user is doing AI/ML work in a scientific domain such as biology, chemistry, physics, as... |
+| `kdense-hypogenic` | Automated LLM-driven hypothesis generation and testing on tabular datasets. Use when you want to sys... |
+| `kdense-hypothesis-generation` | Structured hypothesis formulation from observations. Use when you have experimental observations or ... |
+| `kdense-imaging-data-commons` | Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for... |
+| `kdense-infographics` | Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemi... |
+| `kdense-iso-13485-certification` | Comprehensive toolkit for preparing ISO 13485 certification documentation for medical device Quality... |
+| `kdense-labarchive-integration` | Electronic lab notebook API integration. Access notebooks, manage entries/attachments, backup notebo... |
+| `kdense-lamindb` | This skill should be used when working with LaminDB, an open-source data framework for biology that ... |
+| `kdense-latchbio-integration` | Latch platform for bioinformatics workflows. Build pipelines with Latch SDK, @workflow/@task decorat... |
+| `kdense-latex-posters` | Create professional research posters in LaTeX using beamerposter, tikzposter, or baposter. Support f... |
+| `kdense-liteparse` | Local document and PDF parsing with spatial text and bounding boxes. Use for extracting text from PD... |
+| `kdense-literature-review` | Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXi... |
+| `kdense-markdown-mermaid-writing` | Comprehensive markdown and Mermaid diagram writing skill. Use when creating any scientific document,... |
+| `kdense-market-research-reports` | Generate comprehensive market research reports (50+ pages) in the style of top consulting firms (McK... |
+| `kdense-markitdown` | Convert files and office documents to Markdown. Supports PDF, DOCX, PPTX, XLSX, images (with OCR), a... |
+| `kdense-matchms` | Spectral similarity and compound identification for metabolomics. Use for comparing mass spectra, co... |
+| `kdense-matlab` | MATLAB and GNU Octave numerical computing for matrix operations, data analysis, visualization, and s... |
+| `kdense-matplotlib` | Low-level plotting library for full customization. Use when you need fine-grained control over every... |
+| `kdense-medchem` | Medicinal chemistry filters for compound triage. Apply drug-likeness rules (Lipinski, Veber, CNS), s... |
+| `kdense-modal` | Cloud computing platform for running Python on GPUs and serverless infrastructure. Use when deployin... |
+| `kdense-molecular-dynamics` | Run and analyze molecular dynamics simulations with OpenMM and MDAnalysis. Set up protein/small mole... |
+| `kdense-molfeat` | Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (Chem... |
+| `kdense-networkx` | Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python... |
+| `kdense-neurokit2` | Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA,... |
+| `kdense-neuropixels-analysis` | Neuropixels neural recording analysis. Load SpikeGLX/OpenEphys data, preprocess, motion correction, ... |
+| `kdense-omero-integration` | Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, ma... |
+| `kdense-open-notebook` | Self-hosted, open-source alternative to Google NotebookLM for AI-powered research and document analy... |
+| `kdense-opentrons-integration` | Official Opentrons Protocol API for OT-2 and Flex robots. Use when writing protocols specifically fo... |
+| `kdense-optimize-for-gpu` | GPU-accelerate Python code using CuPy, Numba CUDA, Warp, cuDF, cuML, cuGraph, KvikIO, cuCIM, cuxfilt... |
+| `kdense-pacsomatic` | Operator toolkit for nf-core/pacsomatic matched tumor-normal workflows from BAM inputs. Use this ski... |
+| `kdense-paper-lookup` | Search 10 academic paper databases via REST APIs for research papers, preprints, and scholarly artic... |
+| `kdense-paperzilla` | Chat with your agent about projects, recommendations, and canonical papers in Paperzilla. Use when u... |
+| `kdense-parallel-web` | All-in-one web toolkit powered by parallel-cli, with a strong emphasis on academic and scientific so... |
+| `kdense-pathml` | Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed i... |
+| `kdense-pdf` | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extra... |
+| `kdense-peer-review` | Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer rev... |
+| `kdense-pennylane` | Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum cir... |
+| `kdense-phylogenetics` | Build and analyze phylogenetic trees using MAFFT (multiple alignment), IQ-TREE 2 (maximum likelihood... |
+| `kdense-polars` | Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data ... |
+| `kdense-polars-bio` | High-performance genomic interval operations and bioinformatics file I/O on Polars DataFrames. Overl... |
+| `kdense-pptx` | Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includ... |
+| `kdense-pptx-posters` | Create research posters using HTML/CSS that can be exported to PDF or PPTX. Use this skill ONLY when... |
+| `kdense-primekg` | Query the Precision Medicine Knowledge Graph (PrimeKG) for multiscale biological data including gene... |
+| `kdense-protocolsio-integration` | Integration with protocols.io API for managing scientific protocols. This skill should be used when ... |
+| `kdense-pufferlib` | High-performance reinforcement learning framework optimized for speed and scale. Use when you need f... |
+| `kdense-pydeseq2` | Differential gene expression analysis (Python DESeq2). Identify DE genes from bulk RNA-seq counts, W... |
+| `kdense-pydicom` | Python library for working with DICOM (Digital Imaging and Communications in Medicine) files. Use th... |
+| `kdense-pyhealth` | Build clinical/healthcare deep-learning pipelines with PyHealth — loading EHR/signal/imaging dataset... |
+| `kdense-pylabrobot` | Vendor-agnostic lab automation framework. Use when controlling multiple equipment types (Hamilton, T... |
+| `kdense-pymatgen` | Materials science toolkit. Crystal structures (CIF, POSCAR), phase diagrams, band structure, DOS, Ma... |
+| `kdense-pymc` | Bayesian modeling with PyMC. Build hierarchical models, MCMC (NUTS), variational inference, LOO/WAIC... |
+| `kdense-pymoo` | Multi-objective optimization framework. NSGA-II, NSGA-III, MOEA/D, Pareto fronts, constraint handlin... |
+| `kdense-pyopenms` | Complete mass spectrometry analysis platform. Use for proteomics workflows feature detection, peptid... |
+| `kdense-pysam` | Genomic file toolkit. Read/write SAM/BAM/CRAM alignments, VCF/BCF variants, FASTA/FASTQ sequences, e... |
+| `kdense-pytdc` | Therapeutics Data Commons. AI-ready drug discovery datasets (ADME, toxicity, DTI), benchmarks, scaff... |
+| `kdense-pytorch-lightning` | Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into Lightnin... |
+| `kdense-pyzotero` | Interact with Zotero reference management libraries using the pyzotero Python client. Retrieve, crea... |
+| `kdense-qiskit` | IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtim... |
+| `kdense-qutip` | Quantum physics simulation library for open quantum systems. Use when studying master equations, Lin... |
+| `kdense-rdkit` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, Log... |
+| `kdense-research-grants` | Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific form... |
+| `kdense-research-lookup` | Look up current research information using parallel-cli search (primary, fast web search), the Paral... |
+| `kdense-rowan` | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Python A... |
+| `kdense-scanpy` | Standard single-cell RNA-seq analysis pipeline. Use for QC, normalization, dimensionality reduction ... |
+| `kdense-scholar-evaluation` | Systematically evaluate scholarly work using the ScholarEval framework, providing structured assessm... |
+| `kdense-scientific-brainstorming` | Creative research ideation and exploration. Use for open-ended brainstorming sessions, exploring int... |
+| `kdense-scientific-critical-thinking` | Evaluate scientific claims and evidence quality. Use for assessing experimental design validity, ide... |
+| `kdense-scientific-schematics` | Create publication-quality scientific diagrams using Nano Banana 2 AI with smart iterative refinemen... |
+| `kdense-scientific-slides` | Build slide decks and presentations for research talks. Use this for making PowerPoint slides, confe... |
+| `kdense-scientific-visualization` | Meta-skill for publication-ready figures. Use when creating journal submission figures requiring mul... |
+| `kdense-scientific-writing` | Core skill for the deep research and writing tool. Write scientific manuscripts in full paragraphs (... |
+| `kdense-scikit-bio` | Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (alpha... |
+| `kdense-scikit-learn` | Machine learning in Python with scikit-learn. Use when working with supervised learning (classificat... |
+| `kdense-scikit-survival` | Comprehensive toolkit for survival analysis and time-to-event modeling in Python using scikit-surviv... |
+| `kdense-scvelo` | RNA velocity analysis with scVelo. Estimate cell state transitions from unspliced/spliced mRNA dynam... |
+| `kdense-scvi-tools` | Deep generative models for single-cell omics. Use when you need probabilistic batch correction (scVI... |
+| `kdense-seaborn` | Statistical visualization with pandas integration. Use for quick exploration of distributions, relat... |
+| `kdense-shap` | Model interpretability and explainability using SHAP (SHapley Additive exPlanations). Use this skill... |
+| `kdense-simpy` | Process-based discrete-event simulation framework in Python. Use this skill when building simulation... |
+| `kdense-stable-baselines3` | Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn... |
+| `kdense-statistical-analysis` | Guided statistical analysis with test selection and reporting. Use when you need help choosing appro... |
+| `kdense-statsmodels` | Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed mod... |
+| `kdense-sympy` | Use when you need exact symbolic math in Python — algebra, calculus, equation solving, symbolic line... |
+| `kdense-tiledbvcf` | Efficient storage and retrieval of genomic variant data using TileDB. Scalable VCF/BCF ingestion, in... |
+| `kdense-timesfm-forecasting` | Zero-shot time series forecasting with Google's TimesFM foundation model. Use for any univariate tim... |
+| `kdense-torch-geometric` | PyTorch Geometric (PyG) for graph neural networks — node/link/graph classification, message passing ... |
+| `kdense-torchdrug` | PyTorch-native graph neural networks for molecules and proteins. Use when building custom GNN archit... |
+| `kdense-transformers` | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and T... |
+| `kdense-treatment-plans` | Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF format for all clinical sp... |
+| `kdense-umap-learn` | UMAP dimensionality reduction. Fast nonlinear manifold learning for 2D/3D visualization, clustering ... |
+| `kdense-usfiscaldata` | Query the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use fo... |
+| `kdense-vaex` | Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed av... |
+| `kdense-venue-templates` | Access comprehensive LaTeX templates, formatting requirements, and submission guidelines for major s... |
+| `kdense-what-if-oracle` | Run structured What-If scenario analysis with 4–6 branch possibility exploration (best, likely, wors... |
+| `kdense-xlsx` | Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm) where the workbook file is the p... |
+| `kdense-zarr-python` | Chunked N-D arrays for cloud storage (Zarr-Python 3). Compressed arrays, parallel I/O, S3/GCS via fs... |
+
 ### anthropics/skills
 
 | Skill | Description |
@@ -1370,6 +1515,7 @@ pipelines, and system utilities.... |
 | `antigravity-building-native-ui` | Complete guide for building beautiful apps with Expo Router. Covers fundamentals, styling, component... |
 | `antigravity-bulletmind` | Convert input into clean, structured, hierarchical bullet points for summarization, note-taking, and... |
 | `antigravity-bullmq-specialist` | BullMQ expert for Redis-backed job queues, background processing, and reliable async execution in No... |
+| `antigravity-bumblebee` | Run Bumblebee supply-chain inventory and exposure scans on macOS/Linux to detect compromised package... |
 | `antigravity-bun-development` | Fast, modern JavaScript/TypeScript development with the Bun runtime, inspired by [oven-sh/bun](https... |
 | `antigravity-burp-suite-testing` | Execute comprehensive web application security testing using Burp Suite's integrated toolset, includ... |
 | `antigravity-burpsuite-project-parser` | Searches and explores Burp Suite project files (.burp) from the command line. Use when searching res... |
@@ -1451,6 +1597,7 @@ pipelines, and system utilities.... |
 | `antigravity-commit` | ALWAYS use this skill when committing code changes — never commit directly without it. Creates commi... |
 | `antigravity-competitive-landscape` | Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and d... |
 | `antigravity-competitor-alternatives` | You are an expert in creating competitor comparison and alternative pages. Your goal is to build pag... |
+| `antigravity-complexity-cuts` | Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-stop. Fo... |
 | `antigravity-comprehensive-review-full-review` | Use when working with comprehensive review full review |
 | `antigravity-comprehensive-review-pr-enhance` | Generate structured PR descriptions from diffs, add review checklists, risk assessments, and test co... |
 | `antigravity-computer-use-agents` | Build AI agents that interact with computers like humans do - viewing screens, moving cursors, click... |
@@ -1534,6 +1681,7 @@ consistency, and correctness. Use after setu... |
 behavior. Use proactively when encoun... |
 | `antigravity-debugging-strategies` | Transform debugging from frustrating guesswork into systematic problem-solving with proven strategie... |
 | `antigravity-debugging-toolkit-smart-debug` | Use when working with debugging toolkit smart debug |
+| `antigravity-decision-navigator` | Guide stuck or overwhelmed users through targeted branching questions until they reach concrete next... |
 | `antigravity-deep-research` | Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive... |
 | `antigravity-defi-protocol-templates` | Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending ... |
 | `antigravity-defuddle` | Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to... |
@@ -1808,6 +1956,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-internal-comms-anthropic` | To write internal communications, use this skill for: |
 | `antigravity-internal-comms-community` | To write internal communications, use this skill for: |
 | `antigravity-interview-coach` | Full job search coaching system — JD decoding, resume, storybank, mock interviews, transcript analys... |
+| `antigravity-invariant-guard` | Correctness-first: forces writing the function contract, loop invariant, termination argument, and e... |
 | `antigravity-inventory-demand-planning` | Codified expertise for demand forecasting, safety stock optimisation, replenishment planning, and pr... |
 | `antigravity-ios-debugger-agent` | Debug the current iOS project on a booted simulator with XcodeBuildMCP. |
 | `antigravity-ios-developer` | Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core... |
@@ -1861,6 +2010,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-leiloeiro-juridico` | Analise juridica de leiloes: nulidades, bem de familia, alienacao fiduciaria, CPC arts 829-903, Lei ... |
 | `antigravity-leiloeiro-mercado` | Analise de mercado imobiliario para leiloes. Liquidez, desagio tipico, ROI, estrategias de saida (fl... |
 | `antigravity-leiloeiro-risco` | Analise de risco em leiloes de imoveis. Score 36 pontos, riscos juridicos/financeiros/operacionais, ... |
+| `antigravity-lemmaly` | Algorithm-first discipline: state Big-O, data structure, and algorithm family BEFORE writing loops, ... |
 | `antigravity-lex` | Centralized 'Truth Engine' for cross-jurisdictional legal context (US, EU, CA) and contract scaffold... |
 | `antigravity-lightning-architecture-review` | Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze L... |
 | `antigravity-lightning-channel-factories` | Technical reference on Lightning Network channel factories, multi-party channels, LSP architectures,... |
@@ -1930,6 +2080,7 @@ splash language, makepad script, m... |
 | `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
 | `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
 | `antigravity-matematico-tao` | Matemático ultra-avançado inspirado em Terence Tao. Análise rigorosa de código e arquitetura com teo... |
+| `antigravity-mathguard` | Math-heavy escalation for n >= 10^6 — Bloom, HyperLogLog, Count-Min, MinHash/LSH, FFT, JL projection... |
 | `antigravity-matplotlib` | Matplotlib is Python's foundational visualization library for creating static, animated, and interac... |
 | `antigravity-maxia` | Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP ... |
 | `antigravity-mcp-builder` | Create MCP (Model Context Protocol) servers that enable LLMs to interact with external services thro... |
@@ -2238,6 +2389,9 @@ analysis across multiple languages... |
 | `antigravity-segment-cdp` | Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tra... |
 | `antigravity-semgrep-rule-creator` | Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns... |
 | `antigravity-semgrep-rule-variant-creator` | Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified ta... |
+| `antigravity-sendblue-api` | Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API — text, medi... |
+| `antigravity-sendblue-cli` | Send iMessage and SMS from the shell via the @sendblue/cli npm package — outbound sends, contact man... |
+| `antigravity-sendblue-notify` | Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblu... |
 | `antigravity-sendgrid-automation` | Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and... |
 | `antigravity-senior-architect` | Complete toolkit for senior architect with modern tools and best practices. |
 | `antigravity-senior-frontend` | Frontend development skill for React, Next.js, TypeScript, and Tailwind CSS applications. Use when b... |
@@ -2410,6 +2564,7 @@ calculations
 | `antigravity-test-fixing` | Systematically identify and fix all failing tests using smart grouping strategies. Use when explicit... |
 | `antigravity-testing-patterns` | Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing uni... |
 | `antigravity-testing-qa` | Comprehensive testing and QA workflow covering unit testing, integration testing, E2E testing, brows... |
+| `antigravity-textme` | Text Claude from your phone — set up the njerschow/textme daemon so inbound iMessages drive a Claude... |
 | `antigravity-theme-factory` | This skill provides a curated collection of professional font and color themes themes, each with car... |
 | `antigravity-threat-mitigation-mapping` | Map identified threats to appropriate security controls and mitigations. Use when prioritizing secur... |
 | `antigravity-threat-modeling-expert` | Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters ... |

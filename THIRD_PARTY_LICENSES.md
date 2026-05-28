@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-05-27 07:42 UTC*
+*Last updated: 2026-05-28 07:37 UTC*
 
 ## Source Repositories
 
@@ -124,25 +124,41 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 
 | License | Count |
 |---------|-------|
-| 3-clause BSD license | 1 |
+| 3 clause BSD license | 1 |
+| 3-clause BSD license | 2 |
 | AGPL-3.0 | 1 |
 | AGPL-3.0 (referencing Twitter's algorithm source) | 1 |
-| Apache-2.0 | 18 |
-| Apache-2.0 license | 2 |
-| BSD-3-Clause license | 4 |
-| CC-BY-4.0 | 1 |
+| Apache License, Version 2.0 | 1 |
+| Apache-2.0 | 26 |
+| Apache-2.0 license | 16 |
+| BSD license | 1 |
+| BSD-2-Clause license | 2 |
+| BSD-3-Clause | 2 |
+| BSD-3-Clause license | 19 |
+| CC BY-NC-SA 4.0 | 1 |
+| CC-BY-4.0 | 2 |
+| CeCILL FREE SOFTWARE LICENSE AGREEMENT | 1 |
 | Complete terms in LICENSE.txt | 36 |
+| For MATLAB (https://www.mathworks.com/pricing-licensing.html) and for Octave (GNU General Public License version 3) | 1 |
+| GPL-2.0 license | 2 |
+| GPL-3.0 license | 2 |
+| GPLv3 license | 1 |
 | LICENSE | 1 |
-| MIT | 2401 |
-| MIT License | 2 |
-| MIT license | 2 |
+| MIT | 2425 |
+| MIT License | 7 |
+| MIT license | 46 |
 | MIT-0 | 1 |
 | Not declared | 1 |
+| Proprietary (API key required) | 1 |
+| Proprietary. LICENSE.txt has complete terms | 4 |
 | SD-3-Clause license | 1 |
-| Unknown | 3 |
-| https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 1 |
-| https://github.com/pola-rs/polars/blob/main/LICENSE | 1 |
-| https://github.com/sympy/sympy/blob/master/LICENSE | 1 |
+| This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data. | 1 |
+| Unknown | 15 |
+| https://creativecommons.org/licenses/by/4.0/ | 1 |
+| https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 2 |
+| https://github.com/pola-rs/polars/blob/main/LICENSE | 2 |
+| https://github.com/pydicom/pydicom/blob/main/LICENSE | 1 |
+| https://github.com/sympy/sympy/blob/master/LICENSE | 2 |
 
 
 ## Full License Texts
