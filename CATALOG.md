@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-28 07:37 UTC*
+*Last updated: 2026-05-29 07:35 UTC*
 
-Total skills: **2629**
+Total skills: **2632**
 
 ## Skills by Source
 
@@ -903,6 +903,7 @@ Total skills: **2629**
 | `kdense-bids` | Use this skill when working with Brain Imaging Data Structure (BIDS) datasets: organizing neuroscien... |
 | `kdense-biopython` | Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/... |
 | `kdense-bioservices` | Unified Python interface to 40+ bioinformatics services. Use when querying multiple databases (UniPr... |
+| `kdense-bulk-rnaseq` | End-to-end bulk RNA-seq orchestrator — takes raw FASTQ reads through QC and trimming (FastQC, fastp/... |
 | `kdense-cellxgene-census` | Query the CELLxGENE Census (61M+ cells) programmatically. Use when you need expression data across t... |
 | `kdense-cirq` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-a... |
 | `kdense-citation-management` | Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers... |
@@ -955,12 +956,13 @@ Total skills: **2629**
 | `kdense-matlab` | MATLAB and GNU Octave numerical computing for matrix operations, data analysis, visualization, and s... |
 | `kdense-matplotlib` | Low-level plotting library for full customization. Use when you need fine-grained control over every... |
 | `kdense-medchem` | Medicinal chemistry filters for compound triage. Apply drug-likeness rules (Lipinski, Veber, CNS), s... |
-| `kdense-modal` | Cloud computing platform for running Python on GPUs and serverless infrastructure. Use when deployin... |
+| `kdense-modal` | Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Use whe... |
 | `kdense-molecular-dynamics` | Run and analyze molecular dynamics simulations with OpenMM and MDAnalysis. Set up protein/small mole... |
 | `kdense-molfeat` | Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (Chem... |
 | `kdense-networkx` | Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python... |
 | `kdense-neurokit2` | Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA,... |
 | `kdense-neuropixels-analysis` | Neuropixels neural recording analysis. Load SpikeGLX/OpenEphys data, preprocess, motion correction, ... |
+| `kdense-nextflow` | Build, run, and debug Nextflow data pipelines and nf-core workflows end to end. Use whenever the use... |
 | `kdense-omero-integration` | Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, ma... |
 | `kdense-open-notebook` | Self-hosted, open-source alternative to Google NotebookLM for AI-powered research and document analy... |
 | `kdense-opentrons-integration` | Official Opentrons Protocol API for OT-2 and Flex robots. Use when writing protocols specifically fo... |
@@ -970,6 +972,7 @@ Total skills: **2629**
 | `kdense-paperzilla` | Chat with your agent about projects, recommendations, and canonical papers in Paperzilla. Use when u... |
 | `kdense-parallel-web` | All-in-one web toolkit powered by parallel-cli, with a strong emphasis on academic and scientific so... |
 | `kdense-pathml` | Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed i... |
+| `kdense-pathway-enrichment` | Run pathway and gene-set enrichment analysis on gene lists or ranked gene data, then interpret the r... |
 | `kdense-pdf` | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extra... |
 | `kdense-peer-review` | Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer rev... |
 | `kdense-pennylane` | Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum cir... |

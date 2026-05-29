@@ -87,55 +87,58 @@ dist = seq1.distance(seq2, metric=kmer_distance)
 
 ### Pairwise Alignment
 
-```python
-from skbio.alignment import local_pairwise_align_ssw, global_pairwise_align
-from skbio import DNA, Protein
+scikit-bio 0.7.0 introduced `pair_align`, a single fast engine for global, local, and semi-global alignment. The convenience wrappers `pair_align_nucl` and `pair_align_prot` ship with BLASTN/BLASTP-like scoring. The old SSW wrapper (`local_pairwise_align_ssw`, `StripedSmithWaterman`) was removed, and the pure-Python `global_pairwise_align`/`local_pairwise_align_*` functions are deprecated.
 
-# Local alignment (Smith-Waterman via SSW)
+```python
+from skbio import DNA, Protein
+from skbio.alignment import pair_align_nucl, pair_align_prot, pair_align, align_score
+
+# Nucleotide alignment with BLASTN-like defaults
 seq1 = DNA('ATCGATCGATCG')
 seq2 = DNA('ATCGGGGATCG')
-alignment = local_pairwise_align_ssw(seq1, seq2)
+aln = pair_align_nucl(seq1, seq2)
 
-# Access alignment details
-print(f"Score: {alignment.score}")
-print(f"Start position: {alignment.target_begin}")
-aligned_seqs = alignment.aligned_sequences
+# Inspect the result (PairAlignResult: score + paths [+ matrices])
+print(f"Score: {aln.score}")
+path = aln.paths[0]                       # PairAlignPath; repr shows the CIGAR
+aligned_seqs = path.to_aligned((seq1, seq2))   # list of gapped strings
 
-# Global alignment with custom scoring
-from skbio.alignment import AlignScorer
-
-scorer = AlignScorer(
-    match_score=2,
-    mismatch_score=-3,
-    gap_open_penalty=5,
-    gap_extend_penalty=2
+# Global alignment with custom affine scoring via pair_align
+aln = pair_align(
+    seq1, seq2,
+    mode='global',          # 'global' (default), 'local', or semi-global via free_ends
+    sub_score=(2, -3),      # (match, mismatch)
+    gap_cost=(5, 2),        # (open, extend) -> affine; a single number -> linear
 )
 
-alignment = global_pairwise_align(seq1, seq2, scorer=scorer)
+# Use a named substitution matrix instead of match/mismatch scores
+aln = pair_align(seq1, seq2, mode='global', sub_score='NUC.4.4', gap_cost=3)
 
-# Protein alignment with substitution matrix
-from skbio.alignment import StripedSmithWaterman
-
+# Protein alignment with BLASTP-like defaults (BLOSUM62)
 protein_query = Protein('ACDEFGHIKLMNPQRSTVWY')
 protein_target = Protein('ACDEFMNPQRSTVWY')
+aln = pair_align_prot(protein_query, protein_target)
 
-aligner = StripedSmithWaterman(
-    str(protein_query),
-    gap_open_penalty=11,
-    gap_extend_penalty=1,
-    substitution_matrix='blosum62'
-)
-alignment = aligner(str(protein_target))
+# Re-score an existing alignment with the same parameters
+score = align_score((aln.paths[0], (protein_query, protein_target)),
+                    sub_score='BLOSUM62', gap_cost=(11, 1))
+
+# PairAlignResult also unpacks as a tuple
+score, (path,), _ = pair_align_nucl(seq1, seq2)
 ```
 
 ### Multiple Sequence Alignment
 
 ```python
-from skbio.alignment import TabularMSA
+from skbio.alignment import TabularMSA, pair_align_nucl
 from skbio import DNA
 
 # Read MSA from file
 msa = TabularMSA.read('alignment.fasta', constructor=DNA)
+
+# Build a TabularMSA from a pairwise alignment path + original sequences
+score, (path,), _ = pair_align_nucl(DNA('ATCGATCG'), DNA('ATCGGGGATCG'))
+msa = TabularMSA.from_path_seqs(path, (DNA('ATCGATCG'), DNA('ATCGGGGATCG')))
 
 # Create MSA manually
 seqs = [
@@ -163,18 +166,25 @@ degapped_msa = msa.omit_gap_positions(maximum_gap_frequency=0.5)
 position_entropies = msa.position_entropies()
 ```
 
-### CIGAR String Handling
+### CIGAR Strings and Alignment Paths
 
 ```python
-from skbio.alignment import AlignPath
+from skbio.alignment import PairAlignPath, AlignPath, pair_align_nucl
+from skbio import DNA
 
-# Parse CIGAR string
-cigar = "10M2I5M3D10M"
-align_path = AlignPath.from_cigar(cigar, target_length=100, query_length=50)
+# Parse a CIGAR string into a pairwise alignment path
+path = PairAlignPath.from_cigar('10M2I5M3D10M')
+print(repr(path))   # <PairAlignPath, ..., CIGAR: '10M2I5M3D10M'>
 
-# Convert alignment to CIGAR
-alignment = local_pairwise_align_ssw(seq1, seq2)
-cigar_string = alignment.to_cigar()
+# A path produced by pair_align already carries its CIGAR
+aln = pair_align_nucl(DNA('ATCGATCG'), DNA('ATCGGGGATCG'))
+cigar_string = aln.paths[0].cigar
+
+# AlignPath generalizes to >2 sequences (e.g., from aligned strings)
+path3 = AlignPath.from_aligned(['CGTCGTGC', 'CA--GT-C', 'CGTCGT-T'])
+
+# Parse CIGAR output from external tools such as parasail
+# path = PairAlignPath.from_cigar(res.cigar.decode)
 ```
 
 ## Phylogenetic Trees
@@ -248,22 +258,26 @@ node_to_remove.parent.remove(node_to_remove)
 ### Tree Distances and Comparisons
 
 ```python
-# Patristic distance (branch-length distance)
+# Patristic distance (branch-length distance) between two nodes
 node1 = tree.find('taxon1')
 node2 = tree.find('taxon2')
 patristic = node1.distance(node2)
 
-# Cophenetic matrix (all pairwise distances)
-cophenetic_dm = tree.cophenetic_matrix()
+# Cophenetic (patristic) distance matrix among all tips
+# cophenet() replaces the former tip_tip_distances()
+cophenetic_dm = tree.cophenet()
 
-# Robinson-Foulds distance (topology comparison)
-rf_dist = tree.robinson_foulds(other_tree)
+# Robinson-Foulds distance between two trees (compare_rfd, added in 0.6.3)
+rf_dist = tree.compare_rfd(other_tree)              # count (float)
+rf_prop = tree.compare_rfd(other_tree, proportion=True)  # normalized to [0, 1]
 
-# Compare with unweighted RF
-rf_dist, max_rf = tree.robinson_foulds(other_tree, proportion=False)
+# Weighted Robinson-Foulds and cophenetic-correlation comparisons
+wrf = tree.compare_wrfd(other_tree)
+coph = tree.compare_cophenet(other_tree)
 
-# Tip-to-tip distances
-tip_distances = tree.tip_tip_distances()
+# Pairwise RF distances among many trees -> DistanceMatrix
+from skbio.tree import rf_dists
+rf_dm = rf_dists([tree, other_tree, third_tree])
 ```
 
 ### Tree Visualization
@@ -300,17 +314,18 @@ print(get_alpha_diversity_metrics())
 # Calculate various alpha diversity metrics
 shannon = alpha_diversity('shannon', counts, ids=sample_ids)
 simpson = alpha_diversity('simpson', counts, ids=sample_ids)
-observed_otus = alpha_diversity('observed_otus', counts, ids=sample_ids)
+observed = alpha_diversity('observed_features', counts, ids=sample_ids)  # was 'observed_otus'
 chao1 = alpha_diversity('chao1', counts, ids=sample_ids)
+hill_q2 = alpha_diversity('hill', counts, ids=sample_ids)  # effective number of species
 
-# Phylogenetic alpha diversity (requires tree)
+# Phylogenetic alpha diversity (requires tree). Note: taxa= replaces otu_ids=
 from skbio import TreeNode
 
 tree = TreeNode.read('tree.nwk')
 feature_ids = ['OTU1', 'OTU2', 'OTU3', 'OTU4']
 
 faith_pd = alpha_diversity('faith_pd', counts, ids=sample_ids,
-                          tree=tree, otu_ids=feature_ids)
+                           tree=tree, taxa=feature_ids)
 ```
 
 ### Beta Diversity
@@ -324,16 +339,16 @@ bc_dm = beta_diversity('braycurtis', counts, ids=sample_ids)
 # Jaccard (presence/absence)
 jaccard_dm = beta_diversity('jaccard', counts, ids=sample_ids)
 
-# Phylogenetic beta diversity
+# Phylogenetic beta diversity (taxa= replaces the deprecated otu_ids=)
 unifrac_dm = beta_diversity('unweighted_unifrac', counts,
-                           ids=sample_ids,
-                           tree=tree,
-                           otu_ids=feature_ids)
+                            ids=sample_ids,
+                            tree=tree,
+                            taxa=feature_ids)
 
 weighted_unifrac_dm = beta_diversity('weighted_unifrac', counts,
-                                    ids=sample_ids,
-                                    tree=tree,
-                                    otu_ids=feature_ids)
+                                     ids=sample_ids,
+                                     tree=tree,
+                                     taxa=feature_ids)
 
 # Compute only specific pairs (more efficient)
 pairs = [('Sample1', 'Sample2'), ('Sample1', 'Sample3')]
@@ -528,7 +543,8 @@ r_partial, p_value, n = mantel(dm1, dm2, method='pearson',
 ### Creating and Manipulating Distance Matrices
 
 ```python
-from skbio import DistanceMatrix, DissimilarityMatrix
+from skbio import DistanceMatrix
+from skbio.stats.distance import PairwiseMatrix
 import numpy as np
 
 # Create from array
@@ -544,11 +560,12 @@ row_a = dm['A']
 # Slicing
 subset_dm = dm.filter(['A', 'C'])
 
-# Asymmetric dissimilarity matrix
+# General/asymmetric matrix: PairwiseMatrix (renamed from DissimilarityMatrix,
+# which is kept as a deprecated alias)
 asym_data = np.array([[0, 1, 2],
                       [3, 0, 4],
                       [5, 6, 0]])
-dissim = DissimilarityMatrix(asym_data, ids=['X', 'Y', 'Z'])
+pwm = PairwiseMatrix(asym_data, ids=['X', 'Y', 'Z'])
 
 # Read/write
 dm.write('distances.txt')
@@ -689,7 +706,7 @@ tree_pruned = tree.shear(feature_ids)
 # Solution: Degap sequences first or ensure sequences are unaligned
 seq1_degapped = seq1.degap()
 seq2_degapped = seq2.degap()
-alignment = local_pairwise_align_ssw(seq1_degapped, seq2_degapped)
+alignment = pair_align_nucl(seq1_degapped, seq2_degapped)
 ```
 
 ### Performance Tips
