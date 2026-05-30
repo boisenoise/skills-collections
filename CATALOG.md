@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-29 07:35 UTC*
+*Last updated: 2026-05-30 07:13 UTC*
 
-Total skills: **2632**
+Total skills: **2633**
 
 ## Skills by Source
 
@@ -1093,6 +1093,7 @@ Total skills: **2632**
 | `marketing-launch` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `marketing-lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.... |
 | `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
+| `marketing-marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own... |
 | `marketing-marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marke... |
 | `marketing-onboarding` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
 | `marketing-paywalls` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
