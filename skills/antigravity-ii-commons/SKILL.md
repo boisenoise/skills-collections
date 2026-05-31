@@ -43,12 +43,26 @@ Report the relevant cutoff date before interpreting recent results.
 
 ### Step 2: Search the Right Corpus
 
-Use exactly this command shape:
+Use this argv shape. Literal examples can be typed as shown, but when the query
+comes from a user prompt, pass it as an argument array through the runner API
+instead of interpolating it into a shell string. Double quotes do not protect
+against command substitution in generated shell commands.
 
 ```bash
 npx @intelligentinternet/ii-commons search arxiv "large language model inference" --max-results 10
 npx @intelligentinternet/ii-commons search pubmed "type 2 diabetes review" --start 20240000 --max-results 10
 npx @intelligentinternet/ii-commons search policy "state overtime rule for agricultural workers" --jurisdictions US-CA --max-results 10
+```
+
+```js
+spawnSync("npx", [
+  "@intelligentinternet/ii-commons",
+  "search",
+  "arxiv",
+  userQuery,
+  "--max-results",
+  "10",
+]);
 ```
 
 Choose `arxiv` for preprints and technical research, `pubmed` for biomedical and clinical literature, and `policy` for supported US policy corpora.

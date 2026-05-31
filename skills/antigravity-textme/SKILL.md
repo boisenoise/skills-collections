@@ -12,6 +12,10 @@ tags: [textme, sendblue, imessage, sms, claude-code, daemon, remote-control, aut
 tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/njerschow/textme/blob/main/LICENSE"
+plugin:
+  targets:
+    codex: blocked
+    claude: blocked
 ---
 
 # TextMe

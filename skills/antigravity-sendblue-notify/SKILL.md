@@ -2,13 +2,17 @@
 name: sendblue-notify
 description: "Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire."
 category: automation
-risk: safe
+risk: critical
 source: community
 source_type: official
 date_added: "2026-05-22"
 author: AnthonyFirth
 tags: [sendblue, imessage, sms, notifications, hooks, claude-code, automation]
 tools: [claude, cursor, gemini]
+plugin:
+  targets:
+    codex: blocked
+    claude: blocked
 ---
 
 # Sendblue Notify
@@ -146,6 +150,7 @@ You can install both: textme on a server for inbound, notify as a local `Stop`-h
 ## Security & Safety Notes
 
 - **Lock-screen previews leak.** Anyone holding the phone can read notification copy. Do not embed secrets, customer data, full error stacks, or auth tokens. Link to a log, dashboard, or PR instead.
+- **Confirm before sending or wiring hooks.** Preview the destination, message template, trigger, and duration gate; wait for explicit user confirmation before running `sendblue send` or editing hook config.
 - **Automated outbound is a footgun.** A misconfigured `Stop` hook can fire dozens of messages a minute. Always gate by duration and prove the threshold in a dry run before committing.
 - **Per-user numbers.** The destination phone number is a personal identifier — keep it in user-local config (env var, gitignored file), not in committed repo files or CI logs.
 - **Free-plan verification is silent.** If the destination contact hasn't texted in once, sends return an API error but the user just sees "no text arrived". Confirm verification before wiring an unattended hook.

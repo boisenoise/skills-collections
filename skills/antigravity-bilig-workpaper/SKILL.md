@@ -1,7 +1,7 @@
 ---
 name: bilig-workpaper
 description: "Use formula-backed WorkPaper JSON and MCP tools for agent spreadsheet tasks without driving Excel or a browser UI."
-risk: unknown
+risk: critical
 source: community
 date_added: "2026-05-21"
 tags:
@@ -10,6 +10,10 @@ tags:
   - mcp
   - xlsx
   - typescript
+plugin:
+  targets:
+    codex: blocked
+    claude: blocked
 ---
 
 # Bilig WorkPaper
@@ -36,6 +40,11 @@ Do not use it for manual spreadsheet editing, VBA/macros, pivots, charts, COM au
 
 Prefer argument arrays in MCP/client configuration. Do not shell-concatenate user-provided paths, sheet names, formulas, or cell addresses. Reject path or cell input containing newlines, backticks, `$(`, `;`, `&`, `|`, `<`, or `>` before using it in a command.
 
+The MCP examples execute the public `@bilig/workpaper` npm package. Treat that
+as third-party code execution: pin the package version you reviewed, run it only
+in a trusted project, and get explicit user approval before starting a writable
+MCP server.
+
 ## Quick MCP Setup
 
 First prove the package-owned challenge works:
@@ -43,7 +52,7 @@ First prove the package-owned challenge works:
 ```json
 {
   "command": "npm",
-  "args": ["exec", "--package", "@bilig/workpaper", "--", "bilig-mcp-challenge"]
+  "args": ["exec", "--package", "@bilig/workpaper@<reviewed-version>", "--", "bilig-mcp-challenge"]
 }
 ```
 
@@ -55,7 +64,7 @@ Then run a writable file-backed MCP server:
   "args": [
     "exec",
     "--package",
-    "@bilig/workpaper",
+    "@bilig/workpaper@<reviewed-version>",
     "--",
     "bilig-workpaper-mcp",
     "--workpaper",

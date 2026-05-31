@@ -73,9 +73,11 @@ Production patterns for Linkerd service mesh - the lightweight, security-first s
 brew install linkerd
 
 # Alternative: download the official installer, inspect it, then execute it
-curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install -o /tmp/linkerd-install.sh
-sed -n '1,160p' /tmp/linkerd-install.sh
-sh /tmp/linkerd-install.sh
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT
+curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install -o "$tmpdir/linkerd-install.sh"
+sed -n '1,160p' "$tmpdir/linkerd-install.sh"
+sh "$tmpdir/linkerd-install.sh"
 
 # Validate cluster
 linkerd check --pre

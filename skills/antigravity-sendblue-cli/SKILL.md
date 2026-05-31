@@ -2,7 +2,7 @@
 name: sendblue-cli
 description: "Send iMessage and SMS from the shell via the @sendblue/cli npm package — outbound sends, contact management, and account setup with no API client or webhook server required."
 category: api-integration
-risk: safe
+risk: critical
 source: community
 source_repo: sendblue-api/sendblue-cli
 source_type: official
@@ -12,6 +12,10 @@ tags: [sendblue, imessage, sms, cli, messaging, notifications]
 tools: [claude, cursor, gemini]
 license: "MIT"
 license_source: "https://github.com/sendblue-api/sendblue-cli/blob/main/LICENSE"
+plugin:
+  targets:
+    codex: blocked
+    claude: blocked
 ---
 
 # Sendblue CLI
@@ -121,6 +125,7 @@ To text yourself at the end of every agent turn, register a `Stop` hook in `sett
 ## Security & Safety Notes
 
 - Credentials are written to `~/.sendblue/credentials.json` with mode `600`. Treat that file like an API key — do not commit it, do not copy it across machines without the same posture.
+- Treat every outbound send, contact setup, login, or account setup action as state-changing. Preview the recipient, message body, and account/email target, then wait for explicit user confirmation before running it.
 - Run the CLI as the OS user that owns the credentials file. `sudo` writes a separate copy under root's home and silently desyncs.
 - Outbound messages to phone numbers are not free of consequence — wire `sendblue send` into hooks or loops only after gating on duration or success conditions to avoid spamming the recipient.
 - Verification codes arrive by email; treat the address you registered with as a recovery factor for the account.

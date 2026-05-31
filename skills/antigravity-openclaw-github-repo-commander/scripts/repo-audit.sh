@@ -9,6 +9,7 @@ if [[ ! -d "$target" ]]; then
 fi
 
 cd "$target"
+repo_root="$(pwd -P)"
 
 status=0
 
@@ -19,6 +20,25 @@ pass() {
 warn() {
   printf 'WARN %s\n' "$1"
   status=1
+}
+
+has_symlink_component() {
+  local candidate="$1"
+  local current="."
+  local part
+  local -a parts
+
+  candidate="${candidate#./}"
+  IFS='/' read -r -a parts <<< "$candidate"
+  for part in "${parts[@]}"; do
+    [[ -z "$part" || "$part" == "." ]] && continue
+    current="$current/$part"
+    if [[ -L "$current" ]]; then
+      return 0
+    fi
+  done
+
+  return 1
 }
 
 if command -v rg >/dev/null 2>&1; then
@@ -67,7 +87,29 @@ if command -v rg >/dev/null 2>&1 && [[ -f README.md ]]; then
     [[ "$link" =~ ^mailto: ]] && continue
     link="${link%%#*}"
     [[ -z "$link" ]] && continue
+    if [[ "$link" = /* || "/$link/" == *"/../"* ]]; then
+      broken_links=1
+      printf 'WARN README local link escapes repository: %s\n' "$link"
+      continue
+    fi
+    if has_symlink_component "$link"; then
+      broken_links=1
+      printf 'WARN README local link escapes repository: %s\n' "$link"
+      continue
+    fi
     if [[ ! -e "$link" ]]; then
+      parent_dir="$(dirname -- "$link")"
+      if [[ -d "$parent_dir" ]]; then
+        resolved_parent="$(cd "$parent_dir" && pwd -P)"
+        case "$resolved_parent/" in
+          "$repo_root"/* | "$repo_root/" ) ;;
+          * )
+            broken_links=1
+            printf 'WARN README local link escapes repository: %s\n' "$link"
+            continue
+            ;;
+        esac
+      fi
       broken_links=1
       printf 'WARN broken README local link: %s\n' "$link"
     fi

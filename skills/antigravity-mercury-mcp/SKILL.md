@@ -1,9 +1,13 @@
 ---
 name: mercury-mcp
 description: "Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look up which mercury_* tool to call for messaging teammates, threads, tasks, automations, or admin team-graph edits."
-risk: safe
+risk: critical
 source: community
 date_added: "2026-05-19"
+plugin:
+  targets:
+    codex: blocked
+    claude: blocked
 ---
 
 # Mercury MCP tool cheatsheet
@@ -20,6 +24,10 @@ and tasks, and scheduling automations.
 This skill is a lookup reference for those tools. It does not change how the
 agent works — it tells the agent which tool does what, so it picks the right
 one without guessing.
+
+Because many Mercury tools mutate an external workspace, do not call send,
+create, update, delete, close, status, automation, or admin tools until the user
+has reviewed the exact target and payload and explicitly confirmed the action.
 
 ## When to Use This Skill
 

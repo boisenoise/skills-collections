@@ -247,7 +247,8 @@ async function addImageAndWait(pea, imgURI) {
     count = (await pea.runScript(`app.echoToOE(app.activeDocument.layers.length)`))[0];
   count = parseInt(count);
 
-  await pea.runScript(`app.open("${imgURI}", null, true);`);
+  const imageUrlLiteral = JSON.stringify(imgURI);
+  await pea.runScript(`app.open(${imageUrlLiteral}, null, true);`);
 
   return new Promise((resolve) => {
     const check = async () => {
@@ -306,9 +307,11 @@ document.getElementById("exportBtn").addEventListener("click", async () => {
 ```js
 async function generateCard(pea, name, tagline) {
   await pea.openFromURL("https://example.com/card.psd", false);
+  const nameLiteral = JSON.stringify(name);
+  const taglineLiteral = JSON.stringify(tagline);
   await pea.runScript(`
-    app.activeDocument.layers.getByName("Name").textItem.contents    = "${name}";
-    app.activeDocument.layers.getByName("Tagline").textItem.contents = "${tagline}";
+    app.activeDocument.layers.getByName("Name").textItem.contents    = ${nameLiteral};
+    app.activeDocument.layers.getByName("Tagline").textItem.contents = ${taglineLiteral};
   `);
   return await pea.exportImage("png");
 }
@@ -1385,6 +1388,7 @@ app.echoToOE(JSON.stringify(getLayerInfo(app.activeDocument)));
 - This skill covers host-page integration patterns; it does not replace Photopea's own terms, API documentation, or licensing guidance.
 - Remote URL loading depends on browser CORS behavior, network availability, and the user's Photopea account/session state.
 - `runScript` executes scripts inside the embedded Photopea document context. Only run scripts you understand and only with user-approved files.
+- Serialize dynamic values with `JSON.stringify` before embedding them in a `runScript` string. Never concatenate user-provided URLs, layer names, or text directly into Photopea script source.
 - Export behavior can vary by document size, browser memory limits, and the formats supported by the active Photopea runtime.
 
 ---

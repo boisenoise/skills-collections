@@ -29,9 +29,11 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip && sudo ./aws/install
 
 # GCP CLI
-curl -fsSLo /tmp/google-cloud-sdk-install.sh https://sdk.cloud.google.com
-sed -n '1,160p' /tmp/google-cloud-sdk-install.sh
-bash /tmp/google-cloud-sdk-install.sh
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT
+curl -fsSLo "$tmpdir/google-cloud-sdk-install.sh" https://sdk.cloud.google.com
+sed -n '1,160p' "$tmpdir/google-cloud-sdk-install.sh"
+bash "$tmpdir/google-cloud-sdk-install.sh"
 gcloud init
 
 # Additional tools

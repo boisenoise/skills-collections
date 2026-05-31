@@ -31,9 +31,11 @@ Use this skill when:
 brew install oven-sh/bun/bun
 
 # Alternative: download the official installer, inspect it, then execute it
-curl -fsSLo /tmp/bun-install.sh https://bun.sh/install
-sed -n '1,160p' /tmp/bun-install.sh
-bash /tmp/bun-install.sh
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT
+curl -fsSLo "$tmpdir/bun-install.sh" https://bun.sh/install
+sed -n '1,160p' "$tmpdir/bun-install.sh"
+bash "$tmpdir/bun-install.sh"
 
 # Windows
 powershell -NoProfile -Command "Invoke-WebRequest https://bun.sh/install.ps1 -OutFile $env:TEMP\\bun-install.ps1; Get-Content $env:TEMP\\bun-install.ps1 -TotalCount 120; powershell -ExecutionPolicy Bypass -File $env:TEMP\\bun-install.ps1"

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-30T07:13:27.224047",
-  "skill_count": 2633,
+  "last_updated": "2026-05-31T07:31:30.220176",
+  "skill_count": 2637,
   "sources_processed": 19,
   "skills": [
     {
@@ -7788,6 +7788,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-longbridge",
+      "original_name": "longbridge",
+      "description": "125+ agent skills for Longbridge Securities \u2014 real-time quotes, charts, fundamentals, portfolio analysis, options, and more for HK/US/A-share/SG markets. Trilingual: Simplified Chinese, Traditional Chinese, English.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-kubernetes-deployment",
       "original_name": "kubernetes-deployment",
       "description": "Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and production-ready K8s configurations.",
@@ -8004,6 +8012,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-runaway-guard",
+      "original_name": "runaway-guard",
+      "description": "Cost-safety discipline for paid AI / inference APIs: treat $-cost as a third complexity dimension alongside time and space. Forces a written per-run $-cap, per-day $-cap, max-iterations bound, concurrency limit, and a matching provider-dashboard hard cap BEFORE any call site is written.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-billing-automation",
       "original_name": "billing-automation",
       "description": "Master automated billing systems including recurring billing, invoice generation, dunning management, proration, and tax calculation.",
@@ -8215,6 +8231,14 @@
       "name": "antigravity-monte-carlo-monitor-creation",
       "original_name": "monte-carlo-monitor-creation",
       "description": "Guides creation of Monte Carlo monitors via MCP tools, producing monitors-as-code YAML for CI/CD deployment.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-github-actions-advanced",
+      "original_name": "github-actions-advanced",
+      "description": "Design, debug, and harden GitHub Actions CI/CD workflows, including reusable workflows, matrix builds, self-hosted runners, OIDC authentication, caching, environments, secrets, and release automation.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10343,6 +10367,14 @@
       "name": "antigravity-ui-setup",
       "original_name": "ui-setup",
       "description": "Interactive StyleSeed setup wizard for choosing app type, brand color, visual style, typography, and the first screen scaffold.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-container-security-hardening",
+      "original_name": "container-security-hardening",
+      "description": "Harden Docker/container images and runtime deployments with secure base images, non-root users, CVE scanning, SBOM/signing, seccomp/AppArmor, and Kubernetes pod security controls. Use for Dockerfile security reviews, container CVEs, image scanning, distroless images, or production hardening.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

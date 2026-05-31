@@ -141,15 +141,24 @@ The first version is the default an AI ships when asked "filter the active users
 
 The upstream repo ships a deterministic CLI scanner with the same anti-patterns this skill enforces (**59 rules across 11 languages**: JavaScript/TypeScript, Python, SQL, Java, C#, C++, Go, Rust, PHP, Ruby, Shell/Bash). Each rule has a documented why, an incorrect example, a correct example, and the sibling skill to escalate to.
 
-To run the scanner locally:
+The scanner is optional. Do not automatically clone and run the upstream
+repository from its default branch, because that executes whatever code is
+current in a third-party repository. If the user explicitly wants the scanner,
+pin the source to a reviewed release tag or commit, use a throwaway directory,
+and show the resolved commit before running it:
 
 ```bash
-# Clone the upstream repo for the CLI tool
-git clone https://github.com/morsechimwai/lemmaly.git
-cd lemmaly
-node cli/lemmaly.js scan <path>          # flag instances of anti-patterns
-node cli/lemmaly.js rules                # list all 59 rules
+# Replace <reviewed-tag-or-commit> after reviewing the upstream release.
+tmpdir="$(mktemp -d)"
+git clone --filter=blob:none https://github.com/morsechimwai/lemmaly.git "$tmpdir/lemmaly"
+git -C "$tmpdir/lemmaly" checkout --detach <reviewed-tag-or-commit>
+git -C "$tmpdir/lemmaly" rev-parse HEAD
+node "$tmpdir/lemmaly/cli/lemmaly.js" scan <path>
+node "$tmpdir/lemmaly/cli/lemmaly.js" rules
 ```
+
+When the scan is done, remove the throwaway directory only after verifying that
+`$tmpdir` points to the directory created by `mktemp -d`.
 
 **CRITICAL severity (error in CI):**
 

@@ -51,9 +51,11 @@ Comprehensive guide to using uv, an extremely fast Python package installer and 
 
 ```bash
 # macOS/Linux
-curl -LsSf https://astral.sh/uv/install.sh -o /tmp/uv-install.sh
-sed -n '1,160p' /tmp/uv-install.sh
-sh /tmp/uv-install.sh
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT
+curl -LsSf https://astral.sh/uv/install.sh -o "$tmpdir/uv-install.sh"
+sed -n '1,160p' "$tmpdir/uv-install.sh"
+sh "$tmpdir/uv-install.sh"
 
 # Windows (PowerShell)
 powershell -NoProfile -Command "Invoke-WebRequest https://astral.sh/uv/install.ps1 -OutFile $env:TEMP\\uv-install.ps1; Get-Content $env:TEMP\\uv-install.ps1 -TotalCount 120; powershell -ExecutionPolicy Bypass -File $env:TEMP\\uv-install.ps1"

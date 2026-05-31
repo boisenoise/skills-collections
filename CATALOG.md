@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-30 07:13 UTC*
+*Last updated: 2026-05-31 07:31 UTC*
 
-Total skills: **2633**
+Total skills: **2637**
 
 ## Skills by Source
 
@@ -1617,6 +1617,7 @@ pipelines, and system utilities.... |
 consistency, and correctness. Use after setu... |
 | `antigravity-confluence-automation` | Automate Confluence page creation, content search, space management, labels, and hierarchy navigatio... |
 | `antigravity-constant-time-analysis` | Analyze cryptographic code to detect operations that leak secret data through execution timing varia... |
+| `antigravity-container-security-hardening` | Harden Docker/container images and runtime deployments with secure base images, non-root users, CVE ... |
 | `antigravity-content-creator` | Professional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks. |
 | `antigravity-content-marketer` | Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribu... |
 | `antigravity-content-strategy` | Plan a content strategy, topic clusters, editorial roadmap, and content mix for traffic, authority, ... |
@@ -1857,6 +1858,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-git-pr-workflows-pr-enhance` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate... |
 | `antigravity-git-pushing` | Stage all changes, create a conventional commit, and push to the remote branch. Use when explicitly ... |
 | `antigravity-github` | Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. |
+| `antigravity-github-actions-advanced` | Design, debug, and harden GitHub Actions CI/CD workflows, including reusable workflows, matrix build... |
 | `antigravity-github-actions-templates` | Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications. |
 | `antigravity-github-automation` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (... |
 | `antigravity-github-issue-creator` | Turn error logs, screenshots, voice notes, and rough bug reports into crisp, developer-ready GitHub ... |
@@ -2042,6 +2044,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-logic-lens` | AI-powered Claude Code skill that performs deep code review using formal logic and reasoning framewo... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
 | `antigravity-loki-mode` | Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced: OpenAI SDK, DeepMi... |
+| `antigravity-longbridge` | 125+ agent skills for Longbridge Securities — real-time quotes, charts, fundamentals, portfolio anal... |
 | `antigravity-loss-aversion-designer` | One sentence - what this skill does and when to invoke it |
 | `antigravity-m365-agents-dotnet` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.... |
 | `antigravity-m365-agents-py` | Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with ai... |
@@ -2353,6 +2356,7 @@ AppState, persistence, theme switch... |
 apply_over, TextOrImage, modal, 可复用, 模态,
 coll... |
 | `antigravity-ruby-pro` | Write idiomatic Ruby code with metaprogramming, Rails patterns, and performance optimization. Specia... |
+| `antigravity-runaway-guard` | Cost-safety discipline for paid AI / inference APIs: treat $-cost as a third complexity dimension al... |
 | `antigravity-rust-async-patterns` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns. Use... |
 | `antigravity-rust-pro` | Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready sy... |
 | `antigravity-saas-multi-tenant` | Design and implement multi-tenant SaaS architectures with row-level security, tenant-scoped queries,... |

@@ -2,13 +2,17 @@
 name: sendblue-api
 description: "Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API — text, media, group messages, send styles, reactions, typing indicators, status callbacks, and inbound webhooks."
 category: api-integration
-risk: safe
+risk: critical
 source: community
 source_type: official
 date_added: "2026-05-22"
 author: AnthonyFirth
 tags: [sendblue, imessage, sms, rcs, messaging, api, webhooks]
 tools: [claude, cursor, gemini]
+plugin:
+  targets:
+    codex: blocked
+    claude: blocked
 ---
 
 # Sendblue API
@@ -167,6 +171,7 @@ Status callback payloads (`outbound`) mirror the send-message response and updat
 ## Security & Safety Notes
 
 - Keep `sb-api-key-id` and `sb-api-secret-key` server-side. They are not safe in browser, mobile, or CI logs.
+- Treat every outbound send, contact/webhook mutation, read receipt, reaction, or typing indicator as state-changing. Preview the recipient, sender line, content, and callback/webhook changes, then wait for explicit user confirmation before sending.
 - Webhook endpoints should be on HTTPS and idempotent — same `message_handle` may arrive more than once.
 - Sensitive data in message content is visible in lock-screen previews on the recipient's device. Don't embed secrets, tokens, or full PII — link to an authenticated dashboard or shortened payload instead.
 - Rotate API keys from the Sendblue dashboard if either value is exposed; the old pair is invalidated on rotation.

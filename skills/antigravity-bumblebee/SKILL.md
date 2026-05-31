@@ -136,10 +136,14 @@ If the user has no catalog, run deep without `--findings-only` but warn them tha
 
 ## Step 5 — Generate the Markdown report
 
-Run the bundled helper to turn the NDJSON into a human-readable report:
+Run the bundled helper to turn the NDJSON into a human-readable report. Resolve
+the helper from the installed Bumblebee skill directory; never run a
+workspace-relative `scripts/render_report.py` from the scanned project.
 
 ```bash
-python3 scripts/render_report.py \
+BUMBLEBEE_SKILL_DIR="/absolute/path/to/the/bumblebee-skill-directory"
+test -f "$BUMBLEBEE_SKILL_DIR/scripts/render_report.py"
+python3 "$BUMBLEBEE_SKILL_DIR/scripts/render_report.py" \
   "$OUT/bumblebee-<profile>-$TS.ndjson" \
   "$OUT/bumblebee-<profile>-$TS.report.md"
 ```
