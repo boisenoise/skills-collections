@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-31T07:31:30.220176",
-  "skill_count": 2637,
+  "last_updated": "2026-06-01T08:07:29.945548",
+  "skill_count": 2646,
   "sources_processed": 19,
   "skills": [
     {
@@ -2820,6 +2820,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-nextjs-seo-indexing",
+      "original_name": "nextjs-seo-indexing",
+      "description": "Fix SEO indexing issues, crawl budget problems, and Search Console coverage errors for Next.js apps. Covers canonical tags, noindex audits, sitemap health, static rendering, and internal linking.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-lead-magnets",
       "original_name": "lead-magnets",
       "description": "Plan and optimize lead magnets for email capture and lead generation. Use when designing gated content, checklists, templates, downloadable resources, or other offers that convert visitors into subscribers.",
@@ -4388,6 +4396,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-vibecode-production-qa-validator",
+      "original_name": "vibecode-production-qa-validator",
+      "description": "End-to-end production QA, build verification, and launch-readiness checklist for fullstack Next.js apps before going live or shipping a major update. Covers TypeScript, linting, tests, build, SEO tags, route regression, and sitemap validation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-bumblebee",
       "original_name": "bumblebee",
       "description": "Run Bumblebee supply-chain inventory and exposure scans on macOS/Linux to detect compromised packages, extensions, and MCP host configs.",
@@ -5692,9 +5708,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-schema-markup-generator",
+      "original_name": "schema-markup-generator",
+      "description": "Generate and implement JSON-LD structured data for web apps, tool pages, blogs, FAQs, and SaaS sites. Supports WebSite, SoftwareApplication, BlogPosting, FAQPage, HowTo, BreadcrumbList, and Organization schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-scanning-tools",
       "original_name": "scanning-tools",
       "description": "Master essential security scanning tools for network discovery, vulnerability assessment, web application testing, wireless security, and compliance validation. This skill covers tool selection, configuration, and practical usage across different scanning categories.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-vibe-code-cleanup",
+      "original_name": "vibe-code-cleanup",
+      "description": "Safe production cleanup and hardening for vibe-coded fullstack apps (Next.js, React, Node.js, etc.). Removes dead imports, unused files, broken references, and standardizes helpers without breaking routes or APIs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7716,6 +7748,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-social-metadata-hardening",
+      "original_name": "social-metadata-hardening",
+      "description": "Fix social sharing previews so URLs render as rich cards on Facebook, LinkedIn, X/Twitter, WhatsApp, Telegram, Slack, and Discord. Covers OG tags, Twitter cards, absolute image URLs, and metadata debugging.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-clarvia-aeo-check",
       "original_name": "clarvia-aeo-check",
       "description": "Score any MCP server, API, or CLI for agent-readiness using Clarvia AEO (Agent Experience Optimization). Search 15,400+ indexed tools before adding them to your workflow.",
@@ -9220,6 +9260,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-doc2math",
+      "original_name": "doc2math",
+      "description": "Convert narrative technical documents into grounded Mathematical Problem Specifications with variables, constraints, objectives, and uncertainty.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-robius-event-action",
       "original_name": "robius-event-action",
       "description": "CRITICAL: Use for Robius event and action patterns. Triggers on:\ncustom action, MatchEvent, post_action, cx.widget_action,\nhandle_actions, DefaultNone, widget action, event handling,\n\u4e8b\u4ef6\u5904\u7406, \u81ea\u5b9a\u4e49\u52a8\u4f5c\n",
@@ -10132,6 +10180,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-moatmri",
+      "original_name": "moatmri",
+      "description": "Analyze AI disruption pressure across a business, map competitive exposure, and produce a 90-day defensive action plan.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-development",
       "original_name": "development",
       "description": "Comprehensive web, mobile, and backend development workflow bundling frontend, backend, full-stack, and mobile development skills for end-to-end application delivery.",
@@ -10247,6 +10303,14 @@
       "name": "antigravity-beautiful-prose",
       "original_name": "beautiful-prose",
       "description": "A hard-edged writing style contract for timeless, forceful English prose without modern AI tics. Use when users ask for prose or rewrites that must be clean, exact, concrete, and free of AI cadence, filler, or therapeutic tone.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-yield-intelligence",
+      "original_name": "yield-intelligence",
+      "description": "Passive income portfolio analysis \u2014 activate when user asks about dividend yields, Treasury rates, REIT income, monthly passive income goals, or portfolio yield optimization. Scans 4 asset classes, ranks by risk-adjusted return, and builds allocations targeting a specific monthly income.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11564,6 +11628,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-youtube-full",
+      "original_name": "youtube-full",
+      "description": "Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI \u2014 no yt-dlp, no Google API key, works from any cloud server.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-axiom",
       "original_name": "axiom",
       "description": "First-principles assumption auditor. Classifies each hidden assumption (fact / convention / belief / interest-driven), ranks by fragility \u00d7 impact, and rebuilds conclusions from verified premises. Bilingual: auto-detects Chinese or English.",
@@ -12230,7 +12302,7 @@
     {
       "name": "antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill",
       "original_name": "wordpress-centric-high-seo-optimized-blogwriting-skill",
-      "description": "Create long-form, high-quality, SEO-optimized blog posts ready for WordPress with truth boxes and FAQ schema.",
+      "description": "Generate clean, human-sounding, SEO-optimized WordPress blog posts with optional Yoast metadata, JSON-LD schema markup, and image SEO planning. Supports modular batch output.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

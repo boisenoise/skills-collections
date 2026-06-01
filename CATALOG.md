@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-05-31 07:31 UTC*
+*Last updated: 2026-06-01 08:07 UTC*
 
-Total skills: **2637**
+Total skills: **2646**
 
 ## Skills by Source
 
@@ -1715,6 +1715,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-django-perf-review` | Django performance code review. Use when asked to "review Django performance", "find N+1 queries", "... |
 | `antigravity-django-pro` | Master Django 5.x with async views, DRF, Celery, and Django Channels. Build scalable web application... |
 | `antigravity-doc-coauthoring` | This skill provides a structured workflow for guiding users through collaborative document creation.... |
+| `antigravity-doc2math` | Convert narrative technical documents into grounded Mathematical Problem Specifications with variabl... |
 | `antigravity-docker-expert` | You are an advanced Docker containerization expert with comprehensive, practical knowledge of contai... |
 | `antigravity-docs-architect` | Creates comprehensive technical documentation from existing codebases. Analyzes architecture, design... |
 | `antigravity-documentation` | Documentation generation workflow covering API docs, architecture docs, README files, code comments,... |
@@ -2114,6 +2115,7 @@ splash language, makepad script, m... |
 | `antigravity-ml-pipeline-workflow` | Complete end-to-end MLOps pipeline orchestration from data preparation through model deployment. |
 | `antigravity-mlops-engineer` | Build comprehensive ML pipelines, experiment tracking, and model registries with MLflow, Kubeflow, a... |
 | `antigravity-mmx-cli` | Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the... |
+| `antigravity-moatmri` | Analyze AI disruption pressure across a business, map competitive exposure, and produce a 90-day def... |
 | `antigravity-mobile-design` | (Mobile-First · Touch-First · Platform-Respectful) |
 | `antigravity-mobile-developer` | Develop React Native, Flutter, or native mobile apps with modern architecture patterns. Masters cros... |
 | `antigravity-mobile-security-coder` | Expert in secure mobile coding practices specializing in input validation, WebView security, and mob... |
@@ -2159,6 +2161,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-news-sentiment-engine` | Multi-source RSS news aggregation with Claude-powered sentiment analysis and structured briefing out... |
 | `antigravity-nextjs-app-router-patterns` | Comprehensive patterns for Next.js 14+ App Router architecture, Server Components, and modern full-s... |
 | `antigravity-nextjs-best-practices` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
+| `antigravity-nextjs-seo-indexing` | Fix SEO indexing issues, crawl budget problems, and Search Console coverage errors for Next.js apps.... |
 | `antigravity-nextjs-supabase-auth` | Expert integration of Supabase Auth with Next.js App Router |
 | `antigravity-nft-standards` | Master ERC-721 and ERC-1155 NFT standards, metadata best practices, and advanced NFT features. |
 | `antigravity-nodejs-backend-patterns` | Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend app... |
@@ -2375,6 +2378,7 @@ coll... |
 | `antigravity-scanpy` | Scanpy is a scalable Python toolkit for analyzing single-cell RNA-seq data, built on AnnData. Apply ... |
 | `antigravity-scarcity-urgency-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-schema-markup` | Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurab... |
+| `antigravity-schema-markup-generator` | Generate and implement JSON-LD structured data for web apps, tool pages, blogs, FAQs, and SaaS sites... |
 | `antigravity-scientific-writing` | This is the core skill for the deep research and writing tool—combining AI-driven deep research with... |
 | `antigravity-scikit-learn` | Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model ... |
 | `antigravity-screen-reader-testing` | Practical guide to testing web applications with screen readers for comprehensive accessibility vali... |
@@ -2483,6 +2487,7 @@ Plans content calendars and ident... |
 | `antigravity-smtp-penetration-testing` | Conduct comprehensive security assessments of SMTP (Simple Mail Transfer Protocol) servers to identi... |
 | `antigravity-snowflake-development` | Comprehensive Snowflake development assistant covering SQL best practices, data pipeline design (Dyn... |
 | `antigravity-social-content` | You are an expert social media strategist with direct access to a scheduling platform that publishes... |
+| `antigravity-social-metadata-hardening` | Fix social sharing previews so URLs render as rich cards on Facebook, LinkedIn, X/Twitter, WhatsApp,... |
 | `antigravity-social-orchestrator` | Orquestrador unificado de canais sociais — coordena Instagram, Telegram e WhatsApp em um unico fluxo... |
 | `antigravity-social-post-writer-seo` | Social Media Strategist and Content Writer. Creates clear, engaging social media posts for Instagram... |
 | `antigravity-social-proof-architect` | One sentence - what this skill does and when to invoke it |
@@ -2652,6 +2657,8 @@ calculations
 | `antigravity-vexor` | Vector-powered CLI for semantic file search with a Claude/Codex skill |
 | `antigravity-vexor-cli` | Semantic file discovery via `vexor`. Use whenever locating where something is implemented/loaded/def... |
 | `antigravity-vibe-code-auditor` | Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks. |
+| `antigravity-vibe-code-cleanup` | Safe production cleanup and hardening for vibe-coded fullstack apps (Next.js, React, Node.js, etc.).... |
+| `antigravity-vibecode-production-qa-validator` | End-to-end production QA, build verification, and launch-readiness checklist for fullstack Next.js a... |
 | `antigravity-vibers-code-review` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, an... |
 | `antigravity-viboscope` | Psychological compatibility matching — find cofounders, collaborators, and friends through validated... |
 | `antigravity-videodb` | Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spok... |
@@ -2690,7 +2697,7 @@ calculations
 | `antigravity-windows-shell-reliability` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
 | `antigravity-wireshark-analysis` | Execute comprehensive network traffic analysis using Wireshark to capture, filter, and examine netwo... |
 | `antigravity-wordpress` | Complete WordPress development workflow covering theme development, plugin creation, WooCommerce int... |
-| `antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill` | Create long-form, high-quality, SEO-optimized blog posts ready for WordPress with truth boxes and FA... |
+| `antigravity-wordpress-centric-high-seo-optimized-blogwriting-skill` | Generate clean, human-sounding, SEO-optimized WordPress blog posts with optional Yoast metadata, JSO... |
 | `antigravity-wordpress-penetration-testing` | Assess WordPress installations for common vulnerabilities and WordPress 7.0 attack surfaces. |
 | `antigravity-wordpress-plugin-development` | WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, REST AP... |
 | `antigravity-wordpress-theme-development` | WordPress theme development workflow covering theme architecture, template hierarchy, custom post ty... |
@@ -2714,7 +2721,9 @@ calculations
 | `antigravity-yann-lecun-filosofia` | Sub-skill filosófica e pedagógica de Yann LeCun. |
 | `antigravity-yann-lecun-tecnico` | Sub-skill técnica de Yann LeCun. Cobre CNNs, LeNet, backpropagation, JEPA (I-JEPA, V-JEPA, MC-JEPA),... |
 | `antigravity-yes-md` | 6-layer AI governance: safety gates, evidence-based debugging, anti-slack detection, and machine-enf... |
+| `antigravity-yield-intelligence` | Passive income portfolio analysis — activate when user asks about dividend yields, Treasury rates, R... |
 | `antigravity-youtube-automation` | Automate YouTube tasks via Rube MCP (Composio): upload videos, manage playlists, search content, get... |
+| `antigravity-youtube-full` | Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI —... |
 | `antigravity-youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelli... |
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
