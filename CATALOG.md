@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-01 08:07 UTC*
+*Last updated: 2026-06-02 07:55 UTC*
 
-Total skills: **2646**
+Total skills: **2647**
 
 ## Skills by Source
 
@@ -1061,6 +1061,7 @@ Total skills: **2646**
 | `brunoasm-Emu_bulk_upload_FMNH` | Help museum insect curators bulk upload specimen data to the Emu database. Maps any input format to ... |
 | `brunoasm-accounting` | Process receipts, track expenses in Google Sheets, reconcile records, and generate entertainment sup... |
 | `brunoasm-biogeobears` | Set up and execute phylogenetic biogeographic analyses using BioGeoBEARS in R. Use when users reques... |
+| `brunoasm-document_ocr` | Convert scanned PDFs and document images into clean Markdown using docling for layout (figures, tabl... |
 | `brunoasm-extract_from_pdfs` | This skill should be used when extracting structured data from scientific PDFs for systematic review... |
 | `brunoasm-phylo_from_buscos` | Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with s... |
 | `brunoasm-think_deeply` | Engages structured analysis to explore multiple perspectives and context dependencies before respond... |
@@ -1177,7 +1178,6 @@ Total skills: **2646**
 |-------|-------------|
 | `superpowers-lab-finding-duplicate-functions` | Use when auditing a codebase for semantic duplication - functions that do the same thing but have di... |
 | `superpowers-lab-mcp-cli` | Use MCP servers on-demand via the mcp CLI tool - discover tools, resources, and prompts without poll... |
-| `superpowers-lab-slack-messaging` | Use when asked to send or read Slack messages, check Slack channels, test Slack integrations, or int... |
 | `superpowers-lab-using-tmux-for-interactive-commands` | Use when you need to run interactive CLI tools (vim, git rebase -i, Python REPL, etc.) that require ... |
 | `superpowers-lab-windows-vm` | Create, manage, or connect to a headless Windows 11 VM running in Docker with SSH access. Use when t... |
 
@@ -2746,6 +2746,7 @@ calculations
 | `vercel-vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel ... |
 | `vercel-vercel-optimize` | Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit... |
 | `vercel-web-design-guidelines` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check acc... |
+| `vercel-writing-guidelines` | Review docs/prose for Writing Guidelines compliance. Use when asked to "review my docs", "check writ... |
 
 ### zxkane/aws-skills
 

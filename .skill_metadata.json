@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-01T08:07:29.945548",
-  "skill_count": 2646,
+  "last_updated": "2026-06-02T07:55:02.353628",
+  "skill_count": 2647,
   "sources_processed": 19,
   "skills": [
     {
@@ -468,14 +468,6 @@
       "license": "MIT"
     },
     {
-      "name": "superpowers-lab-slack-messaging",
-      "original_name": "slack-messaging",
-      "description": "Use when asked to send or read Slack messages, check Slack channels, test Slack integrations, or interact with a Slack workspace from the command line.",
-      "source": "obra/superpowers-lab",
-      "source_url": "https://github.com/obra/superpowers-lab",
-      "license": "MIT"
-    },
-    {
       "name": "superpowers-lab-mcp-cli",
       "original_name": "mcp-cli",
       "description": "Use MCP servers on-demand via the mcp CLI tool - discover tools, resources, and prompts without polluting context with pre-loaded MCP integrations",
@@ -543,6 +535,14 @@
       "name": "vercel-vercel-optimize",
       "original_name": "vercel-optimize",
       "description": "Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in verified files and version-aware Vercel/framework docs. Trigger for Vercel bill reduction, slow or expensive routes, caching opportunities, Function Invocations, Build Minutes, Fast Data Transfer, Core Web Vitals, Bot Management, Fluid compute, or cost breakdown requests.",
+      "source": "vercel-labs/agent-skills",
+      "source_url": "https://github.com/vercel-labs/agent-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "vercel-writing-guidelines",
+      "original_name": "writing-guidelines",
+      "description": "Review docs/prose for Writing Guidelines compliance. Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing handbook\".",
       "source": "vercel-labs/agent-skills",
       "source_url": "https://github.com/vercel-labs/agent-skills",
       "license": "MIT"
@@ -20511,6 +20511,14 @@
       "name": "brunoasm-think_deeply",
       "original_name": "thinking-deeply",
       "description": "Engages structured analysis to explore multiple perspectives and context dependencies before responding. Use when users ask confirmation-seeking questions, make leading statements, request binary choices, or when feeling inclined to quickly agree or disagree without thorough consideration.",
+      "source": "brunoasm/my_claude_skills",
+      "source_url": "https://github.com/brunoasm/my_claude_skills",
+      "license": "MIT"
+    },
+    {
+      "name": "brunoasm-document_ocr",
+      "original_name": "document-ocr",
+      "description": "Convert scanned PDFs and document images into clean Markdown using docling for layout (figures, tables, reading order) plus a vision-language OCR model. Use when a user needs high-quality OCR of scanned documents, historical literature, or photographed pages \u2014 preserving multi-column reading order, diacritics, special characters, and figures. Supports local vLLM/Ollama servers and cloud vision APIs (OpenAI, Anthropic). Assumes an OCR backend already exists.",
       "source": "brunoasm/my_claude_skills",
       "source_url": "https://github.com/brunoasm/my_claude_skills",
       "license": "MIT"
