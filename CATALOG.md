@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-02 07:55 UTC*
+*Last updated: 2026-06-03 07:58 UTC*
 
-Total skills: **2647**
+Total skills: **2648**
 
 ## Skills by Source
 
@@ -2378,7 +2378,7 @@ coll... |
 | `antigravity-scanpy` | Scanpy is a scalable Python toolkit for analyzing single-cell RNA-seq data, built on AnnData. Apply ... |
 | `antigravity-scarcity-urgency-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-schema-markup` | Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurab... |
-| `antigravity-schema-markup-generator` | Generate and implement JSON-LD structured data for web apps, tool pages, blogs, FAQs, and SaaS sites... |
+| `antigravity-schema-markup-generator` | Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports W... |
 | `antigravity-scientific-writing` | This is the core skill for the deep research and writing tool—combining AI-driven deep research with... |
 | `antigravity-scikit-learn` | Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model ... |
 | `antigravity-screen-reader-testing` | Practical guide to testing web applications with screen readers for comprehensive accessibility vali... |
@@ -2635,6 +2635,7 @@ calculations
 | `antigravity-unsplash-integration` | Integration skill for searching and fetching high-quality, free-to-use professional photography from... |
 | `antigravity-upgrading-expo` | Upgrade Expo SDK versions |
 | `antigravity-upstash-qstash` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task de... |
+| `antigravity-user-thoughts` | Persist user decisions and project constraints to mdbase across sessions. Trigger on /user-thoughts ... |
 | `antigravity-using-git-worktrees` | Git worktrees create isolated workspaces sharing the same repository, allowing work on multiple bran... |
 | `antigravity-using-neon` | Neon is a serverless Postgres platform that separates compute and storage to offer autoscaling, bran... |
 | `antigravity-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool in... |

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-02T07:55:02.353628",
-  "skill_count": 2647,
+  "last_updated": "2026-06-03T07:58:03.827900",
+  "skill_count": 2648,
   "sources_processed": 19,
   "skills": [
     {
@@ -4398,7 +4398,7 @@
     {
       "name": "antigravity-vibecode-production-qa-validator",
       "original_name": "vibecode-production-qa-validator",
-      "description": "End-to-end production QA, build verification, and launch-readiness checklist for fullstack Next.js apps before going live or shipping a major update. Covers TypeScript, linting, tests, build, SEO tags, route regression, and sitemap validation.",
+      "description": "End-to-end production QA, build verification, and launch-readiness checklist for fullstack Next.js apps. Covers TypeScript, linting, tests, build, SEO tags, route regression, and sitemap validation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5710,7 +5710,7 @@
     {
       "name": "antigravity-schema-markup-generator",
       "original_name": "schema-markup-generator",
-      "description": "Generate and implement JSON-LD structured data for web apps, tool pages, blogs, FAQs, and SaaS sites. Supports WebSite, SoftwareApplication, BlogPosting, FAQPage, HowTo, BreadcrumbList, and Organization schemas.",
+      "description": "Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports WebSite, SoftwareApplication, BlogPosting, FAQPage, HowTo, and more.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5726,7 +5726,7 @@
     {
       "name": "antigravity-vibe-code-cleanup",
       "original_name": "vibe-code-cleanup",
-      "description": "Safe production cleanup and hardening for vibe-coded fullstack apps (Next.js, React, Node.js, etc.). Removes dead imports, unused files, broken references, and standardizes helpers without breaking routes or APIs.",
+      "description": "Safe production cleanup and hardening for vibe-coded fullstack apps (Next.js, React, Node.js, etc.). Removes dead imports, unused files, and broken references without breaking routes or APIs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7750,7 +7750,7 @@
     {
       "name": "antigravity-social-metadata-hardening",
       "original_name": "social-metadata-hardening",
-      "description": "Fix social sharing previews so URLs render as rich cards on Facebook, LinkedIn, X/Twitter, WhatsApp, Telegram, Slack, and Discord. Covers OG tags, Twitter cards, absolute image URLs, and metadata debugging.",
+      "description": "Fix social sharing previews so URLs render as rich cards on Facebook, LinkedIn, X/Twitter, WhatsApp, Telegram, and more. Covers OG tags, Twitter cards, absolute image URLs, and debugging.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11511,6 +11511,14 @@
       "name": "antigravity-multi-advisor",
       "original_name": "multi-advisor",
       "description": "Conselho de especialistas \u2014 consulta multiplos agentes do ecossistema em paralelo para analise multi-perspectiva de qualquer topico. Ativa personas, especialistas e agentes tecnicos simultaneamente, cada um pela sua otica unica, e consolida em sintese decisoria final.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-user-thoughts",
+      "original_name": "user-thoughts",
+      "description": "Persist user decisions and project constraints to mdbase across sessions. Trigger on /user-thoughts or /ustht, or when the user discusses architecture, tech stack, rules, UI/UX, or project memory.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
