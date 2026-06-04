@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-03T07:58:03.827900",
-  "skill_count": 2648,
+  "last_updated": "2026-06-04T07:51:51.879312",
+  "skill_count": 2662,
   "sources_processed": 19,
   "skills": [
     {
@@ -1799,6 +1799,14 @@
       "name": "antigravity-unsplash-integration",
       "original_name": "unsplash-integration",
       "description": "Integration skill for searching and fetching high-quality, free-to-use professional photography from Unsplash.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-accesslint-scan",
+      "original_name": "accesslint-scan",
+      "description": "Audit a live page for accessibility issues, locate each WCAG violation precisely, and return a selector-grounded fix worklist without editing.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5188,6 +5196,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-tdd-workflows",
+      "original_name": "tdd-workflows",
+      "description": "Use when working with tdd workflows tdd cycle (Alias for tdd-workflows-tdd-cycle)",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-dropbox-automation",
       "original_name": "dropbox-automation",
       "description": "Automate Dropbox file management, sharing, search, uploads, downloads, and folder operations via Rube MCP (Composio). Always search tools first for current schemas.",
@@ -6668,6 +6684,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-polis-protocol",
+      "original_name": "polis-protocol",
+      "description": "Coordinate multi-vendor AI agents as a self-improving team \u2014 a learning router assigns work by track record and citizens can amend the protocol's own rules.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-react-component-performance",
       "original_name": "react-component-performance",
       "description": "Diagnose slow React components and suggest targeted performance fixes.",
@@ -7188,6 +7212,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-vercel-optimize",
+      "original_name": "vercel-optimize",
+      "description": "Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans, and version-aware recommendations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-swiftui-expert-skill",
       "original_name": "swiftui-expert-skill",
       "description": "Write, review, or improve SwiftUI code following best practices for state management, view composition, performance, and iOS 26+ Liquid Glass adoption. Use when building new SwiftUI features, refactoring existing views, reviewing code quality, or adopting modern SwiftUI patterns.",
@@ -7540,6 +7572,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-accesslint-diff",
+      "original_name": "accesslint-diff",
+      "description": "Diff a live page's accessibility violations against a baseline \u2014 by default compares uncommitted changes (stash-based), or pass --branch [<name>] to diff against a branch. Reports only new violations introduced, violations fixed, and pre-existing count. Use `scan` for a full audit with no diffing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-context-manager",
       "original_name": "context-manager",
       "description": "Elite AI context engineering specialist mastering dynamic context management, vector databases, knowledge graphs, and intelligent memory systems.",
@@ -7855,6 +7895,14 @@
       "name": "antigravity-odoo-qweb-templates",
       "original_name": "odoo-qweb-templates",
       "description": "Expert in Odoo QWeb templating for PDF reports, email templates, and website pages. Covers t-if, t-foreach, t-field, and report actions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-accesslint-audit",
+      "original_name": "accesslint-audit",
+      "description": "Find and fix WCAG 2.2 accessibility issues. Two modes \u2014 report (sweep a codebase or page, produce a prioritized written report, no edits) and fix (audit\u2192edit\u2192verify loop on a target). Prefers direct-CDP live-DOM auditing; falls back to a browser-MCP composition or HTML-string audits.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8343,6 +8391,14 @@
       "name": "antigravity-azure-eventhub-rust",
       "original_name": "azure-eventhub-rust",
       "description": "Azure Event Hubs SDK for Rust. Use for sending and receiving events, streaming data ingestion.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-deploy-to-vercel",
+      "original_name": "deploy-to-vercel",
+      "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9052,6 +9108,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-composition-patterns",
+      "original_name": "composition-patterns",
+      "description": "Use when working with composition-patterns tasks or workflows",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-new-rails-project",
       "original_name": "new-rails-project",
       "description": "Create a new Rails project",
@@ -9700,6 +9764,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-react-native-skills",
+      "original_name": "react-native-skills",
+      "description": "Use when working with react-native-skills tasks or workflows",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-file-organizer",
       "original_name": "file-organizer",
       "description": "6. Reduces Clutter: Identifies old files you probably don't need anymore",
@@ -9791,6 +9863,14 @@
       "name": "antigravity-systematic-debugging",
       "original_name": "systematic-debugging",
       "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-vercel-react-view-transitions",
+      "original_name": "vercel-react-view-transitions",
+      "description": "Guide React and Next.js view transitions, shared element animations, route transitions, transition types, and reduced-motion-safe UI state animation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10055,6 +10135,14 @@
       "name": "antigravity-data-structure-protocol",
       "original_name": "data-structure-protocol",
       "description": "Give agents persistent structural memory of a codebase \u2014 navigate dependencies, track public APIs, and understand why connections exist without re-reading the whole repo.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-skill-issue",
+      "original_name": "skill-issue",
+      "description": "Find out why a coding-agent skill won't fire \u2014 grade each SKILL.md A\u2013F on activation, simulate which skill a prompt triggers, and flag collisions where one silently shadows another.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13132,6 +13220,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-vercel-cli-with-tokens",
+      "original_name": "vercel-cli-with-tokens",
+      "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login \u2014 e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\".",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-quality-nonconformance",
       "original_name": "quality-nonconformance",
       "description": "Codified expertise for quality control, non-conformance investigation, root cause analysis, corrective action, and supplier quality management in regulated manufacturing.",
@@ -13380,6 +13476,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-python-development",
+      "original_name": "python-development",
+      "description": "You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate complete project structures with modern tooling (uv, FastAPI, Django), type hint (Alias for python-development-python-scaffold)",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-frontend-ui-dark-ts",
       "original_name": "frontend-ui-dark-ts",
       "description": "A modern dark-themed React UI system using Tailwind CSS and Framer Motion. Designed for dashboards, admin panels, and data-rich applications with glassmorphism effects and tasteful animations.",
@@ -13439,6 +13543,14 @@
       "name": "antigravity-shopify-apps",
       "original_name": "shopify-apps",
       "description": "Expert patterns for Shopify app development including Remix/React Router apps, embedded apps with App Bridge, webhook handling, GraphQL Admin API, Polaris components, billing, and app extensions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-debugging-toolkit",
+      "original_name": "debugging-toolkit",
+      "description": "Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug)",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

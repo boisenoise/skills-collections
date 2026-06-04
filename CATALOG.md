@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-03 07:58 UTC*
+*Last updated: 2026-06-04 07:51 UTC*
 
-Total skills: **2648**
+Total skills: **2662**
 
 ## Skills by Source
 
@@ -1229,6 +1229,9 @@ Total skills: **2648**
 | `antigravity-ab-test-setup` | Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and executio... |
 | `antigravity-acceptance-orchestrator` | Use when a coding task should be driven end-to-end from issue intake through implementation, review,... |
 | `antigravity-accessibility-compliance-accessibility-audit` | You are an accessibility expert specializing in WCAG compliance, inclusive design, and assistive tec... |
+| `antigravity-accesslint-audit` | Find and fix WCAG 2.2 accessibility issues. Two modes — report (sweep a codebase or page, produce a ... |
+| `antigravity-accesslint-diff` | Diff a live page's accessibility violations against a baseline — by default compares uncommitted cha... |
+| `antigravity-accesslint-scan` | Audit a live page for accessibility issues, locate each WCAG violation precisely, and return a selec... |
 | `antigravity-active-directory-attacks` | Provide comprehensive techniques for attacking Microsoft Active Directory environments. Covers recon... |
 | `antigravity-activecampaign-automation` | Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, au... |
 | `antigravity-ad-creative` | Create, iterate, and scale paid ad creative for Google Ads, Meta, LinkedIn, TikTok, and similar plat... |
@@ -1602,6 +1605,7 @@ pipelines, and system utilities.... |
 | `antigravity-competitive-landscape` | Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and d... |
 | `antigravity-competitor-alternatives` | You are an expert in creating competitor comparison and alternative pages. Your goal is to build pag... |
 | `antigravity-complexity-cuts` | Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-stop. Fo... |
+| `antigravity-composition-patterns` | Use when working with composition-patterns tasks or workflows |
 | `antigravity-comprehensive-review-full-review` | Use when working with comprehensive review full review |
 | `antigravity-comprehensive-review-pr-enhance` | Generate structured PR descriptions from diffs, add review checklists, risk assessments, and test co... |
 | `antigravity-computer-use-agents` | Build AI agents that interact with computers like humans do - viewing screens, moving cursors, click... |
@@ -1685,6 +1689,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-debugger` | Debugging specialist for errors, test failures, and unexpected
 behavior. Use proactively when encoun... |
 | `antigravity-debugging-strategies` | Transform debugging from frustrating guesswork into systematic problem-solving with proven strategie... |
+| `antigravity-debugging-toolkit` | Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug) |
 | `antigravity-debugging-toolkit-smart-debug` | Use when working with debugging toolkit smart debug |
 | `antigravity-decision-navigator` | Guide stuck or overwhelmed users through targeted branching questions until they reach concrete next... |
 | `antigravity-deep-research` | Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive... |
@@ -1692,6 +1697,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-defuddle` | Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to... |
 | `antigravity-dependency-management-deps-audit` | You are a dependency security expert specializing in vulnerability scanning, license compliance, and... |
 | `antigravity-dependency-upgrade` | Master major dependency version upgrades, compatibility analysis, staged upgrade strategies, and com... |
+| `antigravity-deploy-to-vercel` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "depl... |
 | `antigravity-deployment-engineer` | Expert deployment engineer specializing in modern CI/CD pipelines, GitOps workflows, and advanced de... |
 | `antigravity-deployment-pipeline-design` | Architecture patterns for multi-stage CI/CD pipelines with approval gates and deployment strategies. |
 | `antigravity-deployment-procedures` | Production deployment principles and decision-making. Safe deployment workflows, rollback strategies... |
@@ -2255,6 +2261,7 @@ structures, and modern OOP features. U... |
 | `antigravity-plotly` | Interactive visualization library. Use when you need hover info, zoom, pan, or web-embeddable charts... |
 | `antigravity-podcast-generation` | Generate real audio narratives from text content using Azure OpenAI's Realtime API. |
 | `antigravity-polars` | Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data ... |
+| `antigravity-polis-protocol` | Coordinate multi-vendor AI agents as a self-improving team — a learning router assigns work by track... |
 | `antigravity-popup-cro` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without... |
 | `antigravity-posix-shell-pro` | Expert in strict POSIX sh scripting for maximum portability across Unix-like systems. Specializes in... |
 | `antigravity-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
@@ -2299,6 +2306,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pydantic-ai` | Build production-ready AI agents with PydanticAI — type-safe tool use, structured outputs, dependenc... |
 | `antigravity-pydantic-models-py` | Create Pydantic models following the multi-model pattern for clean API contracts. |
 | `antigravity-pypict-skill` | Pairwise test generation |
+| `antigravity-python-development` | You are a Python project architecture expert specializing in scaffolding production-ready Python app... |
 | `antigravity-python-development-python-scaffold` | You are a Python project architecture expert specializing in scaffolding production-ready Python app... |
 | `antigravity-python-fastapi-development` | Python FastAPI backend development with async patterns, SQLAlchemy, Pydantic, authentication, and pr... |
 | `antigravity-python-packaging` | Comprehensive guide to creating, structuring, and distributing Python packages using modern packagin... |
@@ -2321,6 +2329,7 @@ structures, and modern OOP features. U... |
 | `antigravity-react-flow-node-ts` | Create React Flow node components following established patterns with proper TypeScript types and st... |
 | `antigravity-react-modernization` | Master React version upgrades, class to hooks migration, concurrent features adoption, and codemods ... |
 | `antigravity-react-native-architecture` | Production-ready patterns for React Native development with Expo, including navigation, state manage... |
+| `antigravity-react-native-skills` | Use when working with react-native-skills tasks or workflows |
 | `antigravity-react-nextjs-development` | React and Next.js 14+ application development with App Router, Server Components, TypeScript, Tailwi... |
 | `antigravity-react-patterns` | Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. |
 | `antigravity-react-state-management` | Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when s... |
@@ -2470,6 +2479,7 @@ Plans content calendars and ident... |
 | `antigravity-skill-developer` | Comprehensive guide for creating and managing skills in Claude Code with auto-activation system, fol... |
 | `antigravity-skill-improver` | Iteratively improve a Claude Code skill using the skill-reviewer agent until it meets quality standa... |
 | `antigravity-skill-installer` | Instala, valida, registra e verifica novas skills no ecossistema. 10 checks de seguranca, copia, reg... |
+| `antigravity-skill-issue` | Find out why a coding-agent skill won't fire — grade each SKILL.md A–F on activation, simulate which... |
 | `antigravity-skill-optimizer` | Diagnose and optimize Agent Skills (SKILL.md) with real session data and research-backed static anal... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
 | `antigravity-skill-router` | Use when the user is unsure which skill to use or where to start. Interviews the user with targeted ... |
@@ -2552,6 +2562,7 @@ calculations
 | `antigravity-tcm-constitution-analyzer` | 分析中医体质数据、识别体质类型、评估体质特征,并提供个性化养生建议。支持与营养、运动、睡眠等健康数据的关联分析。 |
 | `antigravity-tdd-orchestrator` | Master TDD orchestrator specializing in red-green-refactor discipline, multi-agent workflow coordina... |
 | `antigravity-tdd-workflow` | Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle. |
+| `antigravity-tdd-workflows` | Use when working with tdd workflows tdd cycle (Alias for tdd-workflows-tdd-cycle) |
 | `antigravity-tdd-workflows-tdd-cycle` | Use when working with tdd workflows tdd cycle |
 | `antigravity-tdd-workflows-tdd-green` | Implement the minimal code needed to make failing tests pass in the TDD green phase. |
 | `antigravity-tdd-workflows-tdd-red` | Generate failing tests for the TDD red phase to define expected behavior and edge cases. |
@@ -2653,7 +2664,10 @@ calculations
 | `antigravity-vector-index-tuning` | Optimize vector index performance for latency, recall, and memory. Use when tuning HNSW parameters, ... |
 | `antigravity-vercel-ai-sdk-expert` | Expert in the Vercel AI SDK. Covers Core API (generateText, streamText), UI hooks (useChat, useCompl... |
 | `antigravity-vercel-automation` | Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects,... |
+| `antigravity-vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel ... |
 | `antigravity-vercel-deployment` | Expert knowledge for deploying to Vercel with Next.js |
+| `antigravity-vercel-optimize` | Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans... |
+| `antigravity-vercel-react-view-transitions` | Guide React and Next.js view transitions, shared element animations, route transitions, transition t... |
 | `antigravity-verification-before-completion` | Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation... |
 | `antigravity-vexor` | Vector-powered CLI for semantic file search with a Claude/Codex skill |
 | `antigravity-vexor-cli` | Semantic file discovery via `vexor`. Use whenever locating where something is implemented/loaded/def... |
