@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-06-04 07:51 UTC*
+*Last updated: 2026-06-05 07:44 UTC*
 
 Total skills: **2662**
 
@@ -944,7 +944,7 @@ Total skills: **2662**
 | `kdense-infographics` | Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemi... |
 | `kdense-iso-13485-certification` | Comprehensive toolkit for preparing ISO 13485 certification documentation for medical device Quality... |
 | `kdense-labarchive-integration` | Electronic lab notebook API integration. Access notebooks, manage entries/attachments, backup notebo... |
-| `kdense-lamindb` | This skill should be used when working with LaminDB, an open-source data framework for biology that ... |
+| `kdense-lamindb` | Use when working with LaminDB, the open-source lineage-native lakehouse for biological datasets and ... |
 | `kdense-latchbio-integration` | Latch platform for bioinformatics workflows. Build pipelines with Latch SDK, @workflow/@task decorat... |
 | `kdense-latex-posters` | Create professional research posters in LaTeX using beamerposter, tikzposter, or baposter. Support f... |
 | `kdense-liteparse` | Local document and PDF parsing with spatial text and bounding boxes. Use for extracting text from PD... |
@@ -961,7 +961,7 @@ Total skills: **2662**
 | `kdense-molfeat` | Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (Chem... |
 | `kdense-networkx` | Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python... |
 | `kdense-neurokit2` | Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA,... |
-| `kdense-neuropixels-analysis` | Neuropixels neural recording analysis. Load SpikeGLX/OpenEphys data, preprocess, motion correction, ... |
+| `kdense-neuropixels-analysis` | Analyze Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX... |
 | `kdense-nextflow` | Build, run, and debug Nextflow data pipelines and nf-core workflows end to end. Use whenever the use... |
 | `kdense-omero-integration` | Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, ma... |
 | `kdense-open-notebook` | Self-hosted, open-source alternative to Google NotebookLM for AI-powered research and document analy... |
