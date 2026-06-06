@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-05T07:44:15.519376",
-  "skill_count": 2662,
+  "last_updated": "2026-06-06T07:16:44.861656",
+  "skill_count": 2674,
   "sources_processed": 19,
   "skills": [
     {
@@ -2348,6 +2348,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-2slides-ppt-generator",
+      "original_name": "2slides-ppt-generator",
+      "description": "AI-powered presentation generation via the 2slides API \u2014 create slides from text, match a reference image style, summarize documents into decks, add AI voice narration, and export pages/audio. Use for any \"make slides\", \"create a deck\", or \"slides from this document\" request.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-fal-audio",
       "original_name": "fal-audio",
       "description": "Text-to-speech and speech-to-text using fal.ai audio models",
@@ -2908,6 +2916,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-permission-manager",
+      "original_name": "permission-manager",
+      "description": "Manage opencode permissions: review always-allow lists, suggest safe read-only commands, configure permission patterns",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hubspot-automation",
       "original_name": "hubspot-automation",
       "description": "Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using Composio integration.",
@@ -3151,6 +3167,14 @@
       "name": "antigravity-vulnerability-scanner",
       "original_name": "vulnerability-scanner",
       "description": "Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mapping, risk prioritization.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-examprep-ai",
+      "original_name": "examprep-ai",
+      "description": "Exam preparation assistant that converts syllabi, past papers, or notes into a ranked High Score Roadmap. Covers theory, numericals, MCQs, coding, and lab prep, ordered Easy \u2192 Medium \u2192 Hard. Use for last-minute revision, important topics, and question prediction.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9148,6 +9172,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-smart-git-automation",
+      "original_name": "smart-git-automation",
+      "description": "Smart change detection, auto branch naming, and streamlined commit/PR workflow",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-orchestrate-batch-refactor",
       "original_name": "orchestrate-batch-refactor",
       "description": "Plan and execute large refactors with dependency-aware work packets and parallel analysis.",
@@ -10508,6 +10540,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-skill-suggester",
+      "original_name": "skill-suggester",
+      "description": "Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-odoo-sales-crm-expert",
       "original_name": "odoo-sales-crm-expert",
       "description": "Expert guide for Odoo Sales and CRM: pipeline stages, quotation templates, pricelists, sales teams, lead scoring, and forecasting.",
@@ -10724,6 +10764,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-anti-sycophancy",
+      "original_name": "anti-sycophancy",
+      "description": "Eliminate sycophantic agreement patterns in AI responses. Load via /skill anti-sycophancy.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-odoo-woocommerce-bridge",
       "original_name": "odoo-woocommerce-bridge",
       "description": "Sync Odoo with WooCommerce: products, inventory, orders, and customers via WooCommerce REST API and Odoo external API.",
@@ -10874,6 +10922,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT-0"
+    },
+    {
+      "name": "antigravity-antigravity-agent-manager",
+      "original_name": "antigravity-agent-manager",
+      "description": "Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager and Antigravity IDE.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-global-chat-agent-discovery",
@@ -12260,6 +12316,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-event-staffing-compliance",
+      "original_name": "event-staffing-compliance",
+      "description": "Assess worker-classification and compliance risk for temporary event staffing in the US and Canada \u2014 W-2 vs 1099, misclassification penalties, joint-employer liability, COI, and wage/hour rules. Includes live state-by-state lookups via MCP.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-nodejs-backend-patterns",
       "original_name": "nodejs-backend-patterns",
       "description": "Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend applications with modern frameworks, architectural patterns, and best practices.",
@@ -13196,6 +13260,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-event-staffing-ordering",
+      "original_name": "event-staffing-ordering",
+      "description": "Order W-2 compliant temporary event staff for conventions, trade shows, festivals, concerts, sporting events, and brand activations across 300+ US and Canadian markets via TempGuru. Covers city coverage, role pricing, availability, state compliance lookups via MCP, and request submission.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-tdd-workflow",
       "original_name": "tdd-workflow",
       "description": "Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle.",
@@ -13247,6 +13319,14 @@
       "name": "antigravity-json-canvas",
       "original_name": "json-canvas",
       "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-hasdata-cli",
+      "original_name": "hasdata-cli",
+      "description": "Command-line access to search, scraping, and structured web data.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13476,6 +13556,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-linkedin-content-generator",
+      "original_name": "linkedin-content-generator",
+      "description": "AI-powered LinkedIn content suite: generate posts, carousels, newsletters, and 30-day calendars with niche-specific SEO rules and a reinforcement-learning personal memory system.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-python-development",
       "original_name": "python-development",
       "description": "You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate complete project structures with modern tooling (uv, FastAPI, Django), type hint (Alias for python-development-python-scaffold)",
@@ -13607,6 +13695,14 @@
       "name": "antigravity-skill-sentinel",
       "original_name": "skill-sentinel",
       "description": "Auditoria e evolucao do ecossistema de skills. Qualidade de codigo, seguranca, custos, gaps, duplicacoes, dependencias e relatorios de saude.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-hasdata",
+      "original_name": "hasdata",
+      "description": "Use HasData APIs for web scraping and structured web data extraction.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -20628,14 +20724,6 @@
       "license": "MIT"
     },
     {
-      "name": "brunoasm-think_deeply",
-      "original_name": "thinking-deeply",
-      "description": "Engages structured analysis to explore multiple perspectives and context dependencies before responding. Use when users ask confirmation-seeking questions, make leading statements, request binary choices, or when feeling inclined to quickly agree or disagree without thorough consideration.",
-      "source": "brunoasm/my_claude_skills",
-      "source_url": "https://github.com/brunoasm/my_claude_skills",
-      "license": "MIT"
-    },
-    {
       "name": "brunoasm-document_ocr",
       "original_name": "document-ocr",
       "description": "Convert scanned PDFs and document images into clean Markdown using docling for layout (figures, tables, reading order) plus a vision-language OCR model. Use when a user needs high-quality OCR of scanned documents, historical literature, or photographed pages \u2014 preserving multi-column reading order, diacritics, special characters, and figures. Supports local vLLM/Ollama servers and cloud vision APIs (OpenAI, Anthropic). Assumes an OCR backend already exists.",
@@ -20663,6 +20751,14 @@
       "name": "brunoasm-biogeobears",
       "original_name": "biogeobears",
       "description": "Set up and execute phylogenetic biogeographic analyses using BioGeoBEARS in R. Use when users request biogeographic reconstruction, ancestral range estimation, or want to analyze species distributions on phylogenies. Handles input file validation, data reformatting, RMarkdown workflow generation, and result visualization.",
+      "source": "brunoasm/my_claude_skills",
+      "source_url": "https://github.com/brunoasm/my_claude_skills",
+      "license": "MIT"
+    },
+    {
+      "name": "brunoasm-lab_ordering",
+      "original_name": "lab-ordering",
+      "description": "Place lab supply orders from member requests \u2014 route by request header to Amazon Business, the Pritzker Lab Google Form, or a direct vendor; stage the cart/form and stop for human review before any purchase. Use when the user pastes an order request or asks to order supplies, place an order, or fill the Pritzker form.",
       "source": "brunoasm/my_claude_skills",
       "source_url": "https://github.com/brunoasm/my_claude_skills",
       "license": "MIT"
