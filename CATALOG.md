@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-06 07:16 UTC*
+*Last updated: 2026-06-07 07:37 UTC*
 
-Total skills: **2674**
+Total skills: **2676**
 
 ## Skills by Source
 
@@ -1661,6 +1661,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-customer-psychographic-profiler` | One sentence - what this skill does and when to invoke it |
 | `antigravity-customer-support` | Elite AI-powered customer support specialist mastering conversational AI, automated ticketing, senti... |
 | `antigravity-customs-trade-compliance` | Codified expertise for customs documentation, tariff classification, duty optimisation, restricted p... |
+| `antigravity-cv-generator` | Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi-sour... |
 | `antigravity-daily` | Documentation and capabilities reference for Daily |
 | `antigravity-daily-gift` | Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, synthes... |
 | `antigravity-daily-news-report` | Scrapes content based on a preset URL list, filters high-quality technical information, and generate... |
@@ -2226,6 +2227,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-onboarding-cro` | You are an expert in user onboarding and activation. Your goal is to help users reach their "aha mom... |
 | `antigravity-onboarding-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-one-drive-automation` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder oper... |
+| `antigravity-open-dynamic-workflows` | Plan, orchestrate, and adversarially verify parallel AI coding agents with a dynamic multi-agent wor... |
 | `antigravity-openapi-spec-generation` | Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patte... |
 | `antigravity-openclaw-github-repo-commander` | 7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis |
 | `antigravity-options-flow-analyzer` | Real vs lottery call separation for options P/C ratio analysis — prevents signal inversion from deep... |

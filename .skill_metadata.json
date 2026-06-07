@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-06T07:16:44.861656",
-  "skill_count": 2674,
+  "last_updated": "2026-06-07T07:37:00.448073",
+  "skill_count": 2676,
   "sources_processed": 19,
   "skills": [
     {
@@ -6612,6 +6612,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cv-generator",
+      "original_name": "cv-generator",
+      "description": "Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi-source merging, JD targeting, seniority adaptation, and humanized rewriting. Outputs paste-ready text with an ATS flaw report and improvement suggestions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-semgrep-rule-variant-creator",
       "original_name": "semgrep-rule-variant-creator",
       "description": "Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages. Takes an existing rule and target languages as input, produces independent rule+test directories for each language.",
@@ -11903,6 +11911,14 @@
       "name": "antigravity-email-sequence",
       "original_name": "email-sequence",
       "description": "You are an expert in email marketing and automation. Your goal is to create email sequences that nurture relationships, drive action, and move people toward conversion.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-open-dynamic-workflows",
+      "original_name": "open-dynamic-workflows",
+      "description": "Plan, orchestrate, and adversarially verify parallel AI coding agents with a dynamic multi-agent workflow engine.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
