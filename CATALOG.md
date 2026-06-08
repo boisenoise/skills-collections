@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-07 07:37 UTC*
+*Last updated: 2026-06-08 08:01 UTC*
 
-Total skills: **2676**
+Total skills: **2679**
 
 ## Skills by Source
 
@@ -904,7 +904,7 @@ Total skills: **2676**
 | `kdense-biopython` | Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/... |
 | `kdense-bioservices` | Unified Python interface to 40+ bioinformatics services. Use when querying multiple databases (UniPr... |
 | `kdense-bulk-rnaseq` | End-to-end bulk RNA-seq orchestrator — takes raw FASTQ reads through QC and trimming (FastQC, fastp/... |
-| `kdense-cellxgene-census` | Query the CELLxGENE Census (61M+ cells) programmatically. Use when you need expression data across t... |
+| `kdense-cellxgene-census` | Query the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcri... |
 | `kdense-cirq` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-a... |
 | `kdense-citation-management` | Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers... |
 | `kdense-clinical-decision-support` | Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical rese... |
@@ -918,10 +918,10 @@ Total skills: **2676**
 | `kdense-deeptools` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profil... |
 | `kdense-depmap` | Query the Cancer Dependency Map (DepMap) for cancer cell line gene dependency scores (CRISPR Chronos... |
 | `kdense-dhdna-profiler` | Extract cognitive patterns and thinking fingerprints from any text. Use this skill when the user wan... |
-| `kdense-diffdock` | Diffusion-based molecular docking. Predict protein-ligand binding poses from PDB/SMILES, confidence ... |
+| `kdense-diffdock` | DiffDock and DiffDock-L molecular docking. Use for protein-small-molecule pose prediction from PDB o... |
 | `kdense-dnanexus-integration` | DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download), dxpy Python SDK... |
 | `kdense-docx` | Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx fi... |
-| `kdense-esm` | Comprehensive toolkit for EvolutionaryScale protein language models including ESM3 (generative multi... |
+| `kdense-esm` | Use when working directly with the `esm` Python SDK, ESM3 or ESMC model IDs, Forge/Biohub inference ... |
 | `kdense-etetoolkit` | Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, ortho... |
 | `kdense-exa-search` | Web toolkit powered by Exa, tuned for scientific and technical content. Use this skill when the user... |
 | `kdense-exploratory-data-analysis` | Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. T... |
@@ -932,7 +932,7 @@ Total skills: **2676**
 | `kdense-geomaster` | Comprehensive geospatial science skill covering remote sensing, GIS, spatial analysis, machine learn... |
 | `kdense-geopandas` | Python library for working with geospatial vector data including shapefiles, GeoJSON, and GeoPackage... |
 | `kdense-get-available-resources` | This skill should be used at the start of any computationally intensive scientific task to detect an... |
-| `kdense-gget` | Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick lookups: gene info, BLAST sea... |
+| `kdense-gget` | Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick lookups: gene info, BLAST/BLA... |
 | `kdense-ginkgo-cloud-lab` | Submit and manage protocols on Ginkgo Bioworks Cloud Lab (cloud.ginkgo.bio), a web-based interface f... |
 | `kdense-glycoengineering` | Analyze and engineer protein glycosylation. Scan sequences for N-glycosylation sequons (N-X-S/T), pr... |
 | `kdense-gtars` | High-performance toolkit for genomic interval analysis in Rust with Python bindings. Use when workin... |
@@ -977,14 +977,14 @@ Total skills: **2676**
 | `kdense-peer-review` | Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer rev... |
 | `kdense-pennylane` | Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum cir... |
 | `kdense-phylogenetics` | Build and analyze phylogenetic trees using MAFFT (multiple alignment), IQ-TREE 2 (maximum likelihood... |
-| `kdense-polars` | Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data ... |
+| `kdense-polars` | High-performance DataFrame library for Python ETL, analytics, and pandas migration. Use for expressi... |
 | `kdense-polars-bio` | High-performance genomic interval operations and bioinformatics file I/O on Polars DataFrames. Overl... |
 | `kdense-pptx` | Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includ... |
 | `kdense-pptx-posters` | Create research posters using HTML/CSS that can be exported to PDF or PPTX. Use this skill ONLY when... |
 | `kdense-primekg` | Query the Precision Medicine Knowledge Graph (PrimeKG) for multiscale biological data including gene... |
 | `kdense-protocolsio-integration` | Integration with protocols.io API for managing scientific protocols. This skill should be used when ... |
 | `kdense-pufferlib` | High-performance reinforcement learning framework optimized for speed and scale. Use when you need f... |
-| `kdense-pydeseq2` | Differential gene expression analysis (Python DESeq2). Identify DE genes from bulk RNA-seq counts, W... |
+| `kdense-pydeseq2` | Differential gene expression analysis for bulk RNA-seq with PyDESeq2, including formulaic designs, W... |
 | `kdense-pydicom` | Python library for working with DICOM (Digital Imaging and Communications in Medicine) files. Use th... |
 | `kdense-pyhealth` | Build clinical/healthcare deep-learning pipelines with PyHealth — loading EHR/signal/imaging dataset... |
 | `kdense-pylabrobot` | Vendor-agnostic lab automation framework. Use when controlling multiple equipment types (Hamilton, T... |
@@ -1028,7 +1028,7 @@ Total skills: **2676**
 | `kdense-torchdrug` | PyTorch-native graph neural networks for molecules and proteins. Use when building custom GNN archit... |
 | `kdense-transformers` | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and T... |
 | `kdense-treatment-plans` | Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF format for all clinical sp... |
-| `kdense-umap-learn` | UMAP dimensionality reduction. Fast nonlinear manifold learning for 2D/3D visualization, clustering ... |
+| `kdense-umap-learn` | Use UMAP-learn for nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, s... |
 | `kdense-usfiscaldata` | Query the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use fo... |
 | `kdense-vaex` | Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed av... |
 | `kdense-venue-templates` | Access comprehensive LaTeX templates, formatting requirements, and submission guidelines for major s... |
@@ -1043,7 +1043,7 @@ Total skills: **2676**
 | `anthropic-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `anthropic-brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
 | `anthropic-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
-| `anthropic-claude-api` | Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should includ... |
+| `anthropic-claude-api` | Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP,... |
 | `anthropic-doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri... |
 | `anthropic-frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill wh... |
 | `anthropic-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
@@ -1331,6 +1331,7 @@ Total skills: **2676**
 | `antigravity-architecture-decision-records` | Comprehensive patterns for creating, maintaining, and managing Architecture Decision Records (ADRs) ... |
 | `antigravity-architecture-patterns` | Master proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, an... |
 | `antigravity-arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M m... |
+| `antigravity-article-illustrations` | Generate hand-drawn 16:9 article illustrations with the Grav character IP, sparse annotations, and a... |
 | `antigravity-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
 | `antigravity-ask-questions-if-underspecified` | Clarify requirements before implementing. Use when serious doubts arise. |
 | `antigravity-astro` | Build content-focused websites with Astro — zero JS by default, islands architecture, multi-framewor... |
@@ -2380,6 +2381,7 @@ AppState, persistence, theme switch... |
 apply_over, TextOrImage, modal, 可复用, 模态,
 coll... |
 | `antigravity-ruby-pro` | Write idiomatic Ruby code with metaprogramming, Rails patterns, and performance optimization. Specia... |
+| `antigravity-runapi-cli` | Generate AI images, videos, and music/audio from agents using the RunAPI CLI. |
 | `antigravity-runaway-guard` | Cost-safety discipline for paid AI / inference APIs: treat $-cost as a third complexity dimension al... |
 | `antigravity-rust-async-patterns` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns. Use... |
 | `antigravity-rust-pro` | Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready sy... |
@@ -2690,6 +2692,7 @@ calculations
 | `antigravity-vibecode-production-qa-validator` | End-to-end production QA, build verification, and launch-readiness checklist for fullstack Next.js a... |
 | `antigravity-vibers-code-review` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, an... |
 | `antigravity-viboscope` | Psychological compatibility matching — find cofounders, collaborators, and friends through validated... |
+| `antigravity-video-content-extractor` | Extract key frames from MP4 videos at configurable intervals, run Tesseract OCR, and generate struct... |
 | `antigravity-videodb` | Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spok... |
 | `antigravity-videodb-skills` | Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK. |
 | `antigravity-viral-generator-builder` | Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar cr... |

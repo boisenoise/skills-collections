@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-06-07 07:37 UTC*
+*Last updated: 2026-06-08 08:01 UTC*
 
 ## Source Repositories
 
@@ -129,12 +129,13 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | AGPL-3.0 | 1 |
 | AGPL-3.0 (referencing Twitter's algorithm source) | 1 |
 | Apache License, Version 2.0 | 1 |
-| Apache-2.0 | 28 |
+| Apache-2.0 | 29 |
 | Apache-2.0 license | 16 |
 | BSD license | 1 |
 | BSD-2-Clause license | 2 |
 | BSD-3-Clause | 2 |
 | BSD-3-Clause license | 19 |
+| Biopython License Agreement | 1 |
 | CC BY-NC-SA 4.0 | 1 |
 | CC-BY-4.0 | 2 |
 | CeCILL FREE SOFTWARE LICENSE AGREEMENT | 1 |
@@ -144,7 +145,7 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | GPL-3.0 license | 2 |
 | GPLv3 license | 1 |
 | LICENSE | 1 |
-| MIT | 2470 |
+| MIT | 2473 |
 | MIT License | 7 |
 | MIT license | 46 |
 | MIT-0 | 1 |
@@ -153,7 +154,7 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | Proprietary. LICENSE.txt has complete terms | 4 |
 | SD-3-Clause license | 1 |
 | This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data. | 1 |
-| Unknown | 15 |
+| Unknown | 13 |
 | https://creativecommons.org/licenses/by/4.0/ | 1 |
 | https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 2 |
 | https://github.com/pola-rs/polars/blob/main/LICENSE | 2 |
