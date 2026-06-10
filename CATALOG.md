@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-09 07:29 UTC*
+*Last updated: 2026-06-10 07:44 UTC*
 
-Total skills: **2679**
+Total skills: **2682**
 
 ## Skills by Source
 
@@ -977,6 +977,7 @@ Total skills: **2679**
 | `kdense-peer-review` | Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer rev... |
 | `kdense-pennylane` | Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum cir... |
 | `kdense-phylogenetics` | Build and analyze phylogenetic trees using MAFFT (multiple alignment), IQ-TREE 2 (maximum likelihood... |
+| `kdense-pi-agent` | Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring provi... |
 | `kdense-polars` | High-performance DataFrame library for Python ETL, analytics, and pandas migration. Use for expressi... |
 | `kdense-polars-bio` | High-performance genomic interval operations and bioinformatics file I/O on Polars DataFrames. Overl... |
 | `kdense-pptx` | Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includ... |
@@ -1045,7 +1046,7 @@ Total skills: **2679**
 | `anthropic-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
 | `anthropic-claude-api` | Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP,... |
 | `anthropic-doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri... |
-| `anthropic-frontend-design` | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill wh... |
+| `anthropic-frontend-design` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing on... |
 | `anthropic-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
 | `anthropic-mcp-builder` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact wi... |
 | `anthropic-skill-creator` | Create new skills, modify and improve existing skills, and measure skill performance. Use when users... |
@@ -1284,6 +1285,7 @@ Total skills: **2679**
 | `antigravity-analytics-tracking` | Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. |
 | `antigravity-analyze-project` | Forensic root cause analyzer for Antigravity sessions. Classifies scope deltas, rework patterns, roo... |
 | `antigravity-andrej-karpathy` | Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactor... |
+| `antigravity-android-dev` | Production-grade Android app development guide covering native (Kotlin/Java), cross-platform (Flutte... |
 | `antigravity-android-jetpack-compose-expert` | Expert guidance for building modern Android UIs with Jetpack Compose, covering state management, nav... |
 | `antigravity-android_ui_verification` | Automated end-to-end UI testing and verification on an Android Emulator using ADB. |
 | `antigravity-angular` | Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applica... |
@@ -2658,6 +2660,7 @@ calculations
 | `antigravity-unity-developer` | Build Unity games with optimized C# scripts, efficient rendering, and proper asset management. Maste... |
 | `antigravity-unity-ecs-patterns` | Production patterns for Unity's Data-Oriented Technology Stack (DOTS) including Entity Component Sys... |
 | `antigravity-unreal-engine-cpp-pro` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, ... |
+| `antigravity-unship` | Compare AI agent-made UI variants locally in a real app, then keep one and clean up unused temporary... |
 | `antigravity-unslop` | Post-process AI-generated text through the unslop CLI to strip AI writing patterns before publishing |
 | `antigravity-unsplash-integration` | Integration skill for searching and fetching high-quality, free-to-use professional photography from... |
 | `antigravity-upgrading-expo` | Upgrade Expo SDK versions |
