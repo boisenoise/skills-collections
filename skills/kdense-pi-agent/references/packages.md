@@ -56,6 +56,14 @@ Runtime deps belong in `dependencies`. Pi bundles core packages for extensions/s
 
 Object settings can include/exclude resources with globs, `!pattern`, exact `+path`, exact `-path`, or `[]` to load none for a resource type.
 
+## Notable Ecosystem Packages
+
+- `pi install npm:pi-subagents` — delegate to child agents, chains, parallel runs: `references/pi-subagents.md`
+- `pi install npm:pi-mcp-adapter` — token-efficient MCP server access: `references/pi-mcp-adapter.md`
+- `pi install npm:pi-interview` — interactive interview forms for structured user input: `references/pi-interview.md`
+- `pi install npm:pi-web-access` — web search, URL/PDF/repo fetching, video understanding: `references/pi-web-access.md`
+- `pi install npm:pi-intercom` — child-to-parent coordination companion for pi-subagents
+
 ## Security
 
 Packages run with full system access. Review third-party package code before installing.

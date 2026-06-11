@@ -1,10 +1,10 @@
 ---
 name: pi-agent
-description: Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring providers/models/settings, creating Pi skills/extensions/packages/themes/prompt templates, embedding Pi through the SDK, integrating over RPC or JSON event streams, parsing sessions, or developing custom Pi providers and TUI components.
+description: Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring providers/models/settings, creating Pi skills/extensions/packages/themes/prompt templates, embedding Pi through the SDK, integrating over RPC or JSON event streams, parsing sessions, developing custom Pi providers and TUI components, or using ecosystem packages such as pi-subagents (delegation/orchestration), pi-mcp-adapter (MCP servers), pi-interview (interactive forms), and pi-web-access (web search, fetching, video understanding).
 license: MIT
 compatibility: Requires Node.js/npm for Pi CLI and SDK usage. Pi package name is @earendil-works/pi-coding-agent.
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: K-Dense Inc.
 ---
 
@@ -29,6 +29,10 @@ Pick the reference before answering or coding:
 | Consume JSONL event output | `references/json.md` |
 | Build terminal UI components | `references/tui.md` |
 | Package extensions/skills/prompts/themes | `references/packages.md` |
+| Delegate to subagents, chains, parallel runs, orchestration | `references/pi-subagents.md` |
+| Connect MCP servers, MCP tool discovery/config | `references/pi-mcp-adapter.md` |
+| Interactive interview forms, structured user input | `references/pi-interview.md` |
+| Web search, URL/PDF/repo fetching, video understanding | `references/pi-web-access.md` |
 | Author Pi skills | `references/skills.md` |
 | Prompt templates or themes | `references/prompt-templates.md`, `references/themes.md` |
 | Sessions, branching, compaction, parsing JSONL | `references/sessions.md`, `references/compaction.md`, `references/session-format.md` |
@@ -68,4 +72,4 @@ pi --tools read,grep,find,ls -p "Review this repository"
 
 ## Source Coverage
 
-These references summarize the Pi documentation at `https://pi.dev/docs/latest` and each docs page found under it as of this skill version. When exact API behavior matters, prefer the cited reference page and inspect installed TypeScript definitions under `node_modules/@earendil-works/pi-coding-agent/dist/` and `node_modules/@earendil-works/pi-ai/dist/`.
+These references summarize the Pi documentation at `https://pi.dev/docs/latest` and each docs page found under it as of this skill version, plus the package pages for `pi-subagents`, `pi-mcp-adapter`, `pi-interview`, and `pi-web-access` at `https://pi.dev/packages/`. When exact API behavior matters, prefer the cited reference page and inspect installed TypeScript definitions under `node_modules/@earendil-works/pi-coding-agent/dist/` and `node_modules/@earendil-works/pi-ai/dist/`.

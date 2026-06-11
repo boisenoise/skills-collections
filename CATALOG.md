@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-10 07:44 UTC*
+*Last updated: 2026-06-11 07:57 UTC*
 
-Total skills: **2682**
+Total skills: **2683**
 
 ## Skills by Source
 
@@ -959,7 +959,7 @@ Total skills: **2682**
 | `kdense-modal` | Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Use whe... |
 | `kdense-molecular-dynamics` | Run and analyze molecular dynamics simulations with OpenMM and MDAnalysis. Set up protein/small mole... |
 | `kdense-molfeat` | Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (Chem... |
-| `kdense-networkx` | Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python... |
+| `kdense-networkx` | Create, analyze, and visualize complex networks and graphs in Python with NetworkX. Use when working... |
 | `kdense-neurokit2` | Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA,... |
 | `kdense-neuropixels-analysis` | Analyze Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX... |
 | `kdense-nextflow` | Build, run, and debug Nextflow data pipelines and nf-core workflows end to end. Use whenever the use... |
@@ -1104,6 +1104,7 @@ Total skills: **2682**
 | `marketing-product-marketing` | When the user wants to create or update their product marketing context document. Also use when the ... |
 | `marketing-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
 | `marketing-prospecting` | When the user wants to find, qualify, and build a list of prospects to reach out to — across B2B Saa... |
+| `marketing-public-relations` | When the user wants help with public relations, earned media, press coverage, journalist outreach, o... |
 | `marketing-referrals` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
 | `marketing-revops` | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales h... |
 | `marketing-sales-enablement` | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or... |
