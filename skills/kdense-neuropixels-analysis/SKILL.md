@@ -2,9 +2,8 @@
 name: neuropixels-analysis
 description: Analyze Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX/Open Ephys/NWB data, preprocessing, drift/motion correction, Kilosort4 (and CPU) spike sorting, quality metrics, and unit curation (threshold-based, model-based UnitRefine, and AI-assisted visual review). Use when working with Neuropixels 1.0/2.0 recordings, spike sorting, or extracellular electrophysiology analysis.
 license: MIT license
-metadata:
-  version: "2.0"
-  skill-author: K-Dense Inc.
+required_environment_variables: [{"name": "ANTHROPIC_API_KEY", "prompt": "For optional Claude API calls.", "required_for": "optional features"}]
+metadata: {"version": "2.1", "skill-author": "K-Dense Inc.", "openclaw": {"primaryEnv": "ANTHROPIC_API_KEY", "envVars": [{"name": "ANTHROPIC_API_KEY", "required": false, "description": "For optional Claude API calls."}]}}
 ---
 
 # Neuropixels Data Analysis

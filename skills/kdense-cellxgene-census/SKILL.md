@@ -4,9 +4,7 @@ description: Query the CZ CELLxGENE Census programmatically for versioned public
 allowed-tools: Read Write Edit Bash
 license: MIT
 compatibility: Requires Python >=3.10,<3.13. Examples target cellxgene-census 1.17.x and the 2025-11-08 stable LTS Census; spatial workflows need the spatial extra and TileDB-SOMA >=1.15.5. No authentication is required for public Census data.
-metadata:
-  version: "1.1"
-  skill-author: K-Dense Inc.
+metadata: {"version": "1.1", "skill-author": "K-Dense Inc."}
 ---
 
 # CZ CELLxGENE Census

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-11 07:57 UTC*
+*Last updated: 2026-06-12 07:52 UTC*
 
-Total skills: **2683**
+Total skills: **2685**
 
 ## Skills by Source
 
@@ -924,6 +924,7 @@ Total skills: **2683**
 | `kdense-esm` | Use when working directly with the `esm` Python SDK, ESM3 or ESMC model IDs, Forge/Biohub inference ... |
 | `kdense-etetoolkit` | Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, ortho... |
 | `kdense-exa-search` | Web toolkit powered by Exa, tuned for scientific and technical content. Use this skill when the user... |
+| `kdense-experimental-design` | Design experiments and studies BEFORE data is collected — choosing a design, randomizing, blocking, ... |
 | `kdense-exploratory-data-analysis` | Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. T... |
 | `kdense-flowio` | Parse FCS (Flow Cytometry Standard) files v2.0-3.1. Extract events as NumPy arrays, read metadata/ch... |
 | `kdense-fluidsim` | Framework for computational fluid dynamics simulations using Python. Use when running fluid dynamics... |
@@ -1021,6 +1022,7 @@ Total skills: **2683**
 | `kdense-simpy` | Process-based discrete-event simulation framework in Python. Use this skill when building simulation... |
 | `kdense-stable-baselines3` | Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn... |
 | `kdense-statistical-analysis` | Guided statistical analysis with test selection and reporting. Use when you need help choosing appro... |
+| `kdense-statistical-power` | Sample-size and statistical power calculations for planning studies. Use whenever someone asks "how ... |
 | `kdense-statsmodels` | Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed mod... |
 | `kdense-sympy` | Use when you need exact symbolic math in Python — algebra, calculus, equation solving, symbolic line... |
 | `kdense-tiledbvcf` | Efficient storage and retrieval of genomic variant data using TileDB. Scalable VCF/BCF ingestion, in... |

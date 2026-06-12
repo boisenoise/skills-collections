@@ -4,9 +4,7 @@ description: Statistical models library for Python. Use when you need specific m
 allowed-tools: Read Write Edit Bash
 compatibility: Requires Python 3.9+ and statsmodels 0.14.6-compatible dependencies. Use `uv pip install statsmodels==0.14.6`; optional predictive-metric examples also need scikit-learn.
 license: BSD-3-Clause license
-metadata:
-  version: "1.1"
-  skill-author: K-Dense Inc.
+metadata: {"version": "1.1", "skill-author": "K-Dense Inc."}
 ---
 
 # Statsmodels: Statistical Modeling and Econometrics
