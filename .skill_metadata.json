@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-14T07:49:42.717086",
-  "skill_count": 2692,
+  "last_updated": "2026-06-15T08:20:18.602499",
+  "skill_count": 2697,
   "sources_processed": 19,
   "skills": [
     {
@@ -5156,6 +5156,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ecl-harness-engineer",
+      "original_name": "ecl-harness-engineer",
+      "description": "Create or audit ECL Agent Harness infrastructure: AGENTS.md, change tracking, repository guidance, lint checks, CI gates, and agent handoff docs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-machine-learning-ops-ml-pipeline",
       "original_name": "machine-learning-ops-ml-pipeline",
       "description": "Design and implement a complete ML pipeline for: $ARGUMENTS",
@@ -7727,6 +7735,14 @@
       "name": "antigravity-wcag-audit-patterns",
       "original_name": "wcag-audit-patterns",
       "description": "Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation strategies.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-lovable-cleanup",
+      "original_name": "lovable-cleanup",
+      "description": "Audits and strips Lovable scaffolding from Vite + React projects \u2014 removes lovable-tagger, swaps placeholder assets, prunes unused Radix deps, and cleans generated docs so the codebase ships as yours.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10700,6 +10716,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-dos-verify-done-claims",
+      "original_name": "dos-verify-done-claims",
+      "description": "Before accepting an agent's 'done / shipped / fixed' claim, verify it against ground truth (git ancestry + the commit's own diff) using the DOS kernel's `dos verify` and `dos commit-audit` \u2014 never the agent's own narration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-n8n-expression-syntax",
       "original_name": "n8n-expression-syntax",
       "description": "Validate n8n expression syntax and fix common errors. Use when writing n8n expressions, using {{}} syntax, accessing $json/$node variables, troubleshooting expression errors, or working with webhook data in workflows.",
@@ -12468,6 +12492,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-pagespeed-enhancer",
+      "original_name": "pagespeed-enhancer",
+      "description": "Scan, audit, and fix web performance issues across all four Lighthouse/PageSpeed Insights pillars \u2014 Performance, Accessibility, Best Practices, and SEO \u2014 in structured batches.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-monitor-ingestion-java",
       "original_name": "azure-monitor-ingestion-java",
       "description": "Azure Monitor Ingestion SDK for Java. Send custom logs to Azure Monitor via Data Collection Rules (DCR) and Data Collection Endpoints (DCE).",
@@ -13135,6 +13167,14 @@
       "name": "antigravity-explain-like-socrates",
       "original_name": "explain-like-socrates",
       "description": "Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help understand a concept like socrates.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-monopoly",
+      "original_name": "monopoly",
+      "description": "MONOPOLY is a Senior System Design Engineer skill for architecting, reviewing, and scaling systems. Triggers on requests involving architecture, databases, scaling, microservices, or infrastructure design. Proactively engages to design resilient backend systems.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
