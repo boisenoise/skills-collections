@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-15 08:20 UTC*
+*Last updated: 2026-06-16 08:12 UTC*
 
-Total skills: **2697**
+Total skills: **2701**
 
 ## Skills by Source
 
@@ -913,7 +913,7 @@ Total skills: **2697**
 | `kdense-cobrapy` | Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, f... |
 | `kdense-consciousness-council` | Run a multi-perspective Mind Council deliberation on any question, decision, or creative challenge. ... |
 | `kdense-dask` | Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existin... |
-| `kdense-database-lookup` | Search 78 public scientific, biomedical, materials science, and economic databases via REST APIs. Co... |
+| `kdense-database-lookup` | Deterministically query 78 public scientific, biomedical, materials science, regulatory, finance, an... |
 | `kdense-datamol` | Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standar... |
 | `kdense-deepchem` | Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, to... |
 | `kdense-deeptools` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profil... |
@@ -1238,6 +1238,7 @@ Total skills: **2697**
 | `antigravity-accesslint-audit` | Find and fix WCAG 2.2 accessibility issues. Two modes — report (sweep a codebase or page, produce a ... |
 | `antigravity-accesslint-diff` | Diff a live page's accessibility violations against a baseline — by default compares uncommitted cha... |
 | `antigravity-accesslint-scan` | Audit a live page for accessibility issues, locate each WCAG violation precisely, and return a selec... |
+| `antigravity-accint-solve` | Route agent work through AccInt's MCP memory loop: retrieve prior outcomes, resolve frames, and clos... |
 | `antigravity-active-directory-attacks` | Provide comprehensive techniques for attacking Microsoft Active Directory environments. Covers recon... |
 | `antigravity-activecampaign-automation` | Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, au... |
 | `antigravity-ad-creative` | Create, iterate, and scale paid ad creative for Google Ads, Meta, LinkedIn, TikTok, and similar plat... |
@@ -1290,6 +1291,7 @@ Total skills: **2697**
 | `antigravity-analytics-tracking` | Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. |
 | `antigravity-analyze-project` | Forensic root cause analyzer for Antigravity sessions. Classifies scope deltas, rework patterns, roo... |
 | `antigravity-andrej-karpathy` | Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactor... |
+| `antigravity-android-cli` | Orchestrates Android development tasks including project creation, deployment, SDK management, and e... |
 | `antigravity-android-dev` | Production-grade Android app development guide covering native (Kotlin/Java), cross-platform (Flutte... |
 | `antigravity-android-jetpack-compose-expert` | Expert guidance for building modern Android UIs with Jetpack Compose, covering state management, nav... |
 | `antigravity-android_ui_verification` | Automated end-to-end UI testing and verification on an Android Emulator using ADB. |
@@ -1611,6 +1613,7 @@ pipelines, and system utilities.... |
 | `antigravity-codebase-cleanup-refactor-clean` | You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and ... |
 | `antigravity-codebase-cleanup-tech-debt` | You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical... |
 | `antigravity-codebase-to-wordpress-converter` | Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, a... |
+| `antigravity-codex-fable5` | Apply Fable-inspired discipline to Codex work: inspect first, track goals and findings, ground concl... |
 | `antigravity-codex-review` | Professional code review with auto CHANGELOG generation, integrated with Codex AI. Use when you want... |
 | `antigravity-cold-email` | Write B2B cold emails and follow-up sequences that earn replies. Use when creating outbound prospect... |
 | `antigravity-comfyui-gateway` | REST API gateway for ComfyUI servers. Workflow management, job queuing, webhooks, caching, auth, rat... |
@@ -1757,6 +1760,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-e2e-testing-patterns` | Build reliable, fast, and maintainable end-to-end test suites that provide confidence to ship code q... |
 | `antigravity-earllm-build` | Build, maintain, and extend the EarLLM One Android project — a Kotlin/Compose app that connects Blue... |
 | `antigravity-ecl-harness-engineer` | Create or audit ECL Agent Harness infrastructure: AGENTS.md, change tracking, repository guidance, l... |
+| `antigravity-efficient-web-research` | Protocol for token-efficient web research. Use when accessing URLs, GitHub repos, or running search ... |
 | `antigravity-ejentum-reasoning-harness` | MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each cal... |
 | `antigravity-electron-development` | Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-pr... |
 | `antigravity-elixir-pro` | Write idiomatic Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. Masters conc... |
@@ -2493,6 +2497,7 @@ Plans content calendars and ident... |
 | `antigravity-sexual-health-analyzer` | Sexual Health Analyzer |
 | `antigravity-shadcn` | Manages shadcn/ui components and projects, providing context, documentation, and usage patterns for ... |
 | `antigravity-shader-programming-glsl` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, covering... |
+| `antigravity-sharp-coder` | Two-layer performance skill combining disciplined THINK layer (surgical edits, simplicity) and terse... |
 | `antigravity-sharp-edges` | sharp-edges |
 | `antigravity-shellcheck-configuration` | Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting... |
 | `antigravity-shodan-reconnaissance` | Provide systematic methodologies for leveraging Shodan as a reconnaissance tool during penetration t... |
@@ -2803,7 +2808,6 @@ calculations
 | Skill | Description |
 |-------|-------------|
 | `aws-dev-aws-agentic-ai` | AWS Bedrock AgentCore comprehensive expert for deploying and managing AI agents at scale. Use when w... |
-| `aws-dev-aws-cdk-development` | AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python. Use... |
 | `aws-dev-aws-cost-operations` | AWS cost optimization, monitoring, and operational excellence expert. Use when analyzing AWS bills, ... |
 | `aws-dev-aws-mcp-setup` | Configure AWS MCP servers for documentation search and API access. Use when setting up AWS MCP, conf... |
 | `aws-dev-aws-serverless-eda` | AWS serverless and event-driven architecture expert based on Well-Architected Framework. Use when bu... |

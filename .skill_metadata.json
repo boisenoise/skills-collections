@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-15T08:20:18.602499",
-  "skill_count": 2697,
+  "last_updated": "2026-06-16T08:12:36.031681",
+  "skill_count": 2701,
   "sources_processed": 19,
   "skills": [
     {
@@ -1174,7 +1174,7 @@
     {
       "name": "kdense-database-lookup",
       "original_name": "database-lookup",
-      "description": "Search 78 public scientific, biomedical, materials science, and economic databases via REST APIs. Covers physics/astronomy (NASA, NIST, SDSS, SIMBAD), earth/environment (USGS, NOAA, EPA), chemistry/drugs (PubChem, ChEMBL, DrugBank, FDA, KEGG, ZINC, BindingDB), materials (Materials Project, COD), biology/genomics (Reactome, UniProt, STRING, Ensembl, NCBI Gene, GEO, GTEx, PDB, AlphaFold, InterPro, BioGRID, Gene Ontology, dbSNP, gnomAD, ENCODE, Human Protein Atlas, Human Cell Atlas), disease/clinical (COSMIC, Open Targets, ClinicalTrials.gov, OMIM, ClinVar, GDC/TCGA, cBioPortal, DisGeNET, GWAS Catalog), regulatory (FDA, USPTO, SEC EDGAR), economics/finance (FRED, World Bank, US Treasury), demographics (US Census, Eurostat, WHO). Use when looking up compounds, genes, proteins, pathways, variants, clinical trials, patents, economic indicators, or any public database API query.",
+      "description": "Deterministically query 78 public scientific, biomedical, materials science, regulatory, finance, and demographics databases through documented REST APIs. Use for reproducible lookups of compounds, genes, proteins, pathways, variants, clinical trials, patents, economic indicators, structures, astronomy objects, environmental records, or database-backed scientific facts when endpoints, filters, pagination, and provenance need to be explicit.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT"
@@ -4468,6 +4468,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-accint-solve",
+      "original_name": "accint-solve",
+      "description": "Route agent work through AccInt's MCP memory loop: retrieve prior outcomes, resolve frames, and close commitments with evidence.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-dotnet-architect",
       "original_name": "dotnet-architect",
       "description": "Expert .NET backend architect specializing in C#, ASP.NET Core, Entity Framework, Dapper, and enterprise application patterns.",
@@ -7148,6 +7156,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-efficient-web-research",
+      "original_name": "efficient-web-research",
+      "description": "Protocol for token-efficient web research. Use when accessing URLs, GitHub repos, or running search queries. Prevents full-page fetching waste.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-google-sheets-automation",
       "original_name": "google-sheets-automation",
       "description": "Lightweight Google Sheets integration with standalone OAuth authentication. No MCP server required. Full read/write access.",
@@ -7239,6 +7255,14 @@
       "name": "antigravity-debugging-toolkit",
       "original_name": "debugging-toolkit",
       "description": "Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug)",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-android-cli",
+      "original_name": "android-cli",
+      "description": "Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8250,6 +8274,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-codex-fable5",
+      "original_name": "codex-fable5",
+      "description": "Apply Fable-inspired discipline to Codex work: inspect first, track goals and findings, ground conclusions in evidence, verify before completion, and adapt Claude/Fable prompt guidance without identity or provider claims.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "AGPL-3.0-or-later"
     },
     {
       "name": "antigravity-python-development-python-scaffold",
@@ -10831,6 +10863,14 @@
       "name": "antigravity-event-store-design",
       "original_name": "event-store-design",
       "description": "Design and implement event stores for event-sourced systems. Use when building event sourcing infrastructure, choosing event store technologies, or implementing event persistence patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-sharp-coder",
+      "original_name": "sharp-coder",
+      "description": "Two-layer performance skill combining disciplined THINK layer (surgical edits, simplicity) and terse SPEAK layer (caveman compression). Triggers on requests for brevity, token efficiency, or disciplined coding.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21094,7 +21134,7 @@
     {
       "name": "marketing-ai-seo",
       "original_name": "ai-seo",
-      "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' or 'optimize for Claude/Gemini.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema.",
+      "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' 'optimize for Claude/Gemini,' 'llms.txt,' 'OKF,' 'Open Knowledge Format,' 'knowledge bundle,' or 'agent-readable site.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -21543,14 +21583,6 @@
       "name": "aws-dev-aws-mcp-setup",
       "original_name": "aws-mcp-setup",
       "description": "Configure AWS MCP servers for documentation search and API access. Use when setting up AWS MCP, configuring AWS documentation tools, troubleshooting MCP connectivity, or when user mentions aws-mcp, awsdocs, uvx setup, or MCP server configuration. Covers both Full AWS MCP Server (with uvx + credentials) and lightweight Documentation MCP (no auth required).",
-      "source": "zxkane/aws-skills",
-      "source_url": "https://github.com/zxkane/aws-skills",
-      "license": "Apache-2.0"
-    },
-    {
-      "name": "aws-dev-aws-cdk-development",
-      "original_name": "aws-cdk-development",
-      "description": "AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python. Use when creating CDK stacks, defining CDK constructs, implementing infrastructure as code, or when the user mentions CDK, CloudFormation, IaC, cdk synth, cdk deploy, or wants to define AWS infrastructure programmatically. Covers CDK app structure, construct patterns, stack composition, and deployment workflows.",
       "source": "zxkane/aws-skills",
       "source_url": "https://github.com/zxkane/aws-skills",
       "license": "Apache-2.0"
