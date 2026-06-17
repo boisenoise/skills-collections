@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-16 08:12 UTC*
+*Last updated: 2026-06-17 08:08 UTC*
 
-Total skills: **2701**
+Total skills: **2726**
 
 ## Skills by Source
 
@@ -1100,6 +1100,7 @@ Total skills: **2701**
 | `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
 | `marketing-marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own... |
 | `marketing-marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marke... |
+| `marketing-offers` | When the user wants to design, construct, or improve an offer — the thing they actually sell — inclu... |
 | `marketing-onboarding` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
 | `marketing-paywalls` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
 | `marketing-popups` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
@@ -1165,7 +1166,7 @@ Total skills: **2701**
 | `superpowers-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
 | `superpowers-test-driven-development` | Use when implementing any feature or bugfix, before writing implementation code |
 | `superpowers-using-git-worktrees` | Use when starting feature work that needs isolation from current workspace or before executing imple... |
-| `superpowers-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool in... |
+| `superpowers-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring skill invocat... |
 | `superpowers-verification-before-completion` | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - req... |
 | `superpowers-writing-plans` | Use when you have a spec or requirements for a multi-step task, before touching code |
 | `superpowers-writing-skills` | Use when creating new skills, editing existing skills, or verifying skills work before deployment |
@@ -1334,6 +1335,7 @@ Total skills: **2701**
 | `antigravity-app-store-changelog` | Generate user-facing App Store release notes from git history since the last tag. |
 | `antigravity-app-store-optimization` | Complete App Store Optimization (ASO) toolkit for researching, optimizing, and tracking mobile app p... |
 | `antigravity-appdeploy` | Deploy web apps with backend APIs, database, and file storage. Use when the user asks to deploy or p... |
+| `antigravity-apple-notes-search` | Semantic + keyword search and connection-discovery across the user's own Apple Notes via the apple-n... |
 | `antigravity-application-performance-performance-optimization` | Optimize end-to-end application performance with profiling, observability, and backend/frontend tuni... |
 | `antigravity-architect-review` | Master software architect specializing in modern architecture |
 | `antigravity-architecture` | Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentat... |
@@ -1527,6 +1529,7 @@ pipelines, and system utilities.... |
 | `antigravity-brand-guidelines-anthropic` | To access Anthropic's official brand identity and style resources, use this skill. |
 | `antigravity-brand-guidelines-community` | To access Anthropic's official brand identity and style resources, use this skill. |
 | `antigravity-brand-perception-psychologist` | One sentence - what this skill does and when to invoke it |
+| `antigravity-brave-man` | Runs a structured clarifying interview for new project requests before building. Instead of writing ... |
 | `antigravity-brevo-automation` | Automate Brevo (formerly Sendinblue) email marketing operations through Composio's Brevo toolkit via... |
 | `antigravity-broken-authentication` | Identify and exploit authentication and session management vulnerabilities in web applications. Brok... |
 | `antigravity-brooks-lint` | AI code reviewer grounded in classic software engineering books for catching design smells, coupling... |
@@ -1573,6 +1576,7 @@ pipelines, and system utilities.... |
 | `antigravity-circleci-automation` | Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve... |
 | `antigravity-cirq` | Cirq is Google Quantum AI's open-source framework for designing, simulating, and running quantum cir... |
 | `antigravity-citation-management` | Manage citations systematically throughout the research and writing process. |
+| `antigravity-ckw-design` | Frontend design entry point: direction, design system, visual philosophy. Use whenever building or t... |
 | `antigravity-claimable-postgres` | Provision instant temporary Postgres databases via Claimable Postgres by Neon (pg.new). No login or ... |
 | `antigravity-clarity-gate` | Pre-ingestion verification for epistemic quality in RAG systems. Ensures documents are properly qual... |
 | `antigravity-clarvia-aeo-check` | Score any MCP server, API, or CLI for agent-readiness using Clarvia AEO (Agent Experience Optimizati... |
@@ -1669,6 +1673,18 @@ consistency, and correctness. Use after setu... |
 | `antigravity-create-pr` | Alias for sentry-skills:pr-writer. Use when users explicitly ask for "create-pr" or reference the le... |
 | `antigravity-cred-omega` | CISO operacional enterprise para gestao total de credenciais e segredos. |
 | `antigravity-crewai` | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies... |
+| `antigravity-crossframe` | Use when the user explicitly invokes CrossFrame or 跨尺度结构诊断 for Chinese-canonical structural diagnosi... |
+| `antigravity-crossframe-casebook` | Use when CrossFrame Suite routes explicit Chinese casebook work: turning materials into reusable cas... |
+| `antigravity-crossframe-critical` | Use only when the user explicitly names crossframe-critical for a Chinese structural critique dossie... |
+| `antigravity-crossframe-debate` | Use when CrossFrame Suite routes explicit Chinese proposition testing, debate analysis, hidden-premi... |
+| `antigravity-crossframe-dialogue` | Use when CrossFrame Suite routes explicit Chinese reader replies, editor responses, consultation-sty... |
+| `antigravity-crossframe-essay` | Use when explicit CrossFrame work needs a Chinese critical insight essay, commentary, concept essay,... |
+| `antigravity-crossframe-notebook` | Use when CrossFrame Suite routes explicit Chinese notes for books, theories, articles, excerpts, bid... |
+| `antigravity-crossframe-org` | Use when CrossFrame Suite routes explicit Chinese analysis of teams, projects, organizations, respon... |
+| `antigravity-crossframe-public` | Use when CrossFrame Suite routes explicit Chinese analysis of public issues, platform governance, po... |
+| `antigravity-crossframe-review` | Use when explicit CrossFrame output needs review for reasoning fidelity, evidence boundaries, source... |
+| `antigravity-crossframe-suite` | Use when the user explicitly invokes CrossFrame Suite for Chinese structural diagnosis workflows acr... |
+| `antigravity-crossframe-teach` | Use when CrossFrame Suite routes explicit Chinese teaching of CrossFrame concepts, misreading bounda... |
 | `antigravity-crypto-bd-agent` | Production-tested patterns for building AI agents that autonomously discover, > evaluate, and acquir... |
 | `antigravity-csharp-pro` | Write modern C# code with advanced features like records, pattern matching, and async/await. Optimiz... |
 | `antigravity-customer-psychographic-profiler` | One sentence - what this skill does and when to invoke it |
@@ -1723,6 +1739,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-design-orchestration` | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and executi... |
 | `antigravity-design-spells` | Curated micro-interactions and design details that add "magic" and personality to websites and apps. |
 | `antigravity-design-taste-frontend` | Use when building high-agency frontend interfaces with strict design taste, calibrated color, respon... |
+| `antigravity-deterministic-design` | Render the UI and prove it's balanced + usable: a deterministic layout audit (centroid / optical-cen... |
 | `antigravity-devcontainer-setup` | Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persist... |
 | `antigravity-development` | Comprehensive web, mobile, and backend development workflow bundling frontend, backend, full-stack, ... |
 | `antigravity-devops-deploy` | DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infrae... |
@@ -2079,6 +2096,8 @@ behavior. Use proactively when encoun... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
 | `antigravity-loki-mode` | Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced: OpenAI SDK, DeepMi... |
 | `antigravity-longbridge` | 125+ agent skills for Longbridge Securities — real-time quotes, charts, fundamentals, portfolio anal... |
+| `antigravity-lookdev` | Human-in-the-loop web studio to tune AI-generated output by eye. Stand up a local interactive studio... |
+| `antigravity-lookdev-auto` | Automated visual tuning: a vision or video model rates rendered variants in a loop. Render several l... |
 | `antigravity-loss-aversion-designer` | One sentence - what this skill does and when to invoke it |
 | `antigravity-lovable-cleanup` | Audits and strips Lovable scaffolding from Vite + React projects — removes lovable-tagger, swaps pla... |
 | `antigravity-m365-agents-dotnet` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.... |
@@ -2086,6 +2105,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-m365-agents-ts` | Microsoft 365 Agents SDK for TypeScript/Node.js. |
 | `antigravity-machine-learning-ops-ml-pipeline` | Design and implement a complete ML pipeline for: $ARGUMENTS |
 | `antigravity-macos-menubar-tuist-app` | Build, refactor, or review SwiftUI macOS menubar apps that use Tuist. |
+| `antigravity-macos-screen-recorder` | macOS screen recorder that captures the main display PLUS system audio via ScreenCaptureKit — no Bla... |
 | `antigravity-macos-spm-app-packaging` | Scaffold, build, sign, and package SwiftPM macOS apps without Xcode projects. |
 | `antigravity-magic-animator` | AI-powered animation tool for creating motion in logos, UI, icons, and social media assets. |
 | `antigravity-magic-ui-generator` | Utilizes Magic by 21st.dev to generate, compare, and integrate multiple production-ready UI componen... |
@@ -2306,6 +2326,7 @@ structures, and modern OOP features. U... |
 | `antigravity-postmortem-writing` | Comprehensive guide to writing effective, blameless postmortems that drive organizational learning a... |
 | `antigravity-powershell-windows` | PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling. |
 | `antigravity-pptx` | A user may ask you to create, edit, or analyze the contents of a .pptx file. A .pptx file is essenti... |
+| `antigravity-pr-merge-champion` | Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-re... |
 | `antigravity-pr-writer` | Create pull requests following Sentry's engineering practices. |
 | `antigravity-price-psychology-strategist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-pricing-strategy` | Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, ... |
@@ -2427,6 +2448,7 @@ coll... |
 | `antigravity-scikit-learn` | Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model ... |
 | `antigravity-screen-reader-testing` | Practical guide to testing web applications with screen readers for comprehensive accessibility vali... |
 | `antigravity-screenshots` | Generate marketing screenshots of your app using Playwright. Use when the user wants to create scree... |
+| `antigravity-screenstudio-alt` | Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clusters, ... |
 | `antigravity-scroll-experience` | Expert in building immersive scroll-driven experiences - parallax storytelling, scroll animations, i... |
 | `antigravity-seaborn` | Seaborn is a Python visualization library for creating publication-quality statistical graphics. Use... |
 | `antigravity-search-specialist` | Expert web researcher using advanced search techniques and |
@@ -2580,6 +2602,7 @@ calculations
 | `antigravity-subagent-orchestrator` | Coordinate quota-aware parallel subagents for large, multi-file Antigravity tasks. |
 | `antigravity-subject-line-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-supabase-automation` | Automate Supabase database queries, table management, project administration, storage, edge function... |
+| `antigravity-super-code` | Standing house style to enforce dense, correct, and idiomatic code on all coding tasks. Minimizes co... |
 | `antigravity-superpowers-lab` | Lab environment for Claude superpowers |
 | `antigravity-supply-chain-risk-auditor` | Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply ch... |
 | `antigravity-sveltekit` | Build full-stack web applications with SvelteKit — file-based routing, SSR, SSG, API routes, and for... |
@@ -2730,6 +2753,7 @@ calculations
 | `antigravity-wcag-audit-patterns` | Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation ... |
 | `antigravity-web-artifacts-builder` | To build powerful frontend claude.ai artifacts, follow these steps: |
 | `antigravity-web-design-guidelines` | Review files for compliance with Web Interface Guidelines. |
+| `antigravity-web-media-getter` | One query across free image / video / GIF APIs (stock + historical/archival + GIF engines), returnin... |
 | `antigravity-web-performance-optimization` | Optimize website and web application performance including loading speed, Core Web Vitals, bundle si... |
 | `antigravity-web-scraper` | Web scraping inteligente multi-estrategia. Extrai dados estruturados de paginas web (tabelas, listas... |
 | `antigravity-web-security-testing` | Web application security testing workflow for OWASP Top 10 vulnerabilities including injection, XSS,... |
@@ -2779,6 +2803,7 @@ calculations
 | `antigravity-yield-intelligence` | Passive income portfolio analysis — activate when user asks about dividend yields, Treasury rates, R... |
 | `antigravity-youtube-automation` | Automate YouTube tasks via Rube MCP (Composio): upload videos, manage playlists, search content, get... |
 | `antigravity-youtube-full` | Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI —... |
+| `antigravity-youtube-seo-optimizer` | Generate complete YouTube & podcast SEO packages with live-researched keywords — titles, description... |
 | `antigravity-youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelli... |
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
