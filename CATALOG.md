@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-18 07:57 UTC*
+*Last updated: 2026-06-19 08:08 UTC*
 
-Total skills: **2726**
+Total skills: **2729**
 
 ## Skills by Source
 
@@ -1295,6 +1295,7 @@ Total skills: **2726**
 | `antigravity-android-cli` | Orchestrates Android development tasks including project creation, deployment, SDK management, and e... |
 | `antigravity-android-dev` | Production-grade Android app development guide covering native (Kotlin/Java), cross-platform (Flutte... |
 | `antigravity-android-jetpack-compose-expert` | Expert guidance for building modern Android UIs with Jetpack Compose, covering state management, nav... |
+| `antigravity-android-ui-journey-testing` | XML-specified Android UI journey testing, interactive step execution, assertion verification, and JS... |
 | `antigravity-android_ui_verification` | Automated end-to-end UI testing and verification on an Android Emulator using ADB. |
 | `antigravity-angular` | Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applica... |
 | `antigravity-angular-best-practices` | Angular performance optimization and best practices guide. Use when writing, reviewing, or refactori... |
@@ -1735,6 +1736,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-deployment-pipeline-design` | Architecture patterns for multi-stage CI/CD pipelines with approval gates and deployment strategies. |
 | `antigravity-deployment-procedures` | Production deployment principles and decision-making. Safe deployment workflows, rollback strategies... |
 | `antigravity-deployment-validation-config-validate` | You are a configuration management expert specializing in validating, testing, and ensuring the corr... |
+| `antigravity-design-it` | Routes frontend design tasks to 48 specific UI styles. Triggers for websites, app screens, or UI com... |
 | `antigravity-design-md` | Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files |
 | `antigravity-design-orchestration` | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and executi... |
 | `antigravity-design-spells` | Curated micro-interactions and design details that add "magic" and personality to websites and apps. |
@@ -2670,6 +2672,7 @@ calculations
 | `antigravity-tokenwise` | Measurement-driven model router for Claude Code. Routes Haiku/Sonnet/Opus per task class, logs every... |
 | `antigravity-tool-design` | Build tools that agents can use effectively, including architectural reduction patterns. Use when cr... |
 | `antigravity-tool-use-guardian` | FREE — Intelligent tool-call reliability wrapper. Monitors, retries, fixes, and learns from tool fai... |
+| `antigravity-tools-page-seo-optimizer` | Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers d... |
 | `antigravity-top-web-vulnerabilities` | Provide a comprehensive, structured reference for the 100 most critical web application vulnerabilit... |
 | `antigravity-track-management` | Use this skill when creating, managing, or working with Conductor tracks - the logical work units fo... |
 | `antigravity-transformers-js` | Run Hugging Face models in JavaScript or TypeScript with Transformers.js in Node.js or the browser. |
@@ -2735,7 +2738,7 @@ calculations
 | `antigravity-vexor-cli` | Semantic file discovery via `vexor`. Use whenever locating where something is implemented/loaded/def... |
 | `antigravity-vibe-code-auditor` | Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks. |
 | `antigravity-vibe-code-cleanup` | Safe production cleanup and hardening for vibe-coded fullstack apps (Next.js, React, Node.js, etc.).... |
-| `antigravity-vibecode-production-qa-validator` | End-to-end production QA, build verification, and launch-readiness checklist for fullstack Next.js a... |
+| `antigravity-vibecode-production-qa-validator` | 13-phase production QA for fullstack Next.js apps: build verification, SEO tags, OG images, favicon,... |
 | `antigravity-vibers-code-review` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, an... |
 | `antigravity-viboscope` | Psychological compatibility matching — find cofounders, collaborators, and friends through validated... |
 | `antigravity-video-content-extractor` | Extract key frames from MP4 videos at configurable intervals, run Tesseract OCR, and generate struct... |

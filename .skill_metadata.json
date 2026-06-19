@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-18T07:57:47.149361",
-  "skill_count": 2726,
+  "last_updated": "2026-06-19T08:08:56.442656",
+  "skill_count": 2729,
   "sources_processed": 19,
   "skills": [
     {
@@ -3838,7 +3838,7 @@
     {
       "name": "antigravity-vibecode-production-qa-validator",
       "original_name": "vibecode-production-qa-validator",
-      "description": "End-to-end production QA, build verification, and launch-readiness checklist for fullstack Next.js apps. Covers TypeScript, linting, tests, build, SEO tags, route regression, and sitemap validation.",
+      "description": "13-phase production QA for fullstack Next.js apps: build verification, SEO tags, OG images, favicon, route regression, API auth, page speed, lazy load, vulnerability scan, UI/UX cards, error boundaries, database, secure rendering, and cleanup.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6740,6 +6740,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-design-it",
+      "original_name": "design-it",
+      "description": "Routes frontend design tasks to 48 specific UI styles. Triggers for websites, app screens, or UI components requesting a specific aesthetic.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-threejs-animation",
       "original_name": "threejs-animation",
       "description": "Three.js animation - keyframe animation, skeletal animation, morph targets, animation mixing. Use when animating objects, playing GLTF animations, creating procedural motion, or blending animations.",
@@ -7007,6 +7015,14 @@
       "name": "antigravity-task-intelligence",
       "original_name": "task-intelligence",
       "description": "Protocolo de Intelig\u00eancia Pr\u00e9-Tarefa \u2014 ativa TODOS os agentes relevantes do ecossistema ANTES de executar qualquer tarefa solicitada pelo usu\u00e1rio.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-tools-page-seo-optimizer",
+      "original_name": "tools-page-seo-optimizer",
+      "description": "Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers duplicate content, unique meta tags, heading hierarchy, internal linking, URL slugs, E-E-A-T, content registry pattern for scaling 50\u2013500 pages, and blog content strategy for position 50\u201368 keywords.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10471,6 +10487,14 @@
       "name": "antigravity-api-testing-observability-api-mock",
       "original_name": "api-testing-observability-api-mock",
       "description": "You are an API mocking expert specializing in realistic mock services for development, testing, and demos. Design mocks that simulate real API behavior and enable parallel development.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-android-ui-journey-testing",
+      "original_name": "android-ui-journey-testing",
+      "description": "XML-specified Android UI journey testing, interactive step execution, assertion verification, and JSON outcome reporting.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
