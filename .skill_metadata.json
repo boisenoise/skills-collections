@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-19T08:08:56.442656",
-  "skill_count": 2729,
+  "last_updated": "2026-06-20T07:33:23.734599",
+  "skill_count": 2761,
   "sources_processed": 19,
   "skills": [
     {
@@ -2156,6 +2156,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ask-matt",
+      "original_name": "ask-matt",
+      "description": "Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-chat-widget",
       "original_name": "chat-widget",
       "description": "Build a real-time support chat system with a floating widget for users and an admin dashboard for support staff. Use when the user wants live chat, customer support chat, real-time messaging, or in-app support.",
@@ -2772,6 +2780,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-prototype",
+      "original_name": "prototype",
+      "description": "Build a throwaway prototype to flesh out a design \u2014 a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-n8n-code-python",
       "original_name": "n8n-code-python",
       "description": "Write Python code in n8n Code nodes. Use when writing Python in n8n, using _input/_json/_node syntax, working with standard library, or need to understand Python limitations in n8n Code nodes.",
@@ -3007,6 +3023,14 @@
       "name": "antigravity-composition-patterns",
       "original_name": "composition-patterns",
       "description": "Use when working with composition-patterns tasks or workflows",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-to-issues",
+      "original_name": "to-issues",
+      "description": "Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3903,6 +3927,14 @@
       "name": "antigravity-pakistan-payments-stack",
       "original_name": "pakistan-payments-stack",
       "description": "Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP rails, optional Raast) for SaaS with PKR billing, webhook reliability, and reconciliation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-teach",
+      "original_name": "teach",
+      "description": "Teach the user a new skill or concept, within this workspace.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5300,6 +5332,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-bugs-are-annoying",
+      "original_name": "bugs-are-annoying",
+      "description": "Adversarial code auditor that hunts down bugs, logic errors, and security flaws. Use for deep correctness passes, not style reviews.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-frontend-mobile-development-component-scaffold",
       "original_name": "frontend-mobile-development-component-scaffold",
       "description": "You are a React component architecture expert specializing in scaffolding production-ready, accessible, and performant components. Generate complete component implementations with TypeScript, tests, s",
@@ -5540,6 +5580,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-grilling",
+      "original_name": "grilling",
+      "description": "Interview the user relentlessly about a plan or design. Use when the user wants to stress-test a plan before building, or uses any 'grill' trigger phrases.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-autonomous-agents",
       "original_name": "autonomous-agents",
       "description": "Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools, and self-correct without constant human guidance. The challenge isn't making them capable - it's making them reliable. Every extra decision multiplies failure probability.",
@@ -5663,6 +5711,14 @@
       "name": "antigravity-dotnet-backend",
       "original_name": "dotnet-backend",
       "description": "Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-grill-me",
+      "original_name": "grill-me",
+      "description": "A relentless interview to sharpen a plan or design.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6652,6 +6708,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-to-prd",
+      "original_name": "to-prd",
+      "description": "Turn the current conversation into a PRD and publish it to the project issue tracker \u2014 no interview, just synthesis of what you've already discussed.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-search-documents-py",
       "original_name": "azure-search-documents-py",
       "description": "Azure AI Search SDK for Python. Use for vector search, hybrid search, semantic ranking, indexing, and skillsets.",
@@ -6671,6 +6735,14 @@
       "name": "antigravity-imagen",
       "original_name": "imagen",
       "description": "AI image generation skill powered by Google Gemini, enabling seamless visual content creation for UI placeholders, documentation, and design assets.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-mailtrap-managing-contacts",
+      "original_name": "mailtrap-managing-contacts",
+      "description": "Manage Mailtrap contacts, lists, segments, custom fields, imports, CRM syncs, and campaign audiences through the UI or API.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6783,6 +6855,14 @@
       "name": "antigravity-backend-architect",
       "original_name": "backend-architect",
       "description": "Expert backend architect specializing in scalable API design, microservices architecture, and distributed systems.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-domain-modeling",
+      "original_name": "domain-modeling",
+      "description": "Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7231,6 +7311,14 @@
       "name": "antigravity-team-composition-analysis",
       "original_name": "team-composition-analysis",
       "description": "Design optimal team structures, hiring plans, compensation strategies, and equity allocation for early-stage startups from pre-seed through Series A.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-competitor-analysis",
+      "original_name": "competitor-analysis",
+      "description": "Research competitors with Browserbase discovery, enrichment lanes, screenshots, matrices, and HTML reports.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7724,6 +7812,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-mailtrap-sending-emails",
+      "original_name": "mailtrap-sending-emails",
+      "description": "Configure or troubleshoot Mailtrap live email sending with Email API, SMTP, transactional streams, bulk streams, or batches.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-audit-skills",
       "original_name": "audit-skills",
       "description": "Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identify malicious patterns, data leaks, system stability risks, and obfuscated payloads across Windows, macOS, Linux/Unix, and Mobile (Android/iOS).",
@@ -7839,6 +7935,14 @@
       "name": "antigravity-elixir-pro",
       "original_name": "elixir-pro",
       "description": "Write idiomatic Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. Masters concurrency, fault tolerance, and distributed systems.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-survey-generator",
+      "original_name": "survey-generator",
+      "description": "Generate source-backed AI/ML survey paper artifacts with curated bibliographies and Fireworks/Kimi HTML rendering.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8020,6 +8124,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-yao-meta-skill",
+      "original_name": "yao-meta-skill",
+      "description": "Create, refactor, evaluate, and package agent skills from workflows, prompts, transcripts, docs, or notes. Use for skill creation, reusable workflow packaging, skill improvement, evals, and team-ready distribution.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-appconfiguration-java",
       "original_name": "azure-appconfiguration-java",
       "description": "Azure App Configuration SDK for Java. Centralized application configuration management with key-value settings, feature flags, and snapshots.",
@@ -8071,6 +8183,14 @@
       "name": "antigravity-api-fuzzing-bug-bounty",
       "original_name": "api-fuzzing-bug-bounty",
       "description": "Provide comprehensive techniques for testing REST, SOAP, and GraphQL APIs during bug bounty hunting and penetration testing engagements. Covers vulnerability discovery, authentication bypass, IDOR exploitation, and API-specific attack vectors.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-codebase-design",
+      "original_name": "codebase-design",
+      "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8135,6 +8255,14 @@
       "name": "antigravity-create-issue-gate",
       "original_name": "create-issue-gate",
       "description": "Use when starting a new implementation task and an issue must be created with strict acceptance criteria gating before execution.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-triage",
+      "original_name": "triage",
+      "description": "Move issues and external PRs through a state machine of triage roles \u2014 categorise, verify, grill if needed, and write agent-ready briefs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8335,6 +8463,14 @@
       "name": "antigravity-context-manager",
       "original_name": "context-manager",
       "description": "Elite AI context engineering specialist mastering dynamic context management, vector databases, knowledge graphs, and intelligent memory systems.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-youtube-notetaker",
+      "original_name": "youtube-notetaker",
+      "description": "Turn YouTube talks into local study notes with slides, transcripts, editable annotations, and a markdown-backed viewer.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8652,6 +8788,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-image-generator",
+      "original_name": "image-generator",
+      "description": "Generate and edit images using Gemini's Nano Banana Pro model (gemini-3-pro-image-preview). Use this skill when the user asks you to generate images, create visuals, edit photos, create logos, generate product mockups, or perform any image generation/editing task.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-html-injection-testing",
       "original_name": "html-injection-testing",
       "description": "Identify and exploit HTML injection vulnerabilities that allow attackers to inject malicious HTML content into web applications. This vulnerability enables attackers to modify page appearance, create phishing pages, and steal user credentials through injected forms.",
@@ -8743,6 +8887,14 @@
       "name": "antigravity-odoo-inventory-optimizer",
       "original_name": "odoo-inventory-optimizer",
       "description": "Expert guide for Odoo Inventory: stock valuation (FIFO/AVCO), reordering rules, putaway strategies, routes, and multi-warehouse configuration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-setup-matt-pocock-skills",
+      "original_name": "setup-matt-pocock-skills",
+      "description": "Configure this repo for the engineering skills \u2014 set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9223,6 +9375,14 @@
       "name": "antigravity-agenttrace-session-audit",
       "original_name": "agenttrace-session-audit",
       "description": "Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, health, diffs, and CI gates.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-tdd",
+      "original_name": "tdd",
+      "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9967,6 +10127,14 @@
       "name": "antigravity-gemini-api-integration",
       "original_name": "gemini-api-integration",
       "description": "Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, streaming, function calling, and production best practices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-learn",
+      "original_name": "learn",
+      "description": "Help a user learn a topic through adaptive tutoring, lesson planning, practice, retrieval checks, explanations, study guides, or exercises. Use when the user asks to learn, understand, practice, drill, review, study, or be tutored on something.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10996,6 +11164,22 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-writing-great-skills",
+      "original_name": "writing-great-skills",
+      "description": "Reference for writing and editing skills well \u2014 the vocabulary and principles that make a skill predictable.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-loop-library",
+      "original_name": "loop-library",
+      "description": "Find, compare, adapt, and design bounded AI-agent feedback loops with explicit checks, stop rules, guardrails, and handoffs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-zipai-optimizer",
       "original_name": "zipai-optimizer",
       "description": "Ultra-dense token optimizer skill for prompt caching, log pruning, AST-based inspection, and minified JSON payloads.",
@@ -11076,6 +11260,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-lesson-generator",
+      "original_name": "lesson-generator",
+      "description": "Build compact, standalone multi-lesson course artifacts with lesson navigation, objectives, flashcards, quizzes, and source links.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-cc-skill-backend-patterns",
       "original_name": "cc-skill-backend-patterns",
       "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
@@ -11119,6 +11311,14 @@
       "name": "antigravity-vector-database-engineer",
       "original_name": "vector-database-engineer",
       "description": "Expert in vector databases, embedding strategies, and semantic search implementation. Masters Pinecone, Weaviate, Qdrant, Milvus, and pgvector for RAG applications, recommendation systems, and similar",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-mailtrap-testing-with-sandbox",
+      "original_name": "mailtrap-testing-with-sandbox",
+      "description": "Capture outbound email in Mailtrap Email Sandbox for development, staging, CI, HTML inspection, spam checks, and fake inbox tests.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11327,6 +11527,14 @@
       "name": "antigravity-code-simplifier",
       "original_name": "code-simplifier",
       "description": "Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when asked to \"simplify code\", \"clean up code\", \"refactor for clarity\", \"improve readability\", or review recently modified code for elegance. Focuses on project-specific best practices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-handoff",
+      "original_name": "handoff",
+      "description": "Compact the current conversation into a handoff document for another agent to pick up.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11724,9 +11932,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-diagnosing-bugs",
+      "original_name": "diagnosing-bugs",
+      "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-posix-shell-pro",
       "original_name": "posix-shell-pro",
       "description": "Expert in strict POSIX sh scripting for maximum portability across Unix-like systems. Specializes in shell scripts that run on any POSIX-compliant shell (dash, ash, sh, bash --posix).",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-wiki-builder",
+      "original_name": "wiki-builder",
+      "description": "Create and maintain reusable research wikis with source provenance, configurable structure, and local markdown outputs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12487,6 +12711,14 @@
       "name": "antigravity-price-psychology-strategist",
       "original_name": "price-psychology-strategist",
       "description": "One sentence - what this skill does and when to invoke it",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-mailtrap-setting-up-sending-domain",
+      "original_name": "mailtrap-setting-up-sending-domain",
+      "description": "Add or verify a Mailtrap sending domain, troubleshoot DNS propagation, publish SPF/DKIM/DMARC records, and complete compliance.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13380,6 +13612,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-llm-council",
+      "original_name": "llm-council",
+      "description": "Run Fireworks-hosted open-weight model councils that compare responses and synthesize a final answer.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-copy-editing",
       "original_name": "copy-editing",
       "description": "You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the core message.",
@@ -14100,6 +14340,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-improve-codebase-architecture",
+      "original_name": "improve-codebase-architecture",
+      "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-datadog-automation",
       "original_name": "datadog-automation",
       "description": "Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboards, create events and downtimes. Always search tools first for current schemas.",
@@ -14175,6 +14423,14 @@
       "name": "antigravity-azure-ai-voicelive-dotnet",
       "original_name": "azure-ai-voicelive-dotnet",
       "description": "Azure AI Voice Live SDK for .NET. Build real-time voice AI applications with bidirectional WebSocket communication.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-grill-with-docs",
+      "original_name": "grill-with-docs",
+      "description": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
