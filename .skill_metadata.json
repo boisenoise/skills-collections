@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-21T07:52:26.789601",
-  "skill_count": 2761,
+  "last_updated": "2026-06-22T08:20:53.193478",
+  "skill_count": 2764,
   "sources_processed": 19,
   "skills": [
     {
@@ -1943,6 +1943,14 @@
       "name": "antigravity-robius-event-action",
       "original_name": "robius-event-action",
       "description": "CRITICAL: Use for Robius event and action patterns. Triggers on:\ncustom action, MatchEvent, post_action, cx.widget_action,\nhandle_actions, DefaultNone, widget action, event handling,\n\u4e8b\u4ef6\u5904\u7406, \u81ea\u5b9a\u4e49\u52a8\u4f5c\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-remote-gpu-trainer",
+      "original_name": "remote-gpu-trainer",
+      "description": "Deploy, monitor, and debug long GPU jobs on RENTED/remote instances (AutoDL, RunPod, vast.ai, Lambda, Slurm, K8s): teardown/billing safety, spot resilience, resumable checkpointing, OOM/NaN triage.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6490,6 +6498,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-ax-extract-workflow",
+      "original_name": "ax-extract-workflow",
+      "description": "Reconstruct workflow behind a past coding-agent artifact using local ax sessions/commits/skills/tool traces. Use when asked how X was built.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "AGPL-3.0-only"
     },
     {
       "name": "antigravity-astropy",
@@ -11471,6 +11487,14 @@
       "name": "antigravity-legal-advisor",
       "original_name": "legal-advisor",
       "description": "Draft privacy policies, terms of service, disclaimers, and legal notices. Creates GDPR-compliant texts, cookie policies, and data processing agreements.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agent-creator",
+      "original_name": "agent-creator",
+      "description": "Create custom AI subagents with proper plugin structure, persona generation, and companion routing skills.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
