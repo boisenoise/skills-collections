@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-23 07:29 UTC*
+*Last updated: 2026-06-24 07:25 UTC*
 
-Total skills: **2764**
+Total skills: **2765**
 
 ## Skills by Source
 
@@ -2018,6 +2018,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-indexing-issue-auditor` | High-level technical SEO and site architecture auditor. Invoke to scan local or live environments fo... |
 | `antigravity-industrial-brutalist-ui` | Use when creating raw industrial or tactical telemetry UIs with rigid grids, stark typography, CRT e... |
 | `antigravity-infinite-gratitude` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case ... |
+| `antigravity-infinity` | Enforces a strict input boundary protocol (detect, classify, filter, verify) to ensure untrusted dat... |
 | `antigravity-ingest-youtube` | Pull a YouTube video transcript into a queryable markdown vault with yt-dlp subtitle discovery, VTT ... |
 | `antigravity-inngest` | Inngest expert for serverless-first background jobs, event-driven workflows, and durable execution w... |
 | `antigravity-instagram` | Integracao completa com Instagram via Graph API. Publicacao, analytics, comentarios, DMs, hashtags, ... |

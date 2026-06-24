@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-23T07:29:19.355713",
-  "skill_count": 2764,
+  "last_updated": "2026-06-24T07:25:25.573840",
+  "skill_count": 2765,
   "sources_processed": 19,
   "skills": [
     {
@@ -942,10 +942,10 @@
     {
       "name": "kdense-ginkgo-cloud-lab",
       "original_name": "ginkgo-cloud-lab",
-      "description": "Submit and manage protocols on Ginkgo Bioworks Cloud Lab (cloud.ginkgo.bio), a web-based interface for autonomous lab execution on Reconfigurable Automation Carts (RACs). Use when the user wants to run cell-free protein expression (validation or optimization), generate fluorescent pixel art, or interact with Ginkgo Cloud Lab services. Covers protocol selection, input preparation, pricing, and ordering workflows.",
+      "description": "Submit and manage protocols on Ginkgo Bioworks Cloud Lab (cloud.ginkgo.bio), a web-based interface for autonomous lab execution on Reconfigurable Automation Carts (RACs). Use when the user wants to run protein expression and purification (cell-free, E. coli, or Pichia), HiBiT or A280 or LabChip quantification, IVT mRNA/circRNA synthesis, thermal shift / developability assays, Echo-MS enzyme or analyte methods, SPR target onboarding, fluorescent pixel art, or otherwise interact with Ginkgo Cloud Lab services. Covers protocol selection, input preparation, pricing, and ordering workflows.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT"
+      "license": "MIT license"
     },
     {
       "name": "kdense-nextflow",
@@ -14047,6 +14047,14 @@
       "name": "antigravity-azure-keyvault-keys-ts",
       "original_name": "azure-keyvault-keys-ts",
       "description": "Manage cryptographic keys using Azure Key Vault Keys SDK for JavaScript (@azure/keyvault-keys). Use when creating, encrypting/decrypting, signing, or rotating keys.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-infinity",
+      "original_name": "infinity",
+      "description": "Enforces a strict input boundary protocol (detect, classify, filter, verify) to ensure untrusted data never reaches business logic raw.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
