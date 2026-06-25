@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-24 07:25 UTC*
+*Last updated: 2026-06-25 07:26 UTC*
 
-Total skills: **2765**
+Total skills: **2767**
 
 ## Skills by Source
 
@@ -1797,6 +1797,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-embedding-strategies` | Guide to selecting and optimizing embedding models for vector search applications. |
 | `antigravity-emblemai-crypto-wallet` | Crypto wallet management across 7 blockchains via EmblemAI Agent Hustle API. Balance checks, token s... |
 | `antigravity-emergency-card` | 生成紧急情况下快速访问的医疗信息摘要卡片。当用户需要旅行、就诊准备、紧急情况或询问"紧急信息"、"医疗卡片"、"急救信息"时使用此技能。提取关键信息（过敏、用药、急症、植入物），支持多格式输出（JSO... |
+| `antigravity-emil-design-eng` | Use when designing or reviewing polished product UI with Emil Kowalski-inspired animation, interacti... |
 | `antigravity-emotional-arc-designer` | One sentence - what this skill does and when to invoke it |
 | `antigravity-employment-contract-templates` | Templates and patterns for creating legally sound employment documentation including contracts, offe... |
 | `antigravity-energy-procurement` | Codified expertise for electricity and gas procurement, tariff optimisation, demand charge managemen... |
@@ -2434,6 +2435,7 @@ structures, and modern OOP features. U... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-returns-reverse-logistics` | Codified expertise for returns authorisation, receipt and inspection, disposition decisions, refund ... |
 | `antigravity-reverse-engineer` | Expert reverse engineer specializing in binary analysis, disassembly, decompilation, and software an... |
+| `antigravity-review-animations` | Use when reviewing animation and motion code against a strict craft, performance, accessibility, and... |
 | `antigravity-revops` | Design and improve revenue operations, lead lifecycle rules, scoring, routing, handoffs, and CRM pro... |
 | `antigravity-rich-elicitation` | Asks clarifying questions in multiple rounds before starting ambiguous tasks. Fires when 2+ task dim... |
 | `antigravity-risk-manager` | Monitor portfolio risk, R-multiples, and position limits. Creates hedging strategies, calculates exp... |

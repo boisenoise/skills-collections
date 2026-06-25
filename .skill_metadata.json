@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-24T07:25:25.573840",
-  "skill_count": 2765,
+  "last_updated": "2026-06-25T07:26:12.276288",
+  "skill_count": 2767,
   "sources_processed": 19,
   "skills": [
     {
@@ -5868,6 +5868,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-emil-design-eng",
+      "original_name": "emil-design-eng",
+      "description": "Use when designing or reviewing polished product UI with Emil Kowalski-inspired animation, interaction, and component craft guidance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-react-patterns",
       "original_name": "react-patterns",
       "description": "Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices.",
@@ -10295,6 +10303,14 @@
       "name": "antigravity-red-team-tactics",
       "original_name": "red-team-tactics",
       "description": "Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-review-animations",
+      "original_name": "review-animations",
+      "description": "Use when reviewing animation and motion code against a strict craft, performance, accessibility, and interaction-quality bar.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
