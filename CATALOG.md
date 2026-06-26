@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-25 07:26 UTC*
+*Last updated: 2026-06-26 07:32 UTC*
 
-Total skills: **2767**
+Total skills: **2772**
 
 ## Skills by Source
 
@@ -1344,6 +1344,7 @@ Total skills: **2767**
 | `antigravity-architecture-decision-records` | Comprehensive patterns for creating, maintaining, and managing Architecture Decision Records (ADRs) ... |
 | `antigravity-architecture-patterns` | Master proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, an... |
 | `antigravity-arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M m... |
+| `antigravity-arrowspace` | Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity misses la... |
 | `antigravity-article-illustrations` | Generate hand-drawn 16:9 article illustrations with the Grav character IP, sparse annotations, and a... |
 | `antigravity-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
 | `antigravity-ask-matt` | Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo. |
@@ -1907,6 +1908,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-geminiignore-finops` | Configure and optimize .geminiignore files for AI context window efficiency and token cost reduction... |
 | `antigravity-geo-fundamentals` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
 | `antigravity-geoffrey-hinton` | Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio Turing 2018, criador do backp... |
+| `antigravity-gh-image` | Upload local images to GitHub and get canonical user-attachments embed URLs; use when asked to attac... |
 | `antigravity-gh-review-requests` | Fetch unread GitHub notifications for open PRs where review is requested from a specified team or op... |
 | `antigravity-gha-security-review` | Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete ... |
 | `antigravity-git-advanced-workflows` | Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from ... |
@@ -1918,6 +1920,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-git-pushing` | Stage all changes, create a conventional commit, and push to the remote branch. Use when explicitly ... |
 | `antigravity-github` | Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. |
 | `antigravity-github-actions-advanced` | Design, debug, and harden GitHub Actions CI/CD workflows, including reusable workflows, matrix build... |
+| `antigravity-github-actions-debugger` | Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by parsing ... |
 | `antigravity-github-actions-templates` | Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications. |
 | `antigravity-github-automation` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (... |
 | `antigravity-github-issue-creator` | Turn error logs, screenshots, voice notes, and rough bug reports into crisp, developer-ready GitHub ... |
@@ -2354,6 +2357,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pptx` | A user may ask you to create, edit, or analyze the contents of a .pptx file. A .pptx file is essenti... |
 | `antigravity-pr-merge-champion` | Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-re... |
 | `antigravity-pr-writer` | Create pull requests following Sentry's engineering practices. |
+| `antigravity-premium-3d-website` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing, phys... |
 | `antigravity-price-psychology-strategist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-pricing-strategy` | Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, ... |
 | `antigravity-prisma-expert` | You are an expert in Prisma ORM with deep knowledge of schema design, migrations, query optimization... |
@@ -2683,6 +2687,7 @@ calculations
 | `antigravity-testing-patterns` | Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing uni... |
 | `antigravity-testing-qa` | Comprehensive testing and QA workflow covering unit testing, integration testing, E2E testing, brows... |
 | `antigravity-textme` | Text Claude from your phone — set up the njerschow/textme daemon so inbound iMessages drive a Claude... |
+| `antigravity-the-honoured-one` | Forces the AI to fully load context and read relevant files before performing complex, multi-file ta... |
 | `antigravity-theme-factory` | This skill provides a curated collection of professional font and color themes themes, each with car... |
 | `antigravity-threat-mitigation-mapping` | Map identified threats to appropriate security controls and mitigations. Use when prioritizing secur... |
 | `antigravity-threat-modeling-expert` | Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters ... |

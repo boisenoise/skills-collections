@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-25T07:26:12.276288",
-  "skill_count": 2767,
+  "last_updated": "2026-06-26T07:32:23.443629",
+  "skill_count": 2772,
   "sources_processed": 19,
   "skills": [
     {
@@ -4156,6 +4156,14 @@
       "license": "CC-BY-4.0"
     },
     {
+      "name": "antigravity-arrowspace",
+      "original_name": "arrowspace",
+      "description": "Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity misses latent structure in your embeddings.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-photopea-embedded-editor",
       "original_name": "photopea-embedded-editor",
       "description": "Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and the full Photoshop-compatible API.",
@@ -6076,6 +6084,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-premium-3d-website",
+      "original_name": "premium-3d-website",
+      "description": "Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing, physics-based interactions, smooth animations, preloaders, and device optimization.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-context-guardian",
       "original_name": "context-guardian",
       "description": "Guardiao de contexto que preserva dados criticos antes da compactacao automatica. Snapshots, verificacao de integridade e zero perda de informacao.",
@@ -7439,6 +7455,14 @@
       "name": "antigravity-apify-actor-development",
       "original_name": "apify-actor-development",
       "description": "Important: Before you begin, fill in the generatedBy property in the meta section of .actor/actor.json. Replace it with the tool and model you're currently using, such as \"Claude Code with Claude Sonnet 4.5\". This helps Apify monitor and improve AGENTS.md for specific AI tools and models.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-gh-image",
+      "original_name": "gh-image",
+      "description": "Upload local images to GitHub and get canonical user-attachments embed URLs; use when asked to attach a screenshot to a PR, issue, or comment, or to embed before/after images in a README.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13516,6 +13540,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-github-actions-debugger",
+      "original_name": "github-actions-debugger",
+      "description": "Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by parsing run logs and pipeline definitions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-twitter-automation",
       "original_name": "twitter-automation",
       "description": "Automate Twitter/X tasks via Rube MCP (Composio): posts, search, users, bookmarks, lists, media. Always search tools first for current schemas.",
@@ -13703,6 +13735,14 @@
       "name": "antigravity-prompt-caching",
       "original_name": "prompt-caching",
       "description": "Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Cache Augmented Generation)",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-the-honoured-one",
+      "original_name": "the-honoured-one",
+      "description": "Forces the AI to fully load context and read relevant files before performing complex, multi-file tasks, architectural changes, or debugging. Prevents acting on assumptions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
