@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-27 07:17 UTC*
+*Last updated: 2026-06-28 07:34 UTC*
 
-Total skills: **2772**
+Total skills: **2776**
 
 ## Skills by Source
 
@@ -1274,6 +1274,7 @@ Total skills: **2772**
 | `antigravity-ai-dev-jobs-mcp` | Search 8,400+ AI and ML jobs across 489 companies, inspect listings and employers, match roles, and ... |
 | `antigravity-ai-engineer` | Build production-ready LLM applications, advanced RAG systems, and intelligent agents. Implements ve... |
 | `antigravity-ai-engineering-toolkit` | 6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget... |
+| `antigravity-ai-loop` | Runs a bounded spec-build-review development loop with explicit scope, stop conditions, and human ap... |
 | `antigravity-ai-md` | Convert human-written CLAUDE.md into AI-native structured-label format. Battle-tested across 4 model... |
 | `antigravity-ai-ml` | AI and machine learning workflow covering LLM application development, RAG implementation, agent arc... |
 | `antigravity-ai-native-cli` | Design spec with 98 rules for building CLI tools that AI agents can safely use. Covers structured JS... |
@@ -1681,6 +1682,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-create-pr` | Alias for sentry-skills:pr-writer. Use when users explicitly ask for "create-pr" or reference the le... |
 | `antigravity-cred-omega` | CISO operacional enterprise para gestao total de credenciais e segredos. |
 | `antigravity-crewai` | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies... |
+| `antigravity-cron-doctor` | Diagnose and validate cron expressions before they ship. Catches the five silent death-traps: imposs... |
 | `antigravity-crossframe` | Use when the user explicitly invokes CrossFrame or 跨尺度结构诊断 for Chinese-canonical structural diagnosi... |
 | `antigravity-crossframe-casebook` | Use when CrossFrame Suite routes explicit Chinese casebook work: turning materials into reusable cas... |
 | `antigravity-crossframe-critical` | Use only when the user explicitly names crossframe-critical for a Chinese structural critique dossie... |
@@ -2606,6 +2608,7 @@ Plans content calendars and ident... |
 | `antigravity-sql-injection-testing` | Execute comprehensive SQL injection vulnerability assessments on web applications to identify databa... |
 | `antigravity-sql-optimization-patterns` | Transform slow database queries into lightning-fast operations through systematic optimization, prop... |
 | `antigravity-sql-pro` | Master modern SQL with cloud-native databases, OLTP/OLAP optimization, and advanced query techniques... |
+| `antigravity-sql-sentinel` | Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse hea... |
 | `antigravity-sqlmap-database-pentesting` | Provide systematic methodologies for automated SQL injection detection and exploitation using SQLMap... |
 | `antigravity-square-automation` | Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search ... |
 | `antigravity-squirrel` | Full-cycle AI coding skill: plans, builds, tests, lints, fixes bugs, and writes production-grade doc... |
@@ -2797,6 +2800,7 @@ calculations
 | `antigravity-web-design-guidelines` | Review files for compliance with Web Interface Guidelines. |
 | `antigravity-web-media-getter` | One query across free image / video / GIF APIs (stock + historical/archival + GIF engines), returnin... |
 | `antigravity-web-performance-optimization` | Optimize website and web application performance including loading speed, Core Web Vitals, bundle si... |
+| `antigravity-web-project-brainstorming` | Masterclass framework for brainstorming web development projects and page designs. Outlines structur... |
 | `antigravity-web-scraper` | Web scraping inteligente multi-estrategia. Extrai dados estruturados de paginas web (tabelas, listas... |
 | `antigravity-web-security-testing` | Web application security testing workflow for OWASP Top 10 vulnerabilities including injection, XSS,... |
 | `antigravity-web3-testing` | Master comprehensive testing strategies for smart contracts using Hardhat, Foundry, and advanced tes... |

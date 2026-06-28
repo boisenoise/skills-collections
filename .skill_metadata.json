@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-27T07:17:18.373227",
-  "skill_count": 2772,
+  "last_updated": "2026-06-28T07:34:25.090178",
+  "skill_count": 2776,
   "sources_processed": 19,
   "skills": [
     {
@@ -4247,6 +4247,14 @@
       "name": "antigravity-browser-automation",
       "original_name": "browser-automation",
       "description": "Browser automation powers web testing, scraping, and AI agent interactions. The difference between a flaky script and a reliable system comes down to understanding selectors, waiting strategies, and anti-detection patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-sql-sentinel",
+      "original_name": "sql-sentinel",
+      "description": "Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse health 0-100 and outputs a prioritized cost-reduction plan for BigQuery, Snowflake, Redshift, and Postgres.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9127,6 +9135,14 @@
       "name": "antigravity-seo-snippet-hunter",
       "original_name": "seo-snippet-hunter",
       "description": "Formats content to be eligible for featured snippets and SERP features. Creates snippet-optimized content blocks based on best practices. Use PROACTIVELY for question-based content.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cron-doctor",
+      "original_name": "cron-doctor",
+      "description": "Diagnose and validate cron expressions before they ship. Catches the five silent death-traps: impossible dates that never fire, OR-semantics that fire too often, midnight spikes, uneven step drift, and leap-year February 29.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14092,6 +14108,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-web-project-brainstorming",
+      "original_name": "web-project-brainstorming",
+      "description": "Masterclass framework for brainstorming web development projects and page designs. Outlines structural phases for concept, UX flow, styling aesthetics, technical architecture, and SEO.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-xiaohongshu-content-strategist",
       "original_name": "xiaohongshu-content-strategist",
       "description": "Create viral Xiaohongshu (\u5c0f\u7ea2\u4e66) content with platform-native strategy, save-rate optimization, trending formats, and search SEO for China's #1 lifestyle platform.",
@@ -14559,6 +14583,14 @@
       "name": "antigravity-salesforce-automation",
       "original_name": "salesforce-automation",
       "description": "Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL queries. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-loop",
+      "original_name": "ai-loop",
+      "description": "Runs a bounded spec-build-review development loop with explicit scope, stop conditions, and human approval gates for risky or ambiguous work.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
