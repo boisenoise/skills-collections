@@ -1,6 +1,6 @@
 ---
 name: advanced-evaluation
-description: This skill should be used when the user asks to "implement LLM-as-judge", "compare model outputs", "create evaluation rubrics", "mitigate evaluation bias", or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines, or automated quality assessment.
+description: "This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment."
 ---
 
 # Advanced Evaluation
@@ -13,13 +13,18 @@ This skill covers production-grade techniques for evaluating LLM outputs using L
 
 Activate this skill when:
 
-- Building automated evaluation pipelines for LLM outputs
+- Building LLM-as-judge systems for LLM outputs
 - Comparing multiple model responses to select the best one
 - Establishing consistent quality standards across evaluation teams
 - Debugging evaluation systems that show inconsistent results
 - Designing A/B tests for prompt or model changes
-- Creating rubrics for human or automated evaluation
+- Creating rubrics specifically for LLM or human/LLM hybrid judges
 - Analyzing correlation between automated and human judgments
+
+Do not activate this skill for adjacent work owned by other skills:
+- General deterministic checks, regression suites, production quality gates, or outcome metrics: `evaluation`.
+- Autonomous loop governance, locked rubrics, rollback, or PR approval boundaries: `harness-engineering`.
+- Tool API contracts for evaluation tools: `tool-design`.
 
 ## Core Concepts
 
@@ -29,7 +34,7 @@ Select between two primary approaches based on whether ground truth exists:
 
 **Direct Scoring** — Use when objective criteria exist (factual accuracy, instruction following, toxicity). A single LLM rates one response on a defined scale. Achieves moderate-to-high reliability for well-defined criteria. Watch for score calibration drift and inconsistent scale interpretation.
 
-**Pairwise Comparison** — Use for subjective preferences (tone, style, persuasiveness). An LLM compares two responses and selects the better one. Achieves higher human-judge agreement than direct scoring for preference tasks (Zheng et al., 2023). Watch for position bias and length bias.
+**Pairwise Comparison** — Use for subjective preferences (tone, style, persuasiveness). An LLM compares two responses and selects the better one. Pairwise methods often correlate better with human preference than open-ended direct scoring for subjective tasks (claim-advanced-evaluation-position-swap). Watch for position bias and length bias.
 
 ### The Bias Landscape
 
@@ -103,16 +108,17 @@ For each criterion:
 Respond with structured JSON containing scores, justifications, and summary.
 ```
 
-Always require justification before the score in all scoring prompts because research shows this improves reliability by 15-25% compared to score-first approaches.
+Require evidence before the score in scoring prompts so the judge must anchor its decision in observable output features before emitting a number.
 
 ### Pairwise Comparison Implementation
 
 Apply position bias mitigation in every pairwise evaluation:
 
-1. First pass: Response A in first position, Response B in second
-2. Second pass: Response B in first position, Response A in second
-3. Consistency check: If passes disagree, return TIE with reduced confidence
-4. Final verdict: Consistent winner with averaged confidence
+1. Run deterministic pre-checks first: both candidates must satisfy the same schema, source-evidence requirements, and scope constraints.
+2. First judge pass: Response A in first position, Response B in second.
+3. Second judge pass: Response B in first position, Response A in second.
+4. Consistency check: If passes disagree, return TIE with reduced confidence.
+5. Final verdict: Consistent winner with averaged confidence and explicit tie-breaker rationale.
 
 **Prompt Structure for Pairwise Comparison**:
 ```
@@ -151,7 +157,7 @@ JSON with per-criterion comparison, overall winner, confidence (0-1), and reason
 
 ### Rubric Generation
 
-Generate rubrics to reduce evaluation variance by 40-60% compared to open-ended scoring.
+Generate rubrics to reduce evaluation variance compared to open-ended scoring. Treat exact variance reduction as workload-specific unless measured on the target eval set.
 
 **Include these rubric components**:
 1. **Level descriptions**: Clear boundaries for each score level
@@ -326,7 +332,7 @@ strictness: "balanced"
 
 ## Guidelines
 
-1. **Always require justification before scores** - Chain-of-thought prompting improves reliability by 15-25%
+1. **Always require evidence before scores** - Evidence-first prompts make judgments easier to audit and reduce ungrounded numeric scoring
 
 2. **Always swap positions in pairwise comparison** - Single-pass comparison is corrupted by position bias
 
@@ -360,18 +366,19 @@ strictness: "balanced"
 
 6. **Rubric drift**: Rubrics become miscalibrated as quality standards evolve or model capabilities improve. Schedule periodic rubric reviews and re-anchor score levels against fresh human-annotated examples.
 
-7. **Evaluation prompt sensitivity**: Minor wording changes in evaluation prompts (e.g., reordering instructions, changing phrasing) can cause 10-20% score swings. Version-control evaluation prompts and run regression tests before deploying prompt changes.
+7. **Evaluation prompt sensitivity**: Minor wording changes in evaluation prompts can cause material score swings. Version-control evaluation prompts and run regression tests before deploying prompt changes.
 
 8. **Uncontrolled length bias**: Longer responses systematically score higher even when conciseness is preferred. Add explicit length-neutrality instructions to evaluation prompts and validate with length-controlled test pairs.
 
 ## Integration
 
-This skill integrates with:
+This skill owns judge design and bias mitigation. Adjacent skills own broader quality gates and infrastructure:
 
-- **context-fundamentals** - Evaluation prompts require effective context structure
-- **tool-design** - Evaluation tools need proper schemas and error handling
-- **context-optimization** - Evaluation prompts can be optimized for token efficiency
-- **evaluation** (foundational) - This skill extends the foundational evaluation concepts
+- `evaluation`: general deterministic checks, regression suites, quality gates, and production monitoring.
+- `context-fundamentals`: context structure for judge prompts.
+- `tool-design`: schemas and error handling for evaluation tools.
+- `context-optimization`: token and latency efficiency for high-volume evals.
+- `harness-engineering`: locked evaluator surfaces and governance for autonomous loops.
 
 ## References
 
@@ -397,6 +404,6 @@ Related skills in this collection:
 ## Skill Metadata
 
 **Created**: 2025-12-24
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 2.0.0
+**Version**: 2.1.0

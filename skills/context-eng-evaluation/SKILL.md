@@ -1,6 +1,6 @@
 ---
 name: evaluation
-description: This skill should be used when the user asks to "evaluate agent performance", "build test framework", "measure agent quality", "create evaluation rubrics", or mentions LLM-as-judge, multi-dimensional evaluation, agent testing, or quality gates for agent pipelines.
+description: "This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines."
 ---
 
 # Evaluation Methods for Agent Systems
@@ -18,28 +18,35 @@ Activate this skill when:
 - Comparing different agent configurations
 - Evaluating production systems continuously
 
+Do not activate this skill for adjacent work owned by other skills:
+- Designing the LLM judge itself, pairwise comparison, judge calibration, or bias mitigation: `advanced-evaluation`.
+- Designing autonomous control surfaces, novelty gates, rollback, or PR approval boundaries: `harness-engineering`.
+- Debugging a specific context failure mode before measuring it: `context-degradation`.
+
 ## Core Concepts
 
 Focus evaluation on outcomes rather than execution paths, because agents may find alternative valid routes to goals. Judge whether the agent achieves the right outcome via a reasonable process, not whether it followed a specific sequence of steps.
 
 Use multi-dimensional rubrics instead of single scores because one number hides critical failures in specific dimensions. Capture factual accuracy, completeness, citation accuracy, source quality, and tool efficiency as separate dimensions, then weight them for the use case.
 
-Deploy LLM-as-judge for scalable evaluation across large test sets while supplementing with human review to catch edge cases, hallucinations, and subtle biases that automated evaluation misses.
+Use model-judged evaluation only after deterministic checks and rubrics are stable. When the work centers on judge prompts, pairwise comparison, calibration, or bias mitigation, switch to Advanced Evaluation.
 
-**Performance Drivers: The 95% Finding**
+Run deterministic validation before LLM judgment whenever the artifact has machine-checkable structure. Schema validity, duplicate keys, rubric math, manifest sync, retrieval status, and required evidence paths should fail fast before an evaluator spends tokens or returns a subjective score.
 
-Apply the BrowseComp research finding when designing evaluation budgets: three factors explain 95% of browsing agent performance variance.
+**Performance Drivers**
+
+Apply browsing-agent research when designing evaluation budgets: token usage, tool calls, and model choice can dominate measured performance variance (claim-evaluation-browsecomp-variance).
 
 | Factor | Variance Explained | Implication |
 |--------|-------------------|-------------|
-| Token usage | 80% | More tokens = better performance |
-| Number of tool calls | ~10% | More exploration helps |
-| Model choice | ~5% | Better models multiply efficiency |
+| Token usage | Primary driver | More exploration can improve performance until cost or context quality collapses |
+| Number of tool calls | Secondary driver | More tool use helps only when calls retrieve useful evidence |
+| Model choice | Secondary but multiplicative | Better models often use tokens and tools more efficiently |
 
 Act on these implications when designing evaluations:
-- **Set realistic token budgets**: Evaluate agents with production-realistic token limits, not unlimited resources, because token usage drives 80% of variance.
-- **Prioritize model upgrades over token increases**: Upgrading model versions provides larger gains than doubling token budgets on previous versions because better models use tokens more efficiently.
-- **Validate multi-agent architectures**: The finding supports distributing work across agents with separate context windows, so evaluate multi-agent setups against single-agent baselines.
+- **Set realistic token budgets**: Evaluate agents with production-realistic token limits, not unlimited resources.
+- **Compare model upgrades against token increases**: Better models may use tokens more efficiently than weaker models with larger budgets.
+- **Validate multi-agent architectures**: Extra agents add tokens and tool calls; evaluate them against single-agent baselines.
 
 ## Detailed Topics
 
@@ -137,6 +144,7 @@ Follow this sequence to build an evaluation framework, because skipping early st
 6. Run evaluations on all significant changes and compare against the baseline.
 7. Track metrics over time for trend analysis because gradual degradation is harder to notice than sudden drops.
 8. Supplement automated evaluation with human review on a regular cadence.
+9. Separate deterministic validation failures from quality judgments so invalid artifacts cannot be laundered by a favorable LLM score.
 
 ### Avoiding Evaluation Pitfalls
 
@@ -195,6 +203,30 @@ test_set = [
 ]
 ```
 
+**Example 3: Deterministic gate before model judgment**
+```python
+def evaluate_pr_candidate(candidate):
+    structure = run_validate_repo(candidate)
+    if not structure.ok:
+        return {"passed": False, "reason": "deterministic validation failed", "details": structure.errors}
+
+    quality = run_rubric_eval(candidate)
+    return {"passed": quality.overall >= 0.8, "scores": quality.dimensions}
+```
+
+**Example 4: Quality gate dimensions**
+```yaml
+gate:
+  deterministic:
+    - schema_valid
+    - required_files_present
+    - no_duplicate_ids
+  quality:
+    factual_accuracy: min 0.85
+    completeness: min 0.80
+    source_traceability: min 0.90
+```
+
 ## Guidelines
 
 1. Use multi-dimensional rubrics, not single metrics
@@ -219,14 +251,15 @@ test_set = [
 
 ## Integration
 
-This skill connects to all other skills as a cross-cutting concern:
+This skill owns outcome measurement and quality gates. Adjacent skills own specialized evaluator design and control-loop governance:
 
-- context-fundamentals - Evaluating context usage
-- context-degradation - Detecting degradation
-- context-optimization - Measuring optimization effectiveness
-- multi-agent-patterns - Evaluating coordination
-- tool-design - Evaluating tool effectiveness
-- memory-systems - Evaluating memory quality
+- `advanced-evaluation`: LLM-as-judge prompt design, pairwise comparison, calibration, and bias mitigation.
+- `harness-engineering`: locked evaluators, editable surfaces, rollback, and human approval boundaries.
+- `context-degradation`: detecting and measuring degradation patterns.
+- `context-optimization`: measuring token, cost, latency, and quality effects of optimizations.
+- `multi-agent-patterns`: evaluating coordination quality and parallelization trade-offs.
+- `tool-design`: evaluating tool selection and recovery effectiveness.
+- `memory-systems`: evaluating memory retrieval and retention quality.
 
 ## References
 
@@ -246,6 +279,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-20
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 1.1.0
+**Version**: 1.2.0

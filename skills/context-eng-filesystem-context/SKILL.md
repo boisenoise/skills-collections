@@ -1,6 +1,6 @@
 ---
 name: filesystem-context
-description: This skill should be used when the user asks to "offload context to files", "implement dynamic context discovery", "use filesystem for agent memory", "reduce context window bloat", or mentions file-based context management, tool output persistence, agent scratch pads, or just-in-time context loading.
+description: "This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt."
 ---
 
 # Filesystem-Based Context Engineering
@@ -19,6 +19,12 @@ Activate this skill when:
 - Building agents that learn and update their own instructions
 - Implementing scratch pads for intermediate results
 - Terminal outputs or logs need to be accessible to agents
+
+Do not activate this skill for adjacent work owned by other skills:
+- Semantic cross-session memory, entity tracking, or temporal knowledge graphs: `memory-systems`.
+- Conversation summarization, compaction, or durable handoff wording: `context-compression`.
+- Token-efficiency tactics that do not require file-backed storage: `context-optimization`.
+- Multi-agent topology or handoff protocol design: `multi-agent-patterns`.
 
 ## Core Concepts
 
@@ -190,6 +196,8 @@ project/
 
 Use consistent naming conventions and include timestamps or IDs in scratch files for disambiguation.
 
+For autonomous research loops, store raw retrieved evidence under the run that consumed it, for example `researcher/runs/<run-id>/sources/evidence/raw/`. Do not leave raw research dumps in the repository root; root-level artifacts become hard to audit and easy to cite without provenance.
+
 ### Token Accounting
 
 Measure where tokens originate before and after applying filesystem patterns, because optimizing without measurement leads to wasted effort:
@@ -240,6 +248,7 @@ Result: Agent can search history file to recover details lost in summarization
 8. Measure token savings to validate filesystem patterns are effective
 9. Implement cleanup for scratch files to prevent unbounded growth
 10. Guard self-modification patterns with validation
+11. Keep raw evidence next to the run, evaluation, and proposal that used it
 
 ## Gotchas
 
@@ -254,13 +263,13 @@ Result: Agent can search history file to recover details lost in summarization
 
 ## Integration
 
-This skill connects to:
+This skill owns file-backed context storage and retrieval. Adjacent skills own semantic memory, summarization, and topology:
 
-- context-optimization - Filesystem offloading is a form of observation masking
-- memory-systems - Filesystem-as-memory is a simple memory layer
-- multi-agent-patterns - Sub-agent file workspaces enable isolation
-- context-compression - File references enable lossless "compression"
-- tool-design - Tools should return file references for large outputs
+- `context-optimization`: filesystem offloading is one implementation of observation masking when full outputs remain retrievable.
+- `memory-systems`: use when file-backed notes are no longer enough and semantic, entity, or temporal retrieval is required.
+- `multi-agent-patterns`: sub-agent file workspaces enable context isolation and direct handoff.
+- `context-compression`: file references can anchor summaries and preserve details omitted from compressed context.
+- `tool-design`: tools should return file references for large outputs and expose safe read/search operations.
 
 ## References
 
@@ -282,6 +291,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2026-01-07
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 1.1.0
+**Version**: 1.2.0

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-29T08:03:24.515355",
-  "skill_count": 2776,
+  "last_updated": "2026-06-30T07:33:15.038512",
+  "skill_count": 2796,
   "sources_processed": 19,
   "skills": [
     {
@@ -1004,6 +1004,14 @@
       "license": "Proprietary. LICENSE.txt has complete terms"
     },
     {
+      "name": "kdense-tamarind",
+      "original_name": "tamarind",
+      "description": "Access a collection of open-source molecular design and structural biology tools on the Tamarind Bio platform, via its REST API or MCP server \u2014 no local GPUs required. Tamarind bundles popular open-source models for structure prediction (AlphaFold, Boltz, Chai, ESMFold), protein, binder, and de novo design (RFdiffusion, ProteinMPNN, BoltzGen), antibody and nanobody design and developability, protein-ligand docking (DiffDock, Autodock Vina), binding-affinity prediction, MSA generation, and molecular dynamics. Use when the user mentions Tamarind or tamarind.bio, wants to run any of these open-source tools in the cloud, references app.tamarind.bio/api or the x-api-key header, or needs to submit batches of sequences for structural or biophysical characterization.",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
+    },
+    {
       "name": "kdense-scikit-survival",
       "original_name": "scikit-survival",
       "description": "Comprehensive toolkit for survival analysis and time-to-event modeling in Python using scikit-survival. Use this skill when working with censored survival data, performing time-to-event analysis, fitting Cox models, Random Survival Forests, Gradient Boosting models, or Survival SVMs, evaluating survival predictions with concordance index or Brier score, handling competing risks, or implementing any survival analysis workflow with the scikit-survival library.",
@@ -1586,6 +1594,14 @@
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "Apache-2.0 license"
+    },
+    {
+      "name": "kdense-onekgpd",
+      "original_name": "onekgpd",
+      "description": "Query the 1000 Genomes Project dataset (3,202 whole-genome-sequenced individuals, GRCh38) at the level of individual participants. Use when a question is about individuals or variants in the 1000 Genomes Project cohort: which individuals carry variants matching specific criteria in a gene or region, which individuals are homozygous-reference at a position, which variants exist in the dataset or carried by specified individuals in a gene or region, the relatedness between two specified individuals. Variants are returned with 1000 Genomes allele frequencies (AF), gnomAD v4.1 exome and genome AF, AlphaMissense score, and HGVSp annotations.\n",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
     },
     {
       "name": "kdense-pptx",
@@ -2316,6 +2332,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-weaviate-cookbooks",
+      "original_name": "weaviate-cookbooks",
+      "description": "Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, multimodal PDF search, async clients, and frontends.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "BSD-3-Clause"
+    },
+    {
       "name": "antigravity-cc-skill-frontend-patterns",
       "original_name": "cc-skill-frontend-patterns",
       "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.",
@@ -2426,6 +2450,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-pre-release-review",
+      "original_name": "pre-release-review",
+      "description": "Run a read-only pre-release review for deploy readiness, migrations, config, secrets, rollout order, rollback risk, and launch blockers.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-jq",
@@ -3916,6 +3948,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-weaviate",
+      "original_name": "weaviate",
+      "description": "Search, query, inspect, create, and import data into Weaviate vector database collections using official scripts and references.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "BSD-3-Clause"
+    },
+    {
       "name": "antigravity-auri-core",
       "original_name": "auri-core",
       "description": "Auri: assistente de voz inteligente (Alexa + Claude claude-opus-4-20250805). Visao do produto, persona Vitoria Neural, stack AWS, modelo Free/Pro/Business/Enterprise, roadmap 4 fases, GTM, north star WAC e analise competitiva.",
@@ -4010,6 +4050,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-drizzle-migration-conflict",
+      "original_name": "drizzle-migration-conflict",
+      "description": "Diagnose, repair, and prevent Drizzle Kit migration conflicts involving generated SQL, snapshots, journals, merge queues, and team workflows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-azure-storage-blob-rust",
@@ -7039,6 +7087,14 @@
       "name": "antigravity-atlas-ledger",
       "original_name": "atlas-ledger",
       "description": "Companion to atlas-contract. Auto-invoked by its Final Audit on caught drift; also use after Post Reviews or user requests to record a mistake. Distills drift into WHEN/DON'T/INSTEAD clauses, writes to Atlas.md after confirmation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-re-create",
+      "original_name": "re-create",
+      "description": "Completely delete and rewrite a file or module from scratch when structural rot makes patching impossible.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13316,6 +13372,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-browser-testing-with-devtools",
+      "original_name": "browser-testing-with-devtools",
+      "description": "Test browser apps with Chrome DevTools MCP by inspecting live DOM, console logs, network traffic, screenshots, accessibility, and performance traces.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-data-scientist",
       "original_name": "data-scientist",
       "description": "Expert data scientist for advanced analytics, machine learning, and statistical modeling. Handles complex data analysis, predictive modeling, and business intelligence.",
@@ -13975,6 +14039,14 @@
       "name": "antigravity-e2e-testing-patterns",
       "original_name": "e2e-testing-patterns",
       "description": "Build reliable, fast, and maintainable end-to-end test suites that provide confidence to ship code quickly and catch regressions before users do.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-frontend-lighthouse",
+      "original_name": "frontend-lighthouse",
+      "description": "Add a portable Lighthouse CI gate for production frontend builds with Core Web Vitals budgets, category floors, median runs, and CI artifacts.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21500,6 +21572,38 @@
       "license": "MIT"
     },
     {
+      "name": "context-eng-advanced-evaluation",
+      "original_name": "advanced-evaluation",
+      "description": "This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-tool-design",
+      "original_name": "tool-design",
+      "description": "This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when to add or remove an individual tool. Use this when the unit of work is a single tool or a set of tools. Route project-shape, pipeline architecture, and task-model-fit decisions to project-development; route deciding whether to introduce sub-agents to multi-agent-patterns.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-bdi-mental-states",
+      "original_name": "bdi-mental-states",
+      "description": "This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, intentions, RDF-to-belief transformations, rational agency traces, cognitive agents, BDI ontologies, and neuro-symbolic AI integration.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-context-optimization",
+      "original_name": "context-optimization",
+      "description": "This skill should be used for improving context efficiency: context budgeting, observation masking, prefix or KV-cache strategy, partitioning, token-cost reduction, retrieval scoping, and extending effective context capacity without lowering answer quality.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
       "name": "context-eng-context-compression",
       "original_name": "context-compression",
       "description": "This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.",
@@ -21508,9 +21612,65 @@
       "license": "MIT"
     },
     {
+      "name": "context-eng-context-fundamentals",
+      "original_name": "context-fundamentals",
+      "description": "This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, the U-shaped attention curve, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-context-degradation",
+      "original_name": "context-degradation",
+      "description": "This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
       "name": "context-eng-memory-systems",
       "original_name": "memory-systems",
-      "description": "This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.\n",
+      "description": "This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries to context-compression, and token-efficiency tactics to context-optimization.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-harness-engineering",
+      "original_name": "harness-engineering",
+      "description": "This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-project-development",
+      "original_name": "project-development",
+      "description": "This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, choosing between single-agent and multi-agent at the project level, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design and individual skill-loading or context-budget tactics to context-optimization.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-evaluation",
+      "original_name": "evaluation",
+      "description": "This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-filesystem-context",
+      "original_name": "filesystem-context",
+      "description": "This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-hosted-agents",
+      "original_name": "hosted-agents",
+      "description": "This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes.",
       "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
       "license": "MIT"

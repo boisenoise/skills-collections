@@ -1,6 +1,6 @@
 ---
 name: hosted-agents
-description: This skill should be used when the user asks to "build background agent", "create hosted coding agent", "set up sandboxed execution", "implement multiplayer agent", or mentions background agents, sandboxed VMs, agent infrastructure, Modal sandboxes, self-spawning agents, or remote coding environments.
+description: "This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes."
 ---
 
 # Hosted Agent Infrastructure
@@ -16,6 +16,12 @@ Activate this skill when:
 - Creating multi-client agent interfaces (Slack, Web, Chrome extensions)
 - Scaling agent infrastructure beyond local machine constraints
 - Building systems where agents spawn sub-agents for parallel work
+
+Do not activate this skill for adjacent work owned by other skills:
+- Designing the autonomous research loop, novelty gates, rollback policy, or merge boundaries: `harness-engineering`.
+- Choosing supervisor, swarm, or handoff topology without hosted infrastructure concerns: `multi-agent-patterns`.
+- Designing the tools used by a hosted agent, such as spawn/status tools or PR tools: `tool-design`.
+- Managing file-backed state inside a session rather than the hosted runtime itself: `filesystem-context`.
 
 ## Core Concepts
 
@@ -183,6 +189,18 @@ Build a Chrome extension for non-engineering users because DOM and React interna
 
 ## Practical Guidance
 
+### Hosted Agent Design Checklist
+
+Before building the system, decide these infrastructure properties explicitly:
+
+1. **Sandbox lifecycle**: how sessions start, snapshot, restore, time out, and terminate.
+2. **Image and warm-pool policy**: how often images rebuild, which caches are precomputed, and when warm sandboxes expire.
+3. **Read/write synchronization**: whether agents may read before repository sync completes, and which events unblock writes.
+4. **Per-session state isolation**: what storage belongs to one session, what is shared, and how cross-session interference is prevented.
+5. **Auth and commit identity**: which operations use app tokens, which use user tokens, and how commits are attributed.
+6. **Output extraction**: how branches, PRs, files, logs, screenshots, and session summaries leave the sandbox.
+7. **Budget and teardown**: maximum runtime, cost ceilings, idle policy, and forced cleanup behavior.
+
 ### Follow-Up Message Handling
 
 Choose between queueing and inserting follow-up messages sent during execution. Prefer queueing because it is simpler to manage and lets users send thoughts on next steps while the agent works. Build a mechanism to stop the agent mid-execution when needed, because without it users feel trapped.
@@ -202,6 +220,28 @@ Drive internal adoption through visibility rather than mandates because forced u
 - Let the product create virality loops
 - Do not force usage over existing tools
 - Build to people's needs, not hypothetical requirements
+
+## Examples
+
+**Example 1: Background coding session lifecycle**
+
+```text
+user prompt
+-> API allocates warm sandbox from current image
+-> sandbox syncs latest branch delta
+-> reads allowed immediately, writes blocked until sync completes
+-> agent edits and tests inside isolated workspace
+-> sandbox snapshots final filesystem
+-> branch is pushed
+-> API creates PR using user token
+-> session summary, logs, and PR URL are returned to clients
+```
+
+This sequence keeps setup work outside the user-visible path while preserving auditability and user ownership of code changes.
+
+**Example 2: Boundary decision**
+
+If the task is "make the agent loop run for days with locked rubrics and PR approval," use `harness-engineering`. If the task is "run that loop in remote sandboxes with warm pools, session snapshots, streaming clients, and user-authored PRs," use this skill.
 
 ## Guidelines
 
@@ -227,12 +267,13 @@ Drive internal adoption through visibility rather than mandates because forced u
 
 ## Integration
 
-This skill builds on multi-agent-patterns for agent coordination and tool-design for agent-tool interfaces. It connects to:
+This skill owns hosted runtime infrastructure. Adjacent skills own the control system, topology, and tool contracts:
 
-- multi-agent-patterns - Self-spawning agents follow supervisor patterns
-- tool-design - Building tools for agent spawning and status checking
-- context-optimization - Managing context across distributed sessions
-- filesystem-context - Using filesystem for session state and artifacts
+- `harness-engineering`: governance, locked evaluators, rollback, novelty gates, and human approval boundaries around autonomous work.
+- `multi-agent-patterns`: self-spawning and supervisor patterns once hosted infrastructure exists.
+- `tool-design`: spawn, status, teardown, and PR tools exposed to agents.
+- `context-optimization`: managing context across distributed hosted sessions.
+- `filesystem-context`: using the sandbox filesystem for durable session state and artifacts.
 
 ## References
 
@@ -255,6 +296,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2026-01-12
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 1.1.0
+**Version**: 1.2.0

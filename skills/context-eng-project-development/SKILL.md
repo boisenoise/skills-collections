@@ -1,21 +1,31 @@
 ---
 name: project-development
-description: This skill should be used when the user asks to "start an LLM project", "design batch pipeline", "evaluate task-model fit", "structure agent project", or mentions pipeline architecture, agent-assisted development, cost estimation, or choosing between LLM and traditional approaches.
+description: "This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, choosing between single-agent and multi-agent at the project level, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design and individual skill-loading or context-budget tactics to context-optimization."
 ---
 
 # Project Development Methodology
 
 This skill covers the principles for identifying tasks suited to LLM processing, designing effective project architectures, and iterating rapidly using agent-assisted development. The methodology applies whether building a batch processing pipeline, a multi-agent research system, or an interactive agent application.
 
+The unit of work for this skill is the whole project or a multi-stage pipeline. Individual tool design (descriptions, schemas, error messages) belongs to `tool-design`. Per-skill activation routing belongs to the corresponding skill plus the corpus index. This skill owns the project-level questions: should you build this with an LLM at all, what shape should the pipeline take, what does it cost, how should it be iterated.
+
 ## When to Activate
 
-Activate this skill when:
-- Starting a new project that might benefit from LLM processing
-- Evaluating whether a task is well-suited for agents versus traditional code
-- Designing the architecture for an LLM-powered application
-- Planning a batch processing pipeline with structured outputs
-- Choosing between single-agent and multi-agent approaches
-- Estimating costs and timelines for LLM-heavy projects
+Activate this skill when the unit of work is a whole project or pipeline:
+
+- Deciding whether an LLM is the right primitive for a task at all (task-model fit before any code).
+- Shaping a multi-stage batch or agent pipeline (acquire / prepare / process / parse / render).
+- Estimating tokens, dollar cost, and timelines for an LLM-heavy project.
+- Choosing between single-agent and multi-agent at the project level.
+- Structuring agent-assisted iteration (where the agent helps build the project itself).
+- Designing structured output at the pipeline contract level (cross-stage handoff format).
+
+Do not activate this skill for adjacent work owned by other skills:
+
+- Per-tool description, schema, naming, response format, error message: `tool-design`.
+- Per-trajectory token-efficiency tactics (masking, partitioning, caching): `context-optimization`.
+- Deciding to split work across sub-agents at the agent topology level: `multi-agent-patterns`.
+- Designing the autonomous control loop (locked metrics, novelty gates, human approval boundaries): `harness-engineering`.
 
 ## Core Concepts
 
@@ -144,7 +154,7 @@ See `multi-agent-patterns` skill for detailed architecture guidance.
 
 Start with minimal architecture and add complexity only when production evidence proves it necessary, because over-engineered scaffolding often constrains rather than enables model performance.
 
-Vercel's d0 agent achieved 100% success rate (up from 80%) by reducing from 17 specialized tools to 2 primitives: bash command execution and SQL. The file system agent pattern uses standard Unix utilities (grep, cat, find, ls) instead of custom exploration tools.
+Vercel's d0 case study reports improved success after reducing many specialized tools to two primitives: command execution and SQL (claim-project-development-vercel-d0-reduction). The file system agent pattern uses standard Unix utilities instead of custom exploration tools.
 
 **Reduce when:**
 - The data layer is well-documented and consistently structured
@@ -223,9 +233,9 @@ Results: $58 total cost, ~1 hour execution, static HTML output.
 
 Task: Text-to-SQL agent for internal analytics.
 
-Before: 17 specialized tools, 80% success rate, 274s average execution.
+Before: many specialized tools with lower measured success and longer average execution.
 
-After: 2 tools (bash + SQL), 100% success rate, 77s average execution.
+After: two tools (bash + SQL) with higher measured success and shorter average execution (claim-project-development-vercel-d0-reduction).
 
 Key insight: The semantic layer was already good documentation. Claude just needed access to read files directly.
 
@@ -254,15 +264,18 @@ See [Case Studies](./references/case-studies.md) for detailed analysis.
 6. **Premature optimization**: Adding caching, parallelization, and optimization before the basic pipeline works correctly wastes effort on code that may be discarded during iteration.
 7. **Model version lock-in**: Building pipelines that only work with one specific model version creates fragile systems. Test across model generations and abstract the LLM call layer so models can be swapped without rewriting pipeline logic.
 8. **Evaluation-less deployment**: Shipping agent pipelines without measuring output quality means regressions go undetected. Define quality metrics during development and run evaluation checks before and after every model or prompt change.
+9. **Provenance drift**: Raw inputs, intermediate outputs, and final proposals separated across ad hoc folders become impossible to audit. Keep each pipeline run in a single directory with source evidence, transformations, validation reports, and decisions.
 
 ## Integration
 
-This skill connects to:
-- context-fundamentals - Understanding context constraints for prompt design
-- tool-design - Designing tools for agent systems within pipelines
-- multi-agent-patterns - When to use multi-agent versus single pipelines
-- evaluation - Evaluating pipeline outputs and agent performance
-- context-compression - Managing context when pipelines exceed limits
+This skill owns project-shape and pipeline decisions. Adjacent decisions are owned elsewhere:
+
+- `tool-design`: the per-tool interface layer (descriptions, schemas, response formats, error messages, MCP namespacing, individual tool consolidation). If the question is "what should this specific tool look like" rather than "what should the pipeline look like," route there.
+- `multi-agent-patterns`: agent topology decisions (supervisor vs swarm vs hierarchical, handoff protocols, context isolation across agents). This skill picks single-vs-multi at the project level; the topology details belong to multi-agent-patterns.
+- `harness-engineering`: the autonomous control loop around the project (locked metrics, novelty gates, run state machine, human approval boundaries). If the question is "how do we make this run unattended for days," route there.
+- `context-fundamentals`: the conceptual frame for context constraints that inform prompt design at every stage.
+- `evaluation`: outcome measurement and quality gates for pipeline runs.
+- `context-compression`: when long-running pipeline stages produce trajectories that need summarization.
 
 ## References
 
@@ -286,6 +299,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-25
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 1.1.0
+**Version**: 1.3.0

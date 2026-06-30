@@ -1,29 +1,39 @@
 ---
 name: context-fundamentals
-description: This skill should be used when the user asks to "understand context", "explain context windows", "design agent architecture", "debug context issues", "optimize context usage", or discusses context components, attention mechanics, progressive disclosure, or context budgeting. Provides foundational understanding of context engineering for AI agent systems.
+description: "This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, the U-shaped attention curve, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development."
 ---
 
 # Context Engineering Fundamentals
 
-Context is the complete state available to a language model at inference time — system instructions, tool definitions, retrieved documents, message history, and tool outputs. Context engineering is the discipline of curating the smallest high-signal token set that maximizes the likelihood of desired outcomes. Every paragraph below earns its tokens by teaching a non-obvious technique or providing an actionable threshold.
+Context is the complete state available to a language model at inference time: system instructions, tool definitions, retrieved documents, message history, and tool outputs. Context engineering is the discipline of curating the smallest high-signal token set that maximizes the likelihood of desired outcomes.
+
+This skill is the conceptual foundation that every other skill in the collection builds on. It explains what context is, how attention mechanics work, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. It does not own operational work: debugging attention failures belongs to `context-degradation`, token-efficiency tactics belong to `context-optimization`, conversation summarization belongs to `context-compression`, file-based offloading belongs to `filesystem-context`, and project-shape decisions belong to `project-development`.
 
 ## When to Activate
 
-Activate this skill when:
-- Designing new agent systems or modifying existing architectures
-- Debugging unexpected agent behavior that may relate to context
-- Optimizing context usage to reduce token costs or improve performance
-- Onboarding new team members to context engineering concepts
-- Reviewing context-related design decisions
+Activate this skill when the work is conceptual:
+
+- Explaining what context is and how attention mechanics constrain agent behavior.
+- Onboarding new contributors who need the mental models before diving into operational skills.
+- Reasoning about a context-related design decision from first principles (what does this constraint mean, why does this trade-off exist) before picking a specific tactic.
+- Writing or reviewing documentation that needs to ground operational guidance in the underlying mechanics.
+
+Do not activate this skill for operational work. The specialized skills handle the doing:
+
+- Diagnosing lost-in-middle, context poisoning, or attention failures: `context-degradation`.
+- Reducing token cost via masking, partitioning, prefix caching, budgets: `context-optimization`.
+- Compressing a long session into a handoff summary: `context-compression`.
+- Offloading large tool outputs or maintaining a durable scratchpad: `filesystem-context`.
+- Deciding the shape of an LLM project or pipeline: `project-development`.
 
 ## Core Concepts
 
-Treat context as a finite attention budget, not a storage bin. Every token added competes for the model's attention and depletes a budget that cannot be refilled mid-inference. The engineering problem is maximizing utility per token against three constraints: the hard token limit, the softer effective-capacity ceiling (typically 60-70% of the advertised window), and the U-shaped attention curve that penalizes information placed in the middle of context.
+Treat context as a finite attention budget, not a storage bin. Every token added competes for the model's attention and depletes a budget that cannot be refilled mid-inference. The engineering problem is maximizing utility per token against three constraints: the hard token limit, the softer effective-capacity ceiling, and the U-shaped attention curve that penalizes information placed in the middle of context (claim-context-degradation-lost-middle-ruler).
 
 Apply four principles when assembling context:
 
 1. **Informativity over exhaustiveness** — include only what matters for the current decision; design systems that can retrieve additional information on demand.
-2. **Position-aware placement** — place critical constraints at the beginning and end of context, where recall accuracy runs 85-95%; the middle drops to 76-82% (the "lost-in-the-middle" effect).
+2. **Position-aware placement** — place critical constraints at the beginning and end of context because long-context evaluations show middle-position information is less reliably recovered than edge-position information (claim-context-degradation-lost-middle-ruler).
 3. **Progressive disclosure** — load skill names and summaries at startup; load full content only when a skill activates for a specific task.
 4. **Iterative curation** — context engineering is not a one-time prompt-writing exercise but an ongoing discipline applied every time content is passed to the model.
 
@@ -54,14 +64,14 @@ Message history serves as the agent's scratchpad memory for tracking progress, m
 Cyclically refine history: once a tool has been called deep in the conversation, the raw result rarely needs to remain verbatim. Replace stale tool outputs with compact summaries or references to reduce low-signal bulk.
 
 **Tool Outputs**
-Tool outputs typically dominate context — research shows observations can reach 83.9% of total tokens in agent trajectories. Apply observation masking: replace verbose outputs with compact references once the agent has processed the result. Retain only the five most recently accessed file contents; compress or evict older ones.
+Tool outputs often dominate context in agent trajectories (claim-context-optimization-tool-output-dominance). Apply observation masking: replace verbose outputs with compact references once the agent has processed the result. Retain only the most recently relevant file contents; compress or evict older ones.
 
 ### Context Windows and Attention Mechanics
 
 **The Attention Budget**
 For n tokens, the attention mechanism computes n-squared pairwise relationships. As context grows, the model's ability to maintain these relationships degrades — not as a hard cliff but as a performance gradient. Models trained predominantly on shorter sequences have fewer specialized parameters for context-wide dependencies, creating an effective ceiling well below the nominal window size.
 
-Design for this gradient: assume effective capacity is 60-70% of the advertised window. A 200K-token model starts degrading around 120-140K tokens, and complex retrieval accuracy can drop to as low as 15% at extreme lengths.
+Design for this gradient: assume effective capacity is materially below the advertised window until measured on the target workload. Large nominal context windows do not remove the need for task-specific degradation tests (claim-context-degradation-lost-middle-ruler).
 
 **Position Encoding Limits**
 Position encoding interpolation extends sequence handling beyond training lengths but introduces degradation in positional precision. Expect reduced accuracy for information retrieval and long-range reasoning at extended contexts compared to performance on shorter inputs.
@@ -83,28 +93,30 @@ Apply the signal-density test: for each piece of context, ask whether removing i
 
 ## Practical Guidance
 
-### File-System-Based Access
+This section provides conceptual application advice. Pointers to operational skills are explicit.
 
-Agents with filesystem access implement progressive disclosure naturally. Store reference materials, documentation, and data externally. Load files only when the current task requires them. Leverage the filesystem's own structure as metadata: file sizes suggest complexity, naming conventions hint at purpose, timestamps serve as proxies for relevance.
+### Reasoning About a Context Decision
 
-### Hybrid Context Strategies
+When a context-related design decision needs to be made, separate the conceptual question from the operational one. The conceptual question is "what does this mean and why does it matter"; the operational question is "what specific technique do we apply." Use this skill to answer the first; route to the specialized skill that owns the second.
 
-Pre-load stable context for speed (CLAUDE.md files, project rules, core instructions) but enable autonomous exploration for dynamic content. The decision boundary depends on content volatility:
+For example, deciding whether to summarize a long agent session has two parts: (1) why summarization is needed at all (attention budget is finite, U-shaped curve degrades middle content, signal density matters more than volume - this skill) and (2) what compression strategy preserves the right state and at what utilization threshold to trigger it (`context-compression`).
 
-- **Low volatility** (project conventions, team standards): pre-load at session start.
-- **High volatility** (code state, external data, user-specific info): retrieve just-in-time to avoid stale context.
+### Reading Order For New Contributors
 
-For complex multi-hour tasks, maintain a structured notes file (e.g., NOTES.md) that the agent updates as it works. This enables coherence across context resets without keeping everything in the active window.
+A contributor coming to context engineering for the first time should read:
 
-### Context Budgeting
+1. This skill, to internalize the attention-budget framing and the U-shaped curve.
+2. `context-degradation`, to see what context failures look like in practice and how to diagnose them.
+3. Two or three of `context-optimization`, `context-compression`, `filesystem-context`, `memory-systems` depending on which operational concern is most relevant to their project.
 
-Allocate explicit budgets per component and monitor during development. Implement compaction triggers at 70-80% utilization — do not wait for the window to fill. Design systems that degrade gracefully: when compaction fires, preserve architectural decisions, unresolved bugs, and implementation details while discarding redundant outputs.
-
-For sub-agent architectures, enforce a compression ratio: a sub-agent may explore using tens of thousands of tokens but must return a condensed summary of 1,000-2,000 tokens. This converts exploration breadth into context-efficient results.
+Skipping step 1 produces operators who apply techniques without understanding why; skipping the operational skills produces theorists who do not know which technique fits which failure mode.
 
 ## Examples
 
 **Example 1: Organizing System Prompts**
+
+Illustrates the conceptual point that critical constraints belong at attention-favored positions (beginning and end), and that explicit section boundaries help the model parse the prompt:
+
 ```markdown
 <BACKGROUND_INFORMATION>
 You are a Python expert helping a development team.
@@ -118,28 +130,17 @@ Current project: Data processing pipeline in Python 3.9+
 - Follow PEP 8 style guidelines
 </INSTRUCTIONS>
 
-<TOOL_GUIDANCE>
-Use bash for shell operations, python for code tasks.
-File operations should use pathlib for cross-platform compatibility.
-</TOOL_GUIDANCE>
-
 <OUTPUT_DESCRIPTION>
 Provide code blocks with syntax highlighting.
 Explain non-obvious decisions in comments.
 </OUTPUT_DESCRIPTION>
 ```
 
-**Example 2: Progressive Document Loading**
-```markdown
-# Instead of loading all documentation at once:
+**Example 2: The Attention Budget As A Mental Model**
 
-# Step 1: Load summary
-docs/api_summary.md          # Lightweight overview
+A large-context model does not have an equally attended context. Effective capacity is workload-specific, and the U-shaped curve penalizes information placed in the middle. When deciding how much of an upstream knowledge base to load, this is the mental model: do not ask "will it fit," ask "will the model still attend to the parts that matter."
 
-# Step 2: Load specific section as needed
-docs/api/endpoints.md        # Only when API calls needed
-docs/api/authentication.md   # Only when auth context needed
-```
+The corresponding operational question (which technique should reduce the load) belongs to `context-optimization`.
 
 ## Guidelines
 
@@ -154,7 +155,7 @@ docs/api/authentication.md   # Only when auth context needed
 
 ## Gotchas
 
-1. **Nominal window is not effective capacity**: A model advertising 200K tokens begins degrading around 120-140K. Budget for 60-70% of the nominal window as usable capacity. Exceeding this threshold causes sudden accuracy drops, not gradual degradation — test at realistic context sizes, not toy examples.
+1. **Nominal window is not effective capacity**: A model advertising a large context window may degrade well before that limit on complex retrieval or reasoning tasks. Budget below the nominal window until your own degradation tests prove otherwise.
 
 2. **Character-based token estimates silently drift**: The ~4 characters/token heuristic for English prose breaks down for code (2-3 chars/token), URLs and file paths (each slash, dot, and colon is a separate token), and non-English text (often 1-2 chars/token). Use the provider's actual tokenizer (e.g., tiktoken for OpenAI models, Anthropic's token counting API) for any budget-critical calculation.
 
@@ -170,12 +171,20 @@ docs/api/authentication.md   # Only when auth context needed
 
 ## Integration
 
-This skill provides foundational context that all other skills build upon. It should be studied first before exploring:
+This skill is the conceptual foundation. It does not own operational work; it provides the mental models the operational skills assume.
 
-- context-degradation - Understanding how context fails
-- context-optimization - Techniques for extending context capacity
-- multi-agent-patterns - How context isolation enables multi-agent systems
-- tool-design - How tool definitions interact with context
+Routing map for operational work:
+
+- `context-degradation`: diagnosing attention failures, lost-in-middle, poisoning, distraction.
+- `context-optimization`: token-efficiency tactics (masking, partitioning, caching, budgets).
+- `context-compression`: compacting long sessions while preserving decisions, files, risks.
+- `filesystem-context`: offloading large outputs and using files as a durable scratchpad.
+- `memory-systems`: cross-session memory architectures with entity tracking.
+- `multi-agent-patterns`: when to split work across agents for context isolation.
+- `tool-design`: writing tool descriptions and schemas that route correctly.
+- `project-development`: deciding LLM fit and shaping multi-stage pipelines.
+
+Read this skill first to build the mental models; read the operational skill that fits the task when actually doing the work.
 
 ## References
 
@@ -196,6 +205,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-20
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 2.0.0
+**Version**: 2.2.0

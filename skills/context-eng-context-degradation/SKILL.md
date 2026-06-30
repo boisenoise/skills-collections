@@ -1,6 +1,6 @@
 ---
 name: context-degradation
-description: This skill should be used when the user asks to "diagnose context problems", "fix lost-in-middle issues", "debug agent failures", "understand context poisoning", or mentions context degradation, attention patterns, context clash, context confusion, or agent performance degradation. Provides patterns for recognizing and mitigating context failures.
+description: "This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context."
 ---
 
 # Context Degradation Patterns
@@ -17,9 +17,15 @@ Activate this skill when:
 - Investigating "lost in middle" phenomena in agent outputs
 - Analyzing context-related failures in agent behavior
 
+Do not activate this skill for adjacent work owned by other skills:
+- Explaining foundational context mechanics without an active failure: `context-fundamentals`.
+- Applying token-efficiency tactics after the failure pattern is known: `context-optimization`.
+- Designing a compression or handoff summary strategy: `context-compression`.
+- Persisting large outputs, logs, or scratch state outside the prompt: `filesystem-context`.
+
 ## Core Concepts
 
-Structure context placement around the attention U-curve: beginning and end positions receive reliable attention, while middle positions suffer 10-40% reduced recall accuracy (Liu et al., 2023). This is not a model bug but a consequence of attention mechanics — the first token (often BOS) acts as an "attention sink" that absorbs disproportionate attention budget, leaving middle tokens under-attended as context grows.
+Structure context placement around the attention U-curve: beginning and end positions receive reliable attention, while middle positions suffer materially reduced recall accuracy in long-context experiments (claim-context-degradation-lost-middle-ruler). This is not a model bug but a consequence of attention mechanics — the first token (often BOS) acts as an "attention sink" that absorbs disproportionate attention budget, leaving middle tokens under-attended as context grows.
 
 Treat context poisoning as a circuit breaker problem. Once a hallucination, tool error, or incorrect retrieved fact enters context, it compounds through repeated self-reference. A poisoned goals section causes every downstream decision to reinforce incorrect assumptions. Detection requires tracking claim provenance; recovery requires truncating to before the poisoning point or restarting with verified-only context.
 
@@ -67,7 +73,7 @@ Implement version filtering to exclude outdated information before it enters con
 
 ### Empirical Benchmarks and Thresholds
 
-Use these benchmarks to set design constraints — not as universal truths. The RULER benchmark found only 50% of models claiming 32K+ context maintain satisfactory performance at that length. Near-perfect needle-in-haystack scores do not predict real-world long-context performance.
+Use these benchmarks to set design constraints — not as universal truths. RULER-style evidence shows advertised long-context support does not guarantee satisfactory task performance at that length (claim-context-degradation-lost-middle-ruler). Near-perfect needle-in-haystack scores do not predict real-world long-context performance.
 
 **Model-Specific Degradation Thresholds**
 
@@ -83,7 +89,7 @@ Always benchmark degradation thresholds with your specific workload rather than 
 
 Account for these research-backed surprises when designing context strategies:
 
-**Shuffled context can outperform coherent context.** Studies found incoherent (shuffled) haystacks produce better retrieval performance than logically ordered ones. Coherent context creates false associations that confuse retrieval; incoherent context forces exact matching. Do not assume that better-organized context always yields better results — test both arrangements.
+**Shuffled context can outperform coherent context.** Studies found incoherent (shuffled) haystacks can outperform logically ordered ones for some retrieval tasks (claim-context-degradation-distractor-shuffled). Coherent context may create false associations that confuse retrieval; incoherent context can force exact matching. Do not assume that better-organized context always yields better results — test both arrangements.
 
 **Single distractors have outsized impact.** The performance hit from one irrelevant document is disproportionately large compared to adding more distractors after the first. Treat distractor prevention as binary: either keep context clean or accept significant degradation.
 
@@ -146,6 +152,27 @@ turn_30: 90000 tokens (significant degradation)
 - Growth in Region A
 ```
 
+**Example 3: Context poisoning circuit breaker**
+```text
+symptom: agent keeps citing an incorrect retrieved claim after correction
+diagnosis: poisoned context, not a missing-instruction problem
+action:
+  1. identify first turn where the bad claim entered
+  2. truncate or restart from before that point
+  3. reload only verified sources
+  4. record the rejected claim and source provenance
+```
+
+**Example 4: Context clash annotation**
+```yaml
+conflict:
+  topic: billing API version
+  source_a: docs/v1.md says endpoint is /charges
+  source_b: docs/v2.md says endpoint is /payments
+  precedence: docs/v2.md
+  reason: current production version
+```
+
 ## Guidelines
 
 1. Monitor context length and performance correlation during development
@@ -175,11 +202,14 @@ turn_30: 90000 tokens (significant degradation)
 
 ## Integration
 
-This skill builds on context-fundamentals and should be studied after understanding basic context concepts. It connects to:
+This skill owns diagnosis and mitigation of active context failures. Adjacent skills own the implementation tactics once the failure is identified:
 
-- context-optimization - Techniques for mitigating degradation
-- multi-agent-patterns - Using isolation to prevent degradation
-- evaluation - Measuring and detecting degradation in production
+- `context-fundamentals`: conceptual explanation of attention and context windows before a failure exists.
+- `context-optimization`: masking, caching, partitioning, and other token-efficiency tactics after diagnosis.
+- `context-compression`: structured summaries and handoffs when accumulated context must be compacted.
+- `filesystem-context`: offloading raw outputs, logs, and scratch state so poisoned or bulky context can be inspected without staying in the prompt.
+- `multi-agent-patterns`: isolating tasks into separate contexts to prevent confusion and clash.
+- `evaluation`: degradation tests and production monitoring.
 
 ## References
 
@@ -201,6 +231,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-20
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 2.0.0
+**Version**: 2.1.0

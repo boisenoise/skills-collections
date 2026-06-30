@@ -1,21 +1,30 @@
 ---
 name: tool-design
-description: This skill should be used when the user asks to "design agent tools", "create tool descriptions", "reduce tool complexity", "implement MCP tools", or mentions tool consolidation, architectural reduction, tool naming conventions, or agent-tool interfaces.
+description: "This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when to add or remove an individual tool. Use this when the unit of work is a single tool or a set of tools. Route project-shape, pipeline architecture, and task-model-fit decisions to project-development; route deciding whether to introduce sub-agents to multi-agent-patterns."
 ---
 
 # Tool Design for Agents
 
-Design every tool as a contract between a deterministic system and a non-deterministic agent. Unlike human-facing APIs, agent-facing tools must make the contract unambiguous through the description alone -- agents infer intent from descriptions and generate calls that must match expected formats. Every ambiguity becomes a potential failure mode that no amount of prompt engineering can fix.
+Design every tool as a contract between a deterministic system and a non-deterministic agent. Unlike human-facing APIs, agent-facing tools must make the contract unambiguous through the description alone: agents infer intent from descriptions and generate calls that must match expected formats. Every ambiguity becomes a potential failure mode that no amount of prompt engineering can fix.
+
+The unit of work for this skill is a single tool or a tool catalog. Project-shape, pipeline architecture, task-model-fit, and cost-at-the-project-level decisions belong to `project-development`. Deciding whether to introduce sub-agents belongs to `multi-agent-patterns`. This skill owns the interface layer that connects deterministic code to the agent.
 
 ## When to Activate
 
-Activate this skill when:
-- Creating new tools for agent systems
-- Debugging tool-related failures or misuse
-- Optimizing existing tool sets for better agent performance
-- Designing tool APIs from scratch
-- Evaluating third-party tools for agent integration
-- Standardizing tool conventions across a codebase
+Activate this skill when the unit of work is a tool:
+
+- Writing a new tool description, schema, or response format.
+- Debugging cases where the agent picked the wrong tool or generated malformed calls.
+- Consolidating an overlapping tool catalog (the classic "we have 17 tools, the agent picks wrong half the time" case).
+- Designing actionable error messages so the agent can self-correct.
+- Naming tools and parameters consistently across a catalog (MCP namespacing, verb-noun naming).
+- Evaluating a third-party tool against the consolidation principle before adding it.
+
+Do not activate this skill for adjacent work owned by other skills:
+
+- Deciding whether the project should use LLMs at all, or what the pipeline stages should be: `project-development`.
+- Deciding whether to split work across sub-agents or run a single agent with more tools: `multi-agent-patterns`.
+- Reducing the token weight of tool outputs at the trajectory level (observation masking, format-option choice at scale): `context-optimization`.
 
 ## Core Concepts
 
@@ -42,7 +51,7 @@ Namespace tools under common prefixes as the collection grows, because agents be
 Build single comprehensive tools instead of multiple narrow tools that overlap. Rather than implementing `list_users`, `list_events`, and `create_event` separately, implement `schedule_event` that finds availability and schedules in one call. The comprehensive tool handles the full workflow internally, removing the agent's burden of chaining calls in the correct order.
 
 **Why Consolidation Works**
-Apply consolidation because agents have limited context and attention. Each tool in the collection competes for attention during tool selection, each description consumes context budget tokens, and overlapping functionality creates ambiguity. Consolidation eliminates redundant descriptions, removes selection ambiguity, and shrinks the effective tool set. Vercel demonstrated this principle by reducing their agent from 17 specialized tools to 2 general-purpose tools and achieving better performance -- fewer tools meant less confusion and more reliable tool selection.
+Apply consolidation because agents have limited context and attention. Each tool in the collection competes for attention during tool selection, each description consumes context budget tokens, and overlapping functionality creates ambiguity. Consolidation eliminates redundant descriptions, removes selection ambiguity, and shrinks the effective tool set. Vercel's d0 case study is a concrete example of reducing specialized tools into a smaller primitive tool set with better measured outcomes (claim-tool-design-vercel-d0-reduction).
 
 **When Not to Consolidate**
 Keep tools separate when they have fundamentally different behaviors, serve different contexts, or must be callable independently. Over-consolidation creates a different problem: a single tool with too many parameters and modes becomes hard for agents to parameterize correctly.
@@ -89,7 +98,7 @@ Establish a consistent schema across all tools. Use verb-noun pattern for tool n
 
 ### Tool Collection Design
 
-Limit tool collections to 10-20 tools for most applications, because research shows description overlap causes model confusion and more tools do not always lead to better outcomes. When more tools are genuinely needed, use namespacing to create logical groupings. Implement selection mechanisms: tool grouping by domain, example-based selection hints, and umbrella tools that route to specialized sub-tools.
+Limit tool collections to the smallest set with non-overlapping purposes, because description overlap causes model confusion and more tools do not always lead to better outcomes. When more tools are genuinely needed, use namespacing to create logical groupings. Implement selection mechanisms: tool grouping by domain, example-based selection hints, and umbrella tools that route to specialized sub-tools.
 
 ### MCP Tool Naming Requirements
 
@@ -110,7 +119,7 @@ Without the server prefix, agents may fail to locate tools when multiple MCP ser
 
 ### Using Agents to Optimize Tools
 
-Feed observed tool failures back to an agent to diagnose issues and improve descriptions. Production testing shows this approach achieves 40% reduction in task completion time by helping future agents avoid mistakes.
+Feed observed tool failures back to an agent to diagnose issues and improve descriptions. Treat reported efficiency gains as workload-specific until reproduced on the target tool catalog.
 
 **The Tool-Testing Agent Pattern**:
 
@@ -160,6 +169,19 @@ When designing tool collections:
 3. Ensure each tool has a clear, unambiguous purpose
 4. Document error cases and recovery paths
 5. Test with actual agent interactions
+
+### Tool Audit Checklist
+
+Use this checklist for every tool before adding it to an agent:
+
+1. **Name**: verb-noun, namespaced if the catalog has multiple domains.
+2. **Description**: states what the tool does, when to use it, and what it returns.
+3. **Schema**: every parameter has type, constraints, defaults, and example values.
+4. **Return shape**: success and error payloads are documented and machine-readable.
+5. **Recovery**: each error tells the agent what to change before retrying.
+6. **Overlap**: no other tool has the same activation scenario.
+7. **Consolidation decision**: adjacent narrow tools are merged unless independent calls are required.
+8. **Token impact**: large responses support concise mode or file-reference mode.
 
 ## Examples
 
@@ -240,10 +262,13 @@ def search(query):
 
 ## Integration
 
-This skill connects to:
-- context-fundamentals - How tools interact with context
-- multi-agent-patterns - Specialized tools per agent
-- evaluation - Evaluating tool effectiveness
+This skill owns the tool-interface layer. Adjacent decisions are owned elsewhere:
+
+- `project-development`: shape of the project, choice of pipeline stages, task-model-fit, cost estimation at the project level. If the question is "what is the right pipeline architecture" rather than "what is the right tool API," route there.
+- `multi-agent-patterns`: deciding whether one agent with more tools is better than two agents with smaller tool catalogs. If the question is "should this split into sub-agents," route there.
+- `context-optimization`: trajectory-level token efficiency, observation masking, choosing response-format options across many tool calls. If the question is "how do we reduce token weight of accumulated tool outputs," route there.
+- `context-fundamentals`: the conceptual question of how tool definitions consume the attention budget. If the question is "why does adding tools degrade routing accuracy," start there.
+- `evaluation`: judging whether the tool set improved agent outcomes overall.
 
 ## References
 
@@ -266,6 +291,6 @@ External resources:
 ## Skill Metadata
 
 **Created**: 2025-12-20
-**Last Updated**: 2026-03-17
+**Last Updated**: 2026-05-15
 **Author**: Agent Skills for Context Engineering Contributors
-**Version**: 2.0.0
+**Version**: 2.2.0

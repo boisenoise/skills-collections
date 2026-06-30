@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-06-29 08:03 UTC*
+*Last updated: 2026-06-30 07:33 UTC*
 
-Total skills: **2776**
+Total skills: **2796**
 
 ## Skills by Source
 
@@ -966,6 +966,7 @@ Total skills: **2776**
 | `kdense-neuropixels-analysis` | Analyze Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX... |
 | `kdense-nextflow` | Build, run, and debug Nextflow data pipelines and nf-core workflows end to end. Use whenever the use... |
 | `kdense-omero-integration` | Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, ma... |
+| `kdense-onekgpd` | Query the 1000 Genomes Project dataset (3,202 whole-genome-sequenced individuals, GRCh38) at the lev... |
 | `kdense-open-notebook` | Self-hosted, open-source alternative to Google NotebookLM for AI-powered research and document analy... |
 | `kdense-opentrons-integration` | Official Opentrons Protocol API for OT-2 and Flex robots. Use when writing protocols specifically fo... |
 | `kdense-optimize-for-gpu` | GPU-accelerate Python code using CuPy, Numba CUDA, Warp, cuDF, cuML, cuGraph, KvikIO, cuCIM, cuxfilt... |
@@ -1026,6 +1027,7 @@ Total skills: **2776**
 | `kdense-statistical-power` | Sample-size and statistical power calculations for planning studies. Use whenever someone asks "how ... |
 | `kdense-statsmodels` | Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed mod... |
 | `kdense-sympy` | Use when you need exact symbolic math in Python — algebra, calculus, equation solving, symbolic line... |
+| `kdense-tamarind` | Access a collection of open-source molecular design and structural biology tools on the Tamarind Bio... |
 | `kdense-tiledbvcf` | Efficient storage and retrieval of genomic variant data using TileDB. Scalable VCF/BCF ingestion, in... |
 | `kdense-timesfm-forecasting` | Zero-shot time series forecasting with Google's TimesFM foundation model. Use for any univariate tim... |
 | `kdense-torch-geometric` | PyTorch Geometric (PyG) for graph neural networks — node/link/graph classification, message passing ... |
@@ -1147,10 +1149,21 @@ Total skills: **2776**
 
 | Skill | Description |
 |-------|-------------|
+| `context-eng-advanced-evaluation` | This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwis... |
+| `context-eng-bdi-mental-states` | This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, int... |
 | `context-eng-context-compression` | This skill should be used when long-running agent sessions need context compression, structured summ... |
+| `context-eng-context-degradation` | This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures... |
+| `context-eng-context-fundamentals` | This skill should be used to explain or reason about the foundational concepts of context engineerin... |
+| `context-eng-context-optimization` | This skill should be used for improving context efficiency: context budgeting, observation masking, ... |
+| `context-eng-evaluation` | This skill should be used when building agent evaluation systems: deterministic checks, regression s... |
+| `context-eng-filesystem-context` | This skill should be used when agent work needs file-backed context: durable scratchpads, tool-outpu... |
+| `context-eng-harness-engineering` | This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaf... |
+| `context-eng-hosted-agents` | This skill should be used when designing hosted or background agent infrastructure: sandboxed execut... |
 | `context-eng-latent-briefing` | This skill should be used when the user asks to "share memory between agents", "KV cache compaction ... |
 | `context-eng-memory-systems` | This skill should be used for persistent semantic memory in agent systems: cross-session knowledge r... |
 | `context-eng-multi-agent-patterns` | This skill should be used when designing multi-agent systems that need context isolation, supervisor... |
+| `context-eng-project-development` | This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is t... |
+| `context-eng-tool-design` | This skill should be used for the tool-interface layer of an agent system specifically: writing tool... |
 
 ### obra/superpowers
 
@@ -1541,6 +1554,7 @@ pipelines, and system utilities.... |
 | `antigravity-brooks-lint` | AI code reviewer grounded in classic software engineering books for catching design smells, coupling... |
 | `antigravity-browser-automation` | Browser automation powers web testing, scraping, and AI agent interactions. The difference between a... |
 | `antigravity-browser-extension-builder` | Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser ... |
+| `antigravity-browser-testing-with-devtools` | Test browser apps with Chrome DevTools MCP by inspecting live DOM, console logs, network traffic, sc... |
 | `antigravity-bug-hunter` | Systematically finds and fixes bugs using proven debugging techniques. Traces from symptoms to root ... |
 | `antigravity-bugs-are-annoying` | Adversarial code auditor that hunts down bugs, logic errors, and security flaws. Use for deep correc... |
 | `antigravity-build` | build |
@@ -1782,6 +1796,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-dotnet-backend` | Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patte... |
 | `antigravity-dotnet-backend-patterns` | Master C#/.NET patterns for building production-grade APIs, MCP servers, and enterprise backends wit... |
 | `antigravity-draw` | Vector graphics and diagram creation, format conversion (ODG/SVG/PDF) with LibreOffice Draw. |
+| `antigravity-drizzle-migration-conflict` | Diagnose, repair, and prevent Drizzle Kit migration conflicts involving generated SQL, snapshots, jo... |
 | `antigravity-drizzle-orm-expert` | Expert in Drizzle ORM for TypeScript — schema design, relational queries, migrations, and serverless... |
 | `antigravity-dropbox-automation` | Automate Dropbox file management, sharing, search, uploads, downloads, and folder operations via Rub... |
 | `antigravity-dwarf-expert` | Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard... |
@@ -1893,6 +1908,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-frontend-design` | You are a frontend designer-engineer, not a layout generator. |
 | `antigravity-frontend-dev-guidelines` | You are a senior frontend engineer operating under strict architectural and performance standards. U... |
 | `antigravity-frontend-developer` | Build React components, implement responsive layouts, and handle client-side state management. Maste... |
+| `antigravity-frontend-lighthouse` | Add a portable Lighthouse CI gate for production frontend builds with Core Web Vitals budgets, categ... |
 | `antigravity-frontend-mobile-development-component-scaffold` | You are a React component architecture expert specializing in scaffolding production-ready, accessib... |
 | `antigravity-frontend-mobile-security-xss-scan` | You are a frontend security specialist focusing on Cross-Site Scripting (XSS) vulnerability detectio... |
 | `antigravity-frontend-security-coder` | Expert in secure frontend coding practices specializing in XSS prevention, output sanitization, and ... |
@@ -2359,6 +2375,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pptx` | A user may ask you to create, edit, or analyze the contents of a .pptx file. A .pptx file is essenti... |
 | `antigravity-pr-merge-champion` | Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-re... |
 | `antigravity-pr-writer` | Create pull requests following Sentry's engineering practices. |
+| `antigravity-pre-release-review` | Run a read-only pre-release review for deploy readiness, migrations, config, secrets, rollout order,... |
 | `antigravity-premium-3d-website` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing, phys... |
 | `antigravity-price-psychology-strategist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-pricing-strategy` | Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, ... |
@@ -2411,6 +2428,7 @@ structures, and modern OOP features. U... |
 | `antigravity-rag-implementation` | RAG (Retrieval-Augmented Generation) implementation workflow covering embedding selection, vector da... |
 | `antigravity-rayden-code` | Generate React code with Rayden UI components using correct props, tokens, and premium layout patter... |
 | `antigravity-rayden-use` | Build and maintain Rayden UI components and screens in Figma via Figma MCP with full design token en... |
+| `antigravity-re-create` | Completely delete and rewrite a file or module from scratch when structural rot makes patching impos... |
 | `antigravity-react-best-practices` | Comprehensive performance optimization guide for React and Next.js applications, maintained by Verce... |
 | `antigravity-react-component-performance` | Diagnose slow React components and suggest targeted performance fixes. |
 | `antigravity-react-flow-architect` | Build production-ready ReactFlow applications with hierarchical navigation, performance optimization... |
@@ -2796,6 +2814,8 @@ calculations
 | `antigravity-vulnerability-scanner` | Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mappin... |
 | `antigravity-warren-buffett` | Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, CEO da Berkshire Hathaway,... |
 | `antigravity-wcag-audit-patterns` | Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation ... |
+| `antigravity-weaviate` | Search, query, inspect, create, and import data into Weaviate vector database collections using offi... |
+| `antigravity-weaviate-cookbooks` | Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, mul... |
 | `antigravity-web-artifacts-builder` | To build powerful frontend claude.ai artifacts, follow these steps: |
 | `antigravity-web-design-guidelines` | Review files for compliance with Web Interface Guidelines. |
 | `antigravity-web-media-getter` | One query across free image / video / GIF APIs (stock + historical/archival + GIF engines), returnin... |
