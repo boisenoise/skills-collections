@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-07-01 07:45 UTC*
+*Last updated: 2026-07-02 07:20 UTC*
 
 ## Source Repositories
 
@@ -131,7 +131,7 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | AGPL-3.0-only | 1 |
 | AGPL-3.0-or-later | 1 |
 | Apache License, Version 2.0 | 1 |
-| Apache-2.0 | 32 |
+| Apache-2.0 | 76 |
 | Apache-2.0 license | 16 |
 | BSD license | 1 |
 | BSD-2-Clause license | 2 |
@@ -141,14 +141,14 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | CC BY-NC-SA 4.0 | 1 |
 | CC-BY-4.0 | 2 |
 | CeCILL FREE SOFTWARE LICENSE AGREEMENT | 1 |
-| Complete terms in LICENSE.txt | 36 |
+| Complete terms in LICENSE.txt | 35 |
 | For MATLAB (https://www.mathworks.com/pricing-licensing.html) and for Octave (GNU General Public License version 3) | 1 |
 | GPL-2.0 license | 2 |
 | GPL-3.0 license | 2 |
 | GPLv3 license | 1 |
 | LICENSE | 1 |
-| MIT | 2579 |
-| MIT License | 7 |
+| MIT | 2732 |
+| MIT License | 6 |
 | MIT license | 50 |
 | MIT-0 | 1 |
 | Not declared | 1 |
