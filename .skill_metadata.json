@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-03T07:16:15.106211",
-  "skill_count": 2991,
+  "last_updated": "2026-07-04T07:09:45.873401",
+  "skill_count": 2993,
   "sources_processed": 19,
   "skills": [
     {
@@ -4575,6 +4575,14 @@
       "name": "antigravity-base",
       "original_name": "base",
       "description": "Database management, forms, reports, and data operations with LibreOffice Base.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-workorai",
+      "original_name": "workorai",
+      "description": "WorkorAI talent-marketplace skill: candidates search jobs and manage applications; employers run the job lifecycle and get ranked candidate matches with white-box fit explanations.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13039,6 +13047,14 @@
       "name": "antigravity-instagram-automation",
       "original_name": "instagram-automation",
       "description": "Automate Instagram tasks via Rube MCP (Composio): create posts, carousels, manage media, get insights, and publishing limits. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-code-polish",
+      "original_name": "code-polish",
+      "description": "Rewrites unprofessional code comments into clear ones and performs non-semantic cleanup. Use to professionalize code without altering logic or behavior.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

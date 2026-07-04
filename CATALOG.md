@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-03 07:16 UTC*
+*Last updated: 2026-07-04 07:09 UTC*
 
-Total skills: **2991**
+Total skills: **2993**
 
 ## Skills by Source
 
@@ -1663,6 +1663,7 @@ pipelines, and system utilities.... |
 | `antigravity-coda-automation` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions... |
 | `antigravity-code-documentation-code-explain` | You are a code education expert specializing in explaining complex code through clear narratives, vi... |
 | `antigravity-code-documentation-doc-generate` | You are a documentation expert specializing in creating comprehensive, maintainable documentation fr... |
+| `antigravity-code-polish` | Rewrites unprofessional code comments into clear ones and performs non-semantic cleanup. Use to prof... |
 | `antigravity-code-refactoring-context-restore` | Use when working with code refactoring context restore |
 | `antigravity-code-refactoring-refactor-clean` | You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and ... |
 | `antigravity-code-refactoring-tech-debt` | You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical... |
@@ -3046,6 +3047,7 @@ calculations
 | `antigravity-workflow-automation` | Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, ... |
 | `antigravity-workflow-orchestration-patterns` | Master workflow orchestration architecture with Temporal, covering fundamental design decisions, res... |
 | `antigravity-workflow-patterns` | Use this skill when implementing tasks according to Conductor's TDD workflow, handling phase checkpo... |
+| `antigravity-workorai` | WorkorAI talent-marketplace skill: candidates search jobs and manage applications; employers run the... |
 | `antigravity-wrike-automation` | Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, as... |
 | `antigravity-writer` | Document creation, format conversion (ODT/DOCX/PDF), mail merge, and automation with LibreOffice Wri... |
 | `antigravity-writing-great-skills` | Reference for writing and editing skills well — the vocabulary and principles that make a skill pred... |
