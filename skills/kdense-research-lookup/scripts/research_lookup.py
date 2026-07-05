@@ -475,6 +475,10 @@ Examples:
 
     output_file = None
     if args.output:
+        # Create the parent directory (e.g. sources/) if it doesn't exist yet,
+        # so `-o sources/foo.md` works even on a fresh project.
+        parent = os.path.dirname(os.path.abspath(args.output))
+        os.makedirs(parent, exist_ok=True)
         output_file = open(args.output, "w", encoding="utf-8")
 
     def write_output(text):

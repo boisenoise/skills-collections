@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-04 07:09 UTC*
+*Last updated: 2026-07-05 07:16 UTC*
 
-Total skills: **2993**
+Total skills: **2995**
 
 ## Skills by Source
 
@@ -971,7 +971,7 @@ Total skills: **2993**
 | `kdense-opentrons-integration` | Official Opentrons Protocol API for OT-2 and Flex robots. Use when writing protocols specifically fo... |
 | `kdense-optimize-for-gpu` | GPU-accelerate Python code using CuPy, Numba CUDA, Warp, cuDF, cuML, cuGraph, KvikIO, cuCIM, cuxfilt... |
 | `kdense-pacsomatic` | Operator toolkit for nf-core/pacsomatic matched tumor-normal workflows from BAM inputs. Use this ski... |
-| `kdense-paper-lookup` | Search 10 academic paper databases via REST APIs for research papers, preprints, and scholarly artic... |
+| `kdense-paper-lookup` | Search 10 academic literature APIs for papers, preprints, citations, and open-access full text, and ... |
 | `kdense-paperzilla` | Chat with your agent about projects, recommendations, and canonical papers in Paperzilla. Use when u... |
 | `kdense-parallel-web` | All-in-one web toolkit powered by parallel-cli, with a strong emphasis on academic and scientific so... |
 | `kdense-pathml` | Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed i... |
@@ -1004,7 +1004,7 @@ Total skills: **2993**
 | `kdense-qutip` | Quantum physics simulation library for open quantum systems. Use when studying master equations, Lin... |
 | `kdense-rdkit` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, Log... |
 | `kdense-research-grants` | Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific form... |
-| `kdense-research-lookup` | Look up current research information using parallel-cli search (primary, fast web search), the Paral... |
+| `kdense-research-lookup` | Look up current research and scientific information across three backends: fast web search via paral... |
 | `kdense-rowan` | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Python A... |
 | `kdense-scanpy` | Standard single-cell RNA-seq analysis pipeline. Use for QC, normalization, dimensionality reduction ... |
 | `kdense-scholar-evaluation` | Systematically evaluate scholarly work using the ScholarEval framework, providing structured assessm... |
@@ -1023,7 +1023,7 @@ Total skills: **2993**
 | `kdense-shap` | Model interpretability and explainability using SHAP (SHapley Additive exPlanations). Use this skill... |
 | `kdense-simpy` | Process-based discrete-event simulation framework in Python. Use this skill when building simulation... |
 | `kdense-stable-baselines3` | Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn... |
-| `kdense-statistical-analysis` | Guided statistical analysis with test selection and reporting. Use when you need help choosing appro... |
+| `kdense-statistical-analysis` | Guided statistical analysis for research data - test selection, assumption checking, effect sizes, p... |
 | `kdense-statistical-power` | Sample-size and statistical power calculations for planning studies. Use whenever someone asks "how ... |
 | `kdense-statsmodels` | Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed mod... |
 | `kdense-sympy` | Use when you need exact symbolic math in Python — algebra, calculus, equation solving, symbolic line... |
@@ -1723,6 +1723,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-context-engineering` | Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, ... |
 | `antigravity-context-fundamentals` | Context is the complete state available to a language model at inference time. It includes everythin... |
 | `antigravity-context-guardian` | Guardiao de contexto que preserva dados criticos antes da compactacao automatica. Snapshots, verific... |
+| `antigravity-context-kit` | Evaluate, adapt, and safely install Context Kit personal context artifacts for Claude Code or adjace... |
 | `antigravity-context-management-context-restore` | Use when working with context management context restore |
 | `antigravity-context-management-context-save` | Use when working with context management context save |
 | `antigravity-context-manager` | Elite AI context engineering specialist mastering dynamic context management, vector databases, know... |
@@ -3048,6 +3049,7 @@ calculations
 | `antigravity-workflow-orchestration-patterns` | Master workflow orchestration architecture with Temporal, covering fundamental design decisions, res... |
 | `antigravity-workflow-patterns` | Use this skill when implementing tasks according to Conductor's TDD workflow, handling phase checkpo... |
 | `antigravity-workorai` | WorkorAI talent-marketplace skill: candidates search jobs and manage applications; employers run the... |
+| `antigravity-wp-site-health-auditor` | Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP... |
 | `antigravity-wrike-automation` | Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, as... |
 | `antigravity-writer` | Document creation, format conversion (ODT/DOCX/PDF), mail merge, and automation with LibreOffice Wri... |
 | `antigravity-writing-great-skills` | Reference for writing and editing skills well — the vocabulary and principles that make a skill pred... |

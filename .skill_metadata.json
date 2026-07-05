@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-04T07:09:45.873401",
-  "skill_count": 2993,
+  "last_updated": "2026-07-05T07:16:00.457385",
+  "skill_count": 2995,
   "sources_processed": 19,
   "skills": [
     {
@@ -790,7 +790,7 @@
     {
       "name": "kdense-research-lookup",
       "original_name": "research-lookup",
-      "description": "Look up current research information using parallel-cli search (primary, fast web search), the Parallel Chat API (deep research), or Perplexity sonar-pro-search (academic paper searches). Automatically routes queries to the best backend. Use for finding papers, gathering research data, and verifying scientific information. Note: query text is transmitted to api.parallel.ai (PARALLEL_API_KEY) and, for academic searches, to openrouter.ai (OPENROUTER_API_KEY).",
+      "description": "Look up current research and scientific information across three backends: fast web search via parallel-cli (default), the Parallel Chat API for deep multi-source synthesis, and Perplexity sonar-pro-search for scholarly paper searches. Automatically routes each query to the best backend and saves every result to sources/ for reproducible citation. Use this whenever you need to find papers, gather statistics or market data, verify a scientific claim, collect citations, or research any topic for scientific/technical writing \u2014 even if the user does not say \"research\" explicitly. Note: query text is sent to api.parallel.ai (PARALLEL_API_KEY) and, for academic searches, to openrouter.ai (OPENROUTER_API_KEY).",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT license"
@@ -1702,7 +1702,7 @@
     {
       "name": "kdense-paper-lookup",
       "original_name": "paper-lookup",
-      "description": "Search 10 academic paper databases via REST APIs for research papers, preprints, and scholarly articles. Covers PubMed, PMC (full text), bioRxiv, medRxiv, arXiv, OpenAlex, Crossref, Semantic Scholar, CORE, Unpaywall. Use when searching for papers, citations, DOI/PMID lookups, abstracts, full text, open access, preprints, citation graphs, author search, or any scholarly literature query. Triggers on mentions of any supported database or requests like \"find papers on X\" or \"look up this DOI\".",
+      "description": "Search 10 academic literature APIs for papers, preprints, citations, and open-access full text, and return results with reproducible provenance. Covers PubMed, PMC (full text), bioRxiv, medRxiv, arXiv, OpenAlex, Crossref, Semantic Scholar, CORE, Unpaywall. Use when searching for papers, citations, DOI/PMID/arXiv lookups, abstracts, full text, open-access PDFs, preprints, citation graphs, author publications, or any scholarly literature query. Triggers on mentions of any supported database or requests like \"find papers on X\", \"look up this DOI\", \"who cites this paper\", or \"get me the PDF\".",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT"
@@ -1750,7 +1750,7 @@
     {
       "name": "kdense-statistical-analysis",
       "original_name": "statistical-analysis",
-      "description": "Guided statistical analysis with test selection and reporting. Use when you need help choosing appropriate tests for your data, assumption checking, power analysis, and APA-formatted results. Best for academic research reporting, test selection guidance. For implementing specific models programmatically use statsmodels.",
+      "description": "Guided statistical analysis for research data - test selection, assumption checking, effect sizes, power analysis, Bayesian alternatives, and APA-formatted reporting. Use whenever a user wants to compare groups, test a hypothesis, analyze experimental or survey data, check statistical assumptions, compute required sample sizes, or write up results - even if they never name a specific test. Covers t-tests, ANOVA, chi-square, correlation, regression, non-parametric and Bayesian methods. For low-level model APIs, see the statsmodels and pymc skills.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT license"
@@ -6772,6 +6772,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-wp-site-health-auditor",
+      "original_name": "wp-site-health-auditor",
+      "description": "Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP snippets. Use for site health, recommended improvements, or critical issue reports.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-expo-examples",
       "original_name": "expo-examples",
       "description": "Expo's official example projects \u2014 the expo/examples repo of ~70 `with-*` integrations (Stripe, Clerk, Supabase, OpenAI, maps, Reanimated, SQLite, Skia, NativeWind, and more). Use when integrating a third-party library or service into an existing Expo app and you want the canonical,...",
@@ -10655,6 +10663,14 @@
       "name": "antigravity-temporal-python-pro",
       "original_name": "temporal-python-pro",
       "description": "Master Temporal workflow orchestration with Python SDK. Implements durable workflows, saga patterns, and distributed transactions. Covers async/await, testing strategies, and production deployment.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-context-kit",
+      "original_name": "context-kit",
+      "description": "Evaluate, adapt, and safely install Context Kit personal context artifacts for Claude Code or adjacent agent workflows.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
