@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-05T07:16:00.457385",
-  "skill_count": 2995,
+  "last_updated": "2026-07-06T07:48:06.675322",
+  "skill_count": 2998,
   "sources_processed": 19,
   "skills": [
     {
@@ -2788,6 +2788,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-wgm",
+      "original_name": "wgm",
+      "description": "Turns a rough request into working software via a governed build loop: align first, plan, then iterate one task at a time with deterministic backpressure and holdout-scenario judging.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-firmware-analyst",
       "original_name": "firmware-analyst",
       "description": "Expert firmware analyst specializing in embedded systems, IoT security, and hardware reverse engineering.",
@@ -4948,6 +4956,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-time-ledger",
+      "original_name": "time-ledger",
+      "description": "Natural-language time tracking: parse what the user says they did into Activity/Minutes/Date rows in their own Notion database \u2014 asking instead of guessing when unsure.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-gemini-live-api-dev",
       "original_name": "gemini-live-api-dev",
       "description": "Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API. Covers WebSocket-based audio/video/text streaming, voice activity detection (VAD), native audio features, function calling, session management, ephemeral tokens for client-side auth,...",
@@ -5815,6 +5831,14 @@
       "name": "antigravity-copywriting-psychologist",
       "original_name": "copywriting-psychologist",
       "description": "One sentence - what this skill does and when to invoke it",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-trading-ledger",
+      "original_name": "trading-ledger",
+      "description": "A trading journal that captures the decision, not just the fill: thesis, plan, and emotion at the moment of entry, written to the user's own Notion database; reviews grade decisions, not P&L.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

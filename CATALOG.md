@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-05 07:16 UTC*
+*Last updated: 2026-07-06 07:48 UTC*
 
-Total skills: **2995**
+Total skills: **2998**
 
 ## Skills by Source
 
@@ -2903,6 +2903,7 @@ calculations
 | `antigravity-threejs-skills` | Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user requests... |
 | `antigravity-threejs-textures` | Three.js textures - texture types, UV mapping, environment maps, texture settings. Use when working ... |
 | `antigravity-tiktok-automation` | Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a... |
+| `antigravity-time-ledger` | Natural-language time tracking: parse what the user says they did into Activity/Minutes/Date rows in... |
 | `antigravity-tmux` | Expert tmux session, window, and pane management for terminal multiplexing, persistent remote workfl... |
 | `antigravity-to-issues` | Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tr... |
 | `antigravity-to-prd` | Turn the current conversation into a PRD and publish it to the project issue tracker — no interview,... |
@@ -2913,6 +2914,7 @@ calculations
 | `antigravity-tools-page-seo-optimizer` | Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers d... |
 | `antigravity-top-web-vulnerabilities` | Provide a comprehensive, structured reference for the 100 most critical web application vulnerabilit... |
 | `antigravity-track-management` | Use this skill when creating, managing, or working with Conductor tracks - the logical work units fo... |
+| `antigravity-trading-ledger` | A trading journal that captures the decision, not just the fill: thesis, plan, and emotion at the mo... |
 | `antigravity-train-sentence-transformers` | Train or fine-tune sentence-transformers models across `SentenceTransformer` (bi-encoder; dense or s... |
 | `antigravity-transformers-js` | Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScrip... |
 | `antigravity-travel-health-analyzer` | 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。 |
@@ -3024,6 +3026,7 @@ calculations
 | `antigravity-wechat-official-account-strategist` | Grow WeChat Official Accounts (微信公众号) with high-conversion content strategy, title formulas, article... |
 | `antigravity-weightloss-analyzer` | 分析减肥数据、计算代谢率、追踪能量缺口、管理减肥阶段 |
 | `antigravity-wellally-tech` | Integrate multiple digital health data sources, connect to [WellAlly.tech](https://www.wellally.tech... |
+| `antigravity-wgm` | Turns a rough request into working software via a governed build loop: align first, plan, then itera... |
 | `antigravity-whatsapp-automation` | Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload me... |
 | `antigravity-whatsapp-cloud-api` | Integracao com WhatsApp Business Cloud API (Meta). Mensagens, templates, webhooks HMAC-SHA256, autom... |
 | `antigravity-wiki-architect` | You are a documentation architect that produces structured wiki catalogues and onboarding guides fro... |
