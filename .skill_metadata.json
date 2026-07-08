@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-07T07:22:10.180741",
-  "skill_count": 3027,
+  "last_updated": "2026-07-08T07:00:19.980849",
+  "skill_count": 3034,
   "sources_processed": 19,
   "skills": [
     {
@@ -2068,6 +2068,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-codex-profiles",
+      "original_name": "codex-profiles",
+      "description": "Use codex-profiles to run Codex CLI or Codex Desktop with isolated CODEX_HOME profiles for separate accounts, projects, and local state.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-sales-automator",
       "original_name": "sales-automator",
       "description": "Draft cold emails, follow-ups, and proposal templates. Creates pricing pages, case studies, and sales scripts. Use PROACTIVELY for sales outreach or lead nurturing. ",
@@ -4036,6 +4044,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-routerbase-model-gateway",
+      "original_name": "routerbase-model-gateway",
+      "description": "Integrate RouterBase as an OpenAI-compatible model gateway for routing GPT, Claude, Gemini, media, audio, and embedding requests.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT-0"
+    },
+    {
       "name": "antigravity-apify-ultimate-scraper",
       "original_name": "apify-ultimate-scraper",
       "description": "AI-driven data extraction from 55+ Actors across all major platforms. This skill automatically selects the best Actor for your task.",
@@ -5948,6 +5964,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-pre-ship-gate",
+      "original_name": "pre-ship-gate",
+      "description": "A ship gate that runs before any production deploy: checks the silent failure modes that make a deploy 'succeed' while prod stays broken, then verifies the live revision instead of trusting deploy output.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-python-pro",
       "original_name": "python-pro",
       "description": "Master Python 3.12+ with modern features, async programming, performance optimization, and production-ready practices. Expert in the latest Python ecosystem including uv, ruff, pydantic, and FastAPI.",
@@ -6834,6 +6858,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-tree-ring-memory",
+      "original_name": "tree-ring-memory",
+      "description": "Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forgetting, and consolidation without transcript dumping.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-review-swarm",
@@ -9490,6 +9522,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-pilot-protocol",
+      "original_name": "pilot-protocol",
+      "description": "Give an AI agent a permanent network address, encrypted P2P messaging, and an installable app store via Pilot Protocol",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "AGPL-3.0"
     },
     {
       "name": "antigravity-hasdata",
@@ -14927,6 +14967,14 @@
       "name": "antigravity-robius-app-architecture",
       "original_name": "robius-app-architecture",
       "description": "CRITICAL: Use for Robius app architecture patterns. Triggers on:\nTokio, async, submit_async_request, \u5f02\u6b65, \u67b6\u6784,\nSignalToUI, Cx::post_action, worker task,\napp structure, MatchEvent, handle_startup\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-go-in-depth",
+      "original_name": "go-in-depth",
+      "description": "Go in depth harness \u2014 fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -23394,6 +23442,14 @@
       "source": "ComposioHQ/awesome-claude-skills",
       "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
       "license": "Complete terms in LICENSE.txt"
+    },
+    {
+      "name": "context-eng-self-improvement-loops",
+      "original_name": "self-improvement-loops",
+      "description": "This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over agent scaffolds, acceptance gates for self-modifying systems, and agentic context evolution where the mechanism that produces context is versioned and evolved. Route governance of a single autonomous loop (locked surfaces, durable logs, rollback, novelty gates, approval boundaries) to harness-engineering, measurement and quality-gate design to evaluation, judge design to advanced-evaluation, and remote sandbox infrastructure to hosted-agents.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
     },
     {
       "name": "context-eng-multi-agent-patterns",

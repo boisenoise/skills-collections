@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-07-07 07:22 UTC*
+*Last updated: 2026-07-08 07:00 UTC*
 
 ## Source Repositories
 
@@ -126,12 +126,12 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 |---------|-------|
 | 3 clause BSD license | 1 |
 | 3-clause BSD license | 2 |
-| AGPL-3.0 | 1 |
+| AGPL-3.0 | 2 |
 | AGPL-3.0 (referencing Twitter's algorithm source) | 1 |
 | AGPL-3.0-only | 1 |
 | AGPL-3.0-or-later | 1 |
 | Apache License, Version 2.0 | 1 |
-| Apache-2.0 | 76 |
+| Apache-2.0 | 77 |
 | Apache-2.0 license | 16 |
 | BSD license | 1 |
 | BSD-2-Clause license | 2 |
@@ -147,10 +147,10 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | GPL-3.0 license | 2 |
 | GPLv3 license | 1 |
 | LICENSE | 1 |
-| MIT | 2768 |
+| MIT | 2772 |
 | MIT License | 6 |
 | MIT license | 50 |
-| MIT-0 | 1 |
+| MIT-0 | 2 |
 | Not declared | 1 |
 | Proprietary (API key required) | 1 |
 | Proprietary. LICENSE.txt has complete terms | 4 |

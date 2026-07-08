@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-07 07:22 UTC*
+*Last updated: 2026-07-08 07:00 UTC*
 
-Total skills: **3027**
+Total skills: **3034**
 
 ## Skills by Source
 
@@ -1165,6 +1165,7 @@ Total skills: **3027**
 | `context-eng-memory-systems` | This skill should be used for persistent semantic memory in agent systems: cross-session knowledge r... |
 | `context-eng-multi-agent-patterns` | This skill should be used when designing multi-agent systems that need context isolation, supervisor... |
 | `context-eng-project-development` | This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is t... |
+| `context-eng-self-improvement-loops` | This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimizat... |
 | `context-eng-tool-design` | This skill should be used for the tool-interface layer of an agent system specifically: writing tool... |
 
 ### obra/superpowers
@@ -1691,6 +1692,7 @@ pipelines, and system utilities.... |
 | `antigravity-codebase-design` | Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module'... |
 | `antigravity-codebase-to-wordpress-converter` | Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, a... |
 | `antigravity-codex-fable5` | Apply Fable-inspired discipline to Codex work: inspect first, track goals and findings, ground concl... |
+| `antigravity-codex-profiles` | Use codex-profiles to run Codex CLI or Codex Desktop with isolated CODEX_HOME profiles for separate ... |
 | `antigravity-codex-review` | Professional code review with auto CHANGELOG generation, integrated with Codex AI. Use when you want... |
 | `antigravity-codex-subagent` | Launch Codex CLI as an isolated subagent for bounded coding, review, or verification tasks. |
 | `antigravity-cold-email` | Write B2B cold emails and follow-up sequences that earn replies. Use when creating outbound prospect... |
@@ -2062,6 +2064,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-global-chat-agent-discovery` | Discover and search 18K+ MCP servers and AI agents across 6+ registries using Global Chat's cross-pr... |
 | `antigravity-gmail-automation` | Lightweight Gmail integration with standalone OAuth authentication. No MCP server required. |
 | `antigravity-go-concurrency-patterns` | Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building con... |
+| `antigravity-go-in-depth` | Go in depth harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a... |
 | `antigravity-go-playwright` | Expert capability for robust, stealthy, and efficient browser automation using Playwright Go. |
 | `antigravity-go-rod-master` | Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) i... |
 | `antigravity-goal-analyzer` | 分析健康目标数据、识别目标模式、评估目标进度,并提供个性化目标管理建议。支持与营养、运动、睡眠等健康数据的关联分析。 |
@@ -2516,6 +2519,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 structures, and modern OOP features. U... |
 | `antigravity-pi-custom-model` | Register custom Pi Agent model slugs so saved OpenRouter variants resolve correctly. |
 | `antigravity-pi-web-search` | Give Pi Agents a safe web-search and fetch workflow using the installed pi-web-access package. |
+| `antigravity-pilot-protocol` | Give an AI agent a permanent network address, encrypted P2P messaging, and an installable app store ... |
 | `antigravity-pipecat-friday-agent` | Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini... |
 | `antigravity-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
 | `antigravity-pitch-psychologist` | One sentence - what this skill does and when to invoke it |
@@ -2548,6 +2552,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pr-merge-champion` | Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-re... |
 | `antigravity-pr-writer` | Create pull requests following Sentry's engineering practices. |
 | `antigravity-pre-release-review` | Run a read-only pre-release review for deploy readiness, migrations, config, secrets, rollout order,... |
+| `antigravity-pre-ship-gate` | A ship gate that runs before any production deploy: checks the silent failure modes that make a depl... |
 | `antigravity-premium-3d-website` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing, phys... |
 | `antigravity-price-psychology-strategist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-pricing` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
@@ -2664,6 +2669,7 @@ AppState, persistence, theme switch... |
 apply_over, TextOrImage, modal, 可复用, 模态,
 coll... |
 | `antigravity-robot-framework-skill` | Generates Robot Framework tests in keyword-driven syntax with Python. Supports SeleniumLibrary, Requ... |
+| `antigravity-routerbase-model-gateway` | Integrate RouterBase as an OpenAI-compatible model gateway for routing GPT, Claude, Gemini, media, a... |
 | `antigravity-ruby-pro` | Write idiomatic Ruby code with metaprogramming, Rails patterns, and performance optimization. Specia... |
 | `antigravity-run-deep-swe` | Run reproducible DeepSWE coding-agent benchmark evaluations through OpenRouter and mini-swe-agent. |
 | `antigravity-runapi-cli` | Generate AI images, videos, and music/audio from agents using the RunAPI CLI. |
@@ -2945,6 +2951,7 @@ calculations
 | `antigravity-train-sentence-transformers` | Train or fine-tune sentence-transformers models across `SentenceTransformer` (bi-encoder; dense or s... |
 | `antigravity-transformers-js` | Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScrip... |
 | `antigravity-travel-health-analyzer` | 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。 |
+| `antigravity-tree-ring-memory` | Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forget... |
 | `antigravity-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `antigravity-triage` | Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if ... |
 | `antigravity-trigger-dev` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent de... |
