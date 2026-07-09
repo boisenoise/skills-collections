@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-08T07:00:19.980849",
-  "skill_count": 3034,
+  "last_updated": "2026-07-09T07:22:53.236384",
+  "skill_count": 3035,
   "sources_processed": 19,
   "skills": [
     {
@@ -3158,7 +3158,7 @@
     {
       "name": "antigravity-x-twitter-scraper",
       "original_name": "x-twitter-scraper",
-      "description": "X/Twitter automation skill for tweet search, follower export, posting, DMs, webhooks, MCP, SDKs, Hermes Tweet, and TweetClaw.",
+      "description": "Use Xquik for X data workflows: tweet search, user lookup, follower export, media downloads, monitors, webhooks, REST API, MCP, SDK setup, and approval-gated account actions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14676,6 +14676,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ask-copilot",
+      "original_name": "ask-copilot",
+      "description": "Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets without manual interaction.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-ai-translation-ts",
       "original_name": "azure-ai-translation-ts",
       "description": "Text and document translation with REST-style clients.",
@@ -23942,7 +23950,7 @@
     {
       "name": "marketing-ad-creative",
       "original_name": "ad-creative",
-      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'static ad concepts,' 'ad templates,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting.",
+      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'static ad concepts,' 'ad templates,' 'iMessage ad,' 'chat reveal ad,' 'text message ad,' 'fake DM ad,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"

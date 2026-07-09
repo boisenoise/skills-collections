@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-08 07:00 UTC*
+*Last updated: 2026-07-09 07:22 UTC*
 
-Total skills: **3034**
+Total skills: **3035**
 
 ## Skills by Source
 
@@ -1382,6 +1382,7 @@ Total skills: **3034**
 | `antigravity-arrowspace` | Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity misses la... |
 | `antigravity-article-illustrations` | Generate hand-drawn 16:9 article illustrations with the Grav character IP, sparse annotations, and a... |
 | `antigravity-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
+| `antigravity-ask-copilot` | Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets w... |
 | `antigravity-ask-matt` | Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo. |
 | `antigravity-ask-questions-if-underspecified` | Clarify requirements before implementing. Use when serious doubts arise. |
 | `antigravity-astro` | Build content-focused websites with Astro — zero JS by default, islands architecture, multi-framewor... |
@@ -3094,7 +3095,7 @@ calculations
 | `antigravity-writing-plans` | Use when you have a spec or requirements for a multi-step task, before touching code |
 | `antigravity-writing-skills` | Use when creating, updating, or improving agent skills. |
 | `antigravity-x-article-publisher-skill` | Publish articles to X/Twitter |
-| `antigravity-x-twitter-scraper` | X/Twitter automation skill for tweet search, follower export, posting, DMs, webhooks, MCP, SDKs, Her... |
+| `antigravity-x-twitter-scraper` | Use Xquik for X data workflows: tweet search, user lookup, follower export, media downloads, monitor... |
 | `antigravity-x402-express-wrapper` | Wrapper oficial de M2MCent (Node.js) para inyectar muros de pago x402 en APIs o servidores Model Con... |
 | `antigravity-xiaohongshu-content-strategist` | Create viral Xiaohongshu (小红书) content with platform-native strategy, save-rate optimization, trendi... |
 | `antigravity-xlsx` | Unless otherwise stated by the user or existing template |
