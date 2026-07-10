@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-09 07:22 UTC*
+*Last updated: 2026-07-10 07:21 UTC*
 
-Total skills: **3035**
+Total skills: **3042**
 
 ## Skills by Source
 
@@ -1371,6 +1371,7 @@ Total skills: **3035**
 | `antigravity-app-store-optimization` | Complete App Store Optimization (ASO) toolkit for researching, optimizing, and tracking mobile app p... |
 | `antigravity-appdeploy` | Deploy web apps with backend APIs, database, and file storage. Use when the user asks to deploy or p... |
 | `antigravity-appium-skill` | Generates production-grade Appium mobile automation scripts for Android and iOS in Java, Python, or ... |
+| `antigravity-apple-container` | Build, run, and manage OCI/Linux containers as lightweight per-container VMs on Apple-silicon macOS ... |
 | `antigravity-apple-notes-search` | Semantic + keyword search and connection-discovery across the user's own Apple Notes via the apple-n... |
 | `antigravity-application-performance-performance-optimization` | Optimize end-to-end application performance with profiling, observability, and backend/frontend tuni... |
 | `antigravity-applicationinsights-web-ts` | Instrument browser/web apps with the Application Insights JavaScript SDK (@microsoft/applicationinsi... |
@@ -1396,6 +1397,7 @@ Total skills: **3035**
 | `antigravity-audit-skills` | Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identif... |
 | `antigravity-auri-core` | Auri: assistente de voz inteligente (Alexa + Claude claude-opus-4-20250805). Visao do produto, perso... |
 | `antigravity-auth-implementation-patterns` | Build secure, scalable authentication and authorization systems using industry-standard patterns and... |
+| `antigravity-auto-research` | Research uncertain questions with an explicit, user-approved web search or ChatGPT consultation, the... |
 | `antigravity-automated-triage` | Triage Monte Carlo alerts interactively or build an automated workflow. Fetch, score, and troublesho... |
 | `antigravity-autonomous-agent-patterns` | Design patterns for building autonomous coding agents, inspired by [Cline](https://github.com/cline/... |
 | `antigravity-autonomous-agents` | Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools... |
@@ -2034,6 +2036,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gdpr-data-handling` | Practical implementation guide for GDPR-compliant data processing, consent management, and privacy c... |
 | `antigravity-gemini-api-dev` | Use this skill when building applications with Gemini API hosted models, including Gemini and Gemma ... |
 | `antigravity-gemini-api-integration` | Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, str... |
+| `antigravity-gemini-deep-research` | Run autonomous multi-step research with Google's Gemini Deep Research Agent: kick off a query, poll ... |
 | `antigravity-gemini-interactions-api` | Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, mul... |
 | `antigravity-gemini-live-api-dev` | Use this skill when building real-time, bidirectional streaming applications with the Gemini Live AP... |
 | `antigravity-gemini-omni-flash-api` | Use this skill for generative video editing, text-to-video, image-referenced video generation, and f... |
@@ -2088,6 +2091,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-grill-me` | A relentless interview to sharpen a plan or design. |
 | `antigravity-grill-with-docs` | A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as ... |
 | `antigravity-grilling` | Interview the user relentlessly about a plan or design. Use when the user wants to stress-test a pla... |
+| `antigravity-grok-build` | Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while the or... |
 | `antigravity-growth-engine` | Motor de crescimento para produtos digitais -- growth hacking, SEO, ASO, viral loops, email marketin... |
 | `antigravity-grpc-golang` | Build production-ready gRPC services in Go with mTLS, streaming, and observability. Use when designi... |
 | `antigravity-handoff` | Compact the current conversation into a handoff document for another agent to pick up. |
@@ -2538,6 +2542,7 @@ structures, and modern OOP features. U... |
 | `antigravity-popup-cro` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without... |
 | `antigravity-posix-shell-pro` | Expert in strict POSIX sh scripting for maximum portability across Unix-like systems. Specializes in... |
 | `antigravity-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
+| `antigravity-postgres-readonly-queries` | Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and de... |
 | `antigravity-postgresql` | Design a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, perfo... |
 | `antigravity-postgresql-cli` | PostgreSQL interactive terminal (psql) reference and usage guide. Use this skill whenever the user m... |
 | `antigravity-postgresql-optimization` | PostgreSQL database optimization workflow for query tuning, indexing strategies, performance analysi... |
@@ -2562,6 +2567,7 @@ structures, and modern OOP features. U... |
 | `antigravity-privacy-by-design` | Use when building apps that collect user data. Ensures privacy protections are built in from the sta... |
 | `antigravity-privacy-mask` | Mask, redact, anonymize and censor sensitive information (PII) in screenshots and images — phone num... |
 | `antigravity-privilege-escalation-methods` | Provide comprehensive techniques for escalating privileges from a low-privileged user to root/admini... |
+| `antigravity-product-decision-agent` | 中文产品决策 Agent。用于需求优先级、Roadmap、增长、留存、运营、数据异常、A/B Test、项目延期和跨团队协作；先判断事实、阶段、核心阻塞与主导机制，再给出下一步、停止清单和切换条件。默... |
 | `antigravity-product-design` | Design de produto nivel Apple — sistemas visuais, UX flows, acessibilidade, linguagem visual proprie... |
 | `antigravity-product-inventor` | Product Inventor e Design Alchemist de nivel maximo — combina Product Thinking, Design Systems, UI E... |
 | `antigravity-product-manager` | Senior PM agent with 6 knowledge domains, 30+ frameworks, 12 templates, and 32 SaaS metrics with for... |
@@ -2904,6 +2910,7 @@ calculations
 | `antigravity-telegram` | Integracao completa com Telegram Bot API. Setup com BotFather, mensagens, webhooks, inline keyboards... |
 | `antigravity-telegram-automation` | Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents... |
 | `antigravity-telegram-bot-builder` | Expert in building Telegram bots that solve real problems - from simple automation to complex AI-pow... |
+| `antigravity-telegram-bot-messaging` | Send Telegram messages, files, and alerts via bot API; ask questions with inline buttons and wait fo... |
 | `antigravity-telegram-mini-app` | Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-like exp... |
 | `antigravity-temporal-golang-pro` | Use when building durable distributed systems with Temporal Go SDK. Covers deterministic workflow ru... |
 | `antigravity-temporal-python-pro` | Master Temporal workflow orchestration with Python SDK. Implements durable workflows, saga patterns,... |

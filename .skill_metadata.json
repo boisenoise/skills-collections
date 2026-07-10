@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-09T07:22:53.236384",
-  "skill_count": 3035,
+  "last_updated": "2026-07-10T07:21:34.867658",
+  "skill_count": 3042,
   "sources_processed": 19,
   "skills": [
     {
@@ -2364,6 +2364,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-auto-research",
+      "original_name": "auto-research",
+      "description": "Research uncertain questions with an explicit, user-approved web search or ChatGPT consultation, then present options and wait for implementation approval.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-skill-creator-ms",
       "original_name": "skill-creator-ms",
       "description": "Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Foundry services. Use when creating new skills or updating existing skills.",
@@ -2783,6 +2791,14 @@
       "name": "antigravity-hugging-face-community-evals",
       "original_name": "hugging-face-community-evals",
       "description": "Run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate. Not for HF Jobs orchestration, model-card PRs, .eval_results publication, or community-evals...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-gemini-deep-research",
+      "original_name": "gemini-deep-research",
+      "description": "Run autonomous multi-step research with Google's Gemini Deep Research Agent: kick off a query, poll progress, and collect a cited report for market analysis or literature reviews.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -5023,6 +5039,14 @@
       "name": "antigravity-startup-financial-modeling",
       "original_name": "startup-financial-modeling",
       "description": "Build comprehensive 3-5 year financial models with revenue projections, cost structures, cash flow analysis, and scenario planning for early-stage startups.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-product-decision-agent",
+      "original_name": "product-decision-agent",
+      "description": "\u4e2d\u6587\u4ea7\u54c1\u51b3\u7b56 Agent\u3002\u7528\u4e8e\u9700\u6c42\u4f18\u5148\u7ea7\u3001Roadmap\u3001\u589e\u957f\u3001\u7559\u5b58\u3001\u8fd0\u8425\u3001\u6570\u636e\u5f02\u5e38\u3001A/B Test\u3001\u9879\u76ee\u5ef6\u671f\u548c\u8de8\u56e2\u961f\u534f\u4f5c\uff1b\u5148\u5224\u65ad\u4e8b\u5b9e\u3001\u9636\u6bb5\u3001\u6838\u5fc3\u963b\u585e\u4e0e\u4e3b\u5bfc\u673a\u5236\uff0c\u518d\u7ed9\u51fa\u4e0b\u4e00\u6b65\u3001\u505c\u6b62\u6e05\u5355\u548c\u5207\u6362\u6761\u4ef6\u3002\u9ed8\u8ba4\u4e2d\u6587\uff0c\u4e0d\u5f15\u7528\u539f\u6587\u6216\u8bb2\u5386\u53f2\u3002",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8386,6 +8410,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-telegram-bot-messaging",
+      "original_name": "telegram-bot-messaging",
+      "description": "Send Telegram messages, files, and alerts via bot API; ask questions with inline buttons and wait for the answer. Supports multiple bots, named chat targets, and CI/cron/hook notifications.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-screenstudio-alt",
@@ -13332,6 +13364,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-apple-container",
+      "original_name": "apple-container",
+      "description": "Build, run, and manage OCI/Linux containers as lightweight per-container VMs on Apple-silicon macOS using Apple's open-source container CLI, no Docker daemon required.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-odoo-migration-helper",
       "original_name": "odoo-migration-helper",
       "description": "Step-by-step guide for migrating Odoo custom modules between versions (v14\u2192v15\u2192v16\u2192v17). Covers API changes, deprecated methods, and view migration.",
@@ -15164,6 +15204,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-postgres-readonly-queries",
+      "original_name": "postgres-readonly-queries",
+      "description": "Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and defense-in-depth write protection.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-astro",
       "original_name": "astro",
       "description": "Build content-focused websites with Astro \u2014 zero JS by default, islands architecture, multi-framework components, and Markdown/MDX support.",
@@ -16170,6 +16218,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-grok-build",
+      "original_name": "grok-build",
+      "description": "Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while the orchestrating agent plans, writes task specs, reviews every diff, and owns the result.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-similarity-search-patterns",
@@ -23910,7 +23966,7 @@
     {
       "name": "marketing-social",
       "original_name": "social",
-      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms, or wants to do social listening and engagement triage. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' 'grow my following,' 'TikTok video,' 'Reels,' 'Shorts,' 'video script,' 'video hook,' 'short-form video,' 'create a reel,' 'social listening,' 'brand mentions,' 'competitor monitoring,' 'top posts to comment on,' or 'find people asking for.' Use this for social media content creation, repurposing, scheduling, short-form video scripting, and social listening. For broader content strategy, see content-strategy. For paid ads, see ad-creative. For earned media, see public-relations.",
+      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms, or wants to do social listening and engagement triage. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' 'grow my following,' 'TikTok video,' 'Reels,' 'Shorts,' 'video script,' 'video hook,' 'short-form video,' 'create a reel,' 'social listening,' 'brand mentions,' 'competitor monitoring,' 'top posts to comment on,' 'find people asking for,' 'carousel,' 'slide-by-slide,' or 'document post.' Use this for social media content creation, repurposing, scheduling, short-form video scripting, and social listening. For broader content strategy, see content-strategy. For paid ads, see ad-creative. For earned media, see public-relations.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -23950,7 +24006,7 @@
     {
       "name": "marketing-ad-creative",
       "original_name": "ad-creative",
-      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'static ad concepts,' 'ad templates,' 'iMessage ad,' 'chat reveal ad,' 'text message ad,' 'fake DM ad,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting.",
+      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'static ad concepts,' 'ad templates,' 'iMessage ad,' 'chat reveal ad,' 'text message ad,' 'fake DM ad,' 'ChatGPT ad,' 'Apple Notes ad,' 'motion video ad,' 'faceless video ad,' 'animated explainer ad,' 'motion collage ad,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
