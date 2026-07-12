@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-11T06:54:51.997959",
-  "skill_count": 3042,
+  "last_updated": "2026-07-12T07:02:07.885964",
+  "skill_count": 3046,
   "sources_processed": 19,
   "skills": [
     {
@@ -3148,6 +3148,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-idea-autopsy",
+      "original_name": "idea-autopsy",
+      "description": "Autopsy a business idea before you build it: kill-list check, five hard filters, a free-AI one-prompt test, live ad-market verification, and a verdict with a named kill-pattern.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-developer-audience-context",
       "original_name": "developer-audience-context",
       "description": "When the user wants to establish or update their developer audience context. Also use when starting any other developer marketing skill to ensure foundational context is loaded. Trigger phrases include \"developer persona,\" \"target developers,\" \"who are our developers,\" \"developer...",
@@ -3383,6 +3391,14 @@
       "name": "antigravity-ui-lint",
       "original_name": "ui-lint",
       "description": "Quick automated lint \u2014 detects common design system violations in seconds",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-uizze-ui-research",
+      "original_name": "uizze-ui-research",
+      "description": "Use when building or reviewing web and iOS product UI and you need real UI references, structured design contracts, or implementation validation through UIZZE MCP.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13884,6 +13900,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-nika",
+      "original_name": "nika",
+      "description": "Runs repeatable AI work as checked, budgeted workflow files.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-aws-security-audit",
       "original_name": "aws-security-audit",
       "description": "Comprehensive AWS security posture assessment using AWS CLI and security best practices",
@@ -23607,6 +23631,14 @@
       "name": "context-eng-evaluation",
       "original_name": "evaluation",
       "description": "This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-long-horizon-prompting",
+      "original_name": "long-horizon-prompting",
+      "description": "This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-counting outcomes, set persistence rules with explicit stop and return conditions and effort floors, manage a diverse portfolio of parallel approaches with an approach registry and blocked-route bookkeeping, and gate the return on adversarial audit. Route agent topology and coordination protocols to multi-agent-patterns, runtime control surfaces and loop governance to harness-engineering, evaluator and quality-gate construction to evaluation, judge design to advanced-evaluation, and compaction or memory mechanics to context-compression and memory-systems.",
       "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
       "license": "MIT"

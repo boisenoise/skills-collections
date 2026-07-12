@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-11 06:54 UTC*
+*Last updated: 2026-07-12 07:02 UTC*
 
-Total skills: **3042**
+Total skills: **3046**
 
 ## Skills by Source
 
@@ -1162,6 +1162,7 @@ Total skills: **3042**
 | `context-eng-harness-engineering` | This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaf... |
 | `context-eng-hosted-agents` | This skill should be used when designing hosted or background agent infrastructure: sandboxed execut... |
 | `context-eng-latent-briefing` | This skill should be used when the user asks to "share memory between agents", "KV cache compaction ... |
+| `context-eng-long-horizon-prompting` | This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-runnin... |
 | `context-eng-memory-systems` | This skill should be used for persistent semantic memory in agent systems: cross-session knowledge r... |
 | `context-eng-multi-agent-patterns` | This skill should be used when designing multi-agent systems that need context isolation, supervisor... |
 | `context-eng-project-development` | This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is t... |
@@ -2155,6 +2156,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-hyperexecute-skill` | Operates HyperExecute end-to-end for TestMu AI/LambdaTest cloud test execution: analyze projects, cr... |
 | `antigravity-i18n-localization` | Internationalization and localization patterns. Detecting hardcoded strings, managing translations, ... |
 | `antigravity-iconsax-library` | Extensive icon library and AI-driven icon generation skill for premium UI/UX design. |
+| `antigravity-idea-autopsy` | Autopsy a business idea before you build it: kill-list check, five hard filters, a free-AI one-promp... |
 | `antigravity-idea-darwin` | Darwinian idea evolution engine — toss rough ideas onto an evolution island, let them compete, cross... |
 | `antigravity-idea-os` | Five-phase pipeline (triage → clarify → research → PRD → plan) that turns a raw idea into four linke... |
 | `antigravity-idea-refine` | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinki... |
@@ -2430,6 +2432,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-nextjs-seo-indexing` | Fix SEO indexing issues, crawl budget problems, and Search Console coverage errors for Next.js apps.... |
 | `antigravity-nextjs-supabase-auth` | Expert integration of Supabase Auth with Next.js App Router |
 | `antigravity-nft-standards` | Master ERC-721 and ERC-1155 NFT standards, metadata best practices, and advanced NFT features. |
+| `antigravity-nika` | Runs repeatable AI work as checked, budgeted workflow files. |
 | `antigravity-nodejs-backend-patterns` | Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend app... |
 | `antigravity-nodejs-best-practices` | Node.js development principles and decision-making. Framework selection, async patterns, security, a... |
 | `antigravity-nosql-expert` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, que... |
@@ -2990,6 +2993,7 @@ calculations
 | `antigravity-ui-ux-designer` | Create interface designs, wireframes, and design systems. Masters user research, accessibility stand... |
 | `antigravity-ui-ux-pro-max` | Comprehensive design guide for web and mobile applications. Use when designing new UI components or ... |
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
+| `antigravity-uizze-ui-research` | Use when building or reviewing web and iOS product UI and you need real UI references, structured de... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
 | `antigravity-uniprot-database` | Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL.... |
 | `antigravity-unit-testing-test-generate` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case ... |
