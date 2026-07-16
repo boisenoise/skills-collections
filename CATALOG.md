@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-15 06:55 UTC*
+*Last updated: 2026-07-16 06:59 UTC*
 
-Total skills: **3058**
+Total skills: **3063**
 
 ## Skills by Source
 
@@ -1338,6 +1338,7 @@ Total skills: **3058**
 | `antigravity-antigravity-design-expert` | Core UI/UX engineering skill for building highly interactive, spatial, weightless, and glassmorphism... |
 | `antigravity-antigravity-skill-orchestrator` | A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks succ... |
 | `antigravity-antigravity-workflows` | Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, security aud... |
+| `antigravity-anywrite` | Compiled CLI covering all 52 endpoints of the Anytype local API — objects, properties, tags, search,... |
 | `antigravity-aomi-transact` | Build natural-language crypto/DeFi agents and EVM MCP plugins (Claude Code, Cursor, Codex, Gemini). ... |
 | `antigravity-api-analyzer` | Validates whether an API request is correct based on provided inputs (method, URL, headers, body, au... |
 | `antigravity-api-and-interface-design` | Guides stable API and interface design. Use when designing APIs, module boundaries, or any public in... |
@@ -1860,6 +1861,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-devops-deploy` | DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infrae... |
 | `antigravity-devops-troubleshooter` | Expert DevOps troubleshooter specializing in rapid incident response, advanced debugging, and modern... |
 | `antigravity-devrel-content` | When the user wants to create technical content for developers including blog posts, tutorials, and ... |
+| `antigravity-diagnose-android-overheating` | Use when diagnosing Android overheating, idle heat, thermal throttling, charging or radio heat, or a... |
 | `antigravity-diagnosing-bugs` | Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug t... |
 | `antigravity-diary` | Unified Diary System: A context-preserving automated logger for multi-project development. |
 | `antigravity-differential-review` | Security-focused code review for PRs, commits, and diffs. |
@@ -1870,6 +1872,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-distribute-skill-to-all-agents` | Distribute a skill across configured agent skill folders while respecting local symlink layouts. |
 | `antigravity-distributed-debugging-debug-trace` | You are a debugging expert specializing in setting up comprehensive debugging environments, distribu... |
 | `antigravity-distributed-tracing` | Implement distributed tracing with Jaeger and Tempo for request flow visibility across microservices... |
+| `antigravity-ditto` | Use when a user asks to mine or update a private, evidence-backed work profile from local Claude Cod... |
 | `antigravity-django-access-review` | django-access-review |
 | `antigravity-django-perf-review` | Django performance code review. Use when asked to "review Django performance", "find N+1 queries", "... |
 | `antigravity-django-pro` | Master Django 5.x with async views, DRF, Celery, and Django Channels. Build scalable web application... |
@@ -2496,6 +2499,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-openapi-spec-generation` | Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patte... |
 | `antigravity-openapi-spec-generator` | Generate complete, production-ready OpenAPI 3.x and Swagger 2.0 specifications from natural language... |
 | `antigravity-openclaw-github-repo-commander` | 7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis |
+| `antigravity-optim-agent` | Guide agent-driven parameter optimization for configurable systems with measurable objectives. Use f... |
 | `antigravity-options-flow-analyzer` | Real vs lottery call separation for options P/C ratio analysis — prevents signal inversion from deep... |
 | `antigravity-oral-health-analyzer` | 分析口腔健康数据、识别口腔问题模式、评估口腔健康状况、提供个性化口腔健康建议。支持与营养、慢性病、用药等其他健康数据的关联分析。 |
 | `antigravity-orchestrate-batch-refactor` | Plan and execute large refactors with dependency-aware work packets and parallel analysis. |
@@ -2856,6 +2860,7 @@ Plans content calendars and ident... |
 | `antigravity-sred-project-organizer` | Take a list of projects and their related documentation, and organize them into the SRED format for ... |
 | `antigravity-sred-work-summary` | Go back through the previous year of work and create a Notion doc that groups relevant links into pr... |
 | `antigravity-ssh-penetration-testing` | Conduct comprehensive SSH security assessments including enumeration, credential attacks, vulnerabil... |
+| `antigravity-sshepherd` | Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgres int... |
 | `antigravity-stability-ai` | Geracao de imagens via Stability AI (SD3.5, Ultra, Core). Text-to-image, img2img, inpainting, upscal... |
 | `antigravity-startup-analyst` | Expert startup business analyst specializing in market sizing, financial modeling, competitive analy... |
 | `antigravity-startup-business-analyst-business-case` | Generate comprehensive investor-ready business case document with
