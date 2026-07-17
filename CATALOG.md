@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-16 06:59 UTC*
+*Last updated: 2026-07-17 06:56 UTC*
 
-Total skills: **3063**
+Total skills: **3065**
 
 ## Skills by Source
 
@@ -1262,6 +1262,7 @@ Total skills: **3063**
 | `antigravity-accint-solve` | Route a goal through acc's scored-memory loop via acc_act(runtime="solve"); deliberate any returned ... |
 | `antigravity-active-directory-attacks` | Provide comprehensive techniques for attacking Microsoft Active Directory environments. Covers recon... |
 | `antigravity-activecampaign-automation` | Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscriptions, au... |
+| `antigravity-ad-campaign-analyzer` | Analyze cross-channel campaign data, quantify uncertainty, and propose evidence-labeled budget tests... |
 | `antigravity-ad-creative` | Create, iterate, and scale paid ad creative for Google Ads, Meta, LinkedIn, TikTok, and similar plat... |
 | `antigravity-add-app-clip` | Add an iOS App Clip target to an Expo app. Use when the user mentions App Clip, AASA, apple-app-site... |
 | `antigravity-address-github-comments` | Use when you need to address review or issue comments on an open GitHub Pull Request using the gh CL... |
@@ -1707,6 +1708,7 @@ pipelines, and system utilities.... |
 | `antigravity-commit` | ALWAYS use this skill when committing code changes — never commit directly without it. Creates commi... |
 | `antigravity-community-building` | When the user wants to build, grow, or improve a developer community on Discord, Slack, or forums. T... |
 | `antigravity-competitive-landscape` | Comprehensive frameworks for analyzing competition, identifying differentiation opportunities, and d... |
+| `antigravity-competitor-ad-intelligence` | Research public competitor ads, analyze creative patterns and landing pages, and produce an evidence... |
 | `antigravity-competitor-alternatives` | You are an expert in creating competitor comparison and alternative pages. Your goal is to build pag... |
 | `antigravity-competitor-analysis` | Research competitors with Browserbase discovery, enrichment lanes, screenshots, matrices, and HTML r... |
 | `antigravity-competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the ... |
@@ -2057,7 +2059,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-git-advanced-workflows` | Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from ... |
 | `antigravity-git-hooks-automation` | Master Git hooks setup with Husky, lint-staged, pre-commit framework, and commitlint. Automate code ... |
 | `antigravity-git-pr-review` | Generate a concise and structured PR description from commit history with minimal token usage |
-| `antigravity-git-pr-workflows-git-workflow` | Orchestrate a comprehensive git workflow from code review through PR creation, leveraging specialize... |
+| `antigravity-git-pr-workflows-git-workflow` | Orchestrate review, tests, commits, branch pushes, and pull-request creation with parallel agents. U... |
 | `antigravity-git-pr-workflows-onboard` | You are an **expert onboarding specialist and knowledge transfer architect** with deep experience in... |
 | `antigravity-git-pr-workflows-pr-enhance` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate... |
 | `antigravity-git-pushing` | Safely stage, commit, and push intended git changes with conventional commit messages. Use for ordin... |
@@ -2066,7 +2068,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-github-actions-advanced` | Design, debug, and harden GitHub Actions CI/CD workflows, including reusable workflows, matrix build... |
 | `antigravity-github-actions-debugger` | Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by parsing ... |
 | `antigravity-github-actions-templates` | Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications. |
-| `antigravity-github-automation` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (... |
+| `antigravity-github-automation` | Operate GitHub issues, pull requests, branches, checks, workflows, and permissions through Rube MCP.... |
 | `antigravity-github-issue-creator` | Turn error logs, screenshots, voice notes, and rough bug reports into crisp, developer-ready GitHub ... |
 | `antigravity-github-presence` | When the user wants to optimize their GitHub profile, README, or project discoverability. Trigger ph... |
 | `antigravity-github-workflow-automation` | Patterns for automating GitHub workflows with AI assistance, inspired by [Gemini CLI](https://github... |
@@ -2665,7 +2667,7 @@ structures, and modern OOP features. U... |
 | `antigravity-remotion` | Generate walkthrough videos from Stitch projects using Remotion with smooth transitions, zooming, an... |
 | `antigravity-remotion-best-practices` | Best practices for Remotion - Video creation in React |
 | `antigravity-render-automation` | Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools ... |
-| `antigravity-repo-maintainer` | Championship-grade repository maintenance. Audits for test artifacts, dependency issues, CI/CD healt... |
+| `antigravity-repo-maintainer` | Audit and repair repository hygiene across artifacts, dependencies, CI, docs, Git state, and code-qu... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-research-prompt` | Turn vague research needs into one precise deep-research prompt with context and output criteria. |
 | `antigravity-resolving-merge-conflicts` | Use when you need to resolve an in-progress git merge/rebase conflict. |
