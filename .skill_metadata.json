@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-18T06:47:29.953011",
-  "skill_count": 3065,
+  "last_updated": "2026-07-19T07:00:33.268147",
+  "skill_count": 3067,
   "sources_processed": 19,
   "skills": [
     {
@@ -2574,7 +2574,7 @@
     {
       "name": "antigravity-create-pr",
       "original_name": "create-pr",
-      "description": "Alias for sentry-skills:pr-writer. Use when users explicitly ask for \"create-pr\" or reference the legacy skill name. Redirects to the canonical PR writing workflow.",
+      "description": "Alias for pr-writer. Use when users explicitly ask for \"create-pr\" or reference the legacy skill name. Redirects to the canonical PR writing workflow.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3967,6 +3967,14 @@
       "name": "antigravity-planning-with-files",
       "original_name": "planning-with-files",
       "description": "Work like Manus: Use persistent markdown files as your \"working memory on disk.\"",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-antigravity-maintainer-batch-release",
+      "original_name": "antigravity-maintainer-batch-release",
+      "description": "Run protected AAS maintainer sweeps, PR merge batches, canonical sync, Core preview checks, and scripted releases. Use for repository maintenance, main alignment, CLI/MCP/Workbench changes, or release work; not ordinary contribution tasks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11966,7 +11974,7 @@
     {
       "name": "antigravity-game-development",
       "original_name": "game-development",
-      "description": "Game development orchestrator. Routes to platform-specific skills based on project needs.",
+      "description": "Game development orchestrator. Routes by platform, dimension, and engine fit (web 2D/3D, hybrid DOM+canvas, narrative tools). Use when starting or structuring a game project, choosing frameworks, or picking among Phaser, PixiJS, Kaplay, Canvas/WebGL, Three.js, Babylon.js, Godot, Unity, or Ink/Twine.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13007,6 +13015,14 @@
       "name": "antigravity-red-team-tools",
       "original_name": "red-team-tools",
       "description": "Implement proven methodologies and tool workflows from top security researchers for effective reconnaissance, vulnerability discovery, and bug bounty hunting. Automate common tasks while maintaining thorough coverage of attack surfaces.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-modellix",
+      "original_name": "modellix",
+      "description": "Integrate Modellix unified API/CLI for async AI image and video generation (model run --wait, task download).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

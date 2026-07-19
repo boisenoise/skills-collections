@@ -31,13 +31,7 @@ Before mutation:
 
 If the repository names a mandatory maintainer skill or guarded command, delegate to it instead of inventing a parallel branch, merge, sync, or release path. In `agentic-awesome-skills`, use `antigravity-maintainer-batch-release` and `npm run merge:batch`; `main` is pull-request-only.
 
-For the AAS agent-first control plane, also preserve the independent acceptance boundary:
-
-- keep product, verifier, and benchmark-gold changes in separate protected pull requests;
-- never expose held-out or abstention labels to product code, tuning, or manual diagnosis;
-- run acceptance against the packed CLI/MCP artifact as a black box on every frozen operating-system and runtime leg;
-- re-freeze the verifier baseline after an independently reviewed verifier or tuning-gold correction, then rebase and retest the product;
-- treat any hard-policy violation, write/network attempt from MCP, nondeterministic canonical payload, or partial transactional state as a release blocker.
+The routine protected checks for `agentic-awesome-skills` are `pr-policy`, `pr-evidence`, `source-validation`, and `artifact-preview`. The supported AAS Core preview uses targeted unit tests plus one packed Linux/Node LTS smoke path and Workbench review. Do not resurrect the retired certified-v1 baseline, benchmark, tuning-gold, transaction-fault, race, or frozen OS/runtime matrix as routine merge gates.
 
 ## Usage
 
@@ -78,7 +72,7 @@ Treat audit-tool output as evidence to verify, not automatic permission to upgra
 #### CI and release health
 
 - failing, cancelled, skipped, or stale workflow runs;
-- inconsistent runtime matrices and unpinned or obsolete actions;
+- stale, redundant, or unjustifiably broad runtime matrices and unpinned or obsolete actions;
 - required checks, branch protection, release permissions, and secret boundaries;
 - mismatch between documented and implemented release commands.
 
@@ -90,7 +84,7 @@ Treat audit-tool output as evidence to verify, not automatic permission to upgra
 
 #### Code-quality signals
 
-- dead code, stale TODO/FIXME items, debug logging, commented-out code, and missing tests;
+- dead code, stale implementation markers, debug logging, commented-out code, and missing tests;
 - unsafe defaults, suppressed errors, credential exposure, and environment-specific paths.
 
 For FAF projects only, also inspect declared `.faf`, `.faf-dna`, sync, score, and MCP contracts with the project's installed FAF commands.

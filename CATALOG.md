@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-18 06:47 UTC*
+*Last updated: 2026-07-19 07:00 UTC*
 
-Total skills: **3065**
+Total skills: **3067**
 
 ## Skills by Source
 
@@ -1337,6 +1337,7 @@ Total skills: **3065**
 | `antigravity-anti-sycophancy` | Eliminate sycophantic agreement patterns in AI responses. Load via /skill anti-sycophancy. |
 | `antigravity-antigravity-agent-manager` | Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager and Ant... |
 | `antigravity-antigravity-design-expert` | Core UI/UX engineering skill for building highly interactive, spatial, weightless, and glassmorphism... |
+| `antigravity-antigravity-maintainer-batch-release` | Run protected AAS maintainer sweeps, PR merge batches, canonical sync, Core preview checks, and scri... |
 | `antigravity-antigravity-skill-orchestrator` | A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks succ... |
 | `antigravity-antigravity-workflows` | Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, security aud... |
 | `antigravity-anywrite` | Compiled CLI covering all 52 endpoints of the Anytype local API — objects, properties, tags, search,... |
@@ -1761,7 +1762,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-cqrs-implementation` | Implement Command Query Responsibility Segregation for scalable architectures. Use when separating r... |
 | `antigravity-create-branch` | Create a git branch following Sentry naming conventions. Use when asked to "create a branch", "new b... |
 | `antigravity-create-issue-gate` | Use when starting a new implementation task and an issue must be created with strict acceptance crit... |
-| `antigravity-create-pr` | Alias for sentry-skills:pr-writer. Use when users explicitly ask for "create-pr" or reference the le... |
+| `antigravity-create-pr` | Alias for pr-writer. Use when users explicitly ask for "create-pr" or reference the legacy skill nam... |
 | `antigravity-cred-omega` | CISO operacional enterprise para gestao total de credenciais e segredos. |
 | `antigravity-crewai` | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies... |
 | `antigravity-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page or form — in... |
@@ -2040,7 +2041,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-fsi-compliance-checker` | Maps code, architecture, and infrastructure changes to specific control IDs in PCI-DSS v4.0 and MAS ... |
 | `antigravity-full-output-enforcement` | Use when a task requires exhaustive unabridged output, complete files, or strict prevention of place... |
 | `antigravity-full-stack-orchestration-full-stack-feature` | Use when working with full stack orchestration full stack feature |
-| `antigravity-game-development` | Game development orchestrator. Routes to platform-specific skills based on project needs. |
+| `antigravity-game-development` | Game development orchestrator. Routes by platform, dimension, and engine fit (web 2D/3D, hybrid DOM+... |
 | `antigravity-gcp-cloud-run` | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run ser... |
 | `antigravity-gdb-cli` | GDB debugging assistant for AI agents - analyze core dumps, debug live processes, investigate crashe... |
 | `antigravity-gdpr-data-handling` | Practical implementation guide for GDPR-compliant data processing, consent management, and privacy c... |
@@ -2385,6 +2386,7 @@ splash language, makepad script, m... |
 | `antigravity-mobile-developer` | Develop React Native, Flutter, or native mobile apps with modern architecture patterns. Masters cros... |
 | `antigravity-mobile-security-coder` | Expert in secure mobile coding practices specializing in input validation, WebView security, and mob... |
 | `antigravity-mock-hunter` | Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data... |
+| `antigravity-modellix` | Integrate Modellix unified API/CLI for async AI image and video generation (model run --wait, task d... |
 | `antigravity-modern-javascript-patterns` | Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns... |
 | `antigravity-molykit` | CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
 BotClient, OpenAI, SSE streaming, AI chat, m... |
