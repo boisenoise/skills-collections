@@ -95,11 +95,12 @@ For AAS CLI, MCP, stack, catalog-cache, or Workbench changes:
 
 1. Use the current scripts declared in `package.json`; do not resurrect retired evaluator, benchmark, tuning-gold, transaction-fault, race, or frozen-matrix gates as routine prerequisites.
 2. Run the focused Core tests with `npm run test:aas-v1`, the catalog integrity check with `npm run check:aas-v1-catalog`, and the relevant Workbench tests/build when its contracts or copy change.
-3. Keep MCP local, offline, read-only, bounded, and non-mutating. The coding agent inspects the project and sends an explicit profile; MCP searches, inspects, recommends, and compares without scanning the repository or writing to it.
-4. Keep the supported public path at manifest validation and immutable plan preview. Planning may write only the requested plan artifact; it must not materialize skill payloads or AAS managed state in the target.
-5. Treat apply and recovery as experimental opt-ins outside the supported preview claim. Do not add apply/recovery, benchmark, fuzz, crash/race, or synthetic verifier work unless the user explicitly places it in scope.
-6. When the task asks for end-to-end client proof, use a real supported client that discovers and invokes the local AAS MCP tools; direct stdio probes and automated tests do not substitute for that evidence.
-7. Do not tag, publish npm, deploy Pages, or write real user MCP configuration without the separately required publication approval.
+3. Keep MCP local, offline, read-only, bounded, and non-mutating. The coding agent inspects the project, searches and reads the complete catalog, and chooses the exact skill IDs. MCP searches, reads, validates agent-owned composition, and compares without scanning the repository or writing to it. Core must not rank, recommend, exclude, or disable skills; metadata is informational only.
+4. Keep `aas-stack.json` free of Core selection policy. It pins catalog identity, targets, goals, and the exact IDs selected by the agent. `compose_stack` validates and records that selection; missing or cautionary metadata must never make a canonical skill unselectable or unusable.
+5. Keep the supported public path at manifest validation and immutable plan preview. Planning may write only the requested plan artifact; it must not materialize skill payloads or AAS managed state in the target.
+6. Treat apply and recovery as experimental opt-ins outside the supported preview claim. Do not add apply/recovery, benchmark, fuzz, crash/race, or synthetic verifier work unless the user explicitly places it in scope.
+7. When the task asks for end-to-end client proof, use a real supported client that discovers and invokes the local AAS MCP tools; direct stdio probes and automated tests do not substitute for that evidence.
+8. Do not tag, publish npm, deploy Pages, or write real user MCP configuration without the separately required publication approval.
 
 ## Protected Release
 
@@ -111,6 +112,11 @@ Release only when requested.
 4. Merge that release PR through its required checks, update local `main` to equal `origin/main`, and wait for any canonical-sync PR to close.
 5. Run `npm run release:publish -- X.Y.Z`. It verifies the exact protected merge before creating or reusing the tag and GitHub Release.
 6. Wait for publishing workflows, then verify the tag/ref, GitHub Release, npm version and dist-tag, CI, Pages, CodeQL, live `llms.txt`, `skills.json`, and changed catalog routes.
+7. After npm confirms `X.Y.Z` as the published dist-tag, update every already-configured local AAS MCP host to the exact same package version before declaring the release complete.
+   - Use the published package's `aas mcp configure` two-pass flow: first preview the change, then repeat the identical command with its approval digest. Supply absolute host-config, cache, and backup paths; require a backup when replacing an existing configuration.
+   - Pin `agentic-awesome-skills@X.Y.Z` and `--version X.Y.Z`; never use `latest`, reuse an older cached runtime, or create a previously absent host configuration without explicit authorization.
+   - Verify that the managed host configuration points to a content-addressed `X.Y.Z` runtime, that the runtime package metadata reports `X.Y.Z`, and that a real MCP `initialize` plus `tools/list` handshake reports catalog package version `X.Y.Z`.
+   - Restart the host or open a fresh client session when required so the new MCP process is actually loaded. If configuration access, approval, or runtime verification is blocked, report the exact blocker and keep the maintainer task incomplete even though the package itself is already public.
 
 Never rebase a published release tag, force stale release state, reuse a failed published version, or claim npm publication from the GitHub Release alone.
 
@@ -123,7 +129,7 @@ Finish only when:
 - `main`, `origin/main`, required workflows, generated state, and public surfaces agree;
 - the source and legacy repositories have no unintended infrastructure PR, their protected branches and Actions settings remain enforced, and the live manifest identifies the source repository;
 - the user worktree is unchanged except for files the user explicitly placed in scope;
-- release proof is complete when a release was requested.
+- release proof is complete when a release was requested, including exact version parity between the published npm package and every already-configured local AAS MCP host.
 
 ## Failure Rules
 

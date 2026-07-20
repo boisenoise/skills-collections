@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-19T07:00:33.268147",
-  "skill_count": 3067,
+  "last_updated": "2026-07-20T07:18:08.294147",
+  "skill_count": 3068,
   "sources_processed": 19,
   "skills": [
     {
@@ -16399,6 +16399,14 @@
       "name": "antigravity-typescript-pro",
       "original_name": "typescript-pro",
       "description": "Master TypeScript with advanced types, generics, and strict type safety. Handles complex type systems, decorators, and enterprise-grade patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-markstream-install",
+      "original_name": "markstream-install",
+      "description": "Install and configure Markstream streaming Markdown renderers for Vue, React, Svelte, Angular, Nuxt, Next.js, and Vue 2 applications.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

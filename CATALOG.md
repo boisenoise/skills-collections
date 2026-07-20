@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-19 07:00 UTC*
+*Last updated: 2026-07-20 07:18 UTC*
 
-Total skills: **3067**
+Total skills: **3068**
 
 ## Skills by Source
 
@@ -2352,6 +2352,7 @@ splash language, makepad script, m... |
 | `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
 | `antigravity-marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own... |
 | `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
+| `antigravity-markstream-install` | Install and configure Markstream streaming Markdown renderers for Vue, React, Svelte, Angular, Nuxt,... |
 | `antigravity-matematico-tao` | Matemático ultra-avançado inspirado em Terence Tao. Análise rigorosa de código e arquitetura com teo... |
 | `antigravity-mathguard` | Math-heavy escalation for n >= 10^6 — Bloom, HyperLogLog, Count-Min, MinHash/LSH, FFT, JL projection... |
 | `antigravity-matplotlib` | Matplotlib is Python's foundational visualization library for creating static, animated, and interac... |
