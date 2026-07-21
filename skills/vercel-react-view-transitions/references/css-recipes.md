@@ -226,6 +226,37 @@ For elements with `backdrop-filter`, hide the old snapshot to avoid flash:
 }
 ```
 
+### Floating Element Isolation (popovers, menus, tooltips, control clusters)
+
+Same freeze as persistent chrome. A floating/interactive element left rendered while a background transition runs is otherwise captured in the `root` snapshot and flickers as it settles. Give it a real, unique `view-transition-name` (never `none` — that's the CSS default = no isolation) and:
+
+```css
+::view-transition-group(popover) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(popover),
+::view-transition-new(popover) {
+  animation: none;
+}
+```
+
+### Sliding Indicator (tab underline / segmented pill)
+
+One shared-name indicator morphs between positions. Slide the group; disable old/new so the solid bar slides instead of cross-fading:
+
+```css
+::view-transition-group(.tab-underline) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.2, 1);
+}
+::view-transition-old(.tab-underline),
+::view-transition-new(.tab-underline) {
+  animation: none;
+  height: 100%;
+}
+```
+
 ---
 
 ## Reduced Motion

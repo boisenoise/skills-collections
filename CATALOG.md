@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-07-20 07:18 UTC*
+*Last updated: 2026-07-21 07:01 UTC*
 
 Total skills: **3068**
 
@@ -1031,13 +1031,13 @@ Total skills: **3068**
 | `kdense-tiledbvcf` | Efficient storage and retrieval of genomic variant data using TileDB. Scalable VCF/BCF ingestion, in... |
 | `kdense-timesfm-forecasting` | Zero-shot time series forecasting with Google's TimesFM foundation model. Use for any univariate tim... |
 | `kdense-torch-geometric` | PyTorch Geometric (PyG) for graph neural networks — node/link/graph classification, message passing ... |
-| `kdense-torchdrug` | PyTorch-native graph neural networks for molecules and proteins. Use when building custom GNN archit... |
+| `kdense-torchdrug` | Build and troubleshoot TorchDrug 0.2.1 workflows for molecular graphs, property prediction, self-sup... |
 | `kdense-transformers` | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and T... |
 | `kdense-treatment-plans` | Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF format for all clinical sp... |
 | `kdense-umap-learn` | Use UMAP-learn for nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, s... |
 | `kdense-usfiscaldata` | Query the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use fo... |
 | `kdense-vaex` | Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed av... |
-| `kdense-venue-templates` | Access comprehensive LaTeX templates, formatting requirements, and submission guidelines for major s... |
+| `kdense-venue-templates` | Prepare journal manuscripts, conference papers, research posters, and grant documents using venue-sp... |
 | `kdense-what-if-oracle` | Run structured What-If scenario analysis with 4–6 branch possibility exploration (best, likely, wors... |
 | `kdense-xlsx` | Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm) where the workbook file is the p... |
 | `kdense-zarr-python` | Chunked N-D arrays for cloud storage (Zarr-Python 3). Compressed arrays, parallel I/O, S3/GCS via fs... |

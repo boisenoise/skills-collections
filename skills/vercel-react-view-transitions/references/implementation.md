@@ -125,6 +125,7 @@ This example uses `slide-down` / `slide-up` for directional vertical motion. For
 **Rules:**
 - Always use `default="none"` on the content `<ViewTransition>` to prevent re-animation on revalidation or unrelated transitions.
 - Use simple string props (not type maps) on Suspense `<ViewTransition>`s — Suspense resolves fire as separate transitions with no type, so type-keyed props won't match.
+- If the same element appears in **both** the fallback and the content (a title, a heading), it flickers on reveal — an opacity dip. Render it **outside** the `<Suspense>` boundary (or pin it), so it isn't in both. See "Suspense reveal flicker" in `patterns.md`.
 
 ## Step 6: Add Shared Element Transitions
 
@@ -149,6 +150,7 @@ When list items contain shared elements, compose both patterns with two nested `
 **Rules:**
 - Names must be globally unique — use prefixes like `photo-${id}`.
 - Add `default="none"` on list-side shared elements to prevent per-item cross-fades on filter/search updates.
+- The target must be **in the DOM at navigation time** for the pair to form. If it's behind a Suspense fallback (not rendered yet), no pair forms and it won't morph. It works when the target is present at the snapshot — render it above the data boundary, or have its data **cached/prefetched** so it resolves in time.
 
 ## Step 7: Verify Each Navigation Path
 
