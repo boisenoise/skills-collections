@@ -168,7 +168,7 @@ Environment Variables:
 
 Popular Models (use with --model):
   anthropic/claude-opus-4.5 - Recommended for scientific vision
-  google/gemini-3-pro-preview   - Gemini Pro Vision
+  google/gemini-3.6-flash   - Gemini Flash Vision
         """
     )
     

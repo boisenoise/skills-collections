@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-21T07:01:42.833107",
-  "skill_count": 3068,
+  "last_updated": "2026-07-22T07:02:30.793251",
+  "skill_count": 3086,
   "sources_processed": 19,
   "skills": [
     {
@@ -950,7 +950,7 @@
     {
       "name": "kdense-scientific-schematics",
       "original_name": "scientific-schematics",
-      "description": "Create publication-quality scientific diagrams using Nano Banana 2 AI with smart iterative refinement. Uses Gemini 3.1 Pro Preview for quality review. Only regenerates if quality is below threshold for your document type. Specialized in neural network architectures, system diagrams, flowcharts, biological pathways, and complex scientific visualizations.",
+      "description": "Create publication-quality scientific diagrams using Nano Banana 2 AI with smart iterative refinement. Uses Gemini 3.6 Flash for quality review. Only regenerates if quality is below threshold for your document type. Specialized in neural network architectures, system diagrams, flowcharts, biological pathways, and complex scientific visualizations.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT license"
@@ -1422,7 +1422,7 @@
     {
       "name": "kdense-infographics",
       "original_name": "infographics",
-      "description": "Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemini 3 Pro for quality review. Integrates research-lookup and web search for accurate data. Supports 10 infographic types, 8 industry styles, and colorblind-safe palettes.",
+      "description": "Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemini 3.6 Flash for quality review. Integrates research-lookup and web search for accurate data. Supports 10 infographic types, 8 industry styles, and colorblind-safe palettes.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT"
@@ -2007,6 +2007,14 @@
       "name": "antigravity-threejs-skills",
       "original_name": "threejs-skills",
       "description": "Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user requests 3D graphics, WebGL experiences, 3D visualizations, animations, or interactive 3D elements.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-n8n-multi-instance",
+      "original_name": "n8n-multi-instance",
+      "description": "Select, verify, and safely switch n8n MCP instances across production, staging, teams, or clients, especially before credential writes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3300,6 +3308,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-markstream-custom-components",
+      "original_name": "markstream-custom-components",
+      "description": "Override Markstream node renderers and add trusted custom tags across Vue, React, Svelte, and Angular using scoped or renderer-local mappings.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-product-inventor",
       "original_name": "product-inventor",
       "description": "Product Inventor e Design Alchemist de nivel maximo \u2014 combina Product Thinking, Design Systems, UI Engineering, Psicologia Cognitiva, Storytelling e execucao impecavel nivel Jobs/Apple.",
@@ -4044,6 +4060,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-n8n-agents",
+      "original_name": "n8n-agents",
+      "description": "Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output, and human-review flows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-cred-omega",
       "original_name": "cred-omega",
       "description": "CISO operacional enterprise para gestao total de credenciais e segredos.",
@@ -4324,6 +4348,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-markstream-vue2-vite",
+      "original_name": "markstream-vue2-vite",
+      "description": "Integrate markstream-vue2 into Vue 2 plus Vite with bundled worker imports, CSS ordering, Composition API compatibility, and safe streaming defaults.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-minimalist-ui",
       "original_name": "minimalist-ui",
       "description": "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts.",
@@ -4444,6 +4476,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-markstream-vue2",
+      "original_name": "markstream-vue2",
+      "description": "Integrate markstream-vue2 into Vue 2.6 or 2.7 with correct Composition API decisions, CSS, streaming state, optional peers, and scoped overrides.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-code-review-checklist",
       "original_name": "code-review-checklist",
       "description": "Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability",
@@ -4543,6 +4583,14 @@
       "name": "antigravity-design-spells",
       "original_name": "design-spells",
       "description": "Curated micro-interactions and design details that add \"magic\" and personality to websites and apps.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-markstream-react",
+      "original_name": "markstream-react",
+      "description": "Integrate the beta markstream-react renderer into React 18+ or Next.js with correct client/server entrypoints, CSS, streaming state, and component overrides.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4839,6 +4887,14 @@
       "name": "antigravity-hono",
       "original_name": "hono",
       "description": "Build ultra-fast web APIs and full-stack apps with Hono \u2014 runs on Cloudflare Workers, Deno, Bun, Node.js, and any WinterCG-compatible runtime.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-markstream-nuxt",
+      "original_name": "markstream-nuxt",
+      "description": "Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit CSS, and browser-only optional peers.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5146,6 +5202,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-hf-cloud-aws-context-discovery",
+      "original_name": "hf-cloud-aws-context-discovery",
+      "description": "Discover the effective local AWS profile, region, account, and caller identity before any AWS task without exposing credentials.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-wiki-architect",
@@ -5780,6 +5844,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-n8n-code-tool",
+      "original_name": "n8n-code-tool",
+      "description": "Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sandbox limits, and return formats.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-dependency-management-deps-audit",
       "original_name": "dependency-management-deps-audit",
       "description": "You are a dependency security expert specializing in vulnerability scanning, license compliance, and supply chain security. Analyze project dependencies for known vulnerabilities, licensing issues, outdated packages, and provide actionable remediation strategies.",
@@ -5991,6 +6063,14 @@
       "name": "antigravity-vibe-code-auditor",
       "original_name": "vibe-code-auditor",
       "description": "Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-markstream-migration",
+      "original_name": "markstream-migration",
+      "description": "Audit and migrate an existing Markdown renderer to Markstream while preserving custom renderers, security policy, streaming behavior, and explicit parity gaps.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6239,6 +6319,14 @@
       "name": "antigravity-skill-suggester",
       "original_name": "skill-suggester",
       "description": "Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templates",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-markstream-svelte",
+      "original_name": "markstream-svelte",
+      "description": "Integrate the beta markstream-svelte renderer into Svelte 5 or SvelteKit with runes, explicit CSS, smooth streaming, workers, and SSR-safe boundaries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7823,6 +7911,14 @@
       "name": "antigravity-design-system",
       "original_name": "design-system",
       "description": "Mechanical implementation invariants for frontend design: token architecture, typography hierarchy, loading order, FOUT prevention, chrome stability, motion timing, color semantics. Use with design when building components, pages, or design systems. (Aesthetic direction lives in...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-markstream-vue2-cli",
+      "original_name": "markstream-vue2-cli",
+      "description": "Integrate markstream-vue2 into Vue CLI or Webpack 4 with export-map-safe CSS, CDN worker fallbacks, and conservative code-block defaults.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9732,6 +9828,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-n8n-subworkflows",
+      "original_name": "n8n-subworkflows",
+      "description": "Build reusable n8n sub-workflows with typed inputs, all-vs-each execution, discoverable naming, and agent-tool exposure.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-tdd-workflows",
       "original_name": "tdd-workflows",
       "description": "Use when working with tdd workflows tdd cycle (Alias for tdd-workflows-tdd-cycle)",
@@ -9759,6 +9863,14 @@
       "name": "antigravity-ui-pattern",
       "original_name": "ui-pattern",
       "description": "Generate a composed UI pattern (card layout, list, form section, grid, etc.) using design system primitives",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-n8n-error-handling",
+      "original_name": "n8n-error-handling",
+      "description": "Design visible, structured, recoverable n8n failures using error outputs, retries, Error Trigger workflows, and HTTP error responses.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12684,6 +12796,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-using-n8n-mcp-skills",
+      "original_name": "using-n8n-mcp-skills",
+      "description": "Route n8n MCP workflow design, editing, validation, testing, deployment, credential, execution, and debugging tasks to specialist guidance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-visual-emotion-engineer",
       "original_name": "visual-emotion-engineer",
       "description": "One sentence - what this skill does and when to invoke it",
@@ -14964,6 +15084,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-markstream-angular",
+      "original_name": "markstream-angular",
+      "description": "Integrate the alpha markstream-angular renderer into Angular 20+ applications with standalone components, signals, safe HTML defaults, and optional peer features.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-not-a-vibe-coder",
       "original_name": "not-a-vibe-coder",
       "description": "Turns vague prompts into 8 structured planning files for brand new projects. DO NOT use on existing codebases.",
@@ -16092,6 +16220,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-n8n-binary-and-data",
+      "original_name": "n8n-binary-and-data",
+      "description": "Handle n8n files and binary data across uploads, downloads, transforms, multimodal inputs, agent tools, and chat surfaces.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-broken-authentication",
       "original_name": "broken-authentication",
       "description": "Identify and exploit authentication and session management vulnerabilities in web applications. Broken authentication consistently ranks in the OWASP Top 10 and can lead to account takeover, identity theft, and unauthorized access to sensitive systems.",
@@ -16463,6 +16599,14 @@
       "name": "antigravity-n8n-validation-expert",
       "original_name": "n8n-validation-expert",
       "description": "Expert guide for interpreting and fixing n8n validation errors.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-markstream-vue",
+      "original_name": "markstream-vue",
+      "description": "Integrate markstream-vue into plain Vue 3 with renderer modes, code and DOM choices, streaming state, virtualization, optional peers, and scoped components.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

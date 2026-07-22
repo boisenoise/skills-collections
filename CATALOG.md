@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-21 07:01 UTC*
+*Last updated: 2026-07-22 07:02 UTC*
 
-Total skills: **3068**
+Total skills: **3086**
 
 ## Skills by Source
 
@@ -2114,6 +2114,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-helium-mcp` | Connect to Helium's MCP server for news research, media bias analysis, balanced perspectives, stock/... |
 | `antigravity-helm-chart-scaffolding` | Comprehensive guidance for creating, organizing, and managing Helm charts for packaging and deployin... |
 | `antigravity-helpdesk-automation` | Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, a... |
+| `antigravity-hf-cloud-aws-context-discovery` | Discover the effective local AWS profile, region, account, and caller identity before any AWS task w... |
 | `antigravity-hf-mcp` | Use Hugging Face Hub via MCP server tools. Search models, datasets, Spaces, papers. Get repo details... |
 | `antigravity-hf-mem` | Hugging Face CLI to estimate the required memory to load Safetensors or GGUF model weights for infer... |
 | `antigravity-hierarchical-agent-memory` | Scoped CLAUDE.md memory system that reduces context token spend. Creates directory-level context fil... |
@@ -2352,7 +2353,17 @@ splash language, makepad script, m... |
 | `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
 | `antigravity-marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own... |
 | `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
+| `antigravity-markstream-angular` | Integrate the alpha markstream-angular renderer into Angular 20+ applications with standalone compon... |
+| `antigravity-markstream-custom-components` | Override Markstream node renderers and add trusted custom tags across Vue, React, Svelte, and Angula... |
 | `antigravity-markstream-install` | Install and configure Markstream streaming Markdown renderers for Vue, React, Svelte, Angular, Nuxt,... |
+| `antigravity-markstream-migration` | Audit and migrate an existing Markdown renderer to Markstream while preserving custom renderers, sec... |
+| `antigravity-markstream-nuxt` | Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit ... |
+| `antigravity-markstream-react` | Integrate the beta markstream-react renderer into React 18+ or Next.js with correct client/server en... |
+| `antigravity-markstream-svelte` | Integrate the beta markstream-svelte renderer into Svelte 5 or SvelteKit with runes, explicit CSS, s... |
+| `antigravity-markstream-vue` | Integrate markstream-vue into plain Vue 3 with renderer modes, code and DOM choices, streaming state... |
+| `antigravity-markstream-vue2` | Integrate markstream-vue2 into Vue 2.6 or 2.7 with correct Composition API decisions, CSS, streaming... |
+| `antigravity-markstream-vue2-cli` | Integrate markstream-vue2 into Vue CLI or Webpack 4 with export-map-safe CSS, CDN worker fallbacks, ... |
+| `antigravity-markstream-vue2-vite` | Integrate markstream-vue2 into Vue 2 plus Vite with bundled worker imports, CSS ordering, Compositio... |
 | `antigravity-matematico-tao` | Matemático ultra-avançado inspirado em Terence Tao. Análise rigorosa de código e arquitetura com teo... |
 | `antigravity-mathguard` | Math-heavy escalation for n >= 10^6 — Bloom, HyperLogLog, Count-Min, MinHash/LSH, FFT, JL projection... |
 | `antigravity-matplotlib` | Matplotlib is Python's foundational visualization library for creating static, animated, and interac... |
@@ -2416,11 +2427,17 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-multi-agent-task-orchestrator` | Route tasks to specialized AI agents with anti-duplication, quality gates, and 30-minute heartbeat m... |
 | `antigravity-multi-cloud-architecture` | Decision framework and patterns for architecting applications across AWS, Azure, and GCP. |
 | `antigravity-multi-platform-apps-multi-platform` | Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-f... |
+| `antigravity-n8n-agents` | Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output,... |
+| `antigravity-n8n-binary-and-data` | Handle n8n files and binary data across uploads, downloads, transforms, multimodal inputs, agent too... |
 | `antigravity-n8n-code-javascript` | Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$nod... |
 | `antigravity-n8n-code-python` | Write Python code in n8n Code nodes. Use when writing Python in n8n, using _input/_json/_node syntax... |
+| `antigravity-n8n-code-tool` | Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sa... |
+| `antigravity-n8n-error-handling` | Design visible, structured, recoverable n8n failures using error outputs, retries, Error Trigger wor... |
 | `antigravity-n8n-expression-syntax` | Validate n8n expression syntax and fix common errors. Use when writing n8n expressions, using {{}} s... |
 | `antigravity-n8n-mcp-tools-expert` | Expert guide for using n8n-mcp MCP tools effectively. Use when searching for nodes, validating confi... |
+| `antigravity-n8n-multi-instance` | Select, verify, and safely switch n8n MCP instances across production, staging, teams, or clients, e... |
 | `antigravity-n8n-node-configuration` | Operation-aware node configuration guidance. Use when configuring nodes, understanding property depe... |
+| `antigravity-n8n-subworkflows` | Build reusable n8n sub-workflows with typed inputs, all-vs-each execution, discoverable naming, and ... |
 | `antigravity-n8n-validation-expert` | Expert guide for interpreting and fixing n8n validation errors. |
 | `antigravity-n8n-workflow-patterns` | Proven architectural patterns for building n8n workflows. |
 | `antigravity-nanobanana-ppt-skills` | AI-powered PPT generation with document analysis and styled images |
@@ -3033,6 +3050,7 @@ calculations
 | `antigravity-use-dom` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to... |
 | `antigravity-user-thoughts` | Persist user decisions and project constraints to mdbase across sessions. Trigger on /user-thoughts ... |
 | `antigravity-using-git-worktrees` | Git worktrees create isolated workspaces sharing the same repository, allowing work on multiple bran... |
+| `antigravity-using-n8n-mcp-skills` | Route n8n MCP workflow design, editing, validation, testing, deployment, credential, execution, and ... |
 | `antigravity-using-neon` | Neon is a serverless Postgres platform that separates compute and storage to offer autoscaling, bran... |
 | `antigravity-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool in... |
 | `antigravity-uv-package-manager` | Comprehensive guide to using uv, an extremely fast Python package installer and resolver written in ... |

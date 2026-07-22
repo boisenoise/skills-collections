@@ -39,7 +39,7 @@ How it works:
   Describe your slide or visual in natural language.
   Nano Banana Pro generates it automatically with:
   - Smart iteration (only regenerates if quality is below threshold)
-  - Quality review by Gemini 3 Pro
+  - Quality review by Gemini 3.6 Flash
   - Publication-ready output
 
 Modes:

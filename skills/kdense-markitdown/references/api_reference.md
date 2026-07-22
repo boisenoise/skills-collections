@@ -247,7 +247,7 @@ result = md.convert("presentation.pptx")
 
 Popular models with vision support:
 - `anthropic/claude-opus-4.5` - **Recommended for scientific vision**
-- `google/gemini-3-pro-preview` - Gemini Pro Vision
+- `google/gemini-3.6-flash` - Gemini Flash Vision
 
 See https://openrouter.ai/models for the complete list.
 

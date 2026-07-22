@@ -3,8 +3,8 @@
 Generate professional infographics using Nano Banana Pro.
 
 This script generates infographics with smart iterative refinement:
-- Uses Nano Banana Pro (Gemini 3 Pro Image Preview) for generation
-- Uses Gemini 3 Pro for quality review
+- Uses Nano Banana Pro (Gemini 3.6 Flash Image Preview) for generation
+- Uses Gemini 3.6 Flash for quality review
 - Only regenerates if quality is below threshold
 - Supports 10 infographic types and industry style presets
 
@@ -106,7 +106,7 @@ How it works:
   2. Describe your infographic in natural language
   3. Nano Banana Pro generates it automatically with:
      - Smart iteration (only regenerates if quality is below threshold)
-     - Quality review by Gemini 3 Pro
+     - Quality review by Gemini 3.6 Flash
      - Document-type aware quality thresholds
      - Professional-quality output
 

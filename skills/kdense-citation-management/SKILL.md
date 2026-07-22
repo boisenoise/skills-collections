@@ -4,7 +4,7 @@ description: Comprehensive citation management for academic research. Search Goo
 allowed-tools: Read Write Edit Bash
 license: MIT License
 required_environment_variables: [{"name": "OPENROUTER_API_KEY", "prompt": "OpenRouter API key for LLM-powered citation steps.", "required_for": "optional features"}, {"name": "NCBI_EMAIL", "prompt": "Email for NCBI Entrez identification.", "required_for": "optional features"}, {"name": "NCBI_API_KEY", "prompt": "NCBI API key to raise Entrez rate limits.", "required_for": "optional features"}]
-metadata: {"version": "1.2", "skill-author": "K-Dense Inc.", "openclaw": {"primaryEnv": "OPENROUTER_API_KEY", "envVars": [{"name": "OPENROUTER_API_KEY", "required": false, "description": "OpenRouter API key for LLM-powered citation steps."}, {"name": "NCBI_EMAIL", "required": false, "description": "Email for NCBI Entrez identification."}, {"name": "NCBI_API_KEY", "required": false, "description": "NCBI API key to raise Entrez rate limits."}]}}
+metadata: {"version": "1.3", "skill-author": "K-Dense Inc.", "openclaw": {"primaryEnv": "OPENROUTER_API_KEY", "envVars": [{"name": "OPENROUTER_API_KEY", "required": false, "description": "OpenRouter API key for LLM-powered citation steps."}, {"name": "NCBI_EMAIL", "required": false, "description": "Email for NCBI Entrez identification."}, {"name": "NCBI_API_KEY", "required": false, "description": "NCBI API key to raise Entrez rate limits."}]}}
 ---
 
 # Citation Management
