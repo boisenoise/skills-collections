@@ -41,8 +41,8 @@ Before changing anything:
 
 2. Validate changed skills truthfully.
    - Run `npm run validate`, `npm run validate:references`, `npm run security:docs`, changed-skill evidence, and the relevant tests.
-   - Inspect semantics, safety, provenance, declared risk, limitations, and all tracked bundle files directly. Treat inferred risk labels and heuristic quality scores as non-authoritative; do not change a skill merely to satisfy a lexical signal.
-   - Inspect the `skill-review` workflow on the exact current head SHA.
+   - Treat the entire tracked `skills/<skill-id>/**` subtree as skill content. Inspect semantics, safety, provenance, declared risk, limitations, and every bundled file directly, including nested examples, scripts, lockfiles, references, and assets. Never reduce evidence or review to `SKILL.md` or a fixed support-directory allowlist.
+   - Require changed-skill evidence to cover every Git record in each changed canonical skill subtree. Require the `skill-review` workflow for changes under `skills/**` or `plugins/**/skills/**`; its reusable result must be keyed by the complete nearest skill-directory fingerprint on the exact current head SHA.
    - `review` means Tessl semantic review actually ran or a valid identical-content result was reused.
    - `manual-review-required` means Tessl credentials or credits were unavailable, or Tessl did not produce a passing result. Perform the maintainer semantic review and attest with `--reviewed-head <full-40-character-sha>`.
    - Any non-passing Tessl outcome produces `manual-review-required`; complete the semantic review and bind the judgment to the exact head instead of treating a heuristic score as merge authority.
@@ -51,6 +51,10 @@ Before changing anything:
 3. Run checks in parallel where independent.
    - Use the repository validation, test, docs-security, source-credit, reference, warning-budget, and targeted app checks required by the changed files.
    - Fix deterministic policy failures in the source; do not wait for them as if they were flaky CI.
+   - Treat `pr-policy` fork classification from the exact protected-base implementation as an unprivileged fail-fast gate before dependent work, never as approval authority. `merge:batch` must still recompute the current trusted decision before approving any fork run or merging.
+   - Treat `impact_profile` as shadow-only telemetry. It must not skip, downgrade, or satisfy any required check.
+   - For ordinary source PRs, require `source-validation` to generate preview state once and `artifact-preview` to verify the manifest bound to the exact head and run identity. For canonical-sync PRs, rely on `pr-policy` exact-tree reproduction, keep `source-validation` lightweight, require `artifact-preview` to confirm no drift, and retain final CI and CodeQL on the merged `main` commit.
+   - Keep timing observational and test sharding opt-in. Required CI must continue to run the full unsharded `npm run test`; deterministic local shards may be used only through `npm run test:local -- --shard-index N --shard-count M`.
 
 4. Merge accepted source PRs in conflict-aware order.
    - Run a dry classification first when useful.
@@ -60,14 +64,19 @@ Before changing anything:
      npm run merge:batch -- --prs <PR_LIST> --reviewed-head <FULL_HEAD_SHA>
      ```
 
-   - `merge:batch` may normalize the PR body and close/reopen the PR. GitHub creates the replacement workflow runs asynchronously; the command must wait for and approve only post-reopen workflow/check-suite IDs. Older runs on the same SHA cannot satisfy or fail the fresh gate.
+   - `merge:batch` does not rewrite the PR body and does not close or reopen the PR. It evaluates the current immutable PR tuple and may approve only workflow runs bound to that PR and exact head SHA.
+   - Same-repository location is not sufficient authority for sensitive changes. The guarded same-repository exception is limited to a PR authored by the repository owner and requires an exact full-head attestation; collaborator-authored sensitive PRs fail closed under the external safety policy.
    - The routine protected checks are `pr-policy`, `pr-evidence`, `source-validation`, and `artifact-preview`. The retired `aas-v1-baseline` workflow is not a merge prerequisite and must not be awaited or approved during source or canonical-sync batches.
-   - If the PR head or base changes, discard stale evidence and rerun from a fresh `origin/main`.
+   - If the PR head or base changes, discard stale evidence, refresh to the current `origin/main`, and rerun the batch. The command does not retry base drift automatically.
 
 5. Converge canonical state once after the source batch.
    - Wait for the protected `automation/canonical-repo-state` PR.
    - Verify its managed-only diff, required checks, merge result, and the resulting `origin/main`.
    - If an unmanaged repair remains, use a topic PR; never patch `main` directly.
+
+## Workflow Contract Change Gate
+
+When changing maintainer scripts, workflows, or policy, update the canonical skill, maintainer documentation, and regression tests in the same source PR. Add a negative test for every failure mode being fixed, run the relevant dry-run path, and reject any implementation/documentation mismatch. Source PRs must exclude generated registries and plugin mirrors; the protected canonical-sync PR owns that derived state, except for files intentionally staged by the scripted protected-release flow.
 
 ## Hosted Catalog and Legacy Redirect Bridge
 
@@ -113,8 +122,8 @@ Every stable or prerelease version requires full release alignment. Creating the
 3. Run the release-state generator and its explicit plugin gates. Require a second no-drift pass before publication: `npm run sync:release-state`, `npm run plugin-compat:check`, and `npm run bundles:check` must leave a clean tree. Inspect `package.json`, `package-lock.json`, generated registries and the offline catalog, tracked web assets, `.agents/plugins/marketplace.json`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, and every published Codex/Claude plugin mirror and editorial-bundle manifest. Every release-owned manifest version must equal `X.Y.Z`.
 4. Run `npm run release:prepare -- X.Y.Z`. This creates and pushes `release/vX.Y.Z` and opens the protected release PR.
 5. Merge that release PR through its required checks, update local `main` to equal `origin/main`, and wait for every source, release, or canonical-sync PR in the release path to close. Re-run the release-state and plugin gates if protected `main` moved.
-6. Run `npm run release:publish -- X.Y.Z`. It verifies the exact protected merge before creating or reusing the tag and GitHub Release.
-7. Wait for publishing workflows, then bind every proof to the exact released commit: verify the tag/ref, GitHub Release, npm version and intended dist-tag, required CI, CodeQL, and the explicitly dispatched release-only Pages build. Verify live `llms.txt`, `skills.json`, catalog and plugin routes, and the legacy redirect bridge; do not accept a successful run for a different SHA.
+6. Run `npm run release:publish -- X.Y.Z`. It must resolve exactly one merged release PR from the same repository, authored by the repository owner, with base `main`, exact title `chore: release vX.Y.Z`, and head branch `release/vX.Y.Z`. Zero or multiple candidates fail closed; never select the newest approximate match. The command then verifies that exact protected merge before creating or reusing the tag and GitHub Release.
+7. Wait for publishing workflows, then bind every proof to the exact released commit: verify the tag/ref, GitHub Release, npm version and intended dist-tag, required CI, CodeQL, and the explicitly dispatched release-only Pages build from the exact immutable `vX.Y.Z` tag. Never dispatch Pages from `main` or another branch. Verify live `llms.txt`, `skills.json`, catalog and plugin routes, and the legacy redirect bridge; do not accept a successful run for a different SHA.
 8. After npm confirms `X.Y.Z` as the published dist-tag, discover every already-configured local AAS MCP host from its real configuration and update each one to the exact same package version before declaring the release complete. Updating existing AAS host entries is part of the release; creating a previously absent host configuration still requires explicit authorization.
    - Use the published package's `aas mcp configure` two-pass flow: first preview the change, then repeat the identical command with its approval digest. Supply absolute host-config, cache, and backup paths; require a backup when replacing an existing configuration.
    - Pin `agentic-awesome-skills@X.Y.Z` and `--version X.Y.Z`; never use `latest`, reuse an older cached runtime, or create a previously absent host configuration without explicit authorization.

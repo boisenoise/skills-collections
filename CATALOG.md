@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-22 07:02 UTC*
+*Last updated: 2026-07-23 07:00 UTC*
 
-Total skills: **3086**
+Total skills: **3088**
 
 ## Skills by Source
 
@@ -1097,6 +1097,7 @@ Total skills: **3086**
 | `marketing-emails` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
 | `marketing-free-tools` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
 | `marketing-image` | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, socia... |
+| `marketing-influencer-marketing` | When the user wants to run influencer, creator, or ambassador partnerships to promote their product ... |
 | `marketing-launch` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `marketing-lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.... |
 | `marketing-marketing-council` | When the user wants multiple expert perspectives on a marketing question — a simulated board of advi... |
@@ -2792,6 +2793,7 @@ Plans content calendars and ident... |
 | `antigravity-seo-content-refresher` | Identifies outdated elements in provided content and suggests updates to maintain freshness. Finds s... |
 | `antigravity-seo-content-writer` | Writes SEO-optimized content based on provided keywords and topic briefs. Creates engaging, comprehe... |
 | `antigravity-seo-dataforseo` | Use DataForSEO for live SERPs, keyword metrics, backlinks, competitor analysis, on-page checks, and ... |
+| `antigravity-seo-drift` | Snapshot a site's SEO state and detect ranking, indexation, metadata, canonical, robots, schema, and... |
 | `antigravity-seo-forensic-incident-response` | Investigate sudden drops in organic traffic or rankings and run a structured forensic SEO incident r... |
 | `antigravity-seo-fundamentals` | Core principles of SEO including E-E-A-T, Core Web Vitals, technical foundations, content quality, a... |
 | `antigravity-seo-geo` | Optimize content for AI Overviews, ChatGPT, Perplexity, and other AI search systems. Use when improv... |
