@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-07-23 07:00 UTC*
+*Last updated: 2026-07-24 07:01 UTC*
 
 ## Source Repositories
 
@@ -131,8 +131,8 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | AGPL-3.0-only | 1 |
 | AGPL-3.0-or-later | 1 |
 | Apache License, Version 2.0 | 1 |
-| Apache-2.0 | 83 |
-| Apache-2.0 license | 16 |
+| Apache-2.0 | 85 |
+| Apache-2.0 license | 14 |
 | BSD license | 1 |
 | BSD-2-Clause license | 2 |
 | BSD-3-Clause | 4 |
@@ -143,20 +143,20 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | CeCILL FREE SOFTWARE LICENSE AGREEMENT | 1 |
 | Complete terms in LICENSE.txt | 35 |
 | For MATLAB (https://www.mathworks.com/pricing-licensing.html) and for Octave (GNU General Public License version 3) | 1 |
-| GPL-2.0 license | 2 |
-| GPL-3.0 license | 2 |
+| GPL-2.0 license | 1 |
+| GPL-3.0-or-later | 1 |
 | GPLv3 license | 1 |
 | LICENSE | 1 |
-| MIT | 2820 |
+| MIT | 2837 |
 | MIT License | 6 |
-| MIT license | 50 |
+| MIT license | 40 |
 | MIT-0 | 2 |
 | Not declared | 1 |
 | Proprietary (API key required) | 1 |
 | Proprietary. LICENSE.txt has complete terms | 4 |
 | SD-3-Clause license | 1 |
 | This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data. | 1 |
-| Unknown | 13 |
+| Unknown | 8 |
 | https://creativecommons.org/licenses/by/4.0/ | 1 |
 | https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 2 |
 | https://github.com/pola-rs/polars/blob/main/LICENSE | 2 |

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-23T07:00:43.682983",
+  "last_updated": "2026-07-24T07:01:08.942241",
   "skill_count": 3088,
   "sources_processed": 19,
   "skills": [
@@ -174,7 +174,7 @@
     {
       "name": "superpowers-finishing-a-development-branch",
       "original_name": "finishing-a-development-branch",
-      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
+      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
       "source": "obra/superpowers",
       "source_url": "https://github.com/obra/superpowers",
       "license": "MIT"
@@ -614,18 +614,18 @@
     {
       "name": "kdense-scientific-brainstorming",
       "original_name": "scientific-brainstorming",
-      "description": "Creative research ideation and exploration. Use for open-ended brainstorming sessions, exploring interdisciplinary connections, challenging assumptions, or identifying research gaps. Best for early-stage research planning when you do not have specific observations yet. For formulating testable hypotheses from data use hypothesis-generation.",
+      "description": "Facilitates evidence-aware scientific ideation with independent generation, structured discussion, explicit assumptions, transparent evaluation, adversarial review, and decision logs. Use for early-stage research brainstorming or prioritizing candidate directions; hand off empirical validation, study design, ethics or regulatory review, and clinical questions to appropriate experts or skills.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-etetoolkit",
       "original_name": "etetoolkit",
-      "description": "Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, orthology/paralogy, NCBI taxonomy, visualization (PDF/SVG), for phylogenomics.",
+      "description": "Analyze, manipulate, compare, annotate, and visualize phylogenetic or other hierarchical trees with ETE 4. Use for Newick/Nexus tree I/O, topology edits and pattern matching, Robinson-Foulds comparisons, gene-tree evolutionary events and reconciliation, NCBI/GTDB taxonomy, SmartView exploration, and publication rendering. Do not use it to infer trees from raw sequences; align sequences and infer a tree first.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "GPL-3.0 license"
+      "license": "GPL-3.0-or-later"
     },
     {
       "name": "kdense-experimental-design",
@@ -678,10 +678,10 @@
     {
       "name": "kdense-simpy",
       "original_name": "simpy",
-      "description": "Process-based discrete-event simulation framework in Python. Use this skill when building simulations of systems with processes, queues, resources, and time-based events such as manufacturing systems, service operations, network traffic, logistics, or any system where entities interact with shared resources over time.",
+      "description": "Build, inspect, test, and analyze bounded process-based discrete-event simulations with SimPy, including events, resources, interrupts, monitoring, replications, warm-up, and reproducible output analysis.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-matplotlib",
@@ -694,10 +694,10 @@
     {
       "name": "kdense-omero-integration",
       "original_name": "omero-integration",
-      "description": "Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, manage ROIs/annotations, batch processing, for high-content screening and microscopy workflows.",
+      "description": "Securely inspect and automate microscopy data workflows against OMERO.server with omero-py, BlitzGateway, OMERO CLI, tables, annotations, ROIs, rendering, and documented OMERO.web APIs. Use for scoped OMERO inventory, metadata export, import/export planning, or reviewed write workflows.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "Unknown"
+      "license": "MIT"
     },
     {
       "name": "kdense-bulk-rnaseq",
@@ -758,18 +758,18 @@
     {
       "name": "kdense-pysam",
       "original_name": "pysam",
-      "description": "Genomic file toolkit. Read/write SAM/BAM/CRAM alignments, VCF/BCF variants, FASTA/FASTQ sequences, extract regions, calculate coverage, for NGS data processing pipelines.",
+      "description": "Python/HTSlib workflows for genomic files. Use when reading, querying, filtering, or writing SAM/BAM/CRAM, VCF/BCF, FASTA/FASTQ, or tabix data with pysam, including pileup, coverage, indexing, and CRAM references.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-get-available-resources",
       "original_name": "get-available-resources",
-      "description": "This skill should be used at the start of any computationally intensive scientific task to detect and report available system resources (CPU cores, GPUs, memory, disk space). It creates a JSON file with resource information and strategic recommendations that inform computational approach decisions such as whether to use parallel processing (joblib, multiprocessing), out-of-core computing (Dask, Zarr), GPU acceleration (PyTorch, JAX), or memory-efficient strategies. Use this skill before running analyses, training models, processing large datasets, or any task where resource constraints matter.",
+      "description": "Detect host inventory and effective CPU, memory, disk, scheduler, container, and accelerator limits when a user asks for resource-aware planning or before a clearly resource-sensitive local workload. Produces a redacted JSON snapshot and conservative planning helpers without stress tests or assuming visible host hardware is usable.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-datamol",
@@ -846,10 +846,10 @@
     {
       "name": "kdense-opentrons-integration",
       "original_name": "opentrons-integration",
-      "description": "Official Opentrons Protocol API for OT-2 and Flex robots. Use when writing protocols specifically for Opentrons hardware with full access to Protocol API v2 features. Best for production Opentrons protocols, official API compatibility. For multi-vendor automation or broader equipment control use pylabrobot.",
+      "description": "Author, review, migrate, simulate, and troubleshoot official Opentrons Python Protocol API v2 protocols for Flex and OT-2 robots. Use for robot-specific liquid handling, deck and labware setup, pipettes, modules, runtime parameters, liquid classes, and Opentrons App analysis. Use pylabrobot instead when one workflow must support multiple robot vendors.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "Unknown"
+      "license": "MIT"
     },
     {
       "name": "kdense-what-if-oracle",
@@ -878,18 +878,18 @@
     {
       "name": "kdense-labarchive-integration",
       "original_name": "labarchive-integration",
-      "description": "Electronic lab notebook API integration. Access notebooks, manage entries/attachments, backup notebooks, integrate with Protocols.io/Jupyter/REDCap, for programmatic ELN workflows.",
+      "description": "Securely integrate with the official LabArchives ELN REST-like API and Inventory API v1. Use for regional endpoint selection, signed-request construction, user authorization and UID flows, local LA container validation, and verified LabArchives integration workflows.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "Unknown"
+      "license": "MIT"
     },
     {
       "name": "kdense-pathml",
       "original_name": "pathml",
-      "description": "Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed immunofluorescence (CODEX, Vectra), nucleus segmentation, tissue graph construction, and ML model training on pathology data. Supports 160+ slide formats. For simple tile extraction from H&E slides, histolab may be simpler.",
+      "description": "Use PathML for local, research-only computational pathology workflows: load and tile slides, build preprocessing and QC pipelines, manage h5path data, quantify multiplex images, construct spatial graphs, and plan bounded model inference.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "GPL-2.0 license"
+      "license": "MIT"
     },
     {
       "name": "kdense-scanpy",
@@ -902,10 +902,10 @@
     {
       "name": "kdense-qiskit",
       "original_name": "qiskit",
-      "description": "IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtime for production workloads, or needing IBM optimization tools. Best for IBM hardware execution, quantum error mitigation, and enterprise quantum computing. For Google hardware use cirq; for gradient-based quantum ML use pennylane; for open quantum system simulations use qutip.",
+      "description": "Build, simulate, transpile, and execute quantum circuits with Qiskit and IBM Quantum Runtime. Use for Qiskit 2.x circuits and operators, V2 Sampler or Estimator primitives, target-aware transpilation, local or noisy simulation, IBM QPU execution, Runtime sessions or batches, error mitigation, and Qiskit ecosystem packages.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "Apache-2.0 license"
+      "license": "Apache-2.0"
     },
     {
       "name": "kdense-bids",
@@ -1230,18 +1230,18 @@
     {
       "name": "kdense-neurokit2",
       "original_name": "neurokit2",
-      "description": "Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when processing cardiovascular signals, brain activity, electrodermal responses, respiratory patterns, muscle activity, or eye movements. Applicable for heart rate variability analysis, event-related potentials, complexity measures, autonomic nervous system assessment, psychophysiology research, and multi-modal physiological signal integration.",
+      "description": "Use NeuroKit2 to build or audit reproducible research workflows for physiological time-series preprocessing, event/interval analysis, multimodal alignment, variability, and complexity. Trigger when code imports neurokit2 or needs its current APIs, schemas, and method-aware validation\u2014not for diagnosis or device validation.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-dnanexus-integration",
       "original_name": "dnanexus-integration",
-      "description": "DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download), dxpy Python SDK, run workflows, FASTQ/BAM/VCF, for genomics pipeline development and execution.",
+      "description": "Build and operate reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/applets, native workflows, dxCompiler, and Nextflow. Use for DNAnexus data transfers, dxapp.json development, execution monitoring, workflow import, and project automation.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "Unknown"
+      "license": "MIT"
     },
     {
       "name": "kdense-cirq",
@@ -1270,10 +1270,10 @@
     {
       "name": "kdense-latchbio-integration",
       "original_name": "latchbio-integration",
-      "description": "Latch platform for bioinformatics workflows. Build pipelines with Latch SDK, @workflow/@task decorators, deploy serverless workflows, LatchFile/LatchDir, Nextflow/Snakemake integration.",
+      "description": "Build, register, debug, and operate bioinformatics workflows on Latch using the Python SDK, CLI, Latch Data and Registry, Nextflow, Snakemake, programmatic execution, and Latch MCP. Use when authoring or deploying Latch workflows, configuring resources or interfaces, moving data, integrating Registry, or launching and monitoring runs.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "Unknown"
+      "license": "MIT"
     },
     {
       "name": "kdense-torchdrug",
@@ -1326,10 +1326,10 @@
     {
       "name": "kdense-scikit-survival",
       "original_name": "scikit-survival",
-      "description": "Comprehensive toolkit for survival analysis and time-to-event modeling in Python using scikit-survival. Use this skill when working with censored survival data, performing time-to-event analysis, fitting Cox models, Random Survival Forests, Gradient Boosting models, or Survival SVMs, evaluating survival predictions with concordance index or Brier score, handling competing risks, or implementing any survival analysis workflow with the scikit-survival library.",
+      "description": "Build, evaluate, and audit right-censored or competing-risk survival workflows with scikit-survival, including leakage-safe preprocessing, model selection, probability prediction, and censoring-aware metrics.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "GPL-3.0 license"
+      "license": "MIT"
     },
     {
       "name": "kdense-autoskill",
@@ -1342,10 +1342,10 @@
     {
       "name": "kdense-scientific-visualization",
       "original_name": "scientific-visualization",
-      "description": "Meta-skill for publication-ready figures. Use when creating journal submission figures requiring multi-panel layouts, significance annotations, error bars, colorblind-safe palettes, and specific journal formatting (Nature, Science, Cell). Orchestrates matplotlib/seaborn/plotly with publication styles. For quick exploration use seaborn or plotly directly.",
+      "description": "Create and audit truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn, or Plotly. Use for figure design, multi-panel layouts, uncertainty and missing-data displays, color/contrast review, image metadata validation, and journal export planning.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-scvi-tools",
@@ -1358,7 +1358,7 @@
     {
       "name": "kdense-flowio",
       "original_name": "flowio",
-      "description": "Parse FCS (Flow Cytometry Standard) files v2.0-3.1. Extract events as NumPy arrays, read metadata/channels, convert to CSV/DataFrame, for flow cytometry data preprocessing.",
+      "description": "Read, inspect, and write Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for low-level FCS metadata and channel inspection, NumPy event extraction, multi-dataset files, table export, and FCS 3.1 creation; use FlowKit for compensation, cytometry transforms, gating, or FlowJo workspaces.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "BSD-3-Clause license"
@@ -1582,10 +1582,10 @@
     {
       "name": "kdense-pylabrobot",
       "original_name": "pylabrobot",
-      "description": "Vendor-agnostic lab automation framework. Use when controlling multiple equipment types (Hamilton, Tecan, Opentrons, plate readers, pumps) or needing unified programming across different vendors. Best for complex workflows, multi-vendor setups, simulation. For Opentrons-only protocols with official API, opentrons-integration may be simpler.",
+      "description": "Develop and review PyLabRobot lab-automation resources, liquid-handling plans, offline simulations, and supported-device integrations. Use for PyLabRobot protocols or API questions; keep physical execution behind an explicit operator safety gate.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-pennylane",
@@ -1638,10 +1638,10 @@
     {
       "name": "kdense-pytdc",
       "original_name": "pytdc",
-      "description": "Therapeutics Data Commons. AI-ready drug discovery datasets (ADME, toxicity, DTI), benchmarks, scaffold splits, molecular oracles, for therapeutic ML and pharmacological prediction.",
+      "description": "Use Therapeutics Data Commons through the PyTDC Python package for registry discovery, approved dataset access, task-aware splits, evaluator metrics, benchmark groups, and bounded molecular-oracle workflows.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-biopython",
@@ -1710,10 +1710,10 @@
     {
       "name": "kdense-matchms",
       "original_name": "matchms",
-      "description": "Spectral similarity and compound identification for metabolomics. Use for comparing mass spectra, computing similarity scores (cosine, modified cosine), and identifying unknown compounds from spectral libraries. Best for metabolite identification, spectral matching, library searching. For full LC-MS/MS proteomics pipelines use pyopenms.",
+      "description": "Process, clean, compare, and search tandem mass spectra with matchms. Use for MS/MS file I/O, metadata harmonization, peak filtering, spectral similarity, library matching, score matrices, and molecular-similarity networks. Use pyopenms instead for LC-MS feature detection or proteomics pipelines.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "Apache-2.0 license"
+      "license": "Apache-2.0"
     },
     {
       "name": "kdense-aeon",
@@ -1734,10 +1734,10 @@
     {
       "name": "kdense-markitdown",
       "original_name": "markitdown",
-      "description": "Convert files and office documents to Markdown. Supports PDF, DOCX, PPTX, XLSX, images (with OCR), audio (with transcription), HTML, CSV, JSON, XML, ZIP, YouTube URLs, EPubs and more.",
+      "description": "Convert heterogeneous documents and selected URIs to Markdown with Microsoft MarkItDown for text analysis, search, and LLM/RAG ingestion. Covers safe local conversion, streams, Office/PDF/data formats, batch workflows, plugins, vision OCR, Azure extraction, and the official MCP server.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-statsmodels",
@@ -1758,10 +1758,10 @@
     {
       "name": "kdense-shap",
       "original_name": "shap",
-      "description": "Model interpretability and explainability using SHAP (SHapley Additive exPlanations). Use this skill when explaining machine learning model predictions, computing feature importance, generating SHAP plots (waterfall, beeswarm, bar, scatter, force, heatmap), debugging models, analyzing model bias or fairness, comparing models, or implementing explainable AI. Works with tree-based models (XGBoost, LightGBM, Random Forest), deep learning (TensorFlow, PyTorch), linear models, and any black-box model.",
+      "description": "Explain and audit machine-learning predictions with SHAP. Use for selecting SHAP explainers and maskers, computing and validating feature attributions, handling multi-output explanations, and producing local or global SHAP visualizations.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-timesfm-forecasting",

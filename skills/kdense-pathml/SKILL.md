@@ -1,163 +1,222 @@
 ---
 name: pathml
-description: Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed immunofluorescence (CODEX, Vectra), nucleus segmentation, tissue graph construction, and ML model training on pathology data. Supports 160+ slide formats. For simple tile extraction from H&E slides, histolab may be simpler.
-license: GPL-2.0 license
-metadata: {"version": "1.0", "skill-author": "K-Dense Inc."}
+description: "Use PathML for local, research-only computational pathology workflows: load and tile slides, build preprocessing and QC pipelines, manage h5path data, quantify multiplex images, construct spatial graphs, and plan bounded model inference."
+license: MIT
+compatibility: PathML 3.0.5 is the latest PyPI release and targets Python 3.10-3.12; installation needs uv plus platform libraries for OpenSlide, BLAS/LAPACK, and Java/Bio-Formats. Bundled Python 3.10+ CLIs are local, bounded, dependency-free, and network-free.
+allowed-tools: Read, Write, Edit, Bash, Glob
+metadata:
+  version: "1.1"
+  skill-author: K-Dense Inc.
 ---
 
 # PathML
 
-## Overview
+## Scope and safety boundary
 
-PathML is a comprehensive Python toolkit for computational pathology workflows, designed to facilitate machine learning and image analysis for whole-slide pathology images. The framework provides modular, composable tools for loading diverse slide formats, preprocessing images, constructing spatial graphs, training deep learning models, and analyzing multiparametric imaging data from technologies like CODEX and multiplex immunofluorescence.
+Use PathML for **local computational pathology research**. It is beta research
+software, not a validated medical device, diagnostic system, clinical decision
+support tool, or substitute for a pathologist. Do not use outputs to diagnose,
+grade, stage, or treat a patient.
 
-## When to Use This Skill
+Pathology files may contain faces, labels, accession numbers, patient identifiers,
+DICOM tags, filenames, or linked clinical data. Before processing:
 
-Apply this skill for:
-- Loading and processing whole-slide images (WSI) in various proprietary formats
-- Preprocessing H&E stained tissue images with stain normalization
-- Nucleus detection, segmentation, and classification workflows
-- Building cell and tissue graphs for spatial analysis
-- Training or deploying machine learning models (HoVer-Net, HACTNet) on pathology data
-- Analyzing multiparametric imaging (CODEX, Vectra, MERFISH) for spatial proteomics
-- Quantifying marker expression from multiplex immunofluorescence
-- Managing large-scale pathology datasets with HDF5 storage
-- Tile-based analysis and stitching operations
+1. Confirm authorization, consent/waiver, data-use terms, and institutional policy.
+2. De-identify pixels and metadata; keep the re-identification key outside the
+   analysis workspace.
+3. Use pseudonymous `patient_id`, `slide_id`, and `specimen_id` values. Do not put
+   direct identifiers in filenames, logs, `.h5path` labels, model cards, or reports.
+4. Keep inputs, intermediates, and outputs on approved local encrypted storage.
+5. Split by patient (then slide) before tiling or fitting any preprocessing step.
 
-## Core Capabilities
+## Version baseline, verified 2026-07-23
 
-PathML provides six major capability areas documented in detail within reference files:
+- **Installable stable release:** PyPI `pathml==3.0.5`, published 2026-03-24.
+- The v3.0.5 release notes state Python **3.10-3.12** and sunset 3.9.
+  PyPI does not declare `Requires-Python` and still has a stale 3.8 classifier, so
+  use the release statement and test the exact environment.
+- GitHub releases v3.0.6 (2026-04-14) and v3.0.7 (2026-07-09) exist, but PyPI has
+  no artifacts for them as of this review. v3.0.7 updates Torch/TorchVision/
+  torch-geometric and ONNX export code. Do not mix those source dependencies with
+  the 3.0.5 wheel.
+- ReadTheDocs `/latest` identifies itself as 3.0.5. Examples here were checked
+  against the v3.0.5 tag and PyPI wheel metadata, not unversioned snippets.
+- This skill is MIT-licensed. PathML itself is GPL-2.0 with upstream commercial
+  licensing options; review upstream terms before redistribution.
 
-### 1. Image Loading & Formats
+## Reproducible installation
 
-Load whole-slide images from 160+ proprietary formats including Aperio SVS, Hamamatsu NDPI, Leica SCN, Zeiss ZVI, DICOM, and OME-TIFF. PathML automatically handles vendor-specific formats and provides unified interfaces for accessing image pyramids, metadata, and regions of interest.
-
-**See:** `references/image_loading.md` for supported formats, loading strategies, and working with different slide types.
-
-### 2. Preprocessing Pipelines
-
-Build modular preprocessing pipelines by composing transforms for image manipulation, quality control, stain normalization, tissue detection, and mask operations. PathML's Pipeline architecture enables reproducible, scalable preprocessing across large datasets.
-
-**Key transforms:**
-- `StainNormalizationHE` - Macenko/Vahadane stain normalization
-- `TissueDetectionHE`, `NucleusDetectionHE` - Tissue/nucleus segmentation
-- `MedianBlur`, `GaussianBlur` - Noise reduction
-- `LabelArtifactTileHE` - Quality control for artifacts
-
-**See:** `references/preprocessing.md` for complete transform catalog, pipeline construction, and preprocessing workflows.
-
-### 3. Graph Construction
-
-Construct spatial graphs representing cellular and tissue-level relationships. Extract features from segmented objects to create graph-based representations suitable for graph neural networks and spatial analysis.
-
-**See:** `references/graphs.md` for graph construction methods, feature extraction, and spatial analysis workflows.
-
-### 4. Machine Learning
-
-Train and deploy deep learning models for nucleus detection, segmentation, and classification. PathML integrates PyTorch with pre-built models (HoVer-Net, HACTNet), custom DataLoaders, and ONNX support for inference.
-
-**Key models:**
-- **HoVer-Net** - Simultaneous nucleus segmentation and classification
-- **HACTNet** - Hierarchical cell-type classification
-
-**See:** `references/machine_learning.md` for model training, evaluation, inference workflows, and working with public datasets.
-
-### 5. Multiparametric Imaging
-
-Analyze spatial proteomics and gene expression data from CODEX, Vectra, MERFISH, and other multiplex imaging platforms. PathML provides specialized slide classes and transforms for processing multiparametric data, cell segmentation with Mesmer, and quantification workflows.
-
-**See:** `references/multiparametric.md` for CODEX/Vectra workflows, cell segmentation, marker quantification, and integration with AnnData.
-
-### 6. Data Management
-
-Efficiently store and manage large pathology datasets using HDF5 format. PathML handles tiles, masks, metadata, and extracted features in unified storage structures optimized for machine learning workflows.
-
-**See:** `references/data_management.md` for HDF5 integration, tile management, dataset organization, and batch processing strategies.
-
-## Quick Start
-
-### Installation
+Use Python 3.11 unless the project has tested another supported interpreter:
 
 ```bash
-# Install PathML
-uv pip install pathml
-
-# With optional dependencies for all features
-uv pip install pathml[all]
+uv venv --python 3.11
+source .venv/bin/activate
+uv pip install "pathml==3.0.5"
+python -c "import importlib.metadata as m; print(m.version('pathml'))"
 ```
 
-### Basic Workflow Example
+PathML 3.0.5 declares no package extras: do **not** use `pathml[all]`. Its base
+distribution pins a large scientific/ML stack, including Torch 2.8.0, ONNX 1.17.0,
+ONNX Runtime 1.17.x, OpenSlide Python 1.3.1, python-bioformats 4.1.0, and
+python-javabridge 4.0.4.
+
+Install native prerequisites before the uv command:
+
+```bash
+# Debian/Ubuntu
+sudo apt-get install openslide-tools gcc g++ libblas-dev liblapack-dev openjdk-17-jdk
+
+# macOS
+brew install openslide openjdk@17
+
+# Windows OpenSlide option documented upstream
+vcpkg install openslide
+```
+
+Java/Bio-Formats is needed for the broad multidimensional format backend.
+OpenSlide handles common brightfield WSI formats more efficiently. CUDA is
+optional and must match the pinned PyTorch build; follow PyTorch's platform
+selector rather than guessing a CUDA wheel. See `references/image_loading.md`.
+
+## Stable minimal workflow
+
+PathML 3.0.5 uses slide convenience classes and `SlideData.run()`. It does not
+provide `SlideData.from_slide()`, and `Pipeline` does not have `run()`:
 
 ```python
-from pathml.core import SlideData
-from pathml.preprocessing import Pipeline, StainNormalizationHE, TissueDetectionHE
+from pathml.core import HESlide
+from pathml.preprocessing import BoxBlur, Pipeline, TissueDetectionHE
 
-# Load a whole-slide image
-wsi = SlideData.from_slide("path/to/slide.svs")
-
-# Create preprocessing pipeline
-pipeline = Pipeline([
-    TissueDetectionHE(),
-    StainNormalizationHE(target='normalize', stain_estimation_method='macenko')
-])
-
-# Run pipeline
-pipeline.run(wsi)
-
-# Access processed tiles
-for tile in wsi.tiles:
-    processed_image = tile.image
-    tissue_mask = tile.masks['tissue']
+slide = HESlide("data/pseudonymous_slide.svs", backend="openslide")
+pipeline = Pipeline(
+    [
+        BoxBlur(kernel_size=5),
+        TissueDetectionHE(mask_name="tissue", min_region_size=5000),
+    ]
+)
+slide.run(
+    pipeline,
+    distributed=False,
+    tile_size=512,
+    tile_stride=512,
+    level=0,
+    tile_pad=False,
+)
+slide.write("derived/pseudonymous_slide.h5path")
 ```
 
-### Common Workflows
+Start with a bounded manual sample before a full run:
 
-**H&E Image Analysis:**
-1. Load WSI with appropriate slide class
-2. Apply tissue detection and stain normalization
-3. Perform nucleus detection or train segmentation models
-4. Extract features and build spatial graphs
-5. Conduct downstream analysis
+```python
+from itertools import islice
 
-**Multiparametric Imaging (CODEX):**
-1. Load CODEX slide with `CODEXSlide`
-2. Collapse multi-run channel data
-3. Segment cells using Mesmer model
-4. Quantify marker expression
-5. Export to AnnData for single-cell analysis
+for tile in islice(slide.generate_tiles(shape=512, stride=512, level=0), 8):
+    pipeline.apply(tile)
+    assert tile.masks["tissue"].shape[:2] == tile.image.shape[:2]
+```
 
-**Training ML Models:**
-1. Prepare dataset with public pathology data
-2. Create PyTorch DataLoader with PathML datasets
-3. Train HoVer-Net or custom models
-4. Evaluate on held-out test sets
-5. Deploy with ONNX for inference
+Tiles use `(i, j)` = `(row, column)` coordinates at the selected pyramid level.
+For OpenSlide, PathML maps them to level-0 coordinates internally. Record the
+level and downsample; convert to `(x, y)` or micrometres explicitly downstream.
 
-## References to Detailed Documentation
+## Research workflow
 
-When working on specific tasks, refer to the appropriate reference file for comprehensive information:
+1. **Inventory locally.** Validate the manifest, reject URLs/symlinks, inspect only
+   allowlisted technical metadata, and remove identifiers.
+2. **Freeze splits.** Assign every patient and all their slides to one split before
+   generating overlapping tiles, graphs, normalization references, or features.
+3. **Plan bounds.** Estimate tile count, RAM, output size, and pipeline stages.
+4. **Pilot preprocessing.** Inspect tissue masks, whitespace/artifact labels,
+   stain behavior, edge padding, and empty-mask cases on representative training
+   slides. Do not tune from test slides.
+5. **Run and preserve coordinates.** Keep tile level, `(i, j)`, downsample, MPP,
+   mask names, QC decisions, and failed/skipped tiles.
+6. **Build spatial data deliberately.** Validate channel order, physical units,
+   instance labels, node-feature alignment, graph edges, and cell-to-tissue
+   assignments.
+7. **Infer in bounded batches.** Verify model provenance and checksum without
+   loading unknown pickle checkpoints. Keep predictions linked to slide/tile
+   coordinates and stitch overlaps with a documented rule.
+8. **Report provenance and limits.** Include package lock, source hashes, scanner,
+   stain, parameters, seeds, split manifest, model card, exclusions, and QC.
 
-- **Loading images:** `references/image_loading.md`
-- **Preprocessing workflows:** `references/preprocessing.md`
-- **Spatial analysis:** `references/graphs.md`
-- **Model training:** `references/machine_learning.md`
-- **CODEX/multiplex IF:** `references/multiparametric.md`
-- **Data storage:** `references/data_management.md`
+## No-network default and explicit consent gate
 
-## Resources
+Do not instantiate download-capable classes or set dataset `download=True` unless
+the user explicitly opts in after receiving the endpoint and disclosure:
 
-This skill includes comprehensive reference documentation organized by capability area. Each reference file contains detailed API information, workflow examples, best practices, and troubleshooting guidance for specific PathML functionality.
+- `SegmentMIFRemote` downloads an ONNX file from
+  `https://huggingface.co/pathml/test/resolve/main/mesmer.onnx` at construction,
+  then runs inference locally. Stable source does **not** upload image pixels.
+  The request still discloses network metadata such as IP address and headers and
+  creates `temp.onnx`; there is no built-in checksum or offline flag.
+- Deprecated `SegmentMIF` imports local DeepCell Mesmer, but DeepCell model
+  initialization may need separately provisioned weights. It is not a PathML
+  extra and is not the preferred stable API.
+- `RemoteTestHoverNet` downloads a model from Hugging Face.
+- `PanNukeDataModule(download=True)` contacts Warwick; `DeepFocusDataModule`
+  contacts Zenodo. Both default to `download=False`.
 
-### references/
+Before any future hosted prediction call, state the exact destination, pixel
+channels/regions, metadata, identifiers, retention, legal basis, and safeguards;
+obtain explicit consent; and never send PHI by default. Prefer reviewed,
+checksummed local model artifacts and local inference.
 
-Documentation files providing in-depth coverage of PathML capabilities:
+## Model-code security
 
-- `image_loading.md` - Whole-slide image formats, loading strategies, slide classes
-- `preprocessing.md` - Complete transform catalog, pipeline construction, preprocessing workflows
-- `graphs.md` - Graph construction methods, feature extraction, spatial analysis
-- `machine_learning.md` - Model architectures, training workflows, evaluation, inference
-- `multiparametric.md` - CODEX, Vectra, multiplex IF analysis, cell segmentation, quantification
-- `data_management.md` - HDF5 storage, tile management, batch processing, dataset organization
+- PyTorch `model.eval()` means **evaluation mode** for modules; it is not Python's
+  dangerous built-in evaluator. Never use Python dynamic evaluation or execution.
+- Do not name local files `pathml.py`, `torch.py`, `onnx.py`, or after standard
+  libraries; shadow modules can silently change imports.
+- PathML's `EntityDataset` loads `.pt` objects with `weights_only=False`. Never
+  open an untrusted graph/checkpoint. Treat pickle-based pipelines and `.pt` files
+  as executable code.
+- ONNX is safer than pickle but not inherently trusted. Verify source, SHA-256,
+  expected input/output schema, file size, and runtime limits; use isolation for
+  third-party models.
 
-Load these references as needed when working on specific computational pathology tasks.
+## Bundled local CLIs
 
+All helpers reject URLs and symlinks, cap inputs/work, use strict JSON, avoid
+network access, and require no PathML import for `--help`:
+
+```bash
+python scripts/slide_manifest.py validate --manifest manifest.csv --root .
+python scripts/slide_manifest.py inspect --slide data/example.svs --root .
+python scripts/plan_pipeline.py --width 100000 --height 80000 --tile-size 512 --stride 512
+python scripts/image_qc.py synthetic --width 256 --height 256
+python scripts/validate_spatial_schema.py graph --input graph.json --root .
+python scripts/validate_spatial_schema.py multiplex --input cells.csv --root .
+python scripts/plan_inference.py --tile-count 4000 --batch-size 16 --height 256 --width 256
+```
+
+The inference planner reads numbers or a bounded JSON model card only; it never
+imports a model framework or opens a checkpoint.
+
+## Detailed references
+
+- `references/image_loading.md` — slide classes, backends, formats, levels,
+  coordinates, technical metadata, and privacy.
+- `references/preprocessing.md` — stable transforms, masks/QC, stain processing,
+  pipeline execution, and leakage prevention.
+- `references/data_management.md` — `.h5path`, manifests, datasets, provenance,
+  splits, and safe downloads.
+- `references/multiparametric.md` — multidimensional layout, CODEX/Vectra,
+  quantification, AnnData, DeepCell/Mesmer, and network disclosure.
+- `references/graphs.md` — instance maps, feature alignment, KNN/RAG/HACT graphs,
+  spatial units, schemas, and validation.
+- `references/machine_learning.md` — HoVer-Net/HACTNet, local ONNX inference,
+  batching, checkpoint trust, evaluation, and model provenance.
+
+## Primary sources
+
+All checked 2026-07-23:
+
+- PyPI metadata: https://pypi.org/project/pathml/3.0.5/
+- Stable source tag: https://github.com/Dana-Farber-AIOS/pathml/tree/v3.0.5
+- Releases: https://github.com/Dana-Farber-AIOS/pathml/releases
+- Stable documentation: https://pathml.readthedocs.io/en/stable/
+- Rosenthal et al. (2022), PathML toolkit:
+  https://doi.org/10.1158/1541-7786.MCR-21-0665
+- Omar et al. (2025), multiplex workflows:
+  https://doi.org/10.1016/j.labinv.2025.104220
