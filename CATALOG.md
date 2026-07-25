@@ -1,6 +1,6 @@
 # Skills Catalog
 
-*Last updated: 2026-07-24 07:01 UTC*
+*Last updated: 2026-07-25 06:55 UTC*
 
 Total skills: **3088**
 
@@ -908,8 +908,8 @@ Total skills: **3088**
 | `kdense-cellxgene-census` | Query the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcri... |
 | `kdense-cirq` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-a... |
 | `kdense-citation-management` | Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers... |
-| `kdense-clinical-decision-support` | Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical rese... |
-| `kdense-clinical-reports` | Write comprehensive clinical reports including case reports (CARE guidelines), diagnostic reports (r... |
+| `kdense-clinical-decision-support` | Prepare and validate research-only clinical decision-support evaluation, evidence-profile, cohort, s... |
+| `kdense-clinical-reports` | Create safety-bounded draft structures and run local deterministic checks for clinical case, diagnos... |
 | `kdense-cobrapy` | Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, f... |
 | `kdense-consciousness-council` | Run a multi-perspective Mind Council deliberation on any question, decision, or creative challenge. ... |
 | `kdense-dask` | Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existin... |
@@ -926,25 +926,25 @@ Total skills: **3088**
 | `kdense-etetoolkit` | Analyze, manipulate, compare, annotate, and visualize phylogenetic or other hierarchical trees with ... |
 | `kdense-exa-search` | Web toolkit powered by Exa, tuned for scientific and technical content. Use this skill when the user... |
 | `kdense-experimental-design` | Design experiments and studies BEFORE data is collected — choosing a design, randomizing, blocking, ... |
-| `kdense-exploratory-data-analysis` | Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. T... |
+| `kdense-exploratory-data-analysis` | Perform bounded, local exploratory analysis of explicitly supported scientific files. Use for redact... |
 | `kdense-flowio` | Read, inspect, and write Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for ... |
-| `kdense-fluidsim` | Framework for computational fluid dynamics simulations using Python. Use when running fluid dynamics... |
+| `kdense-fluidsim` | Plan, configure, inspect, restart, and analyze bounded FluidSim computational-fluid-dynamics simulat... |
 | `kdense-generate-image` | Generate or edit images using AI models (FLUX, Nano Banana 2). Use for general-purpose image generat... |
-| `kdense-geniml` | This skill should be used when working with genomic interval data (BED files) for machine learning t... |
+| `kdense-geniml` | Use Geniml for audited local genomic-interval workflows: validate BED and universe contracts, plan R... |
 | `kdense-geomaster` | Comprehensive geospatial science skill covering remote sensing, GIS, spatial analysis, machine learn... |
-| `kdense-geopandas` | Python library for working with geospatial vector data including shapefiles, GeoJSON, and GeoPackage... |
+| `kdense-geopandas` | Guidance and local audit tools for Python workflows that directly use GeoPandas GeoSeries, GeoDataFr... |
 | `kdense-get-available-resources` | Detect host inventory and effective CPU, memory, disk, scheduler, container, and accelerator limits ... |
 | `kdense-gget` | Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick lookups: gene info, BLAST/BLA... |
 | `kdense-ginkgo-cloud-lab` | Submit and manage protocols on Ginkgo Bioworks Cloud Lab (cloud.ginkgo.bio), a web-based interface f... |
 | `kdense-glycoengineering` | Analyze and engineer protein glycosylation. Scan sequences for N-glycosylation sequons (N-X-S/T), pr... |
-| `kdense-gtars` | High-performance toolkit for genomic interval analysis in Rust with Python bindings. Use when workin... |
+| `kdense-gtars` | Use Gtars for local genomic interval models and set algebra, overlaps and counts, consensus and cove... |
 | `kdense-histolab` | Lightweight WSI tile extraction and preprocessing. Use for basic slide processing, tissue detection,... |
 | `kdense-hugging-science` | Use when the user is doing AI/ML work in a scientific domain such as biology, chemistry, physics, as... |
-| `kdense-hypogenic` | Automated LLM-driven hypothesis generation and testing on tabular datasets. Use when you want to sys... |
-| `kdense-hypothesis-generation` | Structured hypothesis formulation from observations. Use when you have experimental observations or ... |
+| `kdense-hypogenic` | Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation from ... |
+| `kdense-hypothesis-generation` | Formulate evidence-bounded scientific questions, candidate hypotheses, rival explanations, causal or... |
 | `kdense-imaging-data-commons` | Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for... |
 | `kdense-infographics` | Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemi... |
-| `kdense-iso-13485-certification` | Comprehensive toolkit for preparing ISO 13485 certification documentation for medical device Quality... |
+| `kdense-iso-13485-certification` | Prepare and structurally review ISO 13485 QMS scope, controlled documentation, and local evidence ma... |
 | `kdense-labarchive-integration` | Securely integrate with the official LabArchives ELN REST-like API and Inventory API v1. Use for reg... |
 | `kdense-lamindb` | Use when working with LaminDB, the open-source lineage-native lakehouse for biological datasets and ... |
 | `kdense-latchbio-integration` | Build, register, debug, and operate bioinformatics workflows on Latch using the Python SDK, CLI, Lat... |
@@ -952,10 +952,10 @@ Total skills: **3088**
 | `kdense-liteparse` | Local document and PDF parsing with spatial text and bounding boxes. Use for extracting text from PD... |
 | `kdense-literature-review` | Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXi... |
 | `kdense-markdown-mermaid-writing` | Comprehensive markdown and Mermaid diagram writing skill. Use when creating any scientific document,... |
-| `kdense-market-research-reports` | Generate comprehensive market research reports (50+ pages) in the style of top consulting firms (McK... |
+| `kdense-market-research-reports` | Build evidence-traceable market research reports and assumption-driven market sizing or forecast sce... |
 | `kdense-markitdown` | Convert heterogeneous documents and selected URIs to Markdown with Microsoft MarkItDown for text ana... |
 | `kdense-matchms` | Process, clean, compare, and search tandem mass spectra with matchms. Use for MS/MS file I/O, metada... |
-| `kdense-matlab` | MATLAB and GNU Octave numerical computing for matrix operations, data analysis, visualization, and s... |
+| `kdense-matlab` | Build, review, migrate, and safely plan MATLAB or GNU Octave numerical workflows, including arrays, ... |
 | `kdense-matplotlib` | Low-level plotting library for full customization. Use when you need fine-grained control over every... |
 | `kdense-medchem` | Medicinal chemistry filters for compound triage. Apply drug-likeness rules (Lipinski, Veber, CNS), s... |
 | `kdense-modal` | Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Use whe... |
@@ -977,22 +977,22 @@ Total skills: **3088**
 | `kdense-pathml` | Use PathML for local, research-only computational pathology workflows: load and tile slides, build p... |
 | `kdense-pathway-enrichment` | Run pathway and gene-set enrichment analysis on gene lists or ranked gene data, then interpret the r... |
 | `kdense-pdf` | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extra... |
-| `kdense-peer-review` | Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer rev... |
+| `kdense-peer-review` | Prepare evidence-bounded, constructive peer-review drafts and structured manuscript assessments. Use... |
 | `kdense-pennylane` | Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum cir... |
 | `kdense-phylogenetics` | Build and analyze phylogenetic trees using MAFFT (multiple alignment), IQ-TREE 2 (maximum likelihood... |
 | `kdense-pi-agent` | Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring provi... |
 | `kdense-polars` | High-performance DataFrame library for Python ETL, analytics, and pandas migration. Use for expressi... |
 | `kdense-polars-bio` | High-performance genomic interval operations and bioinformatics file I/O on Polars DataFrames. Overl... |
 | `kdense-pptx` | Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includ... |
-| `kdense-pptx-posters` | Create research posters using HTML/CSS that can be exported to PDF or PPTX. Use this skill ONLY when... |
+| `kdense-pptx-posters` | Create and audit editable scientific posters in macro-free PowerPoint (.pptx) from author-approved l... |
 | `kdense-primekg` | Query the Precision Medicine Knowledge Graph (PrimeKG) for multiscale biological data including gene... |
-| `kdense-protocolsio-integration` | Integration with protocols.io API for managing scientific protocols. This skill should be used when ... |
-| `kdense-pufferlib` | High-performance reinforcement learning framework optimized for speed and scale. Use when you need f... |
+| `kdense-protocolsio-integration` | Read, validate, and safely export protocols.io data with current official REST/MCP contracts, or cre... |
+| `kdense-pufferlib` | Version-aware guidance for PufferLib reinforcement-learning environments, vectorization, policies, P... |
 | `kdense-pydeseq2` | Differential gene expression analysis for bulk RNA-seq with PyDESeq2, including formulaic designs, W... |
-| `kdense-pydicom` | Python library for working with DICOM (Digital Imaging and Communications in Medicine) files. Use th... |
+| `kdense-pydicom` | Use pydicom to read, inspect, write, transform, and safely preflight local DICOM datasets and pixel ... |
 | `kdense-pyhealth` | Build clinical/healthcare deep-learning pipelines with PyHealth — loading EHR/signal/imaging dataset... |
 | `kdense-pylabrobot` | Develop and review PyLabRobot lab-automation resources, liquid-handling plans, offline simulations, ... |
-| `kdense-pymatgen` | Materials science toolkit. Crystal structures (CIF, POSCAR), phase diagrams, band structure, DOS, Ma... |
+| `kdense-pymatgen` | Analyze, validate, convert, and transform materials structures and computed materials data with curr... |
 | `kdense-pymc` | Bayesian modeling with PyMC. Build hierarchical models, MCMC (NUTS), variational inference, LOO/WAIC... |
 | `kdense-pymoo` | Multi-objective optimization framework. NSGA-II, NSGA-III, MOEA/D, Pareto fronts, constraint handlin... |
 | `kdense-pyopenms` | Complete mass spectrometry analysis platform. Use for proteomics and metabolomics workflows—feature ... |
@@ -1001,19 +1001,19 @@ Total skills: **3088**
 | `kdense-pytorch-lightning` | Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into Lightnin... |
 | `kdense-pyzotero` | Interact with Zotero reference management libraries using the pyzotero Python client. Retrieve, crea... |
 | `kdense-qiskit` | Build, simulate, transpile, and execute quantum circuits with Qiskit and IBM Quantum Runtime. Use fo... |
-| `kdense-qutip` | Quantum physics simulation library for open quantum systems. Use when studying master equations, Lin... |
+| `kdense-qutip` | Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic, traj... |
 | `kdense-rdkit` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, Log... |
 | `kdense-research-grants` | Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific form... |
 | `kdense-research-lookup` | Compile current scholarly evidence for a scientific manuscript or research brief. Use when the user ... |
 | `kdense-rowan` | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Python A... |
 | `kdense-scanpy` | Standard single-cell RNA-seq analysis pipeline. Use for QC, normalization, dimensionality reduction ... |
-| `kdense-scholar-evaluation` | Systematically evaluate scholarly work using the ScholarEval framework, providing structured assessm... |
+| `kdense-scholar-evaluation` | Provide qualitative-first, evidence-traceable developmental review of scholarly works and audit low-... |
 | `kdense-scientific-brainstorming` | Facilitates evidence-aware scientific ideation with independent generation, structured discussion, e... |
 | `kdense-scientific-critical-thinking` | Evaluate scientific claims and evidence quality. Use for assessing experimental design validity, ide... |
 | `kdense-scientific-schematics` | Create publication-quality scientific diagrams using Nano Banana 2 AI with smart iterative refinemen... |
 | `kdense-scientific-slides` | Build slide decks and presentations for research talks. Use this for making PowerPoint slides, confe... |
 | `kdense-scientific-visualization` | Create and audit truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn... |
-| `kdense-scientific-writing` | Core skill for the deep research and writing tool. Write scientific manuscripts in full paragraphs (... |
+| `kdense-scientific-writing` | Draft, revise, and audit scientific manuscripts or reports with explicit evidence provenance, report... |
 | `kdense-scikit-bio` | Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (alpha... |
 | `kdense-scikit-learn` | Machine learning in Python with scikit-learn. Use when working with supervised learning (classificat... |
 | `kdense-scikit-survival` | Build, evaluate, and audit right-censored or competing-risk survival workflows with scikit-survival,... |
@@ -1033,7 +1033,7 @@ Total skills: **3088**
 | `kdense-torch-geometric` | PyTorch Geometric (PyG) for graph neural networks — node/link/graph classification, message passing ... |
 | `kdense-torchdrug` | Build and troubleshoot TorchDrug 0.2.1 workflows for molecular graphs, property prediction, self-sup... |
 | `kdense-transformers` | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and T... |
-| `kdense-treatment-plans` | Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF format for all clinical sp... |
+| `kdense-treatment-plans` | Format and structurally validate local treatment-plan documentation after clinical decisions have al... |
 | `kdense-umap-learn` | Use UMAP-learn for nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, s... |
 | `kdense-usfiscaldata` | Query the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use fo... |
 | `kdense-vaex` | Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed av... |

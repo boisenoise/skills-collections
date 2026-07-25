@@ -1,147 +1,318 @@
-# Reference Sequence Management
+# Refget, sequence digests, stores, and BEDbase
 
-The refget module handles reference sequence retrieval and digest computation, following the refget protocol for sequence identification.
+Verified on **2026-07-23** against Python `gtars==0.9.2`,
+`gtars-refget==0.9.1`, and `gtars-cli==0.9.0`.
 
-## RefgetStore
+## Digest terminology
 
-RefgetStore manages reference sequences and their digests:
-
-```python
-import gtars
-
-# Create RefgetStore
-store = gtars.RefgetStore()
-
-# Add sequence
-store.add_sequence("chr1", sequence_data)
-
-# Retrieve sequence
-seq = store.get_sequence("chr1")
-
-# Get sequence digest
-digest = store.get_digest("chr1")
-```
-
-## Sequence Digests
-
-Compute and verify sequence digests:
+Current Python functions:
 
 ```python
-# Compute digest for sequence
-from gtars.refget import compute_digest
+from gtars.refget import (
+    compute_fai,
+    digest_fasta,
+    digest_sequence,
+    load_fasta,
+    md5_digest,
+    sha512t24u_digest,
+)
 
-digest = compute_digest(sequence_data)
-
-# Verify digest matches
-is_valid = store.verify_digest("chr1", expected_digest)
+digest = sha512t24u_digest("ACGT")
+assert digest == "aKF498dAxcJAqme6QYQ7EZ07-fiw8Kw2"
+assert md5_digest("ACGT") == "f1f8f4bf413b16ad135722aa4591043e"
 ```
 
-## Integration with Reference Genomes
+Gtars returns the 32-character unprefixed `sha512t24u` value. The preferred
+GA4GH refget sequence identifier adds `SQ.`:
 
-Work with standard reference genomes:
+```text
+SQ.aKF498dAxcJAqme6QYQ7EZ07-fiw8Kw2
+```
+
+MD5 is retained for legacy lookup and is not a collision-resistant provenance
+hash. Keep an independent SHA-256 for artifact integrity.
+
+`digest_sequence(data: bytes, name=None, description=None)` uppercases sequence
+bytes and returns a `SequenceRecord` containing metadata and data.
+`digest_fasta(path)` computes a `SequenceCollection`; `load_fasta(path)` loads
+sequence data into memory. `compute_fai(path)` is for uncompressed FASTA.
+
+GA4GH refget normalizes sequence content before computing its sequence
+identifier. Do not hash raw FASTA bytes and call that a sequence digest: headers,
+line wrapping, compression, and sequence normalization are different layers.
+
+## Current Python store class
+
+The runtime class is `RefgetStore`, not the older tutorial name
+`GlobalRefgetStore`:
 
 ```python
-# Load reference genome
-store = gtars.RefgetStore.from_fasta("hg38.fa")
-
-# Get chromosome sequences
-chr1 = store.get_sequence("chr1")
-chr2 = store.get_sequence("chr2")
-
-# Get subsequence
-region_seq = store.get_subsequence("chr1", 1000, 2000)
+from gtars.refget import RefgetStore
 ```
 
-## CLI Usage
+Verified constructors:
 
-Manage reference sequences from command line:
+```text
+RefgetStore.in_memory()
+RefgetStore.on_disk(cache_path)
+RefgetStore.open_local(path)
+RefgetStore.open_remote(cache_path, remote_url)
+RefgetStore.store_exists(path)
+```
+
+### Local and in-memory modes
+
+```python
+from gtars.refget import RefgetStore
+
+store = RefgetStore.in_memory()
+metadata, was_new = store.add_sequence_collection_from_fasta(
+    "reviewed-reference.fa",
+    force=False,
+    namespaces=["refseq"],
+)
+
+store.write_store_to_dir("approved-store")
+reopened = RefgetStore.open_local("approved-store")
+```
+
+Side effects:
+
+- `in_memory()` does not write.
+- `on_disk(path)` opens an existing store or creates a new disk-backed store.
+- `open_local(path)` reads store metadata/indexes and lazy-loads local sequence
+  data.
+- `write_store_to_dir` and `enable_persistence` create/write files.
+- `force=True` can replace existing collection/sequence entries.
+
+Use `store_exists(path)` before choosing create versus open. Refuse symlinks,
+unexpected files, output collisions, and unapproved stores.
+
+Batch import:
+
+```python
+results = store.add_sequence_collections_from_fastas(
+    ["ref-a.fa.gz", "ref-b.fa.gz"],
+    file_list=None,
+    jobs=1,
+    force=False,
+    namespaces=["refseq"],
+)
+```
+
+`fastas` can also accept globs or directories and `jobs=0` means automatic
+concurrency. For controlled runs, enumerate reviewed files explicitly and set a
+positive bounded job count.
+
+## Metadata-only and sequence access
+
+Metadata methods avoid loading full sequence content:
+
+```python
+collections_page = store.list_collections(page=0, page_size=100)
+sequence_metadata = store.list_sequences()
+one_metadata = store.get_sequence_metadata(sequence_digest)
+collection_metadata = store.get_collection_metadata(collection_digest)
+```
+
+Data methods:
+
+```python
+record = store.get_sequence(sequence_digest)
+by_name = store.get_sequence_by_name(collection_digest, "chr1")
+piece = store.get_substring(sequence_digest, 100, 200)
+pieces = store.get_substrings(sequence_digest, [(100, 200), (500, 550)])
+
+for chunk in store.stream_sequence(
+    sequence_digest,
+    start=0,
+    end=1_000_000,
+    chunk_size=65_536,
+):
+    consume_bounded(chunk)
+```
+
+Substring ranges are 0-based half-open. Validate `0 <= start <= end <= length`.
+`stream_sequence` bounds peak result memory, but downstream accumulation can
+still defeat streaming.
+
+The 0.9.2 runtime also exposes `load_sequence`, `load_collection`,
+`load_all_sequences`, and `load_all_collections`. These materialize more data;
+do not call an all-load method without an explicit byte/RAM budget.
+
+## Remote stores require an approval gate
+
+```python
+# Network + cache side effects: do not call before approval.
+remote = RefgetStore.open_remote(
+    approved_cache_path,
+    approved_https_base_url,
+)
+```
+
+`open_remote` takes only a cache path and base URL. It fetches remote metadata,
+creates/uses local cache state, and enables persistence by default. In 0.9.2:
+
+- `get_substring` can issue remote byte-range reads without downloading the
+  whole sequence;
+- `stream_sequence` can stream remote ranges;
+- `load_sequence` is the whole-sequence path and can persist it.
+
+Calling `disable_persistence()` after opening does not undo metadata/cache work
+already performed. There is no constructor parameter for revision, endpoint
+allowlist, checksum manifest, byte quota, or offline mode.
+
+Before `open_remote`:
+
+1. obtain explicit approval for exact HTTPS host/path and cache directory;
+2. reject credentials in URLs and unreviewed redirects;
+3. pin an immutable server/store revision or content-addressed identifier;
+4. record expected collection/sequence digests and independent SHA-256 where
+   applicable;
+5. cap metadata, per-range, total transfer, sequence length, cache, retries,
+   concurrency, and time;
+6. disclose that request coordinates/digests and network metadata leave the
+   environment;
+7. validate returned lengths and digests before scientific use.
+
+Custom/patient-specific assemblies and requested ranges can be sensitive even
+when a public reference genome is not.
+
+## Read-only concurrent stores
+
+`into_readonly()` converts a mutable store into `ReadonlyRefgetStore` for
+concurrent reads. It consumes/replaces the mutable store and cannot lazy-load
+collections that were not prepared. Load only the bounded data required before
+conversion; do not use `load_all_*` reflexively.
+
+## CLI store build
+
+The only current refget CLI subcommand is local store construction:
 
 ```bash
-# Compute digest for FASTA file
-gtars refget digest --input genome.fa --output digests.txt
-
-# Verify sequence digest
-gtars refget verify --sequence sequence.fa --digest expected_digest
+gtars refget build reference.fa reference-alt.fa.gz \
+  --output approved-store \
+  --jobs 1
 ```
 
-## Refget Protocol Compliance
+Options:
 
-The refget module follows the GA4GH refget protocol:
+- `--file-list/-f PATH`: file of paths/globs/directories;
+- `--output/-o DIR`: required;
+- `--jobs/-j N`: concurrent FASTA files, default `0` (auto);
+- `--raw`: raw instead of default encoded 2-bit storage;
+- `--force`: overwrite existing entries.
 
-### Digest Computation
+There is no current `gtars refget digest` or `verify` CLI matching the old skill.
+Use the Python digest functions, direct Rust API, or a local store build after
+preflight.
 
-Digests are computed using SHA-512 truncated to 48 bytes:
+## Offline metadata/digest plan
 
-```python
-# Compute refget-compliant digest
-digest = gtars.refget.compute_digest(sequence)
-# Returns: "SQ.abc123..."
+The bundled helper accepts a conservative local policy manifest:
+
+```json
+{
+  "schema_version": "1.0",
+  "assembly": "GRCh38.p14",
+  "coordinate_system": "0-based-half-open",
+  "collection_digest": "<32-char sha512t24u-like value>",
+  "sequences": [
+    {
+      "name": "chr1",
+      "length": 248956422,
+      "sha512t24u": "<32-char digest>",
+      "md5": "<32 lowercase hex>"
+    }
+  ]
+}
 ```
 
-### Sequence Retrieval
+This is a **skill policy manifest**, not an upstream refget wire schema. Validate
+it and optionally recompute sequence-level digests from local FASTA:
 
-Retrieve sequences by digest:
-
-```python
-# Get sequence by refget digest
-seq = store.get_sequence_by_digest("SQ.abc123...")
+```bash
+python3 -B scripts/refget_digest_plan.py \
+  --metadata refget-metadata.json \
+  --fasta reference.fa.gz \
+  --assembly GRCh38.p14
 ```
 
-## Use Cases
+The helper does not recompute the sequence-collection digest; it validates its
+shape and verifies each listed local sequence's length, sha512t24u, and MD5.
+Use Gtars' pinned collection implementation for final seqcol verification.
 
-### Reference Validation
+## BEDbase and `bbcache`
 
-Verify reference genome integrity:
+BEDbase caching is separate from refget. In CLI 0.9.0:
 
-```python
-# Compute digests for reference
-store = gtars.RefgetStore.from_fasta("reference.fa")
-digests = {chrom: store.get_digest(chrom) for chrom in store.chromosomes}
-
-# Compare with expected digests
-for chrom, expected in expected_digests.items():
-    actual = digests[chrom]
-    if actual != expected:
-        print(f"Mismatch for {chrom}: {actual} != {expected}")
+```text
+gtars bbcache cache-bed
+gtars bbcache cache-bedset
+gtars bbcache seek
+gtars bbcache inspect-bedfiles
+gtars bbcache inspect-bedsets
+gtars bbcache rm
 ```
 
-### Sequence Extraction
+Defaults from tagged source:
 
-Extract specific genomic regions:
+- API: `BEDBASE_API`, otherwise `https://api.bedbase.org`;
+- cache: `BBCLIENT_CACHE`, otherwise `$HOME/.bbcache/` (or `/tmp/.bbcache/`);
+- cached BEDs: `bedfiles/<first>/<second>/<id>.bed.gz`;
+- BED sets: `bedsets/<first>/<second>/<id>.txt`;
+- cache metadata includes SQLite state through the cache dependency.
 
-```python
-# Extract regions of interest
-store = gtars.RefgetStore.from_fasta("hg38.fa")
+Constructing `BBClient` creates the root and BED/BED-set subdirectories, even for
+inspection/seek. `cache-bed` accepts a local file/directory, URL, or intended
+BEDbase identifier; `cache-bedset` accepts a local directory/list or intended
+BEDbase ID. `rm` deletes files and cache records and can remove member BEDs for a
+BED set.
 
-regions = [
-    ("chr1", 1000, 2000),
-    ("chr2", 5000, 6000),
-    ("chr3", 10000, 11000)
-]
+Important source finding: the v0.9.0 `BBClient.load_bed(id)` delegates a bare ID
+to `RegionSet::try_from`, while the core source has the bare-BEDbase-ID fallback
+commented out. Therefore, ID-only `cache-bed`/BED-set downloads may fail in this
+release even though the public docs claim support. Do not work around this with
+guessed URLs. Verify the installed help/behavior on a non-sensitive approved
+test, or resolve an explicit official file URL through reviewed BEDbase metadata.
 
-sequences = [store.get_subsequence(c, s, e) for c, s, e in regions]
+The bbcache source does not expose an expected SHA-256/revision parameter. Treat
+downloads as untrusted:
+
+- approve and allowlist `api.bedbase.org` and any exact data host separately;
+- record BEDbase record ID, API response revision/time, explicit file URL,
+  expected identifier/digest, and SHA-256;
+- use an explicit quota-limited cache folder;
+- validate BED assembly/bounds/content before indexing;
+- never rely on a successful cache write as integrity proof.
+
+## Rust pin
+
+For the latest direct refget component:
+
+```toml
+[dependencies]
+gtars-refget = "=0.9.1"
 ```
 
-### Cross-Reference Comparison
+For the 0.9.0 wrapper release set:
 
-Compare sequences across different references:
-
-```python
-# Load two reference versions
-hg19 = gtars.RefgetStore.from_fasta("hg19.fa")
-hg38 = gtars.RefgetStore.from_fasta("hg38.fa")
-
-# Compare digests
-for chrom in hg19.chromosomes:
-    digest_19 = hg19.get_digest(chrom)
-    digest_38 = hg38.get_digest(chrom)
-    if digest_19 != digest_38:
-        print(f"{chrom} differs between hg19 and hg38")
+```toml
+[dependencies]
+gtars = { version = "=0.9.0", default-features = false, features = ["refget"] }
 ```
 
-## Performance Notes
+Do not assume these expose identical refget patch behavior.
 
-- Sequences loaded on demand
-- Digests cached after computation
-- Efficient subsequence extraction
-- Memory-mapped file support for large genomes
+## Official sources (accessed 2026-07-23)
+
+- [Python refget 0.9.2 stubs](https://github.com/databio/gtars/blob/gtars-python-v0.9.2/gtars-python/py_src/gtars/refget/__init__.pyi)
+- [Python 0.9.2 release](https://github.com/databio/gtars/releases/tag/gtars-python-v0.9.2)
+- [gtars-refget 0.9.1 crate](https://crates.io/crates/gtars-refget)
+- [Gtars refget module guide](https://docs.bedbase.org/gtars/refget/)
+- [Gtars Python refget API](https://docs.bedbase.org/gtars/python/refget-api/)
+- [CLI refget parser](https://github.com/databio/gtars/blob/v0.9.0/gtars-cli/src/refget/cli.rs)
+- [BEDbase cache source](https://github.com/databio/gtars/tree/v0.9.0/gtars-bbcache)
+- [BEDbase caching guide](https://docs.bedbase.org/gtars/bbcache/)
+- [GA4GH refget sequences v2](https://ga4gh.github.io/refget/sequences)
+- [GA4GH refget sequence collections](https://ga4gh.github.io/refget/seqcols/)
