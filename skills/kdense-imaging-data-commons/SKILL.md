@@ -23,10 +23,19 @@ import idc_index
 REQUIRED_VERSION = "0.11.14"  # Must match metadata.idc-index in this file
 installed = idc_index.__version__
 
-if installed < REQUIRED_VERSION:
+def _parts(version):
+    # Compare numerically: "0.9.0" < "0.11.14" is False as a string comparison.
+    return tuple(int(p) if p.isdigit() else 0 for p in version.split(".")[:3])
+
+if _parts(installed) < _parts(REQUIRED_VERSION):
     print(f"Upgrading idc-index from {installed} to {REQUIRED_VERSION}...")
     import subprocess
-    subprocess.run(["pip3", "install", "--upgrade", "--break-system-packages", "idc-index"], check=True)
+    # Pin to the tested version — an unpinned upgrade installs whatever is
+    # newest on PyPI, into system packages, and may still not satisfy the check.
+    subprocess.run(
+        ["pip3", "install", "--break-system-packages", f"idc-index=={REQUIRED_VERSION}"],
+        check=True,
+    )
     print("Upgrade complete. Restart Python to use new version.")
 else:
     print(f"idc-index {installed} meets requirement ({REQUIRED_VERSION})")
@@ -758,7 +767,7 @@ See `references/use_cases.md` for complete end-to-end workflow examples includin
 - **Estimate size first** - Check collection size before downloading - some collection sizes are in terabytes!
 - **Save manifests** - Always save query results with Series UIDs for reproducibility and data provenance
 - **Read documentation** - IDC data structure and metadata fields are documented at https://learn.canceridc.dev/
-- **Use IDC forum** - Search for questons/answers and ask your questions to the IDC maintainers and users at https://discourse.canceridc.dev/
+- **Use IDC forum** - Search for questions/answers and ask your questions to the IDC maintainers and users at https://discourse.canceridc.dev/
 
 ## Troubleshooting
 

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-25T06:55:51.942498",
-  "skill_count": 3088,
+  "last_updated": "2026-07-26T07:03:41.108615",
+  "skill_count": 3089,
   "sources_processed": 19,
   "skills": [
     {
@@ -606,7 +606,7 @@
     {
       "name": "kdense-pptx",
       "original_name": "pptx",
-      "description": "Use this skill any time a .pptx file is involved in any way \u2014 as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \"deck,\" \"slides,\" \"presentation,\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.",
+      "description": "Use this skill any time a .pptx or .potx file is involved in any way \u2014 as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx or .potx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates (.potx), layouts, speaker notes, or comments. Trigger whenever the user mentions \"deck,\" \"slides,\" \"presentation,\" or references a .pptx or .potx filename, regardless of what they plan to do with the content afterward. If a .pptx or .potx file needs to be opened, created, or touched, use this skill.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "Proprietary. LICENSE.txt has complete terms"
@@ -662,7 +662,7 @@
     {
       "name": "kdense-xlsx",
       "original_name": "xlsx",
-      "description": "Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm) where the workbook file is the primary deliverable. Use for formulas, formatting, financial models, multi-sheet workbooks, and tabular cleanup exported to Excel. Also applies to .csv/.tsv when the user wants spreadsheet output. Do NOT use for Word documents, HTML reports, standalone Python scripts, database pipelines, or Google Sheets API work.",
+      "description": "Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm, .xltx) where the workbook file is the primary deliverable. Use for formulas, formatting, financial models, multi-sheet workbooks, and tabular cleanup exported to Excel. Also applies to .csv/.tsv when the user wants spreadsheet output. Do NOT use for Word documents, HTML reports, standalone Python scripts, database pipelines, or Google Sheets API work.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "Proprietary. LICENSE.txt has complete terms"
@@ -842,6 +842,14 @@
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "BSD-3-Clause license"
+    },
+    {
+      "name": "kdense-genomic-intelligence",
+      "original_name": "genomic-intelligence",
+      "description": "Predict regulatory features, gene structure, and expression directly from DNA sequence using Genomic Intelligence's hosted transformer DNA language models \u2014 no local GPU or model weights. Six tasks over a REST API and a hosted MCP server (keyless public demo): promoter regions, splice donor/acceptor sites, enhancer activity, chromatin state, sequence-to-expression (log TPM), and de-novo gene annotation, plus a composite find-genes-then-predict-expression workflow. Use when the user has a gene symbol, a genomic region, or a DNA/FASTA sequence and wants any of these predictions, mentions Genomic Intelligence, genomicintelligence.ai, api.genomicintelligence.ai, or mcp.genomicintelligence.ai.",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
     },
     {
       "name": "kdense-scikit-bio",
@@ -1094,7 +1102,7 @@
     {
       "name": "kdense-docx",
       "original_name": "docx",
-      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx or .dotx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "Proprietary. LICENSE.txt has complete terms"

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-25 06:55 UTC*
+*Last updated: 2026-07-26 07:03 UTC*
 
-Total skills: **3088**
+Total skills: **3089**
 
 ## Skills by Source
 
@@ -931,6 +931,7 @@ Total skills: **3088**
 | `kdense-fluidsim` | Plan, configure, inspect, restart, and analyze bounded FluidSim computational-fluid-dynamics simulat... |
 | `kdense-generate-image` | Generate or edit images using AI models (FLUX, Nano Banana 2). Use for general-purpose image generat... |
 | `kdense-geniml` | Use Geniml for audited local genomic-interval workflows: validate BED and universe contracts, plan R... |
+| `kdense-genomic-intelligence` | Predict regulatory features, gene structure, and expression directly from DNA sequence using Genomic... |
 | `kdense-geomaster` | Comprehensive geospatial science skill covering remote sensing, GIS, spatial analysis, machine learn... |
 | `kdense-geopandas` | Guidance and local audit tools for Python workflows that directly use GeoPandas GeoSeries, GeoDataFr... |
 | `kdense-get-available-resources` | Detect host inventory and effective CPU, memory, disk, scheduler, container, and accelerator limits ... |
@@ -983,7 +984,7 @@ Total skills: **3088**
 | `kdense-pi-agent` | Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring provi... |
 | `kdense-polars` | High-performance DataFrame library for Python ETL, analytics, and pandas migration. Use for expressi... |
 | `kdense-polars-bio` | High-performance genomic interval operations and bioinformatics file I/O on Polars DataFrames. Overl... |
-| `kdense-pptx` | Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includ... |
+| `kdense-pptx` | Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. Th... |
 | `kdense-pptx-posters` | Create and audit editable scientific posters in macro-free PowerPoint (.pptx) from author-approved l... |
 | `kdense-primekg` | Query the Precision Medicine Knowledge Graph (PrimeKG) for multiscale biological data including gene... |
 | `kdense-protocolsio-integration` | Read, validate, and safely export protocols.io data with current official REST/MCP contracts, or cre... |
@@ -1039,7 +1040,7 @@ Total skills: **3088**
 | `kdense-vaex` | Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed av... |
 | `kdense-venue-templates` | Prepare journal manuscripts, conference papers, research posters, and grant documents using venue-sp... |
 | `kdense-what-if-oracle` | Run structured What-If scenario analysis with 4–6 branch possibility exploration (best, likely, wors... |
-| `kdense-xlsx` | Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm) where the workbook file is the p... |
+| `kdense-xlsx` | Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm, .xltx) where the workbook file i... |
 | `kdense-zarr-python` | Chunked N-D arrays for cloud storage (Zarr-Python 3). Compressed arrays, parallel I/O, S3/GCS via fs... |
 
 ### anthropics/skills

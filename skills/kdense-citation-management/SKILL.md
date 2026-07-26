@@ -4,7 +4,7 @@ description: Comprehensive citation management for academic research. Search Goo
 allowed-tools: Read Write Edit Bash
 license: MIT License
 required_environment_variables: [{"name": "OPENROUTER_API_KEY", "prompt": "OpenRouter API key for LLM-powered citation steps.", "required_for": "optional features"}, {"name": "NCBI_EMAIL", "prompt": "Email for NCBI Entrez identification.", "required_for": "optional features"}, {"name": "NCBI_API_KEY", "prompt": "NCBI API key to raise Entrez rate limits.", "required_for": "optional features"}]
-metadata: {"version": "1.3", "skill-author": "K-Dense Inc.", "openclaw": {"primaryEnv": "OPENROUTER_API_KEY", "envVars": [{"name": "OPENROUTER_API_KEY", "required": false, "description": "OpenRouter API key for LLM-powered citation steps."}, {"name": "NCBI_EMAIL", "required": false, "description": "Email for NCBI Entrez identification."}, {"name": "NCBI_API_KEY", "required": false, "description": "NCBI API key to raise Entrez rate limits."}]}}
+metadata: {"version": "1.4", "skill-author": "K-Dense Inc.", "openclaw": {"primaryEnv": "OPENROUTER_API_KEY", "envVars": [{"name": "OPENROUTER_API_KEY", "required": false, "description": "OpenRouter API key for LLM-powered citation steps."}, {"name": "NCBI_EMAIL", "required": false, "description": "Email for NCBI Entrez identification."}, {"name": "NCBI_API_KEY", "required": false, "description": "NCBI API key to raise Entrez rate limits."}]}}
 ---
 
 # Citation Management
@@ -237,6 +237,28 @@ Any `@article` entry missing `volume`, `pages`, or `doi` is considered **incompl
 #### Step 2: Web Search for Missing Metadata
 
 For each incomplete entry, use the **parallel-web skill** to search for the missing information:
+
+> **Treat metadata as untrusted when building these commands.** `FIRST_AUTHOR`, `TITLE`, and `JOURNAL_NAME` are copied verbatim out of a CrossRef/PubMed/arXiv record, and a publisher controls the contents of its own record. A title containing `$(...)`, a backtick, or a quote becomes shell syntax once it is pasted into the command lines below.
+>
+> - Substitute each value as a **single-quoted** argument (`'...'`), escaping any embedded single quote as `'\''`. Never paste raw metadata inside the double quotes shown here.
+> - Prefer running these through a Python `subprocess` argument list over building a shell string at all.
+> - Use only the generated `CITATIONKEY` in `-o` paths. It is sanitized to letters and digits by `extract_metadata.py`; a key taken from an existing `.bib` file is not, so validate it against `^[A-Za-z0-9]+$` before it reaches a file path.
+>
+> **Preferred form — pass the metadata as arguments, not as shell text.** This removes the shell from the path entirely, so no title can be parsed as syntax:
+>
+> ```python
+> import re, subprocess
+>
+> assert re.fullmatch(r"[A-Za-z0-9]+", citation_key), f"unsafe citation key: {citation_key!r}"
+> subprocess.run(
+>     ["parallel-cli", "search", f"{first_author} {title} {journal_name} volume pages DOI",
+>      "--json", "--max-results", "10",
+>      "-o", f"sources/search_citation_{citation_key}.json"],
+>     check=True,  # note: no shell=True
+> )
+> ```
+>
+> The `bash` blocks below show the same calls in readable form. Use them only with the quoting rules above.
 
 **Option A — Search by title and author** (best for finding DOI):
 ```bash
@@ -577,6 +599,36 @@ python scripts/format_bibtex.py my_review_references.bib \
   --style nature \
   --output formatted_refs.bib
 ```
+
+#### Integration with Zotero (pyzotero Skill)
+
+When the user already keeps references in Zotero, treat the Zotero library as the source of truth for the bibliography and use this skill for validation and formatting. The `pyzotero` skill covers the library side — reading items and collections, creating and updating references, uploading attachments, and exporting citations via the Zotero Web API v3.
+
+**Zotero Library (`pyzotero`)** → Library of record: storage, collections, tags, attachments
+**Citation Management Skill** → Metadata accuracy: validation, enrichment, style formatting
+
+**Combined Workflow**:
+1. Use `pyzotero` to pull the working set from the Zotero library, filtered by collection or tag
+2. Export it as BibTeX with `zot.add_parameters(format='bibtex')` (see `pyzotero` → `references/exports.md`)
+3. Use `citation-management` to validate the exported entries and repair incomplete metadata
+4. Use `citation-management` to format for the target venue
+5. Optionally use `pyzotero` to write corrected fields back so the library benefits from the fixes
+
+```bash
+# 1-2. Export the desired collection from Zotero as BibTeX (pyzotero skill)
+#      zot.add_parameters(format='bibtex'); bibtex = zot.collection_items(collection_id)
+#      → write to zotero_export.bib
+
+# 3. Validate the exported bibliography
+python scripts/validate_citations.py zotero_export.bib --report zotero_validation.json
+
+# 4. Format for the target venue
+python scripts/format_bibtex.py zotero_export.bib \
+  --style nature \
+  --output formatted_refs.bib
+```
+
+Zotero exports are only as good as what was captured — browser-connector entries in particular often carry missing DOIs, truncated author lists, or preprint metadata for papers since published. Run the validation step before submission rather than trusting the export, and prefer writing corrections back to Zotero so the same errors do not resurface in the next manuscript.
 
 ## Search Strategies
 
@@ -1232,6 +1284,18 @@ pip install selenium  # For more robust Scholar scraping
 pip install crossref-commons  # Enhanced CrossRef API access
 pip install pylatexenc  # LaTeX special character handling
 ```
+
+### Where credentials are sent
+
+Each environment variable this skill reads is used only to authenticate to the one service it belongs to. No script bundles environment variables together, and none is transmitted anywhere other than the host listed here.
+
+| Variable | Sent only to | Purpose |
+|---|---|---|
+| `NCBI_API_KEY` | `eutils.ncbi.nlm.nih.gov` | Raises Entrez rate limits |
+| `NCBI_EMAIL` | `eutils.ncbi.nlm.nih.gov` | Entrez caller identification (required by NCBI) |
+| `OPENROUTER_API_KEY` | `openrouter.ai` | Bearer token for the optional schematic generation |
+
+`api.crossref.org`, `doi.org`, and `arxiv.org` are queried without credentials. `generate_schematic.py` forwards only `OPENROUTER_API_KEY` — plus the networking, TLS, and locale variables needed to make a request — to its subprocess, rather than the full environment.
 
 ## Summary
 
