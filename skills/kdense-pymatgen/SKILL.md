@@ -3,12 +3,7 @@ name: pymatgen
 description: Analyze, validate, convert, and transform materials structures and computed materials data with current pymatgen APIs, including local phase diagrams, symmetry sensitivity, electronic-structure I/O, and explicitly bounded Materials Project queries.
 license: MIT
 compatibility: Python 3.11+ with uv. The verified snapshot uses pymatgen 2026.5.4, pymatgen-core 2026.7.16, and mp-api 0.46.4. Bundled help and planning CLIs use only the standard library; local scientific execution lazily requires the pinned pymatgen packages. Materials Project access additionally requires explicit network approval and the single named secret MP_API_KEY.
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - Glob
-  - Python
+allowed-tools: Read Write Bash Glob Python
 metadata:
   version: "1.2"
   skill-author: "K-Dense Inc."

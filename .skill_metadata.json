@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-26T07:03:41.108615",
-  "skill_count": 3089,
+  "last_updated": "2026-07-27T07:22:20.801082",
+  "skill_count": 3096,
   "sources_processed": 19,
   "skills": [
     {
@@ -588,6 +588,14 @@
       "license": "MIT"
     },
     {
+      "name": "kdense-uncertainty-and-units",
+      "original_name": "uncertainty-and-units",
+      "description": "Track physical units and propagate measurement uncertainty in scientific calculations using pint and uncertainties. Use for unit conversion and dimensional checking, GUM uncertainty budgets, Type A and Type B evaluation, coverage factors and expanded uncertainty, Monte Carlo propagation, significant-figure and plus-minus reporting, error propagation through curve fits, CODATA constants, auditing Python code for stripped units or broken uncertainty propagation, and order-of-magnitude plausibility checks using dimensionless groups (Reynolds, Peclet, Damkohler, Knudsen, Biot, Womersley), characteristic scales such as diffusion time or Debye length, and observed magnitude ranges. Trigger on \"is this number physically reasonable\", \"sanity check these units\", \"what regime is this flow in\", or a result that looks off by orders of magnitude.",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
+    },
+    {
       "name": "kdense-hypothesis-generation",
       "original_name": "hypothesis-generation",
       "description": "Formulate evidence-bounded scientific questions, candidate hypotheses, rival explanations, causal or associational claims, discriminating predictions, measurements, and preregistration-ready analysis plans. Use when turning observations or preliminary findings into transparent, testable research plans without treating hypotheses as facts.",
@@ -804,14 +812,6 @@
       "license": "MIT"
     },
     {
-      "name": "kdense-iso-13485-certification",
-      "original_name": "iso-13485-certification",
-      "description": "Prepare and structurally review ISO 13485 QMS scope, controlled documentation, and local evidence manifests. Use for ISO 13485 certification-readiness documentation or for separating related FDA QMSR, MDSAP, and EU MDR/IVDR evidence boundaries; not for legal applicability, compliance, or certification decisions.",
-      "source": "K-Dense-AI/claude-scientific-skills",
-      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT"
-    },
-    {
       "name": "kdense-database-lookup",
       "original_name": "database-lookup",
       "description": "Query documented public database APIs with explicit endpoints, filters, pagination, and provenance. Use when a scientific, regulatory, financial, or other database-backed fact must be retrieved reproducibly from a named source rather than inferred from general knowledge.",
@@ -879,6 +879,14 @@
       "name": "kdense-open-notebook",
       "original_name": "open-notebook",
       "description": "Self-hosted, open-source alternative to Google NotebookLM for AI-powered research and document analysis. Use when organizing research materials into notebooks, ingesting diverse content sources (PDFs, videos, audio, web pages, Office documents), generating AI-powered notes and summaries, creating multi-speaker podcasts from research, chatting with documents using context-aware AI, searching across materials with full-text and vector search, or running custom content transformations. Supports 16+ AI providers including OpenAI, Anthropic, Google, Ollama, Groq, and Mistral with complete data privacy through self-hosting.",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "kdense-ontology-term-resolution",
+      "original_name": "ontology-term-resolution",
+      "description": "Resolve free-text scientific labels to ontology term IDs and validate existing CURIEs against the EBI Ontology Lookup Service (OLS4). Use whenever an ontology identifier must be produced or checked - annotating tissue, cell type, disease, phenotype, assay, chemical, organism, sex, or developmental stage fields; preparing metadata for GEO, ENA, BioSamples, CELLxGENE, HCA, or ISA-Tab submission; auditing a metadata table of term IDs; checking whether a term is obsolete and what replaced it; or mapping between ontologies. Triggers include \"ontology term\", \"ontology ID\", \"CURIE\", \"controlled vocabulary\", \"UBERON\", \"CL:\", \"MONDO\", \"HPO\", \"EFO\", \"ChEBI\", \"NCBITaxon\", \"GO term\", \"PATO\", \"annotate this tissue/cell type/disease\", and any request to emit or verify an identifier shaped like PREFIX:0001234.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT"
@@ -1038,7 +1046,7 @@
     {
       "name": "kdense-pi-agent",
       "original_name": "pi-agent",
-      "description": "Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring providers/models/settings, creating Pi skills/extensions/packages/themes/prompt templates, embedding Pi through the SDK, integrating over RPC or JSON event streams, parsing sessions, developing custom Pi providers and TUI components, or using ecosystem packages such as pi-subagents (delegation/orchestration), pi-mcp-adapter (MCP servers), pi-interview (interactive forms), and pi-web-access (web search, fetching, video understanding).",
+      "description": "Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring providers/models/settings/environment variables, creating Pi skills/extensions/packages/themes/prompt templates, embedding Pi through the SDK, integrating over RPC or JSON event streams, parsing sessions, running local models through the llama.cpp router, developing custom Pi providers and TUI components, or using ecosystem packages such as pi-subagents (delegation/orchestration), pi-mcp-adapter (MCP servers), pi-interview (interactive forms), and pi-web-access (web search, fetching, video understanding).",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT"
@@ -1079,6 +1087,14 @@
       "name": "kdense-pathway-enrichment",
       "original_name": "pathway-enrichment",
       "description": "Run pathway and gene-set enrichment analysis on gene lists or ranked gene data, then interpret the results. Use whenever the user has a set of genes (differentially expressed genes from PyDESeq2/Scanpy, CRISPR-screen hits, cluster marker genes, proteomics hits) and wants to know which biological pathways, GO terms, or gene sets are over-represented or enriched. Covers over-representation analysis (ORA / Enrichr / Fisher / hypergeometric), ranked Gene Set Enrichment Analysis (GSEA / preranked), single-sample scoring (ssGSEA/GSVA), and functional profiling via gseapy, g:Profiler, Enrichr libraries, MSigDB, GO, KEGG, Reactome, and WikiPathways \u2014 plus gene-ID mapping, choosing the right background universe, multiple-testing correction, redundancy reduction, dotplots/enrichment maps, and publication-ready tables. Use this for \"pathway analysis\", \"enrichment analysis\", \"GO enrichment\", \"KEGG/Reactome pathways\", \"GSEA\", \"over-representation\", \"functional annotation\", or \"what pathways are my genes in\".",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "kdense-genomic-coordinates",
+      "original_name": "genomic-coordinates",
+      "description": "Convert genomic intervals between coordinate conventions, normalise and compare variant representations, and detect assembly or contig-naming mismatches before they corrupt an analysis. Use whenever coordinates cross a format, tool, or assembly boundary - converting between BED, GFF/GTF, VCF, SAM/BAM, WIG, PSL, genePred, Picard interval_list, or region strings; reconciling 0-based half-open with 1-based inclusive; left-aligning or trimming indels; checking whether two variant records describe the same change; mapping genomic to transcript, CDS, or protein positions; auditing a BED/GTF/VCF for convention violations; or diagnosing GRCh37 vs hg19 vs GRCh38 vs T2T, chr-prefix, and liftover problems. Triggers include \"off by one\", \"0-based\", \"1-based\", \"half-open\", \"coordinate system\", \"left-align\", \"normalize variant\", \"bcftools norm\", \"chr prefix\", \"wrong genome build\", \"liftover\", \"REF mismatch\", and \"HGVS\".",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT"
@@ -1132,12 +1148,28 @@
       "license": "MIT license"
     },
     {
+      "name": "kdense-iso-standards-readiness",
+      "original_name": "iso-standards-readiness",
+      "description": "Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-competence standards - ISO 13485 medical device QMS, ISO 14971 device risk management, ISO/IEC 17025 testing and calibration laboratories, and ISO 15189 medical laboratories. Use when organizing declared scope, controlled documents, risk-management files, scope of accreditation, traceability, CAPA, external-provider controls, or bounded local evidence manifests, and when separating ISO certification from laboratory accreditation, FDA QMSR inspection, CLIA certification, MDSAP, and EU MDR/IVDR evidence boundaries. Not for legal applicability, compliance, certification, or accreditation decisions; contains no clause text.",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
+    },
+    {
       "name": "kdense-stable-baselines3",
       "original_name": "stable-baselines3",
       "description": "Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn-like API. Use for standard RL experiments, quick prototyping, and well-documented algorithm implementations. Best for single-agent RL with Gymnasium environments. For high-performance parallel training, multi-agent systems, or custom vectorized environments, use pufferlib instead.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT license"
+    },
+    {
+      "name": "kdense-openpiv",
+      "original_name": "openpiv",
+      "description": "Particle Image Velocimetry (PIV) analysis with OpenPIV. Use when extracting velocity fields from PIV image pairs, analyzing fluid dynamics or flow visualization experiments, cross-correlating interrogation windows, validating and replacing spurious PIV vectors, or computing vorticity, strain rate, and turbulence statistics from measured velocity fields.",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "BSD-3-Clause"
     },
     {
       "name": "kdense-zarr-python",
@@ -1182,10 +1214,10 @@
     {
       "name": "kdense-generate-image",
       "original_name": "generate-image",
-      "description": "Generate or edit images using AI models (FLUX, Nano Banana 2). Use for general-purpose image generation including photos, illustrations, artwork, visual assets, concept art, and any image that is not a technical diagram or schematic. For flowcharts, circuits, pathways, and technical diagrams, use the scientific-schematics skill instead.",
+      "description": "Generate or edit images with AI models through the OpenRouter Image API (Gemini, FLUX, Seedream, Recraft, GPT-Image). Use for photos, illustrations, artwork, concept art, visual assets, logos, and image editing or compositing from reference images. For flowcharts, circuits, pathways, and other technical diagrams, use the scientific-schematics skill instead.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "license": "MIT license"
+      "license": "MIT"
     },
     {
       "name": "kdense-gget",
@@ -1254,7 +1286,7 @@
     {
       "name": "kdense-experimental-design",
       "original_name": "experimental-design",
-      "description": "Design experiments and studies BEFORE data is collected \u2014 choosing a design, randomizing, blocking, and laying out treatment combinations so the results will actually be interpretable. Use whenever someone is planning a study, asks how to assign subjects/samples to groups, mentions randomization, blocking, stratification, controls, factorial or fractional-factorial designs, design of experiments (DOE), screening many factors, response-surface optimization, crossover or repeated-measures or split-plot designs, cluster/group randomization, Latin squares, plate layouts, batch/run-order effects, replication vs. pseudoreplication, or sequential/adaptive/group-sequential designs. Trigger this even for informal phrasings like \"how should I set up this experiment\", \"how do I avoid confounding\", \"what's the best way to test these 6 factors\", or \"assign these mice to conditions\". For computing the sample size or power once the design is chosen, use statistical-power; for analyzing data already collected, use statistical-analysis.",
+      "description": "Design experiments and studies BEFORE data is collected \u2014 choosing a design, randomizing, blocking, and laying out treatment combinations so results are interpretable. Use whenever someone is planning a study, asks how to assign subjects/samples to groups, mentions randomization, blocking, stratification, controls, factorial or fractional-factorial designs, design of experiments (DOE), screening many factors, response-surface optimization, crossover or repeated-measures or split-plot designs, cluster/group randomization, Latin squares, plate layouts, batch/run-order effects, replication vs. pseudoreplication, or sequential/adaptive/group-sequential designs. Trigger even for informal phrasings like \"how should I set up this experiment\", \"how do I avoid confounding\", \"what's the best way to test these 6 factors\", or \"assign these mice to conditions\". For computing the sample size or power once the design is chosen, use statistical-power; for analyzing data already collected, use statistical-analysis.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "MIT license"
@@ -8804,6 +8836,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-find-complementary-founders",
+      "original_name": "find-complementary-founders",
+      "description": "Use when an owner asks to find a cofounder or project partner. Assess only that agent's own owner and rank only approved profiles other agents posted for their own owners.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-crossframe-notebook",
       "original_name": "crossframe-notebook",
       "description": "Use when CrossFrame Suite routes explicit Chinese notes for books, theories, articles, excerpts, bidirectional reading, absorption, or conflict mapping.",
@@ -8966,7 +9006,7 @@
     {
       "name": "antigravity-uizze-ui-research",
       "original_name": "uizze-ui-research",
-      "description": "Use when building or reviewing web and iOS product UI and you need real UI references, structured design contracts, or implementation validation through UIZZE MCP.",
+      "description": "Use when building or reviewing web and iOS UI and you need real references from the free UIZZE public catalog, a structured design contract, a consent-gated rendered HTML/CSS preview, or a hard pre-ship finish gate.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12543,6 +12583,14 @@
       "name": "antigravity-verification-before-completion",
       "original_name": "verification-before-completion",
       "description": "Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation of success/completion claims, ANY expression of satisfaction, or ANY positive statement about work state.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-orchestrate",
+      "original_name": "orchestrate",
+      "description": "Coordinate focused subagents on substantial work, keep their ownership non-overlapping, and integrate verified results. Use for large-scope Codex tasks; keep trivial work with the coordinator.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16759,6 +16807,14 @@
       "name": "antigravity-seo",
       "original_name": "seo",
       "description": "Run a broad SEO audit across technical SEO, on-page SEO, schema, sitemaps, content quality, AI search readiness, and GEO. Use as the umbrella skill when the user asks for a full SEO analysis or strategy.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-fedora-hyprland-installer",
+      "original_name": "fedora-hyprland-installer",
+      "description": "Install, configure, verify, repair, update, and uninstall Hyprland on Fedora Linux with GPU-aware detection (NVIDIA/AMD/Intel).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

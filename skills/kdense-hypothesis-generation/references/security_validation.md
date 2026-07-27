@@ -59,7 +59,7 @@ Neither LOW finding permits data transmission, credential access, scientific sco
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
-  -s skills/hypothesis-generation/tests -p "test_*.py" -v
+  -s tests/hypothesis-generation -p "test_*.py" -v
 
 uv run skills-ref validate skills/hypothesis-generation
 

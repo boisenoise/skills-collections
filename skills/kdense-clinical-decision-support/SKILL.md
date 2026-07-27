@@ -4,7 +4,7 @@ description: Prepare and validate research-only clinical decision-support evalua
 license: MIT
 compatibility: Python 3.11+; local files only; bundled scripts use the standard library and require no network, credentials, API keys, LLMs, or image services.
 metadata:
-  version: "2.0"
+  version: "2.1"
   skill-author: K-Dense Inc.
 ---
 
@@ -213,7 +213,7 @@ Use `references/regulatory_and_governance.md` for dated context. Obtain qualifie
 From this skill directory:
 
 ```bash
-python3 -m unittest discover -s tests -p 'test_*.py'
+python3 -m unittest discover -s tests/clinical-decision-support -p 'test_*.py'
 ```
 
 Run AST compilation without bytecode:

@@ -169,7 +169,7 @@ No real OMERO server is needed:
 ```bash
 PYTHONDONTWRITEBYTECODE=1 \
   python -B -m unittest discover \
-  -s skills/omero-integration/tests \
+  -s tests/omero-integration \
   -p "test_*.py"
 ```
 

@@ -2,7 +2,7 @@
 name: protocolsio-integration
 description: Read, validate, and safely export protocols.io data with current official REST/MCP contracts, or create non-executing mutation plans. The bundled client makes bounded official-host GET requests only with explicit --execute. Use only for tasks explicitly targeting protocols.io or an exact protocols.io protocol version.
 license: MIT
-allowed-tools: Read, Write, Python
+allowed-tools: Read Write Python
 compatibility: >-
   Bundled CLIs require Python 3.11+ and use only the standard library. Offline
   validation and planning need no credentials or network. REST reads require

@@ -3,7 +3,7 @@ name: exploratory-data-analysis
 description: "Perform bounded, local exploratory analysis of explicitly supported scientific files. Use for redacted CSV/TSV/JSON profiles; optional NumPy, HDF5, FASTA/FASTQ, and basic image metadata inspection; missingness/leakage audits; outlier and transformation sensitivity; and rigorous EDA report scaffolds. Other domain formats are reference-only and unknown formats fail closed."
 license: MIT
 compatibility: Bundled core CLIs require Python 3.11+ and are local/network-free; the complete pinned optional snapshot requires Python 3.12+, uv, and format-specific libraries listed below.
-allowed-tools: Read, Write, Edit, Bash, Glob
+allowed-tools: Read Write Edit Bash Glob
 metadata:
   version: "1.1"
   skill-author: K-Dense Inc.

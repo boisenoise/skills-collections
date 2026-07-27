@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-26 07:03 UTC*
+*Last updated: 2026-07-27 07:22 UTC*
 
-Total skills: **3089**
+Total skills: **3096**
 
 ## Skills by Source
 
@@ -929,8 +929,9 @@ Total skills: **3089**
 | `kdense-exploratory-data-analysis` | Perform bounded, local exploratory analysis of explicitly supported scientific files. Use for redact... |
 | `kdense-flowio` | Read, inspect, and write Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for ... |
 | `kdense-fluidsim` | Plan, configure, inspect, restart, and analyze bounded FluidSim computational-fluid-dynamics simulat... |
-| `kdense-generate-image` | Generate or edit images using AI models (FLUX, Nano Banana 2). Use for general-purpose image generat... |
+| `kdense-generate-image` | Generate or edit images with AI models through the OpenRouter Image API (Gemini, FLUX, Seedream, Rec... |
 | `kdense-geniml` | Use Geniml for audited local genomic-interval workflows: validate BED and universe contracts, plan R... |
+| `kdense-genomic-coordinates` | Convert genomic intervals between coordinate conventions, normalise and compare variant representati... |
 | `kdense-genomic-intelligence` | Predict regulatory features, gene structure, and expression directly from DNA sequence using Genomic... |
 | `kdense-geomaster` | Comprehensive geospatial science skill covering remote sensing, GIS, spatial analysis, machine learn... |
 | `kdense-geopandas` | Guidance and local audit tools for Python workflows that directly use GeoPandas GeoSeries, GeoDataFr... |
@@ -945,7 +946,7 @@ Total skills: **3089**
 | `kdense-hypothesis-generation` | Formulate evidence-bounded scientific questions, candidate hypotheses, rival explanations, causal or... |
 | `kdense-imaging-data-commons` | Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for... |
 | `kdense-infographics` | Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemi... |
-| `kdense-iso-13485-certification` | Prepare and structurally review ISO 13485 QMS scope, controlled documentation, and local evidence ma... |
+| `kdense-iso-standards-readiness` | Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-compet... |
 | `kdense-labarchive-integration` | Securely integrate with the official LabArchives ELN REST-like API and Inventory API v1. Use for reg... |
 | `kdense-lamindb` | Use when working with LaminDB, the open-source lineage-native lakehouse for biological datasets and ... |
 | `kdense-latchbio-integration` | Build, register, debug, and operate bioinformatics workflows on Latch using the Python SDK, CLI, Lat... |
@@ -968,7 +969,9 @@ Total skills: **3089**
 | `kdense-nextflow` | Build, run, and debug Nextflow data pipelines and nf-core workflows end to end. Use whenever the use... |
 | `kdense-omero-integration` | Securely inspect and automate microscopy data workflows against OMERO.server with omero-py, BlitzGat... |
 | `kdense-onekgpd` | Query the 1000 Genomes Project dataset (3,202 whole-genome-sequenced individuals, GRCh38) at the lev... |
+| `kdense-ontology-term-resolution` | Resolve free-text scientific labels to ontology term IDs and validate existing CURIEs against the EB... |
 | `kdense-open-notebook` | Self-hosted, open-source alternative to Google NotebookLM for AI-powered research and document analy... |
+| `kdense-openpiv` | Particle Image Velocimetry (PIV) analysis with OpenPIV. Use when extracting velocity fields from PIV... |
 | `kdense-opentrons-integration` | Author, review, migrate, simulate, and troubleshoot official Opentrons Python Protocol API v2 protoc... |
 | `kdense-optimize-for-gpu` | GPU-accelerate Python code using CuPy, Numba CUDA, Warp, cuDF, cuML, cuGraph, KvikIO, cuCIM, cuxfilt... |
 | `kdense-pacsomatic` | Operator toolkit for nf-core/pacsomatic matched tumor-normal workflows from BAM inputs. Use this ski... |
@@ -1036,6 +1039,7 @@ Total skills: **3089**
 | `kdense-transformers` | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and T... |
 | `kdense-treatment-plans` | Format and structurally validate local treatment-plan documentation after clinical decisions have al... |
 | `kdense-umap-learn` | Use UMAP-learn for nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, s... |
+| `kdense-uncertainty-and-units` | Track physical units and propagate measurement uncertainty in scientific calculations using pint and... |
 | `kdense-usfiscaldata` | Query the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use fo... |
 | `kdense-vaex` | Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed av... |
 | `kdense-venue-templates` | Prepare journal manuscripts, conference papers, research posters, and grant documents using venue-sp... |
@@ -1978,6 +1982,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-fda-food-safety-auditor` | Expert AI auditor for FDA Food Safety (FSMA), HACCP, and PCQI compliance. Reviews food facility reco... |
 | `antigravity-fda-medtech-compliance-auditor` | Expert AI auditor for Medical Device (SaMD) compliance, IEC 62304, and 21 CFR Part 820. Reviews DHFs... |
 | `antigravity-feature-tracking` | Maintain durable feature-level memory across AI coding sessions with lightweight Markdown tracks for... |
+| `antigravity-fedora-hyprland-installer` | Install, configure, verify, repair, update, and uninstall Hyprland on Fedora Linux with GPU-aware de... |
 | `antigravity-ffuf-claude-skill` | Web fuzzing with ffuf |
 | `antigravity-ffuf-web-fuzzing` | Expert guidance for ffuf web fuzzing during penetration testing, including authenticated fuzzing wit... |
 | `antigravity-figma-automation` | Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. A... |
@@ -1986,6 +1991,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-file-uploads` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, multipa... |
 | `antigravity-filesystem-context` | Use for file-based context management, dynamic context discovery, and reducing context window bloat.... |
 | `antigravity-find-bugs` | Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked... |
+| `antigravity-find-complementary-founders` | Use when an owner asks to find a cofounder or project partner. Assess only that agent's own owner an... |
 | `antigravity-finishing-a-development-branch` | Use when implementation is complete, all tests pass, and you need to decide how to integrate the wor... |
 | `antigravity-firebase` | Firebase gives you a complete backend in minutes - auth, database, storage, functions, hosting. But ... |
 | `antigravity-firecrawl-scraper` | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you ... |
@@ -2526,6 +2532,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-optim-agent` | Guide agent-driven parameter optimization for configurable systems with measurable objectives. Use f... |
 | `antigravity-options-flow-analyzer` | Real vs lottery call separation for options P/C ratio analysis — prevents signal inversion from deep... |
 | `antigravity-oral-health-analyzer` | 分析口腔健康数据、识别口腔问题模式、评估口腔健康状况、提供个性化口腔健康建议。支持与营养、慢性病、用药等其他健康数据的关联分析。 |
+| `antigravity-orchestrate` | Coordinate focused subagents on substantial work, keep their ownership non-overlapping, and integrat... |
 | `antigravity-orchestrate-batch-refactor` | Plan and execute large refactors with dependency-aware work packets and parallel analysis. |
 | `antigravity-os-scripting` | Operating system and shell scripting troubleshooting workflow for Linux, macOS, and Windows. Covers ... |
 | `antigravity-oss-hunter` | Automatically hunt for high-impact OSS contribution opportunities in trending repositories. |
@@ -3032,7 +3039,7 @@ calculations
 | `antigravity-ui-ux-designer` | Create interface designs, wireframes, and design systems. Masters user research, accessibility stand... |
 | `antigravity-ui-ux-pro-max` | Comprehensive design guide for web and mobile applications. Use when designing new UI components or ... |
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
-| `antigravity-uizze-ui-research` | Use when building or reviewing web and iOS product UI and you need real UI references, structured de... |
+| `antigravity-uizze-ui-research` | Use when building or reviewing web and iOS UI and you need real references from the free UIZZE publi... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
 | `antigravity-uniprot-database` | Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL.... |
 | `antigravity-unit-testing-test-generate` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case ... |

@@ -545,14 +545,28 @@ def ensure_dependency_tools(args):
 
 
 def submit_command_for_executor(executor, script_path):
-    quoted = shlex.quote(script_path)
+    """Return (argv, stdin_path) for submitting the launch script.
+
+    lsf reads the script from stdin (`bsub < script`); every other executor
+    takes it as an argument. Returning an argv list rather than a shell string
+    keeps submission off a shell entirely, so a script path containing shell
+    metacharacters cannot extend the command that runs.
+    """
     if executor == "lsf":
-        return f"bsub < {quoted}"
+        return ["bsub"], script_path
     if executor == "slurm":
-        return f"sbatch {quoted}"
+        return ["sbatch", script_path], None
     if executor in {"pbs", "sge"}:
-        return f"qsub {quoted}"
-    return f"bash {quoted}"
+        return ["qsub", script_path], None
+    return ["bash", script_path], None
+
+
+def format_submit_command(argv, stdin_path):
+    """Render a submission as a copy-pasteable shell line, for display only."""
+    line = shlex.join(argv)
+    if stdin_path:
+        line += f" < {shlex.quote(stdin_path)}"
+    return line
 
 
 def extract_job_id(executor, output):
@@ -574,8 +588,12 @@ def extract_job_id(executor, output):
 
 
 def execute_launch(args, script_path):
-    cmd = submit_command_for_executor(args.executor, script_path)
-    completed = subprocess.run(cmd, shell=True, text=True, capture_output=True)
+    argv, stdin_path = submit_command_for_executor(args.executor, script_path)
+    if stdin_path:
+        with open(stdin_path, "rb") as handle:
+            completed = subprocess.run(argv, stdin=handle, text=True, capture_output=True)
+    else:
+        completed = subprocess.run(argv, text=True, capture_output=True)
     stdout = (completed.stdout or "").strip()
     stderr = (completed.stderr or "").strip()
 
@@ -708,14 +726,14 @@ def main():
     nextflow_cmd = build_nextflow_command(args, samplesheet_path)
     write_launch_script(args, launch_script_path, nextflow_cmd)
 
-    submit_cmd = submit_command_for_executor(args.executor, launch_script_path)
+    submit_argv, submit_stdin = submit_command_for_executor(args.executor, launch_script_path)
 
     print("--- Pacsomatic Launch Assets Prepared ---")
     print(f"Samplesheet : {os.path.abspath(samplesheet_path)}")
     print(f"Launch script: {os.path.abspath(launch_script_path)}")
     print(f"Params YAML : {os.path.abspath(args.generated_params_file)}")
     print(f"Executor    : {args.executor}")
-    print(f"Run cmd     : {submit_cmd}")
+    print(f"Run cmd     : {format_submit_command(submit_argv, submit_stdin)}")
 
     if args.dry_run and not args.run:
         info("Dry run complete. Inputs and runtime dependencies validated.")

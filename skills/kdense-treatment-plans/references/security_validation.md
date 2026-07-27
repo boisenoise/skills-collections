@@ -55,7 +55,7 @@ Neither LOW finding permits data transmission or clinical decision-making. No ac
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
-  -s skills/treatment-plans/tests -p 'test_*.py' -v
+  -s tests/treatment-plans -p 'test_*.py' -v
 
 uv run skills-ref validate skills/treatment-plans
 

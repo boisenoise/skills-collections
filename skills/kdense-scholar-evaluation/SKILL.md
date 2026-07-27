@@ -3,9 +3,9 @@ name: scholar-evaluation
 description: Provide qualitative-first, evidence-traceable developmental review of scholarly works and audit low-stakes research-assessment rubrics with optional local quality controls. Never use for ranking people or consequential decisions.
 license: MIT
 compatibility: Requires Python 3.11+ for optional bundled standard-library CLIs. All tooling is local JSON/CSV processing with no network, credentials, external models, or subprocesses.
-allowed-tools: Read, Write, Bash, Glob, Python
+allowed-tools: Read Write Bash Glob Python
 metadata:
-  version: "2.0"
+  version: "2.1"
   skill-author: K-Dense Inc.
 ---
 

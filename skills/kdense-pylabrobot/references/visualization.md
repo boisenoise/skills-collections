@@ -123,8 +123,8 @@ Generate a JSON plan without importing PyLabRobot:
 
 ```bash
 python3 skills/pylabrobot/scripts/generate_simulation_plan.py \
-  --manifest skills/pylabrobot/tests/fixtures/protocol_manifest.json \
-  --transfers skills/pylabrobot/tests/fixtures/transfers.csv
+  --manifest tests/pylabrobot/fixtures/protocol_manifest.json \
+  --transfers tests/pylabrobot/fixtures/transfers.csv
 ```
 
 The output:
@@ -156,11 +156,11 @@ Test failures should be deterministic. Do not catch broad errors and continue;
 do not disable trackers; do not mutate expected state to make a failed
 assertion pass.
 
-Run bundled tests without bytecode:
+Run the skill's tests without bytecode:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
-  -s skills/pylabrobot/tests -p "test_*.py" -v
+  -s tests/pylabrobot -p "test_*.py" -v
 ```
 
 ## Stable versus development

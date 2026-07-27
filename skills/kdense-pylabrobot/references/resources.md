@@ -120,7 +120,7 @@ The bundled checker provides an independent deterministic screen:
 
 ```bash
 python3 skills/pylabrobot/scripts/check_deck_geometry.py \
-  --input skills/pylabrobot/tests/fixtures/protocol_manifest.json
+  --input tests/pylabrobot/fixtures/protocol_manifest.json
 ```
 
 It checks deck bounds and pairwise axis-aligned box overlap. It intentionally
@@ -190,14 +190,14 @@ The bundled tools do not deserialize PyLabRobot classes. They use a small,
 strict manifest schema:
 
 - `assets/protocol-manifest.schema.json`
-- `tests/fixtures/protocol_manifest.json`
+- `tests/pylabrobot/fixtures/protocol_manifest.json`
 
 The Python validator adds bounds and cross-field checks beyond the documentation
 schema:
 
 ```bash
 python3 skills/pylabrobot/scripts/validate_manifest.py \
-  --input skills/pylabrobot/tests/fixtures/protocol_manifest.json
+  --input tests/pylabrobot/fixtures/protocol_manifest.json
 ```
 
 Inputs must remain under the current working directory, be regular non-symlink

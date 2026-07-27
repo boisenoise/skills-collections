@@ -3,11 +3,7 @@ name: opentrons-integration
 description: Author, review, migrate, simulate, and troubleshoot official Opentrons Python Protocol API v2 protocols for Flex and OT-2 robots. Use for robot-specific liquid handling, deck and labware setup, pipettes, modules, runtime parameters, liquid classes, and Opentrons App analysis. Use pylabrobot instead when one workflow must support multiple robot vendors.
 license: MIT
 compatibility: Requires Python 3.10+ and uv for local simulation. Flex examples target opentrons 9.1.1 and API 2.29; the separate OT-2 line targets API 2.28 and uses opentrons 9.0.0 as its local compatibility simulator. Physical execution requires compatible hardware, current robot software, and the appropriate Opentrons App.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
+allowed-tools: Read Write Edit Bash
 metadata:
   version: "2.0"
   skill-author: "K-Dense Inc."

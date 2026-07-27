@@ -3,7 +3,7 @@ name: pathml
 description: "Use PathML for local, research-only computational pathology workflows: load and tile slides, build preprocessing and QC pipelines, manage h5path data, quantify multiplex images, construct spatial graphs, and plan bounded model inference."
 license: MIT
 compatibility: PathML 3.0.5 is the latest PyPI release and targets Python 3.10-3.12; installation needs uv plus platform libraries for OpenSlide, BLAS/LAPACK, and Java/Bio-Formats. Bundled Python 3.10+ CLIs are local, bounded, dependency-free, and network-free.
-allowed-tools: Read, Write, Edit, Bash, Glob
+allowed-tools: Read Write Edit Bash Glob
 metadata:
   version: "1.1"
   skill-author: K-Dense Inc.

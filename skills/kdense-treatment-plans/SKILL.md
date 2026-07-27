@@ -4,7 +4,7 @@ description: Format and structurally validate local treatment-plan documentation
 license: MIT
 compatibility: Python 3.11+ standard library; local JSON files only. Bundled CLIs require no network, external services, models, images, credentials, environment variables, or third-party packages.
 metadata:
-  version: "2.0"
+  version: "2.1"
   skill-author: K-Dense Inc.
 ---
 
@@ -152,7 +152,7 @@ See `references/source_ledger.md` for the dated official-source ledger.
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
-  -s tests -p 'test_*.py' -v
+  -s tests/treatment-plans -p 'test_*.py' -v
 ```
 
 Run AST parsing without bytecode:

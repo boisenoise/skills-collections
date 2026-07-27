@@ -9,7 +9,7 @@ compatibility: >-
   upcoming in its support matrix. Bundled local planners require Python 3.10+
   and read only named OMERO_* variables; they never load .env files.
 metadata:
-  version: "1.2"
+  version: "1.3"
   skill-author: K-Dense Inc.
   openclaw:
     envVars:

@@ -13,7 +13,9 @@ description: >
 license: MIT
 compatibility: Requires Python >=3.11. Variant and sample queries require outbound network access to the public 1000 Genomes query endpoint over TLS; the sample/population metadata commands run fully offline over a data file bundled in the skill. No credentials, API keys, or environment variables are used.
 allowed-tools: Write Bash
-metadata: {"version": "1.2", "skill-author": "Dnaerys"}
+metadata:
+  version: "1.2"
+  skill-author: Dnaerys
 ---
 
 # OneKGPd: Individual-Level Queries over the 1000 Genomes Project

@@ -70,14 +70,14 @@ the repository's normal scan process.
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover \
-  -s skills/pptx-posters/tests -p "test_*.py" -v
+  -s tests/pptx-posters -p "test_*.py" -v
 
 PYTHONDONTWRITEBYTECODE=1 uv run --no-project \
   --with "python-pptx==1.0.2" \
   --with "Pillow==12.3.0" \
   --with "lxml==6.1.1" \
   python -B -m unittest discover \
-  -s skills/pptx-posters/tests -p "test_*.py" -v
+  -s tests/pptx-posters -p "test_*.py" -v
 
 uv run skills-ref validate skills/pptx-posters
 

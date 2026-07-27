@@ -60,7 +60,7 @@ None of the LOW findings permits data transmission or credential access. No CRIT
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
-  -s skills/peer-review/tests -p "test_*.py" -v
+  -s tests/peer-review -p "test_*.py" -v
 
 uv run skills-ref validate skills/peer-review
 

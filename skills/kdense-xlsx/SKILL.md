@@ -3,7 +3,11 @@ name: xlsx
 description: "Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm, .xltx) where the workbook file is the primary deliverable. Use for formulas, formatting, financial models, multi-sheet workbooks, and tabular cleanup exported to Excel. Also applies to .csv/.tsv when the user wants spreadsheet output. Do NOT use for Word documents, HTML reports, standalone Python scripts, database pipelines, or Google Sheets API work."
 allowed-tools: Read Write Edit Bash Grep Glob
 license: Proprietary. LICENSE.txt has complete terms
-metadata: {"version": "2.0", "skill-author": "Anthropic, PBC", "adapted-by": "K-Dense Inc.", "source": "https://github.com/anthropics/skills/tree/main/skills/xlsx"}
+metadata:
+  version: "2.0"
+  skill-author: Anthropic, PBC
+  adapted-by: K-Dense Inc.
+  source: https://github.com/anthropics/skills/tree/main/skills/xlsx
 compatibility: Requires Python 3.8+, LibreOffice (soffice on PATH), and gcc only when Unix sockets are restricted
 ---
 

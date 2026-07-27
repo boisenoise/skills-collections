@@ -78,7 +78,7 @@ transmission nor create a missing-file fallback. The generated root
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
-  -s skills/scholar-evaluation/tests -p 'test_*.py' -v
+  -s tests/scholar-evaluation -p 'test_*.py' -v
 
 for script in skills/scholar-evaluation/scripts/*.py; do
   PYTHONDONTWRITEBYTECODE=1 python3 "$script" --help >/dev/null || exit 1
