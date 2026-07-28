@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-27 07:22 UTC*
+*Last updated: 2026-07-28 07:02 UTC*
 
-Total skills: **3096**
+Total skills: **3100**
 
 ## Skills by Source
 
@@ -894,6 +894,7 @@ Total skills: **3096**
 |-------|-------------|
 | `kdense-adaptyv` | How to use the Adaptyv Bio Foundry API and Python SDK for protein experiment design, submission, and... |
 | `kdense-aeon` | This skill should be used for time series machine learning tasks including classification, regressio... |
+| `kdense-analytical-method-validation` | Plan, execute, and document validation, verification, and transfer of analytical procedures under th... |
 | `kdense-anndata` | Data structure for annotated matrices in single-cell analysis. Use when working with .h5ad files or ... |
 | `kdense-arbor` | Autonomously improve a real artifact (code, training recipe, agent harness, data pipeline, prompt) a... |
 | `kdense-arboreto` | Infer gene regulatory networks (GRNs) from gene expression data using scalable algorithms (GRNBoost2... |
@@ -979,6 +980,7 @@ Total skills: **3096**
 | `kdense-paperzilla` | Chat with your agent about projects, recommendations, and canonical papers in Paperzilla. Use when u... |
 | `kdense-parallel-web` | Use Parallel CLI for web search, URL extraction, deep research, structured data enrichment, entity d... |
 | `kdense-pathml` | Use PathML for local, research-only computational pathology workflows: load and tile slides, build p... |
+| `kdense-pathogen-variant-surveillance` | Query live pathogen genomic surveillance data through the GenSpectrum LAPIS API to find which viral ... |
 | `kdense-pathway-enrichment` | Run pathway and gene-set enrichment analysis on gene lists or ranked gene data, then interpret the r... |
 | `kdense-pdf` | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extra... |
 | `kdense-peer-review` | Prepare evidence-bounded, constructive peer-review drafts and structured manuscript assessments. Use... |
@@ -1087,6 +1089,7 @@ Total skills: **3096**
 | `marketing-ai-seo` | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-ge... |
 | `marketing-analytics` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
 | `marketing-aso` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user... |
+| `marketing-attribution` | When the user wants to figure out which marketing actually drives conversions and revenue, choose or... |
 | `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
 | `marketing-co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership o... |
 | `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
@@ -1595,6 +1598,7 @@ pipelines, and system utilities.... |
 | `antigravity-brand-guidelines-community` | To access Anthropic's official brand identity and style resources, use this skill. |
 | `antigravity-brand-perception-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-brave-man` | Runs a structured clarifying interview for new project requests before building. Instead of writing ... |
+| `antigravity-brendangregg-use-tsa` | Methodical performance troubleshooting and root-cause analysis with Brendan Gregg's USE and TSA meth... |
 | `antigravity-brevo-automation` | Automate Brevo (formerly Sendinblue) email marketing operations through Composio's Brevo toolkit via... |
 | `antigravity-broken-authentication` | Identify and exploit authentication and session management vulnerabilities in web applications. Brok... |
 | `antigravity-brooks-audit` | Architecture audit that maps module dependencies, checks layering integrity, and flags structural de... |
