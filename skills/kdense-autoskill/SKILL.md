@@ -4,7 +4,7 @@ description: Observe the user's screen via screenpipe, detect repeated research 
 allowed-tools: Read Write Edit Bash
 license: MIT license
 metadata:
-  version: "1.2"
+  version: "1.3"
   skill-author: K-Dense Inc.
   openclaw:
     requires:

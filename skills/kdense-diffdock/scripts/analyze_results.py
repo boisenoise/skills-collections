@@ -121,8 +121,11 @@ def extract_confidence_score(sdf_file, complex_dir):
     try:
         with open(sdf_file) as f:
             content = f.read()
-            # Look for confidence score in SDF properties
-            conf_match = re.search(r'confidence[:\s]+(-?\d+\.?\d*)', content, re.IGNORECASE)
+            # Look for confidence score in SDF properties. An SDF data item is
+            # written as `> <confidence>` followed by the value on the next
+            # line, so the separator class has to admit the closing angle
+            # bracket as well as a colon.
+            conf_match = re.search(r'confidence[>:\s]+(-?\d+\.?\d*)', content, re.IGNORECASE)
             if conf_match:
                 return float(conf_match.group(1))
     except Exception:

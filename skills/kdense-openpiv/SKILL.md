@@ -5,7 +5,7 @@ license: BSD-3-Clause
 compatibility: Requires Python 3.10+ with openpiv installed (uv pip install openpiv). numpy, scipy, scikit-image, and matplotlib arrive as dependencies. No network access needed after install.
 allowed-tools: Read Write Edit Bash
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: OpenPIV Team
   tested-against: "openpiv 0.25.4"
 ---
@@ -332,6 +332,12 @@ def compute_vorticity(u, v, dx=1.0, dy=None):
 
 The grid spacing is `(window_size - overlap) / scaling_factor` in physical units, so leaving `dx=1.0`
 yields vorticity per grid cell, not per unit length.
+
+**Sign convention:** `runner.py` ends with `transform_coordinates`, which relabels the grid into a
+right-handed y-up frame but leaves the rows in image order, so the saved `y` *decreases* as the row
+index grows. The standalone forms above assume the opposite, so on a `params.npz` field they return
+`-du/dy` and flip the sign of the vorticity and the shear strain — negate the `axis=0` derivatives, or
+use `PIVAnalyzer`, which reads the orientation off the saved coordinates.
 
 ### Strain Rate
 

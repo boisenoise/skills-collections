@@ -2,8 +2,9 @@
 name: scvelo
 description: RNA velocity analysis with scVelo. Estimate cell state transitions from unspliced/spliced mRNA dynamics, infer trajectory directions, compute latent time, and identify driver genes in single-cell RNA-seq data. Complements Scanpy/scVI-tools for trajectory inference.
 license: BSD-3-Clause
+compatibility: Requires Python 3.10+ with scvelo, scanpy, and anndata. Verified against scvelo 0.3.4, whose dynamical model and pl.scatter need pandas<3 and whose stochastic estimator needs numpy<2; the deterministic estimator works on current releases.
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: Kuan-lin Huang
 ---
 
@@ -74,12 +75,15 @@ print(adata)
 ### 2. Preprocessing
 
 ```python
-# Filter and normalize (follows Scanpy conventions)
+# Filter and normalize. As of scVelo 0.3, filter_and_normalize() only filters
+# genes and normalizes per cell -- it no longer takes n_top_genes and no longer
+# log-transforms, so the log step and HVG selection come from Scanpy.
 scv.pp.filter_and_normalize(
     adata,
-    min_shared_counts=20,   # Minimum counts in spliced+unspliced
-    n_top_genes=2000        # Top highly variable genes
+    min_shared_counts=20    # Minimum counts in spliced+unspliced
 )
+sc.pp.log1p(adata)
+sc.pp.highly_variable_genes(adata, n_top_genes=2000, subset=True)
 
 # Compute first and second order moments (means and variances)
 # knn_connectivities must be computed first
@@ -238,8 +242,10 @@ def run_rna_velocity(adata, n_top_genes=2000, mode='dynamical', n_jobs=4):
     """
     scv.settings.verbosity = 2
 
-    # 1. Preprocessing
-    scv.pp.filter_and_normalize(adata, min_shared_counts=20, n_top_genes=n_top_genes)
+    # 1. Preprocessing (scVelo 0.3 dropped log/HVG from filter_and_normalize)
+    scv.pp.filter_and_normalize(adata, min_shared_counts=20)
+    sc.pp.log1p(adata)
+    sc.pp.highly_variable_genes(adata, n_top_genes=n_top_genes, subset=True)
 
     if 'neighbors' not in adata.uns:
         sc.pp.neighbors(adata, n_neighbors=30)

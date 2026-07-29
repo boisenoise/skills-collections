@@ -21,8 +21,10 @@ def run_many_objective_optimization():
     problem = get_problem("dtlz2", n_obj=n_obj)
 
     # Generate reference directions for NSGA-III
-    # Das-Dennis method for uniform distribution
-    ref_dirs = get_reference_directions("das-dennis", n_obj=n_obj, n_partitions=12)
+    # Das-Dennis method for uniform distribution.
+    # The dimension is positional: the factory's first argument is n_dim, and
+    # passing it as n_obj= raises TypeError.
+    ref_dirs = get_reference_directions("das-dennis", n_obj, n_partitions=12)
 
     print(f"Number of reference directions: {len(ref_dirs)}")
 

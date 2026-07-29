@@ -20,7 +20,7 @@ For table schemas, DataFrame access, and join column references, see `references
 ## Prerequisites
 
 ```bash
-pip install --upgrade idc-index
+uv pip install 'idc-index==0.11.14'
 ```
 
 ```python

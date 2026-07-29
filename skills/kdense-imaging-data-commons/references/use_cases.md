@@ -17,7 +17,7 @@ For core API patterns (query, download, visualize, citations), see the "Core Cap
 ## Prerequisites
 
 ```bash
-pip install --upgrade idc-index
+uv pip install 'idc-index==0.11.14'
 ```
 
 ## Use Case 1: Find and Download Lung CT Scans for Deep Learning

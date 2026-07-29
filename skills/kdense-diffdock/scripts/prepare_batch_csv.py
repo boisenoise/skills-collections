@@ -95,8 +95,11 @@ def validate_csv(csv_path, base_dir=None):
     if base_dir is None:
         base_dir = Path(csv_path).parent
 
-    # Validate each row
-    for idx, row in df.iterrows():
+    # Validate each row. The per-row checks index the required columns
+    # directly, so they can only run once every one of them is present --
+    # otherwise a CSV missing a column raises KeyError instead of reporting it.
+    rows = [] if missing_cols else df.iterrows()
+    for idx, row in rows:
         row_msgs = []
 
         # Check complex name
@@ -192,8 +195,8 @@ Examples:
   # Create template CSV
   python prepare_batch_csv.py --create --output batch_template.csv
 
-  # Create template with 5 example rows
-  python prepare_batch_csv.py --create --output template.csv --num-examples 5
+  # Create template with 2 example rows
+  python prepare_batch_csv.py --create --output template.csv --num-examples 2
 
   # Validate with custom base directory for relative paths
   python prepare_batch_csv.py input.csv --validate --base-dir /path/to/data/
@@ -207,7 +210,7 @@ Examples:
                         help='Create a template CSV file')
     parser.add_argument('--output', '-o', help='Output path for template CSV')
     parser.add_argument('--num-examples', type=int, default=3,
-                        help='Number of example rows in template (default: 3)')
+                        help='Number of example rows in template, 1-3 (default: 3)')
     parser.add_argument('--base-dir', help='Base directory for relative file paths')
 
     args = parser.parse_args()

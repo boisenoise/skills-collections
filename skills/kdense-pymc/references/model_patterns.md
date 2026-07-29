@@ -109,11 +109,11 @@ comparison = compare_models(models, ic='loo')
 check_loo_reliability(models)
 ```
 
-**Interpretation:**
-- **Δloo < 2**: Models are similar, choose simpler model
-- **2 < Δloo < 4**: Weak evidence for better model
-- **4 < Δloo < 10**: Moderate evidence
-- **Δloo > 10**: Strong evidence for better model
+**Interpretation** — ArviZ 1.x reports `elpd_diff` on the ELPD scale (higher is
+better, so the best model's `elpd_diff` is 0 and the others are negative):
+- **|elpd_diff| < 4**: Models are similar, choose the simpler model
+- **|elpd_diff| > 4 but within 2 `dse`**: Moderate evidence for the better model
+- **|elpd_diff| > 4 and beyond 2 `dse`**: Strong evidence for the better model
 
 **Check Pareto-k values:**
 - k < 0.7: LOO reliable

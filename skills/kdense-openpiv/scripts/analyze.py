@@ -36,6 +36,34 @@ class PIVAnalyzer:
         dy = float(np.abs(np.diff(self.y, axis=0)).mean()) if self.y.shape[0] > 1 else 1.0
         return dx, dy
 
+    @property
+    def axis_signs(self) -> Tuple[float, float]:
+        """(+-1, +-1): whether x and y increase or decrease along the array axes.
+
+        runner.py finishes with openpiv.tools.transform_coordinates(), which relabels
+        the grid into a physical right-handed (y-up) frame while leaving the rows in
+        image order -- so physical y *decreases* as the row index grows. np.gradient
+        only sees the array, so differentiating with a positive spacing would return
+        -du/dy there and silently flip the sign of the vorticity and of the shear
+        strain rate. These signs put the derivatives back on the physical axes.
+        """
+        x_sign = -1.0 if self.x.shape[1] > 1 and self.x[0, 1] < self.x[0, 0] else 1.0
+        y_sign = -1.0 if self.y.shape[0] > 1 and self.y[1, 0] < self.y[0, 0] else 1.0
+        return x_sign, y_sign
+
+    def _steps(
+        self, dx: Optional[float], dy: Optional[float]
+    ) -> Tuple[float, float, float, float]:
+        """(dx, dy, x_sign, y_sign) for a gradient call, defaulting to the grid."""
+        gx, gy = self.grid_spacing
+        x_sign, y_sign = self.axis_signs
+        return (
+            gx if dx is None else abs(float(dx)),
+            gy if dy is None else abs(float(dy)),
+            x_sign,
+            y_sign,
+        )
+
     def plot_vector_field(
         self,
         scale: int = 50,
@@ -72,23 +100,26 @@ class PIVAnalyzer:
     def compute_vorticity(
         self, dx: Optional[float] = None, dy: Optional[float] = None
     ) -> np.ndarray:
-        """Out-of-plane vorticity, dv/dx - du/dy. Defaults to the inferred grid spacing."""
-        gx, gy = self.grid_spacing
-        dx = gx if dx is None else dx
-        dy = gy if dy is None else dy
-        return np.gradient(self.v, dx, axis=1) - np.gradient(self.u, dy, axis=0)
+        """Out-of-plane vorticity, dv/dx - du/dy. Defaults to the inferred grid spacing.
+
+        dx and dy are spacing magnitudes; the axis orientation comes from the saved
+        coordinates (see axis_signs), so a counter-clockwise flow gives positive
+        vorticity whichever way the rows run.
+        """
+        dx, dy, x_sign, y_sign = self._steps(dx, dy)
+        dv_dx = x_sign * np.gradient(self.v, dx, axis=1)
+        du_dy = y_sign * np.gradient(self.u, dy, axis=0)
+        return dv_dx - du_dy
 
     def compute_strain(
         self, dx: Optional[float] = None, dy: Optional[float] = None
     ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
         """Return (exx, eyy, exy) of the 2D strain-rate tensor."""
-        gx, gy = self.grid_spacing
-        dx = gx if dx is None else dx
-        dy = gy if dy is None else dy
-        du_dx = np.gradient(self.u, dx, axis=1)
-        du_dy = np.gradient(self.u, dy, axis=0)
-        dv_dx = np.gradient(self.v, dx, axis=1)
-        dv_dy = np.gradient(self.v, dy, axis=0)
+        dx, dy, x_sign, y_sign = self._steps(dx, dy)
+        du_dx = x_sign * np.gradient(self.u, dx, axis=1)
+        du_dy = y_sign * np.gradient(self.u, dy, axis=0)
+        dv_dx = x_sign * np.gradient(self.v, dx, axis=1)
+        dv_dy = y_sign * np.gradient(self.v, dy, axis=0)
         return du_dx, dv_dy, 0.5 * (du_dy + dv_dx)
 
     def compute_statistics(self) -> Dict[str, float]:

@@ -152,7 +152,7 @@ algorithm = SPEA2(pop_size=100)
 from pymoo.algorithms.moo.nsga3 import NSGA3
 from pymoo.util.ref_dirs import get_reference_directions
 
-ref_dirs = get_reference_directions("das-dennis", n_obj=4, n_partitions=12)
+ref_dirs = get_reference_directions("das-dennis", 4, n_partitions=12)  # n_dim is positional
 algorithm = NSGA3(ref_dirs=ref_dirs)
 ```
 

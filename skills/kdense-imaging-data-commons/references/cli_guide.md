@@ -5,7 +5,7 @@ The `idc-index` package provides command-line tools for downloading DICOM data f
 ## Installation
 
 ```bash
-pip install --upgrade idc-index
+uv pip install 'idc-index==0.11.14'
 ```
 
 After installation, the `idc` command is available in your terminal.

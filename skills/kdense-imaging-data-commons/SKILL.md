@@ -3,7 +3,7 @@ name: imaging-data-commons
 description: Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for accessing large-scale radiology (CT, MR, PET) and pathology datasets for AI training or research. No authentication required. Query by metadata, visualize in browser, check licenses.
 license: This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data.
 metadata:
-  version: "1.2"
+  version: "1.3"
   source-skill-version: 1.4.0
   skill-author: Andrey Fedorov, @fedorov
   idc-index: 0.11.14
@@ -21,7 +21,10 @@ Use the `idc-index` Python package to query and download public cancer imaging d
 
 **Primary tool:** `idc-index` ([GitHub](https://github.com/imagingdatacommons/idc-index))
 
-**CRITICAL - Check package version and upgrade if needed (run this FIRST):**
+**CRITICAL - Check package version before anything else (run this FIRST):**
+
+This block only *reports*. It never installs. If the version is too old, show the user the
+suggested command and wait for them to approve it — do not run an install on their behalf.
 
 ```python
 import idc_index
@@ -34,18 +37,17 @@ def _parts(version):
     return tuple(int(p) if p.isdigit() else 0 for p in version.split(".")[:3])
 
 if _parts(installed) < _parts(REQUIRED_VERSION):
-    print(f"Upgrading idc-index from {installed} to {REQUIRED_VERSION}...")
-    import subprocess
-    # Pin to the tested version — an unpinned upgrade installs whatever is
-    # newest on PyPI, into system packages, and may still not satisfy the check.
-    subprocess.run(
-        ["pip3", "install", "--break-system-packages", f"idc-index=={REQUIRED_VERSION}"],
-        check=True,
-    )
-    print("Upgrade complete. Restart Python to use new version.")
+    print(f"idc-index {installed} is older than the tested {REQUIRED_VERSION}.")
+    print("Ask the user before installing. Suggested command, in a virtual environment:")
+    print(f"    uv pip install 'idc-index=={REQUIRED_VERSION}'")
 else:
     print(f"idc-index {installed} meets requirement ({REQUIRED_VERSION})")
 ```
+
+**Never** install into a system-managed Python with `--break-system-packages`. That flag exists to
+override a protection the distribution put there deliberately, and a skill has no business
+switching it off unattended. Install into a virtual environment, and pin the version you tested
+against so a later IDC release cannot silently change query results underneath a saved analysis.
 
 **Verify IDC data version and check current data scale:**
 
@@ -238,24 +240,28 @@ See `references/parquet_access_guide.md` for URL patterns, available files, and 
 
 ## Installation and Setup
 
-**Required (for basic access):**
+**Required (for basic access):** install into a virtual environment, pinned to the tested release:
 ```bash
-pip install --upgrade idc-index
+uv pip install 'idc-index==0.11.14'
 ```
 
-**Important:** New IDC data release will always trigger a new version of `idc-index`. Always use `--upgrade` flag while installing, unless an older version is needed for reproducibility.
+**Important:** every new IDC data release ships a new `idc-index`. Moving to a newer version
+changes which data your queries see, so treat it as a deliberate step: check the release notes,
+then pin the new version here. An unpinned `--upgrade` makes the data version a moving target and
+silently breaks reproducibility of an analysis you ran last month.
 
 **IMPORTANT:** IDC data version v23 is current. Always verify your version:
 ```python
 print(client.get_idc_version())  # Should return "v23"
 ```
-If you see an older version, upgrade with: `pip install --upgrade idc-index`
+If it returns an older version, tell the user which version they have and which one this skill was
+tested against, and let them decide whether to upgrade.
 
 **Tested with:** idc-index 0.11.14 (IDC data version v23)
 
 **Optional (for data analysis):**
 ```bash
-pip install pandas numpy pydicom
+uv pip install pandas numpy pydicom
 ```
 
 ## Core Capabilities
@@ -292,7 +298,7 @@ See `references/use_cases.md` for complete end-to-end workflow examples includin
 
 ## Best Practices
 
-- **Verify IDC version before generating responses** - Always call `client.get_idc_version()` at the start of a session to confirm you're using the expected data version (currently v23). If using an older version, recommend `pip install --upgrade idc-index`
+- **Verify IDC version before generating responses** - Always call `client.get_idc_version()` at the start of a session to confirm you're using the expected data version (currently v23). If using an older version, report it and let the user decide whether to install a newer pinned release; never install on their behalf
 - **Check licenses before use** - Always query the `license_short_name` field and respect licensing terms (CC BY vs CC BY-NC)
 - **Generate citations for attribution** - Use `citations_from_selection()` to get properly formatted citations from `source_DOI` values; include these in publications
 - **Start with small queries** - Use `LIMIT` clause when exploring to avoid long downloads and understand data structure
@@ -308,7 +314,7 @@ See `references/use_cases.md` for complete end-to-end workflow examples includin
 
 **Issue: `ModuleNotFoundError: No module named 'idc_index'`**
 - **Cause:** idc-index package not installed
-- **Solution:** Install with `pip install --upgrade idc-index`
+- **Solution:** with the user's agreement, `uv pip install 'idc-index==0.11.14'` in a virtual environment
 
 **Issue: Download fails with connection timeout**
 - **Cause:** Network instability or large download size

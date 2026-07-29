@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-28 07:02 UTC*
+*Last updated: 2026-07-29 07:05 UTC*
 
-Total skills: **3100**
+Total skills: **3103**
 
 ## Skills by Source
 
@@ -952,7 +952,7 @@ Total skills: **3100**
 | `kdense-lamindb` | Use when working with LaminDB, the open-source lineage-native lakehouse for biological datasets and ... |
 | `kdense-latchbio-integration` | Build, register, debug, and operate bioinformatics workflows on Latch using the Python SDK, CLI, Lat... |
 | `kdense-latex-posters` | Create professional research posters in LaTeX using beamerposter, tikzposter, or baposter. Support f... |
-| `kdense-liteparse` | Local document and PDF parsing with spatial text and bounding boxes. Use for extracting text from PD... |
+| `kdense-liteparse` | Local document and PDF parsing that returns spatial text with bounding boxes. Use for extracting tex... |
 | `kdense-literature-review` | Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXi... |
 | `kdense-markdown-mermaid-writing` | Comprehensive markdown and Mermaid diagram writing skill. Use when creating any scientific document,... |
 | `kdense-market-research-reports` | Build evidence-traceable market research reports and assumption-driven market sizing or forecast sce... |
@@ -976,7 +976,8 @@ Total skills: **3100**
 | `kdense-opentrons-integration` | Author, review, migrate, simulate, and troubleshoot official Opentrons Python Protocol API v2 protoc... |
 | `kdense-optimize-for-gpu` | GPU-accelerate Python code using CuPy, Numba CUDA, Warp, cuDF, cuML, cuGraph, KvikIO, cuCIM, cuxfilt... |
 | `kdense-pacsomatic` | Operator toolkit for nf-core/pacsomatic matched tumor-normal workflows from BAM inputs. Use this ski... |
-| `kdense-paper-lookup` | Search 10 academic literature APIs for papers, preprints, citations, and open-access full text, and ... |
+| `kdense-paper-lookup` | Search 11 academic literature APIs for papers, preprints, citations, and open-access full text, and ... |
+| `kdense-paperclip` | Search and read full-text biomedical papers, FDA/PMDA/EMA regulatory documents, clinical trial regis... |
 | `kdense-paperzilla` | Chat with your agent about projects, recommendations, and canonical papers in Paperzilla. Use when u... |
 | `kdense-parallel-web` | Use Parallel CLI for web search, URL extraction, deep research, structured data enrichment, entity d... |
 | `kdense-pathml` | Use PathML for local, research-only computational pathology workflows: load and tile slides, build p... |
@@ -987,6 +988,7 @@ Total skills: **3100**
 | `kdense-pennylane` | Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum cir... |
 | `kdense-phylogenetics` | Build and analyze phylogenetic trees using MAFFT (multiple alignment), IQ-TREE 2 (maximum likelihood... |
 | `kdense-pi-agent` | Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring provi... |
+| `kdense-pkpd-modeling` | Pharmacokinetic and pharmacodynamic modelling and simulation - non-compartmental analysis, compartme... |
 | `kdense-polars` | High-performance DataFrame library for Python ETL, analytics, and pandas migration. Use for expressi... |
 | `kdense-polars-bio` | High-performance genomic interval operations and bioinformatics file I/O on Polars DataFrames. Overl... |
 | `kdense-pptx` | Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. Th... |
@@ -1608,6 +1610,7 @@ pipelines, and system utilities.... |
 | `antigravity-brooks-review` | PR code review that surfaces decay risks, design smells, and maintainability issues with concrete Sy... |
 | `antigravity-brooks-sweep` | Full-sweep mode: runs a unified analysis across all quality dimensions — code decay, architecture, t... |
 | `antigravity-brooks-test` | Test quality review drawing on twelve classic engineering books — with primary focus on xUnit Test P... |
+| `antigravity-browser-act` | Use BrowserAct for authenticated browser automation, JS-rendered extraction, screenshots, parallel s... |
 | `antigravity-browser-automation` | Browser automation powers web testing, scraping, and AI agent interactions. The difference between a... |
 | `antigravity-browser-extension-builder` | Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser ... |
 | `antigravity-browser-harness` | Drive an existing browser through CDP for authenticated, visual, or interactive web automation. |

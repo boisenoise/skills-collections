@@ -14,19 +14,23 @@ import pandas as pd
 import spikeinterface.full as si
 
 
-# Curation criteria presets
+# Curation criteria presets. snr and presence_ratio are minima, the other two are
+# maxima, and each preset is at least as strict as the one above it. The ISI,
+# presence, and amplitude thresholds follow references/QUALITY_METRICS.md:
+# Allen Visual Coding uses isi_violations_ratio < 0.5, IBL's reproducible-ephys
+# criteria tighten that to < 0.1, and the strict single-unit set to < 0.01.
 CURATION_CRITERIA = {
     'allen': {
         'snr': 3.0,
-        'isi_violations_ratio': 0.1,
+        'isi_violations_ratio': 0.5,
         'presence_ratio': 0.9,
         'amplitude_cutoff': 0.1,
     },
     'ibl': {
         'snr': 4.0,
-        'isi_violations_ratio': 0.5,
-        'presence_ratio': 0.5,
-        'amplitude_cutoff': None,
+        'isi_violations_ratio': 0.1,
+        'presence_ratio': 0.9,
+        'amplitude_cutoff': 0.1,
     },
     'strict': {
         'snr': 5.0,

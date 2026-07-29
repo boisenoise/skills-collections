@@ -139,13 +139,12 @@ def predict_new_molecules(model, smiles_list, transformers=None):
     # Create dataset
     new_dataset = dc.data.NumpyDataset(X=features)
 
-    # Apply transformers (if any)
-    if transformers:
-        for transformer in transformers:
-            new_dataset = transformer.transform(new_dataset)
-
-    # Predict
-    predictions = model.predict(new_dataset)
+    # Both training paths normalize with transform_y=True, so the model learned
+    # in z-scored target space. Hand the transformers to predict() so it
+    # untransforms the output back to log(mol/L) -- transforming the dataset
+    # instead would do nothing (these transformers touch y, not X, and a
+    # prediction dataset has no y) and leave the printed numbers z-scored.
+    predictions = model.predict(new_dataset, transformers=transformers or [])
 
     # Display results
     print("\nPredictions:")

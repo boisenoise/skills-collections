@@ -3,7 +3,7 @@ name: phylogenetics
 description: Build and analyze phylogenetic trees using MAFFT (multiple alignment), IQ-TREE 2 (maximum likelihood), and FastTree (fast NJ/ML). Visualize with ETE3 or FigTree. For evolutionary analysis, microbial genomics, viral phylodynamics, protein family analysis, and molecular clock studies.
 license: Unknown
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: Kuan-lin Huang
 ---
 
@@ -23,6 +23,10 @@ Phylogenetic analysis reconstructs the evolutionary history of biological sequen
 # Conda (recommended for CLI tools)
 conda install -c bioconda mafft iqtree fasttree
 pip install ete3
+
+# ete3's TreeStyle/NodeStyle rendering lives in its Qt backend, so image output
+# needs PyQt5 as well; tree parsing and statistics work without it.
+pip install PyQt5
 ```
 
 ## When to Use This Skill

@@ -244,6 +244,14 @@ def curate_units(qm, method: str = 'allen') -> dict:
         'ibl': IBL standards
         'strict': Strict single-unit criteria
     """
+    methods = ('allen', 'ibl', 'strict')
+    if method not in methods:
+        # Without this, an unrecognised method leaves every non-noise unit out of
+        # `labels` entirely, so export_results() silently reports zero good units.
+        raise ValueError(
+            f"unknown curation method {method!r}; choose one of {', '.join(methods)}"
+        )
+
     print(f"Curating units (method: {method})...")
 
     labels = {}

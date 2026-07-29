@@ -18,7 +18,7 @@ For SQL query examples (filter discovery, finding annotations, size estimation),
 ## Prerequisites
 
 ```bash
-pip install --upgrade idc-index
+uv pip install 'idc-index==0.11.14'
 ```
 
 ## Accessing Index Tables

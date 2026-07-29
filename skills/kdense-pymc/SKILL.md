@@ -5,7 +5,7 @@ allowed-tools: Read Write Edit Bash
 compatibility: Requires Python 3.12+ and PyMC 6.0.1-compatible dependencies. Install reproducible environments with `uv pip install "pymc[nutpie]==6.0.1"`; optional NumPyro or BlackJAX samplers require separately pinned JAX-compatible dependencies.
 license: Apache License, Version 2.0
 metadata:
-  version: "1.2"
+  version: "1.3"
   skill-author: K-Dense Inc.
 ---
 
@@ -160,7 +160,7 @@ Creates:
 - Rank plots (mixing check)
 - Autocorrelation plots
 - Energy plots
-- ESS evolution
+- Local ESS plots
 - Summary statistics CSV
 
 ### Quick Diagnostic Check
@@ -258,7 +258,7 @@ This skill includes:
 
 - **`model_diagnostics.py`**: Automated diagnostic checking and report generation. Functions: `check_diagnostics()` for quick checks, `create_diagnostic_report()` for comprehensive analysis with plots.
 
-- **`model_comparison.py`**: Model comparison utilities using LOO/WAIC. Functions: `compare_models()`, `check_loo_reliability()`, `model_averaging()`.
+- **`model_comparison.py`**: Model comparison utilities built on PSIS-LOO ELPD, the only criterion ArviZ 1.x `compare()` ranks on. Functions: `compare_models()`, `check_loo_reliability()`, `model_averaging()`.
 
 ### Templates (`assets/`)
 

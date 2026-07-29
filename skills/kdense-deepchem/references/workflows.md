@@ -115,11 +115,11 @@ new_featurizer = dc.feat.CircularFingerprint(radius=2, size=2048)
 new_features = new_featurizer.featurize(new_smiles)
 new_dataset = dc.data.NumpyDataset(X=new_features)
 
-# Apply same transformations
-for transformer in transformers:
-    new_dataset = transformer.transform(new_dataset)
-
-predictions = model.predict(new_dataset)
+# Untransform the output, not the input. A NormalizationTransformer built with
+# transform_y=True touches y, and a prediction dataset has no y -- transforming
+# it does nothing, and the predictions come back in z-scored space. Passing the
+# transformers to predict() untransforms them into the target's real units.
+predictions = model.predict(new_dataset, transformers=transformers)
 ```
 
 ---

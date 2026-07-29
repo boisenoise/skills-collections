@@ -435,7 +435,51 @@ def verify_bam_and_index(label, bam_path, pbi_path):
         fail(f"{label} .pbi path was provided but does not exist: {pbi_path}")
 
 
+#: Characters that would let --module-load smuggle something other than a module
+#: command into the generated launch script. Everything else written into that
+#: script goes through shlex.quote(); this argument is emitted as a bare shell
+#: line, so it is constrained here instead.
+_SHELL_METACHARACTERS = set("$`|><&(){}[]*?!~\n\r\\\"'")
+
+
+def normalize_module_load(raw):
+    """Validate --module-load and return it as a safe shell line.
+
+    Accepts one or more `module ...` commands separated by `&&` or `;` -- the
+    documented shape, e.g. "module purge && module load nextflow/23.10.0".
+    Rejects anything else so a caller-supplied string cannot become arbitrary
+    shell in the launch script the operator later executes.
+    """
+    if not raw or not raw.strip():
+        return ""
+
+    segments = [seg.strip() for seg in re.split(r"&&|;", raw) if seg.strip()]
+    if not segments:
+        fail("--module-load contained no command.")
+
+    normalized = []
+    for segment in segments:
+        if any(ch in _SHELL_METACHARACTERS for ch in segment):
+            fail(
+                f"--module-load segment {segment!r} contains shell metacharacters. "
+                "Only plain 'module ...' commands are accepted."
+            )
+        try:
+            tokens = shlex.split(segment)
+        except ValueError as exc:
+            fail(f"--module-load segment {segment!r} could not be parsed: {exc}")
+        if not tokens or tokens[0] != "module":
+            fail(
+                f"--module-load segment {segment!r} does not start with 'module'. "
+                "Pass module commands only, e.g. 'module load nextflow/23.10.0'."
+            )
+        normalized.append(" ".join(shlex.quote(token) for token in tokens))
+
+    return " && ".join(normalized)
+
+
 def validate_inputs(args):
+    args.module_load = normalize_module_load(args.module_load)
     ensure_no_spaces("patient-id", args.patient_id)
     ensure_no_spaces("tumor-sample-id", args.tumor_sample_id)
     ensure_no_spaces("normal-sample-id", args.normal_sample_id)

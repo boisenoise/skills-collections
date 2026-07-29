@@ -34,6 +34,18 @@ MOLNET_DATASETS = {
     'lipo': ('regression', 1)
 }
 
+# MoleculeNet loader names that are not simply load_<dataset>. BACE ships as
+# separate classification and regression loaders, so dc.molnet.load_bace does
+# not exist; the entry above treats it as a classification benchmark.
+MOLNET_LOADERS = {
+    'bace': 'load_bace_classification'
+}
+
+
+def molnet_loader(dataset_name):
+    """Return the dc.molnet loader function for a MoleculeNet dataset name."""
+    return getattr(dc.molnet, MOLNET_LOADERS.get(dataset_name, f'load_{dataset_name}'))
+
 
 def create_model(model_type, n_tasks, mode='classification'):
     """
@@ -108,7 +120,7 @@ def train_on_molnet(dataset_name, model_type, n_epochs=50):
 
     # Load dataset with graph featurization
     print(f"\nLoading {dataset_name} dataset with GraphConv featurizer...")
-    load_func = getattr(dc.molnet, f'load_{dataset_name}')
+    load_func = molnet_loader(dataset_name)
     tasks, datasets, transformers = load_func(
         featurizer='GraphConv',
         splitter='scaffold'

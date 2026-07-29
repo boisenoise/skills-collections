@@ -114,7 +114,7 @@ from pymoo.visualization.pcp import PCP
 problem = get_problem("dtlz2", n_obj=5)
 
 # Generate reference directions (required for NSGA-III)
-ref_dirs = get_reference_directions("das-dennis", n_obj=5, n_partitions=12)
+ref_dirs = get_reference_directions("das-dennis", 5, n_partitions=12)  # n_dim is positional
 
 # Configure NSGA-III
 algorithm = NSGA3(ref_dirs=ref_dirs)
