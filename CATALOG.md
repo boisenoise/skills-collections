@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-29 07:05 UTC*
+*Last updated: 2026-07-30 07:03 UTC*
 
-Total skills: **3103**
+Total skills: **3104**
 
 ## Skills by Source
 
@@ -1717,6 +1717,7 @@ pipelines, and system utilities.... |
 | `antigravity-codex-profiles` | Use codex-profiles to run Codex CLI or Codex Desktop with isolated CODEX_HOME profiles for separate ... |
 | `antigravity-codex-review` | Professional code review with auto CHANGELOG generation, integrated with Codex AI. Use when you want... |
 | `antigravity-codex-subagent` | Launch Codex CLI as an isolated subagent for bounded coding, review, or verification tasks. |
+| `antigravity-cohesivity` | Provision backend infra through Cohesivity (cohesivity.ai): Postgres, hosting, auth, storage, and AI... |
 | `antigravity-cold-email` | Write B2B cold emails and follow-up sequences that earn replies. Use when creating outbound prospect... |
 | `antigravity-comfyui-gateway` | REST API gateway for ComfyUI servers. Workflow management, job queuing, webhooks, caching, auth, rat... |
 | `antigravity-commit` | ALWAYS use this skill when committing code changes — never commit directly without it. Creates commi... |
@@ -2413,7 +2414,7 @@ splash language, makepad script, m... |
 | `antigravity-mobile-developer` | Develop React Native, Flutter, or native mobile apps with modern architecture patterns. Masters cros... |
 | `antigravity-mobile-security-coder` | Expert in secure mobile coding practices specializing in input validation, WebView security, and mob... |
 | `antigravity-mock-hunter` | Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data... |
-| `antigravity-modellix` | Integrate Modellix unified API/CLI for async AI image and video generation (model run --wait, task d... |
+| `antigravity-modellix` | Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (mo... |
 | `antigravity-modern-javascript-patterns` | Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns... |
 | `antigravity-molykit` | CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
 BotClient, OpenAI, SSE streaming, AI chat, m... |
