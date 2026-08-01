@@ -46,7 +46,7 @@ try:
     from scipy.stats import f as f_dist
     from scipy.stats import t as t_dist
 except ImportError as exc:  # pragma: no cover
-    raise SystemExit("fit_compartmental.py needs scipy: pip install scipy") from exc
+    raise SystemExit("fit_compartmental.py needs scipy: uv pip install scipy") from exc
 
 
 MODELS = {

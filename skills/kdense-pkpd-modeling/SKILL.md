@@ -5,7 +5,7 @@ license: MIT
 compatibility: Requires Python 3.11+ with numpy and scipy. No network access and no proprietary software. The estimation tools this skill orients you towards (NONMEM, Monolix, Phoenix, Simcyp, GastroPlus) are licensed separately and are never invoked by these scripts.
 allowed-tools: Read Write Edit Bash
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-07-27"
 ---
@@ -338,7 +338,7 @@ map and `references/source-ledger.md` for provenance.
 - **nlmixr2** (requires rxode2 ≥ 5.0.0) is the credible open-source NLME alternative;
   `babelmixr2` and `monolix2rx` translate models between it, NONMEM and Monolix.
 - **PKPy** (PeerJ, 2025) is a Python popPK framework but is **GitHub-only — not on PyPI**, so
-  `pip install pkpy` fails. `chi-drm` (1.0.3) is on PyPI for Bayesian PKPD.
+  `uv pip install pkpy` fails. `chi-drm` (1.0.3) is on PyPI for Bayesian PKPD.
 - **Open Systems Pharmacology Suite v12** (PK-Sim/MoBi) is the open-source PBPK platform; Simcyp
   and GastroPlus are the commercial ones. `ospsuite` is R-only and needs .NET 8.
 

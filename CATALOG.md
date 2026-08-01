@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-07-31 07:09 UTC*
+*Last updated: 2026-08-01 06:59 UTC*
 
-Total skills: **3104**
+Total skills: **3107**
 
 ## Skills by Source
 
@@ -908,7 +908,7 @@ Total skills: **3104**
 | `kdense-bulk-rnaseq` | End-to-end bulk RNA-seq orchestrator — takes raw FASTQ reads through QC and trimming (FastQC, fastp/... |
 | `kdense-cellxgene-census` | Query the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcri... |
 | `kdense-cirq` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-a... |
-| `kdense-citation-management` | Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers... |
+| `kdense-citation-management` | Comprehensive citation management for academic research. Search OpenAlex, PubMed, and Google Scholar... |
 | `kdense-clinical-decision-support` | Prepare and validate research-only clinical decision-support evaluation, evidence-profile, cohort, s... |
 | `kdense-clinical-reports` | Create safety-bounded draft structures and run local deterministic checks for clinical case, diagnos... |
 | `kdense-cobrapy` | Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, f... |
@@ -930,7 +930,7 @@ Total skills: **3104**
 | `kdense-exploratory-data-analysis` | Perform bounded, local exploratory analysis of explicitly supported scientific files. Use for redact... |
 | `kdense-flowio` | Read, inspect, and write Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for ... |
 | `kdense-fluidsim` | Plan, configure, inspect, restart, and analyze bounded FluidSim computational-fluid-dynamics simulat... |
-| `kdense-generate-image` | Generate or edit images with AI models through the OpenRouter Image API (Gemini, FLUX, Seedream, Rec... |
+| `kdense-generate-image` | Generate or edit images with AI models through the OpenRouter Image API (Gemini, Seedream, Recraft, ... |
 | `kdense-geniml` | Use Geniml for audited local genomic-interval workflows: validate BED and universe contracts, plan R... |
 | `kdense-genomic-coordinates` | Convert genomic intervals between coordinate conventions, normalise and compare variant representati... |
 | `kdense-genomic-intelligence` | Predict regulatory features, gene structure, and expression directly from DNA sequence using Genomic... |
@@ -1772,6 +1772,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-copywriting-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
 | `antigravity-cost-optimization` | Strategies and patterns for optimizing cloud costs across AWS, Azure, and GCP. |
+| `antigravity-cowork-to-code-bridge` | Use an already-installed, independently verified cowork-to-code bridge to run narrowly approved acti... |
 | `antigravity-cpp-pro` | Write idiomatic C++ code with modern features, RAII, smart pointers, and STL algorithms. Handles tem... |
 | `antigravity-cqrs-implementation` | Implement Command Query Responsibility Segregation for scalable architectures. Use when separating r... |
 | `antigravity-create-branch` | Create a git branch following Sentry naming conventions. Use when asked to "create a branch", "new b... |
@@ -1972,6 +1973,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-expo-ui-jetpack-compose` | expo-ui-jetpack-compose |
 | `antigravity-expo-ui-swift-ui` | expo-ui-swift-ui |
 | `antigravity-fable-safe-prompt` | Rewrite allowed prompts to reduce false-positive safety triggers without bypassing policy or changin... |
+| `antigravity-fact-check-x-complete` | Compare claims from one or more AI answers, verify their citations against public primary sources, a... |
 | `antigravity-faf-context` | Get your project to 100% ✪ AI-readiness, fast — the AI auto-detects your stack and only asks for wha... |
 | `antigravity-faf-expert` | Advanced .faf (Foundational AI-context Format) specialist. IANA-registered format, MCP server config... |
 | `antigravity-faf-go` | Guided interview to Gold Code (100% AI-Readiness). Use when helping users improve their .faf file th... |
@@ -1999,7 +2001,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-file-uploads` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, multipa... |
 | `antigravity-filesystem-context` | Use for file-based context management, dynamic context discovery, and reducing context window bloat.... |
 | `antigravity-find-bugs` | Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked... |
-| `antigravity-find-complementary-founders` | Use when an owner asks to find a cofounder or project partner. Assess only that agent's own owner an... |
+| `antigravity-find-complementary-founders` | Use when an owner explicitly asks for a cofounder or project partner, or explicitly says they need a... |
 | `antigravity-finishing-a-development-branch` | Use when implementation is complete, all tests pass, and you need to decide how to integrate the wor... |
 | `antigravity-firebase` | Firebase gives you a complete backend in minutes - auth, database, storage, functions, hosting. But ... |
 | `antigravity-firecrawl-scraper` | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you ... |
@@ -2336,6 +2338,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-mailtrap-sending-emails` | Configure or troubleshoot Mailtrap live email sending with Email API, SMTP, transactional streams, b... |
 | `antigravity-mailtrap-setting-up-sending-domain` | Add or verify a Mailtrap sending domain, troubleshoot DNS propagation, publish SPF/DKIM/DMARC record... |
 | `antigravity-mailtrap-testing-with-sandbox` | Capture outbound email in Mailtrap Email Sandbox for development, staging, CI, HTML inspection, spam... |
+| `antigravity-maintain-codex-wiki` | Maintain a review-first engineering wiki with provenance, citation-aware queries, explicit capture a... |
 | `antigravity-make-automation` | Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone l... |
 | `antigravity-makepad-animation` | CRITICAL: Use for Makepad animation system. Triggers on:
 makepad animation, makepad animator, makepa... |

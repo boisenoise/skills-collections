@@ -706,7 +706,7 @@ gget.gpt("Explain CRISPR", api_key=os.environ["OPENAI_API_KEY"])
 
 Install/download third-party dependencies for specific modules.
 
-As of gget 0.29.2, `gget setup` tries `uv pip install` first for Python dependencies and falls back to `pip install` if uv is unavailable or fails.
+As of gget 0.29.2, `gget setup` tries `uv pip install` first for Python dependencies and falls back to plain `pip install` if uv is unavailable or fails.
 
 **Parameters**:
 - `module`: Module name requiring dependency installation

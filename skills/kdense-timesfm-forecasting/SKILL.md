@@ -4,7 +4,7 @@ description: Zero-shot time series forecasting with Google's TimesFM foundation 
 allowed-tools: Read Write Edit Bash
 license: Apache-2.0 license
 metadata:
-  version: "1.1"
+  version: "1.2"
   skill-author: Clayton Young / Superior Byte Works, LLC (@borealBytes)
   skill-version: 1.0.0
 ---
@@ -123,9 +123,6 @@ python scripts/check_system.py
 # Using uv (recommended by this repo)
 uv pip install timesfm[torch]
 
-# Or using pip
-pip install timesfm[torch]
-
 # For JAX/Flax backend (faster on TPU/GPU)
 uv pip install timesfm[flax]
 ```
@@ -134,13 +131,13 @@ uv pip install timesfm[flax]
 
 ```bash
 # CUDA 12.1 (NVIDIA GPU)
-pip install torch>=2.0.0 --index-url https://download.pytorch.org/whl/cu121
+uv pip install torch>=2.0.0 --index-url https://download.pytorch.org/whl/cu121
 
 # CPU only
-pip install torch>=2.0.0 --index-url https://download.pytorch.org/whl/cpu
+uv pip install torch>=2.0.0 --index-url https://download.pytorch.org/whl/cpu
 
 # Apple Silicon (MPS)
-pip install torch>=2.0.0  # MPS support is built-in
+uv pip install torch>=2.0.0  # MPS support is built-in
 ```
 
 ### Step 4: Verify Installation

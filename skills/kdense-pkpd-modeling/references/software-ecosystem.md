@@ -73,7 +73,7 @@ m.calculate_eta_shrinkage(model, ...)
 | **`nca.py` in this skill** | MIT | Validated against analytical profiles; explicit about all four conventions |
 
 **PKPy** (PeerJ, 2025) is a Python framework combining NCA with population modelling, but it is
-**GitHub-only and not published on PyPI** — `pip install pkpy` fails. Install from source if you
+**GitHub-only and not published on PyPI** — `uv pip install pkpy` fails. Install from source if you
 want it.
 
 ## Simulation and trial design

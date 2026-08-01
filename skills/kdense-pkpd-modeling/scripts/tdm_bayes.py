@@ -36,7 +36,7 @@ from _models import build_regimen, disposition, simulate_linear
 try:
     from scipy.optimize import minimize
 except ImportError as exc:  # pragma: no cover
-    raise SystemExit("tdm_bayes.py needs scipy: pip install scipy") from exc
+    raise SystemExit("tdm_bayes.py needs scipy: uv pip install scipy") from exc
 
 
 @dataclass

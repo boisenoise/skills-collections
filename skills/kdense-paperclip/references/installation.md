@@ -37,19 +37,19 @@ If `paperclip` is not found afterwards, `~/.local/bin` is not on your `PATH`:
 export PATH="$HOME/.local/bin:$PATH"      # add to ~/.zshrc or ~/.bashrc to persist
 ```
 
-### Via pip or uv
+### Via uv
 
 Use this when you want the package inside an environment you control — for example to import the
 Python SDK alongside your own code.
 
 ```bash
-pip install https://paperclip.gxl.ai/paperclip.whl
+uv pip install https://paperclip.gxl.ai/paperclip.whl
 paperclip setup        # = paperclip login + paperclip install
 ```
 
 Two caveats. The wheel URL is unversioned, so it resolves to whatever is current — there is no pinned,
 hash-verified release to install instead, and `gxl-paperclip` is not published on PyPI. And the
-unrelated `paperclip` package **is** on PyPI: `pip install paperclip` installs the wrong software.
+unrelated `paperclip` package **is** on PyPI: `uv pip install paperclip` installs the wrong software.
 Always install from the full URL.
 
 ### Windows

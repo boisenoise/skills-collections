@@ -4,7 +4,7 @@ description: Build evidence-traceable market research reports and assumption-dri
 license: MIT
 compatibility: Python 3.11+ standard library for optional offline CLIs. The optional LaTeX template uses XeLaTeX or LuaLaTeX. Online research requires user-approved network access and source-specific terms; bundled scripts make no network, LLM, or image calls.
 metadata:
-  version: "1.1"
+  version: "1.2"
   skill-author: "K-Dense Inc."
 ---
 

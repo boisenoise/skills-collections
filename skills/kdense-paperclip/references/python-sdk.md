@@ -14,7 +14,7 @@ The curl installer bundles the SDK inside its private tree at `~/.paperclip/lib/
 your `sys.path`. For real use, install it into the environment you control:
 
 ```bash
-pip install https://paperclip.gxl.ai/paperclip.whl
+uv pip install https://paperclip.gxl.ai/paperclip.whl
 # or
 uv add https://paperclip.gxl.ai/paperclip.whl
 ```

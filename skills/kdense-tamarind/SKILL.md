@@ -4,7 +4,7 @@ description: Access a collection of open-source molecular design and structural 
 license: MIT
 compatibility: Requires Python 3.10+, a Tamarind Bio account, and an API key from app.tamarind.bio. Uses the `requests` library against the public REST API (no dedicated Python SDK exists). Network access required. Optional MCP server at mcp.tamarind.bio/mcp for agent hosts.
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: Tamarind Bio
   trigger-keywords: protein structure prediction, AlphaFold, Boltz, Chai, ESMFold, protein design, binder design, de novo design, antibody design, nanobody, protein-ligand docking, DiffDock, Autodock Vina, binding affinity, MSA generation, inverse folding, ProteinMPNN, RFdiffusion, BoltzGen, cloud GPU biology, structure prediction API, x-api-key, developability, adme, enzyme, peptide, protein language models, molecular design
   openclaw:
@@ -64,7 +64,7 @@ curl https://app.tamarind.bio/api/tools \
 
 **Base URL:** `https://app.tamarind.bio/api/`
 
-There is **no official Python SDK** — the PyPI package named `tamarind` is an unrelated Neo4j tool. Do not `pip install tamarind`. Write plain `requests` calls against the REST API (the endpoint shapes are in `openapi.yaml`), or use the MCP server for agent hosts.
+There is **no official Python SDK** — the PyPI package named `tamarind` is an unrelated Neo4j tool. Do not `uv pip install tamarind`. Write plain `requests` calls against the REST API (the endpoint shapes are in `openapi.yaml`), or use the MCP server for agent hosts.
 
 ## Two ways to call Tamarind
 

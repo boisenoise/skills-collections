@@ -4,7 +4,7 @@ description: Autonomously improve a real artifact (code, training recipe, agent 
 allowed-tools: Read Write Edit Bash Agent
 license: MIT license
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: K-Dense Inc.
 ---
 

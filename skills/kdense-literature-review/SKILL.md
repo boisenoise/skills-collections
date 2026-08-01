@@ -4,7 +4,7 @@ description: Conduct comprehensive, systematic literature reviews using multiple
 allowed-tools: Read Write Edit Bash
 license: MIT license
 metadata:
-  version: "1.5"
+  version: "1.7"
   skill-author: K-Dense Inc.
   openclaw:
     primaryEnv: OPENROUTER_API_KEY
@@ -228,7 +228,7 @@ curl -fsSL https://parallel.ai/install.sh | bash
 
 ### Required Python Packages
 ```bash
-pip install requests  # For citation verification
+uv pip install requests  # For citation verification
 ```
 
 ### Required System Tools

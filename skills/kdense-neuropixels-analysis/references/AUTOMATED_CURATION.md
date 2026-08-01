@@ -34,12 +34,12 @@ Bombcell classifies units into 4 categories:
 
 ```bash
 # Python
-pip install bombcell
+uv pip install bombcell
 
 # Or development version
 git clone https://github.com/Julie-Fabre/bombcell.git
 cd bombcell/py_bombcell
-pip install -e .
+uv pip install -e .
 ```
 
 ### Basic Usage (Python)
@@ -264,7 +264,7 @@ Track the same neurons across recording days.
 ### Installation
 
 ```bash
-pip install unitmatch
+uv pip install unitmatch
 # Or from source
 git clone https://github.com/EnnyvanBeest/UnitMatch.git
 ```

@@ -17,7 +17,7 @@ Comprehensive guide to spike sorting Neuropixels data.
 
 ### Installation
 ```bash
-pip install kilosort
+uv pip install kilosort
 ```
 
 ### Basic Usage
@@ -106,7 +106,7 @@ sorting = si.run_sorter(
 
 ### Installation
 ```bash
-pip install spykingcircus
+uv pip install spykingcircus
 ```
 
 ### Usage
@@ -125,7 +125,7 @@ sorting = si.run_sorter(
 
 ### Installation
 ```bash
-pip install mountainsort5
+uv pip install mountainsort5
 ```
 
 ### Usage

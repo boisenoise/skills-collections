@@ -41,7 +41,7 @@ try:
     from scipy.stats import norm
     from scipy.stats import t as t_dist
 except ImportError as exc:  # pragma: no cover
-    raise SystemExit("exposure_response.py needs scipy: pip install scipy") from exc
+    raise SystemExit("exposure_response.py needs scipy: uv pip install scipy") from exc
 
 # ICH E14's threshold of regulatory concern: an upper bound of the two-sided
 # 90% confidence interval for placebo-corrected change-from-baseline QTc above

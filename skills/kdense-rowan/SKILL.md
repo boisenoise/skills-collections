@@ -4,7 +4,7 @@ description: Rowan is a cloud-native molecular modeling and medicinal-chemistry 
 license: Proprietary (API key required)
 compatibility: Python 3.12+, API key required
 metadata:
-  version: "1.3"
+  version: "1.4"
   skill-author: Rowan Science
   trigger-keywords: pKa prediction, molecular docking, conformer search, chemistry workflow, drug discovery, SMILES, protein structure, batch molecular modeling, cloud chemistry
   openclaw:
@@ -64,7 +64,7 @@ If that prints without error, you're set up correctly.
 
 ```bash
 uv pip install rowan-python
-# or: pip install rowan-python
+# or: uv pip install rowan-python
 ```
 
 ## User and webhook management

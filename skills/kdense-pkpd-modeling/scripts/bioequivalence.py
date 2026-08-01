@@ -40,7 +40,7 @@ try:
     from scipy.stats import chi2, norm
     from scipy.stats import t as t_dist
 except ImportError as exc:  # pragma: no cover
-    raise SystemExit("bioequivalence.py needs scipy: pip install scipy") from exc
+    raise SystemExit("bioequivalence.py needs scipy: uv pip install scipy") from exc
 
 
 # The FDA regulatory constant: ln(1.25) / 0.25, the point at which the scaled

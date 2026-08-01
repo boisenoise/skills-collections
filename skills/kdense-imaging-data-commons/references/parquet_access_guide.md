@@ -2,7 +2,7 @@
 
 **Tested with:** idc-index-data 23.10.1, DuckDB 1.x
 
-All idc-index metadata tables are published as Parquet files to a public GCS bucket with unrestricted CORS access. This enables metadata queries with DuckDB or pandas without installing idc-index — useful for quick exploration or environments where pip install is unavailable.
+All idc-index metadata tables are published as Parquet files to a public GCS bucket with unrestricted CORS access. This enables metadata queries with DuckDB or pandas without installing idc-index — useful for quick exploration or environments where package installation is unavailable.
 
 **Limitation:** download helpers (`download_from_selection()`), viewer URLs (`get_viewer_URL()`), and citation generation require the idc-index client and are not available from raw Parquet files.
 
@@ -45,7 +45,7 @@ https://storage.googleapis.com/idc-index-data-artifacts/current/release_artifact
 ## Prerequisites
 
 ```bash
-pip install duckdb
+uv pip install duckdb
 # or: uv add duckdb
 ```
 

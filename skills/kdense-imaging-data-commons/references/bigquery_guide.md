@@ -660,7 +660,7 @@ from google.cloud import bigquery
 from idc_index import IDCClient
 
 # Initialize BigQuery client
-# Requires: pip install google-cloud-bigquery
+# Requires: uv pip install google-cloud-bigquery
 # Auth: gcloud auth application-default login
 # Project: needed for billing even on public datasets (free tier applies)
 bq_client = bigquery.Client(project="your-gcp-project-id")

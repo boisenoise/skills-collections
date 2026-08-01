@@ -281,7 +281,7 @@ paperclip results s_4a2b61f6 --save out.csv     # export to CSV or TXT
 | Command | Purpose |
 |---|---|
 | `login` / `logout` | Browser OAuth |
-| `setup` | `login` + `install`, for pip/uv installs |
+| `setup` | `login` + `install`, for uv installs |
 | `install [--dir]` | Write Paperclip skill files into a project |
 | `config` | Diagnostics and settings |
 | `update` | Upgrade CLI and refresh agent skills |
