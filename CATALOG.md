@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-01 06:59 UTC*
+*Last updated: 2026-08-02 07:02 UTC*
 
-Total skills: **3107**
+Total skills: **3109**
 
 ## Skills by Source
 
@@ -2072,6 +2072,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-geminiignore-finops` | Configure and optimize .geminiignore files for AI context window efficiency and token cost reduction... |
 | `antigravity-geo-fundamentals` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
 | `antigravity-geoffrey-hinton` | Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio Turing 2018, criador do backp... |
+| `antigravity-gh-attach` | Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use... |
 | `antigravity-gh-image` | Upload local images to GitHub and get canonical user-attachments embed URLs; use when asked to attac... |
 | `antigravity-gh-review-requests` | Fetch unread GitHub notifications for open PRs where review is requested from a specified team or op... |
 | `antigravity-gha-security-review` | Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete ... |
@@ -3052,6 +3053,7 @@ calculations
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
 | `antigravity-uizze-ui-research` | Use when building or reviewing web and iOS UI and you need real references from the free UIZZE publi... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
+| `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through eight governed MCP tools while preserving fake-provid... |
 | `antigravity-uniprot-database` | Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL.... |
 | `antigravity-unit-testing-test-generate` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case ... |
 | `antigravity-unity-ai-game-creator` | Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene bluepr... |

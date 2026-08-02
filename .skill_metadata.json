@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-01T06:59:01.538355",
-  "skill_count": 3107,
+  "last_updated": "2026-08-02T07:02:00.787275",
+  "skill_count": 3109,
   "sources_processed": 19,
   "skills": [
     {
@@ -8724,6 +8724,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-unified-ai-gateway",
+      "original_name": "unified-ai-gateway",
+      "description": "Operate and evaluate Unified AI System through eight governed MCP tools while preserving fake-provider, authorization, and evidence boundaries.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-plotly",
       "original_name": "plotly",
       "description": "Interactive visualization library. Use when you need hover info, zoom, pan, or web-embeddable charts. Best for dashboards, exploratory analysis, and presentations. For static publication figures use matplotlib or scientific-visualization.",
@@ -9711,6 +9719,14 @@
       "name": "antigravity-ux-copy",
       "original_name": "ux-copy",
       "description": "Generate UX microcopy (button labels, error messages, empty states, toasts) following a casual-but-polite voice and tone",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-gh-attach",
+      "original_name": "gh-attach",
+      "description": "Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use when asked to attach or embed a file in a PR, issue, or comment, or download an attachment URL.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
