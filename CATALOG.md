@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-02 07:02 UTC*
+*Last updated: 2026-08-03 07:22 UTC*
 
-Total skills: **3109**
+Total skills: **3111**
 
 ## Skills by Source
 
@@ -1300,6 +1300,7 @@ Total skills: **3109**
 | `antigravity-agentic-actions-auditor` | Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Cla... |
 | `antigravity-agentmail` | Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check... |
 | `antigravity-agentphone` | Build AI phone agents with AgentPhone API. Use when the user wants to make phone calls, send/receive... |
+| `antigravity-agents-generator` | Generate project-specific AGENTS.md and companion rules by analyzing a codebase. Supports full, mini... |
 | `antigravity-agents-md` | This skill should be used when the user asks to "create AGENTS.md", "update AGENTS.md", "maintain ag... |
 | `antigravity-agents-v2-py` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). U... |
 | `antigravity-agenttrace-session-audit` | Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, he... |
@@ -2949,6 +2950,7 @@ calculations
 | `antigravity-tailwind-design-system` | Build production-ready design systems with Tailwind CSS, including design tokens, component variants... |
 | `antigravity-tailwind-patterns` | Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design toke... |
 | `antigravity-taisly-social-media-posting` | Use Taisly Agent Kit to prepare and publish approved short-form video posts across TikTok, Instagram... |
+| `antigravity-talivia-agent-kit` | Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website chan... |
 | `antigravity-tanstack-query-expert` | Expert in TanStack Query (React Query) — asynchronous state management. Covers data fetching, stale ... |
 | `antigravity-task-intelligence` | Protocolo de Inteligência Pré-Tarefa — ativa TODOS os agentes relevantes do ecossistema ANTES de exe... |
 | `antigravity-tavily-web` | Web search, content extraction, crawling, and research capabilities using Tavily API. Use when you n... |

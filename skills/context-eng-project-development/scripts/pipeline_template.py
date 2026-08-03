@@ -24,7 +24,7 @@ Programmatic usage:
     from pipeline_template import stage_acquire, stage_prepare, stage_process
     stage_acquire("2025-01-15", limit=5)
     stage_prepare("2025-01-15")
-    stage_process("2025-01-15", model="claude-sonnet-4-20250514", max_workers=3)
+    stage_process("2025-01-15", model="claude-sonnet-4-6", max_workers=3)
 """
 
 import argparse
@@ -270,7 +270,7 @@ def generate_prompt(item_data: dict[str, Any]) -> str:
 
 def stage_process(
     batch_id: str,
-    model: str = "claude-sonnet-4-20250514",
+    model: str = "claude-sonnet-4-6",
     max_workers: int = 5,
 ) -> list[tuple[str, int, str | None]]:
     """Stage 3: Execute LLM calls (the expensive, non-deterministic stage).
@@ -755,7 +755,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--model",
-        default="claude-sonnet-4-20250514",
+        default="claude-sonnet-4-6",
         help="Model to use for processing",
     )
     parser.add_argument(

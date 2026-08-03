@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-02T07:02:00.787275",
-  "skill_count": 3109,
+  "last_updated": "2026-08-03T07:22:31.708895",
+  "skill_count": 3111,
   "sources_processed": 19,
   "skills": [
     {
@@ -5239,6 +5239,14 @@
       "name": "antigravity-local-llm-expert",
       "original_name": "local-llm-expert",
       "description": "Master local LLM inference, model selection, VRAM optimization, and local deployment using Ollama, llama.cpp, vLLM, and LM Studio. Expert in quantization formats (GGUF, EXL2) and local AI privacy.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agents-generator",
+      "original_name": "agents-generator",
+      "description": "Generate project-specific AGENTS.md and companion rules by analyzing a codebase. Supports full, minimal, update, and dry-run modes with package-manager detection, monorepos, backups, managed blocks, confidence scoring, and command validation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15210,6 +15218,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-talivia-agent-kit",
+      "original_name": "talivia-agent-kit",
+      "description": "Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website changes and payment attribution.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-agent-evaluation",
