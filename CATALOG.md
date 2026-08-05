@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-04 07:02 UTC*
+*Last updated: 2026-08-05 07:03 UTC*
 
-Total skills: **3111**
+Total skills: **3114**
 
 ## Skills by Source
 
@@ -1079,6 +1079,7 @@ Total skills: **3111**
 | `brunoasm-document_ocr` | Convert scanned PDFs and document images into clean Markdown using docling for layout (figures, tabl... |
 | `brunoasm-extract_from_pdfs` | This skill should be used when extracting structured data from scientific PDFs for systematic review... |
 | `brunoasm-lab_ordering` | Place lab supply orders from member requests — route by request header to Amazon Business, the Pritz... |
+| `brunoasm-nirc_badge_request` | Prepare Field Museum NIRC ID badge requests (Scientific Affiliate, Visitor, Contractor) and prefill ... |
 | `brunoasm-phylo_from_buscos` | Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with s... |
 
 ### coreyhaines31/marketingskills
@@ -2071,6 +2072,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gemini-live-api-dev` | Use this skill when building real-time, bidirectional streaming applications with the Gemini Live AP... |
 | `antigravity-gemini-omni-flash-api` | Use this skill for generative video editing, text-to-video, image-referenced video generation, and f... |
 | `antigravity-geminiignore-finops` | Configure and optimize .geminiignore files for AI context window efficiency and token cost reduction... |
+| `antigravity-generate-nanobanana` | Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Fla... |
 | `antigravity-geo-fundamentals` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
 | `antigravity-geoffrey-hinton` | Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio Turing 2018, criador do backp... |
 | `antigravity-gh-attach` | Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use... |
@@ -2848,6 +2850,7 @@ Plans content calendars and ident... |
 | `antigravity-shopify-apps` | Expert patterns for Shopify app development including Remix/React Router apps, embedded apps with Ap... |
 | `antigravity-shopify-automation` | Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections.... |
 | `antigravity-shopify-development` | Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid. |
+| `antigravity-shopify-review-triage` | Turn public 1-3-star Shopify App Store review rows into a P0-P3 triage brief: incident risk, repeate... |
 | `antigravity-short` | Rewrite the previous response more briefly while preserving the substance. |
 | `antigravity-signup-flow-cro` | You are an expert in optimizing signup and registration flows. Your goal is to reduce friction, incr... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
@@ -3055,7 +3058,7 @@ calculations
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
 | `antigravity-uizze-ui-research` | Use when building or reviewing web and iOS UI and you need real references from the free UIZZE publi... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
-| `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through eight governed MCP tools while preserving fake-provid... |
+| `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through nine governed MCP tools, including provider-free prom... |
 | `antigravity-uniprot-database` | Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL.... |
 | `antigravity-unit-testing-test-generate` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case ... |
 | `antigravity-unity-ai-game-creator` | Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene bluepr... |
