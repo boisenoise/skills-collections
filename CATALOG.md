@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-06 07:04 UTC*
+*Last updated: 2026-08-07 06:31 UTC*
 
-Total skills: **3114**
+Total skills: **3116**
 
 ## Skills by Source
 
@@ -2554,6 +2554,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-osterwalder-canvas-architect` | Iterative consultant agent for building and validating logically consistent 9-block Business Model C... |
 | `antigravity-outlook-automation` | Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Al... |
 | `antigravity-outlook-calendar-automation` | Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeti... |
+| `antigravity-outreachagent` | Operate reply-aware cold outbound email workflows for AI agents with inboxes, contacts, templates, p... |
 | `antigravity-page-cro` | Analyze and optimize individual pages for conversion performance. |
 | `antigravity-pagerduty-automation` | Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation ... |
 | `antigravity-pagespeed-enhancer` | Scan, audit, and fix web performance issues across all four Lighthouse/PageSpeed Insights pillars — ... |
@@ -3108,6 +3109,7 @@ calculations
 | `antigravity-vibers-code-review` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, an... |
 | `antigravity-viboscope` | Psychological compatibility matching — find cofounders, collaborators, and friends through validated... |
 | `antigravity-video-content-extractor` | Extract key frames from MP4 videos at configurable intervals, run Tesseract OCR, and generate struct... |
+| `antigravity-video-router` | Route a video-production brief to generation, deterministic composition, supplied-footage editing, o... |
 | `antigravity-videodb` | Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spok... |
 | `antigravity-videodb-skills` | Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK. |
 | `antigravity-viral-generator-builder` | Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar cr... |
