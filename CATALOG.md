@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-07 06:31 UTC*
+*Last updated: 2026-08-08 06:21 UTC*
 
-Total skills: **3116**
+Total skills: **3118**
 
 ## Skills by Source
 
@@ -917,6 +917,7 @@ Total skills: **3116**
 | `kdense-database-lookup` | Query documented public database APIs with explicit endpoints, filters, pagination, and provenance. ... |
 | `kdense-datamol` | Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standar... |
 | `kdense-deepchem` | Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, to... |
+| `kdense-deepspot-m` | Generate transcriptome-wide virtual spatial transcriptomics from H&E histology with DeepSpot-M. Use ... |
 | `kdense-deeptools` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profil... |
 | `kdense-depmap` | Query the Cancer Dependency Map (DepMap) for cancer cell line gene dependency scores (CRISPR Chronos... |
 | `kdense-dhdna-profiler` | Extract cognitive patterns and thinking fingerprints from any text. Use this skill when the user wan... |
@@ -974,7 +975,7 @@ Total skills: **3116**
 | `kdense-open-notebook` | Self-hosted, open-source alternative to Google NotebookLM for AI-powered research and document analy... |
 | `kdense-openpiv` | Particle Image Velocimetry (PIV) analysis with OpenPIV. Use when extracting velocity fields from PIV... |
 | `kdense-opentrons-integration` | Author, review, migrate, simulate, and troubleshoot official Opentrons Python Protocol API v2 protoc... |
-| `kdense-optimize-for-gpu` | GPU-accelerate Python code using CuPy, Numba CUDA, Warp, cuDF, cuML, cuGraph, KvikIO, cuCIM, cuxfilt... |
+| `kdense-optimize-for-gpu` | GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct and fas... |
 | `kdense-pacsomatic` | Operator toolkit for nf-core/pacsomatic matched tumor-normal workflows from BAM inputs. Use this ski... |
 | `kdense-paper-lookup` | Search 11 academic literature APIs for papers, preprints, citations, and open-access full text, and ... |
 | `kdense-paperclip` | Search and read full-text biomedical papers, FDA/PMDA/EMA regulatory documents, clinical trial regis... |
@@ -1011,6 +1012,7 @@ Total skills: **3116**
 | `kdense-qiskit` | Build, simulate, transpile, and execute quantum circuits with Qiskit and IBM Quantum Runtime. Use fo... |
 | `kdense-qutip` | Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic, traj... |
 | `kdense-rdkit` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, Log... |
+| `kdense-relsa-severity-assessment` | Multivariate severity assessment and humane endpoint prediction for laboratory animal studies using ... |
 | `kdense-research-grants` | Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific form... |
 | `kdense-research-lookup` | Compile current scholarly evidence for a scientific manuscript or research brief. Use when the user ... |
 | `kdense-rowan` | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Python A... |
