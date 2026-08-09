@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-08 06:21 UTC*
+*Last updated: 2026-08-09 06:21 UTC*
 
-Total skills: **3118**
+Total skills: **3121**
 
 ## Skills by Source
 
@@ -965,6 +965,7 @@ Total skills: **3118**
 | `kdense-modal` | Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Use whe... |
 | `kdense-molecular-dynamics` | Run and analyze molecular dynamics simulations with OpenMM and MDAnalysis. Set up protein/small mole... |
 | `kdense-molfeat` | Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (Chem... |
+| `kdense-ncats-arax` | Queries the NCATS Translator ARAX production API for bounded, typed, provenance-rich one-hop and end... |
 | `kdense-networkx` | Create, analyze, and visualize complex networks and graphs in Python with NetworkX. Use when working... |
 | `kdense-neurokit2` | Use NeuroKit2 to build or audit reproducible research workflows for physiological time-series prepro... |
 | `kdense-neuropixels-analysis` | Analyze Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX... |
@@ -2572,6 +2573,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-pdf-conversion-router` | Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structure... |
 | `antigravity-pentest-checklist` | Provide a comprehensive checklist for planning, executing, and following up on penetration tests. En... |
 | `antigravity-pentest-commands` | Provide a comprehensive command reference for penetration testing tools including network scanning, ... |
+| `antigravity-people-data` | Research LinkedIn professional profiles and public business-contact data, including email/phone look... |
 | `antigravity-performance-engineer` | Expert performance engineer specializing in modern observability, |
 | `antigravity-performance-optimization` | Optimizes application performance. Use when performance requirements exist, when you suspect perform... |
 | `antigravity-performance-optimizer` | Identifies and fixes performance bottlenecks in code, databases, and APIs. Measures before and after... |
@@ -3028,6 +3030,7 @@ calculations
 | `antigravity-train-sentence-transformers` | Train or fine-tune sentence-transformers models across `SentenceTransformer` (bi-encoder; dense or s... |
 | `antigravity-transformers-js` | Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScrip... |
 | `antigravity-travel-health-analyzer` | 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。 |
+| `antigravity-travel-planner` | 旅行/行程规划需求时使用:规划去某地旅行、X天X城、带老人孩子、自驾、假期安排等。产出逐日行程表、预算估算(经济/舒适/奢华三档)、交通住宿建议、景点美食清单。必须先问预算,预算未确认只输出问题清单;... |
 | `antigravity-tree-ring-memory` | Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forget... |
 | `antigravity-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `antigravity-triage` | Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if ... |

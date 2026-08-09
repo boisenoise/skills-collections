@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-08T06:21:27.058148",
-  "skill_count": 3118,
+  "last_updated": "2026-08-09T06:21:51.288058",
+  "skill_count": 3121,
   "sources_processed": 19,
   "skills": [
     {
@@ -738,6 +738,14 @@
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "GPLv3 license"
+    },
+    {
+      "name": "kdense-ncats-arax",
+      "original_name": "ncats-arax",
+      "description": "Queries the NCATS Translator ARAX production API for bounded, typed, provenance-rich one-hop and endpoint-pinned two-hop biomedical knowledge-graph relationships. Use for Biolink-constrained RTX-KG2 lookup, explicit selected-provider ARAX federation, separate entity normalization, qualifier-aware graph traversal, and inspection of TRAPI edge bindings, publications, and knowledge-source provenance. Do not use for inference, ranking, open-ended pathfinding, clinical guidance, or sensitive queries.",
+      "source": "K-Dense-AI/claude-scientific-skills",
+      "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "license": "MIT"
     },
     {
       "name": "kdense-nextflow",
@@ -2823,6 +2831,14 @@
       "name": "antigravity-threejs-materials",
       "original_name": "threejs-materials",
       "description": "Three.js materials - PBR, basic, phong, shader materials, material properties. Use when styling meshes, working with textures, creating custom shaders, or optimizing material performance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-people-data",
+      "original_name": "people-data",
+      "description": "Research LinkedIn professional profiles and public business-contact data, including email/phone lookup, people search, and YouTube channel business-email discovery.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5087,6 +5103,14 @@
       "name": "antigravity-workflow-patterns",
       "original_name": "workflow-patterns",
       "description": "Use this skill when implementing tasks according to Conductor's TDD workflow, handling phase checkpoints, managing git commits for tasks, or understanding the verification protocol.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-travel-planner",
+      "original_name": "travel-planner",
+      "description": "\u65c5\u884c/\u884c\u7a0b\u89c4\u5212\u9700\u6c42\u65f6\u4f7f\u7528:\u89c4\u5212\u53bb\u67d0\u5730\u65c5\u884c\u3001X\u5929X\u57ce\u3001\u5e26\u8001\u4eba\u5b69\u5b50\u3001\u81ea\u9a7e\u3001\u5047\u671f\u5b89\u6392\u7b49\u3002\u4ea7\u51fa\u9010\u65e5\u884c\u7a0b\u8868\u3001\u9884\u7b97\u4f30\u7b97(\u7ecf\u6d4e/\u8212\u9002/\u5962\u534e\u4e09\u6863)\u3001\u4ea4\u901a\u4f4f\u5bbf\u5efa\u8bae\u3001\u666f\u70b9\u7f8e\u98df\u6e05\u5355\u3002\u5fc5\u987b\u5148\u95ee\u9884\u7b97,\u9884\u7b97\u672a\u786e\u8ba4\u53ea\u8f93\u51fa\u95ee\u9898\u6e05\u5355;\u4e8b\u5b9e\u6570\u636e\u5e26\u6765\u6e90\u548c\u67e5\u8be2\u65e5\u671f\u3002",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
