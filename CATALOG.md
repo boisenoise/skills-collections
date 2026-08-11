@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-10 06:38 UTC*
+*Last updated: 2026-08-11 06:26 UTC*
 
-Total skills: **3121**
+Total skills: **3122**
 
 ## Skills by Source
 
@@ -946,7 +946,7 @@ Total skills: **3121**
 | `kdense-hugging-science` | Use when the user is doing AI/ML work in a scientific domain such as biology, chemistry, physics, as... |
 | `kdense-hypogenic` | Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation from ... |
 | `kdense-hypothesis-generation` | Formulate evidence-bounded scientific questions, candidate hypotheses, rival explanations, causal or... |
-| `kdense-imaging-data-commons` | Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for... |
+| `kdense-imaging-data-commons` | Query and download public cancer imaging data from NCI Imaging Data Commons. Invoke for any question... |
 | `kdense-infographics` | Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemi... |
 | `kdense-iso-standards-readiness` | Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-compet... |
 | `kdense-labarchive-integration` | Securely integrate with the official LabArchives ELN REST-like API and Inventory API v1. Use for reg... |
@@ -1084,6 +1084,7 @@ Total skills: **3121**
 | `brunoasm-lab_ordering` | Place lab supply orders from member requests — route by request header to Amazon Business, the Pritz... |
 | `brunoasm-nirc_badge_request` | Prepare Field Museum NIRC ID badge requests (Scientific Affiliate, Visitor, Contractor) and prefill ... |
 | `brunoasm-phylo_from_buscos` | Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with s... |
+| `brunoasm-secure_raw_data_backup` | Archive irreplaceable raw data (sequencing runs, imaging, field data) to write-once cloud cold stora... |
 
 ### coreyhaines31/marketingskills
 

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-10T06:38:54.868873",
-  "skill_count": 3121,
+  "last_updated": "2026-08-11T06:26:18.727778",
+  "skill_count": 3122,
   "sources_processed": 19,
   "skills": [
     {
@@ -1478,7 +1478,7 @@
     {
       "name": "kdense-imaging-data-commons",
       "original_name": "imaging-data-commons",
-      "description": "Query and download public cancer imaging data from NCI Imaging Data Commons using idc-index. Use for accessing large-scale radiology (CT, MR, PET) and pathology datasets for AI training or research. No authentication required. Query by metadata, visualize in browser, check licenses.",
+      "description": "Query and download public cancer imaging data from NCI Imaging Data Commons. Invoke for any question about IDC collections, cancer imaging datasets, DICOM data access, radiology (CT, MR, PET) or pathology AI training sets, metadata queries, visualization, or license checks \u2014 even when the user doesn't explicitly mention \"IDC\". No authentication required.",
       "source": "K-Dense-AI/claude-scientific-skills",
       "source_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "license": "This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data."
@@ -24247,6 +24247,14 @@
       "name": "brunoasm-nirc_badge_request",
       "original_name": "nirc-badge-request",
       "description": "Prepare Field Museum NIRC ID badge requests (Scientific Affiliate, Visitor, Contractor) and prefill the NIRC Badge Request Google Form for human review. Use this skill whenever the user mentions a badge, badge renewal, expiring badge, building access, door access, room access, West Lot parking for a non-staff person, or getting a research associate, affiliate, visitor, or contractor into NIRC spaces or the collections \u2014 even if they never name the form. Also use it for the questions this process raises: whether after-hours or weekend access is possible, who has to approve it, how far in advance to submit, and whether someone should go through this form or through HR. Restricted to curators; other Museum staff may prepare a draft but must route it to a curator for submission.",
+      "source": "brunoasm/my_claude_skills",
+      "source_url": "https://github.com/brunoasm/my_claude_skills",
+      "license": "MIT"
+    },
+    {
+      "name": "brunoasm-secure_raw_data_backup",
+      "original_name": "secure-raw-data-backup",
+      "description": "Archive irreplaceable raw data (sequencing runs, imaging, field data) to write-once cloud cold storage \u2014 generate checksums, verify before upload, stream a tarball to S3 Deep Archive under Object Lock, and prove the pipeline with a restore test before trusting it at scale. Use when the user asks to back up or archive raw data, set up an immutable/WORM backup, generate md5 checksums for a data folder, or verify/restore an existing archive.",
       "source": "brunoasm/my_claude_skills",
       "source_url": "https://github.com/brunoasm/my_claude_skills",
       "license": "MIT"

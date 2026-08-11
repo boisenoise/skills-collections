@@ -1,6 +1,6 @@
 # Clinical Data Guide for IDC
 
-**Tested with:** idc-index 0.11.7 (IDC data version v23)
+**Tested with:** idc-index 0.12.5 (IDC data version v24)
 
 Clinical data (demographics, diagnoses, therapies, lab tests, staging) accompanies many IDC imaging collections. This guide covers how to discover, access, and integrate clinical data with imaging data using `idc-index`.
 
@@ -16,9 +16,8 @@ For basic clinical data access, see the "Clinical Data Access" section in the ma
 
 ## Prerequisites
 
-```bash
-uv pip install 'idc-index==0.11.14'
-```
+Needs `idc-index` installed — run `python scripts/check_version.py`, which reports the installed
+version and prints the install command for the interpreter you are running.
 
 No BigQuery credentials required - clinical data is packaged with `idc-index`.
 

@@ -1,19 +1,22 @@
 # Direct Parquet Access Guide for IDC
 
-**Tested with:** idc-index-data 23.10.1, DuckDB 1.x
+**Tested with:** idc-index-data 24.2.2 (IDC data version v24), DuckDB 1.5
 
-All idc-index metadata tables are published as Parquet files to a public GCS bucket with unrestricted CORS access. This enables metadata queries with DuckDB or pandas without installing idc-index — useful for quick exploration or environments where package installation is unavailable.
+All idc-index metadata tables are published as Parquet files to a public GCS bucket with unrestricted CORS access. This enables metadata queries with DuckDB or pandas without installing idc-index.
 
 **Limitation:** download helpers (`download_from_selection()`), viewer URLs (`get_viewer_URL()`), and citation generation require the idc-index client and are not available from raw Parquet files.
+
+**This is not the first no-install option to reach for.** It still needs DuckDB installed, and the per-collection clinical tables are not published here — only the `clinical_index` dictionary. For ad-hoc metadata with nothing installed, the REST API (`rest_api_guide.md`) needs no install at all and reaches `clinical.<table>` through `POST /sql`.
 
 ## When to Use This Guide
 
 Load this guide when you need to:
-- Query IDC metadata without installing idc-index
-- Run ad-hoc DuckDB queries against the latest index files
-- Access `volume_geometry_index` or `rtstruct_index` for geometry validation or RT structure queries
+- Pin queries to a specific IDC data version (see *Pinning to a Specific Version* below) rather than whatever the hosted API currently serves
+- Return more rows than the REST `/sql` ceiling of 10 000
+- Run heavy or repeated local DuckDB analysis without driving the hosted API
+- Query IDC metadata where DuckDB is available but idc-index is not
 
-For full API access (downloads, viewer, citations), use idc-index as documented in the main SKILL.md.
+For downloads, viewer URLs, and citations, use idc-index as documented in the main SKILL.md.
 
 ## URL Pattern
 
@@ -38,16 +41,17 @@ https://storage.googleapis.com/idc-index-data-artifacts/current/release_artifact
 | `collections_index.parquet` | — | Collection-level metadata |
 | `analysis_results_index.parquet` | — | Derived dataset metadata |
 | `clinical_index.parquet` | ~0.2 MB | Clinical data column dictionary |
+| `ct_index.parquet` | — | CT acquisition/reconstruction parameters |
+| `mr_index.parquet` | — | MR sequence/acquisition parameters |
+| `pt_index.parquet` | — | PET acquisition/radiopharmaceutical parameters |
 | `prior_versions_index.parquet` | — | Series from previous IDC releases |
 
 **Note:** the main index file is named `idc_index.parquet`, not `index.parquet`. Reference it with an alias in SQL queries (e.g., `FROM read_parquet(...) AS index`).
 
 ## Prerequisites
 
-```bash
-uv pip install duckdb
-# or: uv add duckdb
-```
+Install the Python `duckdb` package, using whatever installer manages the environment you are
+running in.
 
 DuckDB reads Parquet directly from HTTPS URLs using HTTP range requests — no GCS client library or authentication required.
 

@@ -4,9 +4,8 @@ The `idc-index` package provides command-line tools for downloading DICOM data f
 
 ## Installation
 
-```bash
-uv pip install 'idc-index==0.11.14'
-```
+Needs `idc-index` installed — run `python scripts/check_version.py`, which reports the installed
+version and prints the install command for the interpreter you are running.
 
 After installation, the `idc` command is available in your terminal.
 
@@ -49,6 +48,22 @@ idc download manifest.txt --download-dir ./data
 | `--log-level` | Verbosity: debug, info, warning, error, critical |
 
 ### Directory Template Variables
+
+The same templates apply in Python, where the argument is `dirTemplate=` rather than the
+`--dir-template` flag. The default is
+`%collection_id/%PatientID/%StudyInstanceUID/%Modality_%SeriesInstanceUID`:
+
+```python
+# Simplified hierarchy (omit StudyInstanceUID level)
+client.download_from_selection(
+    downloadDir="./data",
+    collection_id="tcga_luad",
+    dirTemplate="%collection_id/%PatientID/%Modality"
+)
+# Results in: ./data/tcga_luad/TCGA-05-4244/CT/
+
+# dirTemplate="" disables the hierarchy, writing every file straight into downloadDir
+```
 
 Use these variables in `--dir-template` to organize downloads:
 
