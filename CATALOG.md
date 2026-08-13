@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-12 06:37 UTC*
+*Last updated: 2026-08-13 06:38 UTC*
 
-Total skills: **3122**
+Total skills: **3124**
 
 ## Skills by Source
 
@@ -1410,6 +1410,7 @@ Total skills: **3122**
 | `antigravity-astro` | Build content-focused websites with Astro — zero JS by default, islands architecture, multi-framewor... |
 | `antigravity-astropy` | Astropy is the core Python package for astronomy, providing essential functionality for astronomical... |
 | `antigravity-async-python-patterns` | Comprehensive guidance for implementing asynchronous Python applications using asyncio, concurrent p... |
+| `antigravity-atlas-cloud-media` | Generate Atlas Cloud images and videos through its asynchronous media API with schema-first model se... |
 | `antigravity-atlas-contract` | Goal-integrity skill. Use for backend/API/persistence, preserve/do-not-change, tests/validation, moc... |
 | `antigravity-atlas-ledger` | Companion to atlas-contract. Auto-invoked by its Final Audit on caught drift; also use after Post Re... |
 | `antigravity-attack-tree-construction` | Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, ident... |
@@ -3081,6 +3082,7 @@ calculations
 | `antigravity-update-swiftui-apis` | Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with mode... |
 | `antigravity-upgrading-expo` | Guidelines for upgrading Expo SDK versions and fixing dependency issues |
 | `antigravity-upstash-qstash` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task de... |
+| `antigravity-us-property-data` | Use when a task needs real U.S. residential property data: valuation, listings, price or tax history... |
 | `antigravity-usage-based-pricing` | Design pricing models that developers understand, accept, and can predict. Trigger phrases: usage-ba... |
 | `antigravity-use-dom` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to... |
 | `antigravity-user-thoughts` | Persist user decisions and project constraints to mdbase across sessions. Trigger on /user-thoughts ... |

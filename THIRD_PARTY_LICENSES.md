@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-08-12 06:37 UTC*
+*Last updated: 2026-08-13 06:38 UTC*
 
 ## Source Repositories
 
@@ -145,10 +145,10 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | GPL-3.0-or-later | 1 |
 | GPLv3 license | 1 |
 | LICENSE | 1 |
-| MIT | 2890 |
+| MIT | 2891 |
 | MIT License | 4 |
 | MIT license | 27 |
-| MIT-0 | 2 |
+| MIT-0 | 3 |
 | Not declared | 1 |
 | PolyForm-Noncommercial-1.0.0 | 1 |
 | Proprietary (API key required) | 1 |
