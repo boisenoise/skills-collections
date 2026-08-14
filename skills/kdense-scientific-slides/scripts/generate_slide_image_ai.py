@@ -271,7 +271,7 @@ STYLE:
         # https://openrouter.ai/google/gemini-3.1-flash-image
         self.image_model = "google/gemini-3.1-flash-image"
         # Gemini 3.6 Flash for quality review - reads the image, answers in text
-        self.review_model = "google/gemini-3.6-flash"
+        self.review_model = "google/gemini-3.7-flash"
         
     def _log(self, message: str):
         """Log message if verbose mode is enabled."""

@@ -212,7 +212,7 @@ uv pip install requests
 Each iteration costs **two API calls**: one image generation and one vision review. A diagram that
 passes on the first try therefore costs two calls, and the maximum for any single run is four. The
 image model dominates the bill. Check current per-token pricing for
-`google/gemini-3.1-flash-image` and `google/gemini-3.6-flash` on OpenRouter — it changes, and any
+`google/gemini-3.1-flash-image` and `google/gemini-3.7-flash` on OpenRouter — it changes, and any
 figure written here would go stale.
 
 ### Prompt Engineering Tips
