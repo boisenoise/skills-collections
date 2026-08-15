@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-14 06:37 UTC*
+*Last updated: 2026-08-15 06:12 UTC*
 
-Total skills: **3124**
+Total skills: **3125**
 
 ## Skills by Source
 
@@ -949,6 +949,7 @@ Total skills: **3124**
 | `kdense-imaging-data-commons` | Query and download public cancer imaging data from NCI Imaging Data Commons. Invoke for any question... |
 | `kdense-infographics` | Create professional infographics using Nano Banana Pro AI with smart iterative refinement. Uses Gemi... |
 | `kdense-iso-standards-readiness` | Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-compet... |
+| `kdense-lab-hardware-cad` | Design custom laboratory hardware as parametric build123d models and export fabrication-ready STEP, ... |
 | `kdense-labarchive-integration` | Securely integrate with the official LabArchives ELN REST-like API and Inventory API v1. Use for reg... |
 | `kdense-lamindb` | Use when working with LaminDB, the open-source lineage-native lakehouse for biological datasets and ... |
 | `kdense-latchbio-integration` | Build, register, debug, and operate bioinformatics workflows on Latch using the Python SDK, CLI, Lat... |
