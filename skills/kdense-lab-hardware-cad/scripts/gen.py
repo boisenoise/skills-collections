@@ -24,8 +24,11 @@ from _common import (  # noqa: E402
     LabCadError,
     emit,
     eprint,
+    evaluate_checks,
+    format_check_result,
     import_model,
     main_guard,
+    model_checks,
     model_interfaces,
     model_parameters,
     parse_params,
@@ -67,8 +70,19 @@ def _export_dxf(part, path: Path, build123d, height: float | None) -> float:
             "that actually cuts material."
         )
 
+    # Translate the section back to z = 0: DXF is a 2D format, and handing it a
+    # profile at the section height makes the exporter warn about a non-planar
+    # shape even though the written entities would be flat anyway.
+    if abs(height) > 1e-9:
+        profile = profile.moved(build123d.Location((0.0, 0.0, -height)))
+
+    from build123d.exporters import ColorIndex  # noqa: PLC0415 - not in the top-level namespace
+
     exporter = build123d.ExportDXF(unit=build123d.Unit.MM)
-    exporter.add_shape(profile)
+    # Cut geometry goes on a named layer: laser shops key power and speed to
+    # layer or colour, and geometry on layer 0 forces them to guess.
+    exporter.add_layer("CUT", color=ColorIndex.RED)
+    exporter.add_shape(profile, layer="CUT")
     exporter.write(str(path))
     return height
 
@@ -103,7 +117,22 @@ def main() -> int:
     builder = getattr(module, "build", None)
     if builder is None or not callable(builder):
         raise LabCadError(f"{args.model.name} must define a callable build() that returns a Part")
-    part = builder()
+    try:
+        part = builder()
+    except LabCadError:
+        raise
+    except Exception as exc:  # noqa: BLE001 - model code raises arbitrary errors
+        import traceback  # noqa: PLC0415
+
+        frames = traceback.extract_tb(exc.__traceback__)
+        model_frames = [f for f in frames if f.filename == str(args.model.resolve())]
+        where = (
+            f" at {args.model.name}:{model_frames[-1].lineno} ({model_frames[-1].name})"
+            if model_frames else ""
+        )
+        raise LabCadError(
+            f"build() failed{where}: {type(exc).__name__}: {exc}"
+        ) from exc
     if part is None:
         raise LabCadError(f"{args.model.name}: build() returned None")
     params = model_parameters(module)
@@ -159,6 +188,25 @@ def main() -> int:
             "Fix the model source before fabricating."
         )
 
+    # Evaluate the model's declared geometry checks against the solid just built.
+    # These are measured, so a failure here is a real feature error, not a
+    # declaration mismatch.
+    declared_checks = model_checks(module)
+    check_results = []
+    checks_pass = True
+    if declared_checks:
+        check_results = evaluate_checks(part, declared_checks)
+        checks_pass = all(item["pass"] for item in check_results)
+        eprint(f"geometry checks: {len(check_results)}")
+        for item in check_results:
+            for line in format_check_result(item):
+                eprint(line)
+        if not checks_pass:
+            eprint(
+                "WARNING: geometry check(s) FAILED. The exported STEP does not meet "
+                "the model's own declared requirements; fix the source and rerun."
+            )
+
     manifest = {
         "artifact_name": stem,
         "source": {
@@ -168,6 +216,8 @@ def main() -> int:
         "parameters": params,
         "overrides": overrides,
         "interfaces": interfaces,
+        "geometry_checks": {"declared": declared_checks, "results": check_results,
+                            "pass": checks_pass},
         "geometry": facts,
         "artifacts": artifacts,
         "dxf_section_z_mm": dxf_z,
@@ -186,15 +236,19 @@ def main() -> int:
 
     if not interfaces:
         eprint(
-            "note: this model declares no INTERFACES, so no interface can be checked "
-            "automatically. See references/build123d-patterns.md."
+            "note: no declared interfaces. Correct if nothing here mates with a bundled "
+            "standard - do not invent one; name unchecked interface dimensions in the report."
         )
 
     box = facts["bounding_box_mm"]
+    checks_note = (
+        f"geometry checks: {sum(1 for c in check_results if c['pass'])}/{len(check_results)} pass"
+        if check_results else "geometry checks: none declared"
+    )
     lines = [
         f"{stem}: {box['x']:.2f} x {box['y']:.2f} x {box['z']:.2f} mm, "
         f"volume {facts['volume_mm3']:.1f} mm^3, valid={facts['is_valid']}, "
-        f"declared interfaces: {len(interfaces)}",
+        f"declared interfaces: {len(interfaces)}, {checks_note}",
         f"Next: python scripts/check.py facts {step_path}",
     ]
     if interfaces:
@@ -203,7 +257,7 @@ def main() -> int:
         f"      python scripts/snapshot.py {step_path} --out {outdir / (stem + '.png')}"
     )
     emit(manifest, args.as_json, "\n".join(lines))
-    return 0 if facts["is_valid"] and dxf_error is None else 1
+    return 0 if facts["is_valid"] and dxf_error is None and checks_pass else 1
 
 
 if __name__ == "__main__":

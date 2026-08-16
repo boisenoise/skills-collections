@@ -14,8 +14,16 @@ called "the chip":
 | **Directly-fabricated chip** | **Recessed grooves or enclosed lumens** | Printed, milled, or laser-cut directly |
 
 A model that is correct as a chip is exactly wrong as a mold. Put the polarity in the module
-docstring and in a named parameter, and **verify it in the snapshot** — inverted polarity is
-invisible in the bounding box, the volume, and the validity check, and obvious in the render.
+docstring and in a named parameter, and **verify it numerically, not by eye**: inverted polarity
+is invisible in the bounding box, the volume, and the validity check — and at typical channel
+scale (a 0.3 mm ridge on a 40+ mm part) it is invisible in an outline render too, because raised
+and recessed features draw the same edges. Declare it as geometry checks instead
+(`references/build123d-patterns.md`): a `material` region where the ridge must stand above the
+casting surface, and a `clear` region over the rest of that layer — a groove fails the first,
+an inverted full-area layer fails the second. For a one-off question,
+`check.py probe <step> --box ... --expect material` answers it without editing the model. State
+the measured relief height in the report. Use the snapshot for layout and connectivity, which
+it does show well.
 
 ```python
 polarity = "mold"   # "mold" = raised ridges; "chip" = recessed grooves

@@ -9,9 +9,12 @@ it catches, because a checklist without consequences gets skipped.
       *Catches: a stale artifact that no longer matches the code you just edited.*
 - [ ] A `*.manifest.json` exists alongside it, and its `source.sha256` matches the model file.
       *Catches: silently editing an exported STEP, which makes the design unreproducible.*
-- [ ] The manifest's `interfaces` block is non-empty and its values are the ones the model
-      computed after any `--param` override.
-      *Catches: a static `INTERFACES` list frozen at import, recording pre-override numbers.*
+- [ ] The manifest's `interfaces` block lists every dimension a bundled standard covers, and its
+      values are the ones the model computed after any `--param` override. Empty is correct only
+      when nothing on the part mates with a bundled standard — and then every interface dimension
+      is named as unchecked in the report instead.
+      *Catches: a static `INTERFACES` list frozen at import, recording pre-override numbers; and
+      an interface that silently escaped checking.*
 - [ ] Every parameter in the model is named with units.
       *Catches: the bare `12.7` nobody can later identify as half an inch.*
 
@@ -28,9 +31,16 @@ python scripts/gen.py part_model.py --outdir out/
       the body.*
 - [ ] Volume is plausible for the part's size and wall thickness.
       *Catches: a cavity modelled solid, or a subtract that did nothing.*
+- [ ] Every geometric requirement in the request is declared in `checks()` and passes — clear
+      regions for what must pass through or fit in, material regions for what must remain,
+      bbox bounds for stated size limits.
+      *Catches: a recess that swallowed its screw seat, a pocket the mating part cannot enter,
+      a beam corridor with a wall in it, a feature a fillet silently ate — all invisible to
+      `is_valid` and the bounding box.*
 
 ```bash
 python scripts/check.py facts out/part.step
+python scripts/check.py geometry out/part.step --model part_model.py
 ```
 
 ## 3. Interfaces

@@ -22,8 +22,27 @@ Two consequences that catch people:
 - **Holes print undersize** on both FDM and SLA. A 6.0 mm modelled hole typically measures under
   6.0 mm. Oversize functional bores, or plan to ream them.
 - **Internal corners cannot be sharp in milling.** If a milled pocket must accept a square part,
-  add corner relief cuts. This is the same problem as the microplate corner radius in
-  `references/labware-adapters.md`, from the other direction.
+  add corner relief cuts. (For a part with *rounded* corners the tool radius is harmless as long
+  as it stays at or below the part's minimum corner radius — see the corner-radius rule in
+  `references/labware-adapters.md`.)
+
+### Laser cutting
+
+- **Kerf direction is fixed by the physics, so get it right in the handover.** The beam removes a
+  strip of width k (~0.1–0.3 mm) centred on the drawn line. Cutting on the line therefore makes
+  **holes and internal cutouts come out oversize by ~k, and the part's outer outline undersize by
+  ~k**. Say which convention the DXF uses (on-the-line is the default assumption) and let the shop
+  offset, or offset the geometry yourself and say so — never both.
+- **Put cut geometry on a named layer** (one layer per operation: `CUT`, `ENGRAVE`). Shops key
+  power and speed to layer or colour; geometry on layer 0 forces them to guess.
+- **Cut order matters:** internal features before the outer outline, or the part shifts once it is
+  freed from the sheet.
+- **Sheet stock is not its nominal thickness.** "3 mm" acrylic commonly runs ~2.8–3.2 mm; slots
+  sized for nominal will be loose or tight. For solvent-welded joints prefer **cast** acrylic over
+  extruded — cleaner cut edge, less vapour crazing — and remember alcohols craze acrylic either
+  way (see Chemical, below).
+- Laser-cut edges are sharp and slightly tapered; call out deburring or flame-polishing for
+  anything handled or animal-facing.
 
 ## Fits and clearances
 

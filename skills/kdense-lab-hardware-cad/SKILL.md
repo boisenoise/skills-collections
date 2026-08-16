@@ -5,9 +5,9 @@ license: MIT
 compatibility: Python 3.10-3.14 with build123d 0.11.1 and matplotlib for snapshots. Geometry commands require build123d; the standards lookup and the interface check run on the standard library alone. No network access needed.
 allowed-tools: Read Write Edit Bash Glob Grep
 metadata:
-  version: "1.1"
+  version: "1.2"
   skill-author: K-Dense Inc.
-  last-reviewed: "2026-08-14"
+  last-reviewed: "2026-08-15"
   build123d-version: "0.11.1"
 ---
 
@@ -93,6 +93,17 @@ python scripts/check.py standards --list
 python scripts/check.py standards --show slas-microplate-footprint
 ```
 
+The bundled standard IDs (exact strings; do not guess variants): `slas-microplate-footprint`,
+`slas-microplate-height`, `slas-microplate-flange`, `slas-well-positions-96`,
+`slas-well-positions-384`, `slas-well-positions-1536`, `cuvette-standard-10mm`,
+`optical-breadboard-metric`, `optical-breadboard-imperial`, `cage-system-30mm`,
+`sm1-lens-tube-thread`.
+
+If the part mates with nothing in this list, that is common and fine: declare no interfaces,
+and name every interface dimension with its source (user spec, vendor drawing, measurement) as
+**unchecked** in the report. Never declare against an unrelated standard to fill the gap — a
+fabricated declaration is worse than an honest "nobody checked this".
+
 ### 3. Choose the process before choosing the geometry
 
 Read `references/fabrication-limits.md`. Process determines minimum wall, minimum feature,
@@ -116,6 +127,20 @@ Requirements:
   overrides actually reach it.
 - Declare an `interfaces()` function returning the dimensions the part must fit, each with its
   standard ID and intent. This is what makes the interface machine-checkable in step 5.
+  `intent` is `"envelope"` when the feature must **accept** any conforming part (a pocket, bore,
+  or slot — checked one-sided at maximum material condition plus your clearance) and `"match"`
+  when this part must itself conform (symmetric band). `clearance` is the total intended
+  clearance in mm and must be non-negative. Declare only dimensions that constrain *this part's
+  mating features* — a property of the mating equipment (a table's edge border, a typical plate
+  thickness) is not an interface of yours. If no bundled standard applies, return `[]`.
+- Declare a `checks()` function of **go/no-go gauges measured from the built solid**: a `clear`
+  region for everything that must pass through or fit in (screw shafts, beam corridors, the
+  mating part at maximum material condition dropping into its pocket), a `material` region for
+  everything that must remain (a ridge, a ledge, a screw seat), and a `bbox_*` bound for every
+  size limit the user stated. Map **every geometric requirement in the request** to one entry;
+  these catch the errors that `is_valid`, the bounding box, and declared numbers cannot see.
+  `gen.py` runs them on every generation and fails the build when one fails. Schema and worked
+  examples: `references/build123d-patterns.md`.
 - Put the process, material, and every interface source in the module docstring.
 
 ```python
@@ -161,10 +186,24 @@ def interfaces() -> list[dict]:
     ]
 
 
+def checks() -> list[dict]:
+    """Gauges measured from the built solid. Sized from the REQUIREMENT's numbers
+    (plate MMC, the user's height limit), not from the pocket parameters, so a
+    wrong parameter cannot shrink the gauge to match the wrong geometry."""
+    depth = body_h_mm - floor_t_mm
+    return [
+        {"feature": "plate at MMC drops into the pocket",
+         "clear": {"box": (plate_l_mm + plate_tol_mm, plate_w_mm + plate_tol_mm, depth),
+                   "at": [(0.0, 0.0, floor_t_mm + depth / 2)]}},
+        {"feature": "under 15 mm for the stage", "bbox_z": {"max": 15.0}},
+    ]
+
+
 def build() -> Part:
     pocket_l, pocket_w = pocket_mm()
     with BuildPart() as carrier:
-        Box(pocket_l + 2 * wall_t_mm, pocket_w + 2 * wall_t_mm, body_h_mm)
+        Box(pocket_l + 2 * wall_t_mm, pocket_w + 2 * wall_t_mm, body_h_mm,
+            align=(Align.CENTER, Align.CENTER, Align.MIN))
         with Locations((0, 0, floor_t_mm)):
             Box(pocket_l, pocket_w, body_h_mm, mode=Mode.SUBTRACT,
                 align=(Align.CENTER, Align.CENTER, Align.MIN))
@@ -174,13 +213,23 @@ def build() -> Part:
 See `references/build123d-patterns.md` for the builder-vs-algebra choice, the `interfaces()`
 contract, sketching, selectors, fillets, and threaded-insert bores.
 
-### 5. Generate and check the interfaces
+### 5. Generate and run the checks
 
 ```bash
 python scripts/gen.py carrier_model.py --outdir out/
 python scripts/check.py facts out/carrier.step
 python scripts/check.py interfaces out/carrier.manifest.json
+python scripts/check.py geometry out/carrier.step --model carrier_model.py
 ```
+
+`gen.py` also evaluates the model's `checks()` gauges against the solid it just built, prints
+each PASS/FAIL, records them in the manifest, and exits non-zero on a failure — so a part that
+violates its own declared geometry never silently becomes an artifact. `check.py geometry`
+re-runs the same gauges against the exported STEP, which is the authoritative artifact.
+
+`out/` is a scratch convention, not a requirement. When the user asked for deliverables in a
+specific place, generate there (`--outdir .`) or copy the STEP, manifest, and DXF to it before
+finishing — a deliverable that exists only inside `out/` has not been delivered.
 
 `gen.py` writes `carrier.step` (authoritative), `carrier.stl` (mesh preview and printing), and
 `carrier.manifest.json` recording the source hash, resolved parameters, declared interfaces,
@@ -191,19 +240,19 @@ record — keep it with the artifact.
 solid count. A part that reports `is_valid: false` is broken geometry; fix the source before going
 further.
 
-`check.py interfaces` is the check that gates fabrication. It evaluates every entry the model
-declared against the standards database and exits non-zero on failure. Use it rather than
-`check.py fit` for anything internal: **the interface is almost always a pocket, bore, or slot,
-and none of those appear in the part's outer bounding box.** `fit` measures that outer envelope, so
-running it on a carrier reports the outside of the walls and fails against the plate footprint.
-Reach for `fit` only to check one number by hand, or when the part's own outline is the interface —
-a gasket cut to a plate footprint, for instance:
+`check.py interfaces` evaluates every entry the model declared against the standards database
+and exits non-zero on failure. **Be clear about what it does and does not verify:** it checks the
+*declared numbers* — catching a transcribed dimension, the wrong standard, and
+nominal-instead-of-MMC sizing — but it never measures the built geometry, and a value computed
+from the same constants it is checked against passes with zero headroom by construction. Do not
+cite it as evidence the geometry is right; `facts` and the snapshot are the geometry checks.
+An empty declaration list passes: a part that mates with nothing in the bundled database has
+nothing to declare, and its interface dimensions are instead named as unchecked in the report.
 
-```bash
-# check one dimension by hand, without a geometry kernel
-python scripts/check.py fit --standard slas-microplate-footprint \
-  --intent envelope --clearance 0.8 --value footprint_length=128.81
-```
+Use `interfaces` rather than `check.py fit` for anything internal — a pocket, bore, or slot does
+not appear in the part's outer bounding box, which is what `fit` measures. Reach for `fit` only
+to check one number by hand (`--value footprint_length=128.81`), or when the part's own outline
+is the interface, such as a gasket cut to a plate footprint.
 
 For assemblies, check that parts do not interfere:
 
@@ -219,9 +268,17 @@ python scripts/snapshot.py out/carrier.step --out out/carrier.png
 
 Then **read the PNG**. This step is mandatory after every generation and every modification.
 Deterministic checks passing is not a reason to skip it: `is_valid` and a correct bounding box are
-both fully consistent with a pocket cut on the wrong face, an inverted mold polarity, a boss
-placed outside the body, or a fillet that ate a feature. Those errors are obvious in a picture and
-invisible in the numbers.
+both fully consistent with a pocket cut on the wrong face, a boss placed outside the body, or a
+fillet that ate a feature. Those errors are obvious in a picture and invisible in the numbers.
+
+Know the render's limits too. A feature much smaller than the frame — a 0.3 mm mold ridge on a
+40 mm part, a counterbore step on a plate — may not be decidable from the views at all. Do not
+report seeing something the image cannot resolve; that is worse than not looking. For such
+features the skill has instruments: `check.py bores` prints every cylindrical face (diameter,
+axis, position, span, sweep) so you can reconcile the drilling against the model's intent, and
+`check.py probe` answers a one-off "is this region clear / is material present here" without
+editing the model. Cite the measured numbers; report from the picture only what the picture
+actually shows.
 
 The six views are true orthographic projections, and the outlines are the model's real edges drawn
 **without hidden-line removal**. So a circle visible "through" material is a bore on the far side,
@@ -302,7 +359,10 @@ recommend printing a test coupon of the critical interface before committing to 
 | `gen.py <model.py> --outdir DIR` | Run `build()`, export STEP and STL, write the provenance manifest |
 | `gen.py <model.py> --dxf [--dxf-z MM]` | Also slice a 2D DXF profile for laser cutting (default plane: mid-height) |
 | `check.py facts <step>` | Validity, bounding box, volume, area, centre of mass, solid count |
-| `check.py interfaces <manifest\|model.py>` | Check every interface the model declares; non-zero exit on failure |
+| `check.py interfaces <manifest\|model.py>` | Check every declared interface number against its standard; non-zero exit on failure |
+| `check.py geometry <model.py\|step --model M>` | Evaluate the model's `checks()` gauges against the built solid — measured, not declared |
+| `check.py probe <step> --cyl D\|--box X,Y,Z --at ...` | One ad-hoc gauge: is this region clear of material, or filled with it |
+| `check.py bores <step>` | Census of every cylindrical face: diameter, axis, position, span, sweep |
 | `check.py fit --standard ID --value DIM=MM` | Check one dimension by hand, or a part whose outer envelope is the interface |
 | `check.py clearance <a> <b> --min MM` | Minimum distance between two solids; detects interference |
 | `check.py standards [--list\|--show ID]` | Browse the bundled standards data (standard library only) |

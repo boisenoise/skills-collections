@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "units": "mm",
   "note": "Dimensional standards for lab-hardware interfaces. Every entry carries a source. Entries with verified=false were not confirmed against the primary document during authoring and must be checked before use.",
-  "last_reviewed": "2026-08-13",
+  "last_reviewed": "2026-08-15",
   "standards": {
     "slas-microplate-footprint": {
       "title": "Microplate footprint (base outline)",
@@ -27,7 +27,7 @@
           "nominal": 3.18,
           "tol_plus": 1.6,
           "tol_minus": 1.6,
-          "note": "Outside radius of the four bottom-flange corners. The wide tolerance means a pocket must be cut to the maximum radius, not the nominal."
+          "note": "Outside radius of the four bottom-flange corners (convex). A receiving pocket's internal fillet must be no LARGER than the minimum (1.58) or it bulges into the plate corner and binds; a sharp pocket corner or a corner-relief cut always clears. Do not size the pocket fillet to the maximum radius."
         }
       },
       "fit_checks": [
@@ -142,7 +142,8 @@
         "clearance_hole_close": {"nominal": 6.4, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Close-fit clearance for an M6 cap screw."},
         "clearance_hole_normal": {"nominal": 6.6, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Normal-fit clearance for M6. Prefer this on printed parts."},
         "counterbore_dia": {"nominal": 11.0, "tol_plus": 0.0, "tol_minus": 0.0, "note": "For an M6 socket head cap screw head (nominal head dia 10 mm)."},
-        "border": {"nominal": 12.5, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Typical edge-to-first-hole distance."}
+        "screw_head_height": {"nominal": 6.0, "tol_plus": 0.0, "tol_minus": 0.0, "note": "M6 socket head cap screw head height (ISO 4762). A counterbore shallower than this leaves the head proud, not flush."},
+        "border": {"nominal": 12.5, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Typical edge-to-first-hole distance. A property of the TABLE, not of your part: your plate's edge margin is a free design choice, so do not declare this as an interface."}
       },
       "fit_checks": [],
       "design_note": "Slot rather than hole one of any pair of mounting features to absorb grid and print tolerance."
@@ -158,7 +159,8 @@
         "thread_major_dia": {"nominal": 6.35, "tol_plus": 0.0, "tol_minus": 0.0, "note": "1/4-20 UNC: 0.25 inch major diameter, 20 threads per inch."},
         "clearance_hole_normal": {"nominal": 6.8, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Normal-fit clearance for a 1/4-20 screw."},
         "counterbore_dia": {"nominal": 11.2, "tol_plus": 0.0, "tol_minus": 0.0, "note": "For a 1/4-20 socket head cap screw head."},
-        "border": {"nominal": 12.7, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Typical 0.5 inch edge-to-first-hole distance."}
+        "screw_head_height": {"nominal": 6.35, "tol_plus": 0.0, "tol_minus": 0.0, "note": "1/4-20 socket head cap screw head height (0.25 inch). A counterbore shallower than this leaves the head proud, not flush."},
+        "border": {"nominal": 12.7, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Typical 0.5 inch edge-to-first-hole distance. A property of the TABLE, not of your part: your plate's edge margin is a free design choice, so do not declare this as an interface."}
       },
       "fit_checks": [],
       "design_note": "Ask which table the user has. Assuming the wrong system is the most common optomechanical design error."
@@ -172,11 +174,10 @@
       "dimensions": {
         "rod_spacing": {"nominal": 30.0, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Rod centre to rod centre, on a square pattern. 1.18 inch."},
         "rod_diameter": {"nominal": 6.0, "tol_plus": 0.0, "tol_minus": 0.0, "note": "ER series cage rods."},
-        "rod_bore_clearance": {"nominal": 6.1, "tol_plus": 0.0, "tol_minus": 0.0, "note": "Suggested bore for a printed plate to slide on 6 mm rods. Widen for FDM; see fabrication-limits.md."},
-        "plate_thickness_typical": {"nominal": 8.9, "tol_plus": 0.0, "tol_minus": 0.0, "note": "0.35 inch, the CP33 standard cage plate. Not a constraint on custom plates, but matching it keeps optical path budgets simple."}
+        "plate_thickness_typical": {"nominal": 8.9, "tol_plus": 0.0, "tol_minus": 0.0, "note": "0.35 inch, the CP33 standard cage plate. Informational, not a mating dimension: custom plates may be any thickness, but matching it keeps optical path budgets simple."}
       },
       "fit_checks": [],
-      "design_note": "The 30 mm rod square is centred on the optical axis. A custom plate must place its aperture at the centroid of the four rod bores."
+      "design_note": "The 30 mm rod square is centred on the optical axis. A custom plate must place its aperture at the centroid of the four rod bores. Bore diameter is rod_diameter plus twice the free-sliding per-side clearance for YOUR process (fabrication-limits.md): about 6.2 CNC, 6.4 SLA, 6.8 FDM. 6.1 is a reamed-metal number and binds on printed parts. Four bores on a common square over-constrain each other, so do not go tighter than the fits table. Declare the bore against rod_diameter with intent envelope and the clearance you chose."
     },
     "sm1-lens-tube-thread": {
       "title": "SM1 lens tube thread",

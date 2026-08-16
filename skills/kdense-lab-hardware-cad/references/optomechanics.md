@@ -65,9 +65,11 @@ The dominant convention for small free-space assemblies:
 - Standard cage plates are 0.35 inch (8.9 mm) thick.
 
 For a custom cage plate: place four bores on a 30 mm square, put the aperture at the **centroid**
-of those four bores, and bore them slightly oversize — around 6.1 mm as a starting point, more for
-FDM. A cage plate that binds on the rods is worse than useless because it transmits stress into
-the whole assembly.
+of those four bores, and bore them for a free-sliding fit **at your process's clearance**
+(fabrication-limits.md): about 6.2 mm CNC, 6.4 mm SLA, 6.8 mm FDM. 6.1 mm is a reamed-metal
+number — printed bores come out undersize, and four bores on a common square over-constrain each
+other, so tighter is not better here. A cage plate that binds on the rods is worse than useless
+because it transmits stress into the whole assembly.
 
 Cage plates stack along the rods, so a custom plate's thickness directly consumes optical path
 length. Budget it.

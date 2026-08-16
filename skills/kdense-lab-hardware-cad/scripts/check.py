@@ -5,6 +5,9 @@
     python scripts/check.py standards --show slas-microplate-footprint
     python scripts/check.py facts out/carrier.step
     python scripts/check.py interfaces out/carrier.manifest.json
+    python scripts/check.py geometry out/carrier.step --model carrier_model.py
+    python scripts/check.py probe out/carrier.step --cyl 6.6 --at 37.5,37.5 --at -37.5,37.5
+    python scripts/check.py bores out/carrier.step
     python scripts/check.py fit --standard slas-microplate-footprint \
         --intent envelope --clearance 0.8 --value footprint_length=128.81
     python scripts/check.py clearance out/carrier.step out/lid.step --min 0.3
@@ -25,15 +28,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from _common import (  # noqa: E402
     LabCadError,
+    cylinder_census,
     emit,
     eprint,
+    evaluate_checks,
+    format_check_result,
     get_standard,
     import_model,
+    intersection_volume,
     load_shape,
     load_standards,
     main_guard,
     measure,
+    model_checks,
     model_interfaces,
+    normalise_checks,
     normalise_interfaces,
     shape_facts,
 )
@@ -104,20 +113,30 @@ def cmd_facts(args) -> int:
 def _evaluate(
     entry, dimension: str, actual: float, offset: float, measure_label: str, intent: str
 ) -> dict:
-    """Compare one measured dimension against a standard.
+    """Compare one declared dimension against a standard.
 
     Two intents, because they are different questions:
 
     ``match``    - this part must itself conform to the standard. Symmetric band
-                   around nominal, widened by ``offset``.
+                   around nominal, widened (never shifted) by ``offset``.
     ``envelope`` - this feature must accept ANY conforming part (a pocket, bore,
                    or slot). One-sided minimum at maximum material condition plus
                    the clearance. Designing such a feature to nominal fits only
                    the smallest half of conforming parts.
+
+    ``offset`` must be non-negative: a negative clearance would let a declaration
+    move its own acceptance band and certify a nonconforming value.
     """
     if dimension not in entry["dimensions"]:
         known = ", ".join(sorted(entry["dimensions"]))
         raise LabCadError(f"unknown dimension {dimension!r}. Available: {known}")
+    if offset < 0:
+        raise LabCadError(
+            f"{dimension}: clearance must be >= 0, got {offset}. A clearance widens the "
+            "acceptance band; it cannot shift it. If the feature is deliberately "
+            "undersized, say so in the report instead of encoding it as a negative "
+            "clearance."
+        )
     dim = entry["dimensions"][dimension]
     nominal = float(dim["nominal"])
     tol_plus = float(dim.get("tol_plus", 0.0))
@@ -129,7 +148,7 @@ def _evaluate(
         passed = actual >= low - 1e-9
         headroom = round(actual - low, 4)
     else:
-        low = nominal - tol_minus + offset
+        low = nominal - tol_minus - offset
         high = nominal + tol_plus + offset
         passed = low - 1e-9 <= actual <= high + 1e-9
         headroom = None
@@ -240,22 +259,9 @@ def _declared_interfaces(target: Path) -> tuple[list[dict], str]:
             payload = json.loads(target.read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
             raise LabCadError(f"{target} is not valid JSON: {exc}") from exc
-        declared = payload.get("interfaces")
-        if not declared:
-            raise LabCadError(
-                f"{target.name} records no declared interfaces. Add an INTERFACES list "
-                "to the model (see references/build123d-patterns.md) and rerun gen.py."
-            )
-        return normalise_interfaces(declared), "manifest"
+        return normalise_interfaces(payload.get("interfaces") or []), "manifest"
     if suffix == ".py":
-        declared = model_interfaces(import_model(target))
-        if not declared:
-            raise LabCadError(
-                f"{target.name} declares no INTERFACES. Add an INTERFACES list naming "
-                "each standard, dimension, and computed value the part must satisfy "
-                "(see references/build123d-patterns.md)."
-            )
-        return declared, "model"
+        return model_interfaces(import_model(target)), "model"
     raise LabCadError(
         f"unsupported input {suffix!r}. Pass a *.manifest.json written by gen.py, or a "
         "*_model.py."
@@ -265,11 +271,27 @@ def _declared_interfaces(target: Path) -> tuple[list[dict], str]:
 def cmd_interfaces(args) -> int:
     """Check every interface a model declares about itself.
 
-    This is the check that gates a fabrication decision, because the dimensions
-    that have to be right are almost always internal features the outer bounding
-    box cannot see.
+    This verifies the DECLARED numbers against the standards database: it catches
+    a transcribed dimension, the wrong standard, and nominal-instead-of-MMC
+    sizing. It does not measure the built geometry -- ``facts`` and the snapshot
+    do that -- so a passing result here is necessary, not sufficient.
+
+    A model whose part mates with nothing in the bundled database correctly
+    declares no interfaces; that is a passing state, not an error. Every such
+    unchecked dimension must then be named in the report.
     """
     declared, source = _declared_interfaces(args.target)
+
+    if not declared:
+        payload = {"target": str(args.target), "source": source, "checks": [], "pass": True}
+        emit(payload, args.as_json, (
+            f"{args.target.name}: 0 declared interfaces - nothing in this part mates "
+            "with a bundled standard.\n"
+            "That is fine IF it is true. Do not invent a declaration to fill the gap; "
+            "instead name every interface dimension and its source (user spec, vendor "
+            "drawing, measurement) as UNCHECKED in the report."
+        ))
+        return 0
 
     results = []
     for entry in declared:
@@ -315,9 +337,132 @@ def cmd_interfaces(args) -> int:
         )
         if not item["verified_source"]:
             lines.append("         WARNING: standard entry is not verified against the document.")
-    lines.append("Reminder: a passing interface check is not a passing part. Run snapshot.py.")
+    lines.append(
+        "Note: this checks the values the model DECLARED, not the built geometry. "
+        "A declaration computed from the same constants it is checked against will "
+        "pass with zero headroom by construction. Run check.py facts and snapshot.py "
+        "on the exported STEP to verify the geometry itself."
+    )
     emit(payload, args.as_json, "\n".join(lines))
     return 0 if passed else 1
+
+
+def cmd_geometry(args) -> int:
+    """Evaluate a model's declared geometry checks against the built solid.
+
+    Unlike ``interfaces``, which compares declared numbers against the standards
+    database, this measures the geometry itself: material really is absent from
+    every declared clear region, present in every material region, and the
+    bounding box sits inside its declared bounds.
+    """
+    target = args.target
+    if target.suffix.lower() == ".py":
+        module = import_model(target)
+        declared = model_checks(module)
+        part = load_shape(target)
+        geometry_source = target.name
+    else:
+        if args.model is None:
+            raise LabCadError(
+                "checking a STEP needs the model that declares the checks: "
+                "check.py geometry out/part.step --model part_model.py"
+            )
+        declared = model_checks(import_model(args.model))
+        part = load_shape(target)
+        geometry_source = target.name
+
+    if not declared:
+        emit({"target": str(target), "checks": [], "pass": True}, args.as_json, (
+            f"{target.name}: no declared geometry checks.\n"
+            "Declare a checks() function for every geometric requirement in the "
+            "request - clearance holes, keep-out corridors, a gauge part that must "
+            "drop into a pocket, a feature that must stand proud, a size limit. "
+            "See references/build123d-patterns.md."
+        ))
+        return 0
+
+    results = evaluate_checks(part, declared)
+    passed = all(item["pass"] for item in results)
+    payload = {"target": str(target), "checks": results, "pass": passed}
+
+    lines = [f"{geometry_source}: {len(results)} geometry check(s), measured from the solid"]
+    for item in results:
+        lines.extend(format_check_result(item))
+    if not passed:
+        lines.append("Fix the model source and regenerate; never patch the STEP.")
+    emit(payload, args.as_json, "\n".join(lines))
+    return 0 if passed else 1
+
+
+def cmd_probe(args) -> int:
+    """One ad-hoc region probe against a solid, without editing the model."""
+    if (args.cyl is None) == (args.box is None):
+        raise LabCadError("pass exactly one of --cyl DIA or --box DX,DY,DZ")
+
+    region: dict = {}
+    if args.cyl is not None:
+        region["cylinder"] = args.cyl
+        region["axis"] = args.axis
+        if args.span:
+            region["span"] = _parse_floats(args.span, 2, "--span")
+        region["at"] = [_parse_floats(a, 2, "--at") for a in (args.at or ["0,0"])]
+    else:
+        region["box"] = _parse_floats(args.box, 3, "--box")
+        region["at"] = [_parse_floats(a, 3, "--at") for a in (args.at or ["0,0,0"])]
+
+    entry = {"feature": args.feature or f"probe ({args.expect})", args.expect: region}
+    if args.expect == "material" and args.min_mm3 is not None:
+        entry["min_mm3"] = args.min_mm3
+    if args.expect == "clear" and args.tol_mm3 is not None:
+        entry["tol_mm3"] = args.tol_mm3
+
+    part = load_shape(args.target)
+    results = evaluate_checks(part, normalise_checks([entry]))
+    payload = {"target": str(args.target), "checks": results, "pass": results[0]["pass"]}
+    emit(payload, args.as_json, "\n".join(
+        [f"{args.target.name}: probe"] + format_check_result(results[0])
+    ))
+    return 0 if results[0]["pass"] else 1
+
+
+def _parse_floats(raw: str, count: int, flag: str) -> list[float]:
+    parts = [p for p in raw.replace(" ", "").split(",") if p]
+    if len(parts) != count:
+        raise LabCadError(f"{flag} expects {count} comma-separated numbers, got {raw!r}")
+    try:
+        return [float(p) for p in parts]
+    except ValueError as exc:
+        raise LabCadError(f"{flag}: {raw!r} is not numeric") from exc
+
+
+def cmd_bores(args) -> int:
+    """List every cylindrical face: the census for reconciling render vs solid."""
+    part = load_shape(args.target)
+    rows = cylinder_census(part)
+    payload = {"target": str(args.target), "cylindrical_faces": rows}
+
+    if not rows:
+        emit(payload, args.as_json, f"{args.target.name}: no cylindrical faces.")
+        return 0
+    lines = [
+        f"{args.target.name}: {len(rows)} cylindrical face(s). Full ~360 degree sweeps "
+        "are bores/bosses; ~90 degree sweeps are edge fillets.",
+    ]
+    for r in rows:
+        axis = r["axis"] if isinstance(r["axis"], str) else str(r["axis"])
+        at = ", ".join(f"{v:g}" for v in r["at_mm"])
+        kind = "full" if r["full"] else f"{r['sweep_deg']:g} deg"
+        lines.append(
+            f"  d {r['diameter_mm']:>8.3f}  axis {axis:<12} at ({at})"
+            f"  span {r['span_min_mm']:g}..{r['span_max_mm']:g}  {kind}"
+        )
+    lines.append(
+        "Reconcile this against the model's intent before trusting a render: a missing "
+        "diameter or an unexpected span here is a real feature error, whatever the "
+        "picture appears to show."
+    )
+    emit(payload, args.as_json, "\n".join(lines))
+    return 0
 
 
 def _min_distance(shape_a, shape_b) -> float | None:
@@ -337,37 +482,15 @@ def _min_distance(shape_a, shape_b) -> float | None:
     return None
 
 
-def _volume_of(result) -> float:
-    """Total volume of an intersection result.
-
-    ``Shape.intersect()`` returns a ShapeList with no ``.volume`` in build123d
-    0.11.1, while the ``&`` operator returns a Solid that has one. Handle both.
-    """
-    if result is None:
-        return 0.0
-    volume = getattr(result, "volume", None)
-    if volume is not None:
-        return float(volume)
-    total = 0.0
-    for item in result:
-        item_volume = getattr(item, "volume", None)
-        if item_volume:
-            total += float(item_volume)
-    return total
-
-
 def cmd_clearance(args) -> int:
     shape_a = load_shape(args.a)
     shape_b = load_shape(args.b)
 
     overlap_volume = 0.0
     try:
-        overlap_volume = _volume_of(shape_a & shape_b)
-    except Exception:  # noqa: BLE001 - kernel raises assorted OCCT errors
-        try:
-            overlap_volume = _volume_of(shape_a.intersect(shape_b))
-        except Exception as exc:  # noqa: BLE001
-            eprint(f"warning: intersection test failed ({exc}); relying on distance only")
+        overlap_volume = intersection_volume(shape_a, shape_b)
+    except LabCadError as exc:
+        eprint(f"warning: {exc}; relying on distance only")
 
     interferes = overlap_volume > 1e-6
     gap = None if interferes else _min_distance(shape_a, shape_b)
@@ -436,6 +559,55 @@ def main() -> int:
     p_int.add_argument("target", type=Path,
                        help="a *.manifest.json written by gen.py, or a *_model.py")
     p_int.set_defaults(func=cmd_interfaces)
+
+    p_geo = sub.add_parser(
+        "geometry",
+        help="evaluate the model's declared geometry checks against the built solid",
+        description="Run every checks() entry -- clear regions, material regions, bbox "
+                    "bounds -- as boolean gauges against the actual geometry. This is "
+                    "the measured counterpart to `interfaces`, which only compares "
+                    "declared numbers.",
+    )
+    p_geo.add_argument("target", type=Path, help="a *_model.py, or a STEP with --model")
+    p_geo.add_argument("--model", type=Path, default=None,
+                       help="the *_model.py declaring checks(), when target is a STEP")
+    p_geo.set_defaults(func=cmd_geometry)
+
+    p_probe = sub.add_parser(
+        "probe",
+        help="ad-hoc region gauge: is this cylinder/box clear of (or filled with) material?",
+    )
+    p_probe.add_argument("target", type=Path, help="STEP, STL, or *_model.py")
+    p_probe.add_argument("--cyl", type=float, metavar="DIA",
+                         help="cylindrical gauge of this diameter in mm")
+    p_probe.add_argument("--box", metavar="DX,DY,DZ", help="box gauge, size in mm")
+    p_probe.add_argument("--axis", choices=("x", "y", "z"), default="z",
+                         help="cylinder axis (default: z); runs through the part unless "
+                              "--span is given")
+    p_probe.add_argument("--at", action="append", metavar="A,B[,C]",
+                         help="position, repeatable. Cylinder: 2D in the plane "
+                              "perpendicular to the axis (axis z: x,y; axis x: y,z; "
+                              "axis y: x,z). Box: 3D centre x,y,z.")
+    p_probe.add_argument("--span", metavar="A,B",
+                         help="cylinder extent along its axis (default: through the part)")
+    p_probe.add_argument("--expect", choices=("clear", "material"), default="clear",
+                         help="'clear': no material in the region (default); "
+                              "'material': the region must contain material")
+    p_probe.add_argument("--tol-mm3", type=float, default=None,
+                         help="max intruding volume per position for 'clear' (default 0.01)")
+    p_probe.add_argument("--min-mm3", type=float, default=None,
+                         help="min material volume per position for 'material' (default 0.01)")
+    p_probe.add_argument("--feature", help="label for the output")
+    p_probe.set_defaults(func=cmd_probe)
+
+    p_bores = sub.add_parser(
+        "bores",
+        help="census of every cylindrical face: diameter, axis, span, sweep",
+        description="The reconciliation instrument for step 6: compare what the render "
+                    "appears to show against what the solid actually contains.",
+    )
+    p_bores.add_argument("target", type=Path, help="STEP, STL, or *_model.py")
+    p_bores.set_defaults(func=cmd_bores)
 
     p_fit = sub.add_parser("fit", help="check one dimension against a standard by hand")
     p_fit.add_argument("target", type=Path, nargs="?",

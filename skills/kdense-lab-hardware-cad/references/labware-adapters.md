@@ -38,15 +38,30 @@ fit_clearance_mm = 0.40  # per side; FDM, see fabrication-limits.md
 pocket_l_mm = plate_l_mm + plate_tol_mm + 2 * fit_clearance_mm   # 128.81
 ```
 
-**2. The corner radius tolerance is enormous.** 3.18 ±1.6 mm means a real plate corner is anywhere
-from 1.58 to 4.78 mm. A pocket with sharp internal corners will not seat a plate with 4.78 mm
-corners. Cut the pocket corners to at least the maximum, 4.78 mm — or relieve them entirely with a
-corner slot, which is more forgiving and prints better than a large internal fillet.
+**2. The corner radius tolerance is enormous — and it bounds the pocket radius from above,
+not below.** 3.18 ±1.6 mm means a real plate corner is anywhere from 1.58 to 4.78 mm. Get the
+direction right: a plate corner is **convex**, a pocket fillet is **concave material bulging
+inward**, so a *sharp* internal pocket corner always clears a rounded plate — the unused corner is
+empty space. It is a pocket fillet *larger* than the plate's corner radius that binds: the bulge
+occupies space the plate needs. Sizing the fillet to the plate's maximum corner radius is
+therefore exactly backwards — it binds every plate except those at the top of the corner
+tolerance.
+
+The safe options, best first:
+
+- **Corner relief** (a small slot or bore cut past each corner) — always clears, prints and mills
+  cleanly, and is the standard fix.
+- **Fillet no larger than the plate's minimum corner radius** (1.58 mm for SLAS plates) — clears
+  every conforming plate in every position.
+- A larger fillet only if `R ≤ r_min + ~3.4 × per-side clearance` — the geometry only recovers the
+  intrusion when the plate stays roughly centred, so treat this as a last resort and say so.
 
 ```python
 with BuildPart() as pocket:
     # ... pocket geometry ...
-    fillet(pocket.edges().filter_by(Axis.Z).group_by(Axis.Z)[-1], radius=5.0)
+    # relief bores just outside each pocket corner: clears any conforming corner radius
+    with Locations(*corner_relief_centres()):
+        Hole(radius=2.0)
 ```
 
 **3. Height depends on the flange, not just the plate.** ANSI/SLAS 3 standardises three flange

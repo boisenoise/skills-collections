@@ -13,6 +13,10 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# Model files are imported from the user's working directory; leaving compiled
+# bytecode there puts a __pycache__ next to the deliverables.
+sys.dont_write_bytecode = True
+
 SKILL_ROOT = Path(__file__).resolve().parent.parent
 STANDARDS_PATH = SKILL_ROOT / "assets" / "standards.json"
 
@@ -226,6 +230,327 @@ def normalise_interfaces(declared: Any) -> list[dict]:
             "clearance": float(raw.get("clearance", 0.0)),
         })
     return entries
+
+
+def model_checks(module) -> list[dict]:
+    """Collect the geometry checks a model declares about itself.
+
+    A model exposes a ``checks()`` callable (or a ``CHECKS`` list) of go/no-go
+    gauge assertions evaluated against the BUILT solid -- unlike ``interfaces()``,
+    which only compares declared numbers against the standards database. Each
+    entry asserts one of:
+
+      clear     - a region must contain no material (a screw shaft, a beam
+                  corridor, a gauge part dropping into a pocket)
+      material  - a region must contain material (a ridge, a ledge, a boss)
+      bbox_*    - a bounding-box measure must sit inside [min, max]
+
+    See ``normalise_checks`` for the entry schema.
+    """
+    declared = getattr(module, "checks", None)
+    if callable(declared):
+        declared = declared()
+    elif declared is None:
+        declared = getattr(module, "CHECKS", None)
+    if declared is None:
+        return []
+    return normalise_checks(declared)
+
+
+_MEASURE_NAMES = ("bbox_x", "bbox_y", "bbox_z", "bbox_min", "bbox_mid", "bbox_max")
+
+
+def _normalise_region(raw: dict, index: int) -> dict:
+    """Validate one region spec: {"cylinder": dia, ...} or {"box": (dx,dy,dz), ...}."""
+    if "cylinder" in raw:
+        try:
+            dia = float(raw["cylinder"])
+        except (TypeError, ValueError) as exc:
+            raise LabCadError(f"CHECKS[{index}]: cylinder diameter must be a number") from exc
+        if dia <= 0:
+            raise LabCadError(f"CHECKS[{index}]: cylinder diameter must be > 0")
+        axis = str(raw.get("axis", "z")).lower()
+        if axis not in ("x", "y", "z"):
+            raise LabCadError(f"CHECKS[{index}]: axis must be 'x', 'y', or 'z', got {axis!r}")
+        at = raw.get("at", [(0.0, 0.0)])
+        positions = []
+        for pos in at:
+            try:
+                a, b = (float(pos[0]), float(pos[1]))
+            except (TypeError, ValueError, IndexError) as exc:
+                raise LabCadError(
+                    f"CHECKS[{index}]: cylinder 'at' entries are 2D positions in the "
+                    "plane perpendicular to the axis (axis z: (x, y); axis x: (y, z); "
+                    f"axis y: (x, z)), got {pos!r}"
+                ) from exc
+            positions.append([a, b])
+        span = raw.get("span")
+        if span is not None:
+            try:
+                span = [float(span[0]), float(span[1])]
+            except (TypeError, ValueError, IndexError) as exc:
+                raise LabCadError(f"CHECKS[{index}]: span must be (start, end) along the axis") from exc
+        return {"shape": "cylinder", "dia": dia, "axis": axis, "at": positions, "span": span}
+    if "box" in raw:
+        size = raw["box"]
+        try:
+            size = [float(size[0]), float(size[1]), float(size[2])]
+        except (TypeError, ValueError, IndexError) as exc:
+            raise LabCadError(f"CHECKS[{index}]: box must be (dx, dy, dz)") from exc
+        if min(size) <= 0:
+            raise LabCadError(f"CHECKS[{index}]: box dimensions must be > 0")
+        at = raw.get("at", [(0.0, 0.0, 0.0)])
+        positions = []
+        for pos in at:
+            try:
+                positions.append([float(pos[0]), float(pos[1]), float(pos[2])])
+            except (TypeError, ValueError, IndexError) as exc:
+                raise LabCadError(
+                    f"CHECKS[{index}]: box 'at' entries are 3D centres (x, y, z), got {pos!r}"
+                ) from exc
+        return {"shape": "box", "size": size, "at": positions}
+    raise LabCadError(
+        f"CHECKS[{index}]: a region needs 'cylinder': diameter or 'box': (dx, dy, dz)"
+    )
+
+
+def normalise_checks(declared: Any) -> list[dict]:
+    """Validate and fill in defaults for declared geometry-check entries.
+
+    Raw entry forms::
+
+        {"feature": "M6 screws pass", "clear": {"cylinder": 6.6, "axis": "z",
+         "at": [(37.5, 37.5), (-37.5, 37.5), (37.5, -37.5), (-37.5, -37.5)]}}
+        {"feature": "plate at MMC drops in", "clear": {"box": (128.01, 85.73, 6.0),
+         "at": [(0.0, 0.0, 7.0)]}}
+        {"feature": "ridge stands proud", "material": {"box": (40.0, 0.8, 0.28),
+         "at": [(0.0, 0.0, 4.15)]}, "min_mm3": 5.0}
+        {"feature": "clears the turret", "bbox_z": {"max": 15.0}}
+
+    A cylinder with no ``span`` runs through the whole part. ``tol_mm3`` (clear,
+    default 0.01) and ``min_mm3`` (material, default 0.01) tune the pass volume.
+    """
+    if isinstance(declared, dict):
+        declared = [declared]
+    if not isinstance(declared, (list, tuple)):
+        raise LabCadError("CHECKS must be a list of dicts")
+
+    entries: list[dict] = []
+    for index, raw in enumerate(declared):
+        if not isinstance(raw, dict):
+            raise LabCadError(f"CHECKS[{index}] must be a dict, got {type(raw).__name__}")
+        kinds = [k for k in ("clear", "material", *_MEASURE_NAMES) if k in raw]
+        if len(kinds) != 1:
+            raise LabCadError(
+                f"CHECKS[{index}] needs exactly one of 'clear', 'material', or a bbox "
+                f"measure ({', '.join(_MEASURE_NAMES)}), got {kinds or 'none'}"
+            )
+        kind = kinds[0]
+        entry: dict = {"feature": str(raw.get("feature", kind))}
+        if kind in ("clear", "material"):
+            region = raw[kind]
+            if not isinstance(region, dict):
+                raise LabCadError(f"CHECKS[{index}]: {kind!r} must be a region dict")
+            entry["kind"] = kind
+            entry["region"] = _normalise_region(region, index)
+            entry["tol_mm3"] = float(raw.get("tol_mm3", 0.01))
+            entry["min_mm3"] = float(raw.get("min_mm3", 0.01))
+        else:
+            bounds = raw[kind]
+            if not isinstance(bounds, dict) or not (
+                "min" in bounds or "max" in bounds
+            ):
+                raise LabCadError(
+                    f"CHECKS[{index}]: {kind!r} needs a dict with 'min' and/or 'max' in mm"
+                )
+            entry["kind"] = "measure"
+            entry["measure"] = kind
+            entry["min"] = None if bounds.get("min") is None else float(bounds["min"])
+            entry["max"] = None if bounds.get("max") is None else float(bounds["max"])
+        entries.append(entry)
+    return entries
+
+
+def intersection_volume(shape_a, shape_b) -> float:
+    """Volume of the boolean intersection, tolerant of the kernel's return types.
+
+    Touching or disjoint solids yield ``None``, an empty ``Compound``, or a
+    ``ShapeList`` with no ``.volume`` depending on the path taken; all of those
+    count as zero.
+    """
+    try:
+        result = shape_a & shape_b
+    except Exception:  # noqa: BLE001 - kernel raises assorted OCCT errors
+        try:
+            result = shape_a.intersect(shape_b)
+        except Exception as exc:  # noqa: BLE001
+            raise LabCadError(f"boolean intersection failed: {exc}") from exc
+    if result is None:
+        return 0.0
+    volume = getattr(result, "volume", None)
+    if volume is not None:
+        return float(volume)
+    return float(sum(float(getattr(item, "volume", 0.0) or 0.0) for item in result))
+
+
+def _region_solids(build123d, region: dict, part_bbox) -> list:
+    """Materialise a region spec into one solid per 'at' position."""
+    solids = []
+    if region["shape"] == "box":
+        dx, dy, dz = region["size"]
+        for x, y, z in region["at"]:
+            solids.append(build123d.Pos(x, y, z) * build123d.Box(dx, dy, dz))
+        return solids
+
+    dia = region["dia"]
+    axis = region["axis"]
+    span = region["span"]
+    if span is None:
+        lo = {"x": part_bbox.min.X, "y": part_bbox.min.Y, "z": part_bbox.min.Z}[axis] - 2.0
+        hi = {"x": part_bbox.max.X, "y": part_bbox.max.Y, "z": part_bbox.max.Z}[axis] + 2.0
+    else:
+        lo, hi = sorted(span)
+    length = hi - lo
+    mid = (hi + lo) / 2.0
+    for a, b in region["at"]:
+        cyl = build123d.Cylinder(dia / 2.0, length)
+        if axis == "z":
+            solid = build123d.Pos(a, b, mid) * cyl
+        elif axis == "x":
+            solid = build123d.Pos(mid, a, b) * build123d.Rot(0, 90, 0) * cyl
+        else:  # y; 'at' is (x, z)
+            solid = build123d.Pos(a, mid, b) * build123d.Rot(90, 0, 0) * cyl
+        solids.append(solid)
+    return solids
+
+
+def evaluate_checks(part, declared: list[dict]) -> list[dict]:
+    """Evaluate normalised geometry checks against a built solid."""
+    build123d = require_build123d()
+    facts = shape_facts(part)
+    bbox = part.bounding_box()
+    results = []
+    for entry in declared:
+        result = dict(entry)
+        if entry["kind"] == "measure":
+            actual = measure(facts, entry["measure"])
+            ok = True
+            if entry["min"] is not None and actual < entry["min"] - 1e-9:
+                ok = False
+            if entry["max"] is not None and actual > entry["max"] + 1e-9:
+                ok = False
+            result.update({"actual_mm": round(actual, 4), "pass": ok})
+        else:
+            volumes = [
+                round(intersection_volume(part, solid), 4)
+                for solid in _region_solids(build123d, entry["region"], bbox)
+            ]
+            total = round(sum(volumes), 4)
+            if entry["kind"] == "clear":
+                ok = all(v <= entry["tol_mm3"] for v in volumes)
+            else:
+                ok = all(v >= entry["min_mm3"] for v in volumes)
+            result.update({"volumes_mm3": volumes, "total_mm3": total, "pass": ok})
+        results.append(result)
+    return results
+
+
+def format_check_result(item: dict) -> list[str]:
+    """Human-readable lines for one evaluated geometry-check result."""
+    mark = "PASS" if item["pass"] else "FAIL"
+    if item["kind"] == "measure":
+        bounds = []
+        if item.get("min") is not None:
+            bounds.append(f">= {item['min']:.3f}")
+        if item.get("max") is not None:
+            bounds.append(f"<= {item['max']:.3f}")
+        return [f"  [{mark}] {item['feature']:<38} {item['measure']} "
+                f"{item['actual_mm']:.3f} mm  expected {' and '.join(bounds)}"]
+    region = item["region"]
+    if region["shape"] == "cylinder":
+        where = f"cyl d{region['dia']:g} axis {region['axis']} x{len(region['at'])}"
+    else:
+        dx, dy, dz = region["size"]
+        where = f"box {dx:g}x{dy:g}x{dz:g} x{len(region['at'])}"
+    if item["kind"] == "clear":
+        detail = f"intruding {item['total_mm3']:.3f} mm^3 (tol {item['tol_mm3']:g}/position)"
+    else:
+        detail = (f"material {item['total_mm3']:.3f} mm^3 "
+                  f"(min {item['min_mm3']:g}/position)")
+    lines = [f"  [{mark}] {item['feature']:<38} {item['kind']} {where}  {detail}"]
+    if not item["pass"]:
+        lines.append(f"         per position (mm^3): {item['volumes_mm3']}")
+    return lines
+
+
+def cylinder_census(part) -> list[dict]:
+    """Every cylindrical face in the part: radius, axis, extent, sweep.
+
+    This is the instrument for reconciling what a render appears to show with
+    what the solid actually contains: a bore is a ~360 degree sweep, an edge
+    fillet ~90, and a counterbore is two coaxial full sweeps stacked along the
+    axis with different radii.
+    """
+    build123d = require_build123d()
+    from OCP.BRepAdaptor import BRepAdaptor_Surface  # noqa: PLC0415
+    import math  # noqa: PLC0415
+
+    rows = []
+    for face in part.faces():
+        if face.geom_type != build123d.GeomType.CYLINDER:
+            continue
+        cyl = BRepAdaptor_Surface(face.wrapped).Cylinder()
+        ax = cyl.Axis()
+        loc, direction = ax.Location(), ax.Direction()
+        d = (direction.X(), direction.Y(), direction.Z())
+        point = (loc.X(), loc.Y(), loc.Z())
+
+        axis_name = None
+        for name, vec in (("x", (1, 0, 0)), ("y", (0, 1, 0)), ("z", (0, 0, 1))):
+            if abs(abs(d[0] * vec[0] + d[1] * vec[1] + d[2] * vec[2]) - 1.0) < 1e-6:
+                axis_name = name
+        # Canonicalise to the +axis direction so spans read in real coordinates
+        # instead of sign-flipping for bores cut top-down.
+        if axis_name is not None:
+            d = {"x": (1, 0, 0), "y": (0, 1, 0), "z": (0, 0, 1)}[axis_name]
+
+        bb = face.bounding_box()
+        corners = [
+            (x, y, z)
+            for x in (bb.min.X, bb.max.X)
+            for y in (bb.min.Y, bb.max.Y)
+            for z in (bb.min.Z, bb.max.Z)
+        ]
+        proj = [x * d[0] + y * d[1] + z * d[2] for x, y, z in corners]
+        extent = max(proj) - min(proj)
+        radius = float(cyl.Radius())
+        sweep = (
+            math.degrees(float(face.area) / (radius * extent)) if radius * extent > 1e-12 else 0.0
+        )
+        # In-plane position, ordered like probe positions: axis z -> (x, y),
+        # axis x -> (y, z), axis y -> (x, z). The axis point's own component
+        # along the axis is arbitrary, so it is not reported for aligned axes.
+        if axis_name == "z":
+            at = [round(point[0], 4), round(point[1], 4)]
+        elif axis_name == "x":
+            at = [round(point[1], 4), round(point[2], 4)]
+        elif axis_name == "y":
+            at = [round(point[0], 4), round(point[2], 4)]
+        else:
+            at = [round(c, 4) for c in point]
+        rows.append({
+            "radius_mm": round(radius, 4),
+            "diameter_mm": round(2 * radius, 4),
+            "axis": axis_name or [round(c, 4) for c in d],
+            "at_mm": at,
+            "extent_mm": round(extent, 4),
+            "span_min_mm": round(min(proj), 4),
+            "span_max_mm": round(max(proj), 4),
+            "sweep_deg": round(sweep, 1),
+            "full": sweep >= 355.0,
+        })
+    rows.sort(key=lambda r: (str(r["axis"]), r["at_mm"], r["radius_mm"]))
+    return rows
 
 
 def load_shape(path: Path):
