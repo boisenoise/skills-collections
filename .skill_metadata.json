@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-16T06:13:04.470832",
-  "skill_count": 3125,
+  "last_updated": "2026-08-17T06:19:12.634281",
+  "skill_count": 3132,
   "sources_processed": 19,
   "skills": [
     {
@@ -2028,6 +2028,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-agent-qa-authoring",
+      "original_name": "agent-qa-authoring",
+      "description": "Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while preserving canonical IDs and schema contracts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "FSL-1.1-ALv2"
+    },
+    {
       "name": "antigravity-review-animations",
       "original_name": "review-animations",
       "description": "Use when reviewing animation and motion code against a strict craft, performance, accessibility, and interaction-quality bar.",
@@ -2110,7 +2118,7 @@
     {
       "name": "antigravity-cohesivity",
       "original_name": "cohesivity",
-      "description": "Provision backend infra through Cohesivity (cohesivity.ai): Postgres, hosting, auth, storage, and AI model APIs over one HTTP API. Use when a .cohesivity file exists or a project needs a backend.",
+      "description": "Provision headless backend services for AI agents through Cohesivity: hosting, databases, storage, LLMs, and third-party APIs over one HTTP API. Use when a trusted .cohesivity file exists or the user approves a new backend.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2356,6 +2364,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-using-lwc",
+      "original_name": "using-lwc",
+      "description": "Use when project decisions, code structure, research, incidents, or verified context must survive future coding-agent sessions through LWC memory and graph indexes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-terraform-skill",
       "original_name": "terraform-skill",
       "description": "Terraform infrastructure as code best practices",
@@ -2383,6 +2399,14 @@
       "name": "antigravity-hig-project-context",
       "original_name": "hig-project-context",
       "description": "Create or update a shared Apple design context document that other HIG skills use to tailor guidance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-compile-knowledge",
+      "original_name": "compile-knowledge",
+      "description": "Compile durable, non-obvious findings into an interlinked markdown knowledge store \u2014 atomic files, [[wiki-links]], a maintained index \u2014 so an agent gets smarter across sessions instead of relearning the same facts.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3158,7 +3182,7 @@
     {
       "name": "antigravity-riffkit",
       "original_name": "riffkit",
-      "description": "Riff a winning TikTok into your own short video \u2014 study a proven video's emotion formula and regenerate it with your product, character, and language (EN/ES). Also makes UGC ad creative.",
+      "description": "Riff a winning TikTok into your own short video \u2014 study a proven video's emotion formula and regenerate it with your product, character, and language (9 supported). Also makes UGC ad creative.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7796,6 +7820,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-anti-ui-slop",
+      "original_name": "anti-ui-slop",
+      "description": "Stop coding agents from shipping generic UI with UIZZE's 800,000+ real web and iOS screens, product-specific contracts, required states, and a hard finish gate.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-c4-context",
       "original_name": "c4-context",
       "description": "Expert C4 Context-level documentation specialist. Creates high-level system context diagrams, documents personas, user journeys, system features, and external dependencies.",
@@ -8860,6 +8892,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-agent-qa-debug-fix",
+      "original_name": "agent-qa-debug-fix",
+      "description": "Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local code without hiding product or infrastructure defects.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "FSL-1.1-ALv2"
+    },
+    {
       "name": "antigravity-godot-gdscript-patterns",
       "original_name": "godot-gdscript-patterns",
       "description": "Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use when building Godot games, implementing game systems, or learning GDScript best practices.",
@@ -9567,6 +9607,14 @@
       "name": "antigravity-vercel-automation",
       "original_name": "vercel-automation",
       "description": "Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects, and teams. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-liuguang-banlan-ui",
+      "original_name": "liuguang-banlan-ui",
+      "description": "Builds two parameterized UI modes\u2014\u6d41\u5149\u6ea2\u5f69\u767d (iridescent white) and \u4e94\u5f69\u6591\u6593\u9ed1 (colorful black)\u2014with OKLCH, WebGL/CSS fallback, vision gating, screenshot QA, and total/per-color intensity reports. Use when a UI request names either mode or needs measured color parameters.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15738,6 +15786,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-agent-qa-result-triage",
+      "original_name": "agent-qa-result-triage",
+      "description": "Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence, and actionable next steps.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "FSL-1.1-ALv2"
     },
     {
       "name": "antigravity-cqrs-implementation",

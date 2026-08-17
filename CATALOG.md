@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-16 06:13 UTC*
+*Last updated: 2026-08-17 06:19 UTC*
 
-Total skills: **3125**
+Total skills: **3132**
 
 ## Skills by Source
 
@@ -1298,6 +1298,9 @@ Total skills: **3125**
 | `antigravity-agent-orchestration-improve-agent` | Systematic improvement of existing agents through performance analysis, prompt engineering, and cont... |
 | `antigravity-agent-orchestration-multi-agent-optimize` | Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orche... |
 | `antigravity-agent-orchestrator` | Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capac... |
+| `antigravity-agent-qa-authoring` | Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while preservin... |
+| `antigravity-agent-qa-debug-fix` | Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local code wit... |
+| `antigravity-agent-qa-result-triage` | Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence... |
 | `antigravity-agent-self-scheduling` | Schedule AI agent runs with cron, loops, or external clocks while avoiding unsafe tight autonomous t... |
 | `antigravity-agent-squad` | Main agent orchestrator that coordinates a specialized squad of agents |
 | `antigravity-agent-tool-builder` | Tools are how AI agents interact with the world. A well-designed tool is the difference between an a... |
@@ -1353,6 +1356,7 @@ Total skills: **3125**
 | `antigravity-anti-reversing-techniques` | AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any by... |
 | `antigravity-anti-sleep` | Keep a Mac awake with caffeinate during long builds, downloads, or supervised automation runs. |
 | `antigravity-anti-sycophancy` | Eliminate sycophantic agreement patterns in AI responses. Load via /skill anti-sycophancy. |
+| `antigravity-anti-ui-slop` | Stop coding agents from shipping generic UI with UIZZE's 800,000+ real web and iOS screens, product-... |
 | `antigravity-antigravity-agent-manager` | Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager and Ant... |
 | `antigravity-antigravity-design-expert` | Core UI/UX engineering skill for building highly interactive, spatial, weightless, and glassmorphism... |
 | `antigravity-antigravity-maintainer-batch-release` | Run protected AAS maintainer sweeps, PR merge batches, canonical sync, Core preview checks, and scri... |
@@ -1725,7 +1729,7 @@ pipelines, and system utilities.... |
 | `antigravity-codex-profiles` | Use codex-profiles to run Codex CLI or Codex Desktop with isolated CODEX_HOME profiles for separate ... |
 | `antigravity-codex-review` | Professional code review with auto CHANGELOG generation, integrated with Codex AI. Use when you want... |
 | `antigravity-codex-subagent` | Launch Codex CLI as an isolated subagent for bounded coding, review, or verification tasks. |
-| `antigravity-cohesivity` | Provision backend infra through Cohesivity (cohesivity.ai): Postgres, hosting, auth, storage, and AI... |
+| `antigravity-cohesivity` | Provision headless backend services for AI agents through Cohesivity: hosting, databases, storage, L... |
 | `antigravity-cold-email` | Write B2B cold emails and follow-up sequences that earn replies. Use when creating outbound prospect... |
 | `antigravity-comfyui-gateway` | REST API gateway for ComfyUI servers. Workflow management, job queuing, webhooks, caching, auth, rat... |
 | `antigravity-commit` | ALWAYS use this skill when committing code changes — never commit directly without it. Creates commi... |
@@ -1736,6 +1740,7 @@ pipelines, and system utilities.... |
 | `antigravity-competitor-analysis` | Research competitors with Browserbase discovery, enrichment lanes, screenshots, matrices, and HTML r... |
 | `antigravity-competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the ... |
 | `antigravity-competitor-tracking` | Systematic competitor analysis for developer tools. Track features, pricing, positioning, content st... |
+| `antigravity-compile-knowledge` | Compile durable, non-obvious findings into an interlinked markdown knowledge store — atomic files, [... |
 | `antigravity-complexity-cuts` | Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-stop. Fo... |
 | `antigravity-composition-patterns` | Use when working with composition-patterns tasks or workflows |
 | `antigravity-comprehensive-review-full-review` | Use when working with comprehensive review full review |
@@ -2304,6 +2309,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-linux-privilege-escalation` | Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconf... |
 | `antigravity-linux-shell-scripting` | Provide production-ready shell script templates for common Linux system administration tasks includi... |
 | `antigravity-linux-troubleshooting` | Linux system troubleshooting workflow for diagnosing and resolving system issues, performance proble... |
+| `antigravity-liuguang-banlan-ui` | Builds two parameterized UI modes—流光溢彩白 (iridescent white) and 五彩斑斓黑 (colorful black)—with OKLCH, We... |
 | `antigravity-llm-app-patterns` | Production-ready patterns for building LLM applications, inspired by [Dify](https://github.com/langg... |
 | `antigravity-llm-application-dev-ai-assistant` | You are an AI assistant development expert specializing in creating intelligent conversational inter... |
 | `antigravity-llm-application-dev-langchain-agent` | You are an expert LangChain agent developer specializing in production-grade AI systems using LangCh... |
@@ -3088,6 +3094,7 @@ calculations
 | `antigravity-use-dom` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to... |
 | `antigravity-user-thoughts` | Persist user decisions and project constraints to mdbase across sessions. Trigger on /user-thoughts ... |
 | `antigravity-using-git-worktrees` | Git worktrees create isolated workspaces sharing the same repository, allowing work on multiple bran... |
+| `antigravity-using-lwc` | Use when project decisions, code structure, research, incidents, or verified context must survive fu... |
 | `antigravity-using-n8n-mcp-skills` | Route n8n MCP workflow design, editing, validation, testing, deployment, credential, execution, and ... |
 | `antigravity-using-neon` | Neon is a serverless Postgres platform that separates compute and storage to offer autoscaling, bran... |
 | `antigravity-using-superpowers` | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool in... |
