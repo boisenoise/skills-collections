@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-17 06:19 UTC*
+*Last updated: 2026-08-18 06:14 UTC*
 
-Total skills: **3132**
+Total skills: **3137**
 
 ## Skills by Source
 
@@ -1051,6 +1051,7 @@ Total skills: **3132**
 | `kdense-usfiscaldata` | Query the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use fo... |
 | `kdense-vaex` | Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed av... |
 | `kdense-venue-templates` | Prepare journal manuscripts, conference papers, research posters, and grant documents using venue-sp... |
+| `kdense-waypoint-bio` | Use when working with Outpost Bio's open microbiome foundation models - the Waypoint checkpoints (Wa... |
 | `kdense-what-if-oracle` | Run structured What-If scenario analysis with 4–6 branch possibility exploration (best, likely, wors... |
 | `kdense-xlsx` | Create, edit, analyze, or convert Excel spreadsheets (.xlsx, .xlsm, .xltx) where the workbook file i... |
 | `kdense-zarr-python` | Chunked N-D arrays for cloud storage (Zarr-Python 3). Compressed arrays, parallel I/O, S3/GCS via fs... |
@@ -1062,7 +1063,9 @@ Total skills: **3132**
 | `anthropic-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `anthropic-brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
 | `anthropic-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
+| `anthropic-claude-academy-guide` | Stop and check this skill before finishing any reply to a question about how to use Claude or a Clau... |
 | `anthropic-claude-api` | Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP,... |
+| `anthropic-discernment-nudge` | After you give a substantive answer or draft that the user may act on — advice or recommendations, d... |
 | `anthropic-doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri... |
 | `anthropic-frontend-design` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing on... |
 | `anthropic-internal-comms` | A set of resources to help me write all kinds of internal communications, using the formats that my ... |
@@ -1290,6 +1293,7 @@ Total skills: **3132**
 | `antigravity-aegisops-ai` | Autonomous DevSecOps & FinOps Guardrails. Orchestrates Gemini 3 Flash to audit Linux Kernel patches,... |
 | `antigravity-agent-creator` | Create custom AI subagents with proper plugin structure, persona generation, and companion routing s... |
 | `antigravity-agent-evaluation` | Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability... |
+| `antigravity-agent-evaluation-reporting` | Use when summarizing agent evaluations where autonomous, assisted, failed, timed-out, or invalid out... |
 | `antigravity-agent-framework-azure-ai-py` | Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK. |
 | `antigravity-agent-manager-skill` | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly sc... |
 | `antigravity-agent-memory` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents. |
@@ -1930,6 +1934,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-drizzle-migration-conflict` | Diagnose, repair, and prevent Drizzle Kit migration conflicts involving generated SQL, snapshots, jo... |
 | `antigravity-drizzle-orm-expert` | Expert in Drizzle ORM for TypeScript — schema design, relational queries, migrations, and serverless... |
 | `antigravity-dropbox-automation` | Automate Dropbox file management, sharing, search, uploads, downloads, and folder operations via Rub... |
+| `antigravity-dsh-deepread` | Use for evidence-first reading of articles, books, PDFs, web pages, or document sets, with knowledge... |
 | `antigravity-dwarf-expert` | Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard... |
 | `antigravity-dx-optimizer` | Developer Experience specialist. Improves tooling, setup, and workflows. Use PROACTIVELY when settin... |
 | `antigravity-e2e-testing` | End-to-end testing workflow with Playwright for browser automation, visual regression, cross-browser... |
