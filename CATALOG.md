@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-18 06:14 UTC*
+*Last updated: 2026-08-19 06:15 UTC*
 
-Total skills: **3137**
+Total skills: **3138**
 
 ## Skills by Source
 
@@ -1060,10 +1060,10 @@ Total skills: **3137**
 
 | Skill | Description |
 |-------|-------------|
+| `anthropic-academy-guide` | Stop and check this skill before finishing any reply to a question about how to use Claude or a Clau... |
 | `anthropic-algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. U... |
 | `anthropic-brand-guidelines` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit fr... |
 | `anthropic-canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this ... |
-| `anthropic-claude-academy-guide` | Stop and check this skill before finishing any reply to a question about how to use Claude or a Clau... |
 | `anthropic-claude-api` | Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP,... |
 | `anthropic-discernment-nudge` | After you give a substantive answer or draft that the user may act on — advice or recommendations, d... |
 | `anthropic-doc-coauthoring` | Guide users through a structured workflow for co-authoring documentation. Use when user wants to wri... |
@@ -1799,6 +1799,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-crewai` | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies... |
 | `antigravity-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page or form — in... |
 | `antigravity-cron-doctor` | Diagnose and validate cron expressions before they ship. Catches the five silent death-traps: imposs... |
+| `antigravity-cross-platform-contract-propagation-audit` | Use when auditing whether a field, enum, flag, or API contract propagates consistently across storag... |
 | `antigravity-crossframe` | Use when the user explicitly invokes CrossFrame or 跨尺度结构诊断 for Chinese-canonical structural diagnosi... |
 | `antigravity-crossframe-casebook` | Use when CrossFrame Suite routes explicit Chinese casebook work: turning materials into reusable cas... |
 | `antigravity-crossframe-critical` | Use only when the user explicitly names crossframe-critical for a Chinese structural critique dossie... |
