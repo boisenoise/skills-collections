@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-19 06:15 UTC*
+*Last updated: 2026-08-20 06:15 UTC*
 
-Total skills: **3138**
+Total skills: **3144**
 
 ## Skills by Source
 
@@ -1295,6 +1295,7 @@ Total skills: **3138**
 | `antigravity-agent-evaluation` | Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability... |
 | `antigravity-agent-evaluation-reporting` | Use when summarizing agent evaluations where autonomous, assisted, failed, timed-out, or invalid out... |
 | `antigravity-agent-framework-azure-ai-py` | Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK. |
+| `antigravity-agent-harness-fault-injection` | Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, chec... |
 | `antigravity-agent-manager-skill` | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly sc... |
 | `antigravity-agent-memory` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents. |
 | `antigravity-agent-memory-mcp` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Arch... |
@@ -1424,6 +1425,7 @@ Total skills: **3138**
 | `antigravity-atlas-ledger` | Companion to atlas-contract. Auto-invoked by its Final Audit on caught drift; also use after Post Re... |
 | `antigravity-attack-tree-construction` | Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, ident... |
 | `antigravity-audio-transcriber` | Transform audio recordings into professional Markdown documentation with intelligent summaries using... |
+| `antigravity-audit-agent-run-evidence` | Use when an agent, harness, gateway, MCP workflow, or multi-step automation claims completion and th... |
 | `antigravity-audit-context-building` | Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulner... |
 | `antigravity-audit-skills` | Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identif... |
 | `antigravity-auri-core` | Auri: assistente de voz inteligente (Alexa + Claude claude-opus-4-20250805). Visao do produto, perso... |
@@ -1608,6 +1610,7 @@ pipelines, and system utilities.... |
 | `antigravity-blockrun` | BlockRun works with Claude Code and Google Antigravity. |
 | `antigravity-blog-writing-guide` | This skill enforces Sentry's blog writing standards across every post — whether you're helping an en... |
 | `antigravity-blueprint` | Turn a one-line objective into a step-by-step construction plan any coding agent can execute cold. E... |
+| `antigravity-boost-asio-pro` | Use when writing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP serve... |
 | `antigravity-box-automation` | Automate Box operations including file upload/download, content search, folder management, collabora... |
 | `antigravity-brain-to-docs` | Interview the user to turn project vision and decisions into README and ADR documentation. |
 | `antigravity-brainstorming` | Use before creative or constructive work (features, architecture, behavior). Transforms vague ideas ... |
@@ -2468,6 +2471,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-multi-agent-task-orchestrator` | Route tasks to specialized AI agents with anti-duplication, quality gates, and 30-minute heartbeat m... |
 | `antigravity-multi-cloud-architecture` | Decision framework and patterns for architecting applications across AWS, Azure, and GCP. |
 | `antigravity-multi-platform-apps-multi-platform` | Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-f... |
+| `antigravity-multi-source-search` | Cross-validate web research and produce an offline-checkable evidence ledger with explicit source di... |
 | `antigravity-n8n-agents` | Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output,... |
 | `antigravity-n8n-binary-and-data` | Handle n8n files and binary data across uploads, downloads, transforms, multimodal inputs, agent too... |
 | `antigravity-n8n-code-javascript` | Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$nod... |
@@ -2739,6 +2743,7 @@ structures, and modern OOP features. U... |
 | `antigravity-reverse-engineer` | Expert reverse engineer specializing in binary analysis, disassembly, decompilation, and software an... |
 | `antigravity-review-and-simplify-changes` | Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards... |
 | `antigravity-review-animations` | Use when reviewing animation and motion code against a strict craft, performance, accessibility, and... |
+| `antigravity-review-multi-agent-orchestration` | Use when a supervisor, swarm, graph, planner-worker system, or parallel agent workflow needs review ... |
 | `antigravity-review-swarm` | Parallel read-only multi-agent review of a current git diff or explicit file scope to find behaviora... |
 | `antigravity-revops` | Design and improve revenue operations, lead lifecycle rules, scoring, routing, handoffs, and CRM pro... |
 | `antigravity-rich-elicitation` | Asks clarifying questions in multiple rounds before starting ambiguous tasks. Fires when 2+ task dim... |
@@ -3072,6 +3077,7 @@ calculations
 | `antigravity-ui-setup` | Interactive setup wizard — guides you step-by-step to configure the design system for your project |
 | `antigravity-ui-skills` | Opinionated, evolving constraints to guide agents when building interfaces |
 | `antigravity-ui-skills-root` | Use before UI-related work to select the smallest useful UI Skills context through the ui-skills CLI... |
+| `antigravity-ui-slop-score` | Score a rendered web or iOS screen for generic UI risk before it ships. Use when a user asks whether... |
 | `antigravity-ui-tokens` | View, add, or modify design tokens in the StyleSeed design system |
 | `antigravity-ui-update` | Update StyleSeed engine in your project — analyzes what's outdated and updates safely |
 | `antigravity-ui-ux-designer` | Create interface designs, wireframes, and design systems. Masters user research, accessibility stand... |
