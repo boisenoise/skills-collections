@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-23 06:13 UTC*
+*Last updated: 2026-08-24 06:21 UTC*
 
-Total skills: **3144**
+Total skills: **3146**
 
 ## Skills by Source
 
@@ -1114,6 +1114,7 @@ Total skills: **3144**
 | `marketing-customer-research` | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions... |
 | `marketing-directory-submissions` | When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review dir... |
 | `marketing-emails` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
+| `marketing-events` | When the user wants to plan, run, sponsor, speak at, or get pipeline from events — webinars, confere... |
 | `marketing-free-tools` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
 | `marketing-image` | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, socia... |
 | `marketing-influencer-marketing` | When the user wants to run influencer, creator, or ambassador partnerships to promote their product ... |
@@ -1361,7 +1362,7 @@ Total skills: **3144**
 | `antigravity-anti-reversing-techniques` | AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any by... |
 | `antigravity-anti-sleep` | Keep a Mac awake with caffeinate during long builds, downloads, or supervised automation runs. |
 | `antigravity-anti-sycophancy` | Eliminate sycophantic agreement patterns in AI responses. Load via /skill anti-sycophancy. |
-| `antigravity-anti-ui-slop` | Stop coding agents from shipping generic UI with UIZZE's 800,000+ real web and iOS screens, product-... |
+| `antigravity-anti-ui-slop` | Stop coding agents from shipping generic UI. Extend the product's design system, use UIZZE evidence ... |
 | `antigravity-antigravity-agent-manager` | Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager and Ant... |
 | `antigravity-antigravity-design-expert` | Core UI/UX engineering skill for building highly interactive, spatial, weightless, and glassmorphism... |
 | `antigravity-antigravity-maintainer-batch-release` | Run protected AAS maintainer sweeps, PR merge batches, canonical sync, Core preview checks, and scri... |
@@ -2007,6 +2008,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-fal-upscale` | Upscale and enhance image and video resolution using AI |
 | `antigravity-fal-workflow` | Generate workflow JSON files for chaining AI models |
 | `antigravity-family-health-analyzer` | 分析家族病史、评估遗传风险、识别家庭健康模式、提供个性化预防建议 |
+| `antigravity-famulor-skill` | Operate Famulor assistants, communication history, campaigns, knowledge, automations, telephony, and... |
 | `antigravity-fastapi-pro` | Build high-performance async APIs with FastAPI, SQLAlchemy 2.0, and Pydantic V2. Master microservice... |
 | `antigravity-fastapi-router-py` | Create FastAPI routers following established patterns with proper authentication, response models, a... |
 | `antigravity-fastapi-templates` | Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensiv... |
@@ -2667,6 +2669,7 @@ structures, and modern OOP features. U... |
 | `antigravity-progressive-web-app` | Build Progressive Web Apps (PWAs) with offline support, installability, and caching strategies. Trig... |
 | `antigravity-project-development` | This skill covers the principles for identifying tasks suited to LLM processing, designing effective... |
 | `antigravity-project-skill-audit` | Audit a project and recommend the highest-value skills to add or update. |
+| `antigravity-project-state-governor` | Govern evidence-backed canonical project state across sessions, branches, reviews, and research cycl... |
 | `antigravity-projection-patterns` | Build read models and projections from event streams. Use when implementing CQRS read sides, buildin... |
 | `antigravity-prometheus-configuration` | Complete guide to Prometheus setup, metric collection, scrape configuration, and recording rules. |
 | `antigravity-prompt-caching` | Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Ca... |
@@ -3083,7 +3086,6 @@ calculations
 | `antigravity-ui-ux-designer` | Create interface designs, wireframes, and design systems. Masters user research, accessibility stand... |
 | `antigravity-ui-ux-pro-max` | Comprehensive design guide for web and mobile applications. Use when designing new UI components or ... |
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
-| `antigravity-uizze-ui-research` | Use when building or reviewing web and iOS UI and you need real references from the free UIZZE publi... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
 | `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through nine governed MCP tools, including provider-free prom... |
 | `antigravity-uniprot-database` | Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL.... |

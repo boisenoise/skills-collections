@@ -2,7 +2,7 @@
 name: public-relations
 description: "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'public relations,' 'press,' 'press release,' 'press coverage,' 'media outreach,' 'pitch a journalist,' 'get featured,' 'media list,' 'media kit,' 'press kit,' 'newsjacking,' 'news hijack,' 'HARO,' 'Qwoted,' 'Featured,' 'Help A Reporter,' 'reporter request,' 'tech press,' 'TechCrunch,' 'earned media,' 'thought leadership placement,' 'op-ed,' 'guest article,' 'press contacts,' 'podcast prep,' 'going on a podcast,' 'podcast guest,' 'prep me for this podcast,' or 'how do I get press.' Use this for earned media work — finding journalists, pitching stories, newsjacking, prepping podcast appearances, and responding to press requests. For startup/SaaS/AI directory submissions, see directory-submissions. For product launches, see launch. For social-media engagement, see social. For cold-email outreach to prospects, see cold-email."
 metadata:
-  version: 1.1.0
+  version: 1.1.1
 ---
 
 # Public Relations & Earned Media
@@ -22,7 +22,8 @@ PR is not a substitute for distribution. It's a multiplier for it.
 
 - **Earned media doesn't drive direct conversions.** A TechCrunch hit will not give you 1,000 paying customers. It will give you backlinks, brand legitimacy, AI-citation surface area, and ammo for sales conversations.
 - **Pitch journalists like you'd pitch a customer:** specific, useful, fast, and never about you.
-- **The story is not your product. The story is the trend, the data, the conflict, or the human.** Your product is the evidence.
+- **The story is not your product. The story is the trend, the data, the conflict, or the human.** Your product is the evidence. Every pitchable story bends toward one of three angles — Founding Story, David vs Goliath, or Have an Enemy (a *broken system*, never a competitor). See [references/story-angles.md](references/story-angles.md).
+- **Chase press for the compound effect, not the traffic bump.** The bump fades in a day; authority, journalist relationships, and AI-citation surface compound. Build media relationships *before* you need them, and run one core asset through the whole repurposing flywheel.
 - **Speed beats polish on reactive PR.** A B+ pitch in the first hour of a story beats an A+ pitch on day three.
 
 ### When PR is worth it
@@ -49,6 +50,8 @@ Four modes. Most teams over-index on one. Run at least three.
 | **Proactive (pitching)** | Build a media list, pitch original stories | High | 2–8 weeks |
 | **Inbound (press requests)** | Respond to journalist queries on HARO/Qwoted/Featured | Low | Days to weeks |
 | **Owned (press page + media kit)** | Make it easy for journalists to find you | One-time setup | N/A |
+
+**For the story angle taxonomy (Founding Story / David vs Goliath / Have an Enemy), data stories, media relationship-building, and the PR repurposing flywheel** — see [references/story-angles.md](references/story-angles.md)
 
 **For the reactive newsjacking workflow** — see [references/newsjacking.md](references/newsjacking.md)
 
@@ -125,6 +128,9 @@ Go to [journalist-pitching.md](references/journalist-pitching.md), use the disco
 
 ### "What's worth pitching this week?"
 Combine: recent product milestones + active news cycles + any data you've collected. Score each potential story by the quality bar above.
+
+### "What's my story angle?" / "How do I get press with no news?"
+Go to [story-angles.md](references/story-angles.md). Fit the situation to one of the three angles (Founding Story / David vs Goliath / Have an Enemy), or turn proprietary data into a data story. Remember: a milestone alone isn't a story — milestone *with narrative* is.
 
 ### "Respond to this HARO query"
 Go to [press-platforms.md](references/press-platforms.md), use the response template, keep it under 200 words.

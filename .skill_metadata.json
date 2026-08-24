@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-23T06:13:58.802966",
-  "skill_count": 3144,
+  "last_updated": "2026-08-24T06:21:53.171580",
+  "skill_count": 3146,
   "sources_processed": 19,
   "skills": [
     {
@@ -3020,6 +3020,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-famulor-skill",
+      "original_name": "famulor-skill",
+      "description": "Operate Famulor assistants, communication history, campaigns, knowledge, automations, telephony, and workspace administration through its hosted MCP server.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-price-psychology-strategist",
       "original_name": "price-psychology-strategist",
       "description": "One sentence - what this skill does and when to invoke it",
@@ -3750,7 +3758,7 @@
     {
       "name": "antigravity-salesforce-development",
       "original_name": "salesforce-development",
-      "description": "Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex triggers and classes, REST/Bulk APIs, Connected Apps, and Salesforce DX with scratch orgs and 2nd generation packages (2GP).",
+      "description": "Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex triggers and classes, REST/Bulk APIs, External Client Apps, and Salesforce DX with scratch orgs and 2nd generation packages (2GP).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3847,14 +3855,6 @@
       "name": "antigravity-cro",
       "original_name": "cro",
       "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form \u2014 including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms. Also use when the user says 'CRO,' 'conversion rate optimization,' 'this page isn't...",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-uizze-ui-research",
-      "original_name": "uizze-ui-research",
-      "description": "Use when building or reviewing web and iOS UI and you need real references from the free UIZZE public catalog, a structured design contract, a consent-gated rendered HTML/CSS preview, or a hard pre-ship finish gate.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7870,7 +7870,7 @@
     {
       "name": "antigravity-anti-ui-slop",
       "original_name": "anti-ui-slop",
-      "description": "Stop coding agents from shipping generic UI with UIZZE's 800,000+ real web and iOS screens, product-specific contracts, required states, and a hard finish gate.",
+      "description": "Stop coding agents from shipping generic UI. Extend the product's design system, use UIZZE evidence only when useful, cover required states, and inspect the rendered result.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17284,6 +17284,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-project-state-governor",
+      "original_name": "project-state-governor",
+      "description": "Govern evidence-backed canonical project state across sessions, branches, reviews, and research cycles without inventing product intent.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-robius-event-action",
       "original_name": "robius-event-action",
       "description": "CRITICAL: Use for Robius event and action patterns. Triggers on:\ncustom action, MatchEvent, post_action, cx.widget_action,\nhandle_actions, DefaultNone, widget action, event handling,\n\u4e8b\u4ef6\u5904\u7406, \u81ea\u5b9a\u4e49\u52a8\u4f5c\n",
@@ -24606,7 +24614,7 @@
     {
       "name": "marketing-customer-research",
       "original_name": "customer-research",
-      "description": "When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions \"customer research,\" \"ICP research,\" \"talk to customers,\" \"analyze transcripts,\" \"customer interviews,\" \"survey analysis,\" \"support ticket analysis,\" \"voice of customer,\" \"VOC,\" \"build personas,\" \"customer personas,\" \"jobs to be done,\" \"JTBD,\" \"what do customers say,\" \"what are customers struggling with,\" \"Reddit mining,\" \"G2 reviews,\" \"review mining,\" \"digital watering holes,\" \"community research,\" \"forum research,\" \"competitor reviews,\" \"customer sentiment,\" or \"find out why customers churn/convert/buy.\" Use for both analyzing existing research assets AND gathering new research from online sources. For writing copy informed by research, see copywriting. For acting on research to improve pages, see cro.",
+      "description": "When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions \"customer research,\" \"ICP research,\" \"talk to customers,\" \"analyze transcripts,\" \"customer interviews,\" \"survey analysis,\" \"support ticket analysis,\" \"voice of customer,\" \"VOC,\" \"build personas,\" \"customer personas,\" \"jobs to be done,\" \"JTBD,\" \"what do customers say,\" \"what are customers struggling with,\" \"Reddit mining,\" \"G2 reviews,\" \"review mining,\" \"digital watering holes,\" \"community research,\" \"forum research,\" \"competitor reviews,\" \"customer sentiment,\" \"PMF survey,\" \"product/market fit survey,\" \"customer interview questions,\" \"interview outreach,\" \"Sales Safari,\" or \"find out why customers churn/convert/buy.\" Use for analyzing existing research assets, mining online sources, AND running primary research (interviews and surveys). For writing copy informed by research, see copywriting. For acting on research to improve pages, see cro.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -24711,6 +24719,14 @@
       "name": "marketing-sales-enablement",
       "original_name": "sales-enablement",
       "description": "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For competitor comparison pages and battle cards, see competitors. For marketing website copy, see copywriting. For cold outreach emails, see cold-email. For the offer being sold (bonuses, guarantees, pricing structure), see offers.",
+      "source": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "license": "MIT"
+    },
+    {
+      "name": "marketing-events",
+      "original_name": "events",
+      "description": "When the user wants to plan, run, sponsor, speak at, or get pipeline from events \u2014 webinars, conferences, trade shows, meetups, dinners, workshops, virtual summits, or user conferences. Also use when the user mentions 'event marketing,' 'field marketing,' 'run a webinar,' 'webinar funnel,' 'show-up rate,' 'should we sponsor,' 'sponsor a conference,' 'trade show booth,' 'booth strategy,' 'event ROI,' 'badge scans,' 'event follow-up,' 'speaking slot,' 'CFP,' 'conference talk,' 'host a dinner,' 'user conference,' or 'virtual summit.' Covers all four roles: hosting, sponsoring/exhibiting, speaking, and attending. For product launch moments, see launch. For the partnership side of joint webinars, see co-marketing. For ongoing community programs, see community-marketing. For podcast appearances, see public-relations. For the email sequences themselves, see emails.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -24910,7 +24926,7 @@
     {
       "name": "marketing-ad-creative",
       "original_name": "ad-creative",
-      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'static ad concepts,' 'ad templates,' 'iMessage ad,' 'chat reveal ad,' 'fake DM ad,' 'ChatGPT ad,' 'Apple Notes ad,' 'AirDrop ad,' 'creative strategy,' 'creative roadmap,' 'creative retro,' 'hook writing,' 'creative review page,' 'present ad creative for approval,' 'motion video ad,' 'faceless video ad,' 'animated explainer ad,' 'motion collage ad,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting.",
+      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'ad templates,' 'iMessage ad,' 'chat reveal ad,' 'ChatGPT ad,' 'Apple Notes ad,' 'AirDrop ad,' 'creative strategy,' 'creative roadmap,' 'creative retro,' 'hook writing,' 'creative review page,' 'present ad creative for approval,' 'motion video ad,' 'faceless video ad,' 'UGC ad,' 'greenscreen ad,' 'TikTok/Reels ad format,' 'which ad format to make,' 'Meta ad format tier list,' or 'creative format taxonomy.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
