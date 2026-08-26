@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-25 06:15 UTC*
+*Last updated: 2026-08-26 06:16 UTC*
 
-Total skills: **3146**
+Total skills: **3148**
 
 ## Skills by Source
 
@@ -2621,6 +2621,7 @@ structures, and modern OOP features. U... |
 | `antigravity-playwright-skill` | IMPORTANT - Path Resolution: This skill can be installed in different locations (plugin system, manu... |
 | `antigravity-plotly` | Interactive visualization library. Use when you need hover info, zoom, pan, or web-embeddable charts... |
 | `antigravity-podcast-generation` | Generate real audio narratives from text content using Azure OpenAI's Realtime API. |
+| `antigravity-poka-yoke` | Mistake-proof code, config and process: make the wrong action impossible or self-announcing rather t... |
 | `antigravity-polars` | Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data ... |
 | `antigravity-polis-protocol` | Coordinate multi-vendor AI agents as a self-improving team — a learning router assigns work by track... |
 | `antigravity-polis-protocol-a-self-optimizing-city-of-agents` | Polis Protocol: A Self-Optimizing City of Agents |
@@ -2922,6 +2923,7 @@ Plans content calendars and ident... |
 | `antigravity-source-driven-development` | Grounds every implementation decision in official documentation. Use when you want authoritative, so... |
 | `antigravity-spark-optimization` | Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use ... |
 | `antigravity-spec-driven-development` | Creates specs before coding. Use when starting a new project, feature, or significant change and no ... |
+| `antigravity-spec-driven-loop` | Freeze PRD, technical design, and acceptance criteria before medium-to-large Codex work; coordinate ... |
 | `antigravity-spec-to-code-compliance` | Verifies code implements exactly what documentation specifies for blockchain audits. Use when compar... |
 | `antigravity-speckit-updater` | SpecKit Safe Update |
 | `antigravity-speed` | Launch RSVP speed reader for text |

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-25T06:15:48.175368",
-  "skill_count": 3146,
+  "last_updated": "2026-08-26T06:16:56.205829",
+  "skill_count": 3148,
   "sources_processed": 19,
   "skills": [
     {
@@ -4175,6 +4175,14 @@
       "name": "antigravity-azure-eventhub-java",
       "original_name": "azure-eventhub-java",
       "description": "Build real-time streaming applications with Azure Event Hubs SDK for Java. Use when implementing event streaming, high-throughput data ingestion, or building event-driven architectures.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-poka-yoke",
+      "original_name": "poka-yoke",
+      "description": "Mistake-proof code, config and process: make the wrong action impossible or self-announcing rather than documented.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10527,6 +10535,14 @@
       "name": "antigravity-alpha-vantage",
       "original_name": "alpha-vantage",
       "description": "Access 20+ years of global financial data: equities, options, forex, crypto, commodities, economic indicators, and 50+ technical indicators.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-spec-driven-loop",
+      "original_name": "spec-driven-loop",
+      "description": "Freeze PRD, technical design, and acceptance criteria before medium-to-large Codex work; coordinate agents with explicit ownership, then judge delivery from diffs, tests, and evidence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
