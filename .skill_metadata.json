@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-27T09:17:23.216874",
-  "skill_count": 3192,
+  "last_updated": "2026-08-28T09:21:48.102047",
+  "skill_count": 3216,
   "sources_processed": 19,
   "skills": [
     {
@@ -2108,6 +2108,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-babysit-pr",
+      "original_name": "babysit-pr",
+      "description": "Babysit a pull request through its bot review rounds: verify, fix, reply, resolve. Use for any babysit or watch-the-PR ask.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hig-components-search",
       "original_name": "hig-components-search",
       "description": "Apple HIG guidance for navigation-related components including search fields, page controls, and path controls.",
@@ -2900,6 +2908,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-vibe-delegate",
+      "original_name": "vibe-delegate",
+      "description": "Delegate coding tasks to the Mistral Vibe CLI (`vibe`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-fix-review",
       "original_name": "fix-review",
       "description": "Verify fix commits address audit findings without new bugs",
@@ -2959,6 +2975,14 @@
       "name": "antigravity-yann-lecun-filosofia",
       "original_name": "yann-lecun-filosofia",
       "description": "Sub-skill filos\u00f3fica e pedag\u00f3gica de Yann LeCun.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-copilot-delegate",
+      "original_name": "copilot-delegate",
+      "description": "Delegate coding tasks to the GitHub Copilot CLI (`copilot`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4052,6 +4076,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-grok-delegate",
+      "original_name": "grok-delegate",
+      "description": "Delegate coding tasks to the Grok Build CLI only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-seek-and-analyze-video",
       "original_name": "seek-and-analyze-video",
       "description": "Seek and analyze video content using Memories.ai Large Visual Memory Model for persistent video intelligence",
@@ -4279,6 +4311,14 @@
       "name": "antigravity-seo-audit",
       "original_name": "seo-audit",
       "description": "Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cursor-delegate",
+      "original_name": "cursor-delegate",
+      "description": "Delegate coding tasks to the Cursor Agent CLI (`cursor-agent`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5884,6 +5924,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-falsify",
+      "original_name": "falsify",
+      "description": "The scientific thinking protocol for AI agents. Use when facing complex, ambiguous, or high-stakes questions where guessing is costly: hypothesis \u2192 attempt to break it \u2192 evidence \u2192 calibrated conclusion.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-todoist-automation",
       "original_name": "todoist-automation",
       "description": "Automate Todoist task management, projects, sections, filtering, and bulk operations via Rube MCP (Composio). Always search tools first for current schemas.",
@@ -6455,6 +6503,14 @@
       "name": "antigravity-differential-review",
       "original_name": "differential-review",
       "description": "Security-focused code review for PRs, commits, and diffs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-cline-delegate",
+      "original_name": "cline-delegate",
+      "description": "Delegate coding tasks to the Cline CLI (`cline`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7095,6 +7151,14 @@
       "name": "antigravity-protocol-reverse-engineering",
       "original_name": "protocol-reverse-engineering",
       "description": "Comprehensive techniques for capturing, analyzing, and documenting network protocols for security research, interoperability, and debugging.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-zcode-delegate",
+      "original_name": "zcode-delegate",
+      "description": "Delegate coding tasks to the Z.AI ZCode CLI only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7884,6 +7948,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-pi-delegate",
+      "original_name": "pi-delegate",
+      "description": "Delegate coding tasks to the Pi coding agent CLI (`pi`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-calendly-automation",
       "original_name": "calendly-automation",
       "description": "Automate Calendly scheduling, event management, invitee tracking, availability checks, and organization administration via Rube MCP (Composio). Always search tools first for current schemas.",
@@ -8020,6 +8092,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-sandbase-mcp",
+      "original_name": "sandbase-mcp",
+      "description": "Discover, inspect, and invoke 2,000+ AI models and APIs through SandBase's local MCP bridge with explicit schema and cost checks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-c4-context",
       "original_name": "c4-context",
       "description": "Expert C4 Context-level documentation specialist. Creates high-level system context diagrams, documents personas, user journeys, system features, and external dependencies.",
@@ -8143,6 +8223,14 @@
       "name": "antigravity-code-review-and-quality",
       "original_name": "code-review-and-quality",
       "description": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-delegate-setup",
+      "original_name": "delegate-setup",
+      "description": "Configure approved delegation lanes across installed implementer CLIs, including optional model and effort choices, then write global or project config only after explicit user approval.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8324,6 +8412,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-omp-delegate",
+      "original_name": "omp-delegate",
+      "description": "Delegate coding tasks to Oh My Pi (`omp`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-brooks-lint",
       "original_name": "brooks-lint",
       "description": "AI code reviewer grounded in classic software engineering books for catching design smells, coupling issues, and architectural risks.",
@@ -8383,6 +8479,14 @@
       "name": "antigravity-bash-scripting",
       "original_name": "bash-scripting",
       "description": "Bash scripting workflow for creating production-ready shell scripts with defensive patterns, error handling, and testing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-qoder-delegate",
+      "original_name": "qoder-delegate",
+      "description": "Delegate coding tasks to the Qoder CLI (`qodercli`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10628,6 +10732,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-unsloth-finetuning",
+      "original_name": "unsloth-finetuning",
+      "description": "Fine-tune and post-train LLMs with Unsloth Core on a single consumer GPU: VRAM sizing, LoRA/QLoRA, GRPO/DPO, chat-template correctness, and GGUF export.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-ios-developer",
       "original_name": "ios-developer",
       "description": "Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core Data, networking, and App Store optimization.",
@@ -10671,6 +10783,14 @@
       "name": "antigravity-web-design-guidelines",
       "original_name": "web-design-guidelines",
       "description": "Review files for compliance with Web Interface Guidelines.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-warp-delegate",
+      "original_name": "warp-delegate",
+      "description": "Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10863,6 +10983,14 @@
       "name": "antigravity-mock-hunter",
       "original_name": "mock-hunter",
       "description": "Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data, hardcoded values, LLM-generated metrics, and broken endpoints. Outputs a markdown report with REAL/MOCK/LLM/HARDCODED/BROKEN/UNKNOWN verdicts per visible value.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-debate-review",
+      "original_name": "debate-review",
+      "description": "Two-model debate review of a GitHub PR, GitLab MR, Azure DevOps PR, or local working tree, posted as inline comments or printed. Use for any PR/MR review request, or a local review before a PR exists.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11804,6 +11932,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-kimi-delegate",
+      "original_name": "kimi-delegate",
+      "description": "Delegate coding tasks to the Kimi Code CLI (`kimi`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-macos-menubar-tuist-app",
       "original_name": "macos-menubar-tuist-app",
       "description": "Build, refactor, or review SwiftUI macOS menubar apps that use Tuist.",
@@ -12231,6 +12367,14 @@
       "name": "antigravity-obsidian-bases",
       "original_name": "obsidian-bases",
       "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-commandcode-delegate",
+      "original_name": "commandcode-delegate",
+      "description": "Delegate coding tasks to the Command Code CLI (`cmd`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13447,6 +13591,14 @@
       "name": "antigravity-stitch-loop",
       "original_name": "stitch-loop",
       "description": "Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop pattern",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-claude-delegate",
+      "original_name": "claude-delegate",
+      "description": "Delegate coding tasks to a separate Claude Code CLI process or Claude session only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16124,6 +16276,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-agy-delegate",
+      "original_name": "agy-delegate",
+      "description": "Delegate coding tasks to the Google Antigravity CLI (`agy`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-pubmed-database",
       "original_name": "pubmed-database",
       "description": "Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, citation management. For Python workflows, prefer biopython (Bio.Entrez). Use this for direct HTTP/REST work or custom API implementations.",
@@ -16540,6 +16700,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-graceful-shutdown",
+      "original_name": "graceful-shutdown",
+      "description": "Implement graceful shutdown for servers and workers: drain connections, finish in-flight work, release resources, and exit cleanly on SIGTERM/SIGINT.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-deepapi",
       "original_name": "deepapi",
       "description": "Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval.",
@@ -16599,6 +16767,22 @@
       "name": "antigravity-wjttc-tester",
       "original_name": "wjttc-tester",
       "description": "F1-inspired test EXECUTOR + reporter. Runs a test plan, finds and reproduces bugs, audits suite signal integrity, then files a WJTTC report (Brake/Engine/Aero/Tyre/Pit) with a tier verdict. Use when you need to test code, validate functionality, reproduce a failure, or produce a test...",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-codex-delegate",
+      "original_name": "codex-delegate",
+      "description": "Delegate coding tasks to the OpenAI Codex CLI only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-opencode-delegate",
+      "original_name": "opencode-delegate",
+      "description": "Delegate coding tasks to the OpenCode CLI only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17487,6 +17671,14 @@
       "name": "antigravity-implement",
       "original_name": "implement",
       "description": "Implement a piece of work based on a PRD or set of issues.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-aider-delegate",
+      "original_name": "aider-delegate",
+      "description": "Delegate coding tasks to Aider (`aider`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
