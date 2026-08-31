@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-30T06:29:20.079097",
-  "skill_count": 3216,
+  "last_updated": "2026-08-31T06:41:22.458384",
+  "skill_count": 3215,
   "sources_processed": 19,
   "skills": [
     {
@@ -5975,14 +5975,6 @@
       "name": "antigravity-grpc-golang",
       "original_name": "grpc-golang",
       "description": "Build production-ready gRPC services in Go with mTLS, streaming, and observability. Use when designing Protobuf contracts with Buf or implementing secure service-to-service transport.",
-      "source": "sickn33/antigravity-awesome-skills",
-      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
-    },
-    {
-      "name": "antigravity-ui-slop-score",
-      "original_name": "ui-slop-score",
-      "description": "Score a rendered web or iOS screen for generic UI risk before it ships. Use when a user asks whether a UI looks generic or needs an honest pre-merge visual review.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-30 06:29 UTC*
+*Last updated: 2026-08-31 06:41 UTC*
 
-Total skills: **3216**
+Total skills: **3215**
 
 ## Skills by Source
 
@@ -3144,7 +3144,6 @@ calculations
 | `antigravity-ui-setup` | Interactive setup wizard — guides you step-by-step to configure the design system for your project |
 | `antigravity-ui-skills` | Opinionated, evolving constraints to guide agents when building interfaces |
 | `antigravity-ui-skills-root` | Use before UI-related work to select the smallest useful UI Skills context through the ui-skills CLI... |
-| `antigravity-ui-slop-score` | Score a rendered web or iOS screen for generic UI risk before it ships. Use when a user asks whether... |
 | `antigravity-ui-tokens` | View, add, or modify design tokens in the StyleSeed design system |
 | `antigravity-ui-update` | Update StyleSeed engine in your project — analyzes what's outdated and updates safely |
 | `antigravity-ui-ux-designer` | Create interface designs, wireframes, and design systems. Masters user research, accessibility stand... |
