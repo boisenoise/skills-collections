@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-31T06:41:22.458384",
-  "skill_count": 3215,
+  "last_updated": "2026-09-01T06:34:12.771741",
+  "skill_count": 3225,
   "sources_processed": 19,
   "skills": [
     {
@@ -2930,6 +2930,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-find-matching-tenders",
+      "original_name": "find-matching-tenders",
+      "description": "Find open AU/NZ government tenders matching what a company does, ranked by fit with why and gap analysis. Use when the user asks to find tenders, bid opportunities, government contracts, or RFPs for their business (or a client's).",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-team-collaboration-issue",
@@ -7116,6 +7124,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-verify-citations",
+      "original_name": "verify-citations",
+      "description": "Verify citations and references in a document, report, or article against real sources. Use when the user asks to fact-check, verify references, check citations, or validate evidence in research reports, tender responses, whitepapers, or academic writing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-humanize-chinese",
       "original_name": "humanize-chinese",
       "description": "Detect and rewrite AI-like Chinese text with a practical workflow for scoring, humanization, academic AIGC reduction, and style conversion. Use when the user asks to \u53bbAI\u5473, \u964dAIGC, \u53bb\u9664AI\u75d5\u8ff9, \u8bba\u6587\u964d\u91cd, \u77e5\u7f51\u68c0\u6d4b, \u7ef4\u666e\u68c0\u6d4b, humanize chinese, detect AI text, or make Chinese text sound more natural.",
@@ -7692,6 +7708,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-screen-adverse-media",
+      "original_name": "screen-adverse-media",
+      "description": "Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure \u2014 corroboration-gated, returns \"review\" never \"guilty\". Use when the user asks to screen someone before onboarding, partnership, or investment; for AML/CTF flows; or for ongoing counterparty monitoring.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-dbos-typescript",
       "original_name": "dbos-typescript",
       "description": "Guide for building reliable, fault-tolerant TypeScript applications with DBOS durable workflows. Use when adding DBOS to existing TypeScript code, creating workflows and steps, or using queues for concurrency control.",
@@ -8076,6 +8100,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-upstash-redis",
+      "original_name": "upstash-redis",
+      "description": "Use the @upstash/redis HTTP client for caching, sessions, counters, and Redis data structures from serverless and edge runtimes without connection pooling.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-anti-ui-slop",
       "original_name": "anti-ui-slop",
       "description": "Stop coding agents from shipping generic UI. Extend the product's design system, use UIZZE evidence only when useful, cover required states, and inspect the rendered result.",
@@ -8394,6 +8426,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-extract-document-data",
+      "original_name": "extract-document-data",
+      "description": "Extract structured, grounded fields from documents \u2014 values cite their page, missing values abstain instead of hallucinating. Use for parsing invoices, payslips, statements, contracts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-radix-ui-design-system",
@@ -12030,7 +12070,7 @@
     {
       "name": "antigravity-lovable-cleanup",
       "original_name": "lovable-cleanup",
-      "description": "Audits and strips Lovable scaffolding from Vite + React projects \u2014 removes lovable-tagger, swaps placeholder assets, prunes unused Radix deps, and cleans generated docs so the codebase ships as yours.",
+      "description": "Audits and strips Lovable scaffolding from Vite + React projects \u2014 removes lovable-tagger, swaps placeholder assets, prunes unused Radix deps, cleans generated docs, and neutralizes stale favicon/CDN caching so the codebase ships as yours.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12210,6 +12250,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-verify-document",
+      "original_name": "verify-document",
+      "description": "Check whether a document (PDF or image) shows signs of tampering or forgery before you rely on it. Use when the user asks to verify a payslip, invoice, bank statement, ID document, contract, or any document where authenticity matters.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-event-staffing-ordering",
@@ -12610,6 +12658,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-check-identity-pack",
+      "original_name": "check-identity-pack",
+      "description": "Run an AFP 100-point or AUSTRAC safe-harbour identity check over a set of documents, and report exactly what's missing. Use when the user asks to check identity documents, verify someone's ID for onboarding, or assess whether a document pack satisfies Australian identity requirements.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-mise-configurator",
@@ -13242,6 +13298,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-detect-ai-text",
+      "original_name": "detect-ai-text",
+      "description": "Estimate whether a document's prose was written by AI, with the linguistic tells and honest abstention on non-prose. Use when the user asks whether an essay, report, CV, submission, or article was AI-generated \u2014 for triage, not proof.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-llm-security",
@@ -17204,6 +17268,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-slideops",
+      "original_name": "slideops",
+      "description": "Turn a repository into a cited HTML slide deck and detect the day it drifts from the code. Citations record file, lines, and hash; a stdlib check reports CURRENT, MOVED, or CHANGED.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-react-component-performance",
       "original_name": "react-component-performance",
       "description": "Diagnose slow React components and suggest targeted performance fixes.",
@@ -17695,6 +17767,14 @@
       "name": "antigravity-azure-eventhub-rust",
       "original_name": "azure-eventhub-rust",
       "description": "Azure Event Hubs SDK for Rust. Use for sending and receiving events, streaming data ingestion.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-upstash-ratelimit",
+      "original_name": "upstash-ratelimit",
+      "description": "Add rate limiting to API routes, middleware, and edge functions with @upstash/ratelimit: sliding window, fixed window, and token bucket backed by Upstash Redis.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

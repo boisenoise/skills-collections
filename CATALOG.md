@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-08-31 06:41 UTC*
+*Last updated: 2026-09-01 06:34 UTC*
 
-Total skills: **3215**
+Total skills: **3225**
 
 ## Skills by Source
 
@@ -1683,6 +1683,7 @@ pipelines, and system utilities.... |
 | `antigravity-changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use... |
 | `antigravity-changelog-updates` | Create release notes and product updates that developers actually read and care about. This skill co... |
 | `antigravity-chat-widget` | Build a real-time support chat system with a floating widget for users and an admin dashboard for su... |
+| `antigravity-check-identity-pack` | Run an AFP 100-point or AUSTRAC safe-harbour identity check over a set of documents, and report exac... |
 | `antigravity-chrome-extension-developer` | Expert in building Chrome Extensions using Manifest V3. Covers background scripts, service workers, ... |
 | `antigravity-churn-prevention` | Reduce voluntary and involuntary churn with cancel flows, save offers, dunning, win-back tactics, an... |
 | `antigravity-ci-cd-and-automation` | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use... |
@@ -1906,6 +1907,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-design-taste-frontend` | Use when building high-agency frontend interfaces with strict design taste, calibrated color, respon... |
 | `antigravity-design-thinking` | Direction and intent for frontend design. Use with design when defining purpose, tone, domain, color... |
 | `antigravity-design-ux` | UX / usability audit — heuristic evaluation of INTERACTIVE UIs (not just visual polish). Load with d... |
+| `antigravity-detect-ai-text` | Estimate whether a document's prose was written by AI, with the linguistic tells and honest abstenti... |
 | `antigravity-deterministic-design` | Render the UI and prove it's balanced + usable: a deterministic layout audit (centroid / optical-cen... |
 | `antigravity-dev-to-hashnode` | When the user wants to publish on Dev.to, Hashnode, or other developer blogging platforms. Trigger p... |
 | `antigravity-devcontainer-setup` | Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persist... |
@@ -2022,6 +2024,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-expo-ui` | Build native UI with the @expo/ui package: real SwiftUI on iOS and Jetpack Compose on Android render... |
 | `antigravity-expo-ui-jetpack-compose` | expo-ui-jetpack-compose |
 | `antigravity-expo-ui-swift-ui` | expo-ui-swift-ui |
+| `antigravity-extract-document-data` | Extract structured, grounded fields from documents — values cite their page, missing values abstain ... |
 | `antigravity-fable-safe-prompt` | Rewrite allowed prompts to reduce false-positive safety triggers without bypassing policy or changin... |
 | `antigravity-fact-check-x-complete` | Compare claims from one or more AI answers, verify their citations against public primary sources, a... |
 | `antigravity-faf-context` | Get your project to 100% ✪ AI-readiness, fast — the AI auto-detects your stack and only asks for wha... |
@@ -2054,6 +2057,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-filesystem-context` | Use for file-based context management, dynamic context discovery, and reducing context window bloat.... |
 | `antigravity-find-bugs` | Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked... |
 | `antigravity-find-complementary-founders` | Use when an owner explicitly asks for a cofounder or project partner, or explicitly says they need a... |
+| `antigravity-find-matching-tenders` | Find open AU/NZ government tenders matching what a company does, ranked by fit with why and gap anal... |
 | `antigravity-finishing-a-development-branch` | Use when implementation is complete, all tests pass, and you need to decide how to integrate the wor... |
 | `antigravity-firebase` | Firebase gives you a complete backend in minutes - auth, database, storage, functions, hosting. But ... |
 | `antigravity-firecrawl-scraper` | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you ... |
@@ -2850,6 +2854,7 @@ coll... |
 | `antigravity-schema-markup-generator` | Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports W... |
 | `antigravity-scientific-writing` | This is the core skill for the deep research and writing tool—combining AI-driven deep research with... |
 | `antigravity-scikit-learn` | Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model ... |
+| `antigravity-screen-adverse-media` | Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure — cor... |
 | `antigravity-screen-reader-testing` | Practical guide to testing web applications with screen readers for comprehensive accessibility vali... |
 | `antigravity-screenshots` | Generate marketing screenshots of your app using Playwright. Use when the user wants to create scree... |
 | `antigravity-screenstudio-alt` | Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clusters, ... |
@@ -2965,6 +2970,7 @@ Plans content calendars and ident... |
 | `antigravity-slack-bot-builder` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for ... |
 | `antigravity-slack-gif-creator` | A toolkit providing utilities and knowledge for creating animated GIFs optimized for Slack. |
 | `antigravity-sleep-analyzer` | 分析睡眠数据、识别睡眠模式、评估睡眠质量，并提供个性化睡眠改善建议。支持与其他健康数据的关联分析。 |
+| `antigravity-slideops` | Turn a repository into a cited HTML slide deck and detect the day it drifts from the code. Citations... |
 | `antigravity-slo-implementation` | Framework for defining and implementing Service Level Indicators (SLIs), Service Level Objectives (S... |
 | `antigravity-smart-git-automation` | Smart change detection, auto branch naming, and streamlined commit/PR workflow |
 | `antigravity-smartui-skill` | Generates SmartUI visual regression test configurations for screenshot comparison on TestMu AI cloud... |
@@ -3167,6 +3173,8 @@ calculations
 | `antigravity-update-swiftui-apis` | Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with mode... |
 | `antigravity-upgrading-expo` | Guidelines for upgrading Expo SDK versions and fixing dependency issues |
 | `antigravity-upstash-qstash` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task de... |
+| `antigravity-upstash-ratelimit` | Add rate limiting to API routes, middleware, and edge functions with @upstash/ratelimit: sliding win... |
+| `antigravity-upstash-redis` | Use the @upstash/redis HTTP client for caching, sessions, counters, and Redis data structures from s... |
 | `antigravity-us-property-data` | Use when a task needs real U.S. residential property data: valuation, listings, price or tax history... |
 | `antigravity-usage-based-pricing` | Design pricing models that developers understand, accept, and can predict. Trigger phrases: usage-ba... |
 | `antigravity-use-dom` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to... |
@@ -3195,6 +3203,8 @@ calculations
 | `antigravity-vercel-optimize` | Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans... |
 | `antigravity-vercel-react-view-transitions` | Guide React and Next.js view transitions, shared element animations, route transitions, transition t... |
 | `antigravity-verification-before-completion` | Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation... |
+| `antigravity-verify-citations` | Verify citations and references in a document, report, or article against real sources. Use when the... |
+| `antigravity-verify-document` | Check whether a document (PDF or image) shows signs of tampering or forgery before you rely on it. U... |
 | `antigravity-vexor` | Vector-powered CLI for semantic file search with a Claude/Codex skill |
 | `antigravity-vexor-cli` | Semantic file discovery via `vexor`. Use whenever locating where something is implemented/loaded/def... |
 | `antigravity-vibe-code-auditor` | Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks. |
