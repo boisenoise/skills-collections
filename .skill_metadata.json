@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-02T06:37:08.572785",
-  "skill_count": 3225,
+  "last_updated": "2026-09-03T06:31:59.932847",
+  "skill_count": 3226,
   "sources_processed": 19,
   "skills": [
     {
@@ -3407,6 +3407,14 @@
       "name": "antigravity-tailwind-design-system",
       "original_name": "tailwind-design-system",
       "description": "Build production-ready design systems with Tailwind CSS, including design tokens, component variants, responsive patterns, and accessibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-email-issue-fixer",
+      "original_name": "email-issue-fixer",
+      "description": "Fix small email mistakes without touching the writer's voice, and strip tracking parameters from links on request. Always returns the corrected draft plus a change list.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14318,7 +14326,7 @@
     {
       "name": "antigravity-agents-md",
       "original_name": "agents-md",
-      "description": "This skill should be used when the user asks to \"create AGENTS.md\", \"update AGENTS.md\", \"maintain agent docs\", \"set up CLAUDE.md\", or needs to keep agent instructions concise. Enforces research-backed best practices for minimal, high-signal agent documentation.",
+      "description": "Create, revise, or audit AGENTS.md files from repository evidence, verified commands, and correctly scoped instructions without overwriting maintainer intent.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

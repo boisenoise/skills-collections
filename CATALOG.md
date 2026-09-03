@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-02 06:37 UTC*
+*Last updated: 2026-09-03 06:31 UTC*
 
-Total skills: **3225**
+Total skills: **3226**
 
 ## Skills by Source
 
@@ -1316,7 +1316,7 @@ Total skills: **3225**
 | `antigravity-agentmail` | Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check... |
 | `antigravity-agentphone` | Build AI phone agents with AgentPhone API. Use when the user wants to make phone calls, send/receive... |
 | `antigravity-agents-generator` | Generate project-specific AGENTS.md and companion rules by analyzing a codebase. Supports full, mini... |
-| `antigravity-agents-md` | This skill should be used when the user asks to "create AGENTS.md", "update AGENTS.md", "maintain ag... |
+| `antigravity-agents-md` | Create, revise, or audit AGENTS.md files from repository evidence, verified commands, and correctly ... |
 | `antigravity-agents-v2-py` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). U... |
 | `antigravity-agenttrace-session-audit` | Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, he... |
 | `antigravity-agy-delegate` | Delegate coding tasks to the Google Antigravity CLI (`agy`) only when the user explicitly requests i... |
@@ -1981,6 +1981,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-electron-development` | Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-pr... |
 | `antigravity-elixir-pro` | Write idiomatic Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. Masters conc... |
 | `antigravity-elon-musk` | Agente que simula Elon Musk com profundidade psicologica e comunicacional de alta fidelidade. Ativad... |
+| `antigravity-email-issue-fixer` | Fix small email mistakes without touching the writer's voice, and strip tracking parameters from lin... |
 | `antigravity-email-security` | Authorized email security review: phishing analysis, SPF/DKIM/DMARC header authentication, BEC patte... |
 | `antigravity-email-sequence` | You are an expert in email marketing and automation. Your goal is to create email sequences that nur... |
 | `antigravity-email-systems` | Email has the highest ROI of any marketing channel. $36 for every $1 spent. Yet most startups treat ... |
