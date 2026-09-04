@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-03 06:31 UTC*
+*Last updated: 2026-09-04 06:32 UTC*
 
-Total skills: **3226**
+Total skills: **3227**
 
 ## Skills by Source
 
@@ -2331,6 +2331,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-langchain-architecture` | Master the LangChain framework for building sophisticated LLM applications with agents, chains, memo... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |
 | `antigravity-langgraph` | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applicati... |
+| `antigravity-laravel-development-workflow` | Build and fix existing Laravel applications through root-cause diagnosis, repository-native implemen... |
 | `antigravity-laravel-expert` | Senior Laravel Engineer role for production-grade, maintainable, and idiomatic Laravel solutions. Fo... |
 | `antigravity-laravel-security-audit` | Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and... |
 | `antigravity-last30days` | Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-r... |
