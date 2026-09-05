@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-04T06:32:11.538714",
-  "skill_count": 3227,
+  "last_updated": "2026-09-05T06:28:18.411616",
+  "skill_count": 3229,
   "sources_processed": 19,
   "skills": [
     {
@@ -2206,7 +2206,7 @@
     {
       "name": "antigravity-changelog-updates",
       "original_name": "changelog-updates",
-      "description": "Create release notes and product updates that developers actually read and care about. This skill covers changelog formatting, versioning communication, breaking change announcements, deprecation notices, and building anticipation for new features. Trigger phrases: \"changelog\",...",
+      "description": "Create release notes and product updates that developers actually read and care about. This skill covers changelog formatting, versioning communication, breaking change announcements, deprecation notices, and building anticipation for new features.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2446,7 +2446,7 @@
     {
       "name": "antigravity-redis-cli",
       "original_name": "redis-cli",
-      "description": "Redis command-line interface (redis-cli) reference and usage guide. Use this skill whenever the user mentions redis-cli, Redis CLI, or any task involving querying, inspecting, debugging, or managing Redis from the command line. Triggers on key/value reads and writes, SCAN or keyspace...",
+      "description": "Redis command-line interface (redis-cli) reference and usage guide. Use this skill whenever the user mentions redis-cli, Redis CLI, or any task involving querying, inspecting, debugging, or managing Redis from the command line.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -2454,7 +2454,7 @@
     {
       "name": "antigravity-competitor-tracking",
       "original_name": "competitor-tracking",
-      "description": "Systematic competitor analysis for developer tools. Track features, pricing, positioning, content strategy, and community sentiment for direct and indirect competitors. Trigger phrases: \"competitor analysis\", \"track competitors\", \"competitive intelligence\", \"competitor research\", \"what...",
+      "description": "Systematic competitor analysis for developer tools. Track features, pricing, positioning, content strategy, and community sentiment for direct and indirect competitors.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2478,7 +2478,7 @@
     {
       "name": "antigravity-neon-functions",
       "original_name": "neon-functions",
-      "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE)...",
+      "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -2502,7 +2502,7 @@
     {
       "name": "antigravity-expo-ui",
       "original_name": "expo-ui",
-      "description": "Build native UI with the @expo/ui package: real SwiftUI on iOS and Jetpack Compose on Android rendered from React in an Expo or React Native app. Covers universal cross-platform components (Host, Column, Row, Button, Text, List, and more imported from @expo/ui), drop-in replacements...",
+      "description": "Build native UI with the @expo/ui package: real SwiftUI on iOS and Jetpack Compose on Android rendered from React in an Expo or React Native app.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2590,7 +2590,7 @@
     {
       "name": "antigravity-longbridge-fundamentals",
       "original_name": "longbridge-fundamentals",
-      "description": "Financial statements, business segments, dividends, valuation multiples (PE/PB/PS), industry comparison, operating data, corporate actions, company and executive profiles, cross-stock comparison, and valuation ranking via Longbridge. Also: DCF models, value investing screens (low...",
+      "description": "Financial statements, business segments, dividends, valuation multiples (PE/PB/PS), industry comparison, operating data, corporate actions, company and executive profiles, cross-stock comparison, and valuation ranking via Longbridge.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2654,7 +2654,7 @@
     {
       "name": "antigravity-developer-audience-context",
       "original_name": "developer-audience-context",
-      "description": "When the user wants to establish or update their developer audience context. Also use when starting any other developer marketing skill to ensure foundational context is loaded. Trigger phrases include \"developer persona,\" \"target developers,\" \"who are our developers,\" \"developer...",
+      "description": "When the user wants to establish or update their developer audience context. Also use when starting any other developer marketing skill to ensure foundational context is loaded.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2710,7 +2710,7 @@
     {
       "name": "antigravity-onboarding",
       "original_name": "onboarding",
-      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" \"new...",
+      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2742,7 +2742,7 @@
     {
       "name": "antigravity-appium-skill",
       "original_name": "appium-skill",
-      "description": "Generates production-grade Appium mobile automation scripts for Android and iOS in Java, Python, or JavaScript. Supports real device and emulator testing locally and on TestMu AI cloud with 100+ real devices. Use when the user asks to automate mobile apps, test on Android/iOS, write...",
+      "description": "Generates production-grade Appium mobile automation scripts for Android and iOS in Java, Python, or JavaScript. Supports real device and emulator testing locally and on TestMu AI cloud with 100+ real devices.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2822,7 +2822,7 @@
     {
       "name": "antigravity-longbridge-content",
       "original_name": "longbridge-content",
-      "description": "Latest news articles, regulatory filings, community discussion topics for listed stocks, and SEC EDGAR filing analysis (10-K/10-Q/8-K/proxy/Form 4) via Longbridge. Triggers: \"\u65b0\u95fb\", \"\u516c\u544a\", \"\u8d44\u8baf\", \"\u8bdd\u9898\", \"\u793e\u533a\u8ba8\u8bba\", \"SEC\", \"10-K\", \"10-Q\", \"8-K\", \"Form 4\", \"\u65b0\u805e\", \"\u516c\u544a\", \"\u8cc7\u8a0a\", \"\u8a71\u984c\", \"\u793e\u5340\u8a0e\u8ad6\", \"news\",...",
+      "description": "Latest news articles, regulatory filings, community discussion topics for listed stocks, and SEC EDGAR filing analysis (10-K/10-Q/8-K/proxy/Form 4) via Longbridge.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2942,7 +2942,7 @@
     {
       "name": "antigravity-eas-update-insights",
       "original_name": "eas-update-insights",
-      "description": "Check the health of published EAS Updates: crash rates, install/launch counts, unique users, payload size, and the split between embedded and OTA users per channel. Use when the user asks how an update is performing, whether a rollout is healthy, how many users are on the embedded...",
+      "description": "Check the health of published EAS Updates: crash rates, install/launch counts, unique users, payload size, and the split between embedded and OTA users per channel.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3006,7 +3006,7 @@
     {
       "name": "antigravity-smartui-skill",
       "original_name": "smartui-skill",
-      "description": "Generates SmartUI visual regression test configurations for screenshot comparison on TestMu AI cloud. Framework-agnostic \u2014 works with Playwright, Selenium, Cypress, Puppeteer. Use when user mentions \"SmartUI\", \"visual regression\", \"screenshot comparison\", \"visual testing\". Triggers on:...",
+      "description": "Generates SmartUI visual regression test configurations for screenshot comparison on TestMu AI cloud. Framework-agnostic \u2014 works with Playwright, Selenium, Cypress, Puppeteer. Use when user mentions \"SmartUI\", \"visual regression\", \"screenshot comparison\", \"visual testing\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3030,7 +3030,7 @@
     {
       "name": "antigravity-gemini-live-api-dev",
       "original_name": "gemini-live-api-dev",
-      "description": "Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API. Covers WebSocket-based audio/video/text streaming, voice activity detection (VAD), native audio features, function calling, session management, ephemeral tokens for client-side auth,...",
+      "description": "Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -3414,7 +3414,7 @@
     {
       "name": "antigravity-claimable-postgres",
       "original_name": "claimable-postgres",
-      "description": "Provision instant temporary Postgres databases via Claimable Postgres by Neon (neon.new) with no login, signup, or credit card. Supports REST API, CLI, and SDK. Use when users ask for a quick Postgres environment, a throwaway DATABASE_URL for prototyping/tests, or \"just give me a DB...",
+      "description": "Provision instant temporary Postgres databases via Claimable Postgres by Neon (neon.new) with no login, signup, or credit card. Supports REST API, CLI, and SDK.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -3446,7 +3446,7 @@
     {
       "name": "antigravity-gemini-omni-flash-api",
       "original_name": "gemini-omni-flash-api",
-      "description": "Use this skill for generative video editing, text-to-video, image-referenced video generation, and first-frame-to-video transition animations using the official google-genai SDK. Includes workflows for pre-processing/optimizing high-resolution or long source videos with ffmpeg,...",
+      "description": "Use this skill for generative video editing, text-to-video, image-referenced video generation, and first-frame-to-video transition animations using the official google-genai SDK.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -3750,7 +3750,7 @@
     {
       "name": "antigravity-code-refactoring-tech-debt",
       "original_name": "code-refactoring-tech-debt",
-      "description": "You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical debt in software projects. Analyze the codebase to uncover debt, assess its impact, and create acti",
+      "description": "Identify technical debt from actual code and change history, estimate its impact, and prioritize bounded improvements with explicit assumptions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3758,7 +3758,7 @@
     {
       "name": "antigravity-auth-implementation-patterns",
       "original_name": "auth-implementation-patterns",
-      "description": "Build secure, scalable authentication and authorization systems using industry-standard patterns and modern best practices.",
+      "description": "Implement or review authentication and authorization with explicit token, session and resource-access boundaries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3782,7 +3782,7 @@
     {
       "name": "antigravity-monte-carlo-performance-diagnosis",
       "original_name": "monte-carlo-performance-diagnosis",
-      "description": "Diagnoses pipeline performance issues -- slow jobs, expensive queries, latency trends -- using Monte Carlo's cross-platform observability. Uses a tiered investigation approach: discover problems, bridge to affected tables, then drill into root causes. Activates when a user asks about...",
+      "description": "Diagnoses pipeline performance issues -- slow jobs, expensive queries, latency trends -- using Monte Carlo's cross-platform observability. Uses a tiered investigation approach: discover problems, bridge to affected tables, then drill into root causes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -3974,7 +3974,7 @@
     {
       "name": "antigravity-power-user-cultivation",
       "original_name": "power-user-cultivation",
-      "description": "When the user wants to identify and nurture developer advocates, build champion programs, or turn active users into contributors and evangelists. Trigger phrases include \"power users,\" \"developer advocates,\" \"ambassador program,\" \"champion program,\" \"community contributors,\" \"referral...",
+      "description": "When the user wants to identify and nurture developer advocates, build champion programs, or turn active users into contributors and evangelists.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4094,7 +4094,7 @@
     {
       "name": "antigravity-browser-automation",
       "original_name": "browser-automation",
-      "description": "Browser automation powers web testing, scraping, and AI agent interactions. The difference between a flaky script and a reliable system comes down to understanding selectors, waiting strategies, and anti-detection patterns.",
+      "description": "Build reliable browser checks using observed UI state, semantic locators, bounded waits, isolated test data and explicit outcome verification.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4102,7 +4102,7 @@
     {
       "name": "antigravity-jest-skill",
       "original_name": "jest-skill",
-      "description": "Generates Jest unit and integration tests in JavaScript or TypeScript. Covers mocking, snapshots, async testing, and React component testing. Use when user mentions \"Jest\", \"describe/it/expect\", \"jest.mock\", \"toMatchSnapshot\". Triggers on: \"Jest\", \"expect().toBe()\", \"jest.mock\",...",
+      "description": "Generates Jest unit and integration tests in JavaScript or TypeScript. Covers mocking, snapshots, async testing, and React component testing. Use when user mentions \"Jest\", \"describe/it/expect\", \"jest.mock\", \"toMatchSnapshot\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4182,7 +4182,7 @@
     {
       "name": "antigravity-hugging-face-cli",
       "original_name": "hugging-face-cli",
-      "description": "Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, buckets, repos, papers, jobs, and more on the Hugging Face Hub. Use when: handling authentication; managing local cache; managing Hugging Face Buckets; running or scheduling jobs on Hugging...",
+      "description": "Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, buckets, repos, papers, jobs, and more on the Hugging Face Hub.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -4390,7 +4390,7 @@
     {
       "name": "antigravity-newman-cicd-integration",
       "original_name": "newman-cicd-integration",
-      "description": "Generate ready-to-use CI/CD pipeline configurations that install and run Newman for automated API testing. Use this skill whenever the user wants to run Newman in a CI pipeline, integrate Postman collections into automated builds, set up API tests in GitHub Actions, GitLab CI, Jenkins,...",
+      "description": "Generate ready-to-use CI/CD pipeline configurations that install and run Newman for automated API testing.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4494,7 +4494,7 @@
     {
       "name": "antigravity-cro",
       "original_name": "cro",
-      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form \u2014 including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms. Also use when the user says 'CRO,' 'conversion rate optimization,' 'this page isn't...",
+      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form \u2014 including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4558,7 +4558,7 @@
     {
       "name": "antigravity-frontend-architecture",
       "original_name": "frontend-architecture",
-      "description": "A portable, framework-agnostic architecture style for any React or React Native frontend. Organizes apps into feature modules with page/screen directories, a strict server-state vs UI-state split, barrel-only cross-module imports, co-located styles, and clear component-promotion rules....",
+      "description": "A portable, framework-agnostic architecture style for any React or React Native frontend. Organizes apps into feature modules with page/screen directories, a strict server-state vs UI-state split, barrel-only cross-module imports, co-located styles, and clear component-promotion rules.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4870,7 +4870,7 @@
     {
       "name": "antigravity-design-ux",
       "original_name": "design-ux",
-      "description": "UX / usability audit \u2014 heuristic evaluation of INTERACTIVE UIs (not just visual polish). Load with design when a UI \"feels off\", \"sucks to use\", is hard to learn, needs an instruction wall, or before shipping an interactive tool/editor/app. Scores the RENDERED UI against Nielsen's 10 +...",
+      "description": "UX / usability audit \u2014 heuristic evaluation of INTERACTIVE UIs (not just visual polish). Load with design when a UI \"feels off\", \"sucks to use\", is hard to learn, needs an instruction wall, or before shipping an interactive tool/editor/app.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4886,7 +4886,7 @@
     {
       "name": "antigravity-doubt-driven-development",
       "original_name": "doubt-driven-development",
-      "description": "Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when correctness matters more than speed, when working in unfamiliar code, when stakes are high (production, security-sensitive logic, irreversible operations), or any time a confident...",
+      "description": "Subjects every non-trivial decision to a fresh-context adversarial review before it stands.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4910,7 +4910,7 @@
     {
       "name": "antigravity-transformers-js",
       "original_name": "transformers-js",
-      "description": "Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScript. Supports NLP (text classification, translation, summarization), computer vision (image classification, object detection), audio (speech recognition, audio classification), and...",
+      "description": "Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScript.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -4990,7 +4990,7 @@
     {
       "name": "antigravity-developer-listening",
       "original_name": "developer-listening",
-      "description": "Monitor what developers say about your brand, competitors, and the problems they're solving. Track mentions and conversations across GitHub, Hacker News, Reddit, Stack Overflow, Twitter, and Discord. Trigger phrases: \"developer listening\", \"monitor developer conversations\", \"track...",
+      "description": "Monitor what developers say about your brand, competitors, and the problems they're solving. Track mentions and conversations across GitHub, Hacker News, Reddit, Stack Overflow, Twitter, and Discord.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5166,7 +5166,7 @@
     {
       "name": "antigravity-content-creator",
       "original_name": "content-creator",
-      "description": "Professional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks.",
+      "description": "Draft and review audience-specific content using supplied brand examples, local text diagnostics, and adaptable channel templates.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5222,7 +5222,7 @@
     {
       "name": "antigravity-developer-signup-flow",
       "original_name": "developer-signup-flow",
-      "description": "Design frictionless signup experiences for developers including GitHub OAuth, API key generation, and onboarding personalization. Trigger phrases: developer signup, dev registration, OAuth flow, API key onboarding, reduce signup friction, developer authentication, signup conversion,...",
+      "description": "Design frictionless signup experiences for developers including GitHub OAuth, API key generation, and onboarding personalization.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5302,7 +5302,7 @@
     {
       "name": "antigravity-huggingface-best",
       "original_name": "huggingface-best",
-      "description": "Use when the user asks about finding the best, top, or recommended model for a task, wants to know what AI model to use, or wants to compare models by benchmark scores. Triggers on: \"best model for X\", \"what model should I use for\", \"top models for [task]\", \"which model runs on my...",
+      "description": "Use when the user asks about finding the best, top, or recommended model for a task, wants to know what AI model to use, or wants to compare models by benchmark scores.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -5446,7 +5446,7 @@
     {
       "name": "antigravity-brooks-audit",
       "original_name": "brooks-audit",
-      "description": "Architecture audit that maps module dependencies, checks layering integrity, and flags structural decay across a codebase, drawing on twelve classic engineering books. Triggers when: user asks to audit architecture, review folder/module structure, check for circular imports, understand...",
+      "description": "Architecture audit that maps module dependencies, checks layering integrity, and flags structural decay across a codebase, drawing on twelve classic engineering books.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5486,7 +5486,7 @@
     {
       "name": "antigravity-aws-cdk-development",
       "original_name": "aws-cdk-development",
-      "description": "AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python. Use when creating CDK stacks, defining CDK constructs, implementing infrastructure as code, or when the user mentions CDK, CloudFormation, IaC, cdk synth, cdk deploy, or wants to define AWS...",
+      "description": "AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5550,7 +5550,7 @@
     {
       "name": "antigravity-api-integration",
       "original_name": "api-integration",
-      "description": "Designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and integration patterns between services. Use whenever the user asks about webhooks, event streaming, API composition, connecting two or more APIs, building pipelines, Pub/Sub, Kafka topics, ETL...",
+      "description": "Designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and integration patterns between services.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5630,7 +5630,7 @@
     {
       "name": "antigravity-hugging-face-papers",
       "original_name": "hugging-face-papers",
-      "description": "Look up and read Hugging Face paper pages in markdown, and use the papers API for structured metadata such as authors, linked models/datasets/spaces, Github repo and project page. Use when the user shares a Hugging Face paper page URL, an arXiv URL or ID, or asks to summarize, explain,...",
+      "description": "Look up and read Hugging Face paper pages in markdown, and use the papers API for structured metadata such as authors, linked models/datasets/spaces, Github repo and project page.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -5726,7 +5726,7 @@
     {
       "name": "antigravity-train-sentence-transformers",
       "original_name": "train-sentence-transformers",
-      "description": "Train or fine-tune sentence-transformers models across `SentenceTransformer` (bi-encoder; dense or static embedding model; for retrieval, similarity, clustering, classification, paraphrase mining, dedup, multimodal), `CrossEncoder` (reranker; pair scoring for two-stage retrieval / pair...",
+      "description": "Train or fine-tune SentenceTransformer, CrossEncoder, and SparseEncoder models for retrieval, similarity, clustering, classification, reranking, and related embedding tasks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -5822,7 +5822,7 @@
     {
       "name": "antigravity-aws-serverless-eda",
       "original_name": "aws-serverless-eda",
-      "description": "AWS serverless and event-driven architecture expert based on Well-Architected Framework. Use when building serverless APIs, Lambda functions, REST APIs, microservices, or async workflows. Covers Lambda with TypeScript/Python, API Gateway (REST/HTTP), DynamoDB, Step Functions,...",
+      "description": "AWS serverless and event-driven architecture expert based on Well-Architected Framework. Use when building serverless APIs, Lambda functions, REST APIs, microservices, or async workflows.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5886,7 +5886,7 @@
     {
       "name": "antigravity-privacy-mask",
       "original_name": "privacy-mask",
-      "description": "Mask, redact, anonymize and censor sensitive information (PII) in screenshots and images \u2014 phone numbers, emails, IDs, API keys, crypto wallets, credit cards, passwords, and more. Uses OCR (Tesseract + RapidOCR) with 47 regex rules and optional NER (GLiNER) to detect private data and...",
+      "description": "Mask, redact, anonymize and censor sensitive information (PII) in screenshots and images \u2014 phone numbers, emails, IDs, API keys, crypto wallets, credit cards, passwords, and more.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5902,7 +5902,7 @@
     {
       "name": "antigravity-longbridge-market-data",
       "original_name": "longbridge-market-data",
-      "description": "Real-time quotes, K-line charts, order book, trade ticks, intraday capital flow, market sentiment temperature, trading session schedule, security lists, exchange rates, and IPO calendar for HK/US/A-share/SG via Longbridge. Also covers ADR premium and FX carry frameworks. Triggers:...",
+      "description": "Real-time quotes, K-line charts, order book, trade ticks, intraday capital flow, market sentiment temperature, trading session schedule, security lists, exchange rates, and IPO calendar for HK/US/A-share/SG via Longbridge. Also covers ADR premium and FX carry frameworks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5918,7 +5918,7 @@
     {
       "name": "antigravity-aws-mcp-setup",
       "original_name": "aws-mcp-setup",
-      "description": "Configure AWS MCP servers for documentation search and API access. Use when setting up AWS MCP, configuring AWS documentation tools, troubleshooting MCP connectivity, or when user mentions aws-mcp, awsdocs, uvx setup, or MCP server configuration. Covers both Full AWS MCP Server (with...",
+      "description": "Configure AWS MCP servers for documentation search and API access. Use when setting up AWS MCP, configuring AWS documentation tools, troubleshooting MCP connectivity, or when user mentions aws-mcp, awsdocs, uvx setup, or MCP server configuration.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5998,7 +5998,7 @@
     {
       "name": "antigravity-hugging-face-vision-trainer",
       "original_name": "hugging-face-vision-trainer",
-      "description": "Trains and fine-tunes vision models for object detection (D-FINE, RT-DETR v2, DETR, YOLOS), image classification (timm models \u2014 MobileNetV3, MobileViT, ResNet, ViT/DINOv3 \u2014 plus any Transformers classifier), and SAM/SAM2 segmentation using Hugging Face Transformers on Hugging Face Jobs...",
+      "description": "Train object detection, image classification, and SAM or SAM2 segmentation models locally or on Hugging Face Jobs, with dataset validation and results saved to the Hub.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -6174,7 +6174,7 @@
     {
       "name": "antigravity-fixing-metadata",
       "original_name": "fixing-metadata",
-      "description": "Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tags, Twitter cards, favicons, JSON-LD structured data, and robots directives. Use when adding SEO metadata, fixing social share previews, reviewing Open Graph tags, setting up canonical...",
+      "description": "Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tags, Twitter cards, favicons, JSON-LD structured data, and robots directives.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6446,7 +6446,7 @@
     {
       "name": "antigravity-neon-object-storage",
       "original_name": "neon-object-storage",
-      "description": "S3-compatible object storage that branches with your Neon project, so files and the database stay in sync across every branch. Use when a user wants object storage, a bucket, blob/file storage, or somewhere to put uploads, images, documents, avatars, or user-generated files for their...",
+      "description": "S3-compatible object storage that branches with your Neon project, so files and the database stay in sync across every branch.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -6502,7 +6502,7 @@
     {
       "name": "antigravity-brooks-review",
       "original_name": "brooks-review",
-      "description": "PR code review that surfaces decay risks, design smells, and maintainability issues with concrete Symptom \u2192 Source \u2192 Consequence \u2192 Remedy findings, drawing on twelve classic engineering books. Triggers when: user asks to review code, check a PR, shares a diff or pastes code asking...",
+      "description": "PR code review that surfaces decay risks, design smells, and maintainability issues with concrete Symptom \u2192 Source \u2192 Consequence \u2192 Remedy findings, drawing on twelve classic engineering books.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6518,7 +6518,7 @@
     {
       "name": "antigravity-neon-postgres",
       "original_name": "neon-postgres",
-      "description": "Guides and best practices for working with Neon Serverless Postgres. Covers setup, connection methods, branching, autoscaling, scale-to-zero, read replicas, connection pooling, Neon Auth, and the Neon CLI, MCP server, REST API, TypeScript SDK, and Python SDK. Use when users ask about...",
+      "description": "Guides and best practices for working with Neon Serverless Postgres. Covers setup, connection methods, branching, autoscaling, scale-to-zero, read replicas, connection pooling, Neon Auth, and the Neon CLI, MCP server, REST API, TypeScript SDK, and Python SDK.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -6678,7 +6678,7 @@
     {
       "name": "antigravity-test-framework-migration-skill",
       "original_name": "test-framework-migration-skill",
-      "description": "Migrates and converts test automation scripts between Selenium, Playwright, Puppeteer, and Cypress. Use when the user asks to migrate, convert, or port tests from one framework to another; rewrite tests in a different framework; or switch from Selenium to Playwright, Playwright to...",
+      "description": "Migrates and converts test automation scripts between Selenium, Playwright, Puppeteer, and Cypress.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6822,7 +6822,7 @@
     {
       "name": "antigravity-gemini-interactions-api",
       "original_name": "gemini-interactions-api",
-      "description": "Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, multimodal understanding, image generation, video generation, streaming responses, background research tasks, function calling, structured output, or migrating from the old generateContent...",
+      "description": "Build with the Gemini Interactions API for text, chat, multimodal generation, streaming, managed or background agents, function calling, structured output, and generateContent migrations.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -6830,7 +6830,7 @@
     {
       "name": "antigravity-offers",
       "original_name": "offers",
-      "description": "When the user wants to design, construct, or improve an offer \u2014 the thing they actually sell \u2014 including value framing, bonus stacking, guarantee design, scarcity/urgency, naming, and payment structure. Also use when the user mentions 'offer,' 'offer design,' 'build an offer,' 'grand...",
+      "description": "When the user wants to design, construct, or improve an offer \u2014 the thing they actually sell \u2014 including value framing, bonus stacking, guarantee design, scarcity/urgency, naming, and payment structure.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7006,7 +7006,7 @@
     {
       "name": "antigravity-styleseed-design-review",
       "original_name": "styleseed-design-review",
-      "description": "Reviews UI/frontend code and tells you exactly why it \"looks AI-generated\" \u2014 then how to fix it. Use it when a React/Tailwind/HTML interface looks off, generic, or unfinished, when you want a design score before shipping, or when asked to make UI look more professional, polished, or...",
+      "description": "Reviews UI/frontend code and tells you exactly why it \"looks AI-generated\" \u2014 then how to fix it.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7050,6 +7050,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-entropy-box",
+      "original_name": "entropy-box",
+      "description": "Entropy Box knowledge-compiler for embodied-AI: turns bounded requirements into grounded workflows via Solution Consult, Search, Lookup, and Evidence. Do not use it to control physical robots.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "CC-BY-4.0"
     },
     {
       "name": "antigravity-sql-optimization-patterns",
@@ -7164,6 +7172,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-orca-replay",
+      "original_name": "orca-replay",
+      "description": "Answers questions about a past agent run from its recording rather than from memory, and replays or forks that run. Use when asked why an earlier run did something, or to reproduce a failure.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-autonomous-agents",
       "original_name": "autonomous-agents",
       "description": "Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools, and self-correct without constant human guidance. The challenge isn't making them capable - it's making them reliable. Every extra decision multiplies failure probability.",
@@ -7246,7 +7262,7 @@
     {
       "name": "antigravity-unslop-review",
       "original_name": "unslop-review",
-      "description": "Rewrites code review comments so they read like a human teammate wrote them. Cuts corporate-AI throat-clearing (\"I noticed...\", \"I was wondering if perhaps...\", \"It might be worth considering...\"). Each comment is direct: location, the issue, a concrete fix. Use when user says...",
+      "description": "Rewrites code review comments so they read like a human teammate wrote them. Cuts corporate-AI throat-clearing (\"I noticed...\", \"I was wondering if perhaps...\", \"It might be worth considering...\"). Each comment is direct: location, the issue, a concrete fix.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7342,7 +7358,7 @@
     {
       "name": "antigravity-logic-review",
       "original_name": "logic-review",
-      "description": "Find logic bugs in a single file or function via semi-formal execution tracing (Premises \u2192 Trace \u2192 Divergence \u2192 Trigger \u2192 Remedy). Trigger when a user shares code and suspects something is wrong without naming a concrete failure \u2014 phrases like \"review this\", \"does this look right\",...",
+      "description": "Find logic bugs in a single file or function via semi-formal execution tracing (Premises \u2192 Trace \u2192 Divergence \u2192 Trigger \u2192 Remedy).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7478,7 +7494,7 @@
     {
       "name": "antigravity-unslop-file",
       "original_name": "unslop-file",
-      "description": "Humanize natural-language memory files (CLAUDE.md, todos, preferences, docs) by removing AI-isms and adding burstiness while preserving every code block, URL, path, command, and heading exactly. Two modes: --deterministic (fast, regex-based, no API) and LLM (default, calls Claude for...",
+      "description": "Humanize natural-language memory files (CLAUDE.md, todos, preferences, docs) by removing AI-isms and adding burstiness while preserving every code block, URL, path, command, and heading exactly.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7638,7 +7654,7 @@
     {
       "name": "antigravity-api-onboarding",
       "original_name": "api-onboarding",
-      "description": "Reduce time-to-first-API-call (TTFAC) by optimizing every step of the developer onboarding journey. This skill covers authentication simplification, sandbox environments, interactive documentation, and identifying and eliminating common failure points. Trigger phrases: \"API...",
+      "description": "Reduce time-to-first-API-call (TTFAC) by optimizing every step of the developer onboarding journey. This skill covers authentication simplification, sandbox environments, interactive documentation, and identifying and eliminating common failure points.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7694,7 +7710,7 @@
     {
       "name": "antigravity-test-driven-development",
       "original_name": "test-driven-development",
-      "description": "Use when implementing any feature or bugfix, before writing implementation code",
+      "description": "Use a failing behavioral test to guide a feature or bug fix, then implement and refactor with relevant regression checks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7886,7 +7902,7 @@
     {
       "name": "antigravity-review-and-simplify-changes",
       "original_name": "review-and-simplify-changes",
-      "description": "Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally apply safe Codex-driven fixes. Use when the user asks to \"simplify code\", \"review changed code\", \"check for code reuse\", \"review code quality\", \"review...",
+      "description": "Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally apply safe Codex-driven fixes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7974,7 +7990,7 @@
     {
       "name": "antigravity-huggingface-spaces",
       "original_name": "huggingface-spaces",
-      "description": "Build, deploy, and maintain applications on Hugging Face Spaces \u2014 Gradio / Docker / Static SDKs, ZeroGPU and dedicated hardware, model loading, debugging, buckets, inference providers, community grants. Use whenever the user asks to create or host an app on Hugging Face, port code onto...",
+      "description": "Build, deploy, and maintain applications on Hugging Face Spaces \u2014 Gradio / Docker / Static SDKs, ZeroGPU and dedicated hardware, model loading, debugging, buckets, inference providers, community grants.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -8038,7 +8054,7 @@
     {
       "name": "antigravity-selenium-skill",
       "original_name": "selenium-skill",
-      "description": "Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, JavaScript, C#, Ruby, or PHP. Supports local execution and TestMu AI cloud with 3000+ browser/OS combinations. Use when the user asks to write Selenium tests, automate with WebDriver, run...",
+      "description": "Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, JavaScript, C#, Ruby, or PHP. Supports local execution and TestMu AI cloud with 3000+ browser/OS combinations.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8134,7 +8150,7 @@
     {
       "name": "antigravity-neon-postgres-egress-optimizer",
       "original_name": "neon-postgres-egress-optimizer",
-      "description": "Diagnose and fix excessive Postgres egress (network data transfer) in a codebase. Use when a user mentions high database bills, unexpected data transfer costs, network transfer charges, egress spikes, \"why is my Neon bill so high\", \"database costs jumped\", SELECT * optimization, query...",
+      "description": "Diagnose and fix excessive Postgres egress (network data transfer) in a codebase.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -8278,7 +8294,7 @@
     {
       "name": "antigravity-internal-comms-community",
       "original_name": "internal-comms-community",
-      "description": "To write internal communications, use this skill for:",
+      "description": "Compatibility alias for internal-comms: draft status updates, newsletters and FAQs from approved sources.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8318,7 +8334,7 @@
     {
       "name": "antigravity-api-designer",
       "original_name": "api-designer",
-      "description": "Generates complete, production-ready REST API endpoint specifications for any system or domain the user describes. Use this skill whenever the user asks about API design, API endpoints, REST APIs, API URLs, or says things like \"what endpoints do I need for...\", \"design an API for...\",...",
+      "description": "Generates complete, production-ready REST API endpoint specifications for any system or domain the user describes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8350,7 +8366,7 @@
     {
       "name": "antigravity-marketing-plan",
       "original_name": "marketing-plan",
-      "description": "When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product. Also use when the user mentions \"marketing plan,\" \"growth plan,\" \"GTM plan,\" \"go-to-market plan,\" \"AARRR plan,\" \"90-day marketing plan,\" \"12-month marketing roadmap,\"...",
+      "description": "When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8358,7 +8374,7 @@
     {
       "name": "antigravity-devrel-content",
       "original_name": "devrel-content",
-      "description": "When the user wants to create technical content for developers including blog posts, tutorials, and documentation. Trigger phrases include \"write a blog post,\" \"technical article,\" \"developer content,\" \"tutorial,\" \"devrel content,\" \"dev blog,\" \"technical writing,\" or \"content for...",
+      "description": "When the user wants to create technical content for developers including blog posts, tutorials, and documentation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8398,7 +8414,7 @@
     {
       "name": "antigravity-applicationinsights-web-ts",
       "original_name": "applicationinsights-web-ts",
-      "description": "Instrument browser/web apps with the Application Insights JavaScript SDK (@microsoft/applicationinsights-web). Use for Real User Monitoring (RUM) \u2014 page views, clicks, AJAX/fetch dependencies, exceptions, custom events, and browser-side GenAI agent traces correlated to backend...",
+      "description": "Instrument browser/web apps with the Application Insights JavaScript SDK (@microsoft/applicationinsights-web).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8574,7 +8590,7 @@
     {
       "name": "antigravity-frontend-seo",
       "original_name": "frontend-seo",
-      "description": "A portable, framework-agnostic SEO system for any React or React Native-for-web frontend. Centralizes site metadata in one constants module, derives canonical URLs from a single base, builds per-route metadata (title, description, canonical, Open Graph, Twitter/X cards), generates...",
+      "description": "A portable, framework-agnostic SEO system for any React or React Native-for-web frontend.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8582,7 +8598,7 @@
     {
       "name": "antigravity-co-marketing",
       "original_name": "co-marketing",
-      "description": "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborate with...",
+      "description": "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8590,7 +8606,7 @@
     {
       "name": "antigravity-wjttc-builder",
       "original_name": "wjttc-builder",
-      "description": "PLAN and GENERATE WJTTC (Championship-Grade) test suites for any project. Analyzes the codebase, classifies components across the WJTTC five tiers (Brake \u00b7 Engine \u00b7 Aero \u00b7 Tyre \u00b7 Pit), writes a tiered test plan, and scaffolds executable test files. This is the BUILDER \u2014 it plans and...",
+      "description": "PLAN and GENERATE WJTTC (Championship-Grade) test suites for any project. Analyzes the codebase, classifies components across the WJTTC five tiers (Brake \u00b7 Engine \u00b7 Aero \u00b7 Tyre \u00b7 Pit), writes a tiered test plan, and scaffolds executable test files.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8686,7 +8702,7 @@
     {
       "name": "antigravity-cucumber-skill",
       "original_name": "cucumber-skill",
-      "description": "Generates Cucumber BDD tests with Gherkin feature files and step definitions in Java, JavaScript, or Ruby. Use when user mentions \"Cucumber\", \"Gherkin\", \"Feature/Scenario\", \"Given/When/Then\", \"BDD\". Triggers on: \"Cucumber\", \"Gherkin\", \"BDD\", \"Feature file\", \"Given/When/Then\", \"step...",
+      "description": "Generates Cucumber BDD tests with Gherkin feature files and step definitions in Java, JavaScript, or Ruby. Use when user mentions \"Cucumber\", \"Gherkin\", \"Feature/Scenario\", \"Given/When/Then\", \"BDD\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8830,7 +8846,7 @@
     {
       "name": "antigravity-llm-app-patterns",
       "original_name": "llm-app-patterns",
-      "description": "Production-ready patterns for building LLM applications, inspired by [Dify](https://github.com/langgenius/dify) and industry best practices.",
+      "description": "Architecture and integration sketches for LLM applications, with explicit retrieval, tool, privacy and verification boundaries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9062,7 +9078,7 @@
     {
       "name": "antigravity-alternatives-pages",
       "original_name": "alternatives-pages",
-      "description": "Create \"[Competitor] alternative\" and comparison pages for developer tools. Build honest, high-converting comparison content that ranks for competitive search terms. Trigger phrases: \"alternatives page\", \"comparison page\", \"vs page\", \"[competitor] alternative\", \"competitor comparison\",...",
+      "description": "Create \"[Competitor] alternative\" and comparison pages for developer tools. Build honest, high-converting comparison content that ranks for competitive search terms.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9118,7 +9134,7 @@
     {
       "name": "antigravity-swiftui-expert-skill",
       "original_name": "swiftui-expert-skill",
-      "description": "Use when writing, reviewing, or refactoring SwiftUI code for iOS or macOS, including state management and `@Observable` data flow, view composition and invalidation/performance, lists and `ForEach` identity, environment usage, localization, animations, Liquid Glass adoption, migrating...",
+      "description": "Write, review, and refactor SwiftUI for iOS or macOS, covering data flow, view composition, performance, identity, environment, localization, animation, API migration, and Instruments traces.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9134,7 +9150,7 @@
     {
       "name": "antigravity-developer-seo",
       "original_name": "developer-seo",
-      "description": "SEO strategy for technical queries and developer audiences. Covers keyword research for \"how to X in language\" queries, error message SEO, Stack Overflow-style content, technical long-tail keywords, and competing with official documentation sites. Use when asked about: - SEO for...",
+      "description": "SEO strategy for technical queries and developer audiences. Covers keyword research for \"how to X in language\" queries, error message SEO, Stack Overflow-style content, technical long-tail keywords, and competing with official documentation sites.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9166,7 +9182,7 @@
     {
       "name": "antigravity-pytest-skill",
       "original_name": "pytest-skill",
-      "description": "Generates production-grade pytest tests in Python with fixtures, parametrize, markers, mocking, and conftest patterns. Use when user mentions \"pytest\", \"conftest\", \"@pytest.fixture\", \"@pytest.mark\", \"Python test\". Triggers on: \"pytest\", \"conftest\", \"Python test\", \"parametrize\", \"Python...",
+      "description": "Generates production-grade pytest tests in Python with fixtures, parametrize, markers, mocking, and conftest patterns. Use when user mentions \"pytest\", \"conftest\", \"@pytest.fixture\", \"@pytest.mark\", \"Python test\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9374,7 +9390,7 @@
     {
       "name": "antigravity-postman-openapi-converter",
       "original_name": "postman-openapi-converter",
-      "description": "Convert OpenAPI 3.x or Swagger 2.0 specs (YAML or JSON) into complete, import-ready Postman Collection v2.1 JSON files. Use this skill whenever the user provides or references an OpenAPI spec, Swagger file, openapi.yaml, swagger.json, or uses phrases like \"convert my OpenAPI spec\",...",
+      "description": "Convert OpenAPI 3.x or Swagger 2.0 specs (YAML or JSON) into complete, import-ready Postman Collection v2.1 JSON files.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9534,7 +9550,7 @@
     {
       "name": "antigravity-brooks-debt",
       "original_name": "brooks-debt",
-      "description": "Tech debt assessment that identifies, classifies, and prioritizes maintainability problems \u2014 helping teams build a refactoring roadmap \u2014 drawing on twelve classic engineering books. Triggers when: user asks about tech debt, refactoring priorities, what to clean up first, or asks \"why...",
+      "description": "Tech debt assessment that identifies, classifies, and prioritizes maintainability problems \u2014 helping teams build a refactoring roadmap \u2014 drawing on twelve classic engineering books.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9614,7 +9630,7 @@
     {
       "name": "antigravity-anti-deception",
       "original_name": "anti-deception",
-      "description": "Use BEFORE responding when the user's request shows pressure to validate or agree (\"tell them what they want\", \"make them happy\", \"convince them\"), manufactured urgency (artificial deadline), authority appeals (citing investors, advisors, lawyers, experts), demands to certify without...",
+      "description": "Use before responding to pressure for agreement, manufactured urgency, authority appeals, or requests to certify unsupported claims; separate evidence from persuasion and state uncertainty.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9702,7 +9718,7 @@
     {
       "name": "antigravity-expo-examples",
       "original_name": "expo-examples",
-      "description": "Expo's official example projects \u2014 the expo/examples repo of ~70 `with-*` integrations (Stripe, Clerk, Supabase, OpenAI, maps, Reanimated, SQLite, Skia, NativeWind, and more). Use when integrating a third-party library or service into an existing Expo app and you want the canonical,...",
+      "description": "Expo's official example projects \u2014 the expo/examples repo of ~70 `with-*` integrations (Stripe, Clerk, Supabase, OpenAI, maps, Reanimated, SQLite, Skia, NativeWind, and more).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9822,7 +9838,7 @@
     {
       "name": "antigravity-cc-skill-strategic-compact",
       "original_name": "cc-skill-strategic-compact",
-      "description": "Development skill from everything-claude-code",
+      "description": "Prepare a verified checkpoint before condensing an agent conversation at a phase boundary. Use during long tasks when context is repetitive; preserves constraints, evidence, decisions and the next action.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9854,7 +9870,7 @@
     {
       "name": "antigravity-brooks-test",
       "original_name": "brooks-test",
-      "description": "Test quality review drawing on twelve classic engineering books \u2014 with primary focus on xUnit Test Patterns, The Art of Unit Testing, How Google Tests Software, and Working Effectively with Legacy Code \u2014 that diagnoses structural problems in an existing test suite: brittleness, mock...",
+      "description": "Review test-suite quality using established testing literature; identify brittleness, mock abuse, unclear fixtures, weak assertions, slow feedback, and maintenance risks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9974,7 +9990,7 @@
     {
       "name": "antigravity-bug-hunt-swarm",
       "original_name": "bug-hunt-swarm",
-      "description": "Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures. Use when the user asks to investigate a bug, find the root cause, trace a regression, understand why something broke, or wants a ranked diagnosis with the...",
+      "description": "Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10022,7 +10038,7 @@
     {
       "name": "antigravity-community-building",
       "original_name": "community-building",
-      "description": "When the user wants to build, grow, or improve a developer community on Discord, Slack, or forums. Trigger phrases include \"developer community,\" \"Discord server,\" \"Slack community,\" \"community strategy,\" \"community engagement,\" \"community moderation,\" \"community growth,\" or \"community...",
+      "description": "When the user wants to build, grow, or improve a developer community on Discord, Slack, or forums.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10046,7 +10062,7 @@
     {
       "name": "antigravity-customer-research",
       "original_name": "customer-research",
-      "description": "When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions \"customer research,\" \"ICP research,\" \"talk to customers,\" \"analyze transcripts,\" \"customer interviews,\" \"survey analysis,\" \"support ticket analysis,\" \"voice of customer,\" \"VOC,\" \"build...",
+      "description": "When the user wants to conduct, analyze, or synthesize customer research.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10430,7 +10446,7 @@
     {
       "name": "antigravity-agent-evaluation",
       "original_name": "agent-evaluation",
-      "description": "Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability metrics, and production monitoring\u2014where even top agents achieve less than 50% on real-world benchmarks",
+      "description": "Evaluate agent behavior with versioned cases and explicit verifiers. Use when comparing agent or prompt changes, reproducing failures, or running agent regression tests.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10494,7 +10510,7 @@
     {
       "name": "antigravity-logic-locate",
       "original_name": "logic-locate",
-      "description": "Locate the root cause of a CONFIRMED failure via backward-then-forward semi-formal tracing. Trigger when the user provides a stack trace, failing assertion, error message, or specific wrong-value observation \u2014 \"find the bug\", \"this test is failing\", \"track down this crash\", \"why is...",
+      "description": "Locate the root cause of a CONFIRMED failure via backward-then-forward semi-formal tracing.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10606,7 +10622,7 @@
     {
       "name": "antigravity-neon-postgres-branches",
       "original_name": "neon-postgres-branches",
-      "description": "Choose and create the right Neon branch type for testing and development. Use when users ask about Neon branching, migration testing with real data, isolated test environments, schema-only branch workflows for sensitive data, or branch creation via Neon CLI or Neon MCP. Triggers...",
+      "description": "Choose and create the right Neon branch type for testing and development. Use when users ask about Neon branching, migration testing with real data, isolated test environments, schema-only branch workflows for sensitive data, or branch creation via Neon CLI or Neon MCP.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -10678,7 +10694,7 @@
     {
       "name": "antigravity-expo-observe",
       "original_name": "expo-observe",
-      "description": "Use for anything related to EAS Observe \u2014 adding `expo-observe` to an Expo project (AppMetricsRoot/ObserveRoot HOC, markInteractive, the useObserve hook, and the Expo Router / React Navigation integrations for per-route metrics), querying via the EAS CLI (`eas observe:metrics-summary`,...",
+      "description": "Set up and query EAS Observe for Expo apps, including root integration, interactive markers, route metrics, CLI summaries, traces, logs, and performance diagnosis.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10702,7 +10718,7 @@
     {
       "name": "antigravity-frontend-design",
       "original_name": "frontend-design",
-      "description": "You are a frontend designer-engineer, not a layout generator.",
+      "description": "Design and implement a distinctive frontend within the product\u2019s existing brand, accessibility, performance and framework constraints.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10766,7 +10782,7 @@
     {
       "name": "antigravity-aws-sst-development",
       "original_name": "aws-sst-development",
-      "description": "SST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework. Use when writing or editing sst.config.ts, building infra/ modules (sst.aws.Function/Bucket/Dynamo/Cron/Service/Router, sst.Secret, sst.Linkable, raw aws.* Pulumi resources), wiring resource links,...",
+      "description": "SST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10798,7 +10814,7 @@
     {
       "name": "antigravity-stripe-integration",
       "original_name": "stripe-integration",
-      "description": "Master Stripe payment processing integration for robust, PCI-compliant payment flows including checkout, subscriptions, webhooks, and refunds.",
+      "description": "Implement and verify Stripe checkout, subscriptions, webhooks and refunds with explicit server-side authorization and retry boundaries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10918,7 +10934,7 @@
     {
       "name": "antigravity-hugging-face-model-trainer",
       "original_name": "hugging-face-model-trainer",
-      "description": "Train or fine-tune language and vision models using TRL (Transformer Reinforcement Learning) or Unsloth with Hugging Face Jobs infrastructure. Covers SFT, DPO, GRPO and reward modeling training methods, plus GGUF conversion for local deployment. Includes guidance on the TRL Jobs...",
+      "description": "Train or fine-tune language and vision models using TRL (Transformer Reinforcement Learning) or Unsloth with Hugging Face Jobs infrastructure. Covers SFT, DPO, GRPO and reward modeling training methods, plus GGUF conversion for local deployment.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -10982,7 +10998,7 @@
     {
       "name": "antigravity-hyperexecute-skill",
       "original_name": "hyperexecute-skill",
-      "description": "Operates HyperExecute end-to-end for TestMu AI/LambdaTest cloud test execution: analyze projects, create YAML, validate locally, run CLI jobs, debug failures, and wire CI. Use when the user mentions HyperExecute, hyperexecute.yaml, HyperExecute CLI, autosplit, matrix execution,...",
+      "description": "Operates HyperExecute end-to-end for TestMu AI/LambdaTest cloud test execution: analyze projects, create YAML, validate locally, run CLI jobs, debug failures, and wire CI.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11134,7 +11150,7 @@
     {
       "name": "antigravity-ui-motion",
       "original_name": "ui-motion",
-      "description": "Apply a named StyleSeed motion to a component \u2014 either one of the 5 personality seeds (Spring/Silk/Snap/Float/Pulse \u00d7 entrance/exit/hover/press/layout) or a distinctive keyword move from the motion library (toggle-flip, toggle-curtain, reveal-blur, pop-in, shimmer, \u2026). Translates vibe...",
+      "description": "Apply a named StyleSeed motion to a component \u2014 either one of the 5 personality seeds (Spring/Silk/Snap/Float/Pulse \u00d7 entrance/exit/hover/press/layout) or a distinctive keyword move from the motion library (toggle-flip, toggle-curtain, reveal-blur, pop-in, shimmer, \u2026).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11166,7 +11182,7 @@
     {
       "name": "antigravity-expo-deployment",
       "original_name": "expo-deployment",
-      "description": "Deploy Expo apps to production with EAS \u2014 build and submit to the iOS App Store, Google Play Store, and TestFlight, configure eas.json build and submit profiles, manage app versions and build numbers, publish App Store metadata and ASO, and deploy web bundles and API routes via EAS...",
+      "description": "Deploy Expo apps with EAS: build and submit iOS and Android releases, configure build and submit profiles, manage versions and store metadata, and deploy web bundles or API routes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11238,7 +11254,7 @@
     {
       "name": "antigravity-hugging-face-trackio",
       "original_name": "hugging-face-trackio",
-      "description": "Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI). Supports real-time dashboard visualization, alerts with webhooks, HF Space syncing, and...",
+      "description": "Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -11414,7 +11430,7 @@
     {
       "name": "antigravity-developer-onboarding",
       "original_name": "developer-onboarding",
-      "description": "Get developers to \"Hello World\" fast with optimized quickstarts, tutorials, and sample apps. Trigger phrases: developer onboarding, time to first value, quickstart guide, hello world tutorial, developer activation, onboarding checklist, sample apps, getting started experience, reduce...",
+      "description": "Get developers to \"Hello World\" fast with optimized quickstarts, tutorials, and sample apps.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11526,7 +11542,7 @@
     {
       "name": "antigravity-cc-skill-continuous-learning",
       "original_name": "cc-skill-continuous-learning",
-      "description": "Development skill from everything-claude-code",
+      "description": "Turn a completed debugging session or repeated user correction into a small, evidence-backed procedure. Use for explicit requests to capture reusable lessons; does not automatically extract or save memories.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11814,7 +11830,7 @@
     {
       "name": "antigravity-supabase",
       "original_name": "supabase",
-      "description": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout,...",
+      "description": "Use when doing ANY task involving Supabase.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11902,7 +11918,7 @@
     {
       "name": "antigravity-ab-testing",
       "original_name": "ab-testing",
-      "description": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\"...",
+      "description": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11926,7 +11942,7 @@
     {
       "name": "antigravity-logic-explain",
       "original_name": "logic-explain",
-      "description": "Explain what a specific piece of code actually does for a given input by producing a step-by-step execution trace (interprocedural, with name resolution and type transitions). Trigger when the user is confused about behavior or asks why code produces X instead of Y \u2014 \"walk me through...",
+      "description": "Explain what a specific piece of code actually does for a given input by producing a step-by-step execution trace (interprocedural, with name resolution and type transitions).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12078,7 +12094,7 @@
     {
       "name": "antigravity-review-swarm",
       "original_name": "review-swarm",
-      "description": "Parallel read-only multi-agent review of a current git diff or explicit file scope to find behavioral regressions, security or privacy risks, performance or reliability issues, and contract or test coverage gaps. Use when the user asks for a review swarm, parallel review, diff review,...",
+      "description": "Parallel read-only multi-agent review of a current git diff or explicit file scope to find behavioral regressions, security or privacy risks, performance or reliability issues, and contract or test coverage gaps.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12166,7 +12182,7 @@
     {
       "name": "antigravity-huggingface-zerogpu",
       "original_name": "huggingface-zerogpu",
-      "description": "AI demos and GPU compute with Gradio Spaces and Hugging Face Spaces ZeroGPU. Use when writing or reviewing code that uses `@spaces.GPU`, configuring `python_version` or `requirements.txt` for a ZeroGPU Space, or handling ZeroGPU-specific code constraints \u2014 pickle-based process...",
+      "description": "AI demos and GPU compute with Gradio Spaces and Hugging Face Spaces ZeroGPU.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -12334,7 +12350,7 @@
     {
       "name": "antigravity-hugging-face-community-evals",
       "original_name": "hugging-face-community-evals",
-      "description": "Run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate. Not for HF Jobs orchestration, model-card PRs, .eval_results publication, or community-evals...",
+      "description": "Run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -12390,7 +12406,7 @@
     {
       "name": "antigravity-idea-refine",
       "original_name": "idea-refine",
-      "description": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on...",
+      "description": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12542,7 +12558,7 @@
     {
       "name": "antigravity-frontend-data-contracts",
       "original_name": "frontend-data-contracts",
-      "description": "A portable, framework-agnostic discipline for type safety at the network edge of any React or React Native app. Establishes one typed API client as the single fetch boundary, a parse-don't-validate rule that turns wire JSON into trusted domain types before it enters the app, a single...",
+      "description": "A portable, framework-agnostic discipline for type safety at the network edge of any React or React Native app.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12550,7 +12566,7 @@
     {
       "name": "antigravity-frontend-slides-frontend-slides",
       "original_name": "frontend-slides-frontend-slides",
-      "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration...",
+      "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12718,7 +12734,7 @@
     {
       "name": "antigravity-junit-5-skill",
       "original_name": "junit-5-skill",
-      "description": "Generates production-grade JUnit 5 unit and integration tests in Java. Covers assertions, parameterized tests, lifecycle hooks, mocking with Mockito, and nested tests. Use when user mentions \"JUnit\", \"JUnit 5\", \"@Test\", \"assertEquals\", \"Assertions\", \"Java unit test\". Triggers on:...",
+      "description": "Generates production-grade JUnit 5 unit and integration tests in Java. Covers assertions, parameterized tests, lifecycle hooks, mocking with Mockito, and nested tests. Use when user mentions \"JUnit\", \"JUnit 5\", \"@Test\", \"assertEquals\", \"Assertions\", \"Java unit test\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12814,7 +12830,7 @@
     {
       "name": "antigravity-postgresql-cli",
       "original_name": "postgresql-cli",
-      "description": "PostgreSQL interactive terminal (psql) reference and usage guide. Use this skill whenever the user mentions psql, PostgreSQL command-line client, backslash commands, meta-commands, \\d commands, database inspection, SQL scripting in PostgreSQL, importing/exporting data with psql, \\copy,...",
+      "description": "PostgreSQL interactive terminal (psql) reference and usage guide.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -13526,7 +13542,7 @@
     {
       "name": "antigravity-sdk-dx",
       "original_name": "sdk-dx",
-      "description": "Design SDKs that developers love to use\u2014APIs that feel native, error messages that guide, and experiences that reduce friction. This skill covers creating SDKs that drive adoption through exceptional developer experience rather than aggressive marketing. Trigger phrases: \"SDK design\",...",
+      "description": "Design SDKs that developers love to use\u2014APIs that feel native, error messages that guide, and experiences that reduce friction. This skill covers creating SDKs that drive adoption through exceptional developer experience rather than aggressive marketing.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13606,7 +13622,7 @@
     {
       "name": "antigravity-postman-collection-generator",
       "original_name": "postman-collection-generator",
-      "description": "Generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descriptions or cURL commands. Use this skill whenever the user describes an API in plain English (\"I have a REST API with these endpoints...\"), pastes cURL commands, or asks to \"create a...",
+      "description": "Generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descriptions or cURL commands.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13918,7 +13934,7 @@
     {
       "name": "antigravity-internal-comms-anthropic",
       "original_name": "internal-comms-anthropic",
-      "description": "To write internal communications, use this skill for:",
+      "description": "Compatibility alias for internal-comms: draft status updates, newsletters and FAQs from approved sources.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14070,7 +14086,7 @@
     {
       "name": "antigravity-brooks-harness",
       "original_name": "brooks-harness",
-      "description": "Maintenance orchestrator for the brooks-lint plugin itself. Runs a sequential subagent pipeline \u2014 author \u2192 eval \u2192 QA \u2192 trigger-audit \u2192 release \u2014 to add or edit a skill, refresh the eval suite, keep the four manifests + README + CHANGELOG + AGENTS/GEMINI in sync, audit trigger...",
+      "description": "Maintenance orchestrator for the brooks-lint plugin itself.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14198,7 +14214,7 @@
     {
       "name": "antigravity-competitor-profiling",
       "original_name": "competitor-profiling",
-      "description": "When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep dive,'...",
+      "description": "When the user wants to research, profile, or analyze competitors from their URLs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14406,7 +14422,7 @@
     {
       "name": "antigravity-antigravity-workflows",
       "original_name": "antigravity-workflows",
-      "description": "Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, security audits, AI agent builds, and browser QA.",
+      "description": "Use when asked to ship a SaaS MVP, audit application security, build an AI agent, run browser QA, or design a domain model with multiple skills and verified checkpoints.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14422,7 +14438,7 @@
     {
       "name": "antigravity-logic-diff",
       "original_name": "logic-diff",
-      "description": "Compare two code versions for semantic equivalence via semi-formal tracing of both versions side-by-side. Trigger when the user shares a refactor, rewrite, migration, or A/B implementation and wants to confirm behavior is unchanged \u2014 \"did I break anything\", \"is this equivalent\", \"are...",
+      "description": "Compare two code versions for semantic equivalence via semi-formal tracing of both versions side-by-side.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14446,7 +14462,7 @@
     {
       "name": "antigravity-product-marketing",
       "original_name": "product-marketing",
-      "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wants to...",
+      "description": "When the user wants to create or update their product marketing context document.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14494,7 +14510,7 @@
     {
       "name": "antigravity-observability-and-instrumentation",
       "original_name": "observability-and-instrumentation",
-      "description": "Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production and you need evidence it works. Use when production issues are reported but you can't tell what happened...",
+      "description": "Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production and you need evidence it works.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14550,7 +14566,7 @@
     {
       "name": "antigravity-monte-carlo-analyze-root-cause",
       "original_name": "monte-carlo-analyze-root-cause",
-      "description": "Investigate data incidents and find root causes using Monte Carlo's observability data. Guides the agent through systematic investigation: alert lookup, lineage tracing, ETL checks, query analysis, and data profiling. Activates when a user asks about data issues, incidents, alerts, or...",
+      "description": "Investigate data incidents and find root causes using Monte Carlo's observability data. Guides the agent through systematic investigation: alert lookup, lineage tracing, ETL checks, query analysis, and data profiling.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -14558,7 +14574,7 @@
     {
       "name": "antigravity-loopy",
       "original_name": "loopy",
-      "description": "Discover, find, compare, audit, repair, adapt, craft, run, debrief, and prepare repeatable AI-agent loops for publication. Use when a user asks to analyze code or coding threads for recurring work, find a published loop, interview them to turn a goal into a bounded loop, review a loop...",
+      "description": "Discover, find, compare, audit, repair, adapt, craft, run, debrief, and prepare repeatable AI-agent loops for publication.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14702,7 +14718,7 @@
     {
       "name": "antigravity-design-system",
       "original_name": "design-system",
-      "description": "Mechanical implementation invariants for frontend design: token architecture, typography hierarchy, loading order, FOUT prevention, chrome stability, motion timing, color semantics. Use with design when building components, pages, or design systems. (Aesthetic direction lives in...",
+      "description": "Mechanical implementation invariants for frontend design: token architecture, typography hierarchy, loading order, FOUT prevention, chrome stability, motion timing, color semantics. Use with design when building components, pages, or design systems.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14710,7 +14726,7 @@
     {
       "name": "antigravity-aws-agentic-ai",
       "original_name": "aws-agentic-ai",
-      "description": "AWS Bedrock AgentCore comprehensive expert for deploying and managing AI agents at scale. Use when working with any AgentCore service including Gateway, Runtime, Memory, Identity, Code Interpreter, Browser, Observability, Agent Registry, or Evaluations. Covers agent deployment, MCP...",
+      "description": "AWS Bedrock AgentCore comprehensive expert for deploying and managing AI agents at scale. Use when working with any AgentCore service including Gateway, Runtime, Memory, Identity, Code Interpreter, Browser, Observability, Agent Registry, or Evaluations.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14750,7 +14766,7 @@
     {
       "name": "antigravity-codebase-cleanup-tech-debt",
       "original_name": "codebase-cleanup-tech-debt",
-      "description": "You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical debt in software projects. Analyze the codebase to uncover debt, assess its impact, and create acti",
+      "description": "Identify technical debt from actual code and change history, estimate its impact, and prioritize bounded improvements with explicit assumptions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14814,7 +14830,7 @@
     {
       "name": "antigravity-frontend-optimistic-mutations",
       "original_name": "frontend-optimistic-mutations",
-      "description": "A portable, framework-agnostic discipline for the write path of any React or React Native app using a query/cache layer. Codifies the optimistic-update lifecycle (cancel in-flight queries \u2192 snapshot every affected cache \u2192 patch instantly \u2192 roll back verbatim on error \u2192 invalidate on...",
+      "description": "A portable, framework-agnostic discipline for the write path of any React or React Native app using a query/cache layer.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14830,7 +14846,7 @@
     {
       "name": "antigravity-developer-sandbox",
       "original_name": "developer-sandbox",
-      "description": "Design and build interactive playgrounds that let developers experience your product without commitment. This skill covers playground architecture, pre-populated examples, embedding strategies, gating decisions, and converting playground users to signups. Trigger phrases: \"developer...",
+      "description": "Design and build interactive playgrounds that let developers experience your product without commitment. This skill covers playground architecture, pre-populated examples, embedding strategies, gating decisions, and converting playground users to signups.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14998,7 +15014,7 @@
     {
       "name": "antigravity-aws-cost-operations",
       "original_name": "aws-cost-operations",
-      "description": "AWS cost optimization, monitoring, and operational excellence expert. Use when analyzing AWS bills, estimating costs, setting up CloudWatch alarms, querying logs, auditing CloudTrail activity, or assessing security posture. Essential when user mentions AWS costs, spending, billing,...",
+      "description": "AWS cost optimization, monitoring, and operational excellence expert. Use when analyzing AWS bills, estimating costs, setting up CloudWatch alarms, querying logs, auditing CloudTrail activity, or assessing security posture.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15086,7 +15102,7 @@
     {
       "name": "antigravity-cypress-skill",
       "original_name": "cypress-skill",
-      "description": "Generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Supports local execution and TestMu AI cloud. Use when the user asks to write Cypress tests, set up Cypress, test with cy commands, or mentions \"Cypress\", \"cy.visit\", \"cy.get\", \"cy.intercept\"....",
+      "description": "Generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Supports local execution and TestMu AI cloud. Use when the user asks to write Cypress tests, set up Cypress, test with cy commands, or mentions \"Cypress\", \"cy.visit\", \"cy.get\", \"cy.intercept\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15142,7 +15158,7 @@
     {
       "name": "antigravity-analytics",
       "original_name": "analytics",
-      "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" \"tracking...",
+      "description": "When the user wants to set up, improve, or audit analytics tracking and measurement.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15286,7 +15302,7 @@
     {
       "name": "antigravity-update-swiftui-apis",
       "original_name": "update-swiftui-apis",
-      "description": "Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with modern replacements. Use when asked to \"update latest APIs\", \"refresh deprecated SwiftUI APIs\", \"check for new SwiftUI deprecations\", \"scan for API changes\", or after a new iOS/Xcode...",
+      "description": "Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with modern replacements.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15294,7 +15310,7 @@
     {
       "name": "antigravity-wjttc-tester",
       "original_name": "wjttc-tester",
-      "description": "F1-inspired test EXECUTOR + reporter. Runs a test plan, finds and reproduces bugs, audits suite signal integrity, then files a WJTTC report (Brake/Engine/Aero/Tyre/Pit) with a tier verdict. Use when you need to test code, validate functionality, reproduce a failure, or produce a test...",
+      "description": "F1-inspired test EXECUTOR + reporter. Runs a test plan, finds and reproduces bugs, audits suite signal integrity, then files a WJTTC report (Brake/Engine/Aero/Tyre/Pit) with a tier verdict.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15566,7 +15582,7 @@
     {
       "name": "antigravity-robot-framework-skill",
       "original_name": "robot-framework-skill",
-      "description": "Generates Robot Framework tests in keyword-driven syntax with Python. Supports SeleniumLibrary, RequestsLibrary, and custom keywords. Use when user mentions \"Robot Framework\", \"*** Test Cases ***\", \"SeleniumLibrary\", \".robot file\". Triggers on: \"Robot Framework\", \"*** Test Cases ***\",...",
+      "description": "Generates Robot Framework tests in keyword-driven syntax with Python. Supports SeleniumLibrary, RequestsLibrary, and custom keywords. Use when user mentions \"Robot Framework\", \"*** Test Cases ***\", \"SeleniumLibrary\", \".robot file\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15574,7 +15590,7 @@
     {
       "name": "antigravity-api-analyzer",
       "original_name": "api-analyzer",
-      "description": "Validates whether an API request is correct based on provided inputs (method, URL, headers, body, auth, query params). Use this skill whenever a user wants to check, validate, debug, or verify an API call \u2014 including when they paste a curl command, show endpoint details, ask \"is this...",
+      "description": "Validates whether an API request is correct based on provided inputs (method, URL, headers, body, auth, query params).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15926,7 +15942,7 @@
     {
       "name": "antigravity-unslop-commit",
       "original_name": "unslop-commit",
-      "description": "Rewrites commit messages so they sound like a careful human engineer wrote them. Strips AI/marketing slop (\"comprehensive solution\", \"robust implementation\", \"leverage\", \"enhance\", \"seamlessly\", \"This commit...\"). Keeps Conventional Commits format. Subject \u226472 chars (aim \u226450),...",
+      "description": "Rewrites commit messages so they sound like a careful human engineer wrote them. Strips AI/marketing slop (\"comprehensive solution\", \"robust implementation\", \"leverage\", \"enhance\", \"seamlessly\", \"This commit...\"). Keeps Conventional Commits format.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15942,7 +15958,7 @@
     {
       "name": "antigravity-logic-fix-all",
       "original_name": "logic-fix-all",
-      "description": "Autonomous repository-wide audit-and-fix pipeline: health \u2192 review \u2192 locate/explain \u2192 fix \u2192 diff-verify \u2192 iterate until clean. Starts with a mandatory consent prompt (token-intensive); after consent runs hands-free. Trigger when the user wants ALL logic issues found and fixed \u2014 \"fix...",
+      "description": "Autonomous repository-wide audit-and-fix pipeline: health \u2192 review \u2192 locate/explain \u2192 fix \u2192 diff-verify \u2192 iterate until clean. Starts with a mandatory consent prompt (token-intensive); after consent runs hands-free.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16022,7 +16038,7 @@
     {
       "name": "antigravity-huggingface-tool-builder",
       "original_name": "huggingface-tool-builder",
-      "description": "Use this skill when the user wants to build tool/scripts or achieve a task where using data from the Hugging Face API would help. This is especially useful when chaining or combining API calls or the task will be repeated/automated. This Skill creates a reusable script to fetch, enrich...",
+      "description": "Use this skill when the user wants to build tool/scripts or achieve a task where using data from the Hugging Face API would help. This is especially useful when chaining or combining API calls or the task will be repeated/automated.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -16086,7 +16102,7 @@
     {
       "name": "antigravity-developer-advocacy",
       "original_name": "developer-advocacy",
-      "description": "When the user wants to do developer advocacy activities including conference talks, live coding, podcasts, and building in public. Trigger phrases include \"developer advocacy,\" \"devrel,\" \"conference talk,\" \"CFP,\" \"call for papers,\" \"live coding,\" \"podcast,\" \"building in public,\"...",
+      "description": "When the user wants to do developer advocacy activities including conference talks, live coding, podcasts, and building in public.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16342,7 +16358,7 @@
     {
       "name": "antigravity-hugo-to-markdown",
       "original_name": "hugo-to-markdown",
-      "description": "Convert Hugo documentation sites and Hugo-managed content into standard Markdown. Use when Agent needs to inspect a local Hugo repository, read hugo.toml or config files, content/, archetypes/, layouts/_shortcodes/, layouts/_markup/, and related docs content, then produce Markdown...",
+      "description": "Convert Hugo documentation sites and Hugo-managed content into standard Markdown.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -16358,7 +16374,7 @@
     {
       "name": "antigravity-frontend-observability",
       "original_name": "frontend-observability",
-      "description": "A portable, framework-agnostic field-side observability system for any React or React Native app. Establishes one typed event taxonomy (canonical event-name constants, never inline strings), a best-effort non-blocking provider fan-out so a failing or absent analytics provider can never...",
+      "description": "A portable, framework-agnostic field-side observability system for any React or React Native app.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16390,7 +16406,7 @@
     {
       "name": "antigravity-public-relations",
       "original_name": "public-relations",
-      "description": "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'public relations,' 'press,' 'press release,' 'press coverage,' 'media outreach,' 'pitch a journalist,' 'get...",
+      "description": "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16438,7 +16454,7 @@
     {
       "name": "antigravity-debugging-code",
       "original_name": "debugging-code",
-      "description": "Interactively debug source code \u2014 set breakpoints, step through execution line by line, inspect live variable state, evaluate expressions against the running program, and navigate the call stack to trace root causes. Use when a program crashes, raises unexpected exceptions, produces...",
+      "description": "Interactively debug source code \u2014 set breakpoints, step through execution line by line, inspect live variable state, evaluate expressions against the running program, and navigate the call stack to trace root causes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16462,7 +16478,7 @@
     {
       "name": "antigravity-openapi-spec-generator",
       "original_name": "openapi-spec-generator",
-      "description": "Generate complete, production-ready OpenAPI 3.x and Swagger 2.0 specifications from natural language descriptions, code, or partial specs. Use this skill whenever the user mentions OpenAPI, Swagger, API spec, REST API documentation, YAML/JSON API schema, endpoint documentation, API...",
+      "description": "Generate complete, production-ready OpenAPI 3.x and Swagger 2.0 specifications from natural language descriptions, code, or partial specs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16494,7 +16510,7 @@
     {
       "name": "antigravity-expo-module",
       "original_name": "expo-module",
-      "description": "Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift, Kotlin, TypeScript). Covers module definition DSL, native views, shared objects, config plugins, lifecycle hooks, autolinking, and type system. Use when building or modifying native modules...",
+      "description": "Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift, Kotlin, TypeScript). Covers module definition DSL, native views, shared objects, config plugins, lifecycle hooks, autolinking, and type system.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16606,7 +16622,7 @@
     {
       "name": "antigravity-gemini-api-dev",
       "original_name": "gemini-api-dev",
-      "description": "Use this skill when building applications with Gemini API hosted models, including Gemini and Gemma 4, working with multimodal content (text, images, audio, video), implementing function calling, using structured outputs, or needing current model specifications. Covers SDK usage...",
+      "description": "Use this skill when building applications with Gemini API hosted models, including Gemini and Gemma 4, working with multimodal content (text, images, audio, video), implementing function calling, using structured outputs, or needing current model specifications.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -16622,7 +16638,7 @@
     {
       "name": "antigravity-ab-test-setup",
       "original_name": "ab-test-setup",
-      "description": "Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and execution readiness.",
+      "description": "Use when designing an A/B or split test: define the hypothesis, control and variants, estimate sample size, verify tracking, and predeclare metrics and stopping rules.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16630,7 +16646,7 @@
     {
       "name": "antigravity-rclone-cli",
       "original_name": "rclone-cli",
-      "description": "Rclone command-line cloud storage manager reference and usage guide. Use this skill whenever the user mentions rclone, or any task involving terminal-based cloud file operations such as upload, download, sync, copy, move, mount, or remote management. Triggers on S3-compatible storage,...",
+      "description": "Rclone command-line cloud storage manager reference and usage guide. Use this skill whenever the user mentions rclone, or any task involving terminal-based cloud file operations such as upload, download, sync, copy, move, mount, or remote management.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -17174,7 +17190,7 @@
     {
       "name": "antigravity-neon-ai-gateway",
       "original_name": "neon-ai-gateway",
-      "description": "One API and one credential for frontier and open-source LLMs, built into your Neon branch and powered by Databricks. Use when a user wants to call an LLM, add AI/chat/an agent to their app, route between model providers (OpenAI, Anthropic, Google/Gemini, Meta, Alibaba, DeepSeek), or...",
+      "description": "One API and one credential for frontier and open-source LLMs, built into your Neon branch and powered by Databricks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -17238,7 +17254,7 @@
     {
       "name": "antigravity-api-sdk-generator",
       "original_name": "api-sdk-generator",
-      "description": "Generates client SDK code, API wrapper libraries, request/response models, and language-specific usage patterns for any REST API. Use whenever the user asks to \"generate an SDK\", \"write a client library\", \"create API wrappers\", \"generate TypeScript types from my API\", \"write a Python...",
+      "description": "Generates client SDK code, API wrapper libraries, request/response models, and language-specific usage patterns for any REST API.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17358,7 +17374,7 @@
     {
       "name": "antigravity-docs-as-marketing",
       "original_name": "docs-as-marketing",
-      "description": "Transform documentation into a powerful marketing channel that attracts, converts, and retains developers. This skill covers creating documentation that ranks in search, converts visitors into users, and accelerates adoption through exceptional information architecture and...",
+      "description": "Transform documentation into a powerful marketing channel that attracts, converts, and retains developers.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17518,7 +17534,7 @@
     {
       "name": "antigravity-postman-newman-automation",
       "original_name": "postman-newman-automation",
-      "description": "Generate Newman CLI commands, configuration files, Jenkins pipeline scripts, and shell automation for running Postman collections in CI/CD or local environments. Use this skill whenever the user wants to run Postman collections from the command line, automate API tests, integrate...",
+      "description": "Generate Newman CLI commands, configuration files, Jenkins pipeline scripts, and shell automation for running Postman collections in CI/CD or local environments.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17606,7 +17622,7 @@
     {
       "name": "antigravity-pricing",
       "original_name": "pricing",
-      "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much...",
+      "description": "When the user wants help with pricing decisions, packaging, or monetization strategy.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17774,7 +17790,7 @@
     {
       "name": "antigravity-huggingface-lora-space-builder",
       "original_name": "huggingface-lora-space-builder",
-      "description": "Build and publish a Gradio demo on Hugging Face Spaces for a user-provided LoRA. Use when someone asks to create, generate, ship, or publish a Space, demo, Gradio app, or playground for a LoRA \u2014 including LoRAs for Qwen-Image, Qwen-Image-Edit, LTX-Video, Wan, FLUX, SDXL, or other...",
+      "description": "Build and publish a Gradio demo on Hugging Face Spaces for a user-provided LoRA.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -17878,7 +17894,7 @@
     {
       "name": "antigravity-brooks-sweep",
       "original_name": "brooks-sweep",
-      "description": "Full-sweep mode: runs a unified analysis across all quality dimensions \u2014 code decay, architecture, tech debt, and test quality \u2014 then applies fixes directly to the codebase. Safe changes are auto-applied; risky changes are confirmed before execution. Drawing on twelve classic...",
+      "description": "Full-sweep mode: runs a unified analysis across all quality dimensions \u2014 code decay, architecture, tech debt, and test quality \u2014 then applies fixes directly to the codebase. Safe changes are auto-applied; risky changes are confirmed before execution.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -25342,7 +25358,7 @@
     {
       "name": "marketing-ai-seo",
       "original_name": "ai-seo",
-      "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' 'optimize for Claude/Gemini,' 'llms.txt,' 'llms-full.txt,' 'OKF,' 'Open Knowledge Format,' 'knowledge bundle,' 'agent-readable site,' 'agent readiness,' 'is my site agent-ready,' or 'WebMCP.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema.",
+      "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' 'optimize for Claude/Gemini,' 'llms.txt,' 'llms-full.txt,' 'OKF,' 'Open Knowledge Format,' 'knowledge bundle,' 'agent-readable site,' 'agent readiness,' 'is my site agent-ready,' 'WebMCP,' 'do listicles still work for AI,' 'ChatGPT stopped citing comparison pages,' or 'AI citation format shift.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
