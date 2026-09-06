@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-05 06:28 UTC*
+*Last updated: 2026-09-06 06:28 UTC*
 
-Total skills: **3229**
+Total skills: **3231**
 
 ## Skills by Source
 
@@ -2170,10 +2170,10 @@ behavior. Use proactively when encoun... |
 | `antigravity-golang-pro` | Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production... |
 | `antigravity-google-analytics-automation` | Automate Google Analytics tasks via Rube MCP (Composio): run reports, list accounts/properties, funn... |
 | `antigravity-google-calendar-automation` | Lightweight Google Calendar integration with standalone OAuth authentication. No MCP server required... |
-| `antigravity-google-docs-automation` | Lightweight Google Docs integration with standalone OAuth authentication. No MCP server required. |
+| `antigravity-google-docs-automation` | Read and edit Google Docs through an available authenticated connector or reviewed API integration, ... |
 | `antigravity-google-drive-automation` | Lightweight Google Drive integration with standalone OAuth authentication. No MCP server required. F... |
-| `antigravity-google-sheets-automation` | Lightweight Google Sheets integration with standalone OAuth authentication. No MCP server required. ... |
-| `antigravity-google-slides-automation` | Lightweight Google Slides integration with standalone OAuth authentication. No MCP server required. ... |
+| `antigravity-google-sheets-automation` | Read and edit Google Sheets through an available authenticated connector or reviewed API integration... |
+| `antigravity-google-slides-automation` | Read and edit Google Slides through an available authenticated connector or reviewed API integration... |
 | `antigravity-googlesheets-automation` | Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (C... |
 | `antigravity-gpt-taste` | Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography... |
 | `antigravity-graceful-shutdown` | Implement graceful shutdown for servers and workers: drain connections, finish in-flight work, relea... |
@@ -2362,7 +2362,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-linkedin-post-writer` | Draft LinkedIn posts from 16 tested hook formulas mapped to engagement goals (comments, reposts, lik... |
 | `antigravity-linkedin-profile-optimizer` | High-intent expert for LinkedIn profile checks, authority building, and SEO optimization. Invoke to ... |
 | `antigravity-linkerd-patterns` | Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kube... |
-| `antigravity-lint-and-validate` | MANDATORY: Run appropriate validation tools after EVERY code change. Do not finish a task until the ... |
+| `antigravity-lint-and-validate` | Run configured lint and type checks, distinguish failures from checks that did not run, and report c... |
 | `antigravity-linux-privilege-escalation` | Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconf... |
 | `antigravity-linux-shell-scripting` | Provide production-ready shell script templates for common Linux system administration tasks includi... |
 | `antigravity-linux-troubleshooting` | Linux system troubleshooting workflow for diagnosing and resolving system issues, performance proble... |
@@ -2641,11 +2641,12 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-pakistan-payments-stack` | Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP ... |
 | `antigravity-papers-skill` | Skill for academic research workflows: search Semantic Scholar (200M+ papers), inspect citations, do... |
 | `antigravity-parallel-agents` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domai... |
+| `antigravity-parallel-search-mcp` | Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses ... |
 | `antigravity-patch-diff-exploit` | Locate vulnerability fixes in vendor patches, diff binaries across versions, and build N-day PoCs. A... |
 | `antigravity-payment-integration` | Integrate Stripe, PayPal, and payment processors. Handles checkout flows, subscriptions, webhooks, a... |
 | `antigravity-paypal-integration` | Master PayPal payment integration including Express Checkout, IPN handling, recurring billing, and r... |
 | `antigravity-paywall-upgrade-cro` | You are an expert in in-app paywalls and upgrade flows. Your goal is to convert free users to paid, ... |
-| `antigravity-pci-compliance` | Master PCI DSS (Payment Card Industry Data Security Standard) compliance for secure payment processi... |
+| `antigravity-pci-compliance` | Review payment data flows and engineering control evidence for a scoped PCI assessment, without clai... |
 | `antigravity-pdf` | This guide covers essential PDF processing operations using Python libraries and command-line tools.... |
 | `antigravity-pdf-conversion-router` | Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structure... |
 | `antigravity-pentest-checklist` | Provide a comprehensive checklist for planning, executing, and following up on penetration tests. En... |
@@ -2964,6 +2965,7 @@ Plans content calendars and ident... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
 | `antigravity-skill-router` | Use when the user is unsure which skill to use or where to start. Interviews the user with targeted ... |
 | `antigravity-skill-scanner` | Scan agent skills for security issues before adoption. Detects prompt injection, malicious code, exc... |
+| `antigravity-skill-security-audit` | Audit an Agent Skill, MCP server, connector, or desktop extension before installation by tracing cod... |
 | `antigravity-skill-seekers` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills i... |
 | `antigravity-skill-sentinel` | Auditoria e evolucao do ecossistema de skills. Qualidade de codigo, seguranca, custos, gaps, duplica... |
 | `antigravity-skill-suggester` | Scan prompt history for recurring patterns and unmet needs, then propose new skills or command templ... |
@@ -2997,7 +2999,7 @@ Plans content calendars and ident... |
 | `antigravity-speed` | Launch RSVP speed reader for text |
 | `antigravity-spline-3d-integration` | Use when adding interactive 3D scenes from Spline.design to web projects, including React embedding ... |
 | `antigravity-sql-injection-testing` | Execute comprehensive SQL injection vulnerability assessments on web applications to identify databa... |
-| `antigravity-sql-optimization-patterns` | Transform slow database queries into lightning-fast operations through systematic optimization, prop... |
+| `antigravity-sql-optimization-patterns` | Diagnose slow SQL with query plans, preserve query results, and verify indexing or query changes aga... |
 | `antigravity-sql-pro` | Master modern SQL with cloud-native databases, OLTP/OLAP optimization, and advanced query techniques... |
 | `antigravity-sql-sentinel` | Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse hea... |
 | `antigravity-sqlmap-database-pentesting` | Provide systematic methodologies for automated SQL injection detection and exploitation using SQLMap... |

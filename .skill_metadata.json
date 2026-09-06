@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-05T06:28:18.411616",
-  "skill_count": 3229,
+  "last_updated": "2026-09-06T06:28:52.572297",
+  "skill_count": 3231,
   "sources_processed": 19,
   "skills": [
     {
@@ -2110,7 +2110,7 @@
     {
       "name": "antigravity-google-sheets-automation",
       "original_name": "google-sheets-automation",
-      "description": "Lightweight Google Sheets integration with standalone OAuth authentication. No MCP server required. Full read/write access.",
+      "description": "Read and edit Google Sheets through an available authenticated connector or reviewed API integration, with scoped changes and read-back verification.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -2422,7 +2422,7 @@
     {
       "name": "antigravity-google-slides-automation",
       "original_name": "google-slides-automation",
-      "description": "Lightweight Google Slides integration with standalone OAuth authentication. No MCP server required. Full read/write access.",
+      "description": "Read and edit Google Slides through an available authenticated connector or reviewed API integration, with scoped changes and read-back verification.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -4356,6 +4356,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-parallel-search-mcp",
+      "original_name": "parallel-search-mcp",
+      "description": "Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses Parallel or its connected tools for current information and URL extraction.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-network-engineer",
       "original_name": "network-engineer",
       "description": "Expert network engineer specializing in modern cloud networking, security architectures, and performance optimization.",
@@ -4694,7 +4702,7 @@
     {
       "name": "antigravity-lint-and-validate",
       "original_name": "lint-and-validate",
-      "description": "MANDATORY: Run appropriate validation tools after EVERY code change. Do not finish a task until the code is error-free.",
+      "description": "Run configured lint and type checks, distinguish failures from checks that did not run, and report concrete validation results.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7062,7 +7070,7 @@
     {
       "name": "antigravity-sql-optimization-patterns",
       "original_name": "sql-optimization-patterns",
-      "description": "Transform slow database queries into lightning-fast operations through systematic optimization, proper indexing, and query plan analysis.",
+      "description": "Diagnose slow SQL with query plans, preserve query results, and verify indexing or query changes against representative data.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7786,6 +7794,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-skill-security-audit",
+      "original_name": "skill-security-audit",
+      "description": "Audit an Agent Skill, MCP server, connector, or desktop extension before installation by tracing code, dependencies, permissions, credentials, data flow, and irreversible actions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "CC0-1.0"
     },
     {
       "name": "antigravity-architect-review",
@@ -17510,7 +17526,7 @@
     {
       "name": "antigravity-pci-compliance",
       "original_name": "pci-compliance",
-      "description": "Master PCI DSS (Payment Card Industry Data Security Standard) compliance for secure payment processing and handling of cardholder data.",
+      "description": "Review payment data flows and engineering control evidence for a scoped PCI assessment, without claiming certification.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17646,7 +17662,7 @@
     {
       "name": "antigravity-google-docs-automation",
       "original_name": "google-docs-automation",
-      "description": "Lightweight Google Docs integration with standalone OAuth authentication. No MCP server required.",
+      "description": "Read and edit Google Docs through an available authenticated connector or reviewed API integration, with scoped changes and read-back verification.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
