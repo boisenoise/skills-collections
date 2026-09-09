@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-08T06:32:20.595503",
-  "skill_count": 3231,
+  "last_updated": "2026-09-09T06:32:51.396399",
+  "skill_count": 3233,
   "sources_processed": 19,
   "skills": [
     {
@@ -6070,7 +6070,7 @@
     {
       "name": "antigravity-linkedin-profile-optimizer",
       "original_name": "linkedin-profile-optimizer",
-      "description": "High-intent expert for LinkedIn profile checks, authority building, and SEO optimization. Invoke to audit, rewrite, and enhance profiles for top 1% positioning.",
+      "description": "High-intent expert for LinkedIn profile checks and SEO optimization. Silently audits and rewrites profiles, delivering only the finished, ready-to-paste result.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12292,6 +12292,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-skill-porter",
+      "original_name": "skill-porter",
+      "description": "Preview conservative tool-name translations and copy complete local skill bundles for manual adaptation to Google Antigravity.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-jira-automation",
       "original_name": "jira-automation",
       "description": "Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Always search tools first for current schemas.",
@@ -13271,6 +13279,14 @@
       "name": "antigravity-skill-rails-upgrade",
       "original_name": "skill-rails-upgrade",
       "description": "Analyze Rails apps and provide upgrade assessments",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-break-ai-fix-loops",
+      "original_name": "break-ai-fix-loops",
+      "description": "Stop ineffective AI coding repair loops with stable failure fingerprints, a three-attempt budget, real-path proof, negative controls, and tested rollback.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

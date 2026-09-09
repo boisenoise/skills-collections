@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-08 06:32 UTC*
+*Last updated: 2026-09-09 06:32 UTC*
 
-Total skills: **3231**
+Total skills: **3233**
 
 ## Skills by Source
 
@@ -1628,6 +1628,7 @@ pipelines, and system utilities.... |
 | `antigravity-brand-guidelines-community` | To access Anthropic's official brand identity and style resources, use this skill. |
 | `antigravity-brand-perception-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-brave-man` | Runs a structured clarifying interview for new project requests before building. Instead of writing ... |
+| `antigravity-break-ai-fix-loops` | Stop ineffective AI coding repair loops with stable failure fingerprints, a three-attempt budget, re... |
 | `antigravity-brendangregg-use-tsa` | Methodical performance troubleshooting and root-cause analysis with Brendan Gregg's USE and TSA meth... |
 | `antigravity-brevo-automation` | Automate Brevo (formerly Sendinblue) email marketing operations through Composio's Brevo toolkit via... |
 | `antigravity-broken-authentication` | Identify and exploit authentication and session management vulnerabilities in web applications. Brok... |
@@ -2360,7 +2361,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-linkedin-cli` | Use when automating LinkedIn via CLI: fetch profiles, search people/companies, send messages, manage... |
 | `antigravity-linkedin-content-generator` | AI-powered LinkedIn content suite: generate posts, carousels, newsletters, and 30-day calendars with... |
 | `antigravity-linkedin-post-writer` | Draft LinkedIn posts from 16 tested hook formulas mapped to engagement goals (comments, reposts, lik... |
-| `antigravity-linkedin-profile-optimizer` | High-intent expert for LinkedIn profile checks, authority building, and SEO optimization. Invoke to ... |
+| `antigravity-linkedin-profile-optimizer` | High-intent expert for LinkedIn profile checks and SEO optimization. Silently audits and rewrites pr... |
 | `antigravity-linkerd-patterns` | Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kube... |
 | `antigravity-lint-and-validate` | Run configured lint and type checks, distinguish failures from checks that did not run, and report c... |
 | `antigravity-linux-privilege-escalation` | Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconf... |
@@ -2962,6 +2963,7 @@ Plans content calendars and ident... |
 | `antigravity-skill-installer` | Instala, valida, registra e verifica novas skills no ecossistema. 10 checks de seguranca, copia, reg... |
 | `antigravity-skill-issue` | Find out why a coding-agent skill won't fire — grade each SKILL.md A–F on activation, simulate which... |
 | `antigravity-skill-optimizer` | Diagnose and optimize Agent Skills (SKILL.md) with real session data and research-backed static anal... |
+| `antigravity-skill-porter` | Preview conservative tool-name translations and copy complete local skill bundles for manual adaptat... |
 | `antigravity-skill-rails-upgrade` | Analyze Rails apps and provide upgrade assessments |
 | `antigravity-skill-router` | Use when the user is unsure which skill to use or where to start. Interviews the user with targeted ... |
 | `antigravity-skill-scanner` | Scan agent skills for security issues before adoption. Detects prompt injection, malicious code, exc... |
