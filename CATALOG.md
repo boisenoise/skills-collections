@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-10 06:32 UTC*
+*Last updated: 2026-09-11 06:31 UTC*
 
-Total skills: **3233**
+Total skills: **3234**
 
 ## Skills by Source
 
@@ -915,6 +915,7 @@ Total skills: **3233**
 | `kdense-consciousness-council` | Run a multi-perspective Mind Council deliberation on any question, decision, or creative challenge. ... |
 | `kdense-dask` | Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existin... |
 | `kdense-database-lookup` | Query documented public database APIs with explicit endpoints, filters, pagination, and provenance. ... |
+| `kdense-datalad` | Retrieve, version, and publish scientific datasets with DataLad and git-annex, and capture computati... |
 | `kdense-datamol` | Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standar... |
 | `kdense-deepchem` | Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, to... |
 | `kdense-deepspot-m` | Generate transcriptome-wide virtual spatial transcriptomics from H&E histology with DeepSpot-M. Use ... |
