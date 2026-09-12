@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-11 06:31 UTC*
+*Last updated: 2026-09-12 06:28 UTC*
 
-Total skills: **3234**
+Total skills: **3235**
 
 ## Skills by Source
 
@@ -932,6 +932,7 @@ Total skills: **3234**
 | `kdense-exploratory-data-analysis` | Perform bounded, local exploratory analysis of explicitly supported scientific files. Use for redact... |
 | `kdense-flowio` | Read, inspect, and write Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for ... |
 | `kdense-fluidsim` | Plan, configure, inspect, restart, and analyze bounded FluidSim computational-fluid-dynamics simulat... |
+| `kdense-folklore-variant-evidence` | Retrieve ClinGen gene-disease validity assertions for a public gene or disease, and review source-li... |
 | `kdense-generate-image` | Generate or edit images with AI models through the OpenRouter Image API (Gemini, Seedream, Recraft, ... |
 | `kdense-geniml` | Use Geniml for audited local genomic-interval workflows: validate BED and universe contracts, plan R... |
 | `kdense-genomic-coordinates` | Convert genomic intervals between coordinate conventions, normalise and compare variant representati... |
@@ -980,7 +981,7 @@ Total skills: **3234**
 | `kdense-opentrons-integration` | Author, review, migrate, simulate, and troubleshoot official Opentrons Python Protocol API v2 protoc... |
 | `kdense-optimize-for-gpu` | GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct and fas... |
 | `kdense-pacsomatic` | Operator toolkit for nf-core/pacsomatic matched tumor-normal workflows from BAM inputs. Use this ski... |
-| `kdense-paper-lookup` | Search 11 academic literature APIs for papers, preprints, citations, and open-access full text, and ... |
+| `kdense-paper-lookup` | Search 18 scholarly APIs for papers, preprints, citations, open-access full text, repository records... |
 | `kdense-paperclip` | Search and read full-text biomedical papers, FDA/PMDA/EMA regulatory documents, clinical trial regis... |
 | `kdense-paperzilla` | Chat with your agent about projects, recommendations, and canonical papers in Paperzilla. Use when u... |
 | `kdense-parallel-web` | Use Parallel CLI for web search, URL extraction, deep research, structured data enrichment, entity d... |
