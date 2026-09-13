@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-12 06:28 UTC*
+*Last updated: 2026-09-13 06:33 UTC*
 
-Total skills: **3235**
+Total skills: **3241**
 
 ## Skills by Source
 
@@ -1321,6 +1321,7 @@ Total skills: **3235**
 | `antigravity-agents-md` | Create, revise, or audit AGENTS.md files from repository evidence, verified commands, and correctly ... |
 | `antigravity-agents-v2-py` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). U... |
 | `antigravity-agenttrace-session-audit` | Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, he... |
+| `antigravity-agy-auto` | Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layered pol... |
 | `antigravity-agy-delegate` | Delegate coding tasks to the Google Antigravity CLI (`agy`) only when the user explicitly requests i... |
 | `antigravity-ai-agent-development` | AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchest... |
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
@@ -1714,6 +1715,7 @@ pipelines, and system utilities.... |
 | `antigravity-clean-code-guard` | Review generated or changed production code with Clean Code, SOLID, DRY, KISS, YAGNI, and LLM-specif... |
 | `antigravity-clerk-auth` | Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync |
 | `antigravity-clickup-automation` | Automate ClickUp project management including tasks, spaces, folders, lists, comments, and team oper... |
+| `antigravity-client-secret-exposure-audit` | Audit a deployed web app for secrets exposed to the browser: hardcoded API keys/tokens in JS, secret... |
 | `antigravity-cline-delegate` | Delegate coding tasks to the Cline CLI (`cline`) only when the user explicitly requests it, while th... |
 | `antigravity-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |
 | `antigravity-closed-loop-delivery` | Use when a coding task must be completed against explicit acceptance criteria with minimal user re-i... |
@@ -2159,6 +2161,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gitlab-automation` | Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations... |
 | `antigravity-gitlab-ci-patterns` | Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment. |
 | `antigravity-gitops-workflow` | Complete guide to implementing GitOps workflows with ArgoCD and Flux for automated Kubernetes deploy... |
+| `antigravity-glasser` | Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable ... |
 | `antigravity-global-chat-agent-discovery` | Discover and search 18K+ MCP servers and AI agents across 6+ registries using Global Chat's cross-pr... |
 | `antigravity-gmail-automation` | Lightweight Gmail integration with standalone OAuth authentication. No MCP server required. |
 | `antigravity-go-concurrency-patterns` | Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building con... |
@@ -2451,6 +2454,7 @@ splash language, makepad script, m... |
 | `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
 | `antigravity-marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own... |
 | `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
+| `antigravity-marketplace-rbac-audit` | Audit multi-role marketplace authorization across roles, resource ownership, tenant boundaries, and ... |
 | `antigravity-markstream-angular` | Integrate the alpha markstream-angular renderer into Angular 20+ applications with standalone compon... |
 | `antigravity-markstream-custom-components` | Override Markstream node renderers and add trusted custom tags across Vue, React, Svelte, and Angula... |
 | `antigravity-markstream-install` | Install and configure Markstream streaming Markdown renderers for Vue, React, Svelte, Angular, Nuxt,... |
@@ -2469,6 +2473,7 @@ splash language, makepad script, m... |
 | `antigravity-mcp-builder` | Create MCP (Model Context Protocol) servers that enable LLMs to interact with external services thro... |
 | `antigravity-mcp-builder-ms` | Use this skill when building MCP servers to integrate external APIs or services, whether in Python (... |
 | `antigravity-mcp-tool-developer` | Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with T... |
+| `antigravity-md2video-audio` | Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narration. |
 | `antigravity-mdpr-skill` | Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic re... |
 | `antigravity-memory-forensics` | Comprehensive techniques for acquiring, analyzing, and extracting artifacts from memory dumps for in... |
 | `antigravity-memory-safety-patterns` | Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and r... |
@@ -2725,6 +2730,7 @@ structures, and modern OOP features. U... |
 | `antigravity-product-marketing-context` | Create or update a reusable product marketing context document with positioning, audience, ICP, use ... |
 | `antigravity-production-audit` | Audit a shipped repo for production-readiness gaps across RLS, webhooks, secrets, grants, Stripe ide... |
 | `antigravity-production-code-audit` | Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then syst... |
+| `antigravity-production-runtime-certification` | Certify a deployed service with fresh evidence across source, CI, migrations, runtime health, readin... |
 | `antigravity-production-scheduling` | Codified expertise for production scheduling, job sequencing, line balancing, changeover optimisatio... |
 | `antigravity-professional-proofreader` | Use when a user asks to "proofread", "review and correct", "fix grammar", "improve readability while... |
 | `antigravity-programmatic-seo` | Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templat... |

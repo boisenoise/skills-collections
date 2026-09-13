@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-12T06:28:22.261559",
-  "skill_count": 3235,
+  "last_updated": "2026-09-13T06:33:24.302731",
+  "skill_count": 3241,
   "sources_processed": 19,
   "skills": [
     {
@@ -3884,6 +3884,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-md2video-audio",
+      "original_name": "md2video-audio",
+      "description": "Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-reverse-browser-automation",
       "original_name": "reverse-browser-automation",
       "description": "Automate browsers (Playwright) and Windows desktop applications (UI automation) for reverse-engineering evidence collection, UI-driven workflows, and network observation during analysis.",
@@ -5343,6 +5351,14 @@
       "name": "antigravity-azure-security-keyvault-keys-java",
       "original_name": "azure-security-keyvault-keys-java",
       "description": "Azure Key Vault Keys Java SDK for cryptographic key management. Use when creating, managing, or using RSA/EC keys, performing encrypt/decrypt/sign/verify operations, or working with HSM-backed keys.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agy-auto",
+      "original_name": "agy-auto",
+      "description": "Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layered policy controls instead of --dangerously-skip-permissions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8396,6 +8412,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-client-secret-exposure-audit",
+      "original_name": "client-secret-exposure-audit",
+      "description": "Audit a deployed web app for secrets exposed to the browser: hardcoded API keys/tokens in JS, secrets in HTML meta/attributes/comments, publicly reachable source/config/deploy files, and header/CORS misconfig.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-marketing-plan",
       "original_name": "marketing-plan",
       "description": "When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product.",
@@ -11415,6 +11439,14 @@
       "name": "antigravity-azure-appconfiguration-py",
       "original_name": "azure-appconfiguration-py",
       "description": "Azure App Configuration SDK for Python. Use for centralized configuration management, feature flags, and dynamic settings.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-glasser",
+      "original_name": "glasser",
+      "description": "Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable integration.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16700,6 +16732,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-production-runtime-certification",
+      "original_name": "production-runtime-certification",
+      "description": "Certify a deployed service with fresh evidence across source, CI, migrations, runtime health, readiness, and critical routes; use before declaring a release production-ready.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-lambdatest-agent-skills",
       "original_name": "lambdatest-agent-skills",
       "description": "Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and cloud testing in 15+ languages.",
@@ -16855,6 +16895,14 @@
       "name": "antigravity-distributed-tracing",
       "original_name": "distributed-tracing",
       "description": "Implement distributed tracing with Jaeger and Tempo for request flow visibility across microservices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-marketplace-rbac-audit",
+      "original_name": "marketplace-rbac-audit",
+      "description": "Audit multi-role marketplace authorization across roles, resource ownership, tenant boundaries, and order-state transitions; use when access rules need evidence, not UI assumptions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
