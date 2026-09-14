@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-13 06:33 UTC*
+*Last updated: 2026-09-14 06:42 UTC*
 
-Total skills: **3241**
+Total skills: **3242**
 
 ## Skills by Source
 
@@ -894,6 +894,7 @@ Total skills: **3241**
 |-------|-------------|
 | `kdense-adaptyv` | How to use the Adaptyv Bio Foundry API and Python SDK for protein experiment design, submission, and... |
 | `kdense-aeon` | This skill should be used for time series machine learning tasks including classification, regressio... |
+| `kdense-alphagenome` | Look up precomputed AlphaGenome Atlas effects for any GRCh38 single-nucleotide variant (AVI score wi... |
 | `kdense-analytical-method-validation` | Plan, execute, and document validation, verification, and transfer of analytical procedures under th... |
 | `kdense-anndata` | Data structure for annotated matrices in single-cell analysis. Use when working with .h5ad files or ... |
 | `kdense-arbor` | Autonomously improve a real artifact (code, training recipe, agent harness, data pipeline, prompt) a... |
