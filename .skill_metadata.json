@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-15T06:33:27.176859",
-  "skill_count": 3242,
+  "last_updated": "2026-09-16T06:33:18.028182",
+  "skill_count": 3243,
   "sources_processed": 19,
   "skills": [
     {
@@ -5447,6 +5447,14 @@
       "name": "antigravity-circleci-automation",
       "original_name": "circleci-automation",
       "description": "Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve artifacts and test metadata. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-de-ai-writer",
+      "original_name": "de-ai-writer",
+      "description": "Chinese AI-smell removal engine: 35 Chinese AI-tell patterns (\u8d4b\u80fd/\u95ed\u73af), AI-smell scoring, de-AI rewriting, style clone. Use when a Chinese draft reads machine-written or the user asks \u53bbAI\u5473.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

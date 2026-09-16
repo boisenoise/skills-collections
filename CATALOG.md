@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-15 06:33 UTC*
+*Last updated: 2026-09-16 06:33 UTC*
 
-Total skills: **3242**
+Total skills: **3243**
 
 ## Skills by Source
 
@@ -1879,6 +1879,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-ddd-context-mapping` | Map relationships between bounded contexts and define integration contracts using DDD context mappin... |
 | `antigravity-ddd-strategic-design` | Design DDD strategic artifacts including subdomains, bounded contexts, and ubiquitous language for c... |
 | `antigravity-ddd-tactical-patterns` | Apply DDD tactical patterns in code using entities, value objects, aggregates, repositories, and dom... |
+| `antigravity-de-ai-writer` | Chinese AI-smell removal engine: 35 Chinese AI-tell patterns (赋能/闭环), AI-smell scoring, de-AI rewrit... |
 | `antigravity-debate-review` | Two-model debate review of a GitHub PR, GitLab MR, Azure DevOps PR, or local working tree, posted as... |
 | `antigravity-debug-buttercup` | All pods run in namespace crs. Use when pods in the crs namespace are in CrashLoopBackOff, OOMKilled... |
 | `antigravity-debugger` | Debugging specialist for errors, test failures, and unexpected
