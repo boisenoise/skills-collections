@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-16 06:33 UTC*
+*Last updated: 2026-09-17 06:33 UTC*
 
-Total skills: **3243**
+Total skills: **3245**
 
 ## Skills by Source
 
@@ -2904,14 +2904,15 @@ analysis across multiple languages... |
 | `antigravity-senior-fullstack` | Complete toolkit for senior fullstack with modern tools and best practices. |
 | `antigravity-sentry-automation` | Automate Sentry tasks via Rube MCP (Composio): manage issues/events, configure alerts, track release... |
 | `antigravity-seo` | Run a broad SEO audit across technical SEO, on-page SEO, schema, sitemaps, content quality, AI searc... |
-| `antigravity-seo-aeo-blog-writer` | Writes long-form blog posts with TL;DR block, definition sentence, comparison table, and 5-question ... |
-| `antigravity-seo-aeo-content-cluster` | Builds a topical authority map with a pillar page, prioritised cluster articles, content types, inte... |
-| `antigravity-seo-aeo-content-quality-auditor` | Audits content for SEO and AEO performance with scored reports, severity-ranked fix lists, and proje... |
-| `antigravity-seo-aeo-internal-linking` | Maps internal link opportunities between pages with anchor text, placement instructions, orphan page... |
-| `antigravity-seo-aeo-keyword-research` | Researches and prioritises SEO keywords with AEO question queries, difficulty tiers, cannibalization... |
-| `antigravity-seo-aeo-landing-page-writer` | Writes complete, structured landing pages optimized for SEO ranking, AEO citation, and visitor conve... |
-| `antigravity-seo-aeo-meta-description-generator` | Writes 3 title tag variants and 3 meta description variants per page with SERP preview, OG tags, and... |
-| `antigravity-seo-aeo-schema-generator` | Generates valid JSON-LD structured data for 10 schema types with rich result eligibility validation ... |
+| `antigravity-seo-aeo-blog-writer` | Writes search-intent-led long-form articles with answer-first structure, FAQ coverage, internal link... |
+| `antigravity-seo-aeo-content-cluster` | Builds a topical authority map from business goals, search intent, existing content, and gaps, then ... |
+| `antigravity-seo-aeo-content-quality-auditor` | Audits a website, codebase, page, or content set for technical SEO, search intent, AEO, conversion p... |
+| `antigravity-seo-aeo-internal-linking` | Maps internal link opportunities between pages with relevant anchor text, placement instructions, or... |
+| `antigravity-seo-aeo-keyword-research` | Researches and prioritises keywords from the site context and live search intent, including problem ... |
+| `antigravity-seo-aeo-landing-page-writer` | Writes or improves conversion-focused landing pages for products, services, and offers with practica... |
+| `antigravity-seo-aeo-meta-description-generator` | Writes title tags, meta descriptions, Open Graph tags, and Twitter Card tags aligned to page intent ... |
+| `antigravity-seo-aeo-orchestrator` | Runs an audit-first SEO/AEO growth workflow from project discovery through implementation, foundatio... |
+| `antigravity-seo-aeo-schema-generator` | Generates and validates implementation-ready JSON-LD structured data for relevant page types and ric... |
 | `antigravity-seo-audit` | Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance. |
 | `antigravity-seo-authority-builder` | Analyzes content for E-E-A-T signals and suggests improvements to
 build authority and trust. Identif... |
@@ -3321,6 +3322,7 @@ calculations
 | `antigravity-youtube-seo-optimizer` | Generate complete YouTube & podcast SEO packages with live-researched keywords — titles, description... |
 | `antigravity-youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelli... |
 | `antigravity-youtube-transcript` | Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output. |
+| `antigravity-youtube-transcript-skills` | Fetch YouTube video transcripts, search videos/channels, browse channels, and extract playlists via ... |
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 | `antigravity-zcode-delegate` | Delegate coding tasks to the Z.AI ZCode CLI only when the user explicitly requests it, while the orc... |
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
