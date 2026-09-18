@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-17 06:33 UTC*
+*Last updated: 2026-09-18 06:32 UTC*
 
-Total skills: **3245**
+Total skills: **3247**
 
 ## Skills by Source
 
@@ -1608,6 +1608,7 @@ pipelines, and system utilities.... |
 | `antigravity-bdi-mental-states` | This skill should be used when the user asks to "model agent mental states", "implement BDI architec... |
 | `antigravity-bdistill-behavioral-xray` | X-ray any AI model's behavioral patterns — refusal boundaries, hallucination tendencies, reasoning s... |
 | `antigravity-bdistill-knowledge-extraction` | Extract structured domain knowledge from AI models in-session or from local open-source models via O... |
+| `antigravity-beatra-ai-video-studio` | Install and use the official Beatra AI Video Studio package, pinned by digest, for paid text-to-vide... |
 | `antigravity-beautiful-prose` | A hard-edged writing style contract for timeless, forceful English prose without modern AI tics. Use... |
 | `antigravity-before-you-build` | Review product risk before coding by checking demand, alternatives, channels, switching costs, and f... |
 | `antigravity-behavioral-modes` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt ... |
@@ -2485,6 +2486,7 @@ splash language, makepad script, m... |
 | `antigravity-mermaid-expert` | Create Mermaid diagrams for flowcharts, sequences, ERDs, and architectures. Masters syntax for all d... |
 | `antigravity-mesh-memory` | Self-hosted semantic memory for AI agents via MCP. Save worklogs, decisions, and notes, then recall ... |
 | `antigravity-metasploit-framework` | ⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments o... |
+| `antigravity-meteora-dlmm-pool-screening` | Screen and rank Meteora DLMM pools for LP quality using public Meteora APIs (fee/TVL, bin step, orga... |
 | `antigravity-micro-saas-launcher` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profit... |
 | `antigravity-microservices-patterns` | Master microservices architecture patterns including service boundaries, inter-service communication... |
 | `antigravity-microsoft-azure-webjobs-extensions-authentication-events-dotnet` | Microsoft Entra Authentication Events SDK for .NET. Azure Functions triggers for custom authenticati... |

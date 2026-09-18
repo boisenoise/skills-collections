@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-17T06:33:45.035328",
-  "skill_count": 3245,
+  "last_updated": "2026-09-18T06:32:17.393280",
+  "skill_count": 3247,
   "sources_processed": 19,
   "skills": [
     {
@@ -3522,6 +3522,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-beatra-ai-video-studio",
+      "original_name": "beatra-ai-video-studio",
+      "description": "Install and use the official Beatra AI Video Studio package, pinned by digest, for paid text-to-video, image-to-video, and video edit or extend jobs on the hosted Beatra service.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT-0"
     },
     {
       "name": "antigravity-ilya-sutskever",
@@ -8647,6 +8655,14 @@
       "name": "antigravity-it-manager-hospital",
       "original_name": "it-manager-hospital",
       "description": "World-class Hospital IT Management Advisor specializing in clinical safety, digital maturity (HIMSS/ONA/JCI), and HIS/PEP ecosystems.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-meteora-dlmm-pool-screening",
+      "original_name": "meteora-dlmm-pool-screening",
+      "description": "Screen and rank Meteora DLMM pools for LP quality using public Meteora APIs (fee/TVL, bin step, organic score). Read-only: never deploys, swaps, or signs.\n",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
