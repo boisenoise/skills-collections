@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-18T06:32:17.393280",
-  "skill_count": 3247,
+  "last_updated": "2026-09-19T06:29:12.316619",
+  "skill_count": 3250,
   "sources_processed": 19,
   "skills": [
     {
@@ -174,7 +174,7 @@
     {
       "name": "superpowers-executing-plans",
       "original_name": "executing-plans",
-      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "description": "Use when executing an implementation plan in the current session as the implementer yourself \u2014 your human partner chose inline execution, or no subagent tool is available",
       "source": "obra/superpowers",
       "source_url": "https://github.com/obra/superpowers",
       "license": "MIT"
@@ -231,6 +231,14 @@
       "name": "superpowers-subagent-driven-development",
       "original_name": "subagent-driven-development",
       "description": "Use when executing implementation plans with independent tasks in the current session",
+      "source": "obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    },
+    {
+      "name": "superpowers-diagnosing-superpowers",
+      "original_name": "diagnosing-superpowers",
+      "description": "Use when a superpowers session went wrong and your human partner wants to know why \u2014 repeated work, ignored plans, stumbles, poor results, a skill that didn't fire, \"it took too long\", \"why is it so expensive\", \"what is it doing\" \u2014 or wants to build a bug report for the superpowers maintainers, for the current session or a past one identified by id or path, on any harness.",
       "source": "obra/superpowers",
       "source_url": "https://github.com/obra/superpowers",
       "license": "MIT"
@@ -10004,6 +10012,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-idea-evaluator",
+      "original_name": "idea-evaluator",
+      "description": "Evaluates an idea by hosting a multi-turn debate between a Pro and Con agent, delivering a final verdict on whether it's worth pursuing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-seaborn",
       "original_name": "seaborn",
       "description": "Seaborn is a Python visualization library for creating publication-quality statistical graphics. Use this skill for dataset-oriented plotting, multivariate analysis, automatic statistical estimation, and complex multi-panel figures with minimal code.",
@@ -17535,6 +17551,14 @@
       "name": "antigravity-scarcity-urgency-psychologist",
       "original_name": "scarcity-urgency-psychologist",
       "description": "One sentence - what this skill does and when to invoke it",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-weather-model-data-fetching",
+      "original_name": "weather-model-data-fetching",
+      "description": "Retrieve numerical weather prediction data from public AWS S3 and HTTP archives using GRIB2 inventories, byte ranges, Herbie, provider fallbacks, and verified caching.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

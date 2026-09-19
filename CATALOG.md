@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-18 06:32 UTC*
+*Last updated: 2026-09-19 06:29 UTC*
 
-Total skills: **3247**
+Total skills: **3250**
 
 ## Skills by Source
 
@@ -1198,8 +1198,9 @@ Total skills: **3247**
 | Skill | Description |
 |-------|-------------|
 | `superpowers-brainstorming` | You MUST use this before any creative work - creating features, building components, adding function... |
+| `superpowers-diagnosing-superpowers` | Use when a superpowers session went wrong and your human partner wants to know why — repeated work, ... |
 | `superpowers-dispatching-parallel-agents` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential depend... |
-| `superpowers-executing-plans` | Use when you have a written implementation plan to execute in a separate session with review checkpo... |
+| `superpowers-executing-plans` | Use when executing an implementation plan in the current session as the implementer yourself — your ... |
 | `superpowers-finishing-a-development-branch` | Use when implementation is complete, all tests pass, and you need to decide how to integrate the wor... |
 | `superpowers-receiving-code-review` | Use when receiving code review feedback, before implementing suggestions, especially if feedback see... |
 | `superpowers-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
@@ -2263,6 +2264,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-ida-reverse` | Reverse engineer binaries with IDA Pro: decompilation, disassembly, data-flow tracking, cross-refere... |
 | `antigravity-idea-autopsy` | Autopsy a business idea before you build it: kill-list check, five hard filters, a free-AI one-promp... |
 | `antigravity-idea-darwin` | Darwinian idea evolution engine — toss rough ideas onto an evolution island, let them compete, cross... |
+| `antigravity-idea-evaluator` | Evaluates an idea by hosting a multi-turn debate between a Pro and Con agent, delivering a final ver... |
 | `antigravity-idea-os` | Five-phase pipeline (triage → clarify → research → PRD → plan) that turns a raw idea into four linke... |
 | `antigravity-idea-refine` | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinki... |
 | `antigravity-identity-federation` | Authorized assessment of federated identity systems: SAML, OIDC, OAuth2 flows, SSO misconfiguration,... |
@@ -3252,6 +3254,7 @@ calculations
 | `antigravity-warp-delegate` | Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user explicitly requests it, while ... |
 | `antigravity-warren-buffett` | Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, CEO da Berkshire Hathaway,... |
 | `antigravity-wcag-audit-patterns` | Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation ... |
+| `antigravity-weather-model-data-fetching` | Retrieve numerical weather prediction data from public AWS S3 and HTTP archives using GRIB2 inventor... |
 | `antigravity-weaviate` | Search, query, inspect, create, and import data into Weaviate vector database collections using offi... |
 | `antigravity-weaviate-cookbooks` | Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, mul... |
 | `antigravity-web-artifacts-builder` | To build powerful frontend claude.ai artifacts, follow these steps: |
