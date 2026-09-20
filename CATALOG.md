@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-19 06:29 UTC*
+*Last updated: 2026-09-20 06:29 UTC*
 
-Total skills: **3250**
+Total skills: **3261**
 
 ## Skills by Source
 
@@ -1368,6 +1368,7 @@ Total skills: **3250**
 | `antigravity-anti-deception` | Use before responding to pressure for agreement, manufactured urgency, authority appeals, or request... |
 | `antigravity-anti-reversing-techniques` | AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any by... |
 | `antigravity-anti-sleep` | Keep a Mac awake with caffeinate during long builds, downloads, or supervised automation runs. |
+| `antigravity-anti-slop-design` | Autonomous Principal Design Technologist. Cures vibe-coded software from AI frontend slop using cura... |
 | `antigravity-anti-sycophancy` | Eliminate sycophantic agreement patterns in AI responses. Load via /skill anti-sycophancy. |
 | `antigravity-anti-ui-slop` | Stop coding agents from shipping generic UI. Extend the product's design system, use UIZZE evidence ... |
 | `antigravity-antigravity-agent-manager` | Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager and Ant... |
@@ -1424,6 +1425,7 @@ Total skills: **3250**
 | `antigravity-arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M m... |
 | `antigravity-arrowspace` | Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity misses la... |
 | `antigravity-article-illustrations` | Generate hand-drawn 16:9 article illustrations with the Grav character IP, sparse annotations, and a... |
+| `antigravity-artifact-yylo` | Capture and retrieve durable YYLO Ledger artifact Records with intentional profiles, payload modes, ... |
 | `antigravity-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
 | `antigravity-ask-copilot` | Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets w... |
 | `antigravity-ask-matt` | Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo. |
@@ -2182,6 +2184,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-google-calendar-automation` | Lightweight Google Calendar integration with standalone OAuth authentication. No MCP server required... |
 | `antigravity-google-docs-automation` | Read and edit Google Docs through an available authenticated connector or reviewed API integration, ... |
 | `antigravity-google-drive-automation` | Lightweight Google Drive integration with standalone OAuth authentication. No MCP server required. F... |
+| `antigravity-google-no-code` | Design Google Forms and wire Apps Script triggers (onFormSubmit) for email alerts, spreadsheet loggi... |
 | `antigravity-google-sheets-automation` | Read and edit Google Sheets through an available authenticated connector or reviewed API integration... |
 | `antigravity-google-slides-automation` | Read and edit Google Slides through an available authenticated connector or reviewed API integration... |
 | `antigravity-googlesheets-automation` | Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (C... |
@@ -2351,6 +2354,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-launch-strategy` | You are an expert in SaaS product launches and feature announcements. Your goal is to help users pla... |
 | `antigravity-lead-magnets` | Plan and optimize lead magnets for email capture and lead generation. Use when designing gated conte... |
 | `antigravity-learn` | Help a user learn a topic through adaptive tutoring, lesson planning, practice, retrieval checks, ex... |
+| `antigravity-ledger-tasks-yylo` | Use YYLO Ledger task management: create, list, search, get, mark, update, archive, deps, ready, orde... |
 | `antigravity-legacy-modernizer` | Refactor legacy codebases, migrate outdated frameworks, and implement gradual modernization. Handles... |
 | `antigravity-legal-advisor` | Draft privacy policies, terms of service, disclaimers, and legal notices. Creates GDPR-compliant tex... |
 | `antigravity-leiloeiro-avaliacao` | Avaliacao pericial de imoveis em leilao. Valor de mercado, liquidacao forcada, ABNT NBR 14653, metod... |
@@ -2687,6 +2691,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
 | `antigravity-pitch-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
+| `antigravity-plan-ledger-tasks-yylo` | Create a concise Product Development Requirement and one or more implementation-sized YYLO Ledger ta... |
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
 | `antigravity-planning-and-task-breakdown` | Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break wor... |
 | `antigravity-planning-with-files` | Work like Manus: Use persistent markdown files as your "working memory on disk." |
@@ -2785,6 +2790,7 @@ structures, and modern OOP features. U... |
 | `antigravity-radix-ui-design-system` | Build accessible design systems with Radix UI primitives. Headless component customization, theming ... |
 | `antigravity-rag-engineer` | Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector database... |
 | `antigravity-rag-implementation` | RAG (Retrieval-Augmented Generation) implementation workflow covering embedding selection, vector da... |
+| `antigravity-ralph-loop-yylo` | Execute exactly one explicitly assigned YYLO Ledger task through the Ralph loop to a validated queue... |
 | `antigravity-rayden-code` | Generate React code with Rayden UI components using correct props, tokens, and premium layout patter... |
 | `antigravity-rayden-use` | Build and maintain Rayden UI components and screens in Figma via Figma MCP with full design token en... |
 | `antigravity-rclone-cli` | Rclone command-line cloud storage manager reference and usage guide. Use this skill whenever the use... |
@@ -2822,6 +2828,7 @@ structures, and modern OOP features. U... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-research-prompt` | Turn vague research needs into one precise deep-research prompt with context and output criteria. |
 | `antigravity-resolving-merge-conflicts` | Use when you need to resolve an in-progress git merge/rebase conflict. |
+| `antigravity-resumable-implementation-contracts` | Create repository-based execution contracts for multi-session implementation work, with stable task ... |
 | `antigravity-returns-reverse-logistics` | Codified expertise for returns authorisation, receipt and inspection, disposition decisions, refund ... |
 | `antigravity-reverse-browser-automation` | Automate browsers (Playwright) and Windows desktop applications (UI automation) for reverse-engineer... |
 | `antigravity-reverse-engineer` | Expert reverse engineer specializing in binary analysis, disassembly, decompilation, and software an... |
@@ -3179,6 +3186,7 @@ calculations
 | `antigravity-ui-ux-pro-max` | Comprehensive design guide for web and mobile applications. Use when designing new UI components or ... |
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
+| `antigravity-understand-project-yylo` | Inspect the current product architecture, dependencies, and validation loops before planning or impl... |
 | `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through nine governed MCP tools, including provider-free prom... |
 | `antigravity-uniprot-database` | Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL.... |
 | `antigravity-unit-testing-test-generate` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case ... |
@@ -3255,6 +3263,7 @@ calculations
 | `antigravity-warren-buffett` | Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, CEO da Berkshire Hathaway,... |
 | `antigravity-wcag-audit-patterns` | Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation ... |
 | `antigravity-weather-model-data-fetching` | Retrieve numerical weather prediction data from public AWS S3 and HTTP archives using GRIB2 inventor... |
+| `antigravity-weather-observation-fetching` | Retrieve surface and upper-air weather observations from authoritative APIs and archives with statio... |
 | `antigravity-weaviate` | Search, query, inspect, create, and import data into Weaviate vector database collections using offi... |
 | `antigravity-weaviate-cookbooks` | Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, mul... |
 | `antigravity-web-artifacts-builder` | To build powerful frontend claude.ai artifacts, follow these steps: |
@@ -3283,6 +3292,7 @@ calculations
 | `antigravity-wiki-qa` | Answer repository questions grounded entirely in source code evidence. Use when user asks a question... |
 | `antigravity-wiki-researcher` | You are an expert software engineer and systems analyst. Use when user asks "how does X work" with e... |
 | `antigravity-wiki-vitepress` | Transform generated wiki Markdown files into a polished VitePress static site with dark theme and in... |
+| `antigravity-wiki-yylo` | Use YYLO Ledger wiki Records as durable project knowledge. Search before creating, classify informat... |
 | `antigravity-windows-ad` | Authorized Active Directory and Windows identity attacks: Kerberos abuse, AD CS escalation, BloodHou... |
 | `antigravity-windows-privilege-escalation` | Provide systematic methodologies for discovering and exploiting privilege escalation vulnerabilities... |
 | `antigravity-windows-shell-reliability` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
@@ -3299,6 +3309,7 @@ calculations
 | `antigravity-workflow-automation` | Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, ... |
 | `antigravity-workflow-orchestration-patterns` | Master workflow orchestration architecture with Temporal, covering fundamental design decisions, res... |
 | `antigravity-workflow-patterns` | Use this skill when implementing tasks according to Conductor's TDD workflow, handling phase checkpo... |
+| `antigravity-workflow-yylo` | Create and maintain validated YYLO Ledger workflow Records while keeping storage, execution, and run... |
 | `antigravity-workorai` | WorkorAI talent-marketplace skill: candidates search jobs and manage applications; employers run the... |
 | `antigravity-wp-guard` | Review generated or changed WordPress plugins, themes, and blocks for security, internationalization... |
 | `antigravity-wp-site-health-auditor` | Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP... |

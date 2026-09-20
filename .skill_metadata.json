@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-19T06:29:12.316619",
-  "skill_count": 3250,
+  "last_updated": "2026-09-20T06:29:29.098686",
+  "skill_count": 3261,
   "sources_processed": 19,
   "skills": [
     {
@@ -2692,6 +2692,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-weather-observation-fetching",
+      "original_name": "weather-observation-fetching",
+      "description": "Retrieve surface and upper-air weather observations from authoritative APIs and archives with station identity, time, units, and quality flags preserved.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ai-agents-architect",
       "original_name": "ai-agents-architect",
       "description": "Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning strategies, and multi-agent orchestration.",
@@ -2807,6 +2815,14 @@
       "name": "antigravity-liuguang-banlan-ui",
       "original_name": "liuguang-banlan-ui",
       "description": "Builds two parameterized UI modes\u2014\u6d41\u5149\u6ea2\u5f69\u767d (iridescent white) and \u4e94\u5f69\u6591\u6593\u9ed1 (colorful black)\u2014with OKLCH, WebGL/CSS fallback, vision gating, screenshot QA, and total/per-color intensity reports. Use when a UI request names either mode or needs measured color parameters.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-wiki-yylo",
+      "original_name": "wiki-yylo",
+      "description": "Use YYLO Ledger wiki Records as durable project knowledge. Search before creating, classify information correctly, and make revision-safe Markdown updates without editing Ledger storage directly.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4676,6 +4692,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-understand-project-yylo",
+      "original_name": "understand-project-yylo",
+      "description": "Inspect the current product architecture, dependencies, and validation loops before planning or implementing a requested change.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-context-optimization",
       "original_name": "context-optimization",
       "description": "Context optimization extends the effective capacity of limited context windows through strategic compression, masking, caching, and partitioning. The goal is not to magically increase context windows but to make better use of available capacity.",
@@ -6212,6 +6236,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-anti-slop-design",
+      "original_name": "anti-slop-design",
+      "description": "Autonomous Principal Design Technologist. Cures vibe-coded software from AI frontend slop using curated token archetypes and 7-axis quality gating.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-audit-skills",
       "original_name": "audit-skills",
       "description": "Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identify malicious patterns, data leaks, system stability risks, and obfuscated payloads across Windows, macOS, Linux/Unix, and Mobile (Android/iOS).",
@@ -6695,6 +6727,14 @@
       "name": "antigravity-swiftui-ui-patterns",
       "original_name": "swiftui-ui-patterns",
       "description": "Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-workflow-yylo",
+      "original_name": "workflow-yylo",
+      "description": "Create and maintain validated YYLO Ledger workflow Records while keeping storage, execution, and run evidence as separate explicit boundaries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9956,6 +9996,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-google-no-code",
+      "original_name": "google-no-code",
+      "description": "Design Google Forms and wire Apps Script triggers (onFormSubmit) for email alerts, spreadsheet logging, and dynamic questions \u2014 no code editor required.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-obsidian-markdown",
       "original_name": "obsidian-markdown",
       "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.",
@@ -10844,6 +10892,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-artifact-yylo",
+      "original_name": "artifact-yylo",
+      "description": "Capture and retrieve durable YYLO Ledger artifact Records with intentional profiles, payload modes, provenance, retention, and secret-safe immutable evidence.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-app-store-changelog",
       "original_name": "app-store-changelog",
       "description": "Generate user-facing App Store release notes from git history since the last tag.",
@@ -11535,6 +11591,14 @@
       "name": "antigravity-bumblebee",
       "original_name": "bumblebee",
       "description": "Run Bumblebee supply-chain inventory and exposure scans on macOS/Linux to detect compromised packages, extensions, and MCP host configs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-plan-ledger-tasks-yylo",
+      "original_name": "plan-ledger-tasks-yylo",
+      "description": "Create a concise Product Development Requirement and one or more implementation-sized YYLO Ledger tasks when the user explicitly asks to plan or register work.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14308,6 +14372,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-ralph-loop-yylo",
+      "original_name": "ralph-loop-yylo",
+      "description": "Execute exactly one explicitly assigned YYLO Ledger task through the Ralph loop to a validated queued commit. Use only when the user explicitly requests ralph-loop-yylo.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-code-showcase-testing-patterns",
       "original_name": "code-showcase-testing-patterns",
       "description": "Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing unit tests, creating test factories, or following TDD red-green-refactor cycle.",
@@ -14351,6 +14423,14 @@
       "name": "antigravity-azure-eventhub-dotnet",
       "original_name": "azure-eventhub-dotnet",
       "description": "Azure Event Hubs SDK for .NET.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-resumable-implementation-contracts",
+      "original_name": "resumable-implementation-contracts",
+      "description": "Create repository-based execution contracts for multi-session implementation work, with stable task IDs, evidence, checkpoints, and exact resume state.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15279,6 +15359,14 @@
       "name": "antigravity-graphql-architect",
       "original_name": "graphql-architect",
       "description": "Master modern GraphQL with federation, performance optimization, and enterprise security. Build scalable schemas, implement advanced caching, and design real-time systems.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ledger-tasks-yylo",
+      "original_name": "ledger-tasks-yylo",
+      "description": "Use YYLO Ledger task management: create, list, search, get, mark, update, archive, deps, ready, order and merge with dependencies.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
