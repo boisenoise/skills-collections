@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-20 06:29 UTC*
+*Last updated: 2026-09-21 06:43 UTC*
 
-Total skills: **3261**
+Total skills: **3564**
 
 ## Skills by Source
 
@@ -1278,6 +1278,7 @@ Total skills: **3261**
 | `antigravity-ab-test-setup` | Use when designing an A/B or split test: define the hypothesis, control and variants, estimate sampl... |
 | `antigravity-ab-testing` | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth exper... |
 | `antigravity-acceptance-orchestrator` | Use when a coding task should be driven end-to-end from issue intake through implementation, review,... |
+| `antigravity-access-review` | Conduct periodic access reviews and certifications. Implement access governance and recertification ... |
 | `antigravity-accessibility-compliance-accessibility-audit` | You are an accessibility expert specializing in WCAG compliance, inclusive design, and assistive tec... |
 | `antigravity-accesslint-audit` | Find and fix WCAG 2.2 accessibility issues. Two modes — report (sweep a codebase or page, produce a ... |
 | `antigravity-accesslint-diff` | Diff a live page's accessibility violations against a baseline — by default compares uncommitted cha... |
@@ -1297,6 +1298,7 @@ Total skills: **3261**
 | `antigravity-advogado-especialista` | Advogado especialista em todas as areas do Direito brasileiro: familia, criminal, trabalhista, tribu... |
 | `antigravity-aegisops-ai` | Autonomous DevSecOps & FinOps Guardrails. Orchestrates Gemini 3 Flash to audit Linux Kernel patches,... |
 | `antigravity-agent-creator` | Create custom AI subagents with proper plugin structure, persona generation, and companion routing s... |
+| `antigravity-agent-evals` | Build automated evaluation suites for AI agents using golden datasets, rubrics, and regression gates... |
 | `antigravity-agent-evaluation` | Evaluate agent behavior with versioned cases and explicit verifiers. Use when comparing agent or pro... |
 | `antigravity-agent-evaluation-reporting` | Use when summarizing agent evaluations where autonomous, assisted, failed, timed-out, or invalid out... |
 | `antigravity-agent-framework-azure-ai-py` | Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK. |
@@ -1305,6 +1307,7 @@ Total skills: **3261**
 | `antigravity-agent-memory` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents. |
 | `antigravity-agent-memory-mcp` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Arch... |
 | `antigravity-agent-memory-systems` | Memory is the cornerstone of intelligent agents. Without it, every interaction starts from zero. Thi... |
+| `antigravity-agent-observability` | Instrument AI agents with tracing, token metrics, latency, and cost visibility. Use for reliability ... |
 | `antigravity-agent-orchestration-improve-agent` | Systematic improvement of existing agents through performance analysis, prompt engineering, and cont... |
 | `antigravity-agent-orchestration-multi-agent-optimize` | Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orche... |
 | `antigravity-agent-orchestrator` | Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capac... |
@@ -1326,23 +1329,31 @@ Total skills: **3261**
 | `antigravity-agy-auto` | Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layered pol... |
 | `antigravity-agy-delegate` | Delegate coding tasks to the Google Antigravity CLI (`agy`) only when the user explicitly requests i... |
 | `antigravity-ai-agent-development` | AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchest... |
+| `antigravity-ai-agent-security` | Secure AI agents against prompt injection, tool abuse, and data exfiltration with defense-in-depth c... |
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
 | `antigravity-ai-analyzer` | AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、预测健康风险、提供个性化建议。支持智能问答和AI健康报告生成。 |
+| `antigravity-ai-coding-agent-guardrails` | Secure AI coding agents (Claude Code, Cursor, Codex, Copilot) with permission boundaries, secret pro... |
 | `antigravity-ai-dev-jobs-mcp` | Search 8,400+ AI and ML jobs across 489 companies, inspect listings and employers, match roles, and ... |
 | `antigravity-ai-engineer` | Build production-ready LLM applications, advanced RAG systems, and intelligent agents. Implements ve... |
 | `antigravity-ai-engineering-toolkit` | 6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget... |
+| `antigravity-ai-inference-service-mesh` | Use service mesh patterns for AI inference traffic management, mTLS, canary releases, policy enforce... |
 | `antigravity-ai-loop` | Runs a bounded spec-build-review development loop with explicit scope, stop conditions, and human ap... |
 | `antigravity-ai-md` | Convert human-written CLAUDE.md into AI-native structured-label format. Battle-tested across 4 model... |
 | `antigravity-ai-ml` | AI and machine learning workflow covering LLM application development, RAG implementation, agent arc... |
 | `antigravity-ai-native-cli` | Design spec with 98 rules for building CLI tools that AI agents can safely use. Covers structured JS... |
+| `antigravity-ai-pipeline-orchestration` | Orchestrate AI/ML pipelines for data ingestion, model training, batch inference, and RAG indexing us... |
 | `antigravity-ai-product` | Every product will be AI-powered. The question is whether you'll build it right or ship a demo that ... |
+| `antigravity-ai-red-teaming` | Run structured AI red team exercises for jailbreak resistance, data exfiltration risk, harmful outpu... |
+| `antigravity-ai-security-hardening` | Harden AI/LLM deployments against prompt injection, data exfiltration, model theft, and supply chain... |
 | `antigravity-ai-seo` | Optimize content for AI search and LLM citations across AI Overviews, ChatGPT, Perplexity, Claude, G... |
+| `antigravity-ai-sre-incident-response` | Build AI-focused SRE incident response practices for LLM outages, degraded quality, runaway cost eve... |
 | `antigravity-ai-studio-image` | Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos realistas estilo influencer ou e... |
 | `antigravity-ai-wrapper-product` | Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc. ) into focused tools people w... |
 | `antigravity-aider-delegate` | Delegate coding tasks to Aider (`aider`) only when the user explicitly requests it, while the orches... |
 | `antigravity-airflow-dag-patterns` | Build production Apache Airflow DAGs with best practices for operators, sensors, testing, and deploy... |
 | `antigravity-airtable-automation` | Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always searc... |
 | `antigravity-akf-trust-metadata` | The AI native file format. EXIF for AI — stamps every file with trust scores, source provenance, and... |
+| `antigravity-alerting-oncall` | Set up alerting rules, configure on-call rotations, and manage incident response workflows. |
 | `antigravity-algolia-search` | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and rel... |
 | `antigravity-algorithmic-art` | Algorithmic philosophies are computational aesthetic movements that are then expressed through code.... |
 | `antigravity-alpha-vantage` | Access 20+ years of global financial data: equities, options, forex, crypto, commodities, economic i... |
@@ -1388,6 +1399,7 @@ Total skills: **3261**
 | `antigravity-api-endpoint-builder` | Builds production-ready REST API endpoints with validation, error handling, authentication, and docu... |
 | `antigravity-api-fuzzing-bug-bounty` | Provide comprehensive techniques for testing REST, SOAP, and GraphQL APIs during bug bounty hunting ... |
 | `antigravity-api-integration` | Designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and integrat... |
+| `antigravity-api-integration-architect` | Design, implement, debug, and optimize API integrations with expert-level patterns for REST, GraphQL... |
 | `antigravity-api-onboarding` | Reduce time-to-first-API-call (TTFAC) by optimizing every step of the developer onboarding journey. ... |
 | `antigravity-api-patterns` | API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, vers... |
 | `antigravity-api-rate-limit-handler` | Implement bounded, idempotency-aware API throttling, backoff, and retry handling for 429 and transie... |
@@ -1403,11 +1415,14 @@ Total skills: **3261**
 | `antigravity-apify-competitor-intelligence` | Analyze competitor strategies, content, pricing, ads, and market positioning across Google Maps, Boo... |
 | `antigravity-apify-content-analytics` | Track engagement metrics, measure campaign ROI, and analyze content performance across Instagram, Fa... |
 | `antigravity-apify-ecommerce` | Extract product data, prices, reviews, and seller information from any e-commerce platform using Api... |
+| `antigravity-apify-generate-output-schema` | Generate output schemas (dataset_schema.json, output_schema.json, key_value_store_schema.json) for a... |
 | `antigravity-apify-influencer-discovery` | Find and evaluate influencers for brand partnerships, verify authenticity, and track collaboration p... |
+| `antigravity-apify-integration-development` | Curated upstream guidance for Apify Integration Development; use when the workflow matches the user ... |
 | `antigravity-apify-lead-generation` | Scrape leads from multiple platforms using Apify Actors. |
 | `antigravity-apify-market-research` | Analyze market conditions, geographic opportunities, pricing, consumer behavior, and product validat... |
 | `antigravity-apify-trend-analysis` | Discover and track emerging trends across Google Trends, Instagram, Facebook, YouTube, and TikTok to... |
 | `antigravity-apify-ultimate-scraper` | AI-driven data extraction from 55+ Actors across all major platforms. This skill automatically selec... |
+| `antigravity-apk-redteam-pipeline` | End-to-end Android APK red-team pipeline |
 | `antigravity-apk-reverse` | Android APK reverse engineering: unpacking, Java decompilation, smali modification, repacking and si... |
 | `antigravity-app-builder` | Main application building orchestrator. Creates full-stack applications from natural language reques... |
 | `antigravity-app-store-changelog` | Generate user-facing App Store release notes from git history since the last tag. |
@@ -1422,7 +1437,10 @@ Total skills: **3261**
 | `antigravity-architecture` | Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentat... |
 | `antigravity-architecture-decision-records` | Comprehensive patterns for creating, maintaining, and managing Architecture Decision Records (ADRs) ... |
 | `antigravity-architecture-patterns` | Master proven backend architecture patterns including Clean Architecture, Hexagonal Architecture, an... |
+| `antigravity-architecture-review` | Review repository architecture using Ontoly Software Graph and MCP capabilities. Use when asked to e... |
+| `antigravity-argocd-gitops` | Implement GitOps with ArgoCD for declarative Kubernetes deployments. |
 | `antigravity-arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M m... |
+| `antigravity-arm-templates` | Deploy Azure resources with ARM templates and Bicep. Create modular deployments and manage dependenc... |
 | `antigravity-arrowspace` | Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity misses la... |
 | `antigravity-article-illustrations` | Generate hand-drawn 16:9 article illustrations with the Grav character IP, sparse annotations, and a... |
 | `antigravity-artifact-yylo` | Capture and retrieve durable YYLO Ledger artifact Records with intentional profiles, payload modes, ... |
@@ -1430,6 +1448,7 @@ Total skills: **3261**
 | `antigravity-ask-copilot` | Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets w... |
 | `antigravity-ask-matt` | Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo. |
 | `antigravity-ask-questions-if-underspecified` | Clarify requirements before implementing. Use when serious doubts arise. |
+| `antigravity-asset-inventory` | Maintain IT asset inventory and configuration management database. Track hardware, software, and clo... |
 | `antigravity-astro` | Build content-focused websites with Astro — zero JS by default, islands architecture, multi-framewor... |
 | `antigravity-astropy` | Astropy is the core Python package for astronomy, providing essential functionality for astronomical... |
 | `antigravity-async-python-patterns` | Comprehensive guidance for implementing asynchronous Python applications using asyncio, concurrent p... |
@@ -1441,6 +1460,7 @@ Total skills: **3261**
 | `antigravity-audio-transcriber` | Transform audio recordings into professional Markdown documentation with intelligent summaries using... |
 | `antigravity-audit-agent-run-evidence` | Use when an agent, harness, gateway, MCP workflow, or multi-step automation claims completion and th... |
 | `antigravity-audit-context-building` | Enables ultra-granular, line-by-line code analysis to build deep architectural context before vulner... |
+| `antigravity-audit-logging` | Implement centralized audit logging and SIEM integration. Configure log retention and security monit... |
 | `antigravity-audit-skills` | Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identif... |
 | `antigravity-auri-core` | Auri: assistente de voz inteligente (Alexa + Claude claude-opus-4-20250805). Visao do produto, perso... |
 | `antigravity-auth-implementation-patterns` | Implement or review authentication and authorization with explicit token, session and resource-acces... |
@@ -1455,19 +1475,29 @@ Total skills: **3261**
 | `antigravity-awareness-stage-mapper` | One sentence - what this skill does and when to invoke it |
 | `antigravity-aws-agentic-ai` | AWS Bedrock AgentCore comprehensive expert for deploying and managing AI agents at scale. Use when w... |
 | `antigravity-aws-cdk-development` | AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python. |
+| `antigravity-aws-cloudtrail` | Configure AWS CloudTrail for audit logging. Set up organization trails and event analysis. Use when ... |
 | `antigravity-aws-compliance-checker` | Automated compliance checking against CIS, PCI-DSS, HIPAA, and SOC 2 benchmarks |
 | `antigravity-aws-cost-cleanup` | Automated cleanup of unused AWS resources to reduce costs |
 | `antigravity-aws-cost-operations` | AWS cost optimization, monitoring, and operational excellence expert. Use when analyzing AWS bills, ... |
+| `antigravity-aws-cost-optimization` | Reduce AWS spend with rightsizing, autoscaling, commitment planning, and storage lifecycle policies.... |
 | `antigravity-aws-cost-optimizer` | Comprehensive AWS cost analysis and optimization recommendations using AWS CLI and Cost Explorer |
+| `antigravity-aws-ec2` | Manage EC2 instances, AMIs, and auto-scaling groups. Configure security groups, key pairs, and insta... |
+| `antigravity-aws-ecs-fargate` | Deploy containers on ECS and Fargate. Configure task definitions, services, and load balancing. Use ... |
+| `antigravity-aws-iam` | Manage IAM users, roles, and policies. Implement least-privilege access and security best practices.... |
 | `antigravity-aws-iam-best-practices` | IAM policy review, hardening, and least privilege implementation |
+| `antigravity-aws-lambda` | Build and deploy serverless functions on AWS Lambda. Configure triggers, manage permissions, and opt... |
 | `antigravity-aws-mcp-setup` | Configure AWS MCP servers for documentation search and API access. Use when setting up AWS MCP, conf... |
 | `antigravity-aws-penetration-testing` | Provide comprehensive techniques for penetration testing AWS cloud environments. Covers IAM enumerat... |
+| `antigravity-aws-rds` | Provision and manage RDS databases. Configure backups, replication, and security. Use when deploying... |
+| `antigravity-aws-s3` | Configure S3 buckets, policies, and lifecycle rules. Implement versioning, replication, and security... |
+| `antigravity-aws-secrets-manager` | Store and rotate secrets in AWS Secrets Manager. |
 | `antigravity-aws-secrets-rotation` | Automate AWS secrets rotation for RDS, API keys, and credentials |
 | `antigravity-aws-security-audit` | Comprehensive AWS security posture assessment using AWS CLI and security best practices |
 | `antigravity-aws-serverless` | Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functi... |
 | `antigravity-aws-serverless-eda` | AWS serverless and event-driven architecture expert based on Well-Architected Framework. Use when bu... |
 | `antigravity-aws-skills` | AWS development with infrastructure automation and cloud architecture patterns |
 | `antigravity-aws-sst-development` | SST v4 (Ion) expert for managing AWS resources as code with the Pulumi-backed framework. |
+| `antigravity-aws-vpc` | Design and implement VPCs and networking. Configure subnets, route tables, and security groups. Use ... |
 | `antigravity-awt-e2e-testing` | AI-powered E2E web testing — eyes and hands for AI coding tools. Declarative YAML scenarios, Playwri... |
 | `antigravity-ax-extract-workflow` | Reconstruct workflow behind a past coding-agent artifact using local ax sessions/commits/skills/tool... |
 | `antigravity-axiom` | First-principles assumption auditor. Classifies each hidden assumption (fact / convention / belief /... |
@@ -1500,6 +1530,7 @@ Total skills: **3261**
 | `antigravity-azure-ai-voicelive-java` | Azure AI VoiceLive SDK for Java. Real-time bidirectional voice conversations with AI assistants usin... |
 | `antigravity-azure-ai-voicelive-py` | Build real-time voice AI applications with bidirectional WebSocket communication. |
 | `antigravity-azure-ai-voicelive-ts` | Azure AI Voice Live SDK for JavaScript/TypeScript. Build real-time voice AI applications with bidire... |
+| `antigravity-azure-aks` | Deploy and manage Azure Kubernetes Service clusters. Configure node pools, networking, and integrati... |
 | `antigravity-azure-appconfiguration-java` | Azure App Configuration SDK for Java. Centralized application configuration management with key-valu... |
 | `antigravity-azure-appconfiguration-py` | Azure App Configuration SDK for Python. Use for centralized configuration management, feature flags,... |
 | `antigravity-azure-appconfiguration-ts` | Centralized configuration management with feature flags and dynamic refresh. |
@@ -1517,6 +1548,7 @@ Total skills: **3261**
 | `antigravity-azure-cosmos-ts` | Azure Cosmos DB JavaScript/TypeScript SDK (@azure/cosmos) for data plane operations. Use for CRUD op... |
 | `antigravity-azure-data-tables-java` | Build table storage applications using the Azure Tables SDK for Java. Works with both Azure Table St... |
 | `antigravity-azure-data-tables-py` | Azure Tables SDK for Python (Storage and Cosmos DB). Use for NoSQL key-value storage, entity CRUD, a... |
+| `antigravity-azure-devops` | Set up Azure Pipelines for CI/CD, configure build and release pipelines, manage Azure DevOps project... |
 | `antigravity-azure-eventgrid-dotnet` | Azure Event Grid SDK for .NET. Client library for publishing and consuming events with Azure Event G... |
 | `antigravity-azure-eventgrid-java` | Build event-driven applications with Azure Event Grid SDK for Java. Use when publishing events, impl... |
 | `antigravity-azure-eventgrid-py` | Azure Event Grid SDK for Python. Use for publishing events, handling CloudEvents, and event-driven a... |
@@ -1526,11 +1558,13 @@ Total skills: **3261**
 | `antigravity-azure-eventhub-rust` | Azure Event Hubs SDK for Rust. Use for sending and receiving events, streaming data ingestion. |
 | `antigravity-azure-eventhub-ts` | High-throughput event streaming and real-time data ingestion. |
 | `antigravity-azure-functions` | Expert patterns for Azure Functions development including isolated worker model, Durable Functions o... |
+| `antigravity-azure-functions-devsec` | Build serverless applications on Azure Functions. Configure triggers, bindings, and deployment. Use ... |
 | `antigravity-azure-identity-dotnet` | Azure Identity SDK for .NET. Authentication library for Azure SDK clients using Microsoft Entra ID. ... |
 | `antigravity-azure-identity-java` | Authenticate Java applications with Azure services using Microsoft Entra ID (Azure AD). |
 | `antigravity-azure-identity-py` | Azure Identity SDK for Python authentication. Use for DefaultAzureCredential, managed identity, serv... |
 | `antigravity-azure-identity-rust` | Azure Identity SDK for Rust authentication. Use for DeveloperToolsCredential, ManagedIdentityCredent... |
 | `antigravity-azure-identity-ts` | Authenticate to Azure services with various credential types. |
+| `antigravity-azure-keyvault` | Manage secrets and certificates in Azure Key Vault. Configure access policies, integrate with Azure ... |
 | `antigravity-azure-keyvault-certificates-rust` | Azure Key Vault Certificates SDK for Rust. Use for creating, importing, and managing certificates. |
 | `antigravity-azure-keyvault-keys-rust` | Azure Key Vault Keys SDK for Rust. Use for creating, managing, and using cryptographic keys. Trigger... |
 | `antigravity-azure-keyvault-keys-ts` | Manage cryptographic keys using Azure Key Vault Keys SDK for JavaScript (@azure/keyvault-keys). Use ... |
@@ -1553,6 +1587,7 @@ Total skills: **3261**
 | `antigravity-azure-mgmt-mongodbatlas-dotnet` | Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing through Azure Marketp... |
 | `antigravity-azure-mgmt-weightsandbiases-dotnet` | Azure Weights & Biases SDK for .NET. ML experiment tracking and model management via Azure Marketpla... |
 | `antigravity-azure-microsoft-playwright-testing-ts` | Run Playwright tests at scale with cloud-hosted browsers and integrated Azure portal reporting. |
+| `antigravity-azure-monitor-audit` | Configure Azure Monitor and Activity Log for auditing. Set up diagnostic settings and log analytics.... |
 | `antigravity-azure-monitor-ingestion-java` | Azure Monitor Ingestion SDK for Java. Send custom logs to Azure Monitor via Data Collection Rules (D... |
 | `antigravity-azure-monitor-ingestion-py` | Azure Monitor Ingestion SDK for Python. Use for sending custom logs to Log Analytics workspace via L... |
 | `antigravity-azure-monitor-opentelemetry-exporter-java` | Azure Monitor OpenTelemetry Exporter for Java. Export OpenTelemetry traces, metrics, and logs to Azu... |
@@ -1561,6 +1596,7 @@ Total skills: **3261**
 | `antigravity-azure-monitor-opentelemetry-ts` | Auto-instrument Node.js applications with distributed tracing, metrics, and logs. |
 | `antigravity-azure-monitor-query-java` | Azure Monitor Query SDK for Java. Execute Kusto queries against Log Analytics workspaces and query m... |
 | `antigravity-azure-monitor-query-py` | Azure Monitor Query SDK for Python. Use for querying Log Analytics workspaces and Azure Monitor metr... |
+| `antigravity-azure-networking` | Configure Azure VNets, NSGs, and Azure Firewall. Implement hub-spoke topology and private endpoints.... |
 | `antigravity-azure-postgres-ts` | Connect to Azure Database for PostgreSQL Flexible Server from Node.js/TypeScript using the pg (node-... |
 | `antigravity-azure-resource-manager-cosmosdb-dotnet` | Azure Resource Manager SDK for Cosmos DB in .NET. |
 | `antigravity-azure-resource-manager-durabletask-dotnet` | Azure Resource Manager SDK for Durable Task Scheduler in .NET. |
@@ -1580,6 +1616,7 @@ Total skills: **3261**
 | `antigravity-azure-servicebus-rust` | Azure Service Bus library for Rust. Send and receive messages using queues, topics, and subscription... |
 | `antigravity-azure-servicebus-ts` | Enterprise messaging with queues, topics, and subscriptions. |
 | `antigravity-azure-speech-to-text-rest-py` | Azure Speech to Text REST API for short audio (Python). Use for simple speech recognition of audio f... |
+| `antigravity-azure-sql` | Provision Azure SQL Database and Cosmos DB. Configure security, backups, and replication. Use when d... |
 | `antigravity-azure-storage-blob-java` | Build blob storage applications using the Azure Storage Blob SDK for Java. |
 | `antigravity-azure-storage-blob-py` | Azure Blob Storage SDK for Python. Use for uploading, downloading, listing blobs, managing container... |
 | `antigravity-azure-storage-blob-rust` | Azure Blob Storage SDK for Rust. Use for uploading, downloading, and managing blobs and containers. |
@@ -1590,6 +1627,7 @@ Total skills: **3261**
 | `antigravity-azure-storage-queue-py` | Azure Queue Storage SDK for Python. Use for reliable message queuing, task distribution, and asynchr... |
 | `antigravity-azure-storage-queue-rust` | Azure Queue Storage library for Rust. Send, receive, and manage queue messages. Triggers: "queue sto... |
 | `antigravity-azure-storage-queue-ts` | Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue) for message queue operations. U... |
+| `antigravity-azure-vms` | Manage Azure Virtual Machines and scale sets. Configure availability sets and managed disks. Use whe... |
 | `antigravity-azure-web-pubsub-ts` | Real-time messaging with WebSocket connections and pub/sub patterns. |
 | `antigravity-babysit-pr` | Babysit a pull request through its bot review rounds: verify, fix, reply, resolve. Use for any babys... |
 | `antigravity-backend-architect` | Expert backend architect specializing in scalable API design, microservices architecture, and distri... |
@@ -1597,6 +1635,7 @@ Total skills: **3261**
 | `antigravity-backend-development-feature-development` | Orchestrate end-to-end backend feature development from requirements to deployment. Use when coordin... |
 | `antigravity-backend-security-coder` | Expert in secure backend coding practices specializing in input validation, authentication, and API ... |
 | `antigravity-backtesting-frameworks` | Build robust, production-grade backtesting systems that avoid common pitfalls and produce reliable s... |
+| `antigravity-backup-recovery` | Implement backup and recovery strategies. Configure rsync, Restic, and cloud backups. Use when desig... |
 | `antigravity-bamboohr-automation` | Automate BambooHR tasks via Rube MCP (Composio): employees, time-off, benefits, dependents, employee... |
 | `antigravity-base` | Database management, forms, reports, and data operations with LibreOffice Base. |
 | `antigravity-basecamp-automation` | Automate Basecamp project management, to-dos, messages, people, and to-do list organization via Rube... |
@@ -1608,6 +1647,7 @@ pipelines, and system utilities.... |
 | `antigravity-bash-scripting` | Bash scripting workflow for creating production-ready shell scripts with defensive patterns, error h... |
 | `antigravity-bats-testing-patterns` | Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing... |
 | `antigravity-bazel-build-optimization` | Optimize Bazel builds for large-scale monorepos. Use when configuring Bazel, implementing remote exe... |
+| `antigravity-bb-methodology` | Use at the START of any bug bounty hunting session, when switching targets, or when feeling lost abo... |
 | `antigravity-bdi-mental-states` | This skill should be used when the user asks to "model agent mental states", "implement BDI architec... |
 | `antigravity-bdistill-behavioral-xray` | X-ray any AI model's behavioral patterns — refusal boundaries, hallucination tendencies, reasoning s... |
 | `antigravity-bdistill-knowledge-extraction` | Extract structured domain knowledge from AI models in-session or from local open-source models via O... |
@@ -1623,9 +1663,11 @@ pipelines, and system utilities.... |
 | `antigravity-binary-diff` | Cross-version binary symbol migration: diff updated binaries, recover function names without PDBs, a... |
 | `antigravity-biopython` | Biopython is a comprehensive set of freely available Python tools for biological computation. It pro... |
 | `antigravity-bitbucket-automation` | Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube ... |
+| `antigravity-block-storage` | Manage block storage volumes and LVM. Configure cloud block storage and local disks. Use when managi... |
 | `antigravity-blockchain-developer` | Build production-ready Web3 applications, smart contracts, and decentralized systems. Implements DeF... |
 | `antigravity-blockrun` | BlockRun works with Claude Code and Google Antigravity. |
 | `antigravity-blog-writing-guide` | This skill enforces Sentry's blog writing standards across every post — whether you're helping an en... |
+| `antigravity-blue-green-deploy` | Configure zero-downtime deployment strategies including blue-green, canary, and rolling deployments. |
 | `antigravity-blueprint` | Turn a one-line objective into a step-by-step construction plan any coding agent can execute cold. E... |
 | `antigravity-boost-asio-pro` | Use when writing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP serve... |
 | `antigravity-box-automation` | Automate Box operations including file upload/download, content search, folder management, collabora... |
@@ -1653,8 +1695,10 @@ pipelines, and system utilities.... |
 | `antigravity-browser-extension-reverse` | Authorized reverse engineering of Chrome/Firefox extensions: manifest analysis, background workers, ... |
 | `antigravity-browser-harness` | Drive an existing browser through CDP for authenticated, visual, or interactive web automation. |
 | `antigravity-browser-testing-with-devtools` | Test browser apps with Chrome DevTools MCP by inspecting live DOM, console logs, network traffic, sc... |
+| `antigravity-bug-bounty` | Complete bug bounty workflow |
 | `antigravity-bug-hunt-swarm` | Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavi... |
 | `antigravity-bug-hunter` | Systematically finds and fixes bugs using proven debugging techniques. Traces from symptoms to root ... |
+| `antigravity-bugcrowd-reporting` | Bugcrowd-specific reporting tactics complementing report-writing |
 | `antigravity-bugs-are-annoying` | Adversarial code auditor that hunts down bugs, logic errors, and security flaws. Use for deep correc... |
 | `antigravity-build` | build |
 | `antigravity-building-native-ui` | Complete guide for building beautiful apps with Expo Router. Covers fundamentals, styling, component... |
@@ -1665,6 +1709,7 @@ pipelines, and system utilities.... |
 | `antigravity-burp-suite-testing` | Execute comprehensive web application security testing using Burp Suite's integrated toolset, includ... |
 | `antigravity-burpsuite-project-parser` | Searches and explores Burp Suite project files (.burp) from the command line. Use when searching res... |
 | `antigravity-business-analyst` | Master modern business analysis with AI-powered analytics, real-time dashboards, and data-driven ins... |
+| `antigravity-business-continuity` | Develop business continuity plans and impact analysis. Implement BCP testing and communication proce... |
 | `antigravity-busybox-on-windows` | How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows. |
 | `antigravity-buywhere-product-catalog` | Use BuyWhere's MCP and API surfaces to add product search, price comparison, and deal discovery to A... |
 | `antigravity-c-pro` | Write efficient C code with proper memory management, pointer |
@@ -1678,6 +1723,7 @@ pipelines, and system utilities.... |
 | `antigravity-calendly-automation` | Automate Calendly scheduling, event management, invitee tracking, availability checks, and organizat... |
 | `antigravity-canva-automation` | Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. ... |
 | `antigravity-canvas-design` | These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSE... |
+| `antigravity-career-ops` | Multi-CLI job-search command center: evaluate offers, scan portals, tailor CVs, track applications, ... |
 | `antigravity-carrier-relationship-management` | Codified expertise for managing carrier portfolios, negotiating freight rates, tracking carrier perf... |
 | `antigravity-case-review` | Quality-gate review of a reverse-engineering or assessment case package: scope readiness, Evidence-t... |
 | `antigravity-cc-skill-backend-patterns` | Backend architecture patterns, API design, database optimization, and server-side best practices for... |
@@ -1689,6 +1735,8 @@ pipelines, and system utilities.... |
 | `antigravity-cc-skill-security-review` | This skill ensures all code follows security best practices and identifies potential vulnerabilities... |
 | `antigravity-cc-skill-strategic-compact` | Prepare a verified checkpoint before condensing an agent conversation at a phase boundary. Use durin... |
 | `antigravity-cdk-patterns` | Common AWS CDK patterns and constructs for building cloud infrastructure with TypeScript, Python, or... |
+| `antigravity-cdn-setup` | Configure CDNs for content delivery. Set up CloudFront, Cloudflare, and Fastly. Use when optimizing ... |
+| `antigravity-change-management` | Implement change management processes. Configure CAB reviews, change windows, and rollback procedure... |
 | `antigravity-changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use... |
 | `antigravity-changelog-updates` | Create release notes and product updates that developers actually read and care about. This skill co... |
 | `antigravity-chat-widget` | Build a real-time support chat system with a floating widget for users and an admin dashboard for su... |
@@ -1697,8 +1745,10 @@ pipelines, and system utilities.... |
 | `antigravity-churn-prevention` | Reduce voluntary and involuntary churn with cancel flows, save offers, dunning, win-back tactics, an... |
 | `antigravity-ci-cd-and-automation` | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use... |
 | `antigravity-cicd-automation-workflow-automate` | You are a workflow automation expert specializing in creating efficient CI/CD pipelines, GitHub Acti... |
+| `antigravity-circleci` | Configure CircleCI workflows and orbs for continuous integration and deployment. |
 | `antigravity-circleci-automation` | Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve... |
 | `antigravity-cirq` | Cirq is Google Quantum AI's open-source framework for designing, simulating, and running quantum cir... |
+| `antigravity-cis-benchmarks` | Audit and remediate CIS benchmark violations. |
 | `antigravity-citation-management` | Manage citations systematically throughout the research and writing process. |
 | `antigravity-ckw-design` | Frontend design entry point: direction, design system, visual philosophy. Use whenever building or t... |
 | `antigravity-claimable-postgres` | Provision instant temporary Postgres databases via Claimable Postgres by Neon (neon.new) with no log... |
@@ -1726,10 +1776,16 @@ pipelines, and system utilities.... |
 | `antigravity-closed-loop-delivery` | Use when a coding task must be completed against explicit acceptance criteria with minimal user re-i... |
 | `antigravity-cloud-architect` | Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC... |
 | `antigravity-cloud-devops` | Cloud infrastructure and DevOps workflow covering AWS, Azure, GCP, Kubernetes, Terraform, CI/CD, mon... |
+| `antigravity-cloud-iam-deep` | Cloud IAM red-team attack chain across AWS, Azure, GCP |
 | `antigravity-cloud-k8s` | Authorized cloud, container, and Kubernetes security assessment: metadata SSRF, IAM misconfiguration... |
 | `antigravity-cloud-penetration-testing` | Conduct comprehensive security assessments of cloud infrastructure across Microsoft Azure, Amazon We... |
+| `antigravity-cloudflare-pages` | Deploy static sites and full-stack apps on Cloudflare Pages with previews, functions, and custom dom... |
+| `antigravity-cloudflare-r2` | Manage Cloudflare R2 buckets, lifecycle, and signed URLs. Use for low-egress object storage and medi... |
 | `antigravity-cloudflare-security-audit` | Audit authorized codebases for exploitable vulnerabilities using scoped reconnaissance, adversarial ... |
+| `antigravity-cloudflare-workers` | Build and deploy edge functions with Cloudflare Workers and Wrangler. Use for APIs, cron jobs, and e... |
 | `antigravity-cloudflare-workers-expert` | Expert in Cloudflare Workers and the Edge Computing ecosystem. Covers Wrangler, KV, D1, Durable Obje... |
+| `antigravity-cloudflare-zero-trust` | Protect internal apps with Cloudflare Access, device posture, and Zero Trust policies. |
+| `antigravity-cloudformation` | Deploy AWS resources with CloudFormation templates. Create stacks, use nested stacks, and implement ... |
 | `antigravity-cloudformation-best-practices` | CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns.... |
 | `antigravity-cmux` | Control cmux workspaces, panes, surfaces, and agent sessions safely from macOS terminal workflows. |
 | `antigravity-co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership o... |
@@ -1745,6 +1801,7 @@ pipelines, and system utilities.... |
 | `antigravity-code-review-and-quality` | Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by y... |
 | `antigravity-code-review-checklist` | Comprehensive checklist for conducting thorough code reviews covering functionality, security, perfo... |
 | `antigravity-code-review-excellence` | Transform code reviews from gatekeeping to knowledge sharing through constructive feedback, systemat... |
+| `antigravity-code-review-sensei` | Expert code reviewer that catches bugs, security issues, performance problems, and design flaws with... |
 | `antigravity-code-reviewer` | Elite code review expert specializing in modern AI-powered code |
 | `antigravity-code-showcase-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
 | `antigravity-code-showcase-react-ui-patterns` | Modern React UI patterns for loading states, error handling, and data fetching. Use when building UI... |
@@ -1757,6 +1814,7 @@ pipelines, and system utilities.... |
 | `antigravity-codebase-cleanup-refactor-clean` | You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and ... |
 | `antigravity-codebase-cleanup-tech-debt` | Identify technical debt from actual code and change history, estimate its impact, and prioritize bou... |
 | `antigravity-codebase-design` | Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module'... |
+| `antigravity-codebase-onboarding` | Onboard a developer to a repository using Ontoly graph summaries. Use when asked to explain a new co... |
 | `antigravity-codebase-to-wordpress-converter` | Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, a... |
 | `antigravity-codex-delegate` | Delegate coding tasks to the OpenAI Codex CLI only when the user explicitly requests it, while the o... |
 | `antigravity-codex-fable5` | Apply Fable-inspired discipline to Codex work: inspect first, track goals and findings, ground concl... |
@@ -1792,7 +1850,12 @@ pipelines, and system utilities.... |
 | `antigravity-conductor-validator` | Validates Conductor project artifacts for completeness,
 consistency, and correctness. Use after setu... |
 | `antigravity-confluence-automation` | Automate Confluence page creation, content search, space management, labels, and hierarchy navigatio... |
+| `antigravity-connection-auth-rules` | Build a Connection Auth Rules for a Monte Carlo connection type. Fetches live connector schemas and ... |
 | `antigravity-constant-time-analysis` | Analyze cryptographic code to detect operations that leak secret data through execution timing varia... |
+| `antigravity-constraint-driven-development` | Write the project quality bar as enforced CONSTRAINTS.md so agents stop quietly lowering it: coverag... |
+| `antigravity-container-hardening` | Secure Docker images and container runtime configurations. |
+| `antigravity-container-registries` | Manage container registries including ECR, ACR, GCR, and Docker Hub. |
+| `antigravity-container-scanning` | Scan container images for vulnerabilities using Trivy, Grype, and cloud-native tools. |
 | `antigravity-container-security-hardening` | Harden Docker/container images and runtime deployments with secure base images, non-root users, CVE ... |
 | `antigravity-content-creator` | Draft and review audience-specific content using supplied brand examples, local text diagnostics, an... |
 | `antigravity-content-marketer` | Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribu... |
@@ -1814,6 +1877,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-conversation-memory` | Persistent memory systems for LLM conversations including short-term, long-term, and entity-based me... |
 | `antigravity-convertkit-automation` | Automate ConvertKit (Kit) tasks via Rube MCP (Composio): manage subscribers, tags, broadcasts, and b... |
 | `antigravity-convex` | Convex reactive backend expert: schema design, TypeScript functions, real-time subscriptions, auth, ... |
+| `antigravity-convex-backend` | Build reactive backends with Convex functions, schema validation, auth integration, and deployment w... |
 | `antigravity-copilot-delegate` | Delegate coding tasks to the GitHub Copilot CLI (`copilot`) only when the user explicitly requests i... |
 | `antigravity-copilot-sdk` | Build applications that programmatically interact with GitHub Copilot. The SDK wraps the Copilot CLI... |
 | `antigravity-copy-editing` | You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systema... |
@@ -1858,6 +1922,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-daily` | Documentation and capabilities reference for Daily |
 | `antigravity-daily-gift` | Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, synthes... |
 | `antigravity-daily-news-report` | Scrapes content based on a preset URL list, filters high-quality technical information, and generate... |
+| `antigravity-dast-scanning` | Perform dynamic application security testing with OWASP ZAP, Burp Suite, and Nikto. |
 | `antigravity-data-engineer` | Build scalable data pipelines, modern data warehouses, and real-time streaming architectures. Implem... |
 | `antigravity-data-engineering-data-driven-feature` | Build features guided by data insights, A/B testing, and continuous measurement using specialized ag... |
 | `antigravity-data-engineering-data-pipeline` | You are a data pipeline architecture expert specializing in scalable, reliable, and cost-effective d... |
@@ -1868,6 +1933,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-database` | Database development and operations workflow covering SQL, NoSQL, database design, migrations, optim... |
 | `antigravity-database-admin` | Expert database administrator specializing in modern cloud databases, automation, and reliability en... |
 | `antigravity-database-architect` | Expert database architect specializing in data layer design from scratch, technology selection, sche... |
+| `antigravity-database-backups` | Implement database backup strategies. Configure automated backups, retention, and recovery testing. ... |
 | `antigravity-database-cloud-optimization-cost-optimize` | You are a cloud cost optimization expert specializing in reducing infrastructure expenses while main... |
 | `antigravity-database-design` | Database design principles and decision-making. Schema design, indexing strategy, ORM selection, ser... |
 | `antigravity-database-migration` | Master database schema and data migrations across ORMs (Sequelize, TypeORM, Prisma), including rollb... |
@@ -1875,6 +1941,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-database-migrations-sql-migrations` | SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, and SQL Server. Focus o... |
 | `antigravity-database-optimizer` | Expert database optimizer specializing in modern performance tuning, query optimization, and scalabl... |
 | `antigravity-database-security` | Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: exposur... |
+| `antigravity-datadog` | Implement Datadog monitoring and APM for infrastructure and applications. |
 | `antigravity-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
 | `antigravity-dbos-golang` | Guide for building reliable, fault-tolerant Go applications with DBOS durable workflows. Use when ad... |
 | `antigravity-dbos-python` | Guide for building reliable, fault-tolerant Python applications with DBOS durable workflows. Use whe... |
@@ -1900,7 +1967,9 @@ behavior. Use proactively when encoun... |
 | `antigravity-defuddle` | Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to... |
 | `antigravity-delegate-setup` | Configure approved delegation lanes across installed implementer CLIs, including optional model and ... |
 | `antigravity-delegating-to-agents` | Delegate bounded work to other AI agents while preserving context, ownership, and progress checks. |
+| `antigravity-dependency-analysis` | Analyze internal and package dependencies using Ontoly graph traversal. Use when asked which modules... |
 | `antigravity-dependency-management-deps-audit` | You are a dependency security expert specializing in vulnerability scanning, license compliance, and... |
+| `antigravity-dependency-scanning` | Scan package dependencies for known vulnerabilities using Snyk, Dependabot, and OWASP Dependency-Che... |
 | `antigravity-dependency-upgrade` | Master major dependency version upgrades, compatibility analysis, staged upgrade strategies, and com... |
 | `antigravity-deploy-to-vercel` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "depl... |
 | `antigravity-deployment-engineer` | Expert deployment engineer specializing in modern CI/CD pipelines, GitOps workflows, and advanced de... |
@@ -1922,6 +1991,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-deterministic-design` | Render the UI and prove it's balanced + usable: a deterministic layout audit (centroid / optical-cen... |
 | `antigravity-dev-to-hashnode` | When the user wants to publish on Dev.to, Hashnode, or other developer blogging platforms. Trigger p... |
 | `antigravity-devcontainer-setup` | Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persist... |
+| `antigravity-devcontainers-nix` | Create reproducible development environments with Dev Containers, Nix flakes, and Devbox for consist... |
 | `antigravity-developer-advocacy` | When the user wants to do developer advocacy activities including conference talks, live coding, pod... |
 | `antigravity-developer-audience-context` | When the user wants to establish or update their developer audience context. Also use when starting ... |
 | `antigravity-developer-churn` | When the user wants to understand, reduce, or recover from developer churn. Trigger phrases include ... |
@@ -1933,6 +2003,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-developer-signup-flow` | Design frictionless signup experiences for developers including GitHub OAuth, API key generation, an... |
 | `antigravity-development` | Comprehensive web, mobile, and backend development workflow bundling frontend, backend, full-stack, ... |
 | `antigravity-devops-deploy` | DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infrae... |
+| `antigravity-devops-pipeline-builder` | Design and implement CI/CD pipelines, Docker configurations, deployment strategies, and infrastructu... |
 | `antigravity-devops-troubleshooter` | Expert DevOps troubleshooter specializing in rapid incident response, advanced debugging, and modern... |
 | `antigravity-devrel-content` | When the user wants to create technical content for developers including blog posts, tutorials, and ... |
 | `antigravity-diagnose-android-overheating` | Use when diagnosing Android overheating, idle heat, thermal throttling, charging or radio heat, or a... |
@@ -1941,6 +2012,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-diary` | Unified Diary System: A context-preserving automated logger for multi-project development. |
 | `antigravity-differential-review` | Security-focused code review for PRs, commits, and diffs. |
 | `antigravity-digital-forensics` | Authorized digital forensics: memory dumps, disk timelines, PCAP investigation, artifact triage, and... |
+| `antigravity-disaster-recovery` | Implement disaster recovery strategies and runbooks. Configure RPO/RTO targets and failover procedur... |
 | `antigravity-discord-automation` | Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Alwa... |
 | `antigravity-discord-bot-architect` | Specialized skill for building production-ready Discord bots. Covers Discord.js (JavaScript) and Pyc... |
 | `antigravity-dispatch` | Delegate tasks to OpenAI Codex CLI and Google Antigravity CLI from Claude Code with topic-aware sess... |
@@ -1952,9 +2024,12 @@ behavior. Use proactively when encoun... |
 | `antigravity-django-access-review` | django-access-review |
 | `antigravity-django-perf-review` | Django performance code review. Use when asked to "review Django performance", "find N+1 queries", "... |
 | `antigravity-django-pro` | Master Django 5.x with async views, DRF, Celery, and Django Channels. Build scalable web application... |
+| `antigravity-dns-management` | Configure DNS zones and records. Manage Route53, Cloud DNS, and self-hosted DNS. Use when setting up... |
 | `antigravity-doc-coauthoring` | This skill provides a structured workflow for guiding users through collaborative document creation.... |
 | `antigravity-doc2math` | Convert narrative technical documents into grounded Mathematical Problem Specifications with variabl... |
+| `antigravity-docker-compose` | Define and run multi-container Docker applications using Docker Compose. |
 | `antigravity-docker-expert` | You are an advanced Docker containerization expert with comprehensive, practical knowledge of contai... |
+| `antigravity-docker-management` | Build, optimize, and troubleshoot Docker containers and images. |
 | `antigravity-docs-architect` | Creates comprehensive technical documentation from existing codebases. Analyzes architecture, design... |
 | `antigravity-docs-as-marketing` | Transform documentation into a powerful marketing channel that attracts, converts, and retains devel... |
 | `antigravity-docs-generator` | Generate technical deliverables from completed analysis: reverse-engineering reports, penetration-te... |
@@ -1983,7 +2058,13 @@ behavior. Use proactively when encoun... |
 | `antigravity-e2e-testing` | End-to-end testing workflow with Playwright for browser automation, visual regression, cross-browser... |
 | `antigravity-e2e-testing-patterns` | Build reliable, fast, and maintainable end-to-end test suites that provide confidence to ship code q... |
 | `antigravity-earllm-build` | Build, maintain, and extend the EarLLM One Android project — a Kotlin/Compose app that connects Blue... |
+| `antigravity-eas-app-stores` | Curated upstream guidance for Eas App Stores; use when the workflow matches the user goal. |
+| `antigravity-eas-hosting` | Curated upstream guidance for Eas Hosting; use when the workflow matches the user goal. |
+| `antigravity-eas-observe` | Curated upstream guidance for Eas Observe; use when the workflow matches the user goal. |
+| `antigravity-eas-simulator` | Curated upstream guidance for Eas Simulator; use when the workflow matches the user goal. |
 | `antigravity-eas-update-insights` | Check the health of published EAS Updates: crash rates, install/launch counts, unique users, payload... |
+| `antigravity-eas-workflows` | Curated upstream guidance for Eas Workflows; use when the workflow matches the user goal. |
+| `antigravity-ebpf-observability` | Use eBPF for deep kernel-level observability — trace syscalls, network flows, and application behavi... |
 | `antigravity-ecl-harness-engineer` | Create or audit ECL Agent Harness infrastructure: AGENTS.md, change tracking, repository guidance, l... |
 | `antigravity-edr-bypass-re` | Reverse engineer EDR internals (user-mode hook tables, ETW, AMSI) and study bypass techniques such a... |
 | `antigravity-effective-agent-skills` | Author and review high-quality agent skills with triggers, progressive disclosure, and safety notes. |
@@ -1991,6 +2072,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-ejentum-reasoning-harness` | MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each cal... |
 | `antigravity-electron-development` | Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-pr... |
 | `antigravity-elixir-pro` | Write idiomatic Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. Masters conc... |
+| `antigravity-elk-stack` | Deploy and manage the ELK Stack (Elasticsearch, Logstash, Kibana) for log aggregation and analysis. |
 | `antigravity-elon-musk` | Agente que simula Elon Musk com profundidade psicologica e comunicacional de alta fidelidade. Ativad... |
 | `antigravity-email-issue-fixer` | Fix small email mistakes without touching the writer's voice, and strip tracking parameters from lin... |
 | `antigravity-email-security` | Authorized email security review: phishing analysis, SPF/DKIM/DMARC header authentication, BEC patte... |
@@ -2004,6 +2086,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-employment-contract-templates` | Templates and patterns for creating legally sound employment documentation including contracts, offe... |
 | `antigravity-energy-procurement` | Codified expertise for electricity and gas procurement, tariff optimisation, demand charge managemen... |
 | `antigravity-enhance-prompt` | Transforms vague UI ideas into polished, Stitch-optimized prompts. Enhances specificity, adds UI/UX ... |
+| `antigravity-enterprise-vpn-attack` | External SSL VPN / remote-access appliance attack matrix |
 | `antigravity-entropy-box` | Entropy Box knowledge-compiler for embodied-AI: turns bounded requirements into grounded workflows v... |
 | `antigravity-environment-setup-guide` | Guide developers through setting up development environments with proper tools, dependencies, and co... |
 | `antigravity-error-debugging-error-analysis` | You are an expert error analysis specialist with deep expertise in debugging distributed systems, an... |
@@ -2020,11 +2103,13 @@ behavior. Use proactively when encoun... |
 | `antigravity-event-staffing-compliance` | Assess worker-classification and compliance risk for temporary event staffing in the US and Canada —... |
 | `antigravity-event-staffing-ordering` | Order W-2 compliant temporary event staff for conventions, trade shows, festivals, concerts, sportin... |
 | `antigravity-event-store-design` | Design and implement event stores for event-sourced systems. Use when building event sourcing infras... |
+| `antigravity-evidence-hygiene` | Evidence-capture and PoC-redaction discipline for bug-bounty submissions |
 | `antigravity-evolution` | This skill enables makepad-skills to self-improve continuously during development. |
 | `antigravity-exa-search` | Semantic search, similar content discovery, and structured research using Exa API. Use when you need... |
 | `antigravity-examprep-ai` | Exam preparation assistant that converts syllabi, past papers, or notes into a ranked High Score Roa... |
 | `antigravity-executing-plans` | Use when you have a written implementation plan to execute in a separate session with review checkpo... |
 | `antigravity-explain-like-socrates` | Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help un... |
+| `antigravity-expo-animation` | Curated upstream guidance for Expo Animation; use when the workflow matches the user goal. |
 | `antigravity-expo-api-routes` | Guidelines for creating API routes in Expo Router with EAS Hosting |
 | `antigravity-expo-brownfield` | Integrate Expo and React Native into an existing native iOS or Android app. Use when the user mentio... |
 | `antigravity-expo-cicd-workflows` | Helps understand and write EAS workflow YAML files for Expo projects. Use this skill when the user a... |
@@ -2040,6 +2125,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-extract-document-data` | Extract structured, grounded fields from documents — values cite their page, missing values abstain ... |
 | `antigravity-fable-safe-prompt` | Rewrite allowed prompts to reduce false-positive safety triggers without bypassing policy or changin... |
 | `antigravity-fact-check-x-complete` | Compare claims from one or more AI answers, verify their citations against public primary sources, a... |
+| `antigravity-fact-check-x-unified` | Fact-Check-X 流程编排能力，依次组织各方答案汇总、各方答案聚合（未核验）、权威核验后的最终答案和各方答案测评，生成可打开、可审计、可迁移的阶段产物与完整报告包。 |
 | `antigravity-faf-context` | Get your project to 100% ✪ AI-readiness, fast — the AI auto-detects your stack and only asks for wha... |
 | `antigravity-faf-expert` | Advanced .faf (Foundational AI-context Format) specialist. IANA-registered format, MCP server config... |
 | `antigravity-faf-go` | Guided interview to Gold Code (100% AI-Readiness). Use when helping users improve their .faf file th... |
@@ -2059,8 +2145,10 @@ behavior. Use proactively when encoun... |
 | `antigravity-favicon` | Generate favicons from a source image |
 | `antigravity-fda-food-safety-auditor` | Expert AI auditor for FDA Food Safety (FSMA), HACCP, and PCQI compliance. Reviews food facility reco... |
 | `antigravity-fda-medtech-compliance-auditor` | Expert AI auditor for Medical Device (SaMD) compliance, IEC 62304, and 21 CFR Part 820. Reviews DHFs... |
+| `antigravity-feature-flags` | Implement feature flags for progressive feature rollout using LaunchDarkly, Unleash, or custom solut... |
 | `antigravity-feature-tracking` | Maintain durable feature-level memory across AI coding sessions with lightweight Markdown tracks for... |
 | `antigravity-fedora-hyprland-installer` | Install, configure, verify, repair, update, and uninstall Hyprland on Fedora Linux with GPU-aware de... |
+| `antigravity-fedramp-compliance` | Implement FedRAMP requirements for federal cloud services. Configure NIST 800-53 controls and contin... |
 | `antigravity-ffuf-claude-skill` | Web fuzzing with ffuf |
 | `antigravity-ffuf-web-fuzzing` | Expert guidance for ffuf web fuzzing during penetration testing, including authenticated fuzzing wit... |
 | `antigravity-figma-automation` | Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. A... |
@@ -2073,7 +2161,9 @@ behavior. Use proactively when encoun... |
 | `antigravity-find-matching-tenders` | Find open AU/NZ government tenders matching what a company does, ranked by fit with why and gap anal... |
 | `antigravity-finishing-a-development-branch` | Use when implementation is complete, all tests pass, and you need to decide how to integrate the wor... |
 | `antigravity-firebase` | Firebase gives you a complete backend in minutes - auth, database, storage, functions, hosting. But ... |
+| `antigravity-firebase-app-platform` | Build and operate apps on Firebase using Auth, Firestore, Cloud Functions, and Hosting. Use when bui... |
 | `antigravity-firecrawl-scraper` | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you ... |
+| `antigravity-firewall-config` | Configure iptables, nftables, and cloud firewalls. Implement network segmentation and traffic filter... |
 | `antigravity-firmware-analyst` | Expert firmware analyst specializing in embedded systems, IoT security, and hardware reverse enginee... |
 | `antigravity-firmware-pentest` | Firmware penetration testing following the OWASP FSTM nine-stage flow: extraction, EMBA automation, ... |
 | `antigravity-fitness-analyzer` | 分析运动数据、识别运动模式、评估健身进展，并提供个性化训练建议。支持与慢性病数据的关联分析。 |
@@ -2130,8 +2220,16 @@ behavior. Use proactively when encoun... |
 | `antigravity-full-output-enforcement` | Use when a task requires exhaustive unabridged output, complete files, or strict prevention of place... |
 | `antigravity-full-stack-orchestration-full-stack-feature` | Use when working with full stack orchestration full stack feature |
 | `antigravity-game-development` | Game development orchestrator. Routes by platform, dimension, and engine fit (web 2D/3D, hybrid DOM+... |
+| `antigravity-gcp-audit-logs` | Configure GCP Cloud Audit Logs for compliance. Set up log routing and BigQuery analysis. Use when au... |
+| `antigravity-gcp-cloud-functions` | Deploy serverless functions on Google Cloud Functions. Configure triggers and manage deployments. Us... |
 | `antigravity-gcp-cloud-run` | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run ser... |
+| `antigravity-gcp-cloud-sql` | Provision Cloud SQL and Spanner databases. Configure high availability, backups, and security. Use w... |
+| `antigravity-gcp-compute` | Manage Compute Engine instances and instance templates. Configure managed instance groups and preemp... |
+| `antigravity-gcp-gke` | Deploy and manage Google Kubernetes Engine clusters. Configure node pools, networking, and workload ... |
+| `antigravity-gcp-networking` | Configure VPCs, firewall rules, and Cloud NAT. Implement shared VPC and private service connect. Use... |
+| `antigravity-gcp-secret-manager` | Secure secrets in Google Cloud Secret Manager. Configure IAM policies, integrate with GKE, and manag... |
 | `antigravity-gdb-cli` | GDB debugging assistant for AI agents - analyze core dumps, debug live processes, investigate crashe... |
+| `antigravity-gdpr-compliance` | Implement GDPR data protection requirements. Configure consent management, data subject rights, and ... |
 | `antigravity-gdpr-data-handling` | Practical implementation guide for GDPR-compliant data processing, consent management, and privacy c... |
 | `antigravity-gemini-api-dev` | Use this skill when building applications with Gemini API hosted models, including Gemini and Gemma ... |
 | `antigravity-gemini-api-integration` | Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs, str... |
@@ -2141,7 +2239,21 @@ behavior. Use proactively when encoun... |
 | `antigravity-gemini-omni-flash-api` | Use this skill for generative video editing, text-to-video, image-referenced video generation, and f... |
 | `antigravity-geminiignore-finops` | Configure and optimize .geminiignore files for AI context window efficiency and token cost reduction... |
 | `antigravity-generate-nanobanana` | Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Fla... |
+| `antigravity-geo-audit` | Full website GEO+SEO audit with parallel subagent delegation. |
+| `antigravity-geo-brand-mentions` | Brand mention and authority scanner for AI visibility. |
+| `antigravity-geo-citability` | AI citability scoring and optimization. |
+| `antigravity-geo-compare` | Monthly delta tracking and progress reporting for GEO clients. |
+| `antigravity-geo-content` | Content quality and E-E-A-T assessment for AI citability — evaluate experience, expertise, authorita... |
+| `antigravity-geo-crawlers` | AI crawler access analysis. |
 | `antigravity-geo-fundamentals` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
+| `antigravity-geo-llmstxt` | Analyzes and generates llms.txt files -- the emerging standard for helping AI systems understand web... |
+| `antigravity-geo-platform-optimizer` | Platform-specific AI search optimization — audit and optimize for Google AI Overviews, ChatGPT, Perp... |
+| `antigravity-geo-proposal` | Auto-generate a professional, client-ready GEO service proposal from audit data. |
+| `antigravity-geo-prospect` | CRM-lite for managing GEO agency prospects and clients. |
+| `antigravity-geo-report` | Generate a professional, client-facing GEO report combining all audit results into a single delivera... |
+| `antigravity-geo-report-pdf` | Generate a professional PDF report from a GEO audit using pandoc + Chrome headless. |
+| `antigravity-geo-schema` | Schema.org structured data audit and generation optimized for AI discoverability — detect, validate,... |
+| `antigravity-geo-technical` | Technical SEO audit with GEO-specific checks — crawlability, indexability, security, performance, SS... |
 | `antigravity-geoffrey-hinton` | Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio Turing 2018, criador do backp... |
 | `antigravity-gh-attach` | Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use... |
 | `antigravity-gh-image` | Upload local images to GitHub and get canonical user-attachments embed URLs; use when asked to attac... |
@@ -2155,8 +2267,10 @@ behavior. Use proactively when encoun... |
 | `antigravity-git-pr-workflows-onboard` | You are an **expert onboarding specialist and knowledge transfer architect** with deep experience in... |
 | `antigravity-git-pr-workflows-pr-enhance` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate... |
 | `antigravity-git-pushing` | Safely stage, commit, and push intended git changes with conventional commit messages. Use for ordin... |
+| `antigravity-git-workflow` | Implement Git branching strategies, PR workflows, and release management patterns. |
 | `antigravity-git-workflow-and-versioning` | Structures git workflow practices. Use when making any code change. Use when committing, branching, ... |
 | `antigravity-github` | Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. |
+| `antigravity-github-actions` | Build, test, and deploy applications using GitHub Actions workflows. |
 | `antigravity-github-actions-advanced` | Design, debug, and harden GitHub Actions CI/CD workflows, including reusable workflows, matrix build... |
 | `antigravity-github-actions-debugger` | Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by parsing ... |
 | `antigravity-github-actions-templates` | Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications. |
@@ -2165,6 +2279,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-github-presence` | When the user wants to optimize their GitHub profile, README, or project discoverability. Trigger ph... |
 | `antigravity-github-workflow-automation` | Patterns for automating GitHub workflows with AI assistance, inspired by [Gemini CLI](https://github... |
 | `antigravity-gitlab-automation` | Automate GitLab project management, issues, merge requests, pipelines, branches, and user operations... |
+| `antigravity-gitlab-ci` | Configure GitLab CI/CD pipelines and runners for automated building, testing, and deployment. |
 | `antigravity-gitlab-ci-patterns` | Comprehensive GitLab CI/CD pipeline patterns for automated testing, building, and deployment. |
 | `antigravity-gitops-workflow` | Complete guide to implementing GitOps workflows with ArgoCD and Flux for automated Kubernetes deploy... |
 | `antigravity-glasser` | Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable ... |
@@ -2189,6 +2304,8 @@ behavior. Use proactively when encoun... |
 | `antigravity-google-slides-automation` | Read and edit Google Slides through an available authenticated connector or reviewed API integration... |
 | `antigravity-googlesheets-automation` | Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (C... |
 | `antigravity-gpt-taste` | Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography... |
+| `antigravity-gpu-kubernetes-operations` | Operate GPU-backed Kubernetes clusters for AI inference and training with scheduling, autoscaling, n... |
+| `antigravity-gpu-server-management` | Set up and manage NVIDIA GPU servers for AI workloads |
 | `antigravity-graceful-shutdown` | Implement graceful shutdown for servers and workers: drain connections, finish in-flight work, relea... |
 | `antigravity-grafana-dashboards` | Create and manage production-ready Grafana dashboards for comprehensive system observability. |
 | `antigravity-graphql` | GraphQL gives clients exactly the data they need - no more, no less. One endpoint, typed schema, int... |
@@ -2205,12 +2322,15 @@ behavior. Use proactively when encoun... |
 | `antigravity-hardware-security` | Authorized hardware and embedded interface security research: UART/JTAG discovery, debug-pad triage,... |
 | `antigravity-hasdata` | Use HasData APIs for web scraping and structured web data extraction. |
 | `antigravity-hasdata-cli` | Command-line access to search, scraping, and structured web data. |
+| `antigravity-hashicorp-vault` | Manage secrets and PKI with HashiCorp Vault. |
 | `antigravity-haskell-pro` | Expert Haskell engineer specializing in advanced type systems, pure |
 | `antigravity-headline-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-health-trend-analyzer` | 分析一段时间内健康数据的趋势和模式。关联药物、症状、生命体征、化验结果和其他健康指标的变化。识别令人担忧的趋势、改善情况，并提供数据驱动的洞察。当用户询问健康趋势、模式、随时间的变化或"我的健康状况有... |
 | `antigravity-helium-mcp` | Connect to Helium's MCP server for news research, media bias analysis, balanced perspectives, stock/... |
 | `antigravity-helm-chart-scaffolding` | Comprehensive guidance for creating, organizing, and managing Helm charts for packaging and deployin... |
+| `antigravity-helm-charts` | Create, manage, and deploy Helm charts for Kubernetes package management. |
 | `antigravity-helpdesk-automation` | Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, a... |
+| `antigravity-hf-cli` | Curated upstream guidance for Hf Cli; use when the workflow matches the user goal. |
 | `antigravity-hf-cloud-aws-context-discovery` | Discover the effective local AWS profile, region, account, and caller identity before any AWS task w... |
 | `antigravity-hf-mcp` | Use Hugging Face Hub via MCP server tools. Search models, datasets, Spaces, papers. Get repo details... |
 | `antigravity-hf-mem` | Hugging Face CLI to estimate the required memory to load Safetensors or GGUF model weights for infer... |
@@ -2230,6 +2350,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-hig-project-context` | Create or update a shared Apple design context document that other HIG skills use to tailor guidance... |
 | `antigravity-hig-technologies` | Check for .claude/apple-design-context.md before asking questions. Use existing context and only ask... |
 | `antigravity-high-end-visual-design` | Use when designing expensive agency-grade interfaces with premium fonts, spatial rhythm, soft depth,... |
+| `antigravity-hipaa-compliance` | Implement HIPAA security and privacy rules. Configure PHI protections and BAA requirements. Use when... |
 | `antigravity-hono` | Build ultra-fast web APIs and full-stack apps with Hono — runs on Cloudflare Workers, Deno, Bun, Nod... |
 | `antigravity-hosted-agents` | Build background agents in sandboxed environments. Use for hosted coding agents, sandboxed VMs, Moda... |
 | `antigravity-hosted-agents-v2-py` | Build hosted agents using Azure AI Projects SDK with ImageBasedHostedAgentDefinition. Use when creat... |
@@ -2251,6 +2372,8 @@ behavior. Use proactively when encoun... |
 | `antigravity-hugging-face-trackio` | Track and visualize ML training experiments with Trackio. Use when logging metrics during training (... |
 | `antigravity-hugging-face-vision-trainer` | Train object detection, image classification, and SAM or SAM2 segmentation models locally or on Hugg... |
 | `antigravity-huggingface-best` | Use when the user asks about finding the best, top, or recommended model for a task, wants to know w... |
+| `antigravity-huggingface-community-evals` | Curated upstream guidance for Huggingface Community Evals; use when the workflow matches the user go... |
+| `antigravity-huggingface-datasets` | Use this skill for Hugging Face Dataset Viewer API workflows that fetch subset/split metadata, pagin... |
 | `antigravity-huggingface-local-models` | Use to select models to run locally with llama.cpp and GGUF on CPU, Mac Metal, CUDA, or ROCm. Covers... |
 | `antigravity-huggingface-lora-space-builder` | Build and publish a Gradio demo on Hugging Face Spaces for a user-provided LoRA. |
 | `antigravity-huggingface-spaces` | Build, deploy, and maintain applications on Hugging Face Spaces — Gradio / Docker / Static SDKs, Zer... |
@@ -2258,10 +2381,69 @@ behavior. Use proactively when encoun... |
 | `antigravity-huggingface-zerogpu` | AI demos and GPU compute with Gradio Spaces and Hugging Face Spaces ZeroGPU. |
 | `antigravity-hugo-to-markdown` | Convert Hugo documentation sites and Hugo-managed content into standard Markdown. |
 | `antigravity-humanize-chinese` | Detect and rewrite AI-like Chinese text with a practical workflow for scoring, humanization, academi... |
+| `antigravity-hunt-api-misconfig` | Hunt API security misconfiguration |
+| `antigravity-hunt-aspnet` | Hunt ASP.NET-specific surface |
+| `antigravity-hunt-ato` | Hunt account takeover taxonomy |
+| `antigravity-hunt-auth-bypass` | Hunting skill for auth bypass vulnerabilities. |
+| `antigravity-hunt-brute-force` | Hunt Missing/Weak Rate Limiting |
+| `antigravity-hunt-business-logic` | Hunting skill for business logic vulnerabilities. |
+| `antigravity-hunt-cache-poison` | Hunting skill for cache poison vulnerabilities. |
+| `antigravity-hunt-captcha-bypass` | Hunt CAPTCHA Bypass |
+| `antigravity-hunt-cicd` | Hunt CI/CD pipeline vulnerabilities |
+| `antigravity-hunt-clickjacking` | Hunt Clickjacking |
+| `antigravity-hunt-cloud-misconfig` | Hunt cloud / infrastructure misconfigurations. |
+| `antigravity-hunt-cors` | Hunt CORS Misconfiguration |
+| `antigravity-hunt-csrf` | Hunting skill for csrf vulnerabilities. |
+| `antigravity-hunt-deserialization` | Hunt Insecure Deserialization |
+| `antigravity-hunt-dispatch` | Skill-set loader for /hunt orchestrator. |
+| `antigravity-hunt-dom` | Hunt client-side DOM vulnerabilities |
+| `antigravity-hunt-exceptional-conditions` | Hunt mishandling of exceptional conditions |
+| `antigravity-hunt-file-upload` | Hunt file upload bugs |
+| `antigravity-hunt-fintech-graphql` | Hunt fintech-specific GraphQL vulnerabilities |
+| `antigravity-hunt-forgot-password` | Hunt Forgot Password / Account Recovery Authentication Flaws |
+| `antigravity-hunt-graphql` | Hunting skill for graphql vulnerabilities. |
+| `antigravity-hunt-grpc` | Hunt gRPC vulnerabilities |
+| `antigravity-hunt-host-header` | Hunt Host Header Injection |
+| `antigravity-hunt-html-injection` | Hunt HTML Injection |
+| `antigravity-hunt-http-smuggling` | Hunt HTTP request smuggling (CL.TE, TE.CL, H2.CL, H2.TE). |
+| `antigravity-hunt-idor` | Hunting skill for idor vulnerabilities. Built from 26 public bug bounty reports. Use when hunting id... |
+| `antigravity-hunt-jwt-crypto` | Hunt JWT cryptographic failures |
+| `antigravity-hunt-k8s` | Hunt Kubernetes & Docker |
+| `antigravity-hunt-laravel` | Hunt Laravel specific vulnerabilities |
+| `antigravity-hunt-ldap` | Hunt LDAP Injection and XPath Injection |
+| `antigravity-hunt-lfi` | Hunt Local File Inclusion (LFI), Remote File Inclusion (RFI), and Path Traversal |
+| `antigravity-hunt-llm-ai` | Hunt LLM/AI feature bugs |
+| `antigravity-hunt-mfa-bypass` | Hunt MFA / 2FA bypass |
+| `antigravity-hunt-misc` | Hunting skill for misc vulnerabilities. Built from 225 public bug bounty reports. Use when hunting m... |
+| `antigravity-hunt-nextjs` | Hunt Next.js specific vulnerabilities |
+| `antigravity-hunt-nodejs` | Hunt Node.js specific vulnerabilities |
+| `antigravity-hunt-nosqli` | Hunt NoSQL Injection |
+| `antigravity-hunt-ntlm-info` | Hunt NTLM/Negotiate information disclosure on internet-reachable IIS/SharePoint/Exchange. |
+| `antigravity-hunt-oauth` | Hunting skill for oauth vulnerabilities. Built from 19 public bug bounty reports. Use when hunting o... |
+| `antigravity-hunt-open-redirect` | Hunt Open Redirect |
+| `antigravity-hunt-race-condition` | Hunting skill for race condition vulnerabilities. |
+| `antigravity-hunt-rag-vector` | Hunt vector-store / embedding-layer weaknesses in RAG pipelines (OWASP LLM08 Vector and Embedding We... |
+| `antigravity-hunt-rce` | Hunting skill for rce vulnerabilities. Built from 67 public bug bounty reports. Use when hunting rce... |
+| `antigravity-hunt-saml` | Hunt SAML / SSO attacks. |
+| `antigravity-hunt-session` | Hunt Session Management vulnerabilities |
+| `antigravity-hunt-shadow-api` | Hunt shadow / zombie / undocumented API surface (OWASP API9 Improper Inventory Management) |
+| `antigravity-hunt-sharepoint` | Hunt Microsoft SharePoint Server (2013/2016/2019/Subscription Edition) on-prem farms |
+| `antigravity-hunt-source-leak` | Hunt source code and build artifact leakage |
+| `antigravity-hunt-spa-api` | Discover a single-page-app's hidden backend API from its public JS bundle, then test that API for br... |
+| `antigravity-hunt-springboot` | Hunt Spring Boot specific vulnerabilities |
+| `antigravity-hunt-sqli` | Hunting skill for sqli vulnerabilities. |
+| `antigravity-hunt-ssrf` | Hunting skill for ssrf vulnerabilities. |
+| `antigravity-hunt-ssti` | Hunt server-side template injection (SSTI) across Jinja2 (Flask/Django), Twig (Symfony), Freemarker ... |
+| `antigravity-hunt-subdomain` | Hunting skill for subdomain takeover vulnerabilities. |
+| `antigravity-hunt-tls-network` | Hunt TLS/SSL and DNS misconfigurations |
+| `antigravity-hunt-websocket` | Hunt WebSocket vulnerabilities |
+| `antigravity-hunt-xss` | Hunting skill for xss vulnerabilities. |
+| `antigravity-hunt-xxe` | Hunting skill for xxe vulnerabilities. |
 | `antigravity-hybrid-cloud-architect` | Expert hybrid cloud architect specializing in complex multi-cloud solutions across AWS/Azure/GCP and... |
 | `antigravity-hybrid-cloud-networking` | Configure secure, high-performance connectivity between on-premises and cloud environments using VPN... |
 | `antigravity-hybrid-search-implementation` | Combine vector and keyword search for improved retrieval. Use when implementing RAG systems, buildin... |
 | `antigravity-hyperexecute-skill` | Operates HyperExecute end-to-end for TestMu AI/LambdaTest cloud test execution: analyze projects, cr... |
+| `antigravity-i-have-adhd` | Shape output for ADHD readers: next action first, numbered steps, restated state, no tangents, time ... |
 | `antigravity-i18n-localization` | Internationalization and localization patterns. Detecting hardcoded strings, managing translations, ... |
 | `antigravity-iconsax-library` | Extensive icon library and AI-driven icon generation skill for premium UI/UX design. |
 | `antigravity-ida-reverse` | Reverse engineer binaries with IDA Pro: decompilation, disassembly, data-flow tracking, cross-refere... |
@@ -2270,6 +2452,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-idea-evaluator` | Evaluates an idea by hosting a multi-turn debate between a Pro and Con agent, delivering a final ver... |
 | `antigravity-idea-os` | Five-phase pipeline (triage → clarify → research → PRD → plan) that turns a raw idea into four linke... |
 | `antigravity-idea-refine` | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinki... |
+| `antigravity-identity-access-management` | Set up and manage SSO, SCIM provisioning, and MFA for startup teams using Google Workspace, Okta, or... |
 | `antigravity-identity-federation` | Authorized assessment of federated identity systems: SAML, OIDC, OAuth2 flows, SSO misconfiguration,... |
 | `antigravity-identity-mirror` | One sentence - what this skill does and when to invoke it |
 | `antigravity-idor-testing` | Provide systematic methodologies for identifying and exploiting Insecure Direct Object Reference (ID... |
@@ -2281,7 +2464,9 @@ behavior. Use proactively when encoun... |
 | `antigravity-implement` | Implement a piece of work based on a PRD or set of issues. |
 | `antigravity-impress` | Presentation creation, format conversion (ODP/PPTX/PDF), slide automation with LibreOffice Impress. |
 | `antigravity-improve-codebase-architecture` | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill throug... |
+| `antigravity-incident-management` | Implement incident management processes and escalation procedures. Configure on-call schedules and p... |
 | `antigravity-incident-responder` | Expert SRE incident responder specializing in rapid problem resolution, modern observability, and co... |
+| `antigravity-incident-response` | Handle security incidents with IR playbooks and procedures. |
 | `antigravity-incident-response-incident-response` | Use when working with incident response incident response |
 | `antigravity-incident-response-smart-fix` | [Extended thinking: This workflow implements a sophisticated debugging and resolution pipeline that ... |
 | `antigravity-incident-runbook-templates` | Production-ready templates for incident response runbooks covering detection, triage, mitigation, re... |
@@ -2301,11 +2486,14 @@ behavior. Use proactively when encoun... |
 | `antigravity-internal-comms-anthropic` | Compatibility alias for internal-comms: draft status updates, newsletters and FAQs from approved sou... |
 | `antigravity-internal-comms-community` | Compatibility alias for internal-comms: draft status updates, newsletters and FAQs from approved sou... |
 | `antigravity-interview-coach` | Full job search coaching system — JD decoding, resume, storybank, mock interviews, transcript analys... |
+| `antigravity-interview-me` | Draw out what the user actually wants with one-question-at-a-time interviews until intent is clear —... |
 | `antigravity-interview-style-doc-building` | Build structured strategy documents by asking one question at a time and patching the file. |
 | `antigravity-invariant-guard` | Correctness-first: forces writing the function contract, loop invariant, termination argument, and e... |
 | `antigravity-inventory-demand-planning` | Codified expertise for demand forecasting, safety stock optimisation, replenishment planning, and pr... |
 | `antigravity-ios-debugger-agent` | Debug the current iOS project on a booted simulator with XcodeBuildMCP. |
 | `antigravity-ios-developer` | Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core... |
+| `antigravity-ios-redteam-pipeline` | End-to-end iOS red-team pipeline |
+| `antigravity-iso27001-compliance` | Implement ISO 27001 Information Security Management System. Configure ISMS controls and risk managem... |
 | `antigravity-issues` | Interact with GitHub issues - create, list, and view issues. |
 | `antigravity-istio-traffic-management` | Comprehensive guide to Istio traffic management for production service mesh deployments. |
 | `antigravity-it-manager-hospital` | World-class Hospital IT Management Advisor specializing in clinical safety, digital maturity (HIMSS/... |
@@ -2317,7 +2505,10 @@ behavior. Use proactively when encoun... |
 | `antigravity-javascript-pro` | Master modern JavaScript with ES6+, async patterns, and Node.js APIs. Handles promises, event loops,... |
 | `antigravity-javascript-testing-patterns` | Comprehensive guide for implementing robust testing strategies in JavaScript/TypeScript applications... |
 | `antigravity-javascript-typescript-typescript-scaffold` | You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.j... |
+| `antigravity-jenkins` | Create and manage Jenkins CI/CD pipelines, configure agents, manage plugins, and automate builds. |
 | `antigravity-jest-skill` | Generates Jest unit and integration tests in JavaScript or TypeScript. Covers mocking, snapshots, as... |
+| `antigravity-jev-social` | Run read-only, browser-grounded Instagram, TikTok, or LinkedIn research through Jev routing and soca... |
+| `antigravity-jev-use` | Route enumerable judgment steps - did it work, which option, how risky, is this safe to run - to the... |
 | `antigravity-jira-automation` | Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw... |
 | `antigravity-jobgpt` | Job search automation, auto apply, resume generation, application tracking, salary intelligence, and... |
 | `antigravity-jobs-to-be-done-analyst` | One sentence - what this skill does and when to invoke it |
@@ -2339,7 +2530,10 @@ behavior. Use proactively when encoun... |
 | `antigravity-kpi-dashboard-design` | Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
 | `antigravity-kubernetes-deployment` | Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and productio... |
+| `antigravity-kubernetes-hardening` | Implement Kubernetes security contexts, Pod Security Standards, and network policies. |
+| `antigravity-kubernetes-ops` | Deploy, scale, and manage Kubernetes workloads. |
 | `antigravity-kubestellar-console` | Multi-cluster Kubernetes dashboard with AI-powered operations via MCP server and 10+ built-in agent ... |
+| `antigravity-kustomize` | Customize Kubernetes manifests without templating using Kustomize. |
 | `antigravity-lambda-lang` | Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak direc... |
 | `antigravity-lambdatest-agent-skills` | Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and... |
 | `antigravity-landing-page-generator` | Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB fra... |
@@ -2378,20 +2572,30 @@ behavior. Use proactively when encoun... |
 | `antigravity-linkedin-profile-optimizer` | High-intent expert for LinkedIn profile checks and SEO optimization. Silently audits and rewrites pr... |
 | `antigravity-linkerd-patterns` | Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kube... |
 | `antigravity-lint-and-validate` | Run configured lint and type checks, distinguish failures from checks that did not run, and report c... |
+| `antigravity-linux-administration` | System administration for Linux servers. Manage packages, services, and system configuration. Use wh... |
+| `antigravity-linux-hardening` | Apply CIS benchmarks and secure Linux servers. |
 | `antigravity-linux-privilege-escalation` | Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconf... |
 | `antigravity-linux-shell-scripting` | Provide production-ready shell script templates for common Linux system administration tasks includi... |
 | `antigravity-linux-troubleshooting` | Linux system troubleshooting workflow for diagnosing and resolving system issues, performance proble... |
 | `antigravity-liuguang-banlan-ui` | Builds two parameterized UI modes—流光溢彩白 (iridescent white) and 五彩斑斓黑 (colorful black)—with OKLCH, We... |
 | `antigravity-llm-app-patterns` | Architecture and integration sketches for LLM applications, with explicit retrieval, tool, privacy a... |
+| `antigravity-llm-app-security` | Secure LLM-powered applications with input validation, output controls, tenant isolation, and abuse ... |
 | `antigravity-llm-application-dev-ai-assistant` | You are an AI assistant development expert specializing in creating intelligent conversational inter... |
 | `antigravity-llm-application-dev-langchain-agent` | You are an expert LangChain agent developer specializing in production-grade AI systems using LangCh... |
 | `antigravity-llm-application-dev-prompt-optimize` | You are an expert prompt engineer specializing in crafting effective prompts for LLMs through advanc... |
+| `antigravity-llm-caching` | Implement multi-layer LLM caching with exact match, semantic similarity, and provider-side prompt ca... |
+| `antigravity-llm-cost-optimization` | Reduce LLM API and infrastructure costs through model selection, prompt caching, batching, caching, ... |
 | `antigravity-llm-council` | Run Fireworks-hosted open-weight model councils that compare responses and synthesize a final answer... |
 | `antigravity-llm-evaluation` | Master comprehensive evaluation strategies for LLM applications, from automated metrics to human eva... |
+| `antigravity-llm-fine-tuning` | Set up infrastructure for fine-tuning LLMs with QLoRA, LoRA, and full fine-tuning using Hugging Face... |
+| `antigravity-llm-gateway` | Deploy an API gateway for LLM traffic with load balancing, rate limiting, key management, semantic c... |
+| `antigravity-llm-inference-scaling` | Auto-scale LLM inference clusters on Kubernetes using KEDA, custom GPU metrics, and horizontal pod a... |
 | `antigravity-llm-ops` | LLM Operations -- RAG, embeddings, vector databases, fine-tuning, prompt engineering avancado, custo... |
 | `antigravity-llm-prompt-optimizer` | Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost output... |
 | `antigravity-llm-security` | Authorized security assessment of LLM applications and AI agents: prompt injection, tool abuse, RAG ... |
 | `antigravity-llm-structured-output` | Get reliable JSON, enums, and typed objects from LLMs using response_format, tool_use, and schema-co... |
+| `antigravity-llmops-platform-engineering` | Build production LLMOps platforms with CI/CD, model promotion workflows, evaluation gates, rollback,... |
+| `antigravity-load-balancing` | Configure load balancers and traffic distribution. Implement health checks and SSL termination. Use ... |
 | `antigravity-local-legal-seo-audit` | Audit and improve local SEO for law firms, attorneys, forensic experts and legal/professional servic... |
 | `antigravity-local-llm-expert` | Master local LLM inference, model selection, VRAM optimization, and local deployment using Ollama, l... |
 | `antigravity-logic-diff` | Compare two code versions for semantic equivalence via semi-formal tracing of both versions side-by-... |
@@ -2401,11 +2605,15 @@ behavior. Use proactively when encoun... |
 | `antigravity-logic-locate` | Locate the root cause of a CONFIRMED failure via backward-then-forward semi-formal tracing. |
 | `antigravity-logic-review` | Find logic bugs in a single file or function via semi-formal execution tracing (Premises → Trace → D... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
+| `antigravity-loki-logging` | Configure Grafana Loki for log aggregation and analysis. |
 | `antigravity-loki-mode` | Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced: OpenAI SDK, DeepMi... |
 | `antigravity-longbridge` | 125+ agent skills for Longbridge Securities — real-time quotes, charts, fundamentals, portfolio anal... |
 | `antigravity-longbridge-content` | Latest news articles, regulatory filings, community discussion topics for listed stocks, and SEC EDG... |
+| `antigravity-longbridge-derivatives` | Curated upstream guidance for Longbridge Derivatives; use when the workflow matches the user goal. |
 | `antigravity-longbridge-fundamentals` | Financial statements, business segments, dividends, valuation multiples (PE/PB/PS), industry compari... |
 | `antigravity-longbridge-market-data` | Real-time quotes, K-line charts, order book, trade ticks, intraday capital flow, market sentiment te... |
+| `antigravity-longbridge-quant` | Curated upstream guidance for Longbridge Quant; use when the workflow matches the user goal. |
+| `antigravity-longbridge-research` | Curated upstream guidance for Longbridge Research; use when the workflow matches the user goal. |
 | `antigravity-lookdev` | Human-in-the-loop web studio to tune AI-generated output by eye. Stand up a local interactive studio... |
 | `antigravity-lookdev-auto` | Automated visual tuning: a vision or video model rates rendered variants in a loop. Render several l... |
 | `antigravity-loop-library` | Find, compare, adapt, and design bounded AI-agent feedback loops with explicit checks, stop rules, g... |
@@ -2416,6 +2624,8 @@ behavior. Use proactively when encoun... |
 | `antigravity-m365-agents-dotnet` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.... |
 | `antigravity-m365-agents-py` | Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with ai... |
 | `antigravity-m365-agents-ts` | Microsoft 365 Agents SDK for TypeScript/Node.js. |
+| `antigravity-m365-entra-attack` | Microsoft 365 / Entra ID red-team attack chain |
+| `antigravity-mac-mini-llm-lab` | Configure a Mac mini as a reliable local LLM server with remote access, observability, and power-saf... |
 | `antigravity-machine-learning-ops-ml-pipeline` | Design and implement a complete ML pipeline for: $ARGUMENTS |
 | `antigravity-macos-menubar-tuist-app` | Build, refactor, or review SwiftUI macOS menubar apps that use Tuist. |
 | `antigravity-macos-reverse` | Authorized macOS and Mach-O reverse engineering: codesign inspection, Objective-C/Swift recovery, en... |
@@ -2430,6 +2640,11 @@ behavior. Use proactively when encoun... |
 | `antigravity-mailtrap-testing-with-sandbox` | Capture outbound email in Mailtrap Email Sandbox for development, staging, CI, HTML inspection, spam... |
 | `antigravity-maintain-codex-wiki` | Maintain a review-first engineering wiki with provenance, citation-aware queries, explicit capture a... |
 | `antigravity-make-automation` | Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone l... |
+| `antigravity-makepad-2-0-animation` | Makepad 2.0 guidance for animation; use when building or debugging Makepad UI code. |
+| `antigravity-makepad-2-0-dsl` | Makepad 2.0 guidance for dsl; use when building or debugging Makepad UI code. |
+| `antigravity-makepad-2-0-events` | Makepad 2.0 guidance for events; use when building or debugging Makepad UI code. |
+| `antigravity-makepad-2-0-layout` | Makepad 2.0 guidance for layout; use when building or debugging Makepad UI code. |
+| `antigravity-makepad-2-0-widgets` | Makepad 2.0 guidance for widgets; use when building or debugging Makepad UI code. |
 | `antigravity-makepad-animation` | CRITICAL: Use for Makepad animation system. Triggers on:
 makepad animation, makepad animator, makepa... |
 | `antigravity-makepad-basics` | CRITICAL: Use for Makepad getting started and app structure. Triggers on:
@@ -2481,9 +2696,13 @@ splash language, makepad script, m... |
 | `antigravity-maxia` | Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP ... |
 | `antigravity-mcp-builder` | Create MCP (Model Context Protocol) servers that enable LLMs to interact with external services thro... |
 | `antigravity-mcp-builder-ms` | Use this skill when building MCP servers to integrate external APIs or services, whether in Python (... |
+| `antigravity-mcp-server-security` | Secure Model Context Protocol (MCP) servers with transport encryption, tool authorization, input val... |
 | `antigravity-mcp-tool-developer` | Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with T... |
 | `antigravity-md2video-audio` | Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narration. |
+| `antigravity-mdm-device-management` | Manage and secure company devices with MDM solutions |
 | `antigravity-mdpr-skill` | Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic re... |
+| `antigravity-meeting-distiller-pro` | Transform messy meeting notes and transcripts into structured action items, decisions, and follow-up... |
+| `antigravity-meme-coin-audit` | Meme coin and token security audit |
 | `antigravity-memory-forensics` | Comprehensive techniques for acquiring, analyzing, and extracting artifacts from memory dumps for in... |
 | `antigravity-memory-safety-patterns` | Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and r... |
 | `antigravity-memory-systems` | Design short-term, long-term, and graph-based memory architectures. Use when building agents that mu... |
@@ -2497,6 +2716,7 @@ splash language, makepad script, m... |
 | `antigravity-microservices-patterns` | Master microservices architecture patterns including service boundaries, inter-service communication... |
 | `antigravity-microsoft-azure-webjobs-extensions-authentication-events-dotnet` | Microsoft Entra Authentication Events SDK for .NET. Azure Functions triggers for custom authenticati... |
 | `antigravity-microsoft-teams-automation` | Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meeti... |
+| `antigravity-mid-engagement-ir-detection` | Methodology for detecting client SOC patches, attacker activity, and security-state changes that occ... |
 | `antigravity-minecraft-bukkit-pro` | Master Minecraft server plugin development with Bukkit, Spigot, and Paper APIs. |
 | `antigravity-minimalist-ui` | Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restraine... |
 | `antigravity-miro-automation` | Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connector... |
@@ -2512,17 +2732,22 @@ splash language, makepad script, m... |
 | `antigravity-mobile-reverse` | Authorized Android/iOS application reverse engineering and security testing: APK/IPA analysis, runti... |
 | `antigravity-mobile-security-coder` | Expert in secure mobile coding practices specializing in input validation, WebView security, and mob... |
 | `antigravity-mock-hunter` | Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data... |
+| `antigravity-model-registry-governance` | Establish model registry standards, governance controls, metadata schemas, approvals, and lifecycle ... |
+| `antigravity-model-serving-kubernetes` | Deploy ML models on Kubernetes with KServe (formerly KFServing) and NVIDIA Triton Inference Server. |
+| `antigravity-model-supply-chain-security` | Secure the AI model supply chain with artifact signing, provenance attestation, SBOM workflows, depe... |
 | `antigravity-modellix` | Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (mo... |
 | `antigravity-modern-javascript-patterns` | Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns... |
 | `antigravity-molykit` | CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
 BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-monday-automation` | Automate Monday.com work management including boards, items, columns, groups, subitems, and updates ... |
 | `antigravity-monetization` | Estrategia e implementacao de monetizacao para produtos digitais - Stripe, subscriptions, pricing ex... |
+| `antigravity-mongodb` | Administer MongoDB databases. Configure replica sets, sharding, and backups. Use when managing Mongo... |
 | `antigravity-monopoly` | MONOPOLY is a Senior System Design Engineer skill for architecting, reviewing, and scaling systems. ... |
 | `antigravity-monorepo-architect` | Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turb... |
 | `antigravity-monorepo-management` | Build efficient, scalable monorepos that enable code sharing, consistent tooling, and atomic changes... |
-| `antigravity-monte-carlo-analyze-root-cause` | Investigate data incidents and find root causes using Monte Carlo's observability data. Guides the a... |
-| `antigravity-monte-carlo-asset-health` | Check the health of a data table/asset using Monte Carlo. Activates on "how is table X", "check heal... |
+| `antigravity-monte-carlo-analyze-root-cause` | Curated upstream guidance for Monte Carlo Analyze Root Cause; use when the workflow matches the user... |
+| `antigravity-monte-carlo-asset-health` | Curated upstream guidance for Monte Carlo Asset Health; use when the workflow matches the user goal. |
+| `antigravity-monte-carlo-context-detection` | Route data-related requests to the right Monte Carlo skill or workflow. USE WHEN alerts, incidents, ... |
 | `antigravity-monte-carlo-monitor-creation` | Guides creation of Monte Carlo monitors via MCP tools, producing monitors-as-code YAML for CI/CD dep... |
 | `antigravity-monte-carlo-monitoring-advisor` | Analyze data coverage, create monitors for warehouse tables and AI agents. Covers coverage gaps, use... |
 | `antigravity-monte-carlo-performance-diagnosis` | Diagnoses pipeline performance issues -- slow jobs, expensive queries, latency trends -- using Monte... |
@@ -2543,6 +2768,8 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-multi-cloud-architecture` | Decision framework and patterns for architecting applications across AWS, Azure, and GCP. |
 | `antigravity-multi-platform-apps-multi-platform` | Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-f... |
 | `antigravity-multi-source-search` | Cross-validate web research and produce an offline-checkable evidence ledger with explicit source di... |
+| `antigravity-multi-tenant-llm-hosting` | Design secure, multi-tenant LLM hosting platforms with tenant isolation, quotas, billing attribution... |
+| `antigravity-mysql` | Administer MySQL/MariaDB databases. Configure replication and optimize performance. Use when managin... |
 | `antigravity-n8n-agents` | Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output,... |
 | `antigravity-n8n-binary-and-data` | Handle n8n files and binary data across uploads, downloads, transforms, multimodal inputs, agent too... |
 | `antigravity-n8n-code-javascript` | Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$nod... |
@@ -2571,12 +2798,14 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-network-engineer` | Expert network engineer specializing in modern cloud networking, security architectures, and perform... |
 | `antigravity-networkx` | NetworkX is a Python package for creating, manipulating, and analyzing complex networks and graphs. |
 | `antigravity-new-rails-project` | Create a new Rails project |
+| `antigravity-new-relic` | Configure New Relic observability platform for infrastructure and application monitoring. |
 | `antigravity-newman-cicd-integration` | Generate ready-to-use CI/CD pipeline configurations that install and run Newman for automated API te... |
 | `antigravity-news-sentiment-engine` | Multi-source RSS news aggregation with Claude-powered sentiment analysis and structured briefing out... |
 | `antigravity-nextjs-app-router-patterns` | Comprehensive patterns for Next.js 14+ App Router architecture, Server Components, and modern full-s... |
 | `antigravity-nextjs-best-practices` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
 | `antigravity-nextjs-seo-indexing` | Fix SEO indexing issues, crawl budget problems, and Search Console coverage errors for Next.js apps.... |
 | `antigravity-nextjs-supabase-auth` | Expert integration of Supabase Auth with Next.js App Router |
+| `antigravity-nfs-storage` | Configure NFS servers and clients. Implement network file sharing for Linux systems. Use when settin... |
 | `antigravity-nft-standards` | Master ERC-721 and ERC-1155 NFT standards, metadata best practices, and advanced NFT features. |
 | `antigravity-nika` | Runs repeatable AI work as checked, budgeted workflow files. |
 | `antigravity-nodejs-backend-patterns` | Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend app... |
@@ -2589,6 +2818,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-notion-template-business` | Expert in building and selling Notion templates as a business - not just making templates, but build... |
 | `antigravity-nutrition-analyzer` | 分析营养数据、识别营养模式、评估营养状况，并提供个性化营养建议。支持与运动、睡眠、慢性病数据的关联分析。 |
 | `antigravity-nx-workspace-patterns` | Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundarie... |
+| `antigravity-object-storage` | Configure object storage with S3, GCS, and MinIO. Implement lifecycle policies and access controls. ... |
 | `antigravity-objection-preemptor` | One sentence - what this skill does and when to invoke it |
 | `antigravity-observability-and-instrumentation` | Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics... |
 | `antigravity-observability-engineer` | Build production-ready monitoring, logging, and tracing systems. Implements comprehensive observabil... |
@@ -2624,8 +2854,11 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-odoo-woocommerce-bridge` | Sync Odoo with WooCommerce: products, inventory, orders, and customers via WooCommerce REST API and ... |
 | `antigravity-odoo-xml-views-builder` | Expert at building Odoo XML views: Form, List, Kanban, Search, Calendar, and Graph. Generates correc... |
 | `antigravity-odw` | Dynamic multi-agent workflows — plan first, then orchestrate parallel agents with adversarial verifi... |
+| `antigravity-offensive-osint` | Operational arsenal for authorized external red-team and bug-bounty recon. |
 | `antigravity-offers` | When the user wants to design, construct, or improve an offer — the thing they actually sell — inclu... |
 | `antigravity-office-productivity` | Office productivity workflow covering document creation, spreadsheet automation, presentation genera... |
+| `antigravity-okta-attack` | Okta-as-IdP red-team attack chain |
+| `antigravity-ollama-stack` | Run local LLM workloads with Ollama, Open WebUI, and GPU-aware tuning for private development enviro... |
 | `antigravity-omp-delegate` | Delegate coding tasks to Oh My Pi (`omp`) only when the user explicitly requests it, while the orche... |
 | `antigravity-on-call-handoff-patterns` | Effective patterns for on-call shift transitions, ensuring continuity, context transfer, and reliabl... |
 | `antigravity-onboarding` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
@@ -2637,8 +2870,14 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-open-source-marketing` | When the user wants to market an open source project authentically. Trigger phrases include "open so... |
 | `antigravity-openapi-spec-generation` | Generate and maintain OpenAPI 3.1 specifications from code, design-first specs, and validation patte... |
 | `antigravity-openapi-spec-generator` | Generate complete, production-ready OpenAPI 3.x and Swagger 2.0 specifications from natural language... |
+| `antigravity-openclaw-deployment-hardening` | Secure OpenClaw deployments with preflight hardening checks, CI/CD guardrails, container runtime res... |
 | `antigravity-openclaw-github-repo-commander` | 7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis |
+| `antigravity-openclaw-local-mac-mini` | Set up OpenClaw locally and run it reliably on a Mac mini for private, always-on local agent workflo... |
+| `antigravity-openclaw-security-hardening` | Harden OpenClaw self-hosted environments with baseline host controls, auth tightening, secret handli... |
 | `antigravity-opencode-delegate` | Delegate coding tasks to the OpenCode CLI only when the user explicitly requests it, while the orche... |
+| `antigravity-openshift` | Manage Red Hat OpenShift clusters and deployments. |
+| `antigravity-opentelemetry` | Instrument applications and infrastructure with OpenTelemetry for unified traces, metrics, and logs. |
+| `antigravity-opentofu-migration` | Migrate from Terraform to OpenTofu with state compatibility, provider registry setup, and CI/CD pipe... |
 | `antigravity-optim-agent` | Guide agent-driven parameter optimization for configurable systems with measurable objectives. Use f... |
 | `antigravity-options-flow-analyzer` | Real vs lottery call separation for options P/C ratio analysis — prevents signal inversion from deep... |
 | `antigravity-oral-health-analyzer` | 分析口腔健康数据、识别口腔问题模式、评估口腔健康状况、提供个性化口腔健康建议。支持与营养、慢性病、用药等其他健康数据的关联分析。 |
@@ -2646,6 +2885,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-orchestrate` | Coordinate focused subagents on substantial work, keep their ownership non-overlapping, and integrat... |
 | `antigravity-orchestrate-batch-refactor` | Plan and execute large refactors with dependency-aware work packets and parallel analysis. |
 | `antigravity-os-scripting` | Operating system and shell scripting troubleshooting workflow for Linux, macOS, and Windows. Covers ... |
+| `antigravity-osint-methodology` | Comprehensive OSINT methodology for external red-team operations and authorized attack-surface asses... |
 | `antigravity-oss-hunter` | Automatically hunt for high-impact OSS contribution opportunities in trending repositories. |
 | `antigravity-osterwalder-canvas-architect` | Iterative consultant agent for building and validating logically consistent 9-block Business Model C... |
 | `antigravity-ot-ics` | Authorized OT/ICS security assessment: Purdue-model zoning review, PLC/SCADA exposure, industrial pr... |
@@ -2665,8 +2905,10 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-paypal-integration` | Master PayPal payment integration including Express Checkout, IPN handling, recurring billing, and r... |
 | `antigravity-paywall-upgrade-cro` | You are an expert in in-app paywalls and upgrade flows. Your goal is to convert free users to paid, ... |
 | `antigravity-pci-compliance` | Review payment data flows and engineering control evidence for a scoped PCI assessment, without clai... |
+| `antigravity-pci-dss-compliance` | Implement PCI DSS requirements for payment card data. Configure cardholder data environment and secu... |
 | `antigravity-pdf` | This guide covers essential PDF processing operations using Python libraries and command-line tools.... |
 | `antigravity-pdf-conversion-router` | Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structure... |
+| `antigravity-penetration-testing` | Perform basic penetration testing and security assessments. |
 | `antigravity-pentest-checklist` | Provide a comprehensive checklist for planning, executing, and following up on penetration tests. En... |
 | `antigravity-pentest-commands` | Provide a comprehensive command reference for penetration testing tools including network scanning, ... |
 | `antigravity-pentest-tools` | Operate 20+ penetration-testing tools (Nmap, Nuclei, SQLMap, FFUF, Hashcat, and more) through struct... |
@@ -2677,6 +2919,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-performance-profiling` | Performance profiling principles. Measurement, analysis, and optimization techniques. |
 | `antigravity-performance-testing-review-ai-review` | You are an expert AI-powered code review specialist combining automated static analysis, intelligent... |
 | `antigravity-performance-testing-review-multi-agent-review` | Use when working with performance testing review multi agent review |
+| `antigravity-performance-tuning` | Optimize Linux system performance. Configure kernel parameters, analyze bottlenecks, and tune resour... |
 | `antigravity-permission-manager` | Manage opencode permissions: review always-allow lists, suggest safe read-only commands, configure p... |
 | `antigravity-personal-tool-builder` | Expert in building custom tools that solve your own problems first. The best products often start as... |
 | `antigravity-phase-gated-debugging` | Use when debugging any bug. Enforces a 5-phase protocol where code edits are blocked until root caus... |
@@ -2693,14 +2936,18 @@ structures, and modern OOP features. U... |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
 | `antigravity-plan-ledger-tasks-yylo` | Create a concise Product Development Requirement and one or more implementation-sized YYLO Ledger ta... |
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
+| `antigravity-planetscale` | Operate MySQL-compatible databases on PlanetScale with branching workflows, safe migrations, and pro... |
 | `antigravity-planning-and-task-breakdown` | Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break wor... |
 | `antigravity-planning-with-files` | Work like Manus: Use persistent markdown files as your "working memory on disk." |
+| `antigravity-platform-engineering` | Build internal developer platforms (IDPs) with self-service infrastructure, golden paths, and develo... |
 | `antigravity-playwright-java` | Scaffold, write, debug, and enhance enterprise-grade Playwright E2E tests in Java using Page Object ... |
 | `antigravity-playwright-skill` | IMPORTANT - Path Resolution: This skill can be installed in different locations (plugin system, manu... |
 | `antigravity-plotly` | Interactive visualization library. Use when you need hover info, zoom, pan, or web-embeddable charts... |
 | `antigravity-podcast-generation` | Generate real audio narratives from text content using Azure OpenAI's Realtime API. |
+| `antigravity-podman` | Manage containers using Podman, the daemonless container engine. |
 | `antigravity-poka-yoke` | Mistake-proof code, config and process: make the wrong action impossible or self-announcing rather t... |
 | `antigravity-polars` | Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data ... |
+| `antigravity-policy-as-code` | Implement policy as code with OPA, Sentinel, and Kyverno. Automate policy enforcement in CI/CD and i... |
 | `antigravity-polis-protocol` | Coordinate multi-vendor AI agents as a self-improving team — a learning router assigns work by track... |
 | `antigravity-polis-protocol-a-self-optimizing-city-of-agents` | Polis Protocol: A Self-Optimizing City of Agents |
 | `antigravity-popup-cro` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without... |
@@ -2709,6 +2956,7 @@ structures, and modern OOP features. U... |
 | `antigravity-postgres-readonly-queries` | Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and de... |
 | `antigravity-postgresql` | Design a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, perfo... |
 | `antigravity-postgresql-cli` | PostgreSQL interactive terminal (psql) reference and usage guide. |
+| `antigravity-postgresql-devsec` | Administer PostgreSQL databases. Configure replication, backups, and performance tuning. Use when ma... |
 | `antigravity-postgresql-optimization` | PostgreSQL database optimization workflow for query tuning, indexing strategies, performance analysi... |
 | `antigravity-posthog-automation` | Automate PostHog tasks via Rube MCP (Composio): events, feature flags, projects, user profiles, anno... |
 | `antigravity-postman-collection-generator` | Generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descrip... |
@@ -2752,10 +3000,12 @@ structures, and modern OOP features. U... |
 | `antigravity-project-state-governor` | Govern evidence-backed canonical project state across sessions, branches, reviews, and research cycl... |
 | `antigravity-projection-patterns` | Build read models and projections from event streams. Use when implementing CQRS read sides, buildin... |
 | `antigravity-prometheus-configuration` | Complete guide to Prometheus setup, metric collection, scrape configuration, and recording rules. |
+| `antigravity-prometheus-grafana` | Set up metrics collection and visualization with Prometheus and Grafana. |
 | `antigravity-prompt-caching` | Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Ca... |
 | `antigravity-prompt-engineer` | Transforms user prompts into optimized prompts using frameworks (RTF, RISEN, Chain of Thought, RODES... |
 | `antigravity-prompt-engineering` | Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when u... |
 | `antigravity-prompt-engineering-patterns` | Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controll... |
+| `antigravity-prompt-injection-defense` | Defend AI systems against prompt injection and indirect prompt attacks using input controls, tool pe... |
 | `antigravity-prompt-library` | A comprehensive collection of battle-tested prompts inspired by [awesome-chatgpt-prompts](https://gi... |
 | `antigravity-protect-mcp-governance` | Agent governance skill for MCP tool calls — Cedar policy authoring, shadow-to-enforce rollout, and E... |
 | `antigravity-protocol-reverse` | Authorized reverse engineering of custom binary protocols, Protobuf/gRPC schemas, WebSocket frames, ... |
@@ -2790,6 +3040,8 @@ structures, and modern OOP features. U... |
 | `antigravity-radix-ui-design-system` | Build accessible design systems with Radix UI primitives. Headless component customization, theming ... |
 | `antigravity-rag-engineer` | Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector database... |
 | `antigravity-rag-implementation` | RAG (Retrieval-Augmented Generation) implementation workflow covering embedding selection, vector da... |
+| `antigravity-rag-infrastructure` | Build and operate Retrieval-Augmented Generation (RAG) infrastructure with vector stores, embedding ... |
+| `antigravity-rag-observability-evals` | Monitor and evaluate RAG systems with retrieval quality metrics, groundedness checks, hallucination ... |
 | `antigravity-ralph-loop-yylo` | Execute exactly one explicitly assigned YYLO Ledger task through the Ralph loop to a validated queue... |
 | `antigravity-rayden-code` | Generate React code with Rayden UI components using correct props, tokens, and premium layout patter... |
 | `antigravity-rayden-use` | Build and maintain Rayden UI components and screens in Figma via Figma MCP with full design token en... |
@@ -2810,21 +3062,31 @@ structures, and modern OOP features. U... |
 | `antigravity-readme` | You are an expert technical writer creating comprehensive project documentation. Your goal is to wri... |
 | `antigravity-recallmax` | FREE — God-tier long-context memory for AI agents. Injects 500K-1M clean tokens, auto-summarizes wit... |
 | `antigravity-receiving-code-review` | Code review requires technical evaluation, not emotional performance. |
+| `antigravity-recon-scope-triage` | Triage ASM/recon output for ownership before testing |
 | `antigravity-recsys-pipeline-architect` | Designs composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→F... |
 | `antigravity-recursive-context-pruning-token-budgeting` | Optimizes AI agent performance by pruning redundant context, managing token usage, and enforcing ult... |
 | `antigravity-red-team-tactics` | Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting. |
 | `antigravity-red-team-tools` | Implement proven methodologies and tool workflows from top security researchers for effective reconn... |
 | `antigravity-reddit-automation` | Automate Reddit tasks via Rube MCP (Composio): search subreddits, create posts, manage comments, and... |
 | `antigravity-redesign-existing-projects` | Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium de... |
+| `antigravity-redis` | Configure Redis for caching and data storage. Set up clustering, persistence, and Sentinel. Use when... |
 | `antigravity-redis-cli` | Redis command-line interface (redis-cli) reference and usage guide. Use this skill whenever the user... |
+| `antigravity-redteam-mindset` | Red-team operator discipline |
+| `antigravity-redteam-report-template` | Client-facing red-team deliverable format |
 | `antigravity-reference-builder` | Creates exhaustive technical references and API documentation. Generates comprehensive parameter lis... |
 | `antigravity-referral-program` | You are an expert in viral growth and referral marketing with access to referral program data and th... |
 | `antigravity-rehabilitation-analyzer` | 分析康复训练数据、识别康复模式、评估康复进展，并提供个性化康复建议 |
 | `antigravity-remote-gpu-trainer` | Deploy, monitor, and debug long GPU jobs on RENTED/remote instances (AutoDL, RunPod, vast.ai, Lambda... |
 | `antigravity-remotion` | Generate walkthrough videos from Stitch projects using Remotion with smooth transitions, zooming, an... |
 | `antigravity-remotion-best-practices` | Best practices for Remotion - Video creation in React |
+| `antigravity-remotion-captions` | Transcribing, displaying and animating captions |
+| `antigravity-remotion-create` | Create a new Remotion video |
+| `antigravity-remotion-docs` | Search Remotion documentation |
+| `antigravity-remotion-interactivity` | Structure Remotion markup for interactivity |
+| `antigravity-remotion-render` | Export a Remotion video |
 | `antigravity-render-automation` | Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools ... |
 | `antigravity-repo-maintainer` | Audit and repair repository hygiene across artifacts, dependencies, CI, docs, Git state, and code-qu... |
+| `antigravity-report-writing` | Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-research-prompt` | Turn vague research needs into one precise deep-research prompt with context and output criteria. |
 | `antigravity-resolving-merge-conflicts` | Use when you need to resolve an in-progress git merge/rebase conflict. |
@@ -2833,6 +3095,7 @@ structures, and modern OOP features. U... |
 | `antigravity-reverse-browser-automation` | Automate browsers (Playwright) and Windows desktop applications (UI automation) for reverse-engineer... |
 | `antigravity-reverse-engineer` | Expert reverse engineer specializing in binary analysis, disassembly, decompilation, and software an... |
 | `antigravity-reverse-engineering` | General reverse-engineering methodology for compiled, obfuscated, packed, or virtualized targets: GD... |
+| `antigravity-reverse-proxy` | Configure nginx and Traefik as reverse proxies. Implement SSL termination and routing. Use when sett... |
 | `antigravity-review-and-simplify-changes` | Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards... |
 | `antigravity-review-animations` | Use when reviewing animation and motion code against a strict craft, performance, accessibility, and... |
 | `antigravity-review-multi-agent-orchestration` | Use when a supervisor, swarm, graph, planner-worker system, or parallel agent workflow needs review ... |
@@ -2859,10 +3122,13 @@ coll... |
 | `antigravity-run-deep-swe` | Run reproducible DeepSWE coding-agent benchmark evaluations through OpenRouter and mini-swe-agent. |
 | `antigravity-runapi-cli` | Generate AI images, videos, and music/audio from agents using the RunAPI CLI. |
 | `antigravity-runaway-guard` | Cost-safety discipline for paid AI / inference APIs: treat $-cost as a third complexity dimension al... |
+| `antigravity-runbook-creation` | Create operational runbooks and standard operating procedures. Document troubleshooting guides and r... |
 | `antigravity-rust-async-patterns` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns. Use... |
 | `antigravity-rust-pro` | Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready sy... |
 | `antigravity-saas-multi-tenant` | Design and implement multi-tenant SaaS architectures with row-level security, tenant-scoped queries,... |
 | `antigravity-saas-mvp-launcher` | Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech s... |
+| `antigravity-saas-pricing-strategist` | Design, optimize, and test pricing strategies for SaaS products using data-driven frameworks, compet... |
+| `antigravity-saas-security-posture` | Audit and harden your SaaS tool stack |
 | `antigravity-saga-orchestration` | Patterns for managing distributed transactions and long-running business processes. |
 | `antigravity-sales-automator` | Draft cold emails, follow-ups, and proposal templates. Creates pricing pages, case studies, and sale... |
 | `antigravity-sales-enablement` | Create sales collateral such as decks, one-pagers, objection docs, demo scripts, playbooks, and prop... |
@@ -2872,7 +3138,9 @@ coll... |
 | `antigravity-sandbase-mcp` | Discover, inspect, and invoke 2,000+ AI models and APIs through SandBase's local MCP bridge with exp... |
 | `antigravity-sankhya-dashboard-html-jsp-custom-best-pratices` | This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sa... |
 | `antigravity-sast-configuration` | Static Application Security Testing (SAST) tool setup, configuration, and custom rule creation for c... |
+| `antigravity-sast-scanning` | Perform static application security testing with tools like Semgrep, CodeQL, and SonarQube. |
 | `antigravity-satori` | Clinically informed wisdom companion blending psychology and philosophy into a structured thinking p... |
+| `antigravity-sbom-supply-chain` | Generate, sign, and verify SBOMs and provenance attestations to secure the software supply chain. Us... |
 | `antigravity-scala-pro` | Master enterprise-grade Scala development with functional programming, distributed systems, and big ... |
 | `antigravity-scanning-tools` | Master essential security scanning tools for network discovery, vulnerability assessment, web applic... |
 | `antigravity-scanpy` | Scanpy is a scalable Python toolkit for analyzing single-cell RNA-seq data, built on AnnData. Apply ... |
@@ -2881,6 +3149,7 @@ coll... |
 | `antigravity-schema-markup-generator` | Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports W... |
 | `antigravity-scientific-writing` | This is the core skill for the deep research and writing tool—combining AI-driven deep research with... |
 | `antigravity-scikit-learn` | Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model ... |
+| `antigravity-score-eval` | Imported skill `score-eval` from upstream source. |
 | `antigravity-screen-adverse-media` | Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure — cor... |
 | `antigravity-screen-reader-testing` | Practical guide to testing web applications with screen readers for comprehensive accessibility vali... |
 | `antigravity-screenshots` | Generate marketing screenshots of your app using Playwright. Use when the user wants to create scree... |
@@ -2891,8 +3160,10 @@ coll... |
 | `antigravity-search-specialist` | Expert web researcher using advanced search techniques and |
 | `antigravity-secrets-management` | Secure secrets management practices for CI/CD pipelines using Vault, AWS Secrets Manager, and other ... |
 | `antigravity-security-and-hardening` | Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or... |
+| `antigravity-security-arsenal` | Security payloads, bypass tables, wordlists, gf pattern names, always-rejected bug list, and conditi... |
 | `antigravity-security-audit` | Comprehensive security auditing workflow covering web application testing, API security, penetration... |
 | `antigravity-security-auditor` | Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, and compliance frame... |
+| `antigravity-security-automation` | Automate security workflows and remediation. Build security pipelines, automate compliance checks, a... |
 | `antigravity-security-bluebook-builder` | Build a minimal but real security policy for sensitive apps. The output is a single, coherent Blue B... |
 | `antigravity-security-compliance-compliance-check` | You are a compliance expert specializing in regulatory requirements for software systems including G... |
 | `antigravity-security-requirement-extraction` | Derive security requirements from threat models and business context. Use when translating threats i... |
@@ -2904,6 +3175,7 @@ analysis across multiple languages... |
 | `antigravity-segment-automation` | Automate Segment tasks via Rube MCP (Composio): track events, identify users, manage groups, page vi... |
 | `antigravity-segment-cdp` | Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tra... |
 | `antigravity-selenium-skill` | Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, JavaScri... |
+| `antigravity-semantic-versioning` | Automate versioning and changelog generation using semantic versioning principles. |
 | `antigravity-semgrep-rule-creator` | Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns... |
 | `antigravity-semgrep-rule-variant-creator` | Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified ta... |
 | `antigravity-sendblue-api` | Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API — text, medi... |
@@ -2955,6 +3227,7 @@ Plans content calendars and ident... |
 | `antigravity-seo-technical` | Audit technical SEO across crawlability, indexability, security, URLs, mobile, Core Web Vitals, stru... |
 | `antigravity-sequence-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-server-management` | Server management principles and decision-making. Process management, monitoring strategy, and scali... |
+| `antigravity-service-mesh` | Implement Istio and Linkerd service meshes. Configure mTLS, traffic management, and observability. U... |
 | `antigravity-service-mesh-expert` | Expert service mesh architect specializing in Istio, Linkerd, and cloud-native networking patterns. ... |
 | `antigravity-service-mesh-observability` | Complete guide to observability patterns for Istio, Linkerd, and service mesh deployments. |
 | `antigravity-setup-help` | Walk a user through setup or installation one step at a time with the remaining steps visible. |
@@ -3006,6 +3279,7 @@ Plans content calendars and ident... |
 | `antigravity-smartui-skill` | Generates SmartUI visual regression test configurations for screenshot comparison on TestMu AI cloud... |
 | `antigravity-smtp-penetration-testing` | Conduct comprehensive security assessments of SMTP (Simple Mail Transfer Protocol) servers to identi... |
 | `antigravity-snowflake-development` | Comprehensive Snowflake development assistant covering SQL best practices, data pipeline design (Dyn... |
+| `antigravity-soc2-compliance` | Implement SOC 2 Trust Services Criteria. Configure security, availability, and processing integrity ... |
 | `antigravity-social-content` | You are an expert social media strategist with direct access to a scheduling platform that publishes... |
 | `antigravity-social-metadata-hardening` | Fix social sharing previews so URLs render as rich cards on Facebook, LinkedIn, X/Twitter, WhatsApp,... |
 | `antigravity-social-orchestrator` | Orquestrador unificado de canais sociais — coordena Instagram, Telegram e WhatsApp em um unico fluxo... |
@@ -3014,6 +3288,7 @@ Plans content calendars and ident... |
 | `antigravity-socialclaw` | Agent-first social media publishing skill — schedule and publish posts across 13 platforms (X, Linke... |
 | `antigravity-software-architecture` | Guide for quality focused software architecture. This skill should be used when users want to write ... |
 | `antigravity-solidity-security` | Master smart contract security best practices, vulnerability prevention, and secure Solidity develop... |
+| `antigravity-sops-encryption` | Encrypt files and configs with Mozilla SOPS. |
 | `antigravity-source-driven-development` | Grounds every implementation decision in official documentation. Use when you want authoritative, so... |
 | `antigravity-spark-optimization` | Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use ... |
 | `antigravity-spec-driven-development` | Creates specs before coding. Use when starting a new project, feature, or significant change and no ... |
@@ -3029,10 +3304,13 @@ Plans content calendars and ident... |
 | `antigravity-sqlmap-database-pentesting` | Provide systematic methodologies for automated SQL injection detection and exploitation using SQLMap... |
 | `antigravity-square-automation` | Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search ... |
 | `antigravity-squirrel` | Full-cycle AI coding skill: plans, builds, tests, lints, fixes bugs, and writes production-grade doc... |
+| `antigravity-sre-dashboards` | Design and operationalize SRE dashboards that surface reliability, latency, error, saturation, and c... |
 | `antigravity-sred-project-organizer` | Take a list of projects and their related documentation, and organize them into the SRED format for ... |
 | `antigravity-sred-work-summary` | Go back through the previous year of work and create a Notion doc that groups relevant links into pr... |
+| `antigravity-ssh-configuration` | Configure SSH servers and clients securely. Manage keys, tunnels, and config files. Use when setting... |
 | `antigravity-ssh-penetration-testing` | Conduct comprehensive SSH security assessments including enumeration, credential attacks, vulnerabil... |
 | `antigravity-sshepherd` | Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgres int... |
+| `antigravity-ssl-tls-management` | Manage SSL/TLS certificates with Let's Encrypt and internal PKI. Configure secure HTTPS, certificate... |
 | `antigravity-stability-ai` | Geracao de imagens via Stability AI (SD3.5, Ultra, Core). Text-to-image, img2img, inpainting, upscal... |
 | `antigravity-startup-analyst` | Expert startup business analyst specializing in market sizing, financial modeling, competitive analy... |
 | `antigravity-startup-business-analyst-business-case` | Generate comprehensive investor-ready business case document with
@@ -3044,6 +3322,7 @@ flow, and scenarios
 calculations
  |
 | `antigravity-startup-financial-modeling` | Build comprehensive 3-5 year financial models with revenue projections, cost structures, cash flow a... |
+| `antigravity-startup-it-troubleshooting` | Practical IT troubleshooting playbooks for small teams without dedicated IT staff. |
 | `antigravity-startup-metrics-framework` | Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different s... |
 | `antigravity-statsmodels` | Statsmodels is Python's premier library for statistical modeling, providing tools for estimation, in... |
 | `antigravity-steve-jobs` | Agente que simula Steve Jobs — cofundador da Apple, CEO da Pixar, fundador da NeXT, o maior designer... |
@@ -3062,6 +3341,8 @@ calculations
 | `antigravity-supabase-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
 | `antigravity-super-code` | Standing house style to enforce dense, correct, and idiomatic code on all coding tasks. Minimizes co... |
 | `antigravity-superpowers-lab` | Lab environment for Claude superpowers |
+| `antigravity-supply-chain-attack-recon` | External recon for software supply-chain attack surface |
+| `antigravity-supply-chain-attack-response` | Detect, respond to, and prevent software supply chain attacks on package registries, container image... |
 | `antigravity-supply-chain-risk-auditor` | Identifies dependencies at heightened risk of exploitation or takeover. Use when assessing supply ch... |
 | `antigravity-supply-chain-security` | Software supply-chain security assessment: SBOM generation, SCA scanning, CI/CD pipeline review, con... |
 | `antigravity-survey-generator` | Generate source-backed AI/ML survey paper artifacts with curated bibliographies and Fireworks/Kimi H... |
@@ -3074,6 +3355,7 @@ calculations
 | `antigravity-swiftui-view-refactor` | Refactor SwiftUI views into smaller components with stable, explicit data flow. |
 | `antigravity-sympy` | SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical... |
 | `antigravity-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
+| `antigravity-systemd-services` | Create and manage systemd services and timers. Configure service dependencies and resource limits. U... |
 | `antigravity-systems-programming-rust-project` | You are a Rust project architecture expert specializing in scaffolding production-ready Rust applica... |
 | `antigravity-tailwind-design-system` | Build production-ready design systems with Tailwind CSS, including design tokens, component variants... |
 | `antigravity-tailwind-patterns` | Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design toke... |
@@ -3105,7 +3387,10 @@ calculations
 | `antigravity-temporal-golang-pro` | Use when building durable distributed systems with Temporal Go SDK. Covers deterministic workflow ru... |
 | `antigravity-temporal-python-pro` | Master Temporal workflow orchestration with Python SDK. Implements durable workflows, saga patterns,... |
 | `antigravity-temporal-python-testing` | Comprehensive testing approaches for Temporal workflows using pytest, progressive disclosure resourc... |
+| `antigravity-terraform-aws` | Provision AWS infrastructure with Terraform. Create modules, manage state, and implement IaC best pr... |
 | `antigravity-terraform-aws-modules` | Terraform module creation for AWS — reusable modules, state management, and HCL best practices. Use ... |
+| `antigravity-terraform-azure` | Provision Azure infrastructure with Terraform. Configure providers, manage state, and deploy resourc... |
+| `antigravity-terraform-gcp` | Provision GCP infrastructure with Terraform. Configure providers and deploy Google Cloud resources. ... |
 | `antigravity-terraform-infrastructure` | Terraform infrastructure as code workflow for provisioning cloud resources, creating reusable module... |
 | `antigravity-terraform-module-library` | Production-ready Terraform module patterns for AWS, Azure, and GCP infrastructure. |
 | `antigravity-terraform-skill` | Terraform infrastructure as code best practices |
@@ -3125,6 +3410,7 @@ calculations
 | `antigravity-threat-hunting` | Blue-team threat hunting: detection engineering with Sigma/YARA, SIEM query design, and validation o... |
 | `antigravity-threat-intelligence` | Authorized OSINT and cyber threat intelligence: enriching IOCs, campaigns, impersonation, scams, and... |
 | `antigravity-threat-mitigation-mapping` | Map identified threats to appropriate security controls and mitigations. Use when prioritizing secur... |
+| `antigravity-threat-modeling` | Conduct threat modeling using STRIDE methodology. Identify threats, assess risks, and design securit... |
 | `antigravity-threat-modeling-expert` | Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters ... |
 | `antigravity-threejs-animation` | Three.js animation - keyframe animation, skeletal animation, morph targets, animation mixing. Use wh... |
 | `antigravity-threejs-fundamentals` | Three.js scene setup, cameras, renderer, Object3D hierarchy, coordinate systems. Use when setting up... |
@@ -3157,6 +3443,7 @@ calculations
 | `antigravity-tree-ring-memory` | Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forget... |
 | `antigravity-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `antigravity-triage` | Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if ... |
+| `antigravity-triage-validation` | Finding validation before writing any report |
 | `antigravity-trigger-dev` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent de... |
 | `antigravity-trl-training` | Train and fine-tune transformer language models using TRL (Transformers Reinforcement Learning). Sup... |
 | `antigravity-trpc-fullstack` | Build end-to-end type-safe APIs with tRPC — routers, procedures, middleware, subscriptions, and Next... |
@@ -3209,7 +3496,9 @@ calculations
 | `antigravity-us-property-data` | Use when a task needs real U.S. residential property data: valuation, listings, price or tax history... |
 | `antigravity-usage-based-pricing` | Design pricing models that developers understand, accept, and can predict. Trigger phrases: usage-ba... |
 | `antigravity-use-dom` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to... |
+| `antigravity-user-management` | Manage users, groups, and permissions on Linux systems. Configure sudo and access controls. Use when... |
 | `antigravity-user-thoughts` | Persist user decisions and project constraints to mdbase across sessions. Trigger on /user-thoughts ... |
+| `antigravity-using-agent-skills` | Meta-skill for discovering and invoking the right agent skill for the work at hand, applied at sessi... |
 | `antigravity-using-git-worktrees` | Git worktrees create isolated workspaces sharing the same repository, allowing work on multiple bran... |
 | `antigravity-using-lwc` | Use when project decisions, code structure, research, incidents, or verified context must survive fu... |
 | `antigravity-using-n8n-mcp-skills` | Route n8n MCP workflow design, editing, validation, testing, deployment, credential, execution, and ... |
@@ -3226,11 +3515,14 @@ calculations
 | `antigravity-varlock` | Secure-by-default environment variable management for Claude Code sessions. |
 | `antigravity-varlock-claude-skill` | Secure environment variable management ensuring secrets are never exposed in Claude sessions, termin... |
 | `antigravity-vector-database-engineer` | Expert in vector databases, embedding strategies, and semantic search implementation. Masters Pineco... |
+| `antigravity-vector-database-ops` | Deploy, manage, and optimize vector databases for AI applications. |
 | `antigravity-vector-index-tuning` | Optimize vector index performance for latency, recall, and memory. Use when tuning HNSW parameters, ... |
+| `antigravity-vendor-management` | Implement vendor risk management programs. Assess third-party security and maintain vendor inventory... |
 | `antigravity-vercel-ai-sdk-expert` | Expert in the Vercel AI SDK. Covers Core API (generateText, streamText), UI hooks (useChat, useCompl... |
 | `antigravity-vercel-automation` | Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects,... |
 | `antigravity-vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel ... |
 | `antigravity-vercel-deployment` | Expert knowledge for deploying to Vercel with Next.js |
+| `antigravity-vercel-deployments` | Deploy frontend and full-stack apps on Vercel with previews, edge functions, environment promotion, ... |
 | `antigravity-vercel-optimize` | Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans... |
 | `antigravity-vercel-react-view-transitions` | Guide React and Next.js view transitions, shared element animations, route transitions, transition t... |
 | `antigravity-verification-before-completion` | Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation... |
@@ -3252,12 +3544,17 @@ calculations
 | `antigravity-visual-emotion-engineer` | One sentence - what this skill does and when to invoke it |
 | `antigravity-vitest-skill` | Generates Vitest tests in JavaScript/TypeScript with Vite-native speed. Jest-compatible API with ESM... |
 | `antigravity-vizcom` | AI-powered product design tool for transforming sketches into full-fidelity 3D renders. |
+| `antigravity-vllm-server` | Deploy and manage vLLM for high-throughput LLM inference. Configure continuous batching, tensor para... |
+| `antigravity-vmware-vcenter-attack` | VMware vSphere / vCenter Server external attack matrix |
 | `antigravity-voice-agents` | Voice agents represent the frontier of AI interaction - humans speaking naturally with AI systems. |
 | `antigravity-voice-ai-development` | Expert in building voice AI applications - from real-time voice agents to voice-enabled apps. Covers... |
 | `antigravity-voice-ai-engine-development` | Build real-time conversational AI voice engines using async worker pipelines, streaming transcriptio... |
+| `antigravity-vpn-setup` | Configure WireGuard, OpenVPN, and cloud VPNs. Implement secure remote access and site-to-site connec... |
 | `antigravity-vps-server-management` | Manage authorized VPS hosts and server-side agents through cautious SSH and operations workflows. |
 | `antigravity-vscode-extension-guide-en` | Guide for VS Code extension development from scaffolding to Marketplace publication |
 | `antigravity-vulnerability-scanner` | Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mappin... |
+| `antigravity-vulnerability-scanning` | Scan systems and dependencies for CVEs and security vulnerabilities. |
+| `antigravity-waf-setup` | Deploy and tune Web Application Firewalls. Configure rules for OWASP Top 10 protection. Use when pro... |
 | `antigravity-warehouse` | Plan and review read-only data warehouse analysis with explicit scope, privacy, provenance, and vali... |
 | `antigravity-warp-delegate` | Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user explicitly requests it, while ... |
 | `antigravity-warren-buffett` | Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, CEO da Berkshire Hathaway,... |
@@ -3273,6 +3570,8 @@ calculations
 | `antigravity-web-project-brainstorming` | Masterclass framework for brainstorming web development projects and page designs. Outlines structur... |
 | `antigravity-web-scraper` | Web scraping inteligente multi-estrategia. Extrai dados estruturados de paginas web (tabelas, listas... |
 | `antigravity-web-security-testing` | Web application security testing workflow for OWASP Top 10 vulnerabilities including injection, XSS,... |
+| `antigravity-web2-recon` | Web2 recon pipeline |
+| `antigravity-web3-audit` | Smart contract security audit |
 | `antigravity-web3-testing` | Master comprehensive testing strategies for smart contracts using Hardhat, Foundry, and advanced tes... |
 | `antigravity-webapp-testing` | To test local web applications, write native Python Playwright scripts. |
 | `antigravity-webdriverio-skill` | Generates WebdriverIO (WDIO) automation tests in JavaScript or TypeScript. Supports local and TestMu... |
@@ -3294,7 +3593,9 @@ calculations
 | `antigravity-wiki-vitepress` | Transform generated wiki Markdown files into a polished VitePress static site with dark theme and in... |
 | `antigravity-wiki-yylo` | Use YYLO Ledger wiki Records as durable project knowledge. Search before creating, classify informat... |
 | `antigravity-windows-ad` | Authorized Active Directory and Windows identity attacks: Kerberos abuse, AD CS escalation, BloodHou... |
+| `antigravity-windows-hardening` | Harden Windows servers per security baselines and CIS benchmarks. Configure Group Policy, Windows De... |
 | `antigravity-windows-privilege-escalation` | Provide systematic methodologies for discovering and exploiting privilege escalation vulnerabilities... |
+| `antigravity-windows-server` | Administer Windows Server systems. Manage IIS, Active Directory, and PowerShell automation. Use when... |
 | `antigravity-windows-shell-reliability` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
 | `antigravity-wireshark-analysis` | Execute comprehensive network traffic analysis using Wireshark to capture, filter, and examine netwo... |
 | `antigravity-wjttc-builder` | PLAN and GENERATE WJTTC (Championship-Grade) test suites for any project. Analyzes the codebase, cla... |
@@ -3316,6 +3617,7 @@ calculations
 | `antigravity-wrike-automation` | Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, as... |
 | `antigravity-writer` | Document creation, format conversion (ODT/DOCX/PDF), mail merge, and automation with LibreOffice Wri... |
 | `antigravity-writing-great-skills` | Reference for writing and editing skills well — the vocabulary and principles that make a skill pred... |
+| `antigravity-writing-guidelines` | Curated upstream guidance for Writing Guidelines; use when the workflow matches the user goal. |
 | `antigravity-writing-plans` | Use when you have a spec or requirements for a multi-step task, before touching code |
 | `antigravity-writing-skills` | Use when creating, updating, or improving agent skills. |
 | `antigravity-x-article-publisher-skill` | Publish articles to X/Twitter |
@@ -3342,6 +3644,7 @@ calculations
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 | `antigravity-zcode-delegate` | Delegate coding tasks to the Z.AI ZCode CLI only when the user explicitly requests it, while the orc... |
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
+| `antigravity-zero-trust` | Implement zero-trust network architecture. Configure identity-based access, micro-segmentation, and ... |
 | `antigravity-zeroize-audit` | Detects missing zeroization of sensitive data in source code and identifies zeroization removed by c... |
 | `antigravity-zipai-optimizer` | Ultra-dense token optimizer skill for prompt caching, log pruning, AST-based inspection, and minifie... |
 | `antigravity-zod-validation-expert` | Expert in Zod — TypeScript-first schema validation. Covers parsing, custom errors, refinements, type... |
