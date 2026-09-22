@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-21T06:43:23.147334",
-  "skill_count": 3564,
+  "last_updated": "2026-09-22T06:32:54.429116",
+  "skill_count": 3565,
   "sources_processed": 19,
   "skills": [
     {
@@ -20039,6 +20039,14 @@
       "name": "antigravity-nfs-storage",
       "original_name": "nfs-storage",
       "description": "Configure NFS servers and clients. Implement network file sharing for Linux systems. Use when setting up shared storage.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-marketing-mindset",
+      "original_name": "marketing-mindset",
+      "description": "Use when a user asks how to win first customers, whether doing X will produce Y, how to write an ad or judge a marketing test \u2014 a marketer's decision framework, not a tactic library.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-21 06:43 UTC*
+*Last updated: 2026-09-22 06:32 UTC*
 
-Total skills: **3564**
+Total skills: **3565**
 
 ## Skills by Source
 
@@ -2676,6 +2676,7 @@ splash language, makepad script, m... |
 | `antigravity-markdown-rendering` | Open Markdown reliably in cmux panes and recover from blank rendered surfaces. |
 | `antigravity-market-sizing-analysis` | Comprehensive market sizing methodologies for calculating Total Addressable Market (TAM), Serviceabl... |
 | `antigravity-marketing-ideas` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized usi... |
+| `antigravity-marketing-mindset` | Use when a user asks how to win first customers, whether doing X will produce Y, how to write an ad ... |
 | `antigravity-marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own... |
 | `antigravity-marketing-psychology` | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological... |
 | `antigravity-marketplace-rbac-audit` | Audit multi-role marketplace authorization across roles, resource ownership, tenant boundaries, and ... |
