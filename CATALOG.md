@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-23 06:33 UTC*
+*Last updated: 2026-09-24 06:33 UTC*
 
-Total skills: **3565**
+Total skills: **3571**
 
 ## Skills by Source
 
@@ -1740,6 +1740,7 @@ pipelines, and system utilities.... |
 | `antigravity-changelog-automation` | Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use... |
 | `antigravity-changelog-updates` | Create release notes and product updates that developers actually read and care about. This skill co... |
 | `antigravity-chat-widget` | Build a real-time support chat system with a floating widget for users and an admin dashboard for su... |
+| `antigravity-chatexport-need-miner` | Mines offline Telegram Desktop chat exports (result.json) for unmet market needs and product opportu... |
 | `antigravity-check-identity-pack` | Run an AFP 100-point or AUSTRAC safe-harbour identity check over a set of documents, and report exac... |
 | `antigravity-chrome-extension-developer` | Expert in building Chrome Extensions using Manifest V3. Covers background scripts, service workers, ... |
 | `antigravity-churn-prevention` | Reduce voluntary and involuntary churn with cancel flows, save offers, dunning, win-back tactics, an... |
@@ -1922,6 +1923,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-daily` | Documentation and capabilities reference for Daily |
 | `antigravity-daily-gift` | Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, synthes... |
 | `antigravity-daily-news-report` | Scrapes content based on a preset URL list, filters high-quality technical information, and generate... |
+| `antigravity-dali-short-address-commissioner` | Commissions DALI and DALI-2 (IEC 62386) lighting buses: short-address assignment (0-63), 24-bit bina... |
 | `antigravity-dast-scanning` | Perform dynamic application security testing with OWASP ZAP, Burp Suite, and Nikto. |
 | `antigravity-data-engineer` | Build scalable data pipelines, modern data warehouses, and real-time streaming architectures. Implem... |
 | `antigravity-data-engineering-data-driven-feature` | Build features guided by data insights, A/B testing, and continuous measurement using specialized ag... |
@@ -2089,6 +2091,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-enterprise-vpn-attack` | External SSL VPN / remote-access appliance attack matrix |
 | `antigravity-entropy-box` | Entropy Box knowledge-compiler for embodied-AI: turns bounded requirements into grounded workflows v... |
 | `antigravity-environment-setup-guide` | Guide developers through setting up development environments with proper tools, dependencies, and co... |
+| `antigravity-eol-resistor-calculator` | Calculates and validates end-of-line (EOL, SEOL, DEOL, TEOL) resistor loops for intrusion alarm pane... |
 | `antigravity-error-debugging-error-analysis` | You are an expert error analysis specialist with deep expertise in debugging distributed systems, an... |
 | `antigravity-error-debugging-error-trace` | You are an error tracking and observability expert specializing in implementing comprehensive error ... |
 | `antigravity-error-debugging-multi-agent-review` | Use when working with error debugging multi agent review |
@@ -2097,6 +2100,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-error-diagnostics-error-trace` | You are an error tracking and observability expert specializing in implementing comprehensive error ... |
 | `antigravity-error-diagnostics-smart-debug` | Use when working with error diagnostics smart debug |
 | `antigravity-error-handling-patterns` | Build resilient applications with robust error handling strategies that gracefully handle failures a... |
+| `antigravity-esl-price-sync` | Synchronizes retail prices between ERP/POS systems and Electronic Shelf Labels (SES-imagotag, ZKONG,... |
 | `antigravity-ethical-hacking-methodology` | Master the complete penetration testing lifecycle from reconnaissance through reporting. This skill ... |
 | `antigravity-evaluation` | Build evaluation frameworks for agent systems. Use when testing agent performance systematically, va... |
 | `antigravity-event-sourcing-architect` | Expert in event sourcing, CQRS, and event-driven architecture patterns. Masters event store design, ... |
@@ -2691,6 +2695,7 @@ splash language, makepad script, m... |
 | `antigravity-markstream-vue2` | Integrate markstream-vue2 into Vue 2.6 or 2.7 with correct Composition API decisions, CSS, streaming... |
 | `antigravity-markstream-vue2-cli` | Integrate markstream-vue2 into Vue CLI or Webpack 4 with export-map-safe CSS, CDN worker fallbacks, ... |
 | `antigravity-markstream-vue2-vite` | Integrate markstream-vue2 into Vue 2 plus Vite with bundled worker imports, CSS ordering, Compositio... |
+| `antigravity-marlin-bed-leveling` | Calibrates Marlin 2.x 3D printer firmware bed leveling: Unified Bed Leveling (UBL), Bilinear ABL, M4... |
 | `antigravity-matematico-tao` | Matemático ultra-avançado inspirado em Terence Tao. Análise rigorosa de código e arquitetura com teo... |
 | `antigravity-mathguard` | Math-heavy escalation for n >= 10^6 — Bloom, HyperLogLog, Count-Min, MinHash/LSH, FFT, JL projection... |
 | `antigravity-matplotlib` | Matplotlib is Python's foundational visualization library for creating static, animated, and interac... |
@@ -2866,6 +2871,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-onboarding-cro` | You are an expert in user onboarding and activation. Your goal is to help users reach their "aha mom... |
 | `antigravity-onboarding-psychologist` | One sentence - what this skill does and when to invoke it |
 | `antigravity-one-drive-automation` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder oper... |
+| `antigravity-oneroster-csv-validator` | Validates 1EdTech / IMS Global OneRoster v1.1 and v1.2 CSV roster sets: manifest integrity, bulk vs ... |
 | `antigravity-ontoly-software-graph` | Use Ontoly's deterministic Software Graph, MCP server, and agent skills for architecture review, req... |
 | `antigravity-open-dynamic-workflows` | Plan, orchestrate, and adversarially verify parallel AI coding agents with a dynamic multi-agent wor... |
 | `antigravity-open-source-marketing` | When the user wants to market an open source project authentically. Trigger phrases include "open so... |

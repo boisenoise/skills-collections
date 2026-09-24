@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-23T06:33:49.361399",
-  "skill_count": 3565,
+  "last_updated": "2026-09-24T06:33:24.789372",
+  "skill_count": 3571,
   "sources_processed": 19,
   "skills": [
     {
@@ -2223,6 +2223,14 @@
       "name": "antigravity-eas-workflows",
       "original_name": "eas-workflows",
       "description": "Curated upstream guidance for Eas Workflows; use when the workflow matches the user goal.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-dali-short-address-commissioner",
+      "original_name": "dali-short-address-commissioner",
+      "description": "Commissions DALI and DALI-2 (IEC 62386) lighting buses: short-address assignment (0-63), 24-bit binary search collision resolution, groups, and DT8 color control. Trigger phrases: commission dali, dali short address, dali collision resolution, dali bus addressing, dali-2 setup.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5940,6 +5948,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-chatexport-need-miner",
+      "original_name": "chatexport-need-miner",
+      "description": "Mines offline Telegram Desktop chat exports (result.json) for unmet market needs and product opportunities using chunked streaming and verbatim quote grounding. Trigger phrases: mine chat export, telegram result.json, find unmet needs, analyze telegram chat.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-crossframe-casebook",
       "original_name": "crossframe-casebook",
       "description": "Use when CrossFrame Suite routes explicit Chinese casebook work: turning materials into reusable cases, anonymized entries, mechanisms, and retrieval indexes.",
@@ -6639,6 +6655,14 @@
       "name": "antigravity-feature-tracking",
       "original_name": "feature-tracking",
       "description": "Maintain durable feature-level memory across AI coding sessions with lightweight Markdown tracks for status, source-of-truth docs, decisions, risks, and changes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-esl-price-sync",
+      "original_name": "esl-price-sync",
+      "description": "Synchronizes retail prices between ERP/POS systems and Electronic Shelf Labels (SES-imagotag, ZKONG, Pricer, Hanshow, SOLUM) with delta watermarking, idempotency, and battery modeling. Trigger phrases: esl price sync, electronic shelf labels, zkong sync, ses imagotag price, ghost pricing audit.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14316,6 +14340,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-eol-resistor-calculator",
+      "original_name": "eol-resistor-calculator",
+      "description": "Calculates and validates end-of-line (EOL, SEOL, DEOL, TEOL) resistor loops for intrusion alarm panels (Honeywell, DSC, Paradox, Bosch) with wire gauge drop and state tables. Trigger phrases: eol resistor, deol wiring, alarm zone resistor, calculate end of line, double eol tamper.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-logic-lens",
       "original_name": "logic-lens",
       "description": "AI-powered Claude Code skill that performs deep code review using formal logic and reasoning frameworks to detect bugs, anti-patterns, and security risks beyond what linters catch.",
@@ -15863,6 +15895,14 @@
       "name": "antigravity-mise-configurator",
       "original_name": "mise-configurator",
       "description": "Generate production-ready mise.toml setups for local development, CI/CD pipelines, and toolchain standardization.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-marlin-bed-leveling",
+      "original_name": "marlin-bed-leveling",
+      "description": "Calibrates Marlin 2.x 3D printer firmware bed leveling: Unified Bed Leveling (UBL), Bilinear ABL, M420 S1 post-homing, Z-probe offsets, G26 mesh prints, and EEPROM slots. Trigger phrases: marlin bed leveling, ubl calibration, m420 s1, z probe offset, g29 bed level, first layer adhesion.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19351,6 +19391,14 @@
       "name": "antigravity-cloud-iam-deep",
       "original_name": "cloud-iam-deep",
       "description": "Cloud IAM red-team attack chain across AWS, Azure, GCP",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-oneroster-csv-validator",
+      "original_name": "oneroster-csv-validator",
+      "description": "Validates 1EdTech / IMS Global OneRoster v1.1 and v1.2 CSV roster sets: manifest integrity, bulk vs delta strictness, foreign key references, and encoding sanitization. Trigger phrases: oneroster csv validator, validate oneroster zip, clever roster error, oneroster sourcedid.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
