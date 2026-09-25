@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-24 06:33 UTC*
+*Last updated: 2026-09-25 06:33 UTC*
 
-Total skills: **3571**
+Total skills: **3584**
 
 ## Skills by Source
 
@@ -1305,6 +1305,7 @@ Total skills: **3571**
 | `antigravity-agent-harness-fault-injection` | Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, chec... |
 | `antigravity-agent-manager-skill` | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly sc... |
 | `antigravity-agent-memory` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents. |
+| `antigravity-agent-memory-discipline` | Rules for when an agent should recall from long-term memory before acting and when it should save de... |
 | `antigravity-agent-memory-mcp` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Arch... |
 | `antigravity-agent-memory-systems` | Memory is the cornerstone of intelligent agents. Without it, every interaction starts from zero. Thi... |
 | `antigravity-agent-observability` | Instrument AI agents with tracing, token metrics, latency, and cost visibility. Use for reliability ... |
@@ -2160,6 +2161,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-file-path-traversal` | Identify and exploit file path traversal (directory traversal) vulnerabilities that allow attackers ... |
 | `antigravity-file-uploads` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, multipa... |
 | `antigravity-filesystem-context` | Use for file-based context management, dynamic context discovery, and reducing context window bloat.... |
+| `antigravity-film-crew` | Turn a one-line AI video idea into a shot list and per-shot, model-ready prompts via a film crew (di... |
 | `antigravity-find-bugs` | Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked... |
 | `antigravity-find-complementary-founders` | Use when an owner explicitly asks for a cofounder or project partner, or explicitly says they need a... |
 | `antigravity-find-matching-tenders` | Find open AU/NZ government tenders matching what a company does, ranked by fit with why and gap anal... |
@@ -2807,6 +2809,10 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-new-relic` | Configure New Relic observability platform for infrastructure and application monitoring. |
 | `antigravity-newman-cicd-integration` | Generate ready-to-use CI/CD pipeline configurations that install and run Newman for automated API te... |
 | `antigravity-news-sentiment-engine` | Multi-source RSS news aggregation with Claude-powered sentiment analysis and structured briefing out... |
+| `antigravity-nexrad-mosaic-access` | Access official NOAA/NCEP MRMS radar and multisensor composites for a region and time; validate prod... |
+| `antigravity-nexrad-mosaic-construction` | Construct a quality-aware NEXRAD multi-radar mosaic from aligned single-site products with explicit ... |
+| `antigravity-nexrad-product-access` | Discover and access NEXRAD data for a selected radar site, time, product, or Level II moment using c... |
+| `antigravity-nexrad-radar-visualization` | Plot NEXRAD Level II/III site scans and decoded radar mosaics with correct radar geometry, map grids... |
 | `antigravity-nextjs-app-router-patterns` | Comprehensive patterns for Next.js 14+ App Router architecture, Server Components, and modern full-s... |
 | `antigravity-nextjs-best-practices` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
 | `antigravity-nextjs-seo-indexing` | Fix SEO indexing issues, crawl budget problems, and Search Console coverage errors for Next.js apps.... |
@@ -2814,6 +2820,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-nfs-storage` | Configure NFS servers and clients. Implement network file sharing for Linux systems. Use when settin... |
 | `antigravity-nft-standards` | Master ERC-721 and ERC-1155 NFT standards, metadata best practices, and advanced NFT features. |
 | `antigravity-nika` | Runs repeatable AI work as checked, budgeted workflow files. |
+| `antigravity-noaa-radar-satellite-fetching` | Retrieve NOAA NEXRAD and GOES products from public cloud archives using verified site, product, chan... |
 | `antigravity-nodejs-backend-patterns` | Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend app... |
 | `antigravity-nodejs-best-practices` | Node.js development principles and decision-making. Framework selection, async patterns, security, a... |
 | `antigravity-nosql-expert` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, que... |
@@ -3042,6 +3049,7 @@ structures, and modern OOP features. U... |
 | `antigravity-quality-nonconformance` | Codified expertise for quality control, non-conformance investigation, root cause analysis, correcti... |
 | `antigravity-quant-analyst` | Build financial models, backtest trading strategies, and analyze market data. Implements risk metric... |
 | `antigravity-quit-sponsor` | Helps an AI agent provide non-judgmental, evidence-informed quit-smoking support with user-consented... |
+| `antigravity-radar-satellite-analysis` | Interpret weather radar and satellite observations by validating product metadata and geometry, deri... |
 | `antigravity-radare2` | Drive the radare2 CLI for binary reconnaissance, disassembly, analysis, function locating, export, a... |
 | `antigravity-radio-sdr` | Authorized RF/SDR security research: signal identification, replay-feasibility study in shielded lab... |
 | `antigravity-radix-ui-design-system` | Build accessible design systems with Radix UI primitives. Headless component customization, theming ... |
@@ -3407,6 +3415,7 @@ calculations
 | `antigravity-test-fixing` | Systematically identify and fix all failing tests using smart grouping strategies. Use when explicit... |
 | `antigravity-test-framework-migration-skill` | Migrates and converts test automation scripts between Selenium, Playwright, Puppeteer, and Cypress. |
 | `antigravity-test-guard` | Review generated or changed test code against universal testing rules before it ships or is presente... |
+| `antigravity-testdriver-e2e-testing` | Build E2E tests with TestDriver.ai, the AI code reviewer that runs every pull request in a real desk... |
 | `antigravity-testing-patterns` | Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing uni... |
 | `antigravity-testing-qa` | Comprehensive testing and QA workflow covering unit testing, integration testing, E2E testing, brows... |
 | `antigravity-testng-skill` | Generates TestNG tests in Java with groups, data providers, parallel execution, XML suite configurat... |
@@ -3566,8 +3575,12 @@ calculations
 | `antigravity-warp-delegate` | Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user explicitly requests it, while ... |
 | `antigravity-warren-buffett` | Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, CEO da Berkshire Hathaway,... |
 | `antigravity-wcag-audit-patterns` | Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation ... |
+| `antigravity-weather-data-lifecycle-management` | Manage ownership, retention, and cleanup of downloaded weather data across one-shot jobs, interactiv... |
+| `antigravity-weather-data-reproducibility` | Record and verify provenance manifests for weather-data inputs and derived artifacts, including obje... |
 | `antigravity-weather-model-data-fetching` | Retrieve numerical weather prediction data from public AWS S3 and HTTP archives using GRIB2 inventor... |
+| `antigravity-weather-model-run-discovery` | Resolve the newest complete numerical weather prediction cycle and forecast objects across provider ... |
 | `antigravity-weather-observation-fetching` | Retrieve surface and upper-air weather observations from authoritative APIs and archives with statio... |
+| `antigravity-weather-pipeline-performance-diagnosis` | Diagnose slow weather-data workflows by measuring discovery, transfer, parsing, scientific processin... |
 | `antigravity-weaviate` | Search, query, inspect, create, and import data into Weaviate vector database collections using offi... |
 | `antigravity-weaviate-cookbooks` | Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, mul... |
 | `antigravity-web-artifacts-builder` | To build powerful frontend claude.ai artifacts, follow these steps: |
