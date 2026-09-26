@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-25 06:33 UTC*
+*Last updated: 2026-09-26 06:30 UTC*
 
-Total skills: **3584**
+Total skills: **3585**
 
 ## Skills by Source
 
@@ -2704,6 +2704,7 @@ splash language, makepad script, m... |
 | `antigravity-maxia` | Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP ... |
 | `antigravity-mcp-builder` | Create MCP (Model Context Protocol) servers that enable LLMs to interact with external services thro... |
 | `antigravity-mcp-builder-ms` | Use this skill when building MCP servers to integrate external APIs or services, whether in Python (... |
+| `antigravity-mcp-dependency-drift-audit` | Statically audit MCP configs for mutable npm/npx package references before approval or CI, without e... |
 | `antigravity-mcp-server-security` | Secure Model Context Protocol (MCP) servers with transport encryption, tool authorization, input val... |
 | `antigravity-mcp-tool-developer` | Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with T... |
 | `antigravity-md2video-audio` | Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narration. |

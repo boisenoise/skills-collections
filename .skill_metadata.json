@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-25T06:33:56.267444",
-  "skill_count": 3584,
+  "last_updated": "2026-09-26T06:30:33.683753",
+  "skill_count": 3585,
   "sources_processed": 19,
   "skills": [
     {
@@ -5663,6 +5663,14 @@
       "name": "antigravity-acceptance-orchestrator",
       "original_name": "acceptance-orchestrator",
       "description": "Use when a coding task should be driven end-to-end from issue intake through implementation, review, deployment, and acceptance verification with minimal human re-intervention.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-mcp-dependency-drift-audit",
+      "original_name": "mcp-dependency-drift-audit",
+      "description": "Statically audit MCP configs for mutable npm/npx package references before approval or CI, without executing discovered MCP servers.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
