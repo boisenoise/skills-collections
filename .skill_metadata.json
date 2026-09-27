@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-26T06:30:33.683753",
-  "skill_count": 3585,
+  "last_updated": "2026-09-27T06:32:24.731031",
+  "skill_count": 3592,
   "sources_processed": 19,
   "skills": [
     {
@@ -4855,6 +4855,14 @@
       "name": "antigravity-project-development",
       "original_name": "project-development",
       "description": "This skill covers the principles for identifying tasks suited to LLM processing, designing effective project architectures, and iterating rapidly using agent-assisted development.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-electron-drive-skill",
+      "original_name": "electron-drive-skill",
+      "description": "Launch the project's Electron app on a scratch profile and drive it: click, type, screenshot, run renderer or main-process code, read logs. Use to verify UI changes end to end.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13124,6 +13132,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-traderspy-position-check",
+      "original_name": "traderspy-position-check",
+      "description": "Health-check crypto futures positions the user describes, with TraderSpy data: liquidation and stop distance, multi-timeframe read, funding and top-trader side. Reports only; never tells the user to close or add.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-threat-modeling-expert",
       "original_name": "threat-modeling-expert",
       "description": "Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use PROACTIVELY for security architecture reviews, threat identification, or building secure-by-design systems.",
@@ -13271,6 +13287,14 @@
       "name": "antigravity-waf-setup",
       "original_name": "waf-setup",
       "description": "Deploy and tune Web Application Firewalls. Configure rules for OWASP Top 10 protection. Use when protecting web applications from common attacks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-traderspy-market-briefing",
+      "original_name": "traderspy-market-briefing",
+      "description": "Crypto market briefing from live TraderSpy data: majors, funding, open interest, top-trader lean, fresh AI signals and screener movers. Use for \"what's happening in crypto\" or a recap.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14511,6 +14535,14 @@
       "name": "antigravity-gcp-cloud-sql",
       "original_name": "gcp-cloud-sql",
       "description": "Provision Cloud SQL and Spanner databases. Configure high availability, backups, and security. Use when deploying managed databases on GCP.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-traderspy-market-screener",
+      "original_name": "traderspy-market-screener",
+      "description": "Scan the most-traded crypto futures pairs for up to 3 technical conditions in one TraderSpy call, compare coins, and backtest what followed a condition. Use for \"which coins are oversold\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16220,6 +16252,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-traderspy-smart-money",
+      "original_name": "traderspy-smart-money",
+      "description": "Track what top crypto futures traders hold on Binance, Hyperliquid, Bybit and OKX with TraderSpy: elite leaderboard, positions, trader profiles and history. Use for \"what are whales doing\".",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-vendor-management",
       "original_name": "vendor-management",
       "description": "Implement vendor risk management programs. Assess third-party security and maintain vendor inventory. Use when managing supplier security.",
@@ -17199,6 +17239,14 @@
       "name": "antigravity-stride-analysis-patterns",
       "original_name": "stride-analysis-patterns",
       "description": "Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, conducting threat modeling sessions, or creating security documentation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-traderspy-trading-signals",
+      "original_name": "traderspy-trading-signals",
+      "description": "Fetch and explain TraderSpy's AI crypto futures signals: entry, take-profit ladder, stop, triggers, status against the live price, and how recent signals resolved. Use for \"latest signals\".",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19388,6 +19436,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-traderspy-technical-analysis",
+      "original_name": "traderspy-technical-analysis",
+      "description": "Read one crypto futures pair with TraderSpy: 19 indicators on up to 3 timeframes in one call, key levels, funding, open interest and positioning. Use for \"analyse BTC\" or \"is SOL oversold\".",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-brevo-automation",
       "original_name": "brevo-automation",
       "description": "Automate Brevo (formerly Sendinblue) email marketing operations through Composio's Brevo toolkit via Rube MCP.",
@@ -19646,7 +19702,7 @@
     {
       "name": "antigravity-unified-ai-gateway",
       "original_name": "unified-ai-gateway",
-      "description": "Operate and evaluate Unified AI System through nine governed MCP tools, including provider-free prompt enhancement, while preserving fake-provider, authorization, and evidence boundaries.",
+      "description": "Operate and evaluate Unified AI System through fifteen governed MCP tools, including provider-free prompt enhancement, while preserving fake-provider, authorization, and evidence boundaries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"

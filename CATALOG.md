@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-26 06:30 UTC*
+*Last updated: 2026-09-27 06:32 UTC*
 
-Total skills: **3585**
+Total skills: **3592**
 
 ## Skills by Source
 
@@ -2074,6 +2074,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-efficient-web-research` | Protocol for token-efficient web research. Use when accessing URLs, GitHub repos, or running search ... |
 | `antigravity-ejentum-reasoning-harness` | MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each cal... |
 | `antigravity-electron-development` | Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-pr... |
+| `antigravity-electron-drive-skill` | Launch the project's Electron app on a scratch profile and drive it: click, type, screenshot, run re... |
 | `antigravity-elixir-pro` | Write idiomatic Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. Masters conc... |
 | `antigravity-elk-stack` | Deploy and manage the ELK Stack (Elasticsearch, Logstash, Kibana) for log aggregation and analysis. |
 | `antigravity-elon-musk` | Agente que simula Elon Musk com profundidade psicologica e comunicacional de alta fidelidade. Ativad... |
@@ -3452,6 +3453,12 @@ calculations
 | `antigravity-tools-page-seo-optimizer` | Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers d... |
 | `antigravity-top-web-vulnerabilities` | Provide a comprehensive, structured reference for the 100 most critical web application vulnerabilit... |
 | `antigravity-track-management` | Use this skill when creating, managing, or working with Conductor tracks - the logical work units fo... |
+| `antigravity-traderspy-market-briefing` | Crypto market briefing from live TraderSpy data: majors, funding, open interest, top-trader lean, fr... |
+| `antigravity-traderspy-market-screener` | Scan the most-traded crypto futures pairs for up to 3 technical conditions in one TraderSpy call, co... |
+| `antigravity-traderspy-position-check` | Health-check crypto futures positions the user describes, with TraderSpy data: liquidation and stop ... |
+| `antigravity-traderspy-smart-money` | Track what top crypto futures traders hold on Binance, Hyperliquid, Bybit and OKX with TraderSpy: el... |
+| `antigravity-traderspy-technical-analysis` | Read one crypto futures pair with TraderSpy: 19 indicators on up to 3 timeframes in one call, key le... |
+| `antigravity-traderspy-trading-signals` | Fetch and explain TraderSpy's AI crypto futures signals: entry, take-profit ladder, stop, triggers, ... |
 | `antigravity-trading-ledger` | A trading journal that captures the decision, not just the fill: thesis, plan, and emotion at the mo... |
 | `antigravity-train-sentence-transformers` | Train or fine-tune SentenceTransformer, CrossEncoder, and SparseEncoder models for retrieval, simila... |
 | `antigravity-transformers-js` | Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScrip... |
@@ -3491,7 +3498,7 @@ calculations
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
 | `antigravity-understand-project-yylo` | Inspect the current product architecture, dependencies, and validation loops before planning or impl... |
-| `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through nine governed MCP tools, including provider-free prom... |
+| `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through fifteen governed MCP tools, including provider-free p... |
 | `antigravity-uniprot-database` | Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL.... |
 | `antigravity-unit-testing-test-generate` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case ... |
 | `antigravity-unity-ai-game-creator` | Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene bluepr... |
