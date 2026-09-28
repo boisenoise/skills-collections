@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-27T06:32:24.731031",
-  "skill_count": 3592,
+  "last_updated": "2026-09-28T06:46:39.282626",
+  "skill_count": 3596,
   "sources_processed": 19,
   "skills": [
     {
@@ -2295,6 +2295,14 @@
       "name": "antigravity-advanced-evaluation",
       "original_name": "advanced-evaluation",
       "description": "This skill should be used when the user asks to \"implement LLM-as-judge\", \"compare model outputs\", \"create evaluation rubrics\", \"mitigate evaluation bias\", or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines, or automated quality assessment.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-nsfw-ai-spicyapi",
+      "original_name": "nsfw-ai-spicyapi",
+      "description": "Generate adult (18+) images, image-to-video clips and image edits through the SpicyAPI API, with a cost quote before every paid run and adults-only / consent rules.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15004,6 +15012,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-system-prompt-lookup",
+      "original_name": "system-prompt-lookup",
+      "description": "Checks what a shipped AI product's system prompt and tool schema actually say, by reading a dated archive of captured prompts instead of recalling them. Use before asserting or accepting any claim about an agent's instructions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "AGPL-3.0"
+    },
+    {
       "name": "antigravity-azure-security-keyvault-keys-java",
       "original_name": "azure-security-keyvault-keys-java",
       "description": "Azure Key Vault Keys Java SDK for cryptographic key management. Use when creating, managing, or using RSA/EC keys, performing encrypt/decrypt/sign/verify operations, or working with HSM-backed keys.",
@@ -16194,6 +16210,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-lintlang-audit",
+      "original_name": "lintlang-audit",
+      "description": "Audit named agent instructions, tool definitions, and supported Python prompts with local LintLang checks; return finding codes and locations without changing files.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-seo-geo",
@@ -20759,6 +20783,14 @@
       "name": "antigravity-anywrite",
       "original_name": "anywrite",
       "description": "Compiled CLI covering all 52 endpoints of the Anytype local API \u2014 objects, properties, tags, search, chat, files \u2014 one binary, no MCP server needed.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-serply-search-mcp",
+      "original_name": "serply-search-mcp",
+      "description": "Search Google, Bing, Google News and Google Scholar, and read public pages, with the Serply MCP server. Use when the user chooses Serply or its connected tools for current information and source verification.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-27 06:32 UTC*
+*Last updated: 2026-09-28 06:46 UTC*
 
-Total skills: **3592**
+Total skills: **3596**
 
 ## Skills by Source
 
@@ -2579,6 +2579,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-linkedin-profile-optimizer` | High-intent expert for LinkedIn profile checks and SEO optimization. Silently audits and rewrites pr... |
 | `antigravity-linkerd-patterns` | Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kube... |
 | `antigravity-lint-and-validate` | Run configured lint and type checks, distinguish failures from checks that did not run, and report c... |
+| `antigravity-lintlang-audit` | Audit named agent instructions, tool definitions, and supported Python prompts with local LintLang c... |
 | `antigravity-linux-administration` | System administration for Linux servers. Manage packages, services, and system configuration. Use wh... |
 | `antigravity-linux-hardening` | Apply CIS benchmarks and secure Linux servers. |
 | `antigravity-linux-privilege-escalation` | Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconf... |
@@ -2831,6 +2832,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-notebooklm` | Interact with Google NotebookLM to query documentation with Gemini's source-grounded answers. Each q... |
 | `antigravity-notion-automation` | Automate Notion tasks via Rube MCP (Composio): pages, databases, blocks, comments, users. Always sea... |
 | `antigravity-notion-template-business` | Expert in building and selling Notion templates as a business - not just making templates, but build... |
+| `antigravity-nsfw-ai-spicyapi` | Generate adult (18+) images, image-to-video clips and image edits through the SpicyAPI API, with a c... |
 | `antigravity-nutrition-analyzer` | 分析营养数据、识别营养模式、评估营养状况，并提供个性化营养建议。支持与运动、睡眠、慢性病数据的关联分析。 |
 | `antigravity-nx-workspace-patterns` | Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundarie... |
 | `antigravity-object-storage` | Configure object storage with S3, GCS, and MinIO. Implement lifecycle policies and access controls. ... |
@@ -3243,6 +3245,7 @@ Plans content calendars and ident... |
 | `antigravity-seo-structure-architect` | Analyzes and optimizes content structure including header hierarchy, suggests schema markup, and int... |
 | `antigravity-seo-technical` | Audit technical SEO across crawlability, indexability, security, URLs, mobile, Core Web Vitals, stru... |
 | `antigravity-sequence-psychologist` | One sentence - what this skill does and when to invoke it |
+| `antigravity-serply-search-mcp` | Search Google, Bing, Google News and Google Scholar, and read public pages, with the Serply MCP serv... |
 | `antigravity-server-management` | Server management principles and decision-making. Process management, monitoring strategy, and scali... |
 | `antigravity-service-mesh` | Implement Istio and Linkerd service meshes. Configure mTLS, traffic management, and observability. U... |
 | `antigravity-service-mesh-expert` | Expert service mesh architect specializing in Istio, Linkerd, and cloud-native networking patterns. ... |
@@ -3371,6 +3374,7 @@ calculations
 | `antigravity-swiftui-ui-patterns` | Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens. |
 | `antigravity-swiftui-view-refactor` | Refactor SwiftUI views into smaller components with stable, explicit data flow. |
 | `antigravity-sympy` | SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical... |
+| `antigravity-system-prompt-lookup` | Checks what a shipped AI product's system prompt and tool schema actually say, by reading a dated ar... |
 | `antigravity-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
 | `antigravity-systemd-services` | Create and manage systemd services and timers. Configure service dependencies and resource limits. U... |
 | `antigravity-systems-programming-rust-project` | You are a Rust project architecture expert specializing in scaffolding production-ready Rust applica... |
