@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-28 06:46 UTC*
+*Last updated: 2026-09-29 06:34 UTC*
 
-Total skills: **3596**
+Total skills: **3598**
 
 ## Skills by Source
 
@@ -2876,6 +2876,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-office-productivity` | Office productivity workflow covering document creation, spreadsheet automation, presentation genera... |
 | `antigravity-okta-attack` | Okta-as-IdP red-team attack chain |
 | `antigravity-ollama-stack` | Run local LLM workloads with Ollama, Open WebUI, and GPU-aware tuning for private development enviro... |
+| `antigravity-omentir-linkedin-outreach` | Run LinkedIn prospecting and outreach through the Omentir MCP server: find people, score fit, draft ... |
 | `antigravity-omp-delegate` | Delegate coding tasks to Oh My Pi (`omp`) only when the user explicitly requests it, while the orche... |
 | `antigravity-on-call-handoff-patterns` | Effective patterns for on-call shift transitions, ensuring continuity, context transfer, and reliabl... |
 | `antigravity-onboarding` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
@@ -3268,6 +3269,7 @@ Plans content calendars and ident... |
 | `antigravity-signup-flow-cro` | You are an expert in optimizing signup and registration flows. Your goal is to reduce friction, incr... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
 | `antigravity-simplify-code` | Review a diff for clarity and safe simplifications, then optionally apply low-risk fixes. |
+| `antigravity-since-cutoff` | Find which APIs of a project's pinned Python dependencies changed after the model's training cutoff,... |
 | `antigravity-site-architecture` | Plan or restructure website hierarchy, navigation, URL patterns, breadcrumbs, and internal linking. ... |
 | `antigravity-skill-audit` | Pre-install security scanner for AI agent skills. 7.5% of 14,706 skills are malicious. Audit before ... |
 | `antigravity-skill-check` | Validate Claude Code skills against the agentskills specification. Catches structural, semantic, and... |

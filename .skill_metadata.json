@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-09-28T06:46:39.282626",
-  "skill_count": 3596,
+  "last_updated": "2026-09-29T06:34:50.610791",
+  "skill_count": 3598,
   "sources_processed": 19,
   "skills": [
     {
@@ -5231,6 +5231,14 @@
       "name": "antigravity-code-review-excellence",
       "original_name": "code-review-excellence",
       "description": "Transform code reviews from gatekeeping to knowledge sharing through constructive feedback, systematic analysis, and collaborative improvement.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-since-cutoff",
+      "original_name": "since-cutoff",
+      "description": "Find which APIs of a project's pinned Python dependencies changed after the model's training cutoff, where the code uses them, and write short AGENTS.md or CLAUDE.md notes.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13175,6 +13183,14 @@
       "name": "antigravity-conductor-validator",
       "original_name": "conductor-validator",
       "description": "Validates Conductor project artifacts for completeness,\nconsistency, and correctness. Use after setup, when diagnosing issues, or\nbefore implementation to verify project context.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-omentir-linkedin-outreach",
+      "original_name": "omentir-linkedin-outreach",
+      "description": "Run LinkedIn prospecting and outreach through the Omentir MCP server: find people, score fit, draft messages, and check campaigns. Never signs into LinkedIn.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
