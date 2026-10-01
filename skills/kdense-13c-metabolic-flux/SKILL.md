@@ -4,7 +4,7 @@ description: Estimates intracellular metabolic fluxes from steady-state carbon-1
 license: MIT
 compatibility: Python 3.11 with uv and Git for installation. Tested with mfapy 0.6.3 at a10433af16682386548b360297e2476152d46ede, NumPy 2.4.6, SciPy 1.17.1, and NLopt 2.11.0. Network access is needed only to install public dependencies. Inference runs locally without credentials; inputs are JSON.
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-29"
 ---
@@ -103,6 +103,8 @@ syntax before they reach mfapy's internally generated numerical functions.
 5. **Inspect the evidence.** Check failed starts, residual patterns, mass balance,
    active bounds, local sensitivity rank, and profile status. Report threshold-crossing
    brackets at their actual grid resolution. Refine the grid if they are too coarse.
+   Each requested profile gives a one-flux interval under the stated error model;
+   multiple 95% profiles are not a simultaneous 95% region for the whole network.
    If a profile finds a better solution than the baseline, rerun the fit; do not publish
    the stale intervals. A failed profile point is unknown, not excluded by the data.
 6. **Deliver a bounded scientific result.** Include model and data hashes, package

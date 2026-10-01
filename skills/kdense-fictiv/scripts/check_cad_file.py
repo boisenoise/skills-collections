@@ -244,7 +244,7 @@ def main() -> int:
             for k, v in r["info"].items():
                 print(f"    {k}: {v}")
             for b in r["blocking"]:
-                print(f"    ✗ {b}")
+                print(f"    [FAIL] {b}")
             for w in r["warnings"]:
                 print(f"    ! {w}")
     return 1 if any(r["blocking"] for r in results) else 0

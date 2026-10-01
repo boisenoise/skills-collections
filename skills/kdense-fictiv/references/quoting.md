@@ -123,6 +123,12 @@ Click **Configure** in the row. This opens the part modal on the Configuration t
 - **Inspections:** Standard Inspection Report (included). **Advanced Inspection Report** (CMM, laser or optical) is added via "Add". It needs a bubbled drawing and adds about 3–5 business days.
 - **Certificates:** **Certificate of Conformity** (about $100) and **Material Certification**, each added via "Add".
 - FAI, custom inspection reports and hardware installation go through "Contact us" / chat with Fictiv.
+- Review the final configuration against the drawing, including material, finish,
+  threads and tolerances. Fictiv's [precedence rule](https://www.fictiv.com/help/placing-an-order/how-do-i-use-drawings-reconciliation)
+  uses the digital configuration when it conflicts with the PDF. Record intended
+  deviations and independently reconcile CAD geometry/revision with the drawing;
+  automatic reconciliation does not do that check. A revised drawing can change
+  the configuration, so repeat this review after revisions.
 - Then click **Save and close**.
 
 ### 5.6 Bulk configuration

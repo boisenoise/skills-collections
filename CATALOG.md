@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-09-30 06:35 UTC*
+*Last updated: 2026-10-01 06:35 UTC*
 
-Total skills: **3724**
+Total skills: **3746**
 
 ## Skills by Source
 
@@ -908,6 +908,8 @@ Total skills: **3724**
 | `kdense-biopython` | Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/... |
 | `kdense-bioservices` | Unified Python interface to 40+ bioinformatics services. Use when querying multiple databases (UniPr... |
 | `kdense-bulk-rnaseq` | End-to-end bulk RNA-seq orchestrator — takes raw FASTQ reads through QC and trimming (FastQC, fastp/... |
+| `kdense-cantera` | Runs Cantera homogeneous chemical reactors and evaluates ignition delay with mechanism provenance, c... |
+| `kdense-cellprofiler` | Runs reproducible CellProfiler microscopy pipelines for nuclear segmentation, cell counts, and per-o... |
 | `kdense-cellxgene-census` | Query the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcri... |
 | `kdense-cirq` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-a... |
 | `kdense-citation-management` | Comprehensive citation management for academic research. Search OpenAlex, PubMed, and Google Scholar... |
@@ -923,7 +925,7 @@ Total skills: **3724**
 | `kdense-deepspot-m` | Generate transcriptome-wide virtual spatial transcriptomics from H&E histology with DeepSpot-M. Use ... |
 | `kdense-deeptools` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profil... |
 | `kdense-depmap` | Query the Cancer Dependency Map (DepMap) for cancer cell line gene dependency scores (CRISPR Chronos... |
-| `kdense-dhdna-profiler` | Extract cognitive patterns and thinking fingerprints from any text. Use this skill when the user wan... |
+| `kdense-dhdna-profiler` | Applies the DHDNA framework as an exploratory rubric for reasoning and writing patterns in supplied ... |
 | `kdense-diffdock` | DiffDock and DiffDock-L molecular docking. Use for protein-small-molecule pose prediction from PDB o... |
 | `kdense-dnanexus-integration` | Build and operate reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/applets, n... |
 | `kdense-docx` | Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx fi... |
@@ -934,6 +936,7 @@ Total skills: **3724**
 | `kdense-exploratory-data-analysis` | Perform bounded, local exploratory analysis of explicitly supported scientific files. Use for redact... |
 | `kdense-fictiv` | Operate Fictiv (app.fictiv.com), the on-demand manufacturing platform, end to end in the user's brow... |
 | `kdense-flowio` | Read, inspect, and write Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for ... |
+| `kdense-flowkit` | Analyzes flow cytometry data with FlowKit, including spillover compensation, logicle and biexponenti... |
 | `kdense-fluidsim` | Plan, configure, inspect, restart, and analyze bounded FluidSim computational-fluid-dynamics simulat... |
 | `kdense-folklore-variant-evidence` | Retrieve ClinGen gene-disease validity assertions for a public gene or disease, and review source-li... |
 | `kdense-generate-image` | Generate or edit images with AI models through the OpenRouter Image API (Gemini, Seedream, Recraft, ... |
@@ -961,6 +964,8 @@ Total skills: **3724**
 | `kdense-latex-posters` | Create professional research posters in LaTeX using beamerposter, tikzposter, or baposter. Support f... |
 | `kdense-liteparse` | Local document and PDF parsing that returns spatial text with bounding boxes. Use for extracting tex... |
 | `kdense-literature-review` | Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXi... |
+| `kdense-mageck` | Analyzes pooled CRISPR screen FASTQ reads and guide-count matrices with MAGeCK, validates guide libr... |
+| `kdense-marine-carbonate-chemistry` | Solves seawater carbonate chemistry with PyCO2SYS for chemical oceanography, ocean acidification, an... |
 | `kdense-markdown-mermaid-writing` | Comprehensive markdown and Mermaid diagram writing skill. Use when creating any scientific document,... |
 | `kdense-market-research-reports` | Build evidence-traceable market research reports and assumption-driven market sizing or forecast sce... |
 | `kdense-markitdown` | Convert heterogeneous documents and selected URIs to Markdown with Microsoft MarkItDown for text ana... |
@@ -976,6 +981,8 @@ Total skills: **3724**
 | `kdense-neurokit2` | Use NeuroKit2 to build or audit reproducible research workflows for physiological time-series prepro... |
 | `kdense-neuropixels-analysis` | Analyze Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX... |
 | `kdense-nextflow` | Build, run, and debug Nextflow data pipelines and nf-core workflows end to end. Use whenever the use... |
+| `kdense-nmrglue` | Processes calibrated one-dimensional complex NMR free-induction decays with nmrglue into phased spec... |
+| `kdense-nwb-conversion` | Converts neuroscience acquisition data to Neurodata Without Borders files with NeuroConv and PyNWB, ... |
 | `kdense-omero-integration` | Securely inspect and automate microscopy data workflows against OMERO.server with omero-py, BlitzGat... |
 | `kdense-onekgpd` | Query the 1000 Genomes Project dataset (3,202 whole-genome-sequenced individuals, GRCh38) at the lev... |
 | `kdense-ontology-term-resolution` | Resolve free-text scientific labels to ontology term IDs and validate existing CURIEs against the EB... |
@@ -1002,8 +1009,11 @@ Total skills: **3724**
 | `kdense-pptx` | Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. Th... |
 | `kdense-pptx-posters` | Create and audit editable scientific posters in macro-free PowerPoint (.pptx) from author-approved l... |
 | `kdense-primekg` | Query the Precision Medicine Knowledge Graph (PrimeKG) for multiscale biological data including gene... |
+| `kdense-primer-design` | Designs and audits PCR and RT-qPCR primers with Primer3, explicit thermodynamic conditions, referenc... |
 | `kdense-protocolsio-integration` | Read, validate, and safely export protocols.io data with current official REST/MCP contracts, or cre... |
 | `kdense-pufferlib` | Version-aware guidance for PufferLib reinforcement-learning environments, vectorization, policies, P... |
+| `kdense-pybamm` | Simulates lithium-ion battery charge, discharge and rest experiments with PyBaMM, records parameter-... |
+| `kdense-pycalphad` | Computes finite-temperature CALPHAD equilibria, phase fractions, and phase compositions from thermod... |
 | `kdense-pydeseq2` | Differential gene expression analysis for bulk RNA-seq with PyDESeq2, including formulaic designs, W... |
 | `kdense-pydicom` | Use pydicom to read, inspect, write, transform, and safely preflight local DICOM datasets and pixel ... |
 | `kdense-pyhealth` | Build clinical/healthcare deep-learning pipelines with PyHealth — loading EHR/signal/imaging dataset... |
@@ -1016,9 +1026,11 @@ Total skills: **3724**
 | `kdense-pytdc` | Use Therapeutics Data Commons through the PyTDC Python package for registry discovery, approved data... |
 | `kdense-pytorch-lightning` | Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into Lightnin... |
 | `kdense-pyzotero` | Interact with Zotero reference management libraries using the pyzotero Python client. Retrieve, crea... |
+| `kdense-qiime2-amplicon` | Processes paired-end 16S amplicon reads into QIIME 2 ASVs and taxonomy with retained artifact proven... |
 | `kdense-qiskit` | Build, simulate, transpile, and execute quantum circuits with Qiskit and IBM Quantum Runtime. Use fo... |
 | `kdense-qutip` | Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic, traj... |
 | `kdense-rdkit` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, Log... |
+| `kdense-relion` | Validates and executes RELION single-particle cryo-EM refinement and half-map postprocessing. Suppor... |
 | `kdense-relsa-severity-assessment` | Multivariate severity assessment and humane endpoint prediction for laboratory animal studies using ... |
 | `kdense-research-grants` | Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific form... |
 | `kdense-research-lookup` | Compile current scholarly evidence for a scientific manuscript or research brief. Use when the user ... |
@@ -1045,6 +1057,7 @@ Total skills: **3724**
 | `kdense-statsmodels` | Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed mod... |
 | `kdense-sympy` | Use when you need exact symbolic math in Python — algebra, calculus, equation solving, symbolic line... |
 | `kdense-tamarind` | Access a collection of open-source molecular design and structural biology tools on the Tamarind Bio... |
+| `kdense-tellurium` | Simulates biochemical kinetic models from SBML or Antimony with Tellurium and libRoadRunner, checks ... |
 | `kdense-tiledbvcf` | Efficient storage and retrieval of genomic variant data using TileDB. Scalable VCF/BCF ingestion, in... |
 | `kdense-timesfm-forecasting` | Zero-shot time series forecasting with Google's TimesFM foundation model. Use for any univariate tim... |
 | `kdense-torch-geometric` | PyTorch Geometric (PyG) for graph neural networks — node/link/graph classification, message passing ... |
@@ -1193,6 +1206,7 @@ Total skills: **3724**
 | `context-eng-multi-agent-patterns` | This skill should be used when designing multi-agent systems that need context isolation, supervisor... |
 | `context-eng-project-development` | This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is t... |
 | `context-eng-self-improvement-loops` | This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimizat... |
+| `context-eng-self-managed-context` | This skill should be used when a model gets read-write control over its own live context window inst... |
 | `context-eng-tool-design` | This skill should be used for the tool-interface layer of an agent system specifically: writing tool... |
 
 ### obra/superpowers
@@ -2008,6 +2022,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-debugging-toolkit-smart-debug` | Use when working with debugging toolkit smart debug |
 | `antigravity-decision-navigator` | Guide stuck or overwhelmed users through targeted branching questions until they reach concrete next... |
 | `antigravity-deep-research` | Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive... |
+| `antigravity-deep-research-framework` | Framework for deep research reports: define the question and tier sources first, cross-verify, then ... |
 | `antigravity-deepapi` | Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and appr... |
 | `antigravity-defi-protocol-templates` | Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending ... |
 | `antigravity-defuddle` | Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to... |
@@ -2227,6 +2242,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-firmware-analyst` | Expert firmware analyst specializing in embedded systems, IoT security, and hardware reverse enginee... |
 | `antigravity-firmware-pentest` | Firmware penetration testing following the OWASP FSTM nine-stage flow: extraction, EMBA automation, ... |
 | `antigravity-fitness-analyzer` | 分析运动数据、识别运动模式、评估健身进展，并提供个性化训练建议。支持与慢性病数据的关联分析。 |
+| `antigravity-five-axis-code-review` | Five-axis code review checklist (correctness, security, readability, performance, test coverage) pro... |
 | `antigravity-fix-review` | Verify fix commits address audit findings without new bugs |
 | `antigravity-fixing-accessibility` | Audit and fix HTML accessibility issues including ARIA labels, keyboard navigation, focus management... |
 | `antigravity-fixing-metadata` | Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tag... |
@@ -2324,6 +2340,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-gha-security-review` | Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete ... |
 | `antigravity-ghidra-reverse` | Free/open reverse engineering with Ghidra (headless or GUI): decompilation, cross-references, script... |
 | `antigravity-git-advanced-workflows` | Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from ... |
+| `antigravity-git-commit-message` | Generates conventional-commit messages from staged changes: type prefix + English imperative subject... |
 | `antigravity-git-hooks-automation` | Master Git hooks setup with Husky, lint-staged, pre-commit framework, and commitlint. Automate code ... |
 | `antigravity-git-pr-review` | Generate a concise and structured PR description from commit history with minimal token usage |
 | `antigravity-git-pr-workflows-git-workflow` | Orchestrate review, tests, commits, branch pushes, and pull-request creation with parallel agents. U... |
@@ -2516,6 +2533,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-idea-evaluator` | Evaluates an idea by hosting a multi-turn debate between a Pro and Con agent, delivering a final ver... |
 | `antigravity-idea-os` | Five-phase pipeline (triage → clarify → research → PRD → plan) that turns a raw idea into four linke... |
 | `antigravity-idea-refine` | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinki... |
+| `antigravity-idea-to-blueprint` | Turn a raw product, app, bot or feature idea into one evidence-backed build blueprint (researched st... |
 | `antigravity-identity-access-management` | Set up and manage SSO, SCIM provisioning, and MFA for startup teams using Google Workspace, Okta, or... |
 | `antigravity-identity-federation` | Authorized assessment of federated identity systems: SAML, OIDC, OAuth2 flows, SSO misconfiguration,... |
 | `antigravity-identity-mirror` | One sentence - what this skill does and when to invoke it |
@@ -2783,6 +2801,7 @@ splash language, makepad script, m... |
 | `antigravity-mdm-device-management` | Manage and secure company devices with MDM solutions |
 | `antigravity-mdpr-skill` | Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic re... |
 | `antigravity-meeting-distiller-pro` | Transform messy meeting notes and transcripts into structured action items, decisions, and follow-up... |
+| `antigravity-meeting-notes` | Turns raw meeting notes into structured minutes: conclusion first, then decisions / action items / o... |
 | `antigravity-meme-coin-audit` | Meme coin and token security audit |
 | `antigravity-memory-forensics` | Comprehensive techniques for acquiring, analyzing, and extracting artifacts from memory dumps for in... |
 | `antigravity-memory-safety-patterns` | Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and r... |
@@ -3209,7 +3228,9 @@ structures, and modern OOP features. U... |
 | `antigravity-remotion-interactivity` | Structure Remotion markup for interactivity |
 | `antigravity-remotion-render` | Export a Remotion video |
 | `antigravity-render-automation` | Automate Render tasks via Rube MCP (Composio): services, deployments, projects. Always search tools ... |
+| `antigravity-repo-foundation` | Implement features, fixes, modules, contract migrations, and resumed work while preserving user edit... |
 | `antigravity-repo-maintainer` | Audit and repair repository hygiene across artifacts, dependencies, CI, docs, Git state, and code-qu... |
+| `antigravity-repo-native-refactor` | Review diffs without editing, or perform evidence-based cleanup while preserving authorized behavior... |
 | `antigravity-report-writing` | Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi |
 | `antigravity-reports-analytics` | Report register: type, source modules, owner, audience, frequency, last and next run and report link... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
@@ -3520,6 +3541,7 @@ calculations
 | `antigravity-team-collaboration-issue` | You are a GitHub issue resolution expert specializing in systematic bug investigation, feature imple... |
 | `antigravity-team-collaboration-standup-notes` | You are an expert team communication specialist focused on async-first standup practices, AI-assiste... |
 | `antigravity-team-composition-analysis` | Design optimal team structures, hiring plans, compensation strategies, and equity allocation for ear... |
+| `antigravity-tech-writing-proofread` | Proofreads English technical writing for typos, grammar, punctuation, terminology consistency, jargo... |
 | `antigravity-technical-change-tracker` | Track code changes with structured JSON records, state machine enforcement, and AI session handoff f... |
 | `antigravity-technical-tutorials` | When the user wants to create step-by-step technical tutorials, quickstarts, or code walkthroughs. T... |
 | `antigravity-telegram` | Integracao completa com Telegram Bot API. Setup com BotFather, mensagens, webhooks, inline keyboards... |

@@ -36,17 +36,22 @@ against the plotted tracks:
 
 | \|raw\| | Reading |
 | --- | --- |
-| < 0.1 | no meaningful effect, whatever the quantile says |
+| < 0.1 | small on this scale; inspect tracks and biological context before interpreting |
 | 0.1 to 0.5 | weak; report as a possible subtle change |
 | 0.5 to 1.0 | moderate (about 1.4x to 2x for RNA-seq) |
 | > 1.0 | strong (more than 2x for RNA-seq); -4 is a 16-fold reduction |
 
 Raw scores are not percentages. Quote them with the scorer name and track.
+These RNA-seq heuristics do not apply to every scorer: splicing probabilities,
+contact-map differences, and activity scores have different units and scales.
+Quantiles are ranks, not significance tests or evidence of benignity.
+See the [official scoring definitions](https://www.alphagenomedocs.com/variant_scoring.html).
 
 **The common trap: high quantile, tiny raw score.** In low-expression genes and
 quiet regions the background distribution is so narrow that a raw change of
-0.05 ranks above 0.99. Report "no significant predicted effect" and name the
-artefact. Conversely a raw -1.5 with quantile 0.9 in a highly variable track is
+0.05 ranks above 0.99. Report a small predicted change in the named track and
+inspect the baseline signal; this does not establish a statistically nonsignificant
+or biologically absent effect. Conversely a raw -1.5 with quantile 0.9 in a highly variable track is
 still a large predicted effect worth mentioning.
 
 Unsigned scorers (`POLYADENYLATION`, `SPLICE_*`, `CONTACT_MAPS`, all
@@ -83,8 +88,8 @@ Practical pattern:
 
 ## Negative results
 
-Most variants are benign and the model will say so. "AlphaGenome predicts no
-molecular effect in the 305 DNase and 371 RNA-seq tracks" is a complete,
+A flat prediction does not establish that a variant is benign. "AlphaGenome predicts no
+appreciable change in the queried DNase and RNA-seq tracks" is a complete,
 valuable answer. Do not invent a cryptic splice site or an enhancer disruption
 that the tracks do not show; do not infer disruption from location in a peak
 when REF and ALT tracks are identical.

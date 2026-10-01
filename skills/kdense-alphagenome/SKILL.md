@@ -5,7 +5,7 @@ license: MIT
 compatibility: "Python 3.10+ with the alphagenome package (0.9.0 or later for the Atlas client; brings numpy, pandas, anndata, grpcio). Network access to gdmscience.googleapis.com:443 and a free non-commercial AlphaGenome API key in ALPHAGENOME_API_KEY (ALPHA_GENOME_API_KEY also read). Human data is GRCh38 only; mouse is mm10 (model only)."
 allowed-tools: Read Write Edit Bash
 metadata:
-  version: "1.0"
+  version: "1.1"
   skill-author: K-Dense Inc.
   upstream-version: "alphagenome 0.9.0"
   last-reviewed: "2026-09-13"
@@ -213,7 +213,9 @@ Always report raw score **and** quantile or Phred, with the scorer, track,
 biosample CURIE, and gene. `raw_score` is the effect size on the scorer's scale
 (RNA_SEQ is log2 fold change: -1 is half); `quantile_score` is the rank against
 common variants and saturates near 0.99999. A quantile above 0.99 with |raw| <
-0.1 is the standard artefact of a quiet region and means **no effect**. Unsigned
+0.1 can reflect a narrow background in a quiet region; inspect REF/ALT tracks and
+report the small predicted change without declaring biological absence of effect.
+Raw-score thresholds are scorer-specific; quantiles are ranks, not p-values. Unsigned
 scorers (`SPLICE_*`, `POLYADENYLATION`, `CONTACT_MAPS`, `*_ACTIVE`) have no
 direction. Most variants are benign; "AlphaGenome predicts no molecular effect"
 is a complete answer, and a variant inside a peak whose REF and ALT tracks are
