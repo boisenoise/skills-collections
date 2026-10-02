@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-10-01 06:35 UTC*
+*Last updated: 2026-10-02 06:34 UTC*
 
 ## Source Repositories
 
@@ -154,7 +154,6 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | Not declared | 1 |
 | PolyForm-Noncommercial-1.0.0 | 1 |
 | Proprietary (API key required) | 1 |
-| Proprietary. LICENSE.txt has complete terms | 4 |
 | SD-3-Clause license | 1 |
 | This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data. | 1 |
 | Unknown | 6 |
