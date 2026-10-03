@@ -1,6 +1,8 @@
 # Attribution Models — The Math, Worked
 
-Six standard models, one journey scored six ways, and data-driven attribution explained without the black box. Use this when the user wants to understand *why* two models disagree, or needs to pick one defensibly.
+Six rule-based credit rules on one journey, plus data-driven attribution explained without the black box. Use this when the user wants to understand *why* two models disagree, or needs to pick one defensibly.
+
+**Availability:** Google Ads and GA4 no longer offer first-click, linear, time-decay, or position-based as reporting models (retired 2023). Use this file for *concepts* and for scoring journeys on your own data (CRM, warehouse, first-party path). In Google UIs today: data-driven and last-click only.
 
 ## The worked journey
 
@@ -16,9 +18,9 @@ A single B2B buyer's path to a $12,000 annual deal, five touches over 38 days:
 
 The whole point: **the touch that gets credit depends entirely on the model, and each model tells a different story about where your $12k came from.**
 
-## The six models, applied
+## The six rule-based models, applied
 
-Credit for the $12,000 deal under each model:
+Credit for the $12,000 deal under each rule (last non-direct is a last-touch variant that skips Direct):
 
 | Touch | Channel | First-touch | Last-touch | Last non-direct | Linear | Time-decay | Position (U) |
 |---|---|---|---|---|---|---|---|
@@ -54,7 +56,7 @@ The plain-English version:
 So if journeys with a retargeting touch convert meaningfully more often than identical journeys without it, retargeting earns real credit. If adding a channel changes nothing, it earns ~zero — even if it appears on every path.
 
 **When it's worth it:**
-- You have **volume** — the counterfactuals need enough conversions to be stable. (Google Ads historically gated data-driven attribution behind ~3,000 ad interactions and ~300 conversions in 30 days; it has since relaxed the hard minimums and made data-driven the default model, but the underlying reality is unchanged: below real volume, DDA is noise dressed as science.) Use position-based instead when you're thin.
+- You have **volume** — the counterfactuals need enough conversions to be stable. Google Ads historically gated DDA behind ~3,000 ad interactions and ~300 conversions in 30 days; hard gates are gone and DDA is the default, but Google still recommends ~**200 conversions and ~2,000 ad interactions** in 30 days for quality. Below that, DDA often looks a lot like last-click. On Google/GA4 when thin: use last-click (or accept noisy DDA). On your own data: prefer position-based or first+last side by side.
 - Your journeys are **mostly digital and tracked** — Shapley can only weigh touches it was fed. Offline events, dark social, and cookie-lost touches are invisible to it, so a high-word-of-mouth B2B motion will get a confidently-wrong DDA. Pair it with self-reported (SKILL.md §4).
 
 **Its honest limitations:**
@@ -65,7 +67,7 @@ So if journeys with a retargeting touch convert meaningfully more often than ide
 ## Choosing — a short decision guide
 
 - **Short cycle, few touches, small volume** → last non-direct, plus a self-reported survey. Don't over-model.
-- **Long B2B cycle, clear created/closed moments** → position-based as the primary, first-touch + last-touch shown alongside.
+- **Long B2B cycle, clear created/closed moments** → position-based as the primary *on your own path data*, first-touch + last-touch shown alongside. (Not a Google Ads model picker option.)
 - **High volume, mostly-digital, need day-to-day allocation** → data-driven, validated periodically by incrementality.
 - **Offline + brand-heavy, real budget** → don't rely on any user-level model; go MMM + incrementality (see `measurement-paradigms.md`).
 

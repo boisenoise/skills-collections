@@ -20,7 +20,7 @@ The core reframe: don't ask the agent to *replace* the strategist. Offload the *
 - You want personas grounded in real reviews, not assumptions — and the "who our ads *seem* to target vs. who actually buys" gap.
 - You're standing up a recurring competitive/creative report that should run itself and land in Slack.
 
-This is the *paid-social creative research* cut. For structured competitor dossiers from a URL list, hand off to [competitor-profiling](../../competitor-profiling/SKILL.md). For deep voice-of-customer analysis and JTBD, hand off to [customer-research](../../customer-research/SKILL.md). Persona output feeds [positioning](../../positioning/SKILL.md).
+This is the *paid-social creative research* cut. For structured competitor dossiers from a URL list, hand off to [competitor-profiling](../../competitor-profiling/SKILL.md). For deep voice-of-customer analysis and JTBD, hand off to [customer-research](../../customer-research/SKILL.md). Persona output feeds [product-marketing](../../product-marketing/SKILL.md).
 
 ## Prerequisites (connectors, exact links)
 
@@ -99,5 +99,5 @@ Run it against your competitors, your *clients'* competitors, or brands you admi
 ## Where the outputs go
 
 - **Ad-library + format/partnership findings →** the concept slate and hook briefs in [ad-creative](../../ad-creative/SKILL.md).
-- **Personas doc →** shared context for [customer-research](../../customer-research/SKILL.md), [copywriting](../../copywriting/SKILL.md), and [positioning](../../positioning/SKILL.md).
+- **Personas doc →** shared context for [customer-research](../../customer-research/SKILL.md), [copywriting](../../copywriting/SKILL.md), and [product-marketing](../../product-marketing/SKILL.md).
 - **Organic teardown shortlist →** a full dossier in [competitor-profiling](../../competitor-profiling/SKILL.md).

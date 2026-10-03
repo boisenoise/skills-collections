@@ -21,7 +21,9 @@ Attribution *models* (see `attribution-models.md`) split credit *within* your tr
 
 **Where it shines:** day-to-day, tactical decisions. "Is this campaign showing up on converting journeys?" Fast, granular, cheap if your tracking exists.
 
-**Why it's structurally weakening:** MTA depends on tracking one person across touches and devices, and that data keeps eroding — Safari/Firefox ITP-style cookie limits, iOS ATT, browser consent gating, ad blockers, and ordinary cross-device behavior (research on mobile, buy on desktop). (Chrome's third-party-cookie deprecation was announced, then walked back, so "cookies are going away" is no longer the clean story — but everything else on that list already limits user-level tracking today.) MTA doesn't announce the gap: it silently under-measures anything it can't follow (dumping it into direct) and over-measures what it *can* see. So treat MTA as **incomplete and directionally biased** — not a clean lower bound (its retargeting/branded numbers are often *over*-stated) — and never the sole basis for a big reallocation.
+**Why it's structurally weakening:** MTA depends on tracking one person across touches and devices, and that data keeps eroding — Safari/Firefox ITP-style cookie limits, iOS ATT, browser consent gating, ad blockers, and ordinary cross-device / in-app-browser behavior (research on mobile, buy on desktop). (Chrome's third-party-cookie deprecation was announced, then walked back, so "cookies are going away" is no longer the clean story — but everything else on that list already limits user-level tracking today.)
+
+Click-based paths add a second bias: **impression channels (social, video, display) often never enter the journey** — a view with no click leaves no stitchable touch — so MTA systematically **over-weights demand-capture** (search, email, direct) and **under-weights demand-creation**. MTA doesn't announce the gap: it silently under-measures anything it can't follow (dumping it into direct) and over-measures what it *can* see. Treat MTA as **incomplete and directionally biased** — not a clean lower bound (its retargeting/branded numbers are often *over*-stated) — and never the sole basis for a big reallocation.
 
 **Use it for:** ongoing optimization and trend-watching — never as the sole basis for a big budget reallocation.
 
@@ -48,7 +50,7 @@ Attribution *models* (see `attribution-models.md`) split credit *within* your tr
 **Common designs:**
 - **Geo holdout / geo-lift** — run the channel in some regions, hold it out of comparable ones; compare outcomes. The workhorse for channels you can't split at the user level. *(Meta's GeoLift, Google's geo experiments.)*
 - **PSA tests** — the control group is shown a *public-service ad* in your ad's place, so both groups are equally targeted and "ad-exposed"; the only difference is whether they saw *your* ad. Isolates ad effect from audience-quality bias (the exposed group isn't just "people the algorithm judged likely to convert").
-- **Ghost ads** — the control group is *held out of the auction* but the platform logs the ad that *would* have served them (no placeholder is shown); you compare converters among the would-have-been-exposed vs. actually-exposed. Cleaner and cheaper than PSAs (no wasted PSA spend), and the modern default where the platform supports it.
+- **Ghost ads** — the platform runs the auction but **withholds your ad** from the control group and logs the impression that *would* have served; the control user may see another advertiser's ad (or organic inventory) instead of a PSA placeholder. You compare converters among would-have-been-exposed vs. actually-exposed. Cleaner and cheaper than PSAs (no wasted PSA spend), and the modern default where the platform supports it. (Distinct from crude intent-to-treat, which withholds without logging the would-have-served set.)
 - **Intent-to-treat / on-off (pulse) tests** — turn a channel fully off for a defined window, watch what happens to total conversions. Crude but revealing, especially for "is branded search paid cannibalizing organic?"
 - **Holdout audiences** — withhold a random % from a retargeting or email program; the delta is the program's true lift.
 
@@ -68,7 +70,16 @@ You don't need to compute significance by hand, but you must read a result hones
 They're layers, not competitors:
 
 - **MTA** for daily/weekly tactical optimization and trend-watching — cheap, granular, directional.
-- **MMM** for quarterly/annual portfolio allocation across the full mix including offline — durable, holistic.
+- **MMM** for quarterly/annual portfolio allocation across the full mix including offline — durable, holistic. Prefer **marginal ROI / saturation curves** over average platform ROAS when allocating the next dollar.
 - **Incrementality** as the **calibration and tiebreaker** — the ground-truth that keeps MTA and MMM honest, run on your biggest bets.
+
+### Triangulated overrides (making MTA "closer to reality")
+
+When incrementality, surveys, and platform gaps all say the same channel is under-credited in click-MTA, **don't invent a platform-gap multiplier**. Document a rule:
+
+1. **Channel-level override (reporting layer):** after MTA runs, shift a bounded share of conversions from Direct / branded search into the under-credited channel for the window you have evidence for (holdout dates, campaign flight). Keep the raw MTA table intact; decision dashboards read the adjusted table. Fast to ship; channel-level only.
+2. **User-level insertion (advanced):** before MTA runs, add synthetic touchpoints (e.g. "YouTube impression") onto a subset of Direct journeys where survey match, geo-test membership, or platform exposure logs justify it — then re-score. Needs engineering; unlocks creative/audience granularity.
+
+Start with one channel, one override, temporal bounds, and a conservative slice of measured lift (not 100% of a noisy point estimate). Expand only after stakeholders trust the first rule.
 
 **Scale to the user:** most SMBs need good UTMs + last-non-direct + a self-reported survey + the occasional on/off test — not an MMM. Bring MMM in when offline/brand spend is material and MTA visibly can't see it. Bring in formal incrementality when a single channel's budget is big enough that being wrong about it is expensive. Match the rigor to the size of the decision.

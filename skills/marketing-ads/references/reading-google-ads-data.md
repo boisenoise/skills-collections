@@ -4,7 +4,7 @@ Load this before analyzing, auditing, or reporting on a Google Ads account, or b
 
 Google Ads reports are partial by design and plausible by accident. Default views omit data without saying so, resource names suggest contents they don't have, and small accounts produce numbers that look like findings. Most wrong conclusions come from not knowing that, not from bad reasoning.
 
-Query patterns and API gotchas live in [google-ads.md](../../../tools/integrations/google-ads.md).
+Query patterns and API gotchas live in [google-ads.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/google-ads.md).
 
 ## What the data hides
 

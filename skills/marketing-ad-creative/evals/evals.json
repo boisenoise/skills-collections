@@ -89,7 +89,7 @@
     {
       "id": 7,
       "prompt": "I want to make one of those iMessage-style video ads for Meta — the ones where a fake text conversation reveals the product and a promo code. We sell a sleep tracking ring. Our promo code is RESTED.",
-      "expected_output": "Should load references/imessage-video-ads.md. Should start by picking a concept angle from the six-angle catalog (result-as-screenshot, setup flex, cancellation moment, feature-as-punchline, friend-asks-friend inverse, receipt-as-hook) before writing bubbles — likely result-as-screenshot (a sleep score) for this product. Should draft an 8-14 bubble script in real texting voice where the brand appears only after the peer asks, with the RESTED code delivered conversationally inside a bubble and repeated on a static end card. Should apply grounding rules: any sleep-improvement claim in the thread must trace to a real customer result or product fact, and the thread must not be framed as a real testimonial. Should present production route options (off-the-shelf skill, Playwright+ffmpeg pipeline, or Remotion) rather than assuming one, and mention key craft rules (the recognizable send/receive SFX, silent typing indicators, 9:16 1080x1920).",
+      "expected_output": "Should load references/imessage-video-ads.md. Should start by picking a concept angle from the six-angle catalog (result-as-screenshot, setup flex, cancellation moment, feature-as-punchline, friend-asks-friend inverse, receipt-as-hook) before writing bubbles — likely result-as-screenshot (a sleep score) for this product. Should draft an 8-14 bubble script in real texting voice where the brand appears only after the peer asks, with the RESTED code delivered conversationally inside a bubble and repeated on a static end card. Should apply grounding rules: any sleep-improvement claim in the thread must trace to a real customer result or product fact, and the thread must not be framed as a real testimonial. Should present production route options (a code-based Playwright+ffmpeg pipeline, or Remotion) rather than assuming one, and mention key craft rules (the recognizable send/receive SFX, silent typing indicators, 9:16 1080x1920).",
       "assertions": [
         "Loads or applies the imessage-video-ads reference",
         "Selects a concept angle before writing the script",
@@ -212,6 +212,19 @@
         "References the founder shooting/edit system (three-capture close/medium/wide and/or the 0.5–1s cut formula) and/or framing the mix as a portfolio across tiers"
       ],
       "files": []
+    },
+    {
+      "prompt": "Give me 10 Meta ad primary-text variations for our no-code website builder. It needs no developer, no hosting setup, and no credit card to start.",
+      "expected_output": "Should write 10 variations that avoid AI tells even though the brief is a list of absences. Should not stack negations ('No developer. No hosting. No card.') in any variation; may state one absence plainly. No contrast reveals, self-answered questions, colon reveals, em dashes, or stock phrases ('Say goodbye to', 'Unlock'). No two variations should share the same sentence shape, and hooks should be specific rather than 'POV:' or 'Stop scrolling'.",
+      "assertions": [
+        "No variation stacks three negations",
+        "No contrast reveals or self-answered questions",
+        "No em dashes",
+        "Variations don't repeat the same sentence shape",
+        "No 'POV:' / 'Stop scrolling' / stock-phrase hooks"
+      ],
+      "files": [],
+      "id": 16
     }
   ]
 }

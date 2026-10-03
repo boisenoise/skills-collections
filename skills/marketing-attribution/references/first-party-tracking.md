@@ -232,7 +232,7 @@ A channel breakdown living in your analytics tool is a *report*. The thing sales
 | Anonymous id | `distinct_id` / `$device_id` | Segment `anonymousId`, Amplitude `deviceId`, GA4 client_id |
 | Merge call | `$identify` + `$anon_distinct_id` | Segment `identify` (known `userId`, same `anonymousId`) + `alias` where needed; Amplitude `setUserId` on the session that still holds the anonymous `deviceId` (the stitch is deviceId↔userId — Amplitude's Identify API only sets user *properties*, it does not merge); GA4 `user_id` on the same `client_id` |
 | Ingestion | `/batch/` | Segment HTTP API, Amplitude HTTP v2, GA4 Measurement Protocol |
-| Third-party passthrough | SavvyCal `metadata[...]` | Calendly UTM/`salesforce_uuid`, Cal.com metadata, Stripe `client_reference_id`/metadata |
+| Third-party passthrough | SavvyCal `metadata[...]` | **Calendly:** only standard UTMs (`utm_source`/`medium`/`campaign`/`content`/`term`) plus `salesforce_uuid` — map the anon id into a supported UTM (e.g. `utm_term`), not a free-form `metadata[]` param. Cal.com metadata; Stripe `client_reference_id`/metadata |
 | First-touch props | `$initial_*` | Segment/Amplitude first-touch, GA4 first_user_* dimensions |
 
 The shape never changes: **grab the anonymous id → carry it across the boundary → merge on the far side → break the conversion down by first-touch.**

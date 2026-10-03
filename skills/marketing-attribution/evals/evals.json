@@ -19,12 +19,12 @@
     {
       "id": 2,
       "prompt": "Should we use first-touch or last-touch attribution? We're a B2B SaaS with a sales cycle that runs about two months and multiple people involved in each deal.",
-      "expected_output": "Should refuse to pick one in isolation and recommend showing first-touch and last-touch side by side, because the gap between them is the insight for a long cycle. Should explain what each model over/under-credits (first-touch ignores what closed; last-touch over-credits branded search/direct and defunds top of funnel). Should recommend position-based as a defensible primary for B2B (credits created + closed bookends), and lean on self-reported attribution at demo/signup given offline touches. Should point to CRM/pipeline as source of truth (revops) and note data-driven attribution needs volume this business likely lacks. May reference references/attribution-models.md and references/by-business-type.md.",
+      "expected_output": "Should refuse to pick one in isolation and recommend showing first-touch and last-touch side by side, because the gap between them is the insight for a long cycle. Should explain what each model over/under-credits (first-touch ignores what closed; last-touch over-credits branded search/direct and defunds top of funnel). Should recommend position-based as a defensible primary for B2B on the team's own path/CRM data (credits created + closed bookends) — not as a Google Ads/GA4 dropdown option (those UIs retired rule-based models). Should lean on self-reported attribution at demo/signup given offline touches. Should point to CRM/pipeline as source of truth (revops) and note data-driven attribution needs volume this business likely lacks. May reference references/attribution-models.md and references/by-business-type.md.",
       "assertions": [
         "Does not recommend a single model in isolation",
         "Recommends showing first-touch and last-touch together",
         "Explains what first-touch and last-touch each distort",
-        "Recommends position-based as a strong B2B primary",
+        "Recommends position-based as a strong B2B primary on own/CRM data (not as a Google UI model)",
         "Emphasizes self-reported attribution for long/offline B2B cycles",
         "References pipeline/CRM as the revenue source of truth (revops boundary)"
       ],
