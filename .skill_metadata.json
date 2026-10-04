@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-03T06:33:18.278237",
-  "skill_count": 3767,
+  "last_updated": "2026-10-04T08:11:17.604899",
+  "skill_count": 3772,
   "sources_processed": 19,
   "skills": [
     {
@@ -4188,6 +4188,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cloudish",
+      "original_name": "cloudish",
+      "description": "Deploy a Dockerfile, source folder, or existing image to Cloudish as a running container at a live URL, built server-side with no local Docker, with confirmation before spending credits.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-monitor-query-java",
       "original_name": "azure-monitor-query-java",
       "description": "Azure Monitor Query SDK for Java. Execute Kusto queries against Log Analytics workspaces and query metrics from Azure resources.",
@@ -7708,6 +7716,14 @@
       "license": "AGPL-3.0"
     },
     {
+      "name": "antigravity-etsy-shop-sales-history",
+      "original_name": "etsy-shop-sales-history",
+      "description": "Read Etsy shop sales counters, deltas, and breakout flags from Apify Actor publicrecords/etsy-shop-velocity (MCP panel snapshot). Needs an Apify token; Actor run is billed.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-debugging-toolkit",
       "original_name": "debugging-toolkit",
       "description": "Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug)",
@@ -10236,6 +10252,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-etsy-search-listings",
+      "original_name": "etsy-search-listings",
+      "description": "Fetch live Etsy search listing rows for a keyword, market phrase, or category via Apify Actor publicrecords/etsy-search-scraper (MCP). Needs an Apify token; Actor run is billed.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-storage-queue-rust",
       "original_name": "azure-storage-queue-rust",
       "description": "Azure Queue Storage library for Rust. Send, receive, and manage queue messages. Triggers: \"queue storage rust\", \"QueueClient rust\", \"send message rust\", \"receive messages rust\", \"QueueServiceClient rust\", \"queue rust\".",
@@ -12487,6 +12511,14 @@
       "name": "antigravity-rag-observability-evals",
       "original_name": "rag-observability-evals",
       "description": "Monitor and evaluate RAG systems with retrieval quality metrics, groundedness checks, hallucination detection, and continuous regression testing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-placecall",
+      "original_name": "placecall",
+      "description": "Place real outbound phone calls to US businesses through the PlaceCall API: book, ask, get quotes, then read the outcome and transcript.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16631,6 +16663,14 @@
       "name": "antigravity-haskell-pro",
       "original_name": "haskell-pro",
       "description": "Expert Haskell engineer specializing in advanced type systems, pure",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-browser-extension-launch",
+      "original_name": "browser-extension-launch",
+      "description": "Builds, tests, packages, and prepares Chrome extensions for store launch from a plain-language idea; use for new extensions, fixes, releases, and submission recovery.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

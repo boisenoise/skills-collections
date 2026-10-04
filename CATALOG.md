@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-03 06:33 UTC*
+*Last updated: 2026-10-04 08:11 UTC*
 
-Total skills: **3767**
+Total skills: **3772**
 
 ## Skills by Source
 
@@ -1733,6 +1733,7 @@ pipelines, and system utilities.... |
 | `antigravity-browser-act` | Use BrowserAct for authenticated browser automation, JS-rendered extraction, screenshots, parallel s... |
 | `antigravity-browser-automation` | Build reliable browser checks using observed UI state, semantic locators, bounded waits, isolated te... |
 | `antigravity-browser-extension-builder` | Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser ... |
+| `antigravity-browser-extension-launch` | Builds, tests, packages, and prepares Chrome extensions for store launch from a plain-language idea;... |
 | `antigravity-browser-extension-reverse` | Authorized reverse engineering of Chrome/Firefox extensions: manifest analysis, background workers, ... |
 | `antigravity-browser-harness` | Drive an existing browser through CDP for authenticated, visual, or interactive web automation. |
 | `antigravity-browser-testing-with-devtools` | Test browser apps with Chrome DevTools MCP by inspecting live DOM, console logs, network traffic, sc... |
@@ -1839,6 +1840,7 @@ pipelines, and system utilities.... |
 | `antigravity-cloudflare-zero-trust` | Protect internal apps with Cloudflare Access, device posture, and Zero Trust policies. |
 | `antigravity-cloudformation` | Deploy AWS resources with CloudFormation templates. Create stacks, use nested stacks, and implement ... |
 | `antigravity-cloudformation-best-practices` | CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns.... |
+| `antigravity-cloudish` | Deploy a Dockerfile, source folder, or existing image to Cloudish as a running container at a live U... |
 | `antigravity-cmux` | Control cmux workspaces, panes, surfaces, and agent sessions safely from macOS terminal workflows. |
 | `antigravity-co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership o... |
 | `antigravity-coda-automation` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions... |
@@ -2176,6 +2178,8 @@ behavior. Use proactively when encoun... |
 | `antigravity-esl-price-sync` | Synchronizes retail prices between ERP/POS systems and Electronic Shelf Labels (SES-imagotag, ZKONG,... |
 | `antigravity-esop-equity-tracker` | ESOP and equity grant register: grant date, shares granted, strike price, vesting start, schedule an... |
 | `antigravity-ethical-hacking-methodology` | Master the complete penetration testing lifecycle from reconnaissance through reporting. This skill ... |
+| `antigravity-etsy-search-listings` | Fetch live Etsy search listing rows for a keyword, market phrase, or category via Apify Actor public... |
+| `antigravity-etsy-shop-sales-history` | Read Etsy shop sales counters, deltas, and breakout flags from Apify Actor publicrecords/etsy-shop-v... |
 | `antigravity-evaluation` | Build evaluation frameworks for agent systems. Use when testing agent performance systematically, va... |
 | `antigravity-event-sourcing-architect` | Expert in event sourcing, CQRS, and event-driven architecture patterns. Masters event store design, ... |
 | `antigravity-event-staffing-compliance` | Assess worker-classification and compliance risk for temporary event staffing in the US and Canada —... |
@@ -3067,6 +3071,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pipecat-friday-agent` | Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini... |
 | `antigravity-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
 | `antigravity-pitch-psychologist` | One sentence - what this skill does and when to invoke it |
+| `antigravity-placecall` | Place real outbound phone calls to US businesses through the PlaceCall API: book, ask, get quotes, t... |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
 | `antigravity-plan-ledger-tasks-yylo` | Create a concise Product Development Requirement and one or more implementation-sized YYLO Ledger ta... |
 | `antigravity-plan-writing` | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when im... |
