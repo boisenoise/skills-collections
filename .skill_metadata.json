@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-04T08:11:17.604899",
-  "skill_count": 3772,
+  "last_updated": "2026-10-05T06:49:43.179552",
+  "skill_count": 3784,
   "sources_processed": 19,
   "skills": [
     {
@@ -2844,6 +2844,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-repurpose-into-a-post",
+      "original_name": "repurpose-into-a-post",
+      "description": "Turn an article, newsletter, transcript or video into a Twitter/X or LinkedIn post that stands on its own. Use when someone wants to repurpose, share or promote content they already made.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-skill-gap-analysis",
       "original_name": "skill-gap-analysis",
       "description": "Skill gap register: employee, skill area, current against required level, gap severity and recommended training. Use for capability planning.",
@@ -3159,6 +3167,14 @@
       "name": "antigravity-azure-mgmt-fabric-py",
       "original_name": "azure-mgmt-fabric-py",
       "description": "Azure Fabric Management SDK for Python. Use for managing Microsoft Fabric capacities and resources.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-turn-this-into-a-thread",
+      "original_name": "turn-this-into-a-thread",
+      "description": "Turn a long idea, transcript, article or draft into a Twitter/X thread where every tweet stands alone. Use when someone asks for a thread or to break long writing into tweets.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3735,6 +3751,14 @@
       "name": "antigravity-emblemai-crypto-wallet",
       "original_name": "emblemai-crypto-wallet",
       "description": "Crypto wallet management across 7 blockchains via EmblemAI Agent Hustle API. Balance checks, token swaps, portfolio analysis, and transaction execution for Solana, Ethereum, Base, BSC, Polygon, Hedera, and Bitcoin.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-why-did-this-post-flop",
+      "original_name": "why-did-this-post-flop",
+      "description": "Diagnose why one Twitter/X or LinkedIn post underperformed: not seen, seen and skipped, or read and ignored. Use when someone asks why a post did badly or got no engagement.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5362,6 +5386,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-axonx",
+      "original_name": "axonx",
+      "description": "Develop AxonX research plugins and operate quantitative research tasks through CLI or MCP, inspecting execution status, logs, artifacts, and lineage.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-company-email-accounts",
@@ -8924,6 +8956,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-fxmacrodata",
+      "original_name": "fxmacrodata",
+      "description": "Query FXMacroData for official-source macro indicators, release calendars, central-bank policy rates, FX rates and CFTC positioning across 22 currencies.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-issues",
       "original_name": "issues",
       "description": "Interact with GitHub issues - create, list, and view issues.",
@@ -10364,6 +10404,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-supercov",
+      "original_name": "supercov",
+      "description": "Measure line, branch and MC/DC coverage of a project's existing tests with the supercov CLI, then write small, focused tests for the code no test reaches.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-openclaw-security-hardening",
       "original_name": "openclaw-security-hardening",
       "description": "Harden OpenClaw self-hosted environments with baseline host controls, auth tightening, secret handling, network segmentation, and safe update/rollback workflows.",
@@ -11390,7 +11438,7 @@
     {
       "name": "antigravity-onboarding-psychologist",
       "original_name": "onboarding-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Design first-use and onboarding experiences that bring an early win, cut setup friction, build ownership and form habits through stable cues. Use when onboarding loses users early, time-to-value is long, or the first session should build confidence, momentum and a lasting habit.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12278,7 +12326,7 @@
     {
       "name": "antigravity-jobs-to-be-done-analyst",
       "original_name": "jobs-to-be-done-analyst",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Uncover the functional, emotional and social jobs a customer hires a product to do: progress state, hiring trigger, alternatives, success criteria, JTBD map. Use when you need to understand why users buy, switch or churn, or to anchor positioning, messaging and onboarding in real jobs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13122,6 +13170,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "CC-BY-4.0"
+    },
+    {
+      "name": "antigravity-get-seen-in-replies",
+      "original_name": "get-seen-in-replies",
+      "description": "Write a reply to someone else's tweet that is worth reading on its own. Use when someone asks what to reply, wants to grow by replying on Twitter/X, or says their replies go nowhere.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-docusign-automation",
@@ -14463,6 +14519,14 @@
       "name": "antigravity-slack-bot-builder",
       "original_name": "slack-bot-builder",
       "description": "Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for rich UIs, interactive components, slash commands, event handling, OAuth installation flows, and Workflow Builder integration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-draft-my-comments",
+      "original_name": "draft-my-comments",
+      "description": "Write a LinkedIn comment that adds something the post did not have, not agreement. Use when someone asks what to comment, wants to engage with creators, or says their comments go nowhere.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17460,6 +17524,14 @@
       "license": "AGPL-3.0-only"
     },
     {
+      "name": "antigravity-write-in-my-voice",
+      "original_name": "write-in-my-voice",
+      "description": "Draft a Twitter/X or LinkedIn post that sounds like the person asking, from posts they already wrote. Use when someone asks for a post or rewrite in their voice, or asks if text sounds like them.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-using-superpowers",
       "original_name": "using-superpowers",
       "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
@@ -20252,6 +20324,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-define-my-content-pillars",
+      "original_name": "define-my-content-pillars",
+      "description": "Find the three to five subjects someone can post about repeatedly, from what they have published and know first-hand. Use when someone asks what to post about or has run out of ideas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-incident-runbook-templates",
       "original_name": "incident-runbook-templates",
       "description": "Production-ready templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication.",
@@ -20263,6 +20343,14 @@
       "name": "antigravity-weather-data-reproducibility",
       "original_name": "weather-data-reproducibility",
       "description": "Record and verify provenance manifests for weather-data inputs and derived artifacts, including object identity, selections, software versions, transformations, and hashes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-same-idea-both-platforms",
+      "original_name": "same-idea-both-platforms",
+      "description": "Write one idea as a Twitter/X post and a LinkedIn post that read as written separately, not pasted twice. Use when someone wants to cross-post or adapt a post for the other platform.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22015,6 +22103,14 @@
       "name": "antigravity-expo-api-routes",
       "original_name": "expo-api-routes",
       "description": "Guidelines for creating API routes in Expo Router with EAS Hosting",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-byagent",
+      "original_name": "byagent",
+      "description": "Publish agent-written Markdown or HTML as a shareable link with the byagent CLI, then read readers' line comments back, edit, republish to the same link and resolve them.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
