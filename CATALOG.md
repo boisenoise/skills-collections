@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-06 06:34 UTC*
+*Last updated: 2026-10-07 06:33 UTC*
 
-Total skills: **3784**
+Total skills: **3790**
 
 ## Skills by Source
 
@@ -1946,6 +1946,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
 | `antigravity-cost-optimization` | Strategies and patterns for optimizing cloud costs across AWS, Azure, and GCP. |
 | `antigravity-course-upskilling-requests` | Training request register: course, provider, cost, duration, budget line, the three approval steps, ... |
+| `antigravity-court` | Put an idea on trial: a prosecutor and a defense Claude argue, 12 juror sub-agents vote independentl... |
 | `antigravity-cowork-to-code-bridge` | Use an already-installed, independently verified cowork-to-code bridge to run narrowly approved acti... |
 | `antigravity-cpp-pro` | Write idiomatic C++ code with modern features, RAII, smart pointers, and STL algorithms. Handles tem... |
 | `antigravity-cqrs-implementation` | Implement Command Query Responsibility Segregation for scalable architectures. Use when separating r... |
@@ -1988,6 +1989,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-daily-gift` | Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, synthes... |
 | `antigravity-daily-news-report` | Scrapes content based on a preset URL list, filters high-quality technical information, and generate... |
 | `antigravity-dali-short-address-commissioner` | Commissions DALI and DALI-2 (IEC 62386) lighting buses: short-address assignment (0-63), 24-bit bina... |
+| `antigravity-darkmoon-pentest` | Start, follow and triage authorized autonomous AI pentest runs on a self-hosted Darkmoon Pro instanc... |
 | `antigravity-dast-scanning` | Perform dynamic application security testing with OWASP ZAP, Burp Suite, and Nikto. |
 | `antigravity-data-engineer` | Build scalable data pipelines, modern data warehouses, and real-time streaming architectures. Implem... |
 | `antigravity-data-engineering-data-driven-feature` | Build features guided by data insights, A/B testing, and continuous measurement using specialized ag... |
@@ -2717,6 +2719,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-logic-locate` | Locate the root cause of a CONFIRMED failure via backward-then-forward semi-formal tracing. |
 | `antigravity-logic-review` | Find logic bugs in a single file or function via semi-formal execution tracing (Premises → Trace → D... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
+| `antigravity-lognorm` | Work a site's SEO and AI-visibility (GEO) backlog through the hosted LogNorm MCP server: audits, fix... |
 | `antigravity-logo-image-design` | Brand asset register: asset type, format, dimensions and aspect ratio, colour mode, background varia... |
 | `antigravity-loki-logging` | Configure Grafana Loki for log aggregation and analysis. |
 | `antigravity-loki-mode` | Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced: OpenAI SDK, DeepMi... |
@@ -3314,6 +3317,7 @@ coll... |
 | `antigravity-scanning-tools` | Master essential security scanning tools for network discovery, vulnerability assessment, web applic... |
 | `antigravity-scanpy` | Scanpy is a scalable Python toolkit for analyzing single-cell RNA-seq data, built on AnnData. Apply ... |
 | `antigravity-scarcity-urgency-psychologist` | One sentence - what this skill does and when to invoke it |
+| `antigravity-scarf-single-cell` | Analyze single-cell RNA-seq at million-cell scale with Scarf: out-of-core Zarr stores on disk or obj... |
 | `antigravity-schema-markup` | Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurab... |
 | `antigravity-schema-markup-generator` | Generate and implement JSON-LD structured data for web apps, blogs, FAQs, and SaaS sites. Supports W... |
 | `antigravity-scientific-writing` | This is the core skill for the deep research and writing tool—combining AI-driven deep research with... |
@@ -3401,11 +3405,13 @@ Plans content calendars and ident... |
 | `antigravity-service-mesh` | Implement Istio and Linkerd service meshes. Configure mTLS, traffic management, and observability. U... |
 | `antigravity-service-mesh-expert` | Expert service mesh architect specializing in Istio, Linkerd, and cloud-native networking patterns. ... |
 | `antigravity-service-mesh-observability` | Complete guide to observability patterns for Istio, Linkerd, and service mesh deployments. |
+| `antigravity-session-handoff` | Use when context approaches capacity, before /clear or /compact, when switching tasks, or when endin... |
 | `antigravity-setup-help` | Walk a user through setup or installation one step at a time with the remaining steps visible. |
 | `antigravity-setup-matt-pocock-skills` | Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, ... |
 | `antigravity-sexual-health-analyzer` | Sexual Health Analyzer |
 | `antigravity-shadcn` | Manages shadcn/ui components and projects, providing context, documentation, and usage patterns for ... |
 | `antigravity-shader-programming-glsl` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, covering... |
+| `antigravity-shark` | Pitch a business idea to a Shark Tank-style panel of Claude sub-agent investors who grill it, hear a... |
 | `antigravity-sharp-coder` | Two-layer performance skill combining disciplined THINK layer (surgical edits, simplicity) and terse... |
 | `antigravity-sharp-edges` | sharp-edges |
 | `antigravity-shellcheck-configuration` | Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting... |
