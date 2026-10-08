@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-07 06:33 UTC*
+*Last updated: 2026-10-08 06:36 UTC*
 
-Total skills: **3790**
+Total skills: **3795**
 
 ## Skills by Source
 
@@ -1099,6 +1099,7 @@ Total skills: **3790**
 | `brunoasm-biogeobears` | Set up and execute phylogenetic biogeographic analyses using BioGeoBEARS in R. Use when users reques... |
 | `brunoasm-document_ocr` | Convert scanned PDFs and document images into clean Markdown using docling for layout (figures, tabl... |
 | `brunoasm-extract_from_pdfs` | This skill should be used when extracting structured data from scientific PDFs for systematic review... |
+| `brunoasm-grant_proposal_workflow` | Plan, write, edit, and review a multi-document grant application or resubmission (NSF, NIH, foundati... |
 | `brunoasm-lab_ordering` | Place lab supply orders from member requests — route by request header to Amazon Business, the Pritz... |
 | `brunoasm-nirc_badge_request` | Prepare Field Museum NIRC ID badge requests (Scientific Affiliate, Visitor, Contractor) and prefill ... |
 | `brunoasm-phylo_from_buscos` | Generate phylogenies from genome assemblies using BUSCO/compleasm-based single-copy orthologs with s... |
@@ -1117,7 +1118,7 @@ Total skills: **3790**
 | `marketing-attribution` | When the user wants to figure out which marketing actually drives conversions and revenue, choose or... |
 | `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
 | `marketing-co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership o... |
-| `marketing-cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write col... |
+| `marketing-cold-email` | Write and run B2B cold outbound that gets replies, from cold emails and follow-ups to sending setup,... |
 | `marketing-community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. Use when the user w... |
 | `marketing-competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the ... |
 | `marketing-competitors` | When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing us... |
@@ -1146,7 +1147,7 @@ Total skills: **3790**
 | `marketing-pricing` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
 | `marketing-product-marketing` | When the user wants to create or update their product marketing context document. Also use when the ... |
 | `marketing-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
-| `marketing-prospecting` | When the user wants to find, qualify, and build a list of prospects to reach out to — across B2B Saa... |
+| `marketing-prospecting` | When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS... |
 | `marketing-public-relations` | When the user wants help with public relations, earned media, press coverage, journalist outreach, o... |
 | `marketing-referrals` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
 | `marketing-revops` | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales h... |
@@ -1336,6 +1337,7 @@ Total skills: **3790**
 | `antigravity-agent-qa-authoring` | Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while preservin... |
 | `antigravity-agent-qa-debug-fix` | Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local code wit... |
 | `antigravity-agent-qa-result-triage` | Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence... |
+| `antigravity-agent-reels` | Find animation and video references on 1human, consult a human-agent shared library, and contribute ... |
 | `antigravity-agent-self-scheduling` | Schedule AI agent runs with cron, loops, or external clocks while avoiding unsafe tight autonomous t... |
 | `antigravity-agent-squad` | Main agent orchestrator that coordinates a specialized squad of agents |
 | `antigravity-agent-tool-builder` | Tools are how AI agents interact with the world. A well-designed tool is the difference between an a... |
@@ -2157,6 +2159,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-elk-stack` | Deploy and manage the ELK Stack (Elasticsearch, Logstash, Kibana) for log aggregation and analysis. |
 | `antigravity-elon-musk` | Agente que simula Elon Musk com profundidade psicologica e comunicacional de alta fidelidade. Ativad... |
 | `antigravity-email-issue-fixer` | Fix small email mistakes without touching the writer's voice, and strip tracking parameters from lin... |
+| `antigravity-email-marketing-bible` | Data-backed email marketing for AI agents: automation flows, deliverability triage, copy de-slopping... |
 | `antigravity-email-security` | Authorized email security review: phishing analysis, SPF/DKIM/DMARC header authentication, BEC patte... |
 | `antigravity-email-sequence` | You are an expert in email marketing and automation. Your goal is to create email sequences that nur... |
 | `antigravity-email-systems` | Email has the highest ROI of any marketing channel. $36 for every $1 spent. Yet most startups treat ... |
@@ -2677,6 +2680,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-lightning-factory-explainer` | Explain Bitcoin Lightning channel factories and the SuperScalar protocol — scalable Lightning onboar... |
 | `antigravity-linear-automation` | Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always searc... |
 | `antigravity-linear-claude-skill` | Manage Linear issues, projects, and teams |
+| `antigravity-linkdigest-social-link-reader` | Read one public Xiaohongshu, Douyin, TikTok, YouTube, X or WeChat article link into text an agent ca... |
 | `antigravity-linkedin-automation` | Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comment... |
 | `antigravity-linkedin-cli` | Use when automating LinkedIn via CLI: fetch profiles, search people/companies, send messages, manage... |
 | `antigravity-linkedin-content-generator` | AI-powered LinkedIn content suite: generate posts, carousels, newsletters, and 30-day calendars with... |
@@ -3416,6 +3420,7 @@ Plans content calendars and ident... |
 | `antigravity-sharp-edges` | sharp-edges |
 | `antigravity-shellcheck-configuration` | Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting... |
 | `antigravity-shipping-and-launch` | Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-la... |
+| `antigravity-shipvela-publish` | Publish an explicitly selected website through the user's connected Shipvela MCP account, track the ... |
 | `antigravity-shodan-reconnaissance` | Provide systematic methodologies for leveraging Shodan as a reconnaissance tool during penetration t... |
 | `antigravity-shopify-apps` | Expert patterns for Shopify app development including Remix/React Router apps, embedded apps with Ap... |
 | `antigravity-shopify-automation` | Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections.... |
