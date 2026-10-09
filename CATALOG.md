@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-08 06:36 UTC*
+*Last updated: 2026-10-09 06:35 UTC*
 
-Total skills: **3795**
+Total skills: **3798**
 
 ## Skills by Source
 
@@ -1483,6 +1483,7 @@ Total skills: **3795**
 | `antigravity-ask-copilot` | Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets w... |
 | `antigravity-ask-matt` | Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo. |
 | `antigravity-ask-questions-if-underspecified` | Clarify requirements before implementing. Use when serious doubts arise. |
+| `antigravity-assay` | Run assay on a web page you just wrote or changed. It opens the page in a real browser, drives every... |
 | `antigravity-asset-inventory` | Maintain IT asset inventory and configuration management database. Track hardware, software, and clo... |
 | `antigravity-asset-it-management` | Asset and IT register: serial, model, condition, assignee, location, purchase value, warranty expiry... |
 | `antigravity-astro` | Build content-focused websites with Astro — zero JS by default, islands architecture, multi-framewor... |
@@ -2736,6 +2737,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-longbridge-research` | Curated upstream guidance for Longbridge Research; use when the workflow matches the user goal. |
 | `antigravity-lookdev` | Human-in-the-loop web studio to tune AI-generated output by eye. Stand up a local interactive studio... |
 | `antigravity-lookdev-auto` | Automated visual tuning: a vision or video model rates rendered variants in a loop. Render several l... |
+| `antigravity-looot` | Search, price and run 2,500+ data API endpoints (work emails, company search, SERP, web pages) from ... |
 | `antigravity-loop-library` | Find, compare, adapt, and design bounded AI-agent feedback loops with explicit checks, stop rules, g... |
 | `antigravity-loopy` | Discover, find, compare, audit, repair, adapt, craft, run, debrief, and prepare repeatable AI-agent ... |
 | `antigravity-lore` | Markdown project memory for AI agents. Use for decisions, architecture, conventions, monorepo scopes... |
@@ -3591,6 +3593,7 @@ calculations
 | `antigravity-telegram-automation` | Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents... |
 | `antigravity-telegram-bot-builder` | Expert in building Telegram bots that solve real problems - from simple automation to complex AI-pow... |
 | `antigravity-telegram-bot-messaging` | Send Telegram messages, files, and alerts via bot API; ask questions with inline buttons and wait fo... |
+| `antigravity-telegram-channel-ads` | Vet and price ad posts in Telegram channels: reach benchmarks by size, topic and language, ad-networ... |
 | `antigravity-telegram-mini-app` | Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-like exp... |
 | `antigravity-template-library` | Template register: name, type, owning module and department, owner, last updated and content link. U... |
 | `antigravity-temporal-golang-pro` | Use when building durable distributed systems with Temporal Go SDK. Covers deterministic workflow ru... |
