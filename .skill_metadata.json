@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-09T06:35:15.113430",
-  "skill_count": 3798,
+  "last_updated": "2026-10-10T06:32:10.674322",
+  "skill_count": 3804,
   "sources_processed": 19,
   "skills": [
     {
@@ -214,7 +214,7 @@
     {
       "name": "superpowers-brainstorming",
       "original_name": "brainstorming",
-      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation).",
       "source": "obra/superpowers",
       "source_url": "https://github.com/obra/superpowers",
       "license": "MIT"
@@ -6132,6 +6132,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-url-to-markdown",
+      "original_name": "url-to-markdown",
+      "description": "Fetch a public webpage as clean Markdown for an agent: read, summarize, quote, or cite the page while preserving its source URL.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-skill-rails-upgrade",
       "original_name": "skill-rails-upgrade",
       "description": "Analyze Rails apps and provide upgrade assessments",
@@ -8628,6 +8636,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-jet-browser",
+      "original_name": "jet-browser",
+      "description": "Verify or integrate Jet Browser when a project needs isolated WPE WebKit sessions, native input, screenshots, ordered JSONL automation, or reproducible runtime checks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-azure-ai-voicelive-java",
       "original_name": "azure-ai-voicelive-java",
       "description": "Azure AI VoiceLive SDK for Java. Real-time bidirectional voice conversations with AI assistants using WebSocket.",
@@ -9519,6 +9535,14 @@
       "name": "antigravity-angular-migration",
       "original_name": "angular-migration",
       "description": "Master AngularJS to Angular migration, including hybrid apps, component conversion, dependency injection changes, and routing migration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-tastegate",
+      "original_name": "tastegate",
+      "description": "Build or fix a frontend so it looks designed, not AI-generated, then prove it in a real browser: renders at phone and desktop width and fails on overlap, low contrast and AI-slop defaults.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10583,6 +10607,14 @@
       "name": "antigravity-expo-tailwind-setup",
       "original_name": "expo-tailwind-setup",
       "description": "Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for universal styling",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-what-could-break",
+      "original_name": "what-could-break",
+      "description": "Find what a change breaks outside its own diff, then prove the one fact that makes it safe by running real code. Use before any multi-file edit or an edit to a shared path.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11762,6 +11794,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-ask-human-expert",
+      "original_name": "ask-human-expert",
+      "description": "Ask real executives and domain experts a question through Instant Expert for a written answer or short call: practitioner knowledge, customer discovery. Free test mode; live sends need approval.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT-0"
     },
     {
       "name": "antigravity-azure-devops",
@@ -13135,6 +13175,14 @@
       "name": "antigravity-azure-ai-contentunderstanding-py",
       "original_name": "azure-ai-contentunderstanding-py",
       "description": "Azure AI Content Understanding SDK for Python. Use for multimodal content extraction from documents, images, audio, and video.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-equibles",
+      "original_name": "equibles",
+      "description": "Query Equibles for US stock market data: SEC filing search, XBRL financial statements, earnings call transcripts, insider and 13F holdings, and daily prices.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

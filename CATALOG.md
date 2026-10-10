@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-09 06:35 UTC*
+*Last updated: 2026-10-10 06:32 UTC*
 
-Total skills: **3798**
+Total skills: **3804**
 
 ## Skills by Source
 
@@ -1481,6 +1481,7 @@ Total skills: **3798**
 | `antigravity-artifact-yylo` | Capture and retrieve durable YYLO Ledger artifact Records with intentional profiles, payload modes, ... |
 | `antigravity-asana-automation` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always s... |
 | `antigravity-ask-copilot` | Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets w... |
+| `antigravity-ask-human-expert` | Ask real executives and domain experts a question through Instant Expert for a written answer or sho... |
 | `antigravity-ask-matt` | Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo. |
 | `antigravity-ask-questions-if-underspecified` | Clarify requirements before implementing. Use when serious doubts arise. |
 | `antigravity-assay` | Run assay on a web page you just wrote or changed. It opens the page in a real browser, drives every... |
@@ -2177,6 +2178,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-entropy-box` | Entropy Box knowledge-compiler for embodied-AI: turns bounded requirements into grounded workflows v... |
 | `antigravity-environment-setup-guide` | Guide developers through setting up development environments with proper tools, dependencies, and co... |
 | `antigravity-eol-resistor-calculator` | Calculates and validates end-of-line (EOL, SEOL, DEOL, TEOL) resistor loops for intrusion alarm pane... |
+| `antigravity-equibles` | Query Equibles for US stock market data: SEC filing search, XBRL financial statements, earnings call... |
 | `antigravity-error-debugging-error-analysis` | You are an expert error analysis specialist with deep expertise in debugging distributed systems, an... |
 | `antigravity-error-debugging-error-trace` | You are an error tracking and observability expert specializing in implementing comprehensive error ... |
 | `antigravity-error-debugging-multi-agent-review` | Use when working with error debugging multi agent review |
@@ -2617,6 +2619,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-javascript-typescript-typescript-scaffold` | You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.j... |
 | `antigravity-jenkins` | Create and manage Jenkins CI/CD pipelines, configure agents, manage plugins, and automate builds. |
 | `antigravity-jest-skill` | Generates Jest unit and integration tests in JavaScript or TypeScript. Covers mocking, snapshots, as... |
+| `antigravity-jet-browser` | Verify or integrate Jet Browser when a project needs isolated WPE WebKit sessions, native input, scr... |
 | `antigravity-jev-social` | Run read-only, browser-grounded Instagram, TikTok, or LinkedIn research through Jev routing and soca... |
 | `antigravity-jev-use` | Route enumerable judgment steps - did it work, which option, how risky, is this safe to run - to the... |
 | `antigravity-jira-automation` | Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw... |
@@ -3569,6 +3572,7 @@ calculations
 | `antigravity-talking-avatar-video` | Install and use the official Talking Avatar Video package, pinned by digest, for paid hosted work on... |
 | `antigravity-tanstack-query-expert` | Expert in TanStack Query (React Query) — asynchronous state management. Covers data fetching, stale ... |
 | `antigravity-task-intelligence` | Protocolo de Inteligência Pré-Tarefa — ativa TODOS os agentes relevantes do ecossistema ANTES de exe... |
+| `antigravity-tastegate` | Build or fix a frontend so it looks designed, not AI-generated, then prove it in a real browser: ren... |
 | `antigravity-tavily-web` | Web search, content extraction, crawling, and research capabilities using Tavily API. Use when you n... |
 | `antigravity-tax-register` | Tax register: sales and purchase tax, withholding deducted and received, net payable, filing due dat... |
 | `antigravity-tcm-constitution-analyzer` | 分析中医体质数据、识别体质类型、评估体质特征,并提供个性化养生建议。支持与营养、运动、睡眠等健康数据的关联分析。 |
@@ -3714,6 +3718,7 @@ calculations
 | `antigravity-upstash-qstash` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task de... |
 | `antigravity-upstash-ratelimit` | Add rate limiting to API routes, middleware, and edge functions with @upstash/ratelimit: sliding win... |
 | `antigravity-upstash-redis` | Use the @upstash/redis HTTP client for caching, sessions, counters, and Redis data structures from s... |
+| `antigravity-url-to-markdown` | Fetch a public webpage as clean Markdown for an agent: read, summarize, quote, or cite the page whil... |
 | `antigravity-us-property-data` | Use when a task needs real U.S. residential property data: valuation, listings, price or tax history... |
 | `antigravity-usage-based-pricing` | Design pricing models that developers understand, accept, and can predict. Trigger phrases: usage-ba... |
 | `antigravity-use-dom` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to... |
@@ -3811,6 +3816,7 @@ calculations
 | `antigravity-weightloss-analyzer` | 分析减肥数据、计算代谢率、追踪能量缺口、管理减肥阶段 |
 | `antigravity-wellally-tech` | Integrate multiple digital health data sources, connect to [WellAlly.tech](https://www.wellally.tech... |
 | `antigravity-wgm` | Turns a rough request into working software via a governed build loop: align first, plan, then itera... |
+| `antigravity-what-could-break` | Find what a change breaks outside its own diff, then prove the one fact that makes it safe by runnin... |
 | `antigravity-whatsapp-automation` | Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload me... |
 | `antigravity-whatsapp-cloud-api` | Integracao com WhatsApp Business Cloud API (Meta). Mensagens, templates, webhooks HMAC-SHA256, autom... |
 | `antigravity-why-did-this-post-flop` | Diagnose why one Twitter/X or LinkedIn post underperformed: not seen, seen and skipped, or read and ... |
