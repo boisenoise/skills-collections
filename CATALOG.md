@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-10 06:32 UTC*
+*Last updated: 2026-10-11 06:32 UTC*
 
-Total skills: **3804**
+Total skills: **3808**
 
 ## Skills by Source
 
@@ -2015,6 +2015,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-database-migrations-sql-migrations` | SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, and SQL Server. Focus o... |
 | `antigravity-database-optimizer` | Expert database optimizer specializing in modern performance tuning, query optimization, and scalabl... |
 | `antigravity-database-security` | Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: exposur... |
+| `antigravity-datacircle` | Look up LinkedIn profiles by URL through Datacircle (Up2Data or HarvestAPI, no markup), over its hos... |
 | `antigravity-datadog` | Implement Datadog monitoring and APM for infrastructure and applications. |
 | `antigravity-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
 | `antigravity-day-book` | Daily cash, bank and digital day book: opening and closing balances per book, in/out movements, debi... |
@@ -3200,6 +3201,7 @@ structures, and modern OOP features. U... |
 | `antigravity-python-testing-patterns` | Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven developme... |
 | `antigravity-qiskit` | Qiskit is the world's most popular open-source quantum computing framework with 13M+ downloads. Buil... |
 | `antigravity-qoder-delegate` | Delegate coding tasks to the Qoder CLI (`qodercli`) only when the user explicitly requests it, while... |
+| `antigravity-qrx` | Make branded, print-ready art QR codes that always scan with QRX (qrx.codes). Use when a link needs ... |
 | `antigravity-quality-nonconformance` | Codified expertise for quality control, non-conformance investigation, root cause analysis, correcti... |
 | `antigravity-quant-analyst` | Build financial models, backtest trading strategies, and analyze market data. Implements risk metric... |
 | `antigravity-quit-sponsor` | Helps an AI agent provide non-judgmental, evidence-informed quit-smoking support with user-consented... |
@@ -3271,6 +3273,7 @@ structures, and modern OOP features. U... |
 | `antigravity-returns-reverse-logistics` | Codified expertise for returns authorisation, receipt and inspection, disposition decisions, refund ... |
 | `antigravity-reverse-browser-automation` | Automate browsers (Playwright) and Windows desktop applications (UI automation) for reverse-engineer... |
 | `antigravity-reverse-engineer` | Expert reverse engineer specializing in binary analysis, disassembly, decompilation, and software an... |
+| `antigravity-reverse-engineer-anything` | Use REA to investigate shipped apps, binaries, packages, and runtimes; trace features with evidence,... |
 | `antigravity-reverse-engineering` | General reverse-engineering methodology for compiled, obfuscated, packed, or virtualized targets: GD... |
 | `antigravity-reverse-proxy` | Configure nginx and Traefik as reverse proxies. Implement SSL termination and routing. Use when sett... |
 | `antigravity-review-and-simplify-changes` | Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards... |
@@ -3736,6 +3739,7 @@ calculations
 | `antigravity-ux-feedback` | Add appropriate user feedback states (loading, success, error, empty) to a component or page |
 | `antigravity-ux-flow` | Design user flows and navigation structure following proven UX patterns |
 | `antigravity-ux-persuasion-engineer` | One sentence - what this skill does and when to invoke it |
+| `antigravity-uxkin-research` | Research how real products handle a screen, flow or visual style before designing it: search UXKIN's... |
 | `antigravity-uxui-principles` | Evaluate interfaces against 168 research-backed UX/UI principles, detect antipatterns, and inject UX... |
 | `antigravity-variant-analysis` | Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when huntin... |
 | `antigravity-varlock` | Secure-by-default environment variable management for Claude Code sessions. |
