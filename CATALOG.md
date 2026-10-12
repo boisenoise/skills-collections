@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-11 06:32 UTC*
+*Last updated: 2026-10-12 06:50 UTC*
 
-Total skills: **3808**
+Total skills: **3810**
 
 ## Skills by Source
 
@@ -2015,7 +2015,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-database-migrations-sql-migrations` | SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, and SQL Server. Focus o... |
 | `antigravity-database-optimizer` | Expert database optimizer specializing in modern performance tuning, query optimization, and scalabl... |
 | `antigravity-database-security` | Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: exposur... |
-| `antigravity-datacircle` | Look up LinkedIn profiles by URL through Datacircle (Up2Data or HarvestAPI, no markup), over its hos... |
+| `antigravity-datacircle` | Look up LinkedIn profiles by URL through Datacircle (Up2Data, HarvestAPI or Fetchin, no markup), ove... |
 | `antigravity-datadog` | Implement Datadog monitoring and APM for infrastructure and applications. |
 | `antigravity-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
 | `antigravity-day-book` | Daily cash, bank and digital day book: opening and closing balances per book, in/out movements, debi... |
@@ -2637,6 +2637,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-k8s-manifest-generator` | Step-by-step guidance for creating production-ready Kubernetes manifests including Deployments, Serv... |
 | `antigravity-k8s-security-policies` | Comprehensive guide for implementing NetworkPolicy, PodSecurityPolicy, RBAC, and Pod Security Standa... |
 | `antigravity-kaizen` | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user ... |
+| `antigravity-kernel-prompt` | Use when composing or improving an LLM prompt or agent instruction. Asks one round of questions, the... |
 | `antigravity-keyword-extractor` | Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract... |
 | `antigravity-kimi-delegate` | Delegate coding tasks to the Kimi Code CLI (`kimi`) only when the user explicitly requests it, while... |
 | `antigravity-klaviyo-automation` | Automate Klaviyo tasks via Rube MCP (Composio): manage email/SMS campaigns, inspect campaign message... |
@@ -3440,6 +3441,7 @@ Plans content calendars and ident... |
 | `antigravity-simplify-code` | Review a diff for clarity and safe simplifications, then optionally apply low-risk fixes. |
 | `antigravity-since-cutoff` | Find which APIs of a project's pinned Python dependencies changed after the model's training cutoff,... |
 | `antigravity-site-architecture` | Plan or restructure website hierarchy, navigation, URL patterns, breadcrumbs, and internal linking. ... |
+| `antigravity-skeleton-first` | Prove a data/AI/agent workflow end to end on a tiny sample, find cheap wins, then scale in cost-gate... |
 | `antigravity-skill-audit` | Pre-install security scanner for AI agent skills. 7.5% of 14,706 skills are malicious. Audit before ... |
 | `antigravity-skill-check` | Validate Claude Code skills against the agentskills specification. Catches structural, semantic, and... |
 | `antigravity-skill-creator` | To create new CLI skills following Anthropic's official best practices with zero manual configuratio... |
