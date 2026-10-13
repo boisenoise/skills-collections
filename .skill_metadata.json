@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-12T06:50:26.843378",
-  "skill_count": 3810,
+  "last_updated": "2026-10-13T06:37:49.305164",
+  "skill_count": 3820,
   "sources_processed": 19,
   "skills": [
     {
@@ -2238,7 +2238,7 @@
     {
       "name": "antigravity-customer-psychographic-profiler",
       "original_name": "customer-psychographic-profiler",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Build an evidence-grounded customer profile of motivations, fears, identity, and trust barriers before positioning, copywriting, or funnel design.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -2366,7 +2366,7 @@
     {
       "name": "antigravity-subject-line-psychologist",
       "original_name": "subject-line-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Draft email subject lines and notification copy matched to audience and sequence position when earning attention requires clarity and truthful curiosity.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3134,7 +3134,7 @@
     {
       "name": "antigravity-ux-persuasion-engineer",
       "original_name": "ux-persuasion-engineer",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Audit decision friction and propose clear, accessible UX flows when layout, defaults, or sequencing obstruct informed action.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3207,6 +3207,14 @@
       "name": "antigravity-deployment-procedures",
       "original_name": "deployment-procedures",
       "description": "Production deployment principles and decision-making. Safe deployment workflows, rollback strategies, and verification. Teaches thinking, not scripts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ui-from-screenshot",
+      "original_name": "ui-from-screenshot",
+      "description": "Turn a screenshot or mockup into matching UI with the project's own components, then compare the result side by side with the image and fix the differences.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3975,6 +3983,14 @@
       "name": "antigravity-ask-copilot",
       "original_name": "ask-copilot",
       "description": "Use GitHub Copilot CLI in non-interactive mode to ask questions, review code, or generate snippets without manual interaction.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-write-design-md",
+      "original_name": "write-design-md",
+      "description": "Write or update a project's DESIGN.md from the colors, type, spacing and components it really uses, with rules agents follow so new screens match.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5790,7 +5806,7 @@
     {
       "name": "antigravity-brand-perception-psychologist",
       "original_name": "brand-perception-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Audit visual, verbal, and behavioral brand signals and propose alignment changes when market perception differs from the intended position.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7031,6 +7047,14 @@
       "name": "antigravity-film-crew",
       "original_name": "film-crew",
       "description": "Turn a one-line AI video idea into a shot list and per-shot, model-ready prompts via a film crew (director, DP, gaffer, editor, script supervisor). Also fixes failing video prompts and diagnoses bad clips before a reroll. Works with Wan, LTX, Kling, Veo, Seedance, Hailuo, Runway.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-invokely-statistics",
+      "original_name": "invokely-statistics",
+      "description": "Use Invokely MCP to find official statistics, retrieve values and series, compare or rank places, and report each figure with its period, unit, and source citation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8348,6 +8372,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-headshot-studio",
+      "original_name": "ai-headshot-studio",
+      "description": "Install and use the official AI Headshot Generator package, pinned by digest, for paid hosted work on the Beatra service.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT-0"
+    },
+    {
       "name": "antigravity-azure-cosmos-java",
       "original_name": "azure-cosmos-java",
       "description": "Azure Cosmos DB SDK for Java. NoSQL database operations with global distribution, multi-model support, and reactive patterns.",
@@ -8470,7 +8502,7 @@
     {
       "name": "antigravity-sequence-psychologist",
       "original_name": "sequence-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Plan email nurture and multi-touch communication sequences when each message should build trust and prepare the next decision.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8550,7 +8582,7 @@
     {
       "name": "antigravity-emotional-arc-designer",
       "original_name": "emotional-arc-designer",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Map the emotional progression of a narrative, page, or campaign when content needs a coherent path from attention to action.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8772,6 +8804,14 @@
       "license": "BSD-3-Clause license"
     },
     {
+      "name": "antigravity-cockney",
+      "original_name": "cockney",
+      "description": "Cheeky Cockney coding mode: terse replies, the smallest correct change, plain English for anything risky.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-neon-postgres",
       "original_name": "neon-postgres",
       "description": "Guides and best practices for working with Neon Serverless Postgres. Covers setup, connection methods, branching, autoscaling, scale-to-zero, read replicas, connection pooling, Neon Auth, and the Neon CLI, MCP server, REST API, TypeScript SDK, and Python SDK.",
@@ -8814,7 +8854,7 @@
     {
       "name": "antigravity-price-psychology-strategist",
       "original_name": "price-psychology-strategist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Design pricing presentation, anchors, and tiers when an offer needs clearer value and fairness without misleading comparisons.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9918,7 +9958,7 @@
     {
       "name": "antigravity-social-proof-architect",
       "original_name": "social-proof-architect",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Select and place genuine testimonials, case studies, and other proof when an audience needs evidence at specific trust barriers.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9991,6 +10031,14 @@
       "name": "antigravity-idea-to-blueprint",
       "original_name": "idea-to-blueprint",
       "description": "Turn a raw product, app, bot or feature idea into one evidence-backed build blueprint (researched stack, epics, Given/When/Then criteria, tests) that coding agents build one epic per session.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-tokenleak",
+      "original_name": "tokenleak",
+      "description": "Token-lean rules for coding agents: cut the context re-sent on every later call (big reads, noisy logs, re-reads, serial calls) without losing correctness.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10390,7 +10438,7 @@
     {
       "name": "antigravity-scarcity-urgency-psychologist",
       "original_name": "scarcity-urgency-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Design honest scarcity and urgency messaging when verified inventory, capacity, or deadlines justify a timely decision.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10494,7 +10542,7 @@
     {
       "name": "antigravity-copywriting-psychologist",
       "original_name": "copywriting-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Write or revise conversion copy using audience awareness, motivations, and credible proof when ads, landing pages, or sales messages feel generic.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12028,6 +12076,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ios-screens",
+      "original_name": "ios-screens",
+      "description": "Build iPhone app screens that feel native: navigation, sheets, Dynamic Type, dark mode, permissions and paywalls, checked on small and large iPhones.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-context-manager",
       "original_name": "context-manager",
       "description": "Elite AI context engineering specialist mastering dynamic context management, vector databases, knowledge graphs, and intelligent memory systems.",
@@ -13438,7 +13494,7 @@
     {
       "name": "antigravity-identity-mirror",
       "original_name": "identity-mirror",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Map an audience's current and aspirational identity into credible messaging when copy needs stronger personal relevance.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15070,7 +15126,7 @@
     {
       "name": "antigravity-loss-aversion-designer",
       "original_name": "loss-aversion-designer",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Compare gain and loss framing and describe credible costs of inaction when an offer needs urgency without fearmongering.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15628,6 +15684,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-arcmira-find-quotes",
+      "original_name": "arcmira-find-quotes",
+      "description": "Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with timestamped source links using Arcmira.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-minimalist-ui",
       "original_name": "minimalist-ui",
       "description": "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts.",
@@ -15906,6 +15970,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-ui-states",
+      "original_name": "ui-states",
+      "description": "Design and build the UI states agents forget: first use, empty, loading, error, offline, no results, long content, permission denied and success.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-drizzle-migration-conflict",
@@ -16423,6 +16495,14 @@
       "name": "antigravity-react-native-skills",
       "original_name": "react-native-skills",
       "description": "Use when working with react-native-skills tasks or workflows",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-build-ui",
+      "original_name": "build-ui",
+      "description": "Step-by-step workflow for UI work: read the project, follow the plan for the job (new screen, dashboard, polish, simplify, review), then render, fix and check again.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19566,7 +19646,7 @@
     {
       "name": "antigravity-visual-emotion-engineer",
       "original_name": "visual-emotion-engineer",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Create a visual direction brief for color, typography, imagery, and hierarchy when design must support a defined emotion, culture, and accessibility needs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19958,7 +20038,7 @@
     {
       "name": "antigravity-headline-psychologist",
       "original_name": "headline-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Draft and compare audience-aware headlines when copy needs clearer relevance and curiosity without clickbait or unsupported promises.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -20054,7 +20134,7 @@
     {
       "name": "antigravity-pitch-psychologist",
       "original_name": "pitch-psychologist",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Structure pitches, decks, and talk tracks around audience beliefs, proof, and a clear decision when presentations need stronger progression.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21358,7 +21438,7 @@
     {
       "name": "antigravity-awareness-stage-mapper",
       "original_name": "awareness-stage-mapper",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Map audience awareness stages to messaging strategy when planning a campaign, offer, or persuasion sequence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21598,7 +21678,7 @@
     {
       "name": "antigravity-trust-calibrator",
       "original_name": "trust-calibrator",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Diagnose audience trust barriers and calibrate proof, certainty, and credibility signals when messaging overclaims or fails to reassure.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21686,7 +21766,7 @@
     {
       "name": "antigravity-objection-preemptor",
       "original_name": "objection-preemptor",
-      "description": "One sentence - what this skill does and when to invoke it",
+      "description": "Map customer objections and address them with evidence and choice-preserving language when a funnel, sales page, or pitch encounters recurring hesitation.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -29910,7 +29990,7 @@
     {
       "name": "marketing-analytics",
       "original_name": "analytics",
-      "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" \"tracking plan,\" \"how do I measure this,\" \"track conversions,\" \"Mixpanel,\" \"Segment,\" \"are my events firing,\" or \"analytics isn't working.\" Use this whenever someone asks how to know if something is working or wants to measure marketing results. For choosing attribution models, comparing multi-touch/MMM/incrementality, or reconciling conflicting numbers across tools, see attribution. For A/B test measurement, see ab-testing.",
+      "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" \"tracking plan,\" \"how do I measure this,\" \"track conversions,\" \"Mixpanel,\" \"Segment,\" \"are my events firing,\" or \"analytics isn't working.\" Use this whenever someone asks how to know if something is working or wants to measure marketing results. For choosing attribution models, comparing multi-touch/MMM/incrementality, or reconciling conflicting numbers across tools, see attribution. For A/B test measurement, see ab-testing. Rate metrics divide matching closed windows \u2014 never full-period spend by partial-period results. Rate metrics divide matching closed windows, never full-period spend by partial-period results.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -30030,7 +30110,7 @@
     {
       "name": "marketing-ad-creative",
       "original_name": "ad-creative",
-      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'ad templates,' 'iMessage ad,' 'chat reveal ad,' 'ChatGPT ad,' 'Apple Notes ad,' 'AirDrop ad,' 'creative strategy,' 'creative roadmap,' 'creative retro,' 'hook writing,' 'creative review page,' 'present ad creative for approval,' 'motion video ad,' 'faceless video ad,' 'UGC ad,' 'greenscreen ad,' 'TikTok/Reels ad format,' 'which ad format to make,' 'Meta ad format tier list,' or 'creative format taxonomy.' Use it to produce or iterate ad copy at scale. Copy avoids AI tells like 'it's not X, it's Y' reveals. For campaign strategy and targeting, see ads. For landing page copy, see copywriting.",
+      "description": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'creative testing,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'ad templates,' 'iMessage ad,' 'ChatGPT ad,' 'creative strategy,' 'creative roadmap,' 'creative retro,' 'hook writing,' 'creative review page,' 'motion video ad,' 'faceless video ad,' 'UGC ad,' 'greenscreen ad,' 'TikTok/Reels ad format,' 'Meta ad format tier list,' or 'creative format taxonomy.' Use it to produce or iterate ad copy at scale. Copy avoids AI tells like 'it's not X, it's Y' reveals. For campaign strategy and targeting, see ads. For landing page copy, see copywriting. Test hypotheses must be falsifiable, naming the metric, the comparison, and the expected direction.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -30134,7 +30214,7 @@
     {
       "name": "marketing-influencer-marketing",
       "original_name": "influencer-marketing",
-      "description": "When the user wants to run influencer, creator, or ambassador partnerships to promote their product \u2014 finding and vetting partners, structuring deals, briefing creators, disclosure compliance, and measuring ROI. Also use when the user mentions 'influencer marketing,' 'creator partnerships,' 'sponsorships,' 'YouTube sponsorships,' 'podcast sponsorships,' 'brand ambassador,' 'ambassador program,' 'creator program,' 'UGC creators,' 'tech UGC,' 'UGC creator program,' 'creator network,' 'B2B influencers,' 'thought leader ads,' 'gifting,' 'product seeding,' 'whitelisting creator content,' 'how much to pay an influencer,' or 'FTC disclosure.' For affiliate/referral payout mechanics, see referrals. For community-led advocacy, see community-marketing. For turning creator content into paid ads, see ad-creative.",
+      "description": "When the user wants to run influencer, creator, or ambassador partnerships to promote their product \u2014 finding and vetting partners, structuring deals, briefing creators, disclosure compliance, and measuring ROI. Also use when the user mentions 'influencer marketing,' 'creator partnerships,' 'sponsorships,' 'YouTube sponsorships,' 'podcast sponsorships,' 'brand ambassador,' 'ambassador program,' 'creator program,' 'UGC creators,' 'tech UGC,' 'UGC creator program,' 'creator network,' 'B2B influencers,' 'thought leader ads,' 'gifting,' 'product seeding,' 'whitelisting creator content,' 'Telegram channel ads,' 'buy a post in a Telegram channel,' 'how much to pay an influencer,' or 'FTC disclosure.' For affiliate/referral payout mechanics, see referrals. For community-led advocacy, see community-marketing. For turning creator content into paid ads, see ad-creative.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
@@ -30270,7 +30350,7 @@
     {
       "name": "marketing-copywriting",
       "original_name": "copywriting",
-      "description": "When the user wants to write, rewrite, or improve marketing copy for any page, including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" \"CTA copy,\" \"value proposition,\" \"tagline,\" \"subheadline,\" \"hero section copy,\" \"above the fold,\" \"this copy is weak,\" \"make this more compelling,\" \"this sounds like AI,\" \"AI slop,\" \"make it sound human,\" or \"help me describe my product.\" Use this whenever someone is working on website text that needs to persuade or convert. Drafts never use AI tells like \"it's not X, it's Y\" reveals, \"no X, no Y, no Z\" lists, or sentences that trail into extra comma clauses. For email copy, see emails. For popup copy, see popups. For editing existing copy, see copy-editing. For the offer underneath the copy (bonuses, guarantees, value framing), see offers.",
+      "description": "When the user wants to write, rewrite, or improve marketing copy for any page, including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" \"CTA copy,\" \"value proposition,\" \"tagline,\" \"hero section copy,\" \"this copy is weak,\" \"this sounds like AI,\" \"AI slop,\" \"make it sound human,\" or \"help me describe my product.\" Use this whenever someone is working on website text that needs to persuade or convert. Drafts never use AI tells like \"it's not X, it's Y\" reveals, \"no X, no Y, no Z\" lists, or sentences that trail into extra comma clauses. For email copy, see emails. For popup copy, see popups. For editing existing copy, see copy-editing. For the offer underneath the copy (bonuses, guarantees, value framing), see offers. Claims must be supportable, and a declined claim names the evidence that would unlock it.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"
