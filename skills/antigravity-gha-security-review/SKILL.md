@@ -5,6 +5,22 @@ risk: safe
 source: community
 date_added: 2026-03-16
 ---
+## Supporting material availability
+
+This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
+
+- `<support-root>/references/pwn-request.md`
+- `<support-root>/references/comment-triggered-commands.md`
+- `<support-root>/references/expression-injection.md`
+- `<support-root>/references/credential-escalation.md`
+- `<support-root>/references/ai-prompt-injection-via-ci.md`
+- `<support-root>/references/supply-chain.md`
+- `<support-root>/references/permissions-and-secrets.md`
+- `<support-root>/references/runner-infrastructure.md`
+- `<support-root>/references/real-world-attacks.md`
+
+Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
+
 
 <!--
 Attack patterns and real-world examples sourced from the HackerBot Claw campaign analysis

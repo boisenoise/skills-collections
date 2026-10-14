@@ -25,7 +25,7 @@ Comprehensive market sizing methodologies for calculating Total Addressable Mark
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- Use the examples below; no separate implementation playbook is bundled.
 
 ## Overview
 
@@ -388,23 +388,12 @@ TAM = Total Target Companies × Average Deal Size × Deals per Year
 - Consider competitive intensity
 - Factor in switching costs and barriers
 
-## Additional Resources
+## Local Resources
 
-### Reference Files
+- [Data source checklist](references/data-sources.md): discovery starting points; verify current availability, price and source dates before use.
+- [Illustrative SaaS calculation](examples/saas-market-sizing.md): a worked example, not current market evidence.
 
-For detailed methodologies and frameworks:
-- **`references/methodology-deep-dive.md`** - Comprehensive guide to each methodology with step-by-step worksheets
-- **`references/data-sources.md`** - Curated list of market research sources, databases, and tools
-- **`references/industry-templates.md`** - Specific templates for SaaS, marketplace, consumer, B2B, and fintech markets
-
-### Example Files
-
-Working examples with complete calculations:
-- **`examples/saas-market-sizing.md`** - Complete TAM/SAM/SOM for a B2B SaaS product
-- **`examples/marketplace-sizing.md`** - Marketplace platform market opportunity calculation
-- **`examples/value-theory-example.md`** - Value-based market sizing for disruptive innovation
-
-Use these examples as templates for your own market sizing analysis. Each includes real numbers, data sources, and assumptions documented clearly.
+No other templates or implementation playbook are bundled. Percentages in this guide are scenario assumptions, not universal market-share benchmarks. Do not purchase reports or transmit customer data without authorization.
 
 ## Quick Start
 
@@ -420,7 +409,7 @@ To perform market sizing analysis:
 8. **Document** - Show methodology, sources, assumptions
 9. **Present** - Structure for audience (investors, strategy, operations)
 
-For detailed step-by-step guidance on each methodology, reference the files in `references/` directory. For complete worked examples, see `examples/` directory.
+Use the two bundled resources above and cite current primary evidence for the actual market.
 
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.

@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-10-13 06:37 UTC*
+*Last updated: 2026-10-14 06:32 UTC*
 
 ## Source Repositories
 
@@ -131,7 +131,7 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | AGPL-3.0-only | 4 |
 | AGPL-3.0-or-later | 1 |
 | Apache License, Version 2.0 | 1 |
-| Apache-2.0 | 106 |
+| Apache-2.0 | 108 |
 | Apache-2.0 license | 14 |
 | BSD license | 1 |
 | BSD-2-Clause license | 1 |
@@ -141,14 +141,13 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | CC BY-NC-SA 4.0 | 1 |
 | CC-BY-4.0 | 3 |
 | CC0-1.0 | 2 |
-| Complete terms in LICENSE.txt | 37 |
+| Complete terms in LICENSE.txt | 35 |
 | FSL-1.1-ALv2 | 3 |
 | GPL-2.0 license | 1 |
 | GPL-3.0-only | 1 |
 | GPL-3.0-or-later | 1 |
 | GPLv3 license | 1 |
-| LICENSE | 1 |
-| MIT | 3540 |
+| MIT | 3543 |
 | MIT License | 4 |
 | MIT license | 27 |
 | MIT-0 | 21 |

@@ -13,6 +13,17 @@ tools: [claude-code, codex-cli, copilot, opencode]
 license: "MIT"
 license_source: "https://github.com/glukicov/slideops/blob/main/LICENSE"
 ---
+## Supporting material availability
+
+This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
+
+- `skills/slideops/assets/template.html`
+- `skills/slideops/references/diagrams.md`
+- `<support-root>/references/automation.md`
+- `<support-root>/references/verification.md`
+
+Obtain the required material from the [declared upstream source](https://github.com/glukicov/slideops), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
+
 
 # SlideOps: slides from a repo, that tell you when they go stale
 

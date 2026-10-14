@@ -1,19 +1,15 @@
 ---
 name: build
-description: build
+argument-hint: "[subcommand] [name]"
+metadata:
+  author: Shpigford
+  version: "1.0"
+description: "Develop major features through research, planning, implementation, and progress tracking."
 risk: critical
 source: community
 date_added: "2026-09-04"
 ---
 
----
-name: build
-description: Feature development pipeline - research, plan, track, and implement major features.
-argument-hint: [subcommand] [name]
-metadata:
-  author: Shpigford
-  version: "1.0"
----
 
 Feature development pipeline - research, plan, track, and implement major features.
 

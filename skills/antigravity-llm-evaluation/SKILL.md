@@ -20,7 +20,7 @@ Master comprehensive evaluation strategies for LLM applications, from automated 
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- Use the examples below; no separate implementation playbook is bundled.
 
 ## Use this skill when
 
@@ -308,18 +308,18 @@ def calculate_agreement(rater1_scores, rater2_scores):
     """Calculate inter-rater agreement."""
     kappa = cohen_kappa_score(rater1_scores, rater2_scores)
 
-    interpretation = {
-        kappa < 0: "Poor",
-        kappa < 0.2: "Slight",
-        kappa < 0.4: "Fair",
-        kappa < 0.6: "Moderate",
-        kappa < 0.8: "Substantial",
-        kappa <= 1.0: "Almost Perfect"
-    }
+    # Ordered ranges: Boolean dictionary keys overwrite each other.
+    interpretation = "Undefined"
+    for upper, label in [(0, "Poor"), (0.2, "Slight"), (0.4, "Fair"),
+                         (0.6, "Moderate"), (0.8, "Substantial"),
+                         (float("inf"), "Almost Perfect")]:
+        if kappa < upper:
+            interpretation = label
+            break
 
     return {
         "kappa": kappa,
-        "interpretation": interpretation[True]
+        "interpretation": interpretation
     }
 ```
 
@@ -401,6 +401,8 @@ class RegressionDetector:
                 continue
 
             # Calculate relative change
+            if baseline_score == 0:
+                raise ValueError("Relative regression requires a nonzero baseline; use an absolute threshold instead.")
             relative_change = (new_score - baseline_score) / baseline_score
 
             # Flag if significant decrease
@@ -455,16 +457,11 @@ class BenchmarkRunner:
         }
 ```
 
-## Resources
+## Local Resources and execution boundaries
 
-- **references/metrics.md**: Comprehensive metric guide
-- **references/human-evaluation.md**: Annotation best practices
-- **references/benchmarking.md**: Standard benchmarks
-- **references/a-b-testing.md**: Statistical testing guide
-- **references/regression-testing.md**: CI/CD integration
-- **assets/evaluation-framework.py**: Complete evaluation harness
-- **assets/benchmark-dataset.jsonl**: Example datasets
-- **scripts/evaluate-model.py**: Automated evaluation runner
+No separate evaluation framework, dataset, runner or reference bundle is included. Code below illustrates patterns that must be adapted to the project's actual dependencies and validated before use; the `llm_eval` interface is pseudocode, not a promised installed package. Inspect existing SDK versions instead of copying legacy provider calls unchanged.
+
+Use sanitized, representative data and an explicit evaluation budget. Model downloads, hosted inference, paid judge calls and telemetry exports require authorization for the data and cost. Prefer already cached models; do not treat a prompt as a security boundary against instructions embedded in evaluated outputs. Calibrate judge scores against a human-labeled sample and inspect errors, bias and disagreement. Overlap scores do not prove correctness, safety or production readiness.
 
 ## Best Practices
 
