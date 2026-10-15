@@ -5,16 +5,13 @@ risk: critical
 source: community
 date_added: '2026-02-27'
 ---
-## Supporting material availability
+## Bundled upstream support
 
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
+Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
 
-- `<support-root>/references/patterns.md`
-- `<support-root>/references/dead-letter.md`
-- `<support-root>/scripts/setup_servicebus.py`
+## Restored helper safety
 
-Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
+`scripts/setup_servicebus.py` can create or delete Service Bus queues, topics, and subscriptions. Delete commands require `--confirm-delete`; subscription creation with `--filter` replaces the default rule on the newly created subscription. Confirm the namespace and exact entity/action with the user before live use; prefer a disposable test namespace.
 
 # Azure Service Bus SDK for Python
 

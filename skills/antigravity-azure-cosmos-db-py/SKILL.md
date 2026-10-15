@@ -5,21 +5,13 @@ risk: critical
 source: community
 date_added: "2026-02-27"
 ---
-## Supporting material availability
+## Bundled upstream support
 
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
+Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
 
-- `<support-root>/references/client-setup.md`
-- `<support-root>/references/service-layer.md`
-- `<support-root>/references/testing.md`
-- `<support-root>/references/partitioning.md`
-- `<support-root>/references/error-handling.md`
-- `<support-root>/assets/cosmos_client_template.py`
-- `<support-root>/assets/service_template.py`
-- `<support-root>/assets/conftest_template.py`
+## Restored helper safety
 
-Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
+The integration fixture in `assets/conftest_template.py` connects to the configured Cosmos endpoint; `cleanup_test_docs` deletes records explicitly added to its tracking list. Use only an isolated disposable test container with test-only records, never production data. Copying the template does not connect to Cosmos.
 
 # Cosmos DB Service Implementation
 

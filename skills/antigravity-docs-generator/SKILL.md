@@ -9,13 +9,9 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
-## Supporting material availability
+## Bundled upstream support
 
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
-- `../scripts/case-init.ps1`
-
-Obtain the required material from the [declared upstream source](https://github.com/zhaoxuya520/reverse-skill), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
+Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
 
 # Technical Documentation
 ## When to Use
@@ -77,7 +73,9 @@ Obtain the required material from the [declared upstream source](https://github.
 - 敏感信息（真实 token、密码、内部 URL）用占位符替代
 - **MUST** 包含 Evidence → Finding → Path 链（见 `../ops/evidence-finding-path.md` 与模板 §0）
 - **MUST** 读取 `references/vendor-report-rules.md`：选定 `malware` / `apt` 或 `flavor = null`（漏洞任务可叠加 thin `vuln`）；无 flavor 时只输出原任务模板和适用的 Base 元素，不强制 IOC/ATT&CK
-- **SHOULD** 引用 case `scope.md` / `timeline.md`（`../scripts/case-init.ps1`）
+- **SHOULD** 引用 case `scope.md` / `timeline.md`（`scripts/case-init.ps1`）
+
+`case-init.ps1` writes `scope.md`, `timeline.md`, `workitems.md`, and `README.md` under `work/<CaseName>/`. It refuses to run when that case directory already exists; choose a new `-CaseName` to preserve prior case data.
 
 ### 图表集成
 

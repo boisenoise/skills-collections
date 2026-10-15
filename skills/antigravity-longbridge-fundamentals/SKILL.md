@@ -9,34 +9,9 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/longbridge/skills/blob/main/LICENSE
 ---
-## Supporting material availability
+## Bundled upstream support
 
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
-- `<support-root>/references/financial-report.md`
-- `<support-root>/references/business-segments.md`
-- `<support-root>/references/dividend.md`
-- `<support-root>/references/valuation.md`
-- `<support-root>/references/industry-valuation.md`
-- `<support-root>/references/operating.md`
-- `<support-root>/references/corp-action.md`
-- `<support-root>/references/company.md`
-- `<support-root>/references/invest-relation.md`
-- `<support-root>/references/valuation-rank.md`
-- `<support-root>/references/compare.md`
-- `<support-root>/references/financial-statement.md`
-- `<support-root>/references/executive.md`
-- `<support-root>/references/corporate.md`
-- `<support-root>/references/corporate-events.md`
-- `<support-root>/references/dcf.md`
-- `<support-root>/references/valuation-methodology.md`
-- `<support-root>/references/behavioral-finance.md`
-- `<support-root>/references/value-screen.md`
-- `<support-root>/references/smallcap-growth.md`
-- `<support-root>/references/main-business-analysis.md`
-
-Obtain the required material from the [declared upstream source](https://github.com/longbridge/skills), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
+Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
 
 # Longbridge Fundamentals
 

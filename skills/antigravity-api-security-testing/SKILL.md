@@ -2,10 +2,24 @@
 name: api-security-testing
 description: "API security testing workflow for REST and GraphQL APIs covering authentication, authorization, rate limiting, input validation, and security best practices."
 category: granular-workflow-bundle
-risk: safe
+risk: offensive
 source: personal
 date_added: "2026-02-27"
 ---
+
+> **⚠️ AUTHORIZED USE ONLY**
+> This skill is for educational purposes or authorized security assessments only.
+> You must have explicit, written permission from the system owner before using this tool.
+> Misuse of this tool is illegal and strictly prohibited.
+
+> **Mandatory confirmation gate**
+> Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
+> 1. Ask the user to state the exact target URL, IP, account, or resource.
+> 2. Ask the user to confirm written authorization and the permitted scope.
+> 3. Show the exact command(s) and explain their expected effect.
+> 4. Wait for explicit confirmation in the current conversation.
+>
+> Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
 
 # API Security Testing Workflow
 
@@ -21,6 +35,10 @@ Use this workflow when:
 - Validating API authentication
 - Testing API rate limiting
 - Bug bounty API testing
+
+## Scope and evidence
+
+Select approved phases and test accounts; do not dispatch every listed skill automatically. Use owned fixtures for destructive methods, injections, brute-force, resource exhaustion and deep/complex GraphQL requests. Define request, concurrency, byte and duration limits, stop conditions and cleanup before testing. Keep third-party systems and real customer data out of tests. Public schemas, missing headers and an HTTP success response alone do not prove an authorization flaw or exploitable limit bypass. Record untested endpoints and observed impact instead of checking “all endpoints tested” by assumption.
 
 ## Workflow Phases
 
@@ -168,7 +186,7 @@ Use @api-security-best-practices to audit API error handling
 
 - `security-audit` - Security auditing
 - `web-security-testing` - Web security
-- `api-development` - API development
+- `api-design-principles` - API contract design
 
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.

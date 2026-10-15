@@ -1,7 +1,7 @@
 ---
 name: busybox-on-windows
 description: "How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows."
-risk: safe
+risk: critical
 source: community
 date_added: "2026-02-27"
 ---
@@ -20,11 +20,15 @@ These are PowerShell commands, if you have a classic `cmd.exe` terminal, then yo
    - 64-bit x86 (Unicode): `$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://frippery.org/files/busybox/busybox64u.exe -OutFile busybox.exe`
    - 64-bit ARM (Unicode): `$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://frippery.org/files/busybox/busybox64a.exe -OutFile busybox.exe`
 
-Useful commands:
-- Help: `busybox.exe --list`
-- Available UNIX commands: `busybox.exe --list`
+Before executing a downloaded binary, obtain the expected release digest from an independently verified publisher channel and compare `Get-FileHash -Algorithm SHA256`. A computed hash alone does not authenticate the download. If the publisher evidence cannot be checked, report that installation is unverified and do not execute it. Save outside the immutable skill bundle and do not overwrite an existing binary.
 
-Usage: Prefix the UNIX command with `busybox.exe`, for example: `busybox.exe ls -1`
+PowerShell does not implicitly execute a file in the current directory; use `./busybox.exe` or `& "C:\approved\path\busybox.exe"`. Review the applet's filesystem effects before running it.
+
+Useful commands:
+- Help: `./busybox.exe --list`
+- Available UNIX commands: `./busybox.exe --list`
+
+Usage: Prefix the UNIX command with `busybox.exe`, for example: `./busybox.exe ls -1`
 
 If you need to run a UNIX command under another CWD, then use the absolute path to `busybox.exe`.
 
@@ -32,7 +36,7 @@ Documentation: https://frippery.org/busybox/
 Original BusyBox: https://busybox.net/
 
 ## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.
+Use when an authorized Windows task needs Unix-style applets without WSL, and an architecture-compatible reviewed BusyBox binary is available.
 
 ## Example
 

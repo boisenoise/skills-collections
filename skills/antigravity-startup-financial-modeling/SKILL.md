@@ -115,24 +115,26 @@ Track headcount by department and role.
 
 ### Three-Scenario Framework
 
-**Conservative Scenario (P10):**
+**Conservative Scenario:**
 - Slower customer acquisition
 - Lower pricing or conversion
 - Higher churn rates
 - Extended sales cycles
 - Used for cash management
 
-**Base Scenario (P50):**
+**Base Scenario:**
 - Most likely outcomes
 - Realistic assumptions
 - Primary planning scenario
 - Used for board reporting
 
-**Optimistic Scenario (P90):**
+**Optimistic Scenario:**
 - Faster growth
 - Better unit economics
 - Lower churn
 - Used for upside planning
+
+These are explicitly chosen scenarios, not measured probability percentiles. Do not label them P10/P50/P90 unless a documented probabilistic model and sampling justify those quantiles.
 
 ### Time Horizon
 
@@ -235,7 +237,7 @@ Beginning Cash
 **Runway Calculation:**
 ```
 If Ending Cash < 0:
-  Funding Need = Negative Cash Balance
+  Funding Need = -Ending Cash
   Runway = 0
 Else:
   Runway = Ending Cash / Average Positive Monthly Net Cash Burn
@@ -445,7 +447,7 @@ To create a startup financial model:
 2. **Project revenue** - Cohort-based with retention
 3. **Model costs** - COGS, S&M, R&D, G&A by month
 4. **Plan headcount** - Hiring by role and department
-5. **Calculate cash flow** - Revenue - expenses = burn/runway
+5. **Calculate cash flow** - Separate collections from recognized revenue; net cash burn is cash outflows minus operating cash inflows, and runway is defined only for positive burn.
 6. **Compute metrics** - CAC, LTV, burn multiple, runway
 7. **Create scenarios** - Conservative, base, optimistic
 8. **Validate assumptions** - Sanity check and benchmark

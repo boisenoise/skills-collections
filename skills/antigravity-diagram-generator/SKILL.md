@@ -9,13 +9,9 @@ date_added: "2026-08-25"
 license: "MIT"
 license_source: "https://github.com/zhaoxuya520/reverse-skill/blob/main/LICENSE"
 ---
-## Supporting material availability
+## Bundled upstream support
 
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
-- `<support-root>/scripts/render_diagram.py`
-
-Obtain the required material from the [declared upstream source](https://github.com/zhaoxuya520/reverse-skill), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
+Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
 
 # Diagram Generator
 ## When to Use
@@ -129,6 +125,8 @@ python "<SKILL_ROOT>/diagram-generator/scripts/render_diagram.py" input.puml --f
 > `<SKILL_ROOT>` 是本包 `skills/` 目录的实际路径，AI 应自动检测。
 
 The renderer is intentionally dependency-tolerant. It tries common local tools and reports actionable installation hints if a renderer is unavailable. Do not claim an image was rendered unless the script completed successfully and the output file exists.
+
+Only render reviewed diagram sources. The helper invokes locally installed renderers (including PlantUML) and writes the selected output path, which can replace an existing file; inspect the source and choose a fresh output path first.
 
 ## Validation checklist
 

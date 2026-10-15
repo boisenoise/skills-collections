@@ -65,6 +65,8 @@ You are an SEO content auditor analyzing provided content for optimization oppor
 ## Output
 
 **Content Audit Report:**
+
+Any 1–10 score is an explicitly stated editorial rubric, not a Google E-E-A-T measurement, ranking predictor or validated quality certificate. Prefer findings with quoted evidence and unknowns to unsupported numeric precision. Do not invent credentials, testimonials, source citations or performance data. Draft recommendations; publication requires the target’s authorization.
 | Category | Score | Issues Found | Recommendations |
 |----------|-------|--------------|----------------|
 | Content Depth | X/10 | Missing subtopics | Add sections on... |

@@ -224,6 +224,8 @@ Release only when requested.
 
 Every stable or prerelease version requires full release alignment. Creating the tag, GitHub Release, or npm package is an intermediate milestone, never the completion condition.
 
+Before prepare or publish, validate exact SemVer before any Git or filesystem side effect. Keep release subprocesses shell-free (`shell: false`); on Windows invoke npm through the current Node executable and a validated `npm-cli.js`. Preserve the negative regression proving argument metacharacters remain inert.
+
 1. Include the target changelog entry in the maintainer batch PR so it is already on protected `main`; avoid a separate release-notes-only PR.
 2. From clean, current `main`, run `npm run release:preflight` and required security checks.
 3. Run the release-state generator and its explicit plugin gates. Require a second no-drift pass before publication: `npm run sync:release-state`, `npm run plugin-compat:check`, and `npm run bundles:check` must leave a clean tree. Inspect `package.json`, `package-lock.json`, generated registries and the offline catalog, tracked web assets, `.agents/plugins/marketplace.json`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, every published Codex/Claude plugin mirror, and every eligible Agent Plugins editorial-bundle manifest. Every release-owned manifest version must equal `X.Y.Z`.

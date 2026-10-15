@@ -219,7 +219,7 @@ For each step:
 
 **Solutions**:
 
-1. **Versioning API**: Use `workflow.get_version()` for safe changes
+1. **Versioning API**: Bind the procedure to the actual SDK language and installed version. Python uses `workflow.patched` / `workflow.deprecate_patch`; other SDKs have different APIs. Replay existing histories before deployment; follow [official Python versioning guidance](https://docs.temporal.io/develop/python/versioning).
 2. **New Workflow Type**: Create new workflow, route new executions to it
 3. **Backward Compatibility**: Ensure old events replay correctly
 

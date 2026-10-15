@@ -111,7 +111,7 @@ Build market size from customer segment calculations.
 **Formula:**
 ```
 TAM = Σ (Segment Size × Annual Revenue per Customer)
-SAM = TAM × (Segments You Can Serve / Total Segments)
+SAM = Σ (Eligible Customer Count in Each Served Segment × Annual Revenue per Customer in That Segment)
 SOM = SAM × Realistic Penetration Rate (Year 3-5)
 ```
 
@@ -263,7 +263,7 @@ SOM (Year 5) = SAM × 5%
 Cross-check using multiple methods.
 
 **Validation Techniques:**
-1. Compare top-down and bottom-up results (should be within 30%)
+1. Compare top-down and bottom-up definitions, units, populations and source dates; investigate divergence rather than applying an arbitrary percentage gate
 2. Check against public company revenues in space
 3. Validate customer count assumptions
 4. Sense-check pricing assumptions
@@ -271,10 +271,10 @@ Cross-check using multiple methods.
 6. Compare to similar market categories
 
 **Red Flags:**
-- TAM that's too small (< $1B for VC-backed startups)
+- Opportunity size that does not support the stated business model or investor constraints
 - TAM that's too large (unsupported by data)
-- SOM that's too aggressive (> 10% in 5 years for new entrant)
-- Inconsistency between methodologies (> 50% difference)
+- SOM unsupported by the actual acquisition capacity, competition and retention assumptions
+- Unexplained inconsistency in populations, units or assumptions between methodologies
 
 ## Industry-Specific Considerations
 
@@ -312,7 +312,7 @@ TAM = Total Category GMV × Expected Take Rate
 
 **TAM Calculation:**
 ```
-TAM = Total Users × ARPU × Purchase Frequency per Year
+TAM = Total Potential Buyers × Average Revenue per Purchase × Purchases per Buyer per Year
 ```
 
 ### B2B Services
@@ -404,7 +404,7 @@ To perform market sizing analysis:
 3. **Gather data** - Industry reports, customer data, competitive intelligence
 4. **Calculate TAM** - Apply methodology formula
 5. **Narrow to SAM** - Apply product, geographic, segment filters
-6. **Estimate SOM** - 2-5% realistic capture rate
+6. **Estimate SOM** - Model acquisition, retention, capacity and competition; use a percentage only as an explicitly justified scenario assumption.
 7. **Validate** - Cross-check with alternative methods
 8. **Document** - Show methodology, sources, assumptions
 9. **Present** - Structure for audience (investors, strategy, operations)

@@ -5,15 +5,6 @@ risk: critical
 source: community
 date_added: "2026-02-27"
 ---
-## Supporting material availability
-
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
-- `<support-root>/assets/gitlab-ci.yml.template`
-- `<support-root>/references/pipeline-stages.md`
-
-Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
 
 # GitLab CI Patterns
 
@@ -105,7 +96,7 @@ build-docker:
   services:
     - docker:24-dind
   before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - printf '%s' "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
   script:
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
     - docker build -t $CI_REGISTRY_IMAGE:latest .
@@ -122,7 +113,7 @@ build-docker:
 .deploy_template: &deploy_template
   image: bitnami/kubectl:latest
   before_script:
-    - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
+    - kubectl config set-cluster k8s --server="$KUBE_URL" --certificate-authority="$KUBE_CA_FILE"
     - kubectl config set-credentials admin --token="$KUBE_TOKEN"
     - kubectl config set-context default --cluster=k8s --user=admin
     - kubectl config use-context default
@@ -214,7 +205,7 @@ trivy-scan:
   image: aquasec/trivy:latest
   script:
     - trivy image --exit-code 1 --severity HIGH,CRITICAL $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-  allow_failure: true
+  allow_failure: false
 ```
 
 ## Caching Strategies
@@ -269,10 +260,9 @@ trigger-child:
     strategy: depend
 ```
 
-## Reference Files
+## Template scope
 
-- `assets/gitlab-ci.yml.template` - Complete pipeline template
-- `references/pipeline-stages.md` - Stage organization patterns
+The examples are inline scaffolds. Use verified image digests and installed command versions, a protected scoped kubeconfig and protected production environments. `KUBE_CA_FILE` must point to a verified CI file variable. Do not deploy from untrusted merge requests or automatically grant new credentials. No external template is required by the inline examples.
 
 ## Best Practices
 

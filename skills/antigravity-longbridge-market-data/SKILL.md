@@ -9,31 +9,9 @@ date_added: 2026-07-01
 license: MIT
 license_source: https://github.com/longbridge/skills/blob/main/LICENSE
 ---
-## Supporting material availability
+## Bundled upstream support
 
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
-- `<support-root>/references/quote.md`
-- `<support-root>/references/kline.md`
-- `<support-root>/references/depth.md`
-- `<support-root>/references/trades.md`
-- `<support-root>/references/intraday.md`
-- `<support-root>/references/capital.md`
-- `<support-root>/references/market-temp.md`
-- `<support-root>/references/trading.md`
-- `<support-root>/references/security-list.md`
-- `<support-root>/references/participants.md`
-- `<support-root>/references/subscriptions.md`
-- `<support-root>/references/ah-premium.md`
-- `<support-root>/references/trade-stats.md`
-- `<support-root>/references/market-status.md`
-- `<support-root>/references/exchange-rate.md`
-- `<support-root>/references/ipo.md`
-- `<support-root>/references/adr-premium.md`
-- `<support-root>/references/fx-carry.md`
-
-Obtain the required material from the [declared upstream source](https://github.com/longbridge/skills), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
+Supporting files are included at skill-relative paths. See [UPSTREAM-NOTICE.md](UPSTREAM-NOTICE.md) for their pinned sources, licenses, hashes, and import changes.
 
 # Longbridge Market Data
 

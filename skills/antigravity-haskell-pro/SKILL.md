@@ -1,6 +1,6 @@
 ---
 name: haskell-pro
-description: "Expert Haskell engineer specializing in advanced type systems, pure"
+description: "Design and review Haskell types, pure domain logic, parsing, exception-safe concurrency, Cabal/Stack builds and measured performance."
 risk: safe
 source: community
 date_added: "2026-02-27"
@@ -8,8 +8,8 @@ date_added: "2026-02-27"
 
 ## Use this skill when
 
-- Working on haskell pro tasks or workflows
-- Needing guidance, best practices, or checklists for haskell pro
+- Designing domain invariants with newtypes, algebraic data types or GADTs.
+- Reviewing Haskell parsing, STM/async resource safety, project builds or measured allocation and latency.
 
 ## Do not use this skill when
 

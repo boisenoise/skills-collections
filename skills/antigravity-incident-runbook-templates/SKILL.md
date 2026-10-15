@@ -1,23 +1,13 @@
 ---
 name: incident-runbook-templates
-description: "Production-ready templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication."
+description: "Adaptable templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication."
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
-## Supporting material availability
-
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
-- `./scripts/smoke-test-payments.sh`
-- `./scripts/db-rollback.sh`
-
-Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
-
 # Incident Runbook Templates
 
-Production-ready templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication.
+Adaptable templates for incident response runbooks covering detection, triage, mitigation, resolution, and communication.
 
 ## Do not use this skill when
 
@@ -64,11 +54,15 @@ Production-ready templates for incident response runbooks covering detection, tr
 9. Escalation Matrix
 ```
 
+## Runbook prerequisites
+
+Bind service, namespace, cluster context, database, owners, approved incident authority, evidence sources and rollback revision before adapting these templates. Thresholds, financial amounts, impact percentages and resolution messages are illustrative, never observed incident facts. Read-only triage comes first; mutations require an approved service-specific response. Verify actual smoke/rollback scripts in the target project before using them. No script is bundled or implied by this template.
+
 ## Runbook Templates
 
 ### Template 1: Service Outage Runbook
 
-```markdown
+````markdown
 # [Service Name] Outage Runbook
 
 ## Overview
@@ -155,11 +149,12 @@ kubectl exec -n payments deploy/payment-service -- \
 psql -h $DB_HOST -U $DB_USER -c "
   SELECT pid, now() - query_start AS duration, query
   FROM pg_stat_activity
-  WHERE state = 'active' AND duration > interval '5 seconds'
+  WHERE state = 'active' AND now() - query_start > interval '5 seconds'
   ORDER BY duration DESC;"
 
 # Step 3: Kill long-running queries if needed
-psql -h $DB_HOST -U $DB_USER -c "SELECT pg_terminate_backend(pid);"
+# No generic query termination: identify an exact authorized PID/database/owner,
+# reconfirm it is not our connection, then use the approved database runbook.
 
 # Step 4: Check external dependency latency
 curl -w "@curl-format.txt" -o /dev/null -s https://api.stripe.com/v1/health
@@ -314,18 +309,18 @@ Follow-up:
 - Postmortem scheduled for [DATE]
 - Bug fix in progress
 ```
-```
+````
 
 ### Template 2: Database Incident Runbook
 
-```markdown
+````markdown
 # Database Incident Runbook
 
 ## Quick Reference
 | Issue | Command |
 |-------|---------|
 | Check connections | `SELECT count(*) FROM pg_stat_activity;` |
-| Kill query | `SELECT pg_terminate_backend(pid);` |
+| Query recovery | Identify exact PID/database/owner and use the approved recovery runbook |
 | Check replication lag | `SELECT extract(epoch from (now() - pg_last_xact_replay_timestamp()));` |
 | Check locks | `SELECT * FROM pg_locks WHERE NOT granted;` |
 
@@ -343,11 +338,13 @@ FROM pg_stat_activity
 WHERE state != 'idle'
 ORDER BY query_start;
 
--- Terminate idle connections
-SELECT pg_terminate_backend(pid)
+-- Inventory scoped idle connections; this query performs no termination.
+SELECT pid, datname, usename, state, state_change
 FROM pg_stat_activity
-WHERE state = 'idle'
-AND query_start < now() - interval '10 minutes';
+WHERE datname = current_database() AND pid <> pg_backend_pid()
+  AND state = 'idle' AND state_change < now() - interval '10 minutes';
+-- Do not terminate connections in bulk. Reconfirm ownership, transaction impact
+-- and a specific approved recovery step with the database owner.
 ```
 
 ## Replication Lag
@@ -377,11 +374,12 @@ ORDER BY pg_total_relation_size(relid) DESC
 LIMIT 10;"
 
 # VACUUM to reclaim space
-psql -c "VACUUM FULL large_table;"
+# VACUUM FULL requires an exclusive lock and extra disk space;
+# never use it as a generic disk emergency remedy. Escalate to the DBA.
 
 # If emergency, delete old data or expand disk
 ```
-```
+````
 
 ## Best Practices
 
