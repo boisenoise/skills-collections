@@ -2,7 +2,9 @@
 
 Each AI search platform has its own search index, ranking logic, and content preferences. This guide covers what matters for getting cited on each one.
 
-Sources cited throughout: Princeton GEO study (KDD 2024), SE Ranking domain authority study, ZipTie content-answer fit analysis.
+Sources cited throughout: Princeton GEO study (KDD 2024), SE Ranking's domain study (Nov 2025), Sellm.io's ranking-factor model, and Profound's citation data (2025). Most are vendor research with correlational methods.
+
+**Evidence order.** Weigh claims in this order: (1) official engine documentation and webmaster guidance, (2) controlled experiments and primary research, (3) large observational datasets, (4) practitioner case studies and commentary. When official guidance and observational data conflict, follow the documentation for eligibility and crawler controls and test the observation. Every number below is a dated snapshot of a moving system; re-check it before quoting it to a client.
 
 ---
 
@@ -20,7 +22,7 @@ Beyond these basics, each platform weights different signals. Here's what matter
 
 ## Google AI Overviews
 
-Google AI Overviews pull from Google's own index and lean heavily on E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness). Studies have measured them on roughly 45% of tracked keywords (BrightEdge).
+Google AI Overviews pull from Google's own index and lean heavily on E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness). BrightEdge measured them on about 48% of its tracked queries in February 2026, with wide swings by industry (most B2B tech and healthcare queries, few shopping queries).
 
 **What makes Google AI Overviews different:** They already have your traditional SEO signals — backlinks, page authority, topical relevance. The additional AI layer adds a preference for content with cited sources and structured data. The GEO study (Aggarwal et al., 2023) found that adding citations, quotations, and statistics raised visibility by roughly 30–40% on its own metric; individual examples in the paper show much larger jumps, but those aren't typical or additive.
 
@@ -42,16 +44,16 @@ Google AI Overviews pull from Google's own index and lean heavily on E-E-A-T sig
 
 ChatGPT's web search draws from a Bing-based index. It combines this with its training knowledge to generate answers, then cites the web sources it relied on.
 
-**What makes ChatGPT different:** Domain authority matters more here than on other AI platforms. An SE Ranking analysis of 129,000 domains found that authority and credibility signals account for roughly 40% of what determines citation, with content quality at about 35% and platform trust at 25%. Sites with very high referring domain counts (350K+) average 8.4 citations per response, while sites with slightly lower trust scores (91-96 vs 97-100) drop from 8.4 to 6 citations.
+**What makes ChatGPT different:** Link authority correlates strongly with citation. SE Ranking's study of 129,000 domains (Nov 2025) found referring domains were the single strongest predictor: sites with up to 2,500 referring domains averaged 1.6–1.8 citations, sites with more than 350,000 averaged 8.4, and citations nearly doubled past about 32,000. It's a correlation, and big brands have both links and everything else.
 
-**Freshness is a major differentiator.** Content updated within the last 30 days gets cited about 3.2x more often than older content. ChatGPT clearly favors recent information.
+**Freshness is a major differentiator.** Several vendor studies report that recently updated pages earn several times more ChatGPT citations than stale ones. The multipliers vary by study and none is well documented, so treat freshness as a strong lean and don't forecast with any one multiplier.
 
-**The most important signal is content-answer fit** — a ZipTie analysis of 400,000 pages found that how well your content's style and structure matches ChatGPT's own response format accounts for about 55% of citation likelihood. This is far more important than domain authority (12%) or on-page structure (14%) alone. Write the way ChatGPT would answer the question, and you're more likely to be the source it cites.
+**Content-answer fit matters most among page-level signals.** Sellm.io trained a model on 400,000+ URLs across 10,000 queries (undated vendor study) and found that how closely a page's substance and structure match ChatGPT's own answer was its strongest predictor of citation, well ahead of domain authority and on-page structure. Write the direct answer the question deserves, and you're more likely to be the source it cites.
 
-**Where ChatGPT looks beyond your site:** Wikipedia accounts for 7.8% of all ChatGPT citations, Reddit for 1.8%, and Forbes for 1.1%. Brand official sites are cited frequently but third-party mentions carry significant weight.
+**Where ChatGPT looks beyond your site:** In Profound's data from Aug 2024 to Jun 2025 (680 million citations), Wikipedia took 7.8% of ChatGPT citations, Reddit 1.8%, and Forbes 1.1%. Those shares have moved since: ChatGPT's August 2026 retrieval changes nearly removed Reddit as a source (see the volatility section in [agent-readiness.md](agent-readiness.md)). Company sites took most citations in Profound's later dataset (see [citations-vs-recommendations.md](citations-vs-recommendations.md)), and third-party mentions still shape recommendations.
 
 **What to focus on:**
-- Invest in backlinks and domain authority — it's the strongest baseline signal
+- Invest in earned links and authority; referring domains were the strongest correlate in SE Ranking's study
 - Update competitive content at least monthly
 - Structure your content the way ChatGPT structures its answers (conversational, direct, well-organized)
 - Include verifiable statistics with named sources
@@ -149,7 +151,7 @@ For implementation, inspect `/robots.txt` manually first. Optional helpers inclu
 
 If you're optimizing for AI search for the first time, focus your effort where your audience actually is:
 
-**Start with Google AI Overviews** — They reach the most users (45%+ of Google searches) and you likely already have Google SEO foundations in place. Add schema markup, include cited sources in your content, and strengthen E-E-A-T signals.
+**Start with Google AI Overviews** — They reach the most users (about 48% of BrightEdge-tracked queries, Feb 2026) and you likely already have Google SEO foundations in place. Add schema markup, include cited sources in your content, and strengthen E-E-A-T signals.
 
 **Then address ChatGPT** — It's the most-used standalone AI search tool for tech and business audiences. Focus on freshness (update content monthly), domain authority, and matching your content structure to how ChatGPT formats its responses.
 
