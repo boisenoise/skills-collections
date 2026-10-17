@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-16 06:31 UTC*
+*Last updated: 2026-10-17 06:28 UTC*
 
-Total skills: **3823**
+Total skills: **3838**
 
 ## Skills by Source
 
@@ -1344,6 +1344,8 @@ Total skills: **3823**
 | `antigravity-agentflow` | Orchestrate autonomous AI development pipelines through your Kanban board (Asana, GitHub Projects, L... |
 | `antigravity-agentfolio` | Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFol... |
 | `antigravity-agentic-actions-auditor` | Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Clau... |
+| `antigravity-agentic-test-audit` | Audit a pytest suite: surviving mutants and untested code, flaky, order-dependent and slow tests, an... |
+| `antigravity-agentic-verify` | Check that a Python change is caught by tests: run every mutant of the changed lines and write tests... |
 | `antigravity-agentmail` | Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and inspe... |
 | `antigravity-agentphone` | Build AI phone agents with AgentPhone API. Use when the user wants to make phone calls, send/receive... |
 | `antigravity-agents-generator` | Generate project-specific AGENTS.md and companion rules by analyzing a codebase. Supports full, mini... |
@@ -1392,6 +1394,7 @@ Total skills: **3823**
 | `antigravity-algorithmic-art` | Algorithmic philosophies are computational aesthetic movements that are then expressed through code.... |
 | `antigravity-alpha-vantage` | Access 20+ years of global financial data: equities, options, forex, crypto, commodities, economic i... |
 | `antigravity-alternatives-pages` | Create "[Competitor] alternative" and comparison pages for developer tools. Build honest, high-conve... |
+| `antigravity-altorank` | Run AltoRank through its hosted MCP server: readiness audits, Search Console, keyword research, and ... |
 | `antigravity-alumni-re-hire-tracker` | Alumni and re-hire register: former role, last working day, re-hire eligibility, current employer an... |
 | `antigravity-amazon-alexa` | Integracao completa com Amazon Alexa para criar skills de voz inteligentes, transformar Alexa em ass... |
 | `antigravity-amplitude-automation` | Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identificatio... |
@@ -1457,6 +1460,7 @@ Total skills: **3823**
 | `antigravity-apify-integration-development` | Curated upstream guidance for Apify Integration Development; use when the workflow matches the user ... |
 | `antigravity-apify-lead-generation` | Scrape leads from multiple platforms using Apify Actors. |
 | `antigravity-apify-market-research` | Analyze market conditions, geographic opportunities, pricing, consumer behavior, and product validat... |
+| `antigravity-apify-reddit-scraper` | Scrape Reddit posts, comments, subreddits and users with the harshmaur/reddit-scraper Apify Actor. N... |
 | `antigravity-apify-trend-analysis` | Discover and track emerging trends across Google Trends, Instagram, Facebook, YouTube, and TikTok to... |
 | `antigravity-apify-ultimate-scraper` | AI-driven data extraction from 55+ Actors across all major platforms. This skill automatically selec... |
 | `antigravity-apk-redteam-pipeline` | End-to-end Android APK red-team pipeline |
@@ -1803,6 +1807,7 @@ pipelines, and system utilities.... |
 | `antigravity-chat-widget` | Build a real-time support chat system with a floating widget for users and an admin dashboard for su... |
 | `antigravity-chatexport-need-miner` | Mines offline Telegram Desktop chat exports (result.json) for unmet market needs and product opportu... |
 | `antigravity-check-identity-pack` | Run an AFP 100-point or AUSTRAC safe-harbour identity check over a set of documents, and report exac... |
+| `antigravity-chord-onchain-trading` | Read DEX market data and prepare best-route swap quotes and unsigned swap transactions on eight EVM ... |
 | `antigravity-chrome-extension-developer` | Expert in building Chrome Extensions using Manifest V3. Covers background scripts, service workers, ... |
 | `antigravity-churn-prevention` | Reduce voluntary and involuntary churn with cancel flows, save offers, dunning, win-back tactics, an... |
 | `antigravity-ci-cd-and-automation` | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use... |
@@ -2439,6 +2444,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-headline-psychologist` | Draft and compare audience-aware headlines when copy needs clearer relevance and curiosity without c... |
 | `antigravity-health-trend-analyzer` | 分析一段时间内健康数据的趋势和模式。关联药物、症状、生命体征、化验结果和其他健康指标的变化。识别令人担忧的趋势、改善情况，并提供数据驱动的洞察。当用户询问健康趋势、模式、随时间的变化或"我的健康状况有... |
 | `antigravity-health-wellness` | Wellbeing check-in register: anonymous flag, department, check-in date, wellbeing score, stress and ... |
+| `antigravity-healthcare-job-search` | Find open US healthcare jobs (nursing, CNA, allied health, therapy, imaging, pharmacy, physicians) a... |
 | `antigravity-helium-mcp` | Connect to Helium's MCP server for news research, media bias analysis, balanced perspectives, stock/... |
 | `antigravity-helm-chart-scaffolding` | Comprehensive guidance for creating, organizing, and managing Helm charts for packaging and deployin... |
 | `antigravity-helm-charts` | Create, manage, and deploy Helm charts for Kubernetes package management. |
@@ -2739,6 +2745,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-logistics-exception-management` | Codified expertise for handling freight exceptions, shipment delays, damages, losses, and carrier di... |
 | `antigravity-lognorm` | Work a site's SEO and AI-visibility (GEO) backlog through the hosted LogNorm MCP server: audits, fix... |
 | `antigravity-logo-image-design` | Brand asset register: asset type, format, dimensions and aspect ratio, colour mode, background varia... |
+| `antigravity-logo-to-stickers` | Turn a brand mark or existing IP into consistent, playful paper stickers with small visual stories a... |
 | `antigravity-loki-logging` | Configure Grafana Loki for log aggregation and analysis. |
 | `antigravity-loki-mode` | Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced: OpenAI SDK, DeepMi... |
 | `antigravity-longbridge` | Guide to using a separately installed Longbridge integration — real-time quotes, charts, fundamental... |
@@ -2879,6 +2886,7 @@ splash language, makepad script, m... |
 | `antigravity-model-supply-chain-security` | Secure the AI model supply chain with artifact signing, provenance attestation, SBOM workflows, depe... |
 | `antigravity-modellix` | Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (mo... |
 | `antigravity-modern-javascript-patterns` | Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns... |
+| `antigravity-moltnode-chain-reader` | Read 31 blockchains over keyless JSON-RPC with MoltNode (balances, blocks, contract calls) and get C... |
 | `antigravity-molykit` | CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
 BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-monday-automation` | Automate Monday.com work management including boards, items, columns, groups, subitems, and updates ... |
@@ -2900,6 +2908,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-monte-carlo-validation-notebook` | Generates SQL validation notebooks for dbt PR changes with before/after comparison queries. |
 | `antigravity-monthly-closing-statements` | Monthly closing register: period dates, cash/bank/party/inventory/TDS reconciliation flags, profit, ... |
 | `antigravity-moodle-external-api-development` | This skill guides you through creating custom external web service APIs for Moodle LMS, following Mo... |
+| `antigravity-movie-coupon` | Fetch movie ticket coupons from platforms like Taopiaopiao and Maoyan. Returns coupon links and QR c... |
 | `antigravity-moyu` | Anti-over-engineering guardrail that activates when an AI coding agent expands scope, adds abstracti... |
 | `antigravity-mtls-configuration` | Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing z... |
 | `antigravity-muapi-media` | Generate images and videos with MuAPI's schema-driven asynchronous media API while protecting keys, ... |
@@ -2977,10 +2986,12 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-observability-engineer` | Build production-ready monitoring, logging, and tracing systems. Implements comprehensive observabil... |
 | `antigravity-observability-monitoring-monitor-setup` | Set up metrics, distributed tracing, log aggregation, and dashboards for application and infrastruct... |
 | `antigravity-observability-monitoring-slo-implement` | You are an SLO (Service Level Objective) expert specializing in implementing reliability standards a... |
+| `antigravity-obsess` | Perfectionist mode for one target: checked attempts on a UI detail or hot path, keeps the best versi... |
 | `antigravity-obsidian-bases` | Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when ... |
 | `antigravity-obsidian-cli` | Use the Obsidian CLI to read, create, search, and manage vault content, or to develop and debug Obsi... |
 | `antigravity-obsidian-clipper-template-creator` | Guide for creating templates for the Obsidian Web Clipper. Use when you want to create a new clippin... |
 | `antigravity-obsidian-markdown` | Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other O... |
+| `antigravity-obtain-coupons-all-in-one` | All-in-one coupon fetcher supporting takeout (Meituan, Ele.me, JD), parcel/courier (SF, ZTO, YTO, et... |
 | `antigravity-occupational-health-analyzer` | 分析职业健康数据、识别工作相关健康风险、评估职业健康状况、提供个性化职业健康建议。支持与睡眠、运动、心理健康等其他健康数据的关联分析。 |
 | `antigravity-odoo-accounting-setup` | Expert guide for configuring Odoo Accounting: chart of accounts, journals, fiscal positions, taxes, ... |
 | `antigravity-odoo-automated-tests` | Write and run Odoo automated tests using TransactionCase, HttpCase, and browser tour tests. Covers t... |
@@ -3034,6 +3045,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-openclaw-local-mac-mini` | Set up OpenClaw locally and run it reliably on a Mac mini for private, always-on local agent workflo... |
 | `antigravity-openclaw-security-hardening` | Harden OpenClaw self-hosted environments with baseline host controls, auth tightening, secret handli... |
 | `antigravity-opencode-delegate` | Delegate coding tasks to the OpenCode CLI only when the user explicitly requests it, while the orche... |
+| `antigravity-openhook` | Creates private callback inboxes with Openhook. Use when an agent needs to wait for a webhook, inspe... |
 | `antigravity-openshift` | Manage Red Hat OpenShift clusters and deployments. |
 | `antigravity-opentelemetry` | Instrument applications and infrastructure with OpenTelemetry for unified traces, metrics, and logs. |
 | `antigravity-opentofu-migration` | Migrate from Terraform to OpenTofu with state compatibility, provider registry setup, and CI/CD pipe... |
@@ -3060,6 +3072,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-papers-skill` | Skill for academic research workflows: search Semantic Scholar (200M+ papers), inspect citations, do... |
 | `antigravity-parallel-agents` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domai... |
 | `antigravity-parallel-search-mcp` | Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses ... |
+| `antigravity-parcel-coupon` | Call parcel/courier coupon API to fetch one-stop logistics service coupons, including smart shipping... |
 | `antigravity-party-ledger-reconciliation` | Party ledger reconciliation: party type, name and PAN/VAT, ledger against statement balance, differe... |
 | `antigravity-patch-diff-exploit` | Locate vulnerability fixes in vendor patches, diff binaries across versions, and build N-day PoCs. A... |
 | `antigravity-payment-accounting` | Payment voucher register: payment number and date, paid to and purpose, mode, gross amount, TDS rate... |
@@ -3582,6 +3595,7 @@ calculations
 | `antigravity-tailwind-design-system` | Build production-ready design systems with Tailwind CSS, including design tokens, component variants... |
 | `antigravity-tailwind-patterns` | Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design toke... |
 | `antigravity-taisly-social-media-posting` | Use Taisly Agent Kit to prepare and publish approved short-form video posts across TikTok, Instagram... |
+| `antigravity-takeout-coupon` | Call takeout coupon API to fetch hidden coupon lists, red packets and aggregated redemption pages fo... |
 | `antigravity-talivia-agent-kit` | Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website chan... |
 | `antigravity-talking-avatar-video` | Install and use the official Talking Avatar Video package, pinned by digest, for paid hosted work on... |
 | `antigravity-tanstack-query-expert` | Expert in TanStack Query (React Query) — asynchronous state management. Covers data fetching, stale ... |
@@ -3684,6 +3698,7 @@ calculations
 | `antigravity-triage` | Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if ... |
 | `antigravity-triage-validation` | Finding validation before writing any report |
 | `antigravity-trigger-dev` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent de... |
+| `antigravity-trip-coupon` | Call trip/travel coupon API to fetch travel coupons including DiDi ride-hailing gift packages and ho... |
 | `antigravity-trl-training` | Train and fine-tune transformer language models using TRL (Transformers Reinforcement Learning). Sup... |
 | `antigravity-trpc-fullstack` | Build end-to-end type-safe APIs with tRPC — routers, procedures, middleware, subscriptions, and Next... |
 | `antigravity-trust-calibrator` | Diagnose audience trust barriers and calibrate proof, certainty, and credibility signals when messag... |

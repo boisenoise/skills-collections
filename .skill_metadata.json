@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-16T06:31:39.283283",
-  "skill_count": 3823,
+  "last_updated": "2026-10-17T06:28:05.227864",
+  "skill_count": 3838,
   "sources_processed": 19,
   "skills": [
     {
@@ -4060,6 +4060,14 @@
       "license": "BSD-3-Clause"
     },
     {
+      "name": "antigravity-obtain-coupons-all-in-one",
+      "original_name": "obtain-coupons-all-in-one",
+      "description": "All-in-one coupon fetcher supporting takeout (Meituan, Ele.me, JD), parcel/courier (SF, ZTO, YTO, etc.), travel (DiDi, Ctrip), and movie tickets (Taopiaopiao, Maoyan) coupons with one-click access to all discounts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hunt-session",
       "original_name": "hunt-session",
       "description": "Hunt Session Management vulnerabilities",
@@ -4527,6 +4535,14 @@
       "name": "antigravity-agy-delegate",
       "original_name": "agy-delegate",
       "description": "Delegate coding tasks to the Google Antigravity CLI (`agy`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-logo-to-stickers",
+      "original_name": "logo-to-stickers",
+      "description": "Turn a brand mark or existing IP into consistent, playful paper stickers with small visual stories and separate transparent images. Use for brand characters and website sticker sets.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5087,6 +5103,14 @@
       "name": "antigravity-sendgrid-automation",
       "original_name": "sendgrid-automation",
       "description": "Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and list management, sender identity setup, and email analytics through Composio's SendGrid toolkit.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-parcel-coupon",
+      "original_name": "parcel-coupon",
+      "description": "Call parcel/courier coupon API to fetch one-stop logistics service coupons, including smart shipping and smart price matching. Returns coupon links and QR code images for users to redeem via WeChat.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6463,6 +6487,14 @@
       "name": "antigravity-crossframe-org",
       "original_name": "crossframe-org",
       "description": "Use when CrossFrame Suite routes explicit Chinese analysis of teams, projects, organizations, responsibility chains, feedback write-back, repair, or retrospectives.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-healthcare-job-search",
+      "original_name": "healthcare-job-search",
+      "description": "Find open US healthcare jobs (nursing, CNA, allied health, therapy, imaging, pharmacy, physicians) and the hourly pay employers post, via CareJobs.Now's free MCP server or JSON endpoints.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9527,6 +9559,14 @@
       "name": "antigravity-threejs-loaders",
       "original_name": "threejs-loaders",
       "description": "Three.js asset loading - GLTF, textures, images, models, async patterns. Use when loading 3D models, textures, HDR environments, or managing loading progress.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agentic-test-audit",
+      "original_name": "agentic-test-audit",
+      "description": "Audit a pytest suite: surviving mutants and untested code, flaky, order-dependent and slow tests, and removal candidates checked on held-out mutants. Report-only.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14140,6 +14180,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-moltnode-chain-reader",
+      "original_name": "moltnode-chain-reader",
+      "description": "Read 31 blockchains over keyless JSON-RPC with MoltNode (balances, blocks, contract calls) and get Chord swap quotes with an unsigned transaction and simulation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-codex-fable5",
       "original_name": "codex-fable5",
       "description": "Apply Fable-inspired discipline to Codex work: inspect first, track goals and findings, ground conclusions in evidence, verify before completion, and adapt Claude/Fable prompt guidance without identity or provider claims.",
@@ -14415,6 +14463,14 @@
       "name": "antigravity-azure-storage-blob-py",
       "original_name": "azure-storage-blob-py",
       "description": "Azure Blob Storage SDK for Python. Use for uploading, downloading, listing blobs, managing containers, and blob lifecycle.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-openhook",
+      "original_name": "openhook",
+      "description": "Creates private callback inboxes with Openhook. Use when an agent needs to wait for a webhook, inspect received HTTP/email/DNS events, or verify a test callback's contents.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14879,6 +14935,14 @@
       "name": "antigravity-shader-programming-glsl",
       "original_name": "shader-programming-glsl",
       "description": "Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, covering syntax, uniforms, and common effects.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-obsess",
+      "original_name": "obsess",
+      "description": "Perfectionist mode for one target: checked attempts on a UI detail or hot path, keeps the best version, stops on a budget. Only on explicit /obsess.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16116,6 +16180,14 @@
       "license": "https://github.com/pola-rs/polars/blob/main/LICENSE"
     },
     {
+      "name": "antigravity-takeout-coupon",
+      "original_name": "takeout-coupon",
+      "description": "Call takeout coupon API to fetch hidden coupon lists, red packets and aggregated redemption pages for platforms (Meituan, Taobao Flash/Ele.me, JD.com). Returns coupon codes and redemption instructions for users to copy and redeem in corresponding apps.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-wellally-tech",
       "original_name": "wellally-tech",
       "description": "Integrate multiple digital health data sources, connect to [WellAlly.tech](https://www.wellally.tech/) knowledge base, providing data import and knowledge reference for personal health management systems.",
@@ -17079,6 +17151,14 @@
       "name": "antigravity-production-audit",
       "original_name": "production-audit",
       "description": "Audit a shipped repo for production-readiness gaps across RLS, webhooks, secrets, grants, Stripe idempotency, mobile UX, and deployment health.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-chord-onchain-trading",
+      "original_name": "chord-onchain-trading",
+      "description": "Read DEX market data and prepare best-route swap quotes and unsigned swap transactions on eight EVM chains with the Chord API. Never signs or moves funds.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18596,6 +18676,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-altorank",
+      "original_name": "altorank",
+      "description": "Run AltoRank through its hosted MCP server: readiness audits, Search Console, keyword research, and SEO drafts into a review queue.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "AGPL-3.0"
+    },
+    {
       "name": "antigravity-architecture",
       "original_name": "architecture",
       "description": "Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.",
@@ -18847,6 +18935,14 @@
       "name": "antigravity-hybrid-cloud-networking",
       "original_name": "hybrid-cloud-networking",
       "description": "Configure secure, high-performance connectivity between on-premises and cloud environments using VPN, Direct Connect, and ExpressRoute.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agentic-verify",
+      "original_name": "agentic-verify",
+      "description": "Check that a Python change is caught by tests: run every mutant of the changed lines and write tests until they catch them. Reports evidence instead of a diff to read.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22076,6 +22172,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-apify-reddit-scraper",
+      "original_name": "apify-reddit-scraper",
+      "description": "Scrape Reddit posts, comments, subreddits and users with the harshmaur/reddit-scraper Apify Actor. No Reddit API key. Keyword search, date windows, full threads.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-saga-orchestration",
       "original_name": "saga-orchestration",
       "description": "Patterns for managing distributed transactions and long-running business processes.",
@@ -22202,6 +22306,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-trip-coupon",
+      "original_name": "trip-coupon",
+      "description": "Call trip/travel coupon API to fetch travel coupons including DiDi ride-hailing gift packages and hotel coupon bundles. Returns coupon links and QR code images for users to redeem via WeChat.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-huggingface-local-models",
@@ -22631,6 +22743,14 @@
       "name": "antigravity-swiftui-liquid-glass",
       "original_name": "swiftui-liquid-glass",
       "description": "Implement or review SwiftUI Liquid Glass APIs with correct fallbacks and modifier order.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-movie-coupon",
+      "original_name": "movie-coupon",
+      "description": "Fetch movie ticket coupons from platforms like Taopiaopiao and Maoyan. Returns coupon links and QR code images for users to redeem via WeChat.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
