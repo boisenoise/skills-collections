@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-18 06:28 UTC*
+*Last updated: 2026-10-19 06:43 UTC*
 
-Total skills: **3838**
+Total skills: **3845**
 
 ## Skills by Source
 
@@ -1385,6 +1385,7 @@ Total skills: **3838**
 | `antigravity-ai-sre-incident-response` | Build AI-focused SRE incident response practices for LLM outages, degraded quality, runaway cost eve... |
 | `antigravity-ai-studio-image` | Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos realistas estilo influencer ou e... |
 | `antigravity-ai-wrapper-product` | Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc. ) into focused tools people w... |
+| `antigravity-aident-loadout` | Run multi-step work across apps the user connected in Aident Loadout: live action schemas, connectio... |
 | `antigravity-aider-delegate` | Delegate coding tasks to Aider (`aider`) only when the user explicitly requests it, while the orches... |
 | `antigravity-airflow-dag-patterns` | Build production Apache Airflow DAGs with best practices for operators, sensors, testing, and deploy... |
 | `antigravity-airtable-automation` | Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always searc... |
@@ -1423,7 +1424,7 @@ Total skills: **3838**
 | `antigravity-anti-ui-slop` | Stop coding agents from shipping generic UI. Extend the product's design system, use UIZZE evidence ... |
 | `antigravity-antigravity-agent-manager` | Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager and Ant... |
 | `antigravity-antigravity-design-expert` | Core UI/UX engineering skill for building highly interactive, spatial, weightless, and glassmorphism... |
-| `antigravity-antigravity-maintainer-batch-release` | Run protected AAS maintainer sweeps, PR merge batches, canonical sync, Core preview checks, and scri... |
+| `antigravity-antigravity-maintainer-batch-release` | Run protected AAS maintainer sweeps, PR merge batches, resumable review, immutable distribution, Cor... |
 | `antigravity-antigravity-skill-orchestrator` | A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks succ... |
 | `antigravity-antigravity-workflows` | Use when asked to ship a SaaS MVP, audit application security, build an AI agent, run browser QA, or... |
 | `antigravity-anywrite` | Compiled CLI covering all 52 endpoints of the Anytype local API — objects, properties, tags, search,... |
@@ -1992,6 +1993,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-csv-manual-export` | CSV Manual Export: a UTF-8 CSV template from a confirmed field list, empty by default, with no inven... |
 | `antigravity-cucumber-skill` | Generates Cucumber BDD tests with Gherkin feature files and step definitions in Java, JavaScript, or... |
 | `antigravity-culture-retention` | Employee survey and retention register: engagement, growth, happiness, work-life balance and manager... |
+| `antigravity-curlshot` | Capture web page screenshots, PDFs and scrolling videos, or render HTML/Markdown to images, with the... |
 | `antigravity-cursor-delegate` | Delegate coding tasks to the Cursor Agent CLI (`cursor-agent`) only when the user explicitly request... |
 | `antigravity-customer-psychographic-profiler` | Build an evidence-grounded customer profile of motivations, fears, identity, and trust barriers befo... |
 | `antigravity-customer-research` | When the user wants to conduct, analyze, or synthesize customer research. |
@@ -2660,6 +2662,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-kotlin-coroutines-expert` | Expert patterns for Kotlin Coroutines and Flow, covering structured concurrency, error handling, and... |
 | `antigravity-kpi-dashboard-design` | Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive... |
 | `antigravity-kpi-tracker` | KPI register: metric by level, department, job title and employee, linked OKR, unit and direction, t... |
+| `antigravity-krexa` | Turn a trading idea, post or video into fixed rules, backtest and paper-trade them, and request a us... |
 | `antigravity-kubernetes-architect` | Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (... |
 | `antigravity-kubernetes-deployment` | Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and productio... |
 | `antigravity-kubernetes-hardening` | Implement Kubernetes security contexts, Pod Security Standards, and network policies. |
@@ -3064,11 +3067,13 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-outlook-automation` | Automate Outlook tasks via Rube MCP (Composio): emails, calendar, contacts, folders, attachments. Al... |
 | `antigravity-outlook-calendar-automation` | Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeti... |
 | `antigravity-outreachagent` | Operate reply-aware cold outbound email workflows for AI agents with inboxes, contacts, templates, p... |
+| `antigravity-outreachgenie-list-audit` | Audit saved OutreachGenie prospect lists against an outreach flow for missing template values, text ... |
 | `antigravity-page-cro` | Analyze and optimize individual pages for conversion performance. |
 | `antigravity-pagerduty-automation` | Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation ... |
 | `antigravity-pagespeed-enhancer` | Scan, audit, and fix web performance issues across all four Lighthouse/PageSpeed Insights pillars — ... |
 | `antigravity-paid-ads` | You are an expert performance marketer with direct access to ad platform accounts. Your goal is to h... |
 | `antigravity-pakistan-payments-stack` | Design and implement production-grade Pakistani payment integrations (JazzCash, Easypaisa, bank/PSP ... |
+| `antigravity-pangolinfo-amazon-data-research` | Plan and run read-only Amazon product, review, category, seller, and market research through Pangoli... |
 | `antigravity-papers-skill` | Skill for academic research workflows: search Semantic Scholar (200M+ papers), inspect citations, do... |
 | `antigravity-parallel-agents` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domai... |
 | `antigravity-parallel-search-mcp` | Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses ... |
@@ -3185,6 +3190,7 @@ structures, and modern OOP features. U... |
 | `antigravity-progressive-web-app` | Build Progressive Web Apps (PWAs) with offline support, installability, and caching strategies. Trig... |
 | `antigravity-project-based-performance` | Project performance review: role, project and manager, delivery, quality and collaboration scores, o... |
 | `antigravity-project-development` | This skill covers the principles for identifying tasks suited to LLM processing, designing effective... |
+| `antigravity-project-memory-log` | Maintain one operation log and one deduplicated document catalog for long-running projects. Use when... |
 | `antigravity-project-skill-audit` | Audit a project and recommend the highest-value skills to add or update. |
 | `antigravity-project-state-governor` | Govern evidence-backed canonical project state across sessions, branches, reviews, and research cycl... |
 | `antigravity-projection-patterns` | Build read models and projections from event streams. Use when implementing CQRS read sides, buildin... |
@@ -3507,6 +3513,7 @@ Plans content calendars and ident... |
 | `antigravity-socialclaw` | Agent-first social media publishing skill — schedule and publish posts across 13 platforms (X, Linke... |
 | `antigravity-software-architecture` | Guide for quality focused software architecture. This skill should be used when users want to write ... |
 | `antigravity-solidity-security` | Master smart contract security best practices, vulnerability prevention, and secure Solidity develop... |
+| `antigravity-solidping` | Run SolidPing uptime monitoring through its hosted MCP server: list and diagnose checks, read result... |
 | `antigravity-sop-company-wiki` | SOP and company wiki register: title, category, department, owner, version, priority and review date... |
 | `antigravity-sops-encryption` | Encrypt files and configs with Mozilla SOPS. |
 | `antigravity-soroban-contract-audit` | Soroban smart contract security audit register: authorization checks, panic pathways, integer overfl... |

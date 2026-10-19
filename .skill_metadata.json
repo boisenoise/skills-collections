@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-18T06:28:30.448682",
-  "skill_count": 3838,
+  "last_updated": "2026-10-19T06:43:05.878178",
+  "skill_count": 3845,
   "sources_processed": 19,
   "skills": [
     {
@@ -2892,6 +2892,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-outreachgenie-list-audit",
+      "original_name": "outreachgenie-list-audit",
+      "description": "Audit saved OutreachGenie prospect lists against an outreach flow for missing template values, text limits and incomplete collection, using read-only MCP snapshots and local reports.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-admin-access-register",
       "original_name": "admin-access-register",
       "description": "Admin account register: system, main and backup admin, seats, plan, 2FA, shared logins and access-review dates, as CSV, SQL, JSON Schema or Notion on request. Use for access reviews.",
@@ -3714,6 +3722,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-krexa",
+      "original_name": "krexa",
+      "description": "Turn a trading idea, post or video into fixed rules, backtest and paper-trade them, and request a user-approved live agent through Krexa's MCP server. Cannot move funds.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT-0"
     },
     {
       "name": "antigravity-wiki-builder",
@@ -7852,6 +7868,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-pangolinfo-amazon-data-research",
+      "original_name": "pangolinfo-amazon-data-research",
+      "description": "Plan and run read-only Amazon product, review, category, seller, and market research through Pangolinfo's documented MCP bridge.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-skyvern-browser-automation",
       "original_name": "skyvern-browser-automation",
       "description": "AI-powered browser automation \u2014 navigate sites, fill forms, extract structured data, log in with stored credentials, and build reusable workflows.",
@@ -9574,7 +9598,7 @@
     {
       "name": "antigravity-antigravity-maintainer-batch-release",
       "original_name": "antigravity-maintainer-batch-release",
-      "description": "Run protected AAS maintainer sweeps, PR merge batches, canonical sync, Core preview checks, and scripted releases. Use for repository maintenance, main alignment, CLI/MCP/Workbench changes, or release work; not ordinary contribution tasks.",
+      "description": "Run protected AAS maintainer sweeps, PR merge batches, resumable review, immutable distribution, Core checks, and scripted releases. Use for repository maintenance, main alignment, CLI/MCP/Workbench changes, or release work; not ordinary contribution tasks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13092,6 +13116,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-aident-loadout",
+      "original_name": "aident-loadout",
+      "description": "Run multi-step work across apps the user connected in Aident Loadout: live action schemas, connection checks, cost preflight, and approval before side effects.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-formik-patterns",
       "original_name": "formik-patterns",
       "description": "Formik form handling with validation patterns. Use when building forms, implementing validation, or handling form submission.",
@@ -15956,6 +15988,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-curlshot",
+      "original_name": "curlshot",
+      "description": "Capture web page screenshots, PDFs and scrolling videos, or render HTML/Markdown to images, with the hosted CurlShot API.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-documentation-and-adrs",
       "original_name": "documentation-and-adrs",
       "description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.",
@@ -16671,6 +16711,14 @@
       "name": "antigravity-muapi-media",
       "original_name": "muapi-media",
       "description": "Generate images and videos with MuAPI's schema-driven asynchronous media API while protecting keys, polling, and output downloads.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-solidping",
+      "original_name": "solidping",
+      "description": "Run SolidPing uptime monitoring through its hosted MCP server: list and diagnose checks, read results and incidents, create checks across 40+ types, and manage status pages.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22183,6 +22231,14 @@
       "name": "antigravity-saga-orchestration",
       "original_name": "saga-orchestration",
       "description": "Patterns for managing distributed transactions and long-running business processes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-project-memory-log",
+      "original_name": "project-memory-log",
+      "description": "Maintain one operation log and one deduplicated document catalog for long-running projects. Use when resuming project work or tracing durable document changes across sessions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
