@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-19 06:43 UTC*
+*Last updated: 2026-10-20 06:31 UTC*
 
-Total skills: **3845**
+Total skills: **3852**
 
 ## Skills by Source
 
@@ -1123,6 +1123,7 @@ Total skills: **3845**
 | `marketing-competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the ... |
 | `marketing-competitors` | When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing us... |
 | `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
+| `marketing-conversion-tracking` | Set up, audit, verify, or fix website conversion tracking. Use when the conversion is a form submiss... |
 | `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content... |
 | `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page, including homepage, l... |
 | `marketing-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page or form — in... |
@@ -1135,6 +1136,7 @@ Total skills: **3845**
 | `marketing-influencer-marketing` | When the user wants to run influencer, creator, or ambassador partnerships to promote their product ... |
 | `marketing-launch` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
 | `marketing-lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.... |
+| `marketing-link-building` | When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations. A... |
 | `marketing-marketing-council` | When the user wants multiple expert perspectives on a marketing question — a simulated board of advi... |
 | `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
 | `marketing-marketing-loops` | When the user wants to set up a recurring, self-running marketing workflow — a repeatable loop an AI... |
@@ -2410,6 +2412,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-go-rod-master` | Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) i... |
 | `antigravity-go-rust-reverse` | Reverse engineer stripped Go and Rust binaries: runtime recognition, pclntab/module metadata recover... |
 | `antigravity-goal-analyzer` | 分析健康目标数据、识别目标模式、评估目标进度,并提供个性化目标管理建议。支持与营养、运动、睡眠等健康数据的关联分析。 |
+| `antigravity-goal-instruction-writer` | Preview, draft, refine, or audit durable agent Goals with acceptance evidence, drift controls, propo... |
 | `antigravity-goal-loop` | Draft and explain persistent goal-loop prompts for long-running agent work with clear stop condition... |
 | `antigravity-godot-4-migration` | Specialized guide for migrating Godot 3.x projects to Godot 4 (GDScript 2.0), covering syntax change... |
 | `antigravity-godot-gdscript-patterns` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use wh... |
@@ -2653,6 +2656,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-k8s-manifest-generator` | Step-by-step guidance for creating production-ready Kubernetes manifests including Deployments, Serv... |
 | `antigravity-k8s-security-policies` | Comprehensive guide for implementing NetworkPolicy, PodSecurityPolicy, RBAC, and Pod Security Standa... |
 | `antigravity-kaizen` | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user ... |
+| `antigravity-keenable-search-mcp` | Search the public web with site and date filters, and read pages with an extraction prompt, through ... |
 | `antigravity-kernel-prompt` | Use when composing or improving an LLM prompt or agent instruction. Asks one round of questions, the... |
 | `antigravity-keyword-extractor` | Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract... |
 | `antigravity-kimi-delegate` | Delegate coding tasks to the Kimi Code CLI (`kimi`) only when the user explicitly requests it, while... |
@@ -3155,6 +3159,7 @@ structures, and modern OOP features. U... |
 | `antigravity-postmortem-writing` | Comprehensive guide to writing effective, blameless postmortems that drive organizational learning a... |
 | `antigravity-power-user-cultivation` | When the user wants to identify and nurture developer advocates, build champion programs, or turn ac... |
 | `antigravity-powershell-windows` | PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling. |
+| `antigravity-ppl-personal-crm` | Uses the ppl personal CRM over MCP to prepare for conversations, recall facts about people, log inte... |
 | `antigravity-pptx` | A user may ask you to create, edit, or analyze the contents of a .pptx file. A .pptx file is essenti... |
 | `antigravity-pptx-deck-creation` | Create editable, production-ready PPTX decks with narrative planning, explicit layout specs, asset g... |
 | `antigravity-pr-merge-champion` | Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-re... |
@@ -3568,6 +3573,7 @@ calculations
 | `antigravity-stitch-design-taste` | Use when generating Google Stitch DESIGN.md systems for premium typography, color, layout, motion in... |
 | `antigravity-stitch-loop` | Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop patt... |
 | `antigravity-stitch-ui-design` | Expert guidance for crafting effective prompts in Google Stitch, the AI-powered UI design tool by Go... |
+| `antigravity-story-bible-continuity` | Deterministic continuity check for long manuscripts against a story bible: name drift, age arithmeti... |
 | `antigravity-stride-analysis-patterns` | Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, con... |
 | `antigravity-stripe-automation` | Automate Stripe tasks via Rube MCP (Composio): customers, charges, subscriptions, invoices, products... |
 | `antigravity-stripe-integration` | Implement and verify Stripe checkout, subscriptions, webhooks and refunds with explicit server-side ... |
@@ -3599,6 +3605,7 @@ calculations
 | `antigravity-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
 | `antigravity-systemd-services` | Create and manage systemd services and timers. Configure service dependencies and resource limits. U... |
 | `antigravity-systems-programming-rust-project` | You are a Rust project architecture expert specializing in scaffolding production-ready Rust applica... |
+| `antigravity-taasky` | Negotiate terms with another person or their agent through the hosted Taasky MCP server: meeting tim... |
 | `antigravity-tailwind-design-system` | Build production-ready design systems with Tailwind CSS, including design tokens, component variants... |
 | `antigravity-tailwind-patterns` | Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design toke... |
 | `antigravity-taisly-social-media-posting` | Use Taisly Agent Kit to prepare and publish approved short-form video posts across TikTok, Instagram... |
