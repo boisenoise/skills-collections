@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-20T06:31:09.899216",
-  "skill_count": 3852,
+  "last_updated": "2026-10-21T06:31:53.005167",
+  "skill_count": 3861,
   "sources_processed": 19,
   "skills": [
     {
@@ -2452,6 +2452,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-apify-tiktok-scraper",
+      "original_name": "apify-tiktok-scraper",
+      "description": "Research TikTok videos, profiles, hashtags, comments and followers with engagement statistics through the harshmaur/tiktok-scraper Apify Actor. No TikTok login.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-jev-use",
       "original_name": "jev-use",
       "description": "Route enumerable judgment steps - did it work, which option, how risky, is this safe to run - to the Jev judgment model through the jev_judge and jev_gate MCP tools, batched into one call per state.",
@@ -4359,6 +4367,14 @@
       "name": "antigravity-payments-received",
       "original_name": "payments-received",
       "description": "Payments received log: reference, client and invoice, amount and currency, payment date and method, withholding tax, bank account, received-by and receipt-sent status. Use for incoming payments.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-agy-powerline",
+      "original_name": "agy-powerline",
+      "description": "Install, check and restyle the agy-powerline statusline for Antigravity CLI (agy): quotas, model, context window and git on agy's status bar.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7046,7 +7062,7 @@
     {
       "name": "antigravity-datacircle",
       "original_name": "datacircle",
-      "description": "Look up LinkedIn profiles by URL through Datacircle (Up2Data, HarvestAPI or Fetchin, no markup), over its hosted MCP server or REST API, with the user's yes before each paid call.",
+      "description": "Every GTM API plan on datacircle.dev, as one file you download and query. Use it to compare or price a GTM data API.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7839,6 +7855,14 @@
       "name": "antigravity-lambda-lang",
       "original_name": "lambda-lang",
       "description": "Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak directly, not a translation layer. 340+ atoms across 7 domains; 3x smaller than natural language.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-design-token-contrast",
+      "original_name": "design-token-contrast",
+      "description": "Checks WCAG 2.2 contrast between the color tokens of a project (light and dark theme) and suggests the closest passing color that keeps the hue.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9756,6 +9780,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-unpaid-intern",
+      "original_name": "unpaid-intern",
+      "description": "A free second brain for work in plain markdown files the user owns. Turns transcripts, docs, and tickets into briefings, meeting prep, debriefs, follow-ups, and status tables.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-burpsuite-project-parser",
       "original_name": "burpsuite-project-parser",
       "description": "Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy history or site map data, or analyzing HTTP traffic captured in a Burp project.",
@@ -11580,6 +11612,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-deed-page",
+      "original_name": "deed-page",
+      "description": "Publish an HTML file or static folder to a permanent public https://<slug>.deed.page/ URL with one curl request. No account; the first publish returns a token for updates.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-dbos-typescript",
       "original_name": "dbos-typescript",
       "description": "Guide for building reliable, fault-tolerant TypeScript applications with DBOS durable workflows. Use when adding DBOS to existing TypeScript code, creating workflows and steps, or using queues for concurrency control.",
@@ -12924,6 +12964,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-apify-linkedin-jobs-scraper",
+      "original_name": "apify-linkedin-jobs-scraper",
+      "description": "Search and export LinkedIn job postings with salary, seniority, recruiter and company fields using the harshmaur/linkedin-jobs-scraper Apify Actor. No LinkedIn login.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-agent-evals",
       "original_name": "agent-evals",
       "description": "Build automated evaluation suites for AI agents using golden datasets, rubrics, and regression gates. Use when shipping agent features, validating prompt changes, or gating deployments on quality.",
@@ -13935,6 +13983,14 @@
       "name": "antigravity-pytest-skill",
       "original_name": "pytest-skill",
       "description": "Generates production-grade pytest tests in Python with fixtures, parametrize, markers, mocking, and conftest patterns. Use when user mentions \"pytest\", \"conftest\", \"@pytest.fixture\", \"@pytest.mark\", \"Python test\".",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-neverapply",
+      "original_name": "neverapply",
+      "description": "Find matching jobs, tailor resumes, prepare for interviews and apply to jobs with the user's approval through NeverApply's hosted MCP server (OAuth sign-in).",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21436,6 +21492,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-apify-facebook-ads-library-scraper",
+      "original_name": "apify-facebook-ads-library-scraper",
+      "description": "Research Meta Ad Library ads by advertiser or keyword with creative links, dates and disclosed reach or spend through the harshmaur/facebook-ads-library-scraper Apify Actor.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-sbom-supply-chain",
       "original_name": "sbom-supply-chain",
       "description": "Generate, sign, and verify SBOMs and provenance attestations to secure the software supply chain. Use when implementing SLSA controls, artifact trust policies, or compliance evidence for releases.",
@@ -22527,6 +22591,14 @@
       "name": "antigravity-longbridge-quant",
       "original_name": "longbridge-quant",
       "description": "Curated upstream guidance for Longbridge Quant; use when the workflow matches the user goal.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-uiverify-triage-visual-changes",
+      "original_name": "uiverify-triage-visual-changes",
+      "description": "Triage a UI Verify visual regression build from your coding agent over MCP: sort changed screenshots into regressions, intended changes and noise, then accept baselines.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

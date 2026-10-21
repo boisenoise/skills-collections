@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-20 06:31 UTC*
+*Last updated: 2026-10-21 06:31 UTC*
 
-Total skills: **3852**
+Total skills: **3861**
 
 ## Skills by Source
 
@@ -1356,6 +1356,7 @@ Total skills: **3852**
 | `antigravity-agenttrace-session-audit` | Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, he... |
 | `antigravity-agy-auto` | Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layered pol... |
 | `antigravity-agy-delegate` | Delegate coding tasks to the Google Antigravity CLI (`agy`) only when the user explicitly requests i... |
+| `antigravity-agy-powerline` | Install, check and restyle the agy-powerline statusline for Antigravity CLI (agy): quotas, model, co... |
 | `antigravity-ai-agent-development` | AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchest... |
 | `antigravity-ai-agent-evaluation-benchmarking` | Autonomous AI agent benchmark evaluation register: task completion rates, planning accuracy, tool in... |
 | `antigravity-ai-agent-security` | Secure AI agents against prompt injection, tool abuse, and data exfiltration with defense-in-depth c... |
@@ -1458,12 +1459,15 @@ Total skills: **3852**
 | `antigravity-apify-competitor-intelligence` | Analyze competitor strategies, content, pricing, ads, and market positioning across Google Maps, Boo... |
 | `antigravity-apify-content-analytics` | Track engagement metrics, measure campaign ROI, and analyze content performance across Instagram, Fa... |
 | `antigravity-apify-ecommerce` | Extract product data, prices, reviews, and seller information from any e-commerce platform using Api... |
+| `antigravity-apify-facebook-ads-library-scraper` | Research Meta Ad Library ads by advertiser or keyword with creative links, dates and disclosed reach... |
 | `antigravity-apify-generate-output-schema` | Generate output schemas (dataset_schema.json, output_schema.json, key_value_store_schema.json) for a... |
 | `antigravity-apify-influencer-discovery` | Find and evaluate influencers for brand partnerships, verify authenticity, and track collaboration p... |
 | `antigravity-apify-integration-development` | Curated upstream guidance for Apify Integration Development; use when the workflow matches the user ... |
 | `antigravity-apify-lead-generation` | Scrape leads from multiple platforms using Apify Actors. |
+| `antigravity-apify-linkedin-jobs-scraper` | Search and export LinkedIn job postings with salary, seniority, recruiter and company fields using t... |
 | `antigravity-apify-market-research` | Analyze market conditions, geographic opportunities, pricing, consumer behavior, and product validat... |
 | `antigravity-apify-reddit-scraper` | Scrape Reddit posts, comments, subreddits and users with the harshmaur/reddit-scraper Apify Actor. N... |
+| `antigravity-apify-tiktok-scraper` | Research TikTok videos, profiles, hashtags, comments and followers with engagement statistics throug... |
 | `antigravity-apify-trend-analysis` | Discover and track emerging trends across Google Trends, Instagram, Facebook, YouTube, and TikTok to... |
 | `antigravity-apify-ultimate-scraper` | AI-driven data extraction from 55+ Actors across all major platforms. This skill automatically selec... |
 | `antigravity-apk-redteam-pipeline` | End-to-end Android APK red-team pipeline |
@@ -2030,7 +2034,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-database-migrations-sql-migrations` | SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, and SQL Server. Focus o... |
 | `antigravity-database-optimizer` | Expert database optimizer specializing in modern performance tuning, query optimization, and scalabl... |
 | `antigravity-database-security` | Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: exposur... |
-| `antigravity-datacircle` | Look up LinkedIn profiles by URL through Datacircle (Up2Data, HarvestAPI or Fetchin, no markup), ove... |
+| `antigravity-datacircle` | Every GTM API plan on datacircle.dev, as one file you download and query. Use it to compare or price... |
 | `antigravity-datadog` | Implement Datadog monitoring and APM for infrastructure and applications. |
 | `antigravity-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
 | `antigravity-day-book` | Daily cash, bank and digital day book: opening and closing balances per book, in/out movements, debi... |
@@ -2052,6 +2056,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-debugging-toolkit` | Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug) |
 | `antigravity-debugging-toolkit-smart-debug` | Diagnose failures from reproduction steps, traces, logs and code; test hypotheses and verify a scope... |
 | `antigravity-decision-navigator` | Guide stuck or overwhelmed users through targeted branching questions until they reach concrete next... |
+| `antigravity-deed-page` | Publish an HTML file or static folder to a permanent public https://<slug>.deed.page/ URL with one c... |
 | `antigravity-deep-research` | Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive... |
 | `antigravity-deep-research-framework` | Framework for deep research reports: define the question and tier sources first, cross-verify, then ... |
 | `antigravity-deepapi` | Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and appr... |
@@ -2082,6 +2087,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-design-taste-frontend` | Use when building high-agency frontend interfaces with strict design taste, calibrated color, respon... |
 | `antigravity-design-theme-guide` | Design-token register: colour, typography, spacing and radius tokens with light and dark values, con... |
 | `antigravity-design-thinking` | Direction and intent for frontend design. Use with design when defining purpose, tone, domain, color... |
+| `antigravity-design-token-contrast` | Checks WCAG 2.2 contrast between the color tokens of a project (light and dark theme) and suggests t... |
 | `antigravity-design-ux` | UX / usability audit — heuristic evaluation of INTERACTIVE UIs (not just visual polish). Load with d... |
 | `antigravity-detect-ai-text` | Estimate whether a document's prose was written by AI, with the linguistic tells and honest abstenti... |
 | `antigravity-deterministic-design` | Measure rendered UI layout with reproducible spatial metrics and a separately assessed usability rev... |
@@ -2957,6 +2963,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-network-101` | Configure and test common network services (HTTP, HTTPS, SNMP, SMB) for penetration testing lab envi... |
 | `antigravity-network-engineer` | Expert network engineer specializing in modern cloud networking, security architectures, and perform... |
 | `antigravity-networkx` | NetworkX is a Python package for creating, manipulating, and analyzing complex networks and graphs. |
+| `antigravity-neverapply` | Find matching jobs, tailor resumes, prepare for interviews and apply to jobs with the user's approva... |
 | `antigravity-new-rails-project` | Create a new Rails project |
 | `antigravity-new-relic` | Configure New Relic observability platform for infrastructure and application monitoring. |
 | `antigravity-newman-cicd-integration` | Generate ready-to-use CI/CD pipeline configurations that install and run Newman for automated API te... |
@@ -3743,6 +3750,7 @@ calculations
 | `antigravity-ui-ux-designer` | Create interface designs, wireframes, and design systems. Masters user research, accessibility stand... |
 | `antigravity-ui-ux-pro-max` | Comprehensive design guide for web and mobile applications. Use when designing new UI components or ... |
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
+| `antigravity-uiverify-triage-visual-changes` | Triage a UI Verify visual regression build from your coding agent over MCP: sort changed screenshots... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
 | `antigravity-understand-project-yylo` | Inspect the current product architecture, dependencies, and validation loops before planning or impl... |
 | `antigravity-unified-ai-gateway` | Operate and evaluate Unified AI System through fifteen governed MCP tools, including provider-free p... |
@@ -3751,6 +3759,7 @@ calculations
 | `antigravity-unity-ai-game-creator` | Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene bluepr... |
 | `antigravity-unity-developer` | Build Unity games with optimized C# scripts, efficient rendering, and proper asset management. Maste... |
 | `antigravity-unity-ecs-patterns` | Production patterns for Unity's Data-Oriented Technology Stack (DOTS) including Entity Component Sys... |
+| `antigravity-unpaid-intern` | A free second brain for work in plain markdown files the user owns. Turns transcripts, docs, and tic... |
 | `antigravity-unreal-engine-cpp-pro` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, ... |
 | `antigravity-unship` | Compare AI agent-made UI variants locally in a real app, then keep one and clean up unused temporary... |
 | `antigravity-unslop` | Post-process AI-generated text through the unslop CLI to strip AI writing patterns before publishing |
