@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-21 06:31 UTC*
+*Last updated: 2026-10-22 06:31 UTC*
 
-Total skills: **3861**
+Total skills: **3872**
 
 ## Skills by Source
 
@@ -1363,6 +1363,7 @@ Total skills: **3861**
 | `antigravity-ai-agent-tool-routing` | Use when designing or reviewing an AI agent tool registry or MCP router: document parameter schemas,... |
 | `antigravity-ai-agents-architect` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning st... |
 | `antigravity-ai-analyzer` | AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、整理风险因素、提供一般性健康信息。支持智能问答和AI健康报告生成。 |
+| `antigravity-ai-audiobook-narration` | Install and use the official AI Audiobook Generator package, pinned by digest, for paid hosted work ... |
 | `antigravity-ai-code-generation-guardrails` | Use when reviewing AI-generated code before merge or execution: plan AST/security checks, isolated b... |
 | `antigravity-ai-coding-agent-guardrails` | Secure AI coding agents (Claude Code, Cursor, Codex, Copilot) with permission boundaries, secret pro... |
 | `antigravity-ai-dev-jobs-mcp` | Search indexed AI and ML jobs, inspect listings and employers, match roles, and view salary and mark... |
@@ -1370,6 +1371,7 @@ Total skills: **3861**
 | `antigravity-ai-engineering-toolkit` | Overview of six AI engineering workflows: prompt evaluation (8-dimension scoring), context budget pl... |
 | `antigravity-ai-headshot-studio` | Install and use the official AI Headshot Generator package, pinned by digest, for paid hosted work o... |
 | `antigravity-ai-image-generation-studio` | Install and use the official AI Image Generator package, pinned by digest, for paid hosted work on t... |
+| `antigravity-ai-image-realism` | Install and use the official AI Image Realism package, pinned by digest, for paid hosted work on the... |
 | `antigravity-ai-inference-service-mesh` | Use verified service mesh patterns for AI inference traffic management, mTLS, canary releases, polic... |
 | `antigravity-ai-logo-maker` | Install and use the official AI Logo Maker package, pinned by digest, for paid hosted work on the Be... |
 | `antigravity-ai-loop` | Runs a bounded spec-build-review development loop with explicit scope, stop conditions, and human ap... |
@@ -1386,6 +1388,7 @@ Total skills: **3861**
 | `antigravity-ai-security-hardening` | Harden AI/LLM deployments against prompt injection, data exfiltration, model theft, and supply chain... |
 | `antigravity-ai-seo` | Optimize content for AI search and LLM citations across AI Overviews, ChatGPT, Perplexity, Claude, G... |
 | `antigravity-ai-sre-incident-response` | Build AI-focused SRE incident response practices for LLM outages, degraded quality, runaway cost eve... |
+| `antigravity-ai-storyboard-generator` | Install and use the official AI Storyboard Generator package, pinned by digest, for paid hosted work... |
 | `antigravity-ai-studio-image` | Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos realistas estilo influencer ou e... |
 | `antigravity-ai-wrapper-product` | Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc. ) into focused tools people w... |
 | `antigravity-aident-loadout` | Run multi-step work across apps the user connected in Aident Loadout: live action schemas, connectio... |
@@ -1470,6 +1473,7 @@ Total skills: **3861**
 | `antigravity-apify-tiktok-scraper` | Research TikTok videos, profiles, hashtags, comments and followers with engagement statistics throug... |
 | `antigravity-apify-trend-analysis` | Discover and track emerging trends across Google Trends, Instagram, Facebook, YouTube, and TikTok to... |
 | `antigravity-apify-ultimate-scraper` | AI-driven data extraction from 55+ Actors across all major platforms. This skill automatically selec... |
+| `antigravity-apify-youtube-transcript-scraper` | Get YouTube captions, timestamped quotations, SRT/VTT and translated transcripts for videos, channel... |
 | `antigravity-apk-redteam-pipeline` | End-to-end Android APK red-team pipeline |
 | `antigravity-apk-reverse` | Android APK reverse engineering: unpacking, Java decompilation, smali modification, repacking and si... |
 | `antigravity-app-builder` | Main application building orchestrator. Creates full-stack applications from natural language reques... |
@@ -1790,6 +1794,7 @@ pipelines, and system utilities.... |
 | `antigravity-cal-com-automation` | Automate Cal.com tasks via Rube MCP (Composio): manage bookings, check availability, configure webho... |
 | `antigravity-calc` | Spreadsheet creation, format conversion (ODS/XLSX/CSV), formulas, data automation with LibreOffice C... |
 | `antigravity-calendly-automation` | Automate Calendly scheduling, event management, invitee tracking, availability checks, and organizat... |
+| `antigravity-calibrate-first` | Measure a dataset's detection floor before reading any trading-signal result, pre-register every tes... |
 | `antigravity-candidate-talent-pool` | Candidate and prospect pool: contact details, experience, skills, consent status and date, referral ... |
 | `antigravity-canva-automation` | Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. ... |
 | `antigravity-canvas-design` | These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSE... |
@@ -2685,6 +2690,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-langchain-architecture` | Master the LangChain framework for building sophisticated LLM applications with agents, chains, memo... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |
 | `antigravity-langgraph` | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applicati... |
+| `antigravity-lanshu-create-ai-presenter-video` | Turn a topic or script into a publish-ready explainer video, led by an AI presenter or performed in ... |
 | `antigravity-laravel-development-workflow` | Build and fix existing Laravel applications through root-cause diagnosis, repository-native implemen... |
 | `antigravity-laravel-expert` | Senior Laravel Engineer role for production-grade, maintainable, and idiomatic Laravel solutions. Fo... |
 | `antigravity-laravel-security-audit` | Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and... |
@@ -3090,6 +3096,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-parallel-search-mcp` | Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses ... |
 | `antigravity-parcel-coupon` | Call parcel/courier coupon API to fetch one-stop logistics service coupons, including smart shipping... |
 | `antigravity-party-ledger-reconciliation` | Party ledger reconciliation: party type, name and PAN/VAT, ledger against statement balance, differe... |
+| `antigravity-party-planning` | Estimate party food and drink quantities, select games, and draft hosting timelines using HostPartyP... |
 | `antigravity-patch-diff-exploit` | Locate vulnerability fixes in vendor patches, diff binaries across versions, and build N-day PoCs. A... |
 | `antigravity-payment-accounting` | Payment voucher register: payment number and date, paid to and purpose, mode, gross amount, TDS rate... |
 | `antigravity-payment-integration` | Integrate Stripe, PayPal, and payment processors. Handles checkout flows, subscriptions, webhooks, a... |
@@ -3129,6 +3136,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pipecat-friday-agent` | Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini... |
 | `antigravity-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
 | `antigravity-pitch-psychologist` | Structure pitches, decks, and talk tracks around audience beliefs, proof, and a clear decision when ... |
+| `antigravity-pixeltable` | Build Pixeltable apps in app.py with tables, computed columns, embedding search, and HTTP routes. Us... |
 | `antigravity-placecall` | Place real outbound phone calls to US businesses through the PlaceCall API: book, ask, get quotes, t... |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
 | `antigravity-plan-ledger-tasks-yylo` | Create a concise Product Development Requirement and one or more implementation-sized YYLO Ledger ta... |
@@ -3868,6 +3876,7 @@ calculations
 | `antigravity-webapp-testing` | To test local web applications, write native Python Playwright scripts. |
 | `antigravity-webdriverio-skill` | Generates WebdriverIO (WDIO) automation tests in JavaScript or TypeScript. Supports local and TestMu... |
 | `antigravity-webflow-automation` | Automate Webflow CMS collections, site publishing, page management, asset uploads, and ecommerce ord... |
+| `antigravity-wechat-cover-maker` | Install and use the official WeChat Article Cover package, pinned by digest, for paid hosted work on... |
 | `antigravity-wechat-official-account-strategist` | Grow WeChat Official Accounts (微信公众号) with high-conversion content strategy, title formulas, article... |
 | `antigravity-weightloss-analyzer` | 分析减肥数据、计算代谢率、追踪能量缺口、管理减肥阶段 |
 | `antigravity-wellally-tech` | Integrate multiple digital health data sources, connect to [WellAlly.tech](https://www.wellally.tech... |
@@ -3942,6 +3951,8 @@ calculations
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
 | `antigravity-zero-trust` | Implement zero-trust network architecture. Configure identity-based access, micro-segmentation, and ... |
 | `antigravity-zeroize-audit` | Detects missing zeroization of sensitive data in source code and identifies zeroization removed by c... |
+| `antigravity-zhongcao-cover-maker` | Install and use the official Xiaohongshu Cover Maker package, pinned by digest, for paid hosted work... |
+| `antigravity-zhongcao-note-copywriter` | Install and use the official Xiaohongshu Copywriter package, pinned by digest, for paid hosted work ... |
 | `antigravity-zipai-optimizer` | Ultra-dense token optimizer skill for prompt caching, log pruning, AST-based inspection, and minifie... |
 | `antigravity-zk-proof-verification-pipeline` | Zero-knowledge cryptographic verification pipeline register: proving system, circuit verification ke... |
 | `antigravity-zod-validation-expert` | Expert in Zod — TypeScript-first schema validation. Covers parsing, custom errors, refinements, type... |
