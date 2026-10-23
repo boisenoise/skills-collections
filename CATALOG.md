@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-22 06:31 UTC*
+*Last updated: 2026-10-23 06:31 UTC*
 
-Total skills: **3872**
+Total skills: **3878**
 
 ## Skills by Source
 
@@ -1420,6 +1420,7 @@ Total skills: **3872**
 | `antigravity-angular-migration` | Master AngularJS to Angular migration, including hybrid apps, component conversion, dependency injec... |
 | `antigravity-angular-state-management` | Master modern Angular state management with Signals, NgRx, and RxJS. Use when setting up global stat... |
 | `antigravity-angular-ui-patterns` | Modern Angular UI patterns for loading states, error handling, and data display. Use when building U... |
+| `antigravity-animated-github-profile` | Build high-impact, animated GitHub profile READMEs that play like mini-movies using pure SVG, CSS, a... |
 | `antigravity-animejs-animation` | Advanced JavaScript animation library skill for creating complex, high-performance web animations. |
 | `antigravity-announcement-board` | Announcement board: author, category, department, priority, audience, publish and expiry dates, stat... |
 | `antigravity-anti-deception` | Use before responding to pressure for agreement, manufactured urgency, authority appeals, or request... |
@@ -2696,6 +2697,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-laravel-security-audit` | Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and... |
 | `antigravity-last30days` | Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-r... |
 | `antigravity-latex-paper-conversion` | This skill should be used when the user asks to convert an academic paper in LaTeX from one format (... |
+| `antigravity-launch-check` | Passive pre-launch check of a live URL for AI-built apps: exposed secret keys, open Supabase/Firebas... |
 | `antigravity-launch-strategy` | You are an expert in SaaS product launches and feature announcements. Your goal is to help users pla... |
 | `antigravity-lead-magnets` | Plan and optimize lead magnets for email capture and lead generation. Use when designing gated conte... |
 | `antigravity-learn` | Help a user learn a topic through adaptive tutoring, lesson planning, practice, retrieval checks, ex... |
@@ -3392,6 +3394,7 @@ coll... |
 | `antigravity-sdk-dx` | Design SDKs that developers love to use—APIs that feel native, error messages that guide, and experi... |
 | `antigravity-seaborn` | Seaborn is a Python visualization library for creating publication-quality statistical graphics. Use... |
 | `antigravity-search-specialist` | Expert web researcher using advanced search techniques and |
+| `antigravity-second-deposit-igaming` | Finds why casino first-time depositors skip a second deposit from local back-office exports: 12 reas... |
 | `antigravity-secrets-management` | Secure secrets management practices for CI/CD pipelines using Vault, AWS Secrets Manager, and other ... |
 | `antigravity-security-and-hardening` | Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or... |
 | `antigravity-security-arsenal` | Security payloads, bypass tables, wordlists, gf pattern names, always-rejected bug list, and conditi... |
@@ -3783,7 +3786,9 @@ calculations
 | `antigravity-upstash-redis` | Use the @upstash/redis HTTP client for caching, sessions, counters, and Redis data structures from s... |
 | `antigravity-url-to-markdown` | Fetch a public webpage as clean Markdown for an agent: read, summarize, quote, or cite the page whil... |
 | `antigravity-us-property-data` | Use when a task needs real U.S. residential property data: valuation, listings, price or tax history... |
+| `antigravity-us-watchlist-alerts` | Free US stock watchlists, price alerts and daily briefs; no API key, NYSE-holiday aware. Information... |
 | `antigravity-usage-based-pricing` | Design pricing models that developers understand, accept, and can predict. Trigger phrases: usage-ba... |
+| `antigravity-usage-engineer` | Cut wasted tokens in coding-agent sessions: compact long logs, stop identical retries, check stale p... |
 | `antigravity-use-dom` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to... |
 | `antigravity-user-management` | Manage users, groups, and permissions on Linux systems. Configure sudo and access controls. Use when... |
 | `antigravity-user-thoughts` | Persist user decisions and project constraints to mdbase across sessions. Trigger on /user-thoughts ... |
@@ -3852,6 +3857,7 @@ calculations
 | `antigravity-warehouse` | Plan and review read-only data warehouse analysis with explicit scope, privacy, provenance, and vali... |
 | `antigravity-warp-delegate` | Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user explicitly requests it, while ... |
 | `antigravity-warren-buffett` | Agente que simula Warren Buffett — o maior investidor do seculo XX e XXI, CEO da Berkshire Hathaway,... |
+| `antigravity-watch-igaming` | Reviews a video link or local screen recording from transcript and scene-change frames matched by ti... |
 | `antigravity-wcag-audit-patterns` | Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation ... |
 | `antigravity-weather-data-lifecycle-management` | Manage ownership, retention, and cleanup of downloaded weather data across one-shot jobs, interactiv... |
 | `antigravity-weather-data-reproducibility` | Record and verify provenance manifests for weather-data inputs and derived artifacts, including obje... |
