@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-10-23 06:31 UTC*
+*Last updated: 2026-10-24 06:28 UTC*
 
 ## Source Repositories
 
@@ -131,8 +131,8 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | AGPL-3.0-only | 4 |
 | AGPL-3.0-or-later | 1 |
 | Apache License, Version 2.0 | 1 |
-| Apache-2.0 | 113 |
-| Apache-2.0 license | 14 |
+| Apache-2.0 | 115 |
+| Apache-2.0 license | 13 |
 | BSD license | 1 |
 | BSD-2-Clause license | 1 |
 | BSD-3-Clause | 6 |
@@ -147,8 +147,9 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | GPL-3.0-only | 1 |
 | GPL-3.0-or-later | 1 |
 | GPLv3 license | 1 |
-| MIT | 3585 |
+| MIT | 3591 |
 | MIT License | 4 |
+| MIT OR Apache-2.0 | 1 |
 | MIT license | 27 |
 | MIT-0 | 29 |
 | PolyForm-Noncommercial-1.0.0 | 1 |
@@ -157,7 +158,7 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data. | 1 |
 | Unknown | 6 |
 | https://creativecommons.org/licenses/by/4.0/ | 1 |
-| https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 2 |
+| https://github.com/matplotlib/matplotlib/tree/main/LICENSE | 1 |
 | https://github.com/pola-rs/polars/blob/main/LICENSE | 2 |
 | https://github.com/sympy/sympy/blob/master/LICENSE | 2 |
 

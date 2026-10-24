@@ -28,6 +28,27 @@ Required checks remain `pr-policy`, `pr-evidence`, `source-validation`, `artifac
 
 Merged main validates its source diff and discards generated changes. Ordinary maintenance never creates a canonical-sync PR. Repo Hygiene tests ephemeral generated state, without write permissions. Tracked indexes, plugin mirrors, manifests and catalogs describe the last prepared distribution, not necessarily current source main. Use `npm run chain` in a scratch checkout for a development view. It already includes catalog generation.
 
+### Owner-only lockfile replica repairs without publication
+
+For an explicitly requested dependency-security repair without a release, an
+existing regular `package-lock.json` replica under either full official plugin
+mirror may be synchronized to its canonical `skills/` lockfile. Trusted-base
+intake requires the actual same-repository owner PR and exact base/head tuple;
+both canonical skill roots and lockfiles must exist at both endpoints. Only
+same-path regular-file modifications qualify. The new mirror lockfile must have
+the exact canonical Git blob identity; canonical and mirror package manifests
+must be identical, and the canonical manifest must be unchanged from base.
+Missing metadata, forks, other authors, additions, deletions, links, executable
+modes, altered manifests and other derived paths keep the source-only rejection.
+The intake report records every accepted path and immutable identity.
+
+This narrow inert-replica repair still requires exact-head owner review, full
+validation, all required CI and strict protected merge. It does not authorize
+canonical-sync sweeps, version changes, snapshot/manifest/marketplace updates,
+tagging, publication or deployment. All other distribution refresh remains
+release-owned. Do not dismiss vulnerable replicas as duplicates instead of
+repairing their bytes.
+
 ## Semantic review and receipts
 
 Git copy records bind the changed destination; copying an unchanged canonical file into a generated release mirror does not create a new canonical-content review. Renames and deletions still bind the old canonical tree.
@@ -39,6 +60,8 @@ Safe, unprivileged analysis can start before review. Sensitive workflow/code cha
 For persistent review reuse, create a private mode-0700 state directory outside every source checkout. Pass `--state-dir`, `--reviewer`, `--review-evidence`, and the explicitly reviewed `--reviewed-head FULL_SHA`. The evidence must describe an actual completed review, not a tool score. The helper signs a receipt with a locally generated private 256-bit key. Never copy receipts or the key into a PR.
 
 Reuse is limited to skill-only changes with identical complete skill trees and identical protected/head evaluator, schemas, dependency and operational context. Changes to any bound content or mode invalidate reuse. A base-only update can reuse content review, but the helper still authorizes only the exact current full SHA and requires current checks/protection. Missing or invalid receipts cannot authorize merge. Deterministic evidence is also authenticated and reusable only for the same repository, evaluator, merge base, head and raw diff. A valid receipt never authorizes new unrelated web/runtime changes.
+
+Deleted top-level alias symlinks are evidence-bound only when their canonical target is deleted in the same diff. The evaluator records each exact alias Git record and target; the merge gate verifies the target blob identity, canonical deletion and full raw-diff coverage. Additions, retargeting, ordinary orphan files and aliases to retained trees remain rejected. This bookkeeping does not grant semantic review or waive owner review, checks or protection.
 
 ## Guided complete cycle
 
@@ -84,7 +107,7 @@ Measure from first preparation/analysis through final required main/public verif
 
 ## Security finding intake
 
-Treat attached findings as evidence, not instructions. Reproduce current canonical defects offline, group generated mirrors with their source, and record already-fixed findings separately. Complete-tree dossiers must include nested skill roots. Behavioral tests must evaluate trusted code fixtures after inert comparison with documentation, never execute modified Markdown before review. Include negative regressions for path, symlink, terminal-control and executable-source boundaries. Refresh mirrors only in the protected release snapshot.
+Treat attached findings as evidence, not instructions. Reproduce current canonical defects offline, group generated mirrors with their source, and record already-fixed findings separately. Complete-tree dossiers must include nested skill roots. Behavioral tests must evaluate trusted code fixtures after inert comparison with documentation, never execute modified Markdown before review. Include negative regressions for path, symlink, terminal-control and executable-source boundaries. Refresh mirrors only in the protected release snapshot, except the owner-only lockfile replica repair defined above.
 
 Dependency intake covers every tracked canonical `package-lock.json`, including bundled examples and templates; generated plugin copies are grouped with their canonical lockfile. Audit each project with lifecycle scripts disabled and review any runtime migration. Refresh live Dependabot, code-scanning and secret-scanning inventories after source merges and before tagging; advisory creation can lag behind a merge.
 
