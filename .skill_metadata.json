@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-24T06:28:40.374971",
-  "skill_count": 3885,
+  "last_updated": "2026-10-25T06:28:55.512053",
+  "skill_count": 4001,
   "sources_processed": 19,
   "skills": [
     {
@@ -2124,6 +2124,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-redirect-checker",
+      "original_name": "redirect-checker",
+      "description": "Redirect Checker. Use when working with URL or recorded response chain.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-pi-web-search",
       "original_name": "pi-web-search",
       "description": "Give Pi Agents a safe web-search and fetch workflow using the installed pi-web-access package.",
@@ -2599,6 +2607,14 @@
       "name": "antigravity-busybox-on-windows",
       "original_name": "busybox-on-windows",
       "description": "How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-faq-generator",
+      "original_name": "faq-generator",
+      "description": "FAQ Generator. Use when working with actual questions plus answer facts.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3260,6 +3276,22 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-duplicate-content-checker",
+      "original_name": "duplicate-content-checker",
+      "description": "Duplicate Content Checker. Use when working with two or more texts or accessible pages.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-competitor-summary-report-creator",
+      "original_name": "competitor-summary-report-creator",
+      "description": "Competitor Summary Report Creator. Use when working with competitor names or URLs and evidence to summarize.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ai-wrapper-product",
       "original_name": "ai-wrapper-product",
       "description": "Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc. ) into focused tools people will pay for. Not just \"ChatGPT but different\" - products that solve specific problems with AI.",
@@ -3319,6 +3351,22 @@
       "name": "antigravity-cc-skill-coding-standards",
       "original_name": "cc-skill-coding-standards",
       "description": "Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-internal-link-suggestion-tool",
+      "original_name": "internal-link-suggestion-tool",
+      "description": "Internal Link Suggestion Tool. Use when working with source text and available destination pages.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-http-status-code-tester",
+      "original_name": "http-status-code-tester",
+      "description": "HTTP Status Code Tester. Use when working with one or more HTTP(S) URLs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3404,6 +3452,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-link-relevance-evaluator",
+      "original_name": "link-relevance-evaluator",
+      "description": "Link Relevance Evaluator. Use when working with source page context and destination page context.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-threejs-lighting",
       "original_name": "threejs-lighting",
       "description": "Three.js lighting - light types, shadows, environment lighting. Use when adding lights, configuring shadows, setting up IBL, or optimizing lighting performance.",
@@ -3428,9 +3484,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-organic-growth-forecast-tool",
+      "original_name": "organic-growth-forecast-tool",
+      "description": "Organic Growth Forecast Tool. Use when working with dated traffic history or baseline with explicit growth assumptions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-lead-magnets",
       "original_name": "lead-magnets",
       "description": "Plan and optimize lead magnets for email capture and lead generation. Use when designing gated content, checklists, templates, downloadable resources, or other offers that convert visitors into subscribers.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-gmb-optimization-helper",
+      "original_name": "gmb-optimization-helper",
+      "description": "GMB Optimization Helper. Use when working with Google Business Profile details or business facts.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3468,6 +3540,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-seo-checklist-generator",
+      "original_name": "seo-checklist-generator",
+      "description": "SEO Checklist Generator. Use when working with site type and current goal.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ui-ux-designer",
       "original_name": "ui-ux-designer",
       "description": "Create interface designs, wireframes, and design systems. Masters user research, accessibility standards, and modern design tools.",
@@ -3482,6 +3562,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-pro-motion",
+      "original_name": "pro-motion",
+      "description": "Make a motion-graphics launch, brand or promo film audio first: plan the music, then render the film in code (canvas to MP4) cut to the track. Use for \u53d1\u5e03\u89c6\u9891, \u5ba3\u4f20\u7247, TVC, BGM, Suno prompts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-seo-programmatic",
@@ -3532,9 +3620,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-keyword-gap-finder",
+      "original_name": "keyword-gap-finder",
+      "description": "Keyword Gap Finder. Use when working with your keyword set and competitor keyword sets.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-github",
       "original_name": "github",
       "description": "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-guest-posting-opportunity-finder",
+      "original_name": "guest-posting-opportunity-finder",
+      "description": "Guest Posting Opportunity Finder. Use when working with topic, audience and optional prospect list.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3951,6 +4055,14 @@
       "name": "antigravity-famulor-skill",
       "original_name": "famulor-skill",
       "description": "Operate Famulor assistants, communication history, campaigns, knowledge, automations, telephony, and workspace administration through its hosted MCP server.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-doom-pay",
+      "original_name": "doom-pay",
+      "description": "Add self-custodial DOOM and wDOOM checkout links with DoomPay, then verify payment receipts on Doomsday Network Layer-1 or Base Mainnet.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4460,6 +4572,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-content-gap-finder",
+      "original_name": "content-gap-finder",
+      "description": "Content Gap Finder. Use when working with existing content inventory and audience goal.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-microsoft-azure-webjobs-extensions-authentication-events-dotnet",
       "original_name": "microsoft-azure-webjobs-extensions-authentication-events-dotnet",
       "description": "Microsoft Entra Authentication Events SDK for .NET. Azure Functions triggers for custom authentication extensions.",
@@ -4500,6 +4620,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-keyword-suggestion-tool",
+      "original_name": "keyword-suggestion-tool",
+      "description": "Keyword Suggestion Tool. Use when working with seed topic.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-explain-like-socrates",
       "original_name": "explain-like-socrates",
       "description": "Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help understand a concept like socrates.\n",
@@ -4535,6 +4663,14 @@
       "name": "antigravity-cline-pilot",
       "original_name": "cline-pilot",
       "description": "Proxy Cline CLI coding tasks: dispatch, monitor background runs via hard evidence, relay decision points in a fixed format, verify against a checklist, and learn per-tag preferences over time.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-text-translator",
+      "original_name": "text-translator",
+      "description": "Text Translator. Use when working with source text and target language or locale.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4684,6 +4820,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-geo-keyword-expansion-tool",
+      "original_name": "geo-keyword-expansion-tool",
+      "description": "Geo Keyword Expansion Tool. Use when working with seed keyword and target locations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-geo-prospect",
       "original_name": "geo-prospect",
       "description": "CRM-lite for managing GEO agency prospects and clients.",
@@ -4743,6 +4887,14 @@
       "name": "antigravity-shopify-automation",
       "original_name": "shopify-automation",
       "description": "Automate Shopify tasks via Rube MCP (Composio): products, orders, customers, inventory, collections. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-renhua",
+      "original_name": "renhua",
+      "description": "Write Chinese social posts and product copy in a real person's voice, removing AI tells. Use for \u5c0f\u7ea2\u4e66, X \u5e16\u5b50, \u65e5\u8bb0, \u670b\u53cb\u5708, \u4ea7\u54c1\u4ecb\u7ecd, \u53bb AI \u5473, \u8bf4\u4eba\u8bdd.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4895,6 +5047,14 @@
       "name": "antigravity-hunt-saml",
       "original_name": "hunt-saml",
       "description": "Hunt SAML / SSO attacks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-content-freshness-checker",
+      "original_name": "content-freshness-checker",
+      "description": "Content Freshness Checker. Use when working with content and known publication or update date if available.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5164,6 +5324,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-skill-skill",
+      "original_name": "skill-skill",
+      "description": "Write, upgrade or audit a Claude skill so it changes what gets generated: forcing functions, triggerable descriptions, and a static audit script with a 0-100 health score. Use for \u5199 skill, \u6539 skill.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-prompt-engineer",
       "original_name": "prompt-engineer",
       "description": "Transforms user prompts into optimized prompts using frameworks (RTF, RISEN, Chain of Thought, RODES, Chain of Density, RACE, RISE, STAR, SOAP, CLEAR, GROW)",
@@ -5175,6 +5343,14 @@
       "name": "antigravity-freshservice-automation",
       "original_name": "freshservice-automation",
       "description": "Automate Freshservice ITSM tasks via Rube MCP (Composio): create/update tickets, bulk operations, service requests, and outbound emails. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-content-improver",
+      "original_name": "ai-content-improver",
+      "description": "AI Content Improver. Use when working with draft text.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5780,6 +5956,22 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-competitor-backlink-idea-generator",
+      "original_name": "competitor-backlink-idea-generator",
+      "description": "Competitor Backlink Idea Generator. Use when working with your niche and competitor backlink examples or export.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-word-count-structure-checker",
+      "original_name": "word-count-structure-checker",
+      "description": "Word Count & Structure Checker. Use when working with text or structured article.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-eas-update-insights",
       "original_name": "eas-update-insights",
       "description": "Check the health of published EAS Updates: crash rates, install/launch counts, unique users, payload size, and the split between embedded and OTA users per channel.",
@@ -6060,9 +6252,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-mobile-friendly-test",
+      "original_name": "mobile-friendly-test",
+      "description": "Mobile-Friendly Test. Use when working with accessible page or supplied screenshots and HTML.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-knowledge-base",
       "original_name": "knowledge-base",
       "description": "Knowledge base register: article title, category, department, owner, tags, summary, linked SOP, audience, last and next review dates and status. Use for documentation management.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-onboard",
+      "original_name": "onboard",
+      "description": "Decompose mixed project materials (code, docs, PDF/Excel/PPT) into a sourced overview and a goal-driven three-tier learning path, then teach it interactively.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6175,6 +6383,14 @@
       "name": "antigravity-acceptance-orchestrator",
       "original_name": "acceptance-orchestrator",
       "description": "Use when a coding task should be driven end-to-end from issue intake through implementation, review, deployment, and acceptance verification with minimal human re-intervention.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-anchor-text-analyzer",
+      "original_name": "anchor-text-analyzer",
+      "description": "Anchor Text Analyzer. Use when working with links with anchor text and destinations.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6356,6 +6572,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-readability-score-calculator",
+      "original_name": "readability-score-calculator",
+      "description": "Readability Score Calculator. Use when working with text and language.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-writing-skills",
       "original_name": "writing-skills",
       "description": "Use when creating, updating, or improving agent skills.",
@@ -6500,6 +6724,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-keyword-expansion-tool",
+      "original_name": "keyword-expansion-tool",
+      "description": "Keyword Expansion Tool. Use when working with seed terms and optional industry.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-bug-hunter",
       "original_name": "bug-hunter",
       "description": "Systematically finds and fixes bugs using proven debugging techniques. Traces from symptoms to root cause, implements fixes, and prevents regression.",
@@ -6524,9 +6756,33 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-canonical-url-builder",
+      "original_name": "canonical-url-builder",
+      "description": "Canonical URL Builder. Use when working with preferred page URL and duplicate URL variants.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-quality-nonconformance",
       "original_name": "quality-nonconformance",
       "description": "Operational guidance for quality control, non-conformance investigation, root cause analysis, corrective action, and supplier quality management in regulated manufacturing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-structured-data-validator",
+      "original_name": "structured-data-validator",
+      "description": "Structured Data Validator. Use when working with JSON-LD, Microdata or RDFa source.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-paragraph-keyword-optimizer",
+      "original_name": "paragraph-keyword-optimizer",
+      "description": "Paragraph Keyword Optimizer. Use when working with paragraph and target keyword.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6663,6 +6919,22 @@
       "name": "antigravity-bash-defensive-patterns",
       "original_name": "bash-defensive-patterns",
       "description": "Master defensive Bash programming techniques for production-grade scripts. Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring fault tolerance and safety.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-backlink-tracking-template-generator",
+      "original_name": "backlink-tracking-template-generator",
+      "description": "Backlink Tracking Template Generator. Use when working with tracking goal; existing rows optional.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-bounce-rate-estimator",
+      "original_name": "bounce-rate-estimator",
+      "description": "Bounce Rate Estimator. Use when working with sessions and bounced sessions, or sessions and engaged sessions with metric definition.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6948,6 +7220,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-tone-of-voice-analyzer",
+      "original_name": "tone-of-voice-analyzer",
+      "description": "Tone of Voice Analyzer. Use when working with text and optional brand voice sample.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-web-project-brainstorming",
       "original_name": "web-project-brainstorming",
       "description": "Masterclass framework for brainstorming web development projects and page designs. Outlines structural phases for concept, UX flow, styling aesthetics, technical architecture, and SEO.",
@@ -7196,6 +7476,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-meta-tag-writer",
+      "original_name": "ai-meta-tag-writer",
+      "description": "AI Meta Tag Writer. Use when working with page copy or factual page summary.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hunt-dispatch",
       "original_name": "hunt-dispatch",
       "description": "Skill-set loader for /hunt orchestrator.",
@@ -7364,6 +7652,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-competitor-gap-analyzer",
+      "original_name": "competitor-gap-analyzer",
+      "description": "Competitor Gap Analyzer. Use when working with your offering and at least one competitor profile.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-swiftui-ui-patterns",
       "original_name": "swiftui-ui-patterns",
       "description": "Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens.",
@@ -7455,6 +7751,14 @@
       "name": "antigravity-error-diagnostics-error-trace",
       "original_name": "error-diagnostics-error-trace",
       "description": "You are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions. Set up error tracking systems, configure alerts, implement structured logging and evaluate monitoring quality.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-seo-content-checker",
+      "original_name": "seo-content-checker",
+      "description": "SEO Content Checker. Use when working with content and target query or reader task.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7570,6 +7874,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT-0"
+    },
+    {
+      "name": "antigravity-ctr-predictor",
+      "original_name": "ctr-predictor",
+      "description": "CTR Predictor. Use when working with impressions and an explicitly supplied CTR assumption or historical benchmark.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-skill-creator-ms",
@@ -8036,6 +8348,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-selector",
+      "original_name": "selector",
+      "description": "Select a specialized 100seotools skill from a plain-language SEO or project-documentation request. Use when the user needs help choosing the appropriate workflow.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-makepad-splash",
       "original_name": "makepad-splash",
       "description": "CRITICAL: Use for Makepad Splash scripting language. Triggers on:\nsplash language, makepad script, makepad scripting, script!, cx.eval,\nmakepad dynamic, makepad AI, splash \u8bed\u8a00, makepad \u811a\u672c\n",
@@ -8172,6 +8492,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-traffic-potential-calculator",
+      "original_name": "traffic-potential-calculator",
+      "description": "Traffic Potential Calculator. Use when working with search volume and explicit CTR assumptions for matching period and market.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-security-keyvault-keys-dotnet",
       "original_name": "azure-security-keyvault-keys-dotnet",
       "description": "Azure Key Vault Keys SDK for .NET. Client library for managing cryptographic keys in Azure Key Vault and Managed HSM. Use for key creation, rotation, encryption, decryption, signing, and verification.",
@@ -8215,6 +8543,14 @@
       "name": "antigravity-azure-mgmt-mongodbatlas-dotnet",
       "original_name": "azure-mgmt-mongodbatlas-dotnet",
       "description": "Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing through Azure Marketplace.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-post",
+      "original_name": "post",
+      "description": "Make share-post image sets that look native: Xiaohongshu carousels, X images, covers, App Store poster layouts, real screenshots and faithful app-UI mocks. Use for \u56fe\u6587, \u914d\u56fe, \u7ec4\u56fe, \u5c01\u9762, \u5206\u4eab\u5e16.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -8852,6 +9188,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-pro-launch",
+      "original_name": "pro-launch",
+      "description": "Build an app or product from 0 to 1, taste-first, with phase gates: references, naming, style frames, UI loop, launch video, GTM and shipping. Use for \u505a\u4ea7\u54c1, \u8d77\u540d, \u627e\u53c2\u8003, UI \u592a\u4e11, launch plans.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-ai-voicelive-java",
       "original_name": "azure-ai-voicelive-java",
       "description": "Azure AI VoiceLive SDK for Java. Real-time bidirectional voice conversations with AI assistants using WebSocket.",
@@ -8895,6 +9239,14 @@
       "name": "antigravity-team-calendar",
       "original_name": "team-calendar",
       "description": "Team calendar: event, type, date and time with time zone, attendees, organizer, location and source module. Use for shared scheduling.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-postel-writing",
+      "original_name": "postel-writing",
+      "description": "Draft X (Twitter) or LinkedIn posts in the user's own voice, research high-performing posts, and schedule or publish them through the user's Postel account.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9047,6 +9399,14 @@
       "name": "antigravity-azure-security-keyvault-secrets-java",
       "original_name": "azure-security-keyvault-secrets-java",
       "description": "Azure Key Vault Secrets Java SDK for secret management. Use when storing, retrieving, or managing passwords, API keys, connection strings, or other sensitive configuration data.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ranking-opportunity-finder",
+      "original_name": "ranking-opportunity-finder",
+      "description": "Ranking Opportunity Finder. Use when working with query/page performance export or dated ranking evidence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9316,6 +9676,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-product-description-generator",
+      "original_name": "product-description-generator",
+      "description": "Product Description Generator. Use when working with verified product features and intended buyer.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-firecrawl-scraper",
       "original_name": "firecrawl-scraper",
       "description": "Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you need deep content extraction from web pages, page interaction is required (clicking, scrolling, etc.), or you want screenshots or PDF parsing.",
@@ -9527,6 +9895,14 @@
       "name": "antigravity-aas-compose-stack",
       "original_name": "aas-compose-stack",
       "description": "Preserve the coding agent's explicit AAS skill selection as a validated stack and optional evidence.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-readability-enhancer",
+      "original_name": "readability-enhancer",
+      "description": "Readability Enhancer. Use when working with text and optional reader level.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10012,6 +10388,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-domain-authority-simulator",
+      "original_name": "domain-authority-simulator",
+      "description": "Domain Authority Simulator. Use when working with domain signals and an explicit scoring rubric.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-bash-scripting",
       "original_name": "bash-scripting",
       "description": "Bash scripting workflow for creating production-ready shell scripts with defensive patterns, error handling, and testing.",
@@ -10031,6 +10415,14 @@
       "name": "antigravity-linear-automation",
       "original_name": "linear-automation",
       "description": "Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always search tools first for current schemas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-keyword-intent-identifier",
+      "original_name": "keyword-intent-identifier",
+      "description": "Keyword Intent Identifier. Use when working with keyword or query list.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10087,6 +10479,14 @@
       "name": "antigravity-tdd-orchestrator",
       "original_name": "tdd-orchestrator",
       "description": "Master TDD orchestrator specializing in red-green-refactor discipline, multi-agent workflow coordination, and comprehensive test-driven development practices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-outreach-email-template-generator",
+      "original_name": "outreach-email-template-generator",
+      "description": "Outreach Email Template Generator. Use when working with recipient context, outreach purpose and genuine offer.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10287,6 +10687,14 @@
       "name": "antigravity-tax-register",
       "original_name": "tax-register",
       "description": "Tax register: sales and purchase tax, withholding deducted and received, net payable, filing due date and days remaining. Use for tax compliance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-text-to-html-converter",
+      "original_name": "text-to-html-converter",
+      "description": "Text to HTML Converter. Use when working with plain text and optional structure preferences.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10692,9 +11100,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-snippet-generator",
+      "original_name": "ai-snippet-generator",
+      "description": "AI Snippet Generator. Use when working with question and supporting source text.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-keyvault-keys-ts",
       "original_name": "azure-keyvault-keys-ts",
       "description": "Manage cryptographic keys using Azure Key Vault Keys SDK for JavaScript (@azure/keyvault-keys). Use when creating, encrypting/decrypting, signing, or rotating keys.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-impression-to-click-ratio-calculator",
+      "original_name": "impression-to-click-ratio-calculator",
+      "description": "Impression-to-Click Ratio Calculator. Use when working with clicks and impressions for the same scope.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11060,9 +11484,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-local-seo-audit-checklist",
+      "original_name": "local-seo-audit-checklist",
+      "description": "Local SEO Audit Checklist. Use when working with business type, location and profile or site details.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-sales-enablement",
       "original_name": "sales-enablement",
       "description": "Create sales collateral such as decks, one-pagers, objection docs, demo scripts, playbooks, and proposal templates. Use when a sales team needs assets that help reps move deals forward and close.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-domain-comparison-report-tool",
+      "original_name": "domain-comparison-report-tool",
+      "description": "Domain Comparison Report Tool. Use when working with two or more domains with dated comparable metrics.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11292,6 +11732,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-local-citation-finder",
+      "original_name": "local-citation-finder",
+      "description": "Local Citation Finder. Use when working with business category and service location.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-dbos-golang",
       "original_name": "dbos-golang",
       "description": "Guide for building reliable, fault-tolerant Go applications with DBOS durable workflows. Use when adding DBOS to existing Go code, creating workflows and steps, or using queues for concurrency control.",
@@ -11311,6 +11759,14 @@
       "name": "antigravity-qrx",
       "original_name": "qrx",
       "description": "Make branded, print-ready art QR codes to validate before use with QRX (qrx.codes). Use when a link needs a QR code that looks like artwork or matches a brand for print, packaging, signs, slides or event badges, and to list or re-point QRX codes. Not for plain QR codes the agent makes locally.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-visibility-index-calculator",
+      "original_name": "visibility-index-calculator",
+      "description": "Visibility Index Calculator. Use when working with keyword weights and rank-to-CTR mapping with rankings.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11359,6 +11815,14 @@
       "name": "antigravity-maxia",
       "original_name": "maxia",
       "description": "Connect to MAXIA AI-to-AI marketplace on Solana. Discover, buy, sell AI services. Earn USDC. 13 MCP tools, A2A protocol, DeFi yields, sentiment analysis, rug detection.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-schema-generator",
+      "original_name": "ai-schema-generator",
+      "description": "AI Schema Generator. Use when working with visible page content and page URL.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11415,6 +11879,14 @@
       "name": "antigravity-cursor-delegate",
       "original_name": "cursor-delegate",
       "description": "Delegate coding tasks to the Cursor Agent CLI (`cursor-agent`) only when the user explicitly requests it, while the orchestrator retains review and landing responsibility.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-reverse-image-search",
+      "original_name": "reverse-image-search",
+      "description": "Reverse Image Search. Use when working with image or public image URL.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11500,6 +11972,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-keyword-clustering-tool",
+      "original_name": "keyword-clustering-tool",
+      "description": "Keyword Clustering Tool. Use when working with keyword list.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-deployment-pipeline-design",
       "original_name": "deployment-pipeline-design",
       "description": "Architecture patterns for multi-stage CI/CD pipelines with approval gates and deployment strategies.",
@@ -11564,6 +12044,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-link-source-categorizer",
+      "original_name": "link-source-categorizer",
+      "description": "Link Source Categorizer. Use when working with backlink rows with source URLs and optional page context.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hunt-xss",
       "original_name": "hunt-xss",
       "description": "Hunting skill for xss vulnerabilities.",
@@ -11591,6 +12079,14 @@
       "name": "antigravity-007",
       "original_name": "007",
       "description": "Security audit, hardening, threat modeling (STRIDE/PASTA), Red/Blue Team, OWASP checks, code review, incident response, and infrastructure security for any project.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ranking-progress-tracker",
+      "original_name": "ranking-progress-tracker",
+      "description": "Ranking Progress Tracker. Use when working with dated keyword positions with engine, market and device.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11759,6 +12255,14 @@
       "name": "antigravity-m365-agents-py",
       "original_name": "m365-agents-py",
       "description": "Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with aiohttp hosting, AgentApplication routing, streaming responses, and MSAL-based auth.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-image-alt-tag-generator",
+      "original_name": "image-alt-tag-generator",
+      "description": "Image Alt Tag Generator. Use when working with image or accurate image description and page context.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12039,6 +12543,14 @@
       "name": "antigravity-hig-technologies",
       "original_name": "hig-technologies",
       "description": "Review Apple-platform technology UX against HIG patterns for payments, health data, identity, Siri, AR, cloud sync, and shared experiences. Use for integration flow design, permission planning, and accessibility checks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-blog-title-generator",
+      "original_name": "blog-title-generator",
+      "description": "Blog Title Generator. Use when working with topic or page summary.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12412,6 +12924,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-title-meta-length-counter",
+      "original_name": "title-meta-length-counter",
+      "description": "Title & Meta Length Counter. Use when working with title and/or meta description.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-youtube-full",
       "original_name": "youtube-full",
       "description": "Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI \u2014 no yt-dlp, no Google API key, works from any cloud server.",
@@ -12487,6 +13007,14 @@
       "name": "antigravity-supabase-postgres-best-practices",
       "original_name": "supabase-postgres-best-practices",
       "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-local-schema-builder",
+      "original_name": "local-schema-builder",
+      "description": "Local Schema Builder. Use when working with business facts, page URL and actual address or service area.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12719,6 +13247,14 @@
       "name": "antigravity-julia-pro",
       "original_name": "julia-pro",
       "description": "Master Julia 1.10+ with modern features, performance optimization, multiple dispatch, and production-ready practices.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-headline-analyzer",
+      "original_name": "headline-analyzer",
+      "description": "Headline Analyzer. Use when working with headline and intended article summary.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13116,6 +13652,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-content-length-comparator",
+      "original_name": "content-length-comparator",
+      "description": "Content Length Comparator. Use when working with two or more labeled text samples.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hf-cli",
       "original_name": "hf-cli",
       "description": "Curated upstream guidance for Hf Cli; use when the workflow matches the user goal.",
@@ -13468,6 +14012,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-keyword-comparison-tool",
+      "original_name": "keyword-comparison-tool",
+      "description": "Keyword Comparison Tool. Use when working with two or more keywords and optional metrics.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-voiceover-narration-studio",
       "original_name": "voiceover-narration-studio",
       "description": "Install and use the official AI Voiceover Generator package, pinned by digest, for paid hosted work on the Beatra service.",
@@ -13679,6 +14231,14 @@
       "name": "antigravity-privacy-mask",
       "original_name": "privacy-mask",
       "description": "Mask, redact, anonymize and censor sensitive information (PII) in screenshots and images \u2014 phone numbers, emails, IDs, API keys, crypto wallets, credit cards, passwords, and more.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-blog-intro-writer",
+      "original_name": "ai-blog-intro-writer",
+      "description": "AI Blog Intro Writer. Use when working with topic and article angle, or article draft.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14500,6 +15060,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-featured-tool-schema-generator",
+      "original_name": "featured-tool-schema-generator",
+      "description": "Featured Tool Schema Generator. Use when working with tool page URL and visible tool capabilities.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hosted-agents",
       "original_name": "hosted-agents",
       "description": "Build background agents in sandboxed environments. Use for hosted coding agents, sandboxed VMs, Modal sandboxes, and remote coding environments.",
@@ -14804,6 +15372,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-content-outline-generator",
+      "original_name": "ai-content-outline-generator",
+      "description": "AI Content Outline Generator. Use when working with topic or reader question.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ai-loop",
       "original_name": "ai-loop",
       "description": "Runs a bounded spec-build-review development loop with explicit scope, stop conditions, and human approval gates for risky or ambiguous work.",
@@ -14900,6 +15476,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-internal-linking-planner",
+      "original_name": "internal-linking-planner",
+      "description": "Internal Linking Planner. Use when working with site page inventory and priority user journeys.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-unslop-review",
       "original_name": "unslop-review",
       "description": "Rewrites code review comments so they read like a human teammate wrote them. Cuts corporate-AI throat-clearing (\"I noticed...\", \"I was wondering if perhaps...\", \"It might be worth considering...\"). Each comment is direct: location, the issue, a concrete fix.",
@@ -14935,6 +15519,14 @@
       "name": "antigravity-vibe-code-auditor",
       "original_name": "vibe-code-auditor",
       "description": "Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-site-comparison-report-generator",
+      "original_name": "site-comparison-report-generator",
+      "description": "Site Comparison Report Generator. Use when working with two or more sites and the user's comparison goal.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15071,6 +15663,14 @@
       "name": "antigravity-vllm-server",
       "original_name": "vllm-server",
       "description": "Deploy and manage vLLM for high-throughput LLM inference. Configure continuous batching, tensor parallelism, quantization, and OpenAI-compatible API endpoints for production LLM serving.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-link-toxicity-checker",
+      "original_name": "link-toxicity-checker",
+      "description": "Link Toxicity Checker. Use when working with backlink examples and available evidence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15260,6 +15860,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-canonical-tag-checker",
+      "original_name": "canonical-tag-checker",
+      "description": "Canonical Tag Checker. Use when working with HTML and page URL, or accessible page URL.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-kpi-dashboard-design",
       "original_name": "kpi-dashboard-design",
       "description": "Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions.",
@@ -15271,6 +15879,14 @@
       "name": "antigravity-azure-data-tables-java",
       "original_name": "azure-data-tables-java",
       "description": "Build table storage applications using the Azure Tables SDK for Java. Works with both Azure Table Storage and Cosmos DB Table API.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-keyword-roi-calculator",
+      "original_name": "keyword-roi-calculator",
+      "description": "Keyword ROI Calculator. Use when working with traffic estimate, conversion rate, value per conversion, margin and SEO cost for one period.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15303,6 +15919,14 @@
       "name": "antigravity-linkedin-cli",
       "original_name": "linkedin-cli",
       "description": "Use when automating LinkedIn via CLI: fetch profiles, search people/companies, send messages, manage connections, create posts, and Sales Navigator.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-robots-txt-validator",
+      "original_name": "robots-txt-validator",
+      "description": "Robots.txt Validator. Use when working with robots.txt text, crawler and URLs to test.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15423,6 +16047,14 @@
       "name": "antigravity-langchain-architecture",
       "original_name": "langchain-architecture",
       "description": "Master the LangChain framework for building sophisticated LLM applications with agents, chains, memory, and tool integration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-trending-keyword-visualizer",
+      "original_name": "trending-keyword-visualizer",
+      "description": "Trending Keyword Visualizer. Use when working with dated keyword interest or volume series with source.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15620,6 +16252,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-faq-creator",
+      "original_name": "ai-faq-creator",
+      "description": "AI FAQ Creator. Use when working with source content or topic.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-cucumber-skill",
       "original_name": "cucumber-skill",
       "description": "Generates Cucumber BDD tests with Gherkin feature files and step definitions in Java, JavaScript, or Ruby. Use when user mentions \"Cucumber\", \"Gherkin\", \"Feature/Scenario\", \"Given/When/Then\", \"BDD\".",
@@ -15735,6 +16375,14 @@
       "name": "antigravity-gh-attach",
       "original_name": "gh-attach",
       "description": "Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use when asked to attach or embed a file in a PR, issue, or comment, or download an attachment URL.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-xml-sitemap-visualizer",
+      "original_name": "xml-sitemap-visualizer",
+      "description": "XML Sitemap Visualizer. Use when working with XML sitemap or sitemap index.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15964,6 +16612,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-review-response-generator",
+      "original_name": "review-response-generator",
+      "description": "Review Response Generator. Use when working with review text and verified business context.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-aws-cost-operations",
       "original_name": "aws-cost-operations",
       "description": "AWS cost optimization, monitoring, and operational excellence expert. Use when analyzing AWS bills, estimating costs, setting up CloudWatch alarms, querying logs, auditing CloudTrail activity, or assessing security posture.",
@@ -16188,6 +16844,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-robots-txt-creator",
+      "original_name": "robots-txt-creator",
+      "description": "Robots.txt Creator. Use when working with site origin and desired crawl rules.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-documentation-and-adrs",
       "original_name": "documentation-and-adrs",
       "description": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.",
@@ -16314,6 +16978,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-keyword-placement-highlighter",
+      "original_name": "keyword-placement-highlighter",
+      "description": "Keyword Placement Highlighter. Use when working with text and target keywords.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-adhx",
@@ -16500,6 +17172,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-redirect-301-generator",
+      "original_name": "redirect-301-generator",
+      "description": "301 Redirect Generator. Use when working with source-to-destination mapping and deployment platform.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-context-window-management",
       "original_name": "context-window-management",
       "description": "Strategies for managing LLM context windows including summarization, trimming, routing, and avoiding context rot",
@@ -16522,6 +17202,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-keyword-density-checker",
+      "original_name": "keyword-density-checker",
+      "description": "Keyword Density Checker. Use when working with text and target word or phrase.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-seo-aeo-schema-generator",
@@ -16887,6 +17575,14 @@
       "name": "antigravity-error-diagnostics-error-analysis",
       "original_name": "error-diagnostics-error-analysis",
       "description": "You are an expert error analysis specialist with deep expertise in debugging distributed systems, analyzing production incidents, and implementing comprehensive observability solutions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-long-tail-keyword-generator",
+      "original_name": "long-tail-keyword-generator",
+      "description": "Long-Tail Keyword Generator. Use when working with seed topic and optional audience or use case.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17500,9 +18196,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-meta-tag-generator",
+      "original_name": "meta-tag-generator",
+      "description": "Meta Tag Generator. Use when working with page summary, URL and optional brand or social image.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-blog-writing-guide",
       "original_name": "blog-writing-guide",
       "description": "This skill enforces Sentry's blog writing standards across every post \u2014 whether you're helping an engineer write their first blog post or a marketer draft a product announcement.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-url-slug-generator",
+      "original_name": "url-slug-generator",
+      "description": "URL Slug Generator. Use when working with page title and optional language or URL policy.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17567,6 +18279,14 @@
       "name": "antigravity-brooks-audit",
       "original_name": "brooks-audit",
       "description": "Architecture audit that maps module dependencies, checks layering integrity, and flags structural decay across a codebase, drawing on twelve classic engineering books.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-competitor-keyword-overlap-checker",
+      "original_name": "competitor-keyword-overlap-checker",
+      "description": "Competitor Keyword Overlap Checker. Use when working with two labeled keyword sets.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17727,6 +18447,14 @@
       "name": "antigravity-wifi-wireless",
       "original_name": "wifi-wireless",
       "description": "Authorized wireless security assessment: Wi-Fi capture, WPA handshake analysis, rogue AP detection research, and lab-only deauthentication testing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-on-page-seo-audit-checker",
+      "original_name": "on-page-seo-audit-checker",
+      "description": "On-Page SEO Audit Checker. Use when working with page URL or HTML and target reader task.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17919,6 +18647,14 @@
       "name": "antigravity-attack-chain",
       "original_name": "attack-chain",
       "description": "Authorized multi-stage attack-path planning and orchestration spanning reconnaissance, initial access, privilege escalation, lateral movement, and reporting. Entry point for full engagements and cross-phase operations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-keyword-share-estimator",
+      "original_name": "keyword-share-estimator",
+      "description": "Keyword Share Estimator. Use when working with comparable visibility values for your domain and selected competitors.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18204,6 +18940,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-meta-tag-comparison-tool",
+      "original_name": "meta-tag-comparison-tool",
+      "description": "Meta Tag Comparison Tool. Use when working with HTML or extracted metadata from two or more labeled pages.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-apify-competitor-intelligence",
       "original_name": "apify-competitor-intelligence",
       "description": "Analyze competitor strategies, content, pricing, ads, and market positioning across Google Maps, Booking.com, Facebook, Instagram, YouTube, and TikTok.",
@@ -18378,6 +19122,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-webly",
+      "original_name": "webly",
+      "description": "Publish a website or share files at a live URL in seconds with no account, then let the person claim it, edit it over Webly's MCP server, and publish drafts they approve.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-patch-diff-exploit",
@@ -19140,6 +19892,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-seo-health-score-calculator",
+      "original_name": "seo-health-score-calculator",
+      "description": "SEO Health Score Calculator. Use when working with audit findings and a disclosed scoring rubric.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-mtls-configuration",
       "original_name": "mtls-configuration",
       "description": "Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing zero-trust networking, certificate management, or securing internal service communication.",
@@ -19172,6 +19932,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-heading-analyzer",
+      "original_name": "heading-analyzer",
+      "description": "Heading Analyzer. Use when working with HTML, Markdown or extracted headings.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-agentic-verify",
       "original_name": "agentic-verify",
       "description": "Check that a Python change is caught by tests: run every mutant of the changed lines and write tests until they catch them. Reports evidence instead of a diff to read.",
@@ -19191,6 +19959,22 @@
       "name": "antigravity-nextjs-best-practices",
       "original_name": "nextjs-best-practices",
       "description": "Next.js App Router principles. Server Components, data fetching, routing patterns.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-keyword-difficulty-estimator",
+      "original_name": "keyword-difficulty-estimator",
+      "description": "Keyword Difficulty Estimator. Use when working with keyword plus supplied SERP or competitor evidence.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-backlink-idea-generator",
+      "original_name": "backlink-idea-generator",
+      "description": "Backlink Idea Generator. Use when working with site topic and target audience.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19644,6 +20428,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-location-based-content-idea-generator",
+      "original_name": "location-based-content-idea-generator",
+      "description": "Local Content Idea Generator. Use when working with location, audience and business topic.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-session-handoff",
       "original_name": "session-handoff",
       "description": "Use when context approaches capacity, before /clear or /compact, when switching tasks, or when ending a coding session: produces a structured handoff artifact for the next session.",
@@ -20036,6 +20828,14 @@
       "license": "Unknown"
     },
     {
+      "name": "antigravity-og-tag-generator",
+      "original_name": "og-tag-generator",
+      "description": "OG Tag Generator. Use when working with page URL, title, description and optional public image URL.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-commit",
       "original_name": "commit",
       "description": "Prepare or create commits using Sentry-style message conventions when the repository requests them; inspect staged scope and honor its protected branch workflow.",
@@ -20079,6 +20879,14 @@
       "name": "antigravity-secrets-management",
       "original_name": "secrets-management",
       "description": "Secure secrets management practices for CI/CD pipelines using Vault, AWS Secrets Manager, and other tools.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-keyword-explainer",
+      "original_name": "ai-keyword-explainer",
+      "description": "AI Keyword Explainer. Use when working with keyword or phrase.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -20276,6 +21084,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-page-speed-score-simulator",
+      "original_name": "page-speed-score-simulator",
+      "description": "Page Speed Score Simulator. Use when working with performance report or explicit hypothetical performance inputs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hashicorp-vault",
       "original_name": "hashicorp-vault",
       "description": "Manage secrets and PKI with HashiCorp Vault.",
@@ -20287,6 +21103,14 @@
       "name": "antigravity-llm-caching",
       "original_name": "llm-caching",
       "description": "Implement multi-layer LLM caching with exact match, semantic similarity, and provider-side prompt caching.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-competitor-title-rewriter",
+      "original_name": "ai-competitor-title-rewriter",
+      "description": "AI Competitor Title Rewriter. Use when working with competitor title and your page topic.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -20604,6 +21428,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-sitemap-generator",
+      "original_name": "sitemap-generator",
+      "description": "XML Sitemap Generator. Use when working with canonical public page URLs and optional real modification dates.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ui-page",
       "original_name": "ui-page",
       "description": "Scaffold a new mobile page/screen using the StyleSeed layout patterns",
@@ -20751,6 +21583,14 @@
       "name": "antigravity-orchestrate",
       "original_name": "orchestrate",
       "description": "Coordinate focused subagents on substantial work, keep their ownership non-overlapping, and integrate verified results. Use for large-scope Codex tasks; keep trivial work with the coordinator.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-content-detector",
+      "original_name": "ai-content-detector",
+      "description": "AI Content Detector. Use when working with text to review.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -20948,6 +21788,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-local-keyword-generator",
+      "original_name": "local-keyword-generator",
+      "description": "Local Keyword Generator. Use when working with service or product and actual target location.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hunt-cicd",
       "original_name": "hunt-cicd",
       "description": "Hunt CI/CD pipeline vulnerabilities",
@@ -21124,6 +21972,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-perq",
+      "original_name": "perq",
+      "description": "Find verified free AI credits, free tiers, startup programs and student perks for AI APIs, GPUs and dev tools, each with the vendor's source link and a last-verified date.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-framework-migration-deps-upgrade",
       "original_name": "framework-migration-deps-upgrade",
       "description": "You are a dependency management expert specializing in safe, incremental upgrades of project dependencies. Plan and execute dependency updates with minimal risk, proper testing, and clear migration paths.",
@@ -21247,6 +22103,14 @@
       "name": "antigravity-orchestrate-batch-refactor",
       "original_name": "orchestrate-batch-refactor",
       "description": "Plan and execute large refactors with dependency-aware work packets and parallel analysis.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-hreflang-tag-generator",
+      "original_name": "hreflang-tag-generator",
+      "description": "Hreflang Tag Generator. Use when working with equivalent page URLs mapped to language and optional region.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21580,6 +22444,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-meta-description-optimizer",
+      "original_name": "meta-description-optimizer",
+      "description": "Meta Description Optimizer. Use when working with existing description and page content or summary.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-frontend-optimistic-mutations",
       "original_name": "frontend-optimistic-mutations",
       "description": "A portable, framework-agnostic discipline for the write path of any React or React Native app using a query/cache layer.",
@@ -21599,6 +22471,14 @@
       "name": "antigravity-ingest-youtube",
       "original_name": "ingest-youtube",
       "description": "Pull a YouTube video transcript into a queryable markdown vault with yt-dlp subtitle discovery, VTT cleanup, metadata frontmatter, and capture-seed stubs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-search-preview-simulator",
+      "original_name": "search-preview-simulator",
+      "description": "Search Preview Simulator. Use when working with title, description and page URL.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22188,6 +23068,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ai-schema-markup-generator",
+      "original_name": "ai-schema-markup-generator",
+      "description": "Schema Markup Generator. Use when working with entity type or page facts and canonical page URL.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-objection-preemptor",
       "original_name": "objection-preemptor",
       "description": "Map customer objections and address them with evidence and choice-preserving language when a funnel, sales page, or pitch encounters recurring hesitation.",
@@ -22548,6 +23436,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-nap-consistency-checker",
+      "original_name": "nap-consistency-checker",
+      "description": "NAP Consistency Checker. Use when working with canonical business name, address and phone plus listing records.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-inventory-demand-planning",
       "original_name": "inventory-demand-planning",
       "description": "Codified expertise for demand forecasting, safety stock optimisation, replenishment planning, and promotional lift estimation at multi-location retailers.",
@@ -22764,6 +23660,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-project-brief",
+      "original_name": "project-brief",
+      "description": "Project Detail Optimizer. Use when working with one sentence, rough notes or an existing project brief.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-python-performance-optimization",
       "original_name": "python-performance-optimization",
       "description": "Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.",
@@ -22916,6 +23820,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-meta-description-writer",
+      "original_name": "meta-description-writer",
+      "description": "Meta Description Writer. Use when working with page content or factual summary.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-agent-harness-fault-injection",
       "original_name": "agent-harness-fault-injection",
       "description": "Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, checkpoint, memory, or orchestration failures.",
@@ -22927,6 +23839,14 @@
       "name": "antigravity-ppl-personal-crm",
       "original_name": "ppl-personal-crm",
       "description": "Uses the ppl personal CRM over MCP to prepare for conversations, recall facts about people, log interactions and manage relationship follow-ups.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-featured-snippet-optimizer",
+      "original_name": "featured-snippet-optimizer",
+      "description": "Featured Snippet Optimizer. Use when working with target question and existing passage.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -23095,6 +24015,14 @@
       "name": "antigravity-not-a-vibe-coder",
       "original_name": "not-a-vibe-coder",
       "description": "Turns vague prompts into 8 structured planning files for brand new projects. DO NOT use on existing codebases.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-broken-link-finder",
+      "original_name": "broken-link-finder",
+      "description": "Broken Link Finder. Use when working with page URL, HTML or a list of links.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
