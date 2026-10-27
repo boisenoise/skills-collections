@@ -158,6 +158,20 @@
         "Preserves stronger verified CRM fields and separate contact verification"
       ],
       "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "I'm a founder selling payroll software to 20-200 person companies. Cold email reply rates have cratered. I have about 4,000 LinkedIn connections and a busy calendar. Can I turn my own network into pipeline without spamming people?",
+      "expected_output": "Should load references/signal-plays.md (warm paths) and lay out: export LinkedIn connections, calendar attendees and inbox contacts (noting LinkedIn's export only includes emails for connections who allow it); enrich and score against the ICP; match against a target account list to find first- and second-degree paths; start with recent calendar meetings to find buying moments; recruit a connector per vertical and pay them per qualified meeting with the arrangement disclosed; use double opt-in intros only, with a human approving every intro and no contact asked to take intros for two vendors in the same week.",
+      "assertions": [
+        "Starts by exporting the network (LinkedIn, calendar, inbox)",
+        "Notes LinkedIn's export lacks emails for most connections",
+        "Matches contacts against target accounts for first- and second-degree paths",
+        "Suggests starting with recent calendar meetings",
+        "Recommends connectors with disclosed compensation",
+        "Requires double opt-in intros with a human approving each one"
+      ],
+      "files": []
     }
   ]
 }

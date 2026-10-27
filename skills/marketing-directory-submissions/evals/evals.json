@@ -116,6 +116,18 @@
         "Records evidence and access limitations"
       ],
       "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "I want to get our SaaS listed on the Notion Marketplace for the backlink. We don't have a Notion integration yet. What's involved?",
+      "expected_output": "Should load references/directory-list.md (Tier 7, integration marketplaces) and explain that a listing requires a working public Notion connection. Should flag that the installation scope must be set to \"Any workspace\" when the connection is created, because it can't be changed later and other scopes aren't eligible. Should suggest a simple real use case (e.g. sending the app's data into a Notion database), then submitting the listing for Notion's review, which includes a security review, with the approved page at notion.com/connections/<name>. Should frame the integration as useful to customers, not only as a backlink.",
+      "assertions": [
+        "States a working public Notion connection is required",
+        "Warns the 'Any workspace' scope must be chosen at creation and can't be changed",
+        "Mentions Notion's review, including a security review",
+        "Suggests a simple genuine use case for the integration"
+      ],
+      "files": []
     }
   ]
 }

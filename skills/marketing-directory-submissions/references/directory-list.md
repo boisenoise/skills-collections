@@ -288,7 +288,7 @@ Only relevant once the product has integrations. These are the highest-DR backli
 | **HubSpot App Marketplace** | 93 | Requires HubSpot app. |
 | **Slack App Directory** | 89 | Requires Slack integration. |
 | **Airtable Marketplace** | 82 | Requires Airtable integration. |
-| **Notion Integrations Gallery** | 88 | Requires Notion integration. |
+| **Notion Marketplace** | 88 | Requires a public Notion connection with the "Any workspace" installation scope, which is set at creation and can't be changed. Submit the listing for review (includes a security review); approved listings get a page at notion.com/connections/<name>. A simple use case, like sending your app's data into a Notion database, is enough. |
 | **Make (Integromat)** | ~70 | Requires Make module. |
 | **Pipedream** | ~70 | Requires Pipedream action. |
 

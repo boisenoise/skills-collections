@@ -21,6 +21,19 @@ The closer the signal is to your product and your past customers, the better it 
 
 Stack signals before acting on the weaker ones. Hiring a lifecycle marketer **plus** an ESP in the stack **plus** a fit score above your threshold is worth a sequence. Any one of those alone usually isn't.
 
+## Warm paths: your network is a signal too
+
+Before buying a list, mine the relationships you already have. A warm introduction gets read when the twentieth cold email of the day doesn't, and AI-written outreach makes that gap wider.
+
+1. **Export your network.** LinkedIn connections (Settings → Data privacy → Get a copy of your data), calendar attendees, and inbox contacts. LinkedIn's export includes emails only for connections who allow it.
+2. **Enrich and rank** every contact: company, role, industry, headcount. Score them against your ICP like any other list.
+3. **Match against target accounts** to find first- and second-degree paths into the companies you want.
+4. **Start with your calendar.** Recent meetings show who is in a buying moment right now.
+5. **Find one connector per vertical**: someone trusted by buyers who ignore cold outreach (an agency owner who knows every other agency owner). Pay them the way you'd pay for a qualified meeting, and disclose the arrangement.
+6. **Double opt-in intros only.** Ask the connector, then the target, before anyone is introduced. Keep a human approving every intro, and never ask one contact to take intros for two vendors in the same week. Trust is the asset; spend it slowly.
+
+*Adapted from Cody Schneider's podcast with Chris of Super Connector (October 2026).*
+
 ## Freshness windows
 
 A signal decays. Act inside these windows or downgrade it:
