@@ -425,8 +425,9 @@ Loops are grouped by function. Naming follows the "The X loop" convention.
   1. Pull new signals since the last run: job posts, job changes of past champions, identified website visits, funding, product-usage triggers, social engagement.
   2. Drop accounts outside the ICP, already in a sequence, customers, open deals, and anything on the suppression list.
   3. Score and tier the rest; find and verify the contact who owns the problem.
-  4. Match each to its play (see the prospecting skill's signal plays reference) and stage the first touch.
-- **Self-check**: Is the signal inside its freshness window? Does the account still pass the ICP check? Is the email verified within the last 7 days?
+  4. Match each to its play (see the prospecting skill's signal plays reference). For gap plays, check the gap and save the evidence (date, URL or screenshot); no evidence means no gap play.
+  5. Stage the first touch.
+- **Self-check**: Is the signal inside its freshness window? For gap plays, was the gap verified within the last 7 days? Does the account still pass the ICP check? Is the email verified within the last 7 days?
 - **State / idempotency**: Key on account + signal type + signal date; never enroll the same account twice for the same signal, and respect a cooldown after any previous sequence.
 - **Stop / bail-out**: No fresh signals → log "no action." Halt if a signal source fails rather than acting on partial data. First touches for Tier 1 go to a human for approval.
 - **Output**: Enrolled or staged contacts, each with its signal, tier, and play.

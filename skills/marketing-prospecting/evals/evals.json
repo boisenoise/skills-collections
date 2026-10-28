@@ -172,6 +172,20 @@
         "Requires double opt-in intros with a human approving each one"
       ],
       "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "I run a landing page and tracking agency. Build me a list of B2B SaaS companies that are running Meta ads but have no pixel installed or are sending ad traffic to their homepage, and draft the opener.",
+      "expected_output": "Should load references/signal-plays.md (gap plays) and pair the ad-activity signal with gaps verified from outside: ad destinations from the Meta Ad Library, tags from page source, the network tab, or a tag checker. Should require evidence (date, URL or screenshot) for every gap and treat 'no gap found' as a valid result. Should caveat that server-side tracking (Conversions API, server-side GTM) is invisible from outside, so a missing browser pixel isn't proof, and that homepage destinations can be deliberate. Should re-verify the gap within 7 days of sending. The opener should state the observation and ask a question rather than accuse, and offer the teardown only after a yes.",
+      "assertions": [
+        "Uses the Meta Ad Library to confirm active ads and their destinations",
+        "Checks tags from outside (page source, network tab, or tag checker)",
+        "Requires dated evidence for each gap and allows 'no gap found'",
+        "Warns that server-side tracking can't be seen from outside",
+        "Re-verifies gaps within 7 days of sending",
+        "Opener is an observation plus a question, not an accusation"
+      ],
+      "files": []
     }
   ]
 }

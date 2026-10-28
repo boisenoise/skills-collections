@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-27 06:32 UTC*
+*Last updated: 2026-10-28 06:23 UTC*
 
-Total skills: **4001**
+Total skills: **4007**
 
 ## Skills by Source
 
@@ -1746,6 +1746,7 @@ pipelines, and system utilities.... |
 | `antigravity-blog-title-generator` | Blog Title Generator. Use when working with topic or page summary. |
 | `antigravity-blog-writing-guide` | This skill enforces Sentry's blog writing standards across every post — whether you're helping an en... |
 | `antigravity-blue-green-deploy` | Configure zero-downtime deployment strategies including blue-green, canary, and rolling deployments. |
+| `antigravity-bluebook-writing` | Write design-reading books and articles in plain language with a two-layer skeleton: a zero-terminol... |
 | `antigravity-blueprint` | Turn a one-line objective into a step-by-step construction plan any coding agent can execute cold. E... |
 | `antigravity-board-governance` | Board and governance register: meeting date, agenda, decision, resolution number, vote result, actio... |
 | `antigravity-boost-asio-pro` | Use when writing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP serve... |
@@ -2945,6 +2946,7 @@ splash language, makepad script, m... |
 | `antigravity-meeting-notes` | Turns raw meeting notes into structured minutes: conclusion first, then decisions / action items / o... |
 | `antigravity-meme-coin-audit` | Meme coin and token security audit |
 | `antigravity-memory-forensics` | Comprehensive techniques for acquiring, analyzing, and extracting artifacts from memory dumps for in... |
+| `antigravity-memory-handoff` | Portable session handoff across agent CLIs: read a project's handoff file at session start, rewrite ... |
 | `antigravity-memory-safety-patterns` | Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and r... |
 | `antigravity-memory-systems` | Design short-term, long-term, and graph-based memory architectures. Use when building agents that mu... |
 | `antigravity-mental-health-analyzer` | 分析心理健康数据、识别心理模式、评估心理健康状况、提供个性化心理健康建议。支持与睡眠、运动、营养等其他健康数据的关联分析。 |
@@ -3047,6 +3049,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-nerdzao-elite` | Software engineering and product design workflow and Senior Product Designer. Full workflow with pla... |
 | `antigravity-nerdzao-elite-gemini-high` | Modo Elite Coder + UX Pixel-Perfect otimizado especificamente para Gemini 3.1 Pro High. Workflow com... |
 | `antigravity-nestjs-expert` | You are an expert in Nest.js with deep knowledge of enterprise-grade Node.js application architectur... |
+| `antigravity-netapi` | Check domains and IPs against a free compromised feed, find newly registered lookalike domains, and ... |
 | `antigravity-network-101` | Configure and test common network services (HTTP, HTTPS, SNMP, SMB) for penetration testing lab envi... |
 | `antigravity-network-engineer` | Expert network engineer specializing in modern cloud networking, security architectures, and perform... |
 | `antigravity-networkx` | NetworkX is a Python package for creating, manipulating, and analyzing complex networks and graphs. |
@@ -3419,6 +3422,7 @@ structures, and modern OOP features. U... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-research-prompt` | Turn vague research needs into one precise deep-research prompt with context and output criteria. |
 | `antigravity-resolving-merge-conflicts` | Use when you need to resolve an in-progress git merge/rebase conflict. |
+| `antigravity-restosignals` | Find US restaurants and bars before they open, as scored leads fused from liquor-license, food-permi... |
 | `antigravity-resumable-implementation-contracts` | Create repository-based execution contracts for multi-session implementation work, with stable task ... |
 | `antigravity-returns-reverse-logistics` | Codified expertise for returns authorisation, receipt and inspection, disposition decisions, refund ... |
 | `antigravity-reverse-browser-automation` | Automate browsers (Playwright) and Windows desktop applications (UI automation) for reverse-engineer... |
@@ -3656,6 +3660,7 @@ Plans content calendars and ident... |
 | `antigravity-soroban-oracle-data-feed-audit` | DeFi price oracle integration and safety audit register: heartbeat bounds, stale price threshold rev... |
 | `antigravity-soroban-storage-ttl-lifecycle` | Soroban ledger state rent and TTL extension register: live state tracking, bump thresholds, rent fee... |
 | `antigravity-soroban-token-minter` | Soroban SEP-41 token contract architecture register: admin control, supply caps, metadata standard, ... |
+| `antigravity-soundza` | Find, audition and add free sound effects, ambience or music to a game, video or app with Soundza, o... |
 | `antigravity-source-document-filing` | Source document register: document type and number, party, amount, index key, storage location, rete... |
 | `antigravity-source-driven-development` | Grounds every implementation decision in official documentation. Use when you want authoritative, so... |
 | `antigravity-spark-optimization` | Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use ... |
@@ -3732,6 +3737,7 @@ calculations
 | `antigravity-swiftui-ui-patterns` | Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens. |
 | `antigravity-swiftui-view-refactor` | Refactor SwiftUI views into smaller components with stable, explicit data flow. |
 | `antigravity-sympy` | SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical... |
+| `antigravity-syncbook-discovery` | Find reciprocal collaborators on Syncbook or prepare a private profile draft for human review using ... |
 | `antigravity-system-prompt-lookup` | Checks what a shipped AI product's system prompt and tool schema actually say, by reading a dated ar... |
 | `antigravity-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
 | `antigravity-systemd-services` | Create and manage systemd services and timers. Configure service dependencies and resource limits. U... |
