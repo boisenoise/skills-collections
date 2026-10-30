@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-29T06:24:07.940381",
-  "skill_count": 4007,
+  "last_updated": "2026-10-30T06:23:52.872181",
+  "skill_count": 4012,
   "sources_processed": 19,
   "skills": [
     {
@@ -7364,6 +7364,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-comment-to-dm-cta",
+      "original_name": "comment-to-dm-cta",
+      "description": "Plan the \"Comment KEYWORD\" CTA of an Instagram Reel (keyword, overlay, caption, DM copy), then, after explicit user confirmation, set up the matching auto-DM in CommentKeyword.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-page-cro",
       "original_name": "page-cro",
       "description": "Analyze and optimize individual pages for conversion performance.",
@@ -8524,6 +8532,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-web-review",
+      "original_name": "web-review",
+      "description": "Review a website or landing page and list what to fix, most important first: message, generic AI look, consistency, copy, mobile, accessibility, speed and missing states.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-k6-load-testing",
       "original_name": "k6-load-testing",
       "description": "Comprehensive k6 load testing skill for API, browser, and scalability testing. Write realistic load scenarios, analyze results, and integrate with CI/CD.",
@@ -9090,6 +9106,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-bifrost-gateway",
+      "original_name": "bifrost-gateway",
+      "description": "Run and configure Bifrost, the open-source AI gateway: one OpenAI-compatible API for 20+ LLM providers with fallbacks, virtual keys and budgets, semantic caching, observability and an MCP gateway.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-neon-postgres",
@@ -11263,6 +11287,14 @@
       "name": "antigravity-loki-mode",
       "original_name": "loki-mode",
       "description": "Historical 2.35.x multi-agent workflow for turning a scoped PRD into reviewed implementation; includes experimental runner and benchmark artifacts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-landing-page",
+      "original_name": "landing-page",
+      "description": "Build landing, home and pricing pages that look like a real product instead of AI output: honest copy, one design system, checked on phone and desktop.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18719,6 +18751,14 @@
       "name": "antigravity-electron-drive-skill",
       "original_name": "electron-drive-skill",
       "description": "Launch the project's Electron app on a scratch profile and drive it: click, type, screenshot, run renderer or main-process code, read logs. Use to verify UI changes end to end.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-web-design-system",
+      "original_name": "web-design-system",
+      "description": "Choose a design direction for a website from real sites and write it down as a DESIGN.md: colors with roles, type, spacing, radius, shadows and components, in light and dark.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

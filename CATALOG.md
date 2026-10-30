@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-29 06:24 UTC*
+*Last updated: 2026-10-30 06:23 UTC*
 
-Total skills: **4007**
+Total skills: **4012**
 
 ## Skills by Source
 
@@ -1733,6 +1733,7 @@ pipelines, and system utilities.... |
 | `antigravity-before-you-build` | Review product risk before coding by checking demand, alternatives, channels, switching costs, and f... |
 | `antigravity-behavioral-modes` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt ... |
 | `antigravity-bevy-ecs-expert` | Master Bevy's Entity Component System (ECS) in Rust, covering Systems, Queries, Resources, and paral... |
+| `antigravity-bifrost-gateway` | Run and configure Bifrost, the open-source AI gateway: one OpenAI-compatible API for 20+ LLM provide... |
 | `antigravity-bilig-workpaper` | Use formula-backed WorkPaper JSON and MCP tools for agent spreadsheet tasks without driving Excel or... |
 | `antigravity-bill-gates` | Simulacao educativa de analise estrategica inspirada em temas publicos de Bill Gates; nao representa... |
 | `antigravity-billing-automation` | Master automated billing systems including recurring billing, invoice generation, dunning management... |
@@ -1931,6 +1932,7 @@ pipelines, and system utilities.... |
 | `antigravity-cold-email` | Write B2B cold emails and follow-up sequences that earn replies. Use when creating outbound prospect... |
 | `antigravity-comfyui-gateway` | REST API gateway for ComfyUI servers. Workflow management, job queuing, webhooks, caching, auth, rat... |
 | `antigravity-commandcode-delegate` | Delegate coding tasks to the Command Code CLI (`cmd`) only when the user explicitly requests it, whi... |
+| `antigravity-comment-to-dm-cta` | Plan the "Comment KEYWORD" CTA of an Instagram Reel (keyword, overlay, caption, DM copy), then, afte... |
 | `antigravity-commit` | Prepare or create commits using Sentry-style message conventions when the repository requests them; ... |
 | `antigravity-community-building` | When the user wants to build, grow, or improve a developer community on Discord, Slack, or forums. |
 | `antigravity-company-email-accounts` | Mailbox and licence register: employee, account type, aliases, groups, tool, licence cost, 2FA and p... |
@@ -2752,6 +2754,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-kustomize` | Customize Kubernetes manifests without templating using Kustomize. |
 | `antigravity-lambda-lang` | Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak direc... |
 | `antigravity-lambdatest-agent-skills` | Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and... |
+| `antigravity-landing-page` | Build landing, home and pricing pages that look like a real product instead of AI output: honest cop... |
 | `antigravity-landing-page-generator` | Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB fra... |
 | `antigravity-langchain-architecture` | Master the LangChain framework for building sophisticated LLM applications with agents, chains, memo... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |
@@ -3996,9 +3999,11 @@ calculations
 | `antigravity-weaviate-cookbooks` | Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, mul... |
 | `antigravity-web-artifacts-builder` | Create React frontend artifacts and bundle a reviewed project into a shareable HTML file. |
 | `antigravity-web-design-guidelines` | Review files for compliance with Web Interface Guidelines. |
+| `antigravity-web-design-system` | Choose a design direction for a website from real sites and write it down as a DESIGN.md: colors wit... |
 | `antigravity-web-media-getter` | One query across free image / video / GIF APIs (stock + historical/archival + GIF engines), returnin... |
 | `antigravity-web-performance-optimization` | Optimize website and web application performance including loading speed, Core Web Vitals, bundle si... |
 | `antigravity-web-project-brainstorming` | Masterclass framework for brainstorming web development projects and page designs. Outlines structur... |
+| `antigravity-web-review` | Review a website or landing page and list what to fix, most important first: message, generic AI loo... |
 | `antigravity-web-scraper` | Web scraping inteligente multi-estrategia. Extrai dados estruturados de paginas web (tabelas, listas... |
 | `antigravity-web-security-testing` | Web application security testing workflow for OWASP Top 10 vulnerabilities including injection, XSS,... |
 | `antigravity-web2-recon` | Web2 recon pipeline |
