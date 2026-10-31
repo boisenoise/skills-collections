@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-30 06:23 UTC*
+*Last updated: 2026-10-31 06:17 UTC*
 
-Total skills: **4012**
+Total skills: **4013**
 
 ## Skills by Source
 
@@ -1152,6 +1152,7 @@ Total skills: **4012**
 | `marketing-prospecting` | When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS... |
 | `marketing-public-relations` | When the user wants help with public relations, earned media, press coverage, journalist outreach, o... |
 | `marketing-referrals` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
+| `marketing-reverse-engineer-marketing` | When the user wants to reverse engineer how another company grew and copy what worked. Also use when... |
 | `marketing-revops` | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales h... |
 | `marketing-sales-enablement` | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or... |
 | `marketing-schema` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u... |
