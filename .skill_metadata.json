@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-31T06:17:41.956706",
-  "skill_count": 4013,
+  "last_updated": "2026-11-01T06:19:12.034083",
+  "skill_count": 4022,
   "sources_processed": 19,
   "skills": [
     {
@@ -2087,6 +2087,14 @@
       "name": "antigravity-glasser",
       "original_name": "glasser",
       "description": "Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable integration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-zambo",
+      "original_name": "zambo",
+      "description": "Connect an agent to Zambo: 153 tools behind one remote MCP endpoint, cross-AI handover, memory, and a verifiable AER-1 receipt for every call. Use when a task needs real work done.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9588,6 +9596,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-tweetapi",
+      "original_name": "tweetapi",
+      "description": "Look up public Twitter/X profiles, tweets, search results, lists, communities and Spaces with TweetAPI's REST API or hosted MCP server. Read-only: no posting or account access.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-react-native-skills",
       "original_name": "react-native-skills",
       "description": "Review React Native and Expo rendering, lists, animations, navigation and native UI against project versions and measured behavior.",
@@ -10950,7 +10966,7 @@
     {
       "name": "antigravity-aomi-transact",
       "original_name": "aomi-transact",
-      "description": "Build natural-language crypto/DeFi agents and EVM MCP plugins (Claude Code, Cursor, Codex, Gemini). Aomi turns prompts into wallet-signed txs on Ethereum, Base, Arbitrum, Optimism, Polygon, Linea \u2014 non-custodial, fork-simulated. 40+ apps: Uniswap, Aave, Lido, Morpho, GMX, Hyperliquid, Polymarket.",
+      "description": "Use Aomi's standalone CLI or hosted Agent/Pipeline MCP to read chain state and prepare user-authorized transactions. Review durable Commit simulation before a designated signer executes. Use for swaps, lending, bridging, staking, perps and account queries.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -11031,6 +11047,14 @@
       "name": "antigravity-ios-developer",
       "original_name": "ios-developer",
       "description": "Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core Data, networking, and App Store optimization.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-harvey-specter",
+      "original_name": "harvey-specter",
+      "description": "Prepare negotiations, difficult conversations, and leadership replies with evidence, clear boundaries, relationship-aware tone, and Harvey Specter-inspired composure.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14516,6 +14540,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-requirements-writing",
+      "original_name": "requirements-writing",
+      "description": "Write and review verifiable requirements using EARS patterns, quality checks, defect review, and traceability.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "CC-BY-4.0"
+    },
+    {
       "name": "antigravity-wordpress",
       "original_name": "wordpress",
       "description": "WordPress development workflow covering theme development, plugin creation, WooCommerce integration, performance optimization, and security hardening. Includes WordPress 7.0 features: Real-Time Collaboration, AI Connectors, Abilities API, DataViews, and PHP-only blocks.",
@@ -17908,6 +17940,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-desearch-mcp",
+      "original_name": "desearch-mcp",
+      "description": "Use Desearch MCP when the user chooses Desearch for web research, X posts, people discovery, or company search and enrichment. Confirm before starting billed background tasks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-azure-identity-java",
       "original_name": "azure-identity-java",
       "description": "Authenticate Java applications with Azure services using Microsoft Entra ID (Azure AD).",
@@ -19135,6 +19175,14 @@
       "name": "antigravity-hig-foundations",
       "original_name": "hig-foundations",
       "description": "Apple Human Interface Guidelines design foundations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ios-review",
+      "original_name": "ios-review",
+      "description": "Review an iPhone app screen or flow and list what to fix, most important first: navigation, layout, touch targets, accessibility, states and App Store issues.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21180,6 +21228,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ios-flows",
+      "original_name": "ios-flows",
+      "description": "Plan an iPhone app flow from how real apps handle it: onboarding, sign-up, paywalls, permissions, cancellation, account deletion and settings.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-odoo-migration-helper",
       "original_name": "odoo-migration-helper",
       "description": "Step-by-step guide for migrating Odoo custom modules between versions (v14\u2192v15\u2192v16\u2192v17). Covers API changes, deprecated methods, and view migration.",
@@ -21343,6 +21399,14 @@
       "name": "antigravity-postgres-best-practices",
       "original_name": "postgres-best-practices",
       "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-keepmacawake",
+      "original_name": "keepmacawake",
+      "description": "Keep a MacBook with Apple silicon awake with the lid closed during a long agent task, with the keepmacawake command of the Keep Mac Awake app.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22202,6 +22266,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-sfxmint",
+      "original_name": "sfxmint",
+      "description": "Find and add free CC0 sound effects to an app, game or video by event, set or description over a keyless API or MCP; generate a missing sound with an API key.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "CC0-1.0"
     },
     {
       "name": "antigravity-employee-suggestion-hub",
@@ -23342,10 +23414,10 @@
     {
       "name": "antigravity-satori",
       "original_name": "satori",
-      "description": "Clinically informed wisdom companion blending psychology and philosophy into a structured thinking partner",
+      "description": "Use supportive, non-diagnostic reflection informed by Satori's philosophical and psychological lenses.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
-      "license": "MIT"
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-bugs-are-annoying",

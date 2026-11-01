@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-10-31 06:17 UTC*
+*Last updated: 2026-11-01 06:19 UTC*
 
-Total skills: **4013**
+Total skills: **4022**
 
 ## Skills by Source
 
@@ -1449,7 +1449,7 @@ Total skills: **4013**
 | `antigravity-antigravity-skill-orchestrator` | A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks succ... |
 | `antigravity-antigravity-workflows` | Use when asked to ship a SaaS MVP, audit application security, build an AI agent, run browser QA, or... |
 | `antigravity-anywrite` | Compiled CLI covering all 52 endpoints of the Anytype local API — objects, properties, tags, search,... |
-| `antigravity-aomi-transact` | Build natural-language crypto/DeFi agents and EVM MCP plugins (Claude Code, Cursor, Codex, Gemini). ... |
+| `antigravity-aomi-transact` | Use Aomi's standalone CLI or hosted Agent/Pipeline MCP to read chain state and prepare user-authoriz... |
 | `antigravity-api-analyzer` | Validates whether an API request is correct based on provided inputs (method, URL, headers, body, au... |
 | `antigravity-api-and-interface-design` | Guides stable API and interface design. Use when designing APIs, module boundaries, or any public in... |
 | `antigravity-api-contract-testing` | Design and review API contract tests across providers and consumers. Use for schema changes, compati... |
@@ -2117,6 +2117,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-deployment-procedures` | Production deployment principles and decision-making. Safe deployment workflows, rollback strategies... |
 | `antigravity-deployment-validation-config-validate` | Validate application configurations with schemas, configuration tests, and checks for security and e... |
 | `antigravity-deprecation-and-migration` | Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrat... |
+| `antigravity-desearch-mcp` | Use Desearch MCP when the user chooses Desearch for web research, X posts, people discovery, or comp... |
 | `antigravity-design-it` | Routes frontend design tasks to 48 specific UI styles. Triggers for websites, app screens, or UI com... |
 | `antigravity-design-md` | Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files |
 | `antigravity-design-orchestration` | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and executi... |
@@ -2503,6 +2504,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-guest-posting-opportunity-finder` | Guest Posting Opportunity Finder. Use when working with topic, audience and optional prospect list. |
 | `antigravity-handoff` | Compact the current conversation into a handoff document for another agent to pick up. |
 | `antigravity-hardware-security` | Authorized hardware and embedded interface security research: UART/JTAG discovery, debug-pad triage,... |
+| `antigravity-harvey-specter` | Prepare negotiations, difficult conversations, and leadership replies with evidence, clear boundarie... |
 | `antigravity-hasdata` | Use HasData APIs for web scraping and structured web data extraction. |
 | `antigravity-hasdata-cli` | Command-line access to search, scraping, and structured web data. |
 | `antigravity-hashicorp-vault` | Manage secrets and PKI with HashiCorp Vault. |
@@ -2691,7 +2693,9 @@ behavior. Use proactively when encoun... |
 | `antigravity-invokely-statistics` | Use Invokely MCP to find official statistics, retrieve values and series, compare or rank places, an... |
 | `antigravity-ios-debugger-agent` | Debug the current iOS project on a booted simulator with XcodeBuildMCP. |
 | `antigravity-ios-developer` | Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core... |
+| `antigravity-ios-flows` | Plan an iPhone app flow from how real apps handle it: onboarding, sign-up, paywalls, permissions, ca... |
 | `antigravity-ios-redteam-pipeline` | End-to-end iOS red-team pipeline |
+| `antigravity-ios-review` | Review an iPhone app screen or flow and list what to fix, most important first: navigation, layout, ... |
 | `antigravity-ios-screens` | Build iPhone app screens that feel native: navigation, sheets, Dynamic Type, dark mode, permissions ... |
 | `antigravity-iso27001-compliance` | Implement ISO 27001 Information Security Management System. Configure ISMS controls and risk managem... |
 | `antigravity-issue-grievance-tracker` | Grievance register: issue type, raised by or anonymous, person or team concerned, department, date r... |
@@ -2726,6 +2730,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-k8s-security-policies` | Guide for NetworkPolicy, RBAC, and Pod Security Admission/Standards (PodSecurityPolicy was removed i... |
 | `antigravity-kaizen` | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user ... |
 | `antigravity-keenable-search-mcp` | Search the public web with site and date filters, and read pages with an extraction prompt, through ... |
+| `antigravity-keepmacawake` | Keep a MacBook with Apple silicon awake with the lid closed during a long agent task, with the keepm... |
 | `antigravity-kernel-prompt` | Use when composing or improving an LLM prompt or agent instruction. Asks one round of questions, the... |
 | `antigravity-keyword-clustering-tool` | Keyword Clustering Tool. Use when working with keyword list. |
 | `antigravity-keyword-comparison-tool` | Keyword Comparison Tool. Use when working with two or more keywords and optional metrics. |
@@ -3424,6 +3429,7 @@ structures, and modern OOP features. U... |
 | `antigravity-reports-analytics` | Report register: type, source modules, owner, audience, frequency, last and next run and report link... |
 | `antigravity-repurpose-into-a-post` | Turn an article, newsletter, transcript or video into a Twitter/X or LinkedIn post that stands on it... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
+| `antigravity-requirements-writing` | Write and review verifiable requirements using EARS patterns, quality checks, defect review, and tra... |
 | `antigravity-research-prompt` | Turn vague research needs into one precise deep-research prompt with context and output criteria. |
 | `antigravity-resolving-merge-conflicts` | Use when you need to resolve an in-progress git merge/rebase conflict. |
 | `antigravity-restosignals` | Find US restaurants and bars before they open, as scored leads fused from liquor-license, food-permi... |
@@ -3485,7 +3491,7 @@ coll... |
 | `antigravity-sankhya-dashboard-html-jsp-custom-best-pratices` | This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sa... |
 | `antigravity-sast-configuration` | Static Application Security Testing (SAST) tool setup, configuration, and custom rule creation for c... |
 | `antigravity-sast-scanning` | Perform static application security testing with tools like Semgrep, CodeQL, and SonarQube. |
-| `antigravity-satori` | Clinically informed wisdom companion blending psychology and philosophy into a structured thinking p... |
+| `antigravity-satori` | Use supportive, non-diagnostic reflection informed by Satori's philosophical and psychological lense... |
 | `antigravity-sbom-supply-chain` | Generate, sign, and verify SBOMs and provenance attestations to secure the software supply chain. Us... |
 | `antigravity-scala-pro` | Master enterprise-grade Scala development with functional programming, distributed systems, and big ... |
 | `antigravity-scanning-tools` | Master essential security scanning tools for network discovery, vulnerability assessment, web applic... |
@@ -3589,6 +3595,7 @@ Plans content calendars and ident... |
 | `antigravity-setup-help` | Walk a user through setup or installation one step at a time with the remaining steps visible. |
 | `antigravity-setup-matt-pocock-skills` | Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, ... |
 | `antigravity-sexual-health-analyzer` | Sexual Health Analyzer |
+| `antigravity-sfxmint` | Find and add free CC0 sound effects to an app, game or video by event, set or description over a key... |
 | `antigravity-shadcn` | Manages shadcn/ui components and projects, providing context, documentation, and usage patterns for ... |
 | `antigravity-shader-programming-glsl` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, covering... |
 | `antigravity-shark` | Pitch a business idea to a Shark Tank-style panel of Claude sub-agent investors who grill it, hear a... |
@@ -3867,6 +3874,7 @@ calculations
 | `antigravity-turborepo-caching` | Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up... |
 | `antigravity-turn-this-into-a-thread` | Turn a long idea, transcript, article or draft into a Twitter/X thread where every tweet stands alon... |
 | `antigravity-tutorial-engineer` | Creates step-by-step tutorials and educational content from code. Transforms complex concepts into p... |
+| `antigravity-tweetapi` | Look up public Twitter/X profiles, tweets, search results, lists, communities and Spaces with TweetA... |
 | `antigravity-twilio-communications` | Build communication features with Twilio: SMS messaging, voice calls, WhatsApp Business API, and use... |
 | `antigravity-twitter-automation` | Automate Twitter/X tasks via Rube MCP (Composio): posts, search, users, bookmarks, lists, media. Alw... |
 | `antigravity-typescript-advanced-types` | Comprehensive guidance for mastering TypeScript's advanced type system including generics, condition... |
@@ -4087,6 +4095,7 @@ calculations
 | `antigravity-youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelli... |
 | `antigravity-youtube-transcript` | Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output. |
 | `antigravity-youtube-transcript-skills` | Fetch YouTube video transcripts, search videos/channels, browse channels, and extract playlists via ... |
+| `antigravity-zambo` | Connect an agent to Zambo: 153 tools behind one remote MCP endpoint, cross-AI handover, memory, and ... |
 | `antigravity-zapier-make-patterns` | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-dev... |
 | `antigravity-zcode-delegate` | Delegate coding tasks to the Z.AI ZCode CLI only when the user explicitly requests it, while the orc... |
 | `antigravity-zendesk-automation` | Automate Zendesk tasks via Rube MCP (Composio): tickets, users, organizations, replies. Always searc... |
