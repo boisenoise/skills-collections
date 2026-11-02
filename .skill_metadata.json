@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-01T06:19:12.034083",
-  "skill_count": 4022,
+  "last_updated": "2026-11-02T06:27:59.684234",
+  "skill_count": 4046,
   "sources_processed": 19,
   "skills": [
     {
@@ -2566,7 +2566,7 @@
     {
       "name": "antigravity-review-animations",
       "original_name": "review-animations",
-      "description": "Use when reviewing animation and motion code against a strict craft, performance, accessibility, and interaction-quality bar.",
+      "description": "Review motion code against a craft, performance, accessibility, and interaction-quality standard with evidence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -4236,6 +4236,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-hyperframes-registry",
+      "original_name": "hyperframes-registry",
+      "description": "Find and integrate editable HyperFrames blocks and components for video scenes, transitions and effects.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-social-media-setup",
       "original_name": "social-media-setup",
       "description": "Social media register: platforms and handles, post captions and hashtags, publishing cadence, approval status and profile checklist. Use for social account setup.",
@@ -5676,6 +5684,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-remotion-to-hyperframes",
+      "original_name": "remotion-to-hyperframes",
+      "description": "Migrate Remotion or other animation code and footage into HyperFrames, recording editability and frame comparison limits.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-expo-ui",
       "original_name": "expo-ui",
       "description": "Build native UI with the @expo/ui package: real SwiftUI on iOS and Jetpack Compose on Android rendered from React in an Expo or React Native app.",
@@ -6055,6 +6071,14 @@
       "name": "antigravity-python-performance-optimization",
       "original_name": "python-performance-optimization",
       "description": "Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-emil-ui-prototype",
+      "original_name": "emil-ui-prototype",
+      "description": "Build distinct UI variants behind a development-only picker and integrate the variant the user selects.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -6700,6 +6724,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-animate-expo",
+      "original_name": "animate-expo",
+      "description": "Build React Native and Expo motion with gestures, Reanimated, haptics, accessible fallbacks, and device verification.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-source-driven-development",
       "original_name": "source-driven-development",
       "description": "Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
@@ -7228,6 +7260,14 @@
       "license": "MIT-0"
     },
     {
+      "name": "antigravity-slideshow",
+      "original_name": "slideshow",
+      "description": "Build live HyperFrames slide decks with fragments, branching hotspots and presenter notes.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-taisly-social-media-posting",
       "original_name": "taisly-social-media-posting",
       "description": "Use Taisly Agent Kit to prepare and publish approved short-form video posts across TikTok, Instagram Reels, YouTube Shorts, X, and Facebook.",
@@ -7578,6 +7618,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-stageshow",
+      "original_name": "stageshow",
+      "description": "Create React product illustrations and cursor demos using a reusable UI kit, examples, motion guidance, and visual verification tools.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-gcp-audit-logs",
@@ -8471,6 +8519,14 @@
       "name": "antigravity-terraform-aws",
       "original_name": "terraform-aws",
       "description": "Provision AWS infrastructure with Terraform. Create modules, manage state, and implement IaC best practices. Use when deploying AWS resources declaratively.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-pick-ui-library",
+      "original_name": "pick-ui-library",
+      "description": "Choose a frontend library from Emil Kowalski\u2019s curated list after checking the project\u2019s existing stack and requirements.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9796,6 +9852,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-animate",
+      "original_name": "animate",
+      "description": "Build purposeful web animations with appropriate tools, easing, duration, interruption, exits, and reduced-motion support.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-nosql-expert",
       "original_name": "nosql-expert",
       "description": "Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, query-first modeling, single-table design, and avoiding hot partitions in high-scale systems.",
@@ -10268,6 +10332,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-hyperframes-cli",
+      "original_name": "hyperframes-cli",
+      "description": "Scaffold, inspect, preview and render HyperFrames projects; use local or explicitly authorized hosted workflows.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-windows-server",
       "original_name": "windows-server",
       "description": "Administer Windows Server systems. Manage IIS, Active Directory, and PowerShell automation. Use when administering Windows infrastructure.",
@@ -10338,6 +10410,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-figma",
+      "original_name": "figma",
+      "description": "Import Figma assets, tokens, components and motion into editable HyperFrames videos with source and fidelity checks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
     },
     {
       "name": "antigravity-git-pr-workflows-git-workflow",
@@ -12876,6 +12956,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-hyperframes",
+      "original_name": "hyperframes",
+      "description": "Create and review editable HTML-to-video projects with the HyperFrames timeline, composition and rendering contract.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-webdriverio-skill",
       "original_name": "webdriverio-skill",
       "description": "Generates WebdriverIO (WDIO) automation tests in JavaScript or TypeScript. Supports local and TestMu AI cloud. Use when user mentions \"WebdriverIO\", \"WDIO\", \"wdio.conf\", \"browser.url\", \"$\", \"$$\". Triggers on: \"WebdriverIO\", \"WDIO\", \"wdio\", \"browser.$\".",
@@ -13516,6 +13604,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ask-sonner",
+      "original_name": "ask-sonner",
+      "description": "Set up and troubleshoot Sonner React toasts, including promises, loading states, updates, styling, theming, and placement.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-faber-language",
       "original_name": "faber-language",
       "description": "Write, check and run Faber programs, an experimental statically typed language for coding agents and human authors. Uses version-matched faberlang.dev language documentation.",
@@ -13703,6 +13799,14 @@
       "name": "antigravity-codebase-cleanup-deps-audit",
       "original_name": "codebase-cleanup-deps-audit",
       "description": "You are a dependency security expert specializing in vulnerability scanning, license compliance, and supply chain security. Analyze project dependencies for known vulnerabilities, licensing issues, outdated packages, and provide actionable remediation strategies.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-mobile-native",
+      "original_name": "mobile-native",
+      "description": "Improve mobile web behavior for touch, viewport sizing, safe areas, inputs, scrolling, and native-feeling interaction.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14780,6 +14884,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-find-animation-opportunities",
+      "original_name": "find-animation-opportunities",
+      "description": "Propose purposeful motion opportunities from a read-only codebase review, with evidence and explicit exclusions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-it-manager-hospital",
       "original_name": "it-manager-hospital",
       "description": "World-class Hospital IT Management Advisor specializing in clinical safety, digital maturity (HIMSS/ONA/JCI), and HIS/PEP ecosystems.",
@@ -14956,6 +15068,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-unslop-ui",
+      "original_name": "unslop-ui",
+      "description": "Audit and redesign AI-generated interfaces with product-specific visual direction, structured design passes, and optional snapshots or story video.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "CC-BY-4.0"
+    },
+    {
       "name": "antigravity-tdd",
       "original_name": "tdd",
       "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
@@ -14991,6 +15111,14 @@
       "name": "antigravity-production-code-audit",
       "original_name": "production-code-audit",
       "description": "Audit an explicitly scoped codebase for evidenced security, correctness and performance issues; implement authorized targeted repairs and report validation plus residual readiness gaps.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-animation-performance",
+      "original_name": "animation-performance",
+      "description": "Diagnose dropped animation frames and choose properties, rendering paths, and profiling checks for smooth web motion.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17628,6 +17756,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-reverse-any-video",
+      "original_name": "reverse-any-video",
+      "description": "Reconstruct authorized video as an editable HyperFrames project, with measured timing, rights and likeness boundaries.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-implement",
       "original_name": "implement",
       "description": "Implement a piece of work based on a PRD or set of issues.",
@@ -19396,6 +19532,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-write-swift",
+      "original_name": "write-swift",
+      "description": "Write and review modern Swift with value types, concurrency, protocols, API design, memory management, and testing.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-core-components",
       "original_name": "core-components",
       "description": "Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.",
@@ -19471,6 +19615,14 @@
       "name": "antigravity-vllm-server",
       "original_name": "vllm-server",
       "description": "Deploy and manage vLLM for high-throughput LLM inference. Configure continuous batching, tensor parallelism, quantization, and OpenAI-compatible API endpoints for production LLM serving.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-animation-vocabulary",
+      "original_name": "animation-vocabulary",
+      "description": "Name a described animation effect using a reverse-lookup motion glossary.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -20636,6 +20788,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-media-use",
+      "original_name": "media-use",
+      "description": "Resolve and prepare licensed media, voice, music, captions and sound for HyperFrames with explicit provider and cost boundaries.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-laravel-expert",
       "original_name": "laravel-expert",
       "description": "Senior Laravel Engineer role for production-grade, maintainable, and idiomatic Laravel solutions. Focuses on clean architecture, security, performance, and modern standards (Laravel 10/11+).",
@@ -21460,6 +21620,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-apple-design",
+      "original_name": "apple-design",
+      "description": "Apply Apple-inspired interface and motion principles to gestures, typography, depth, feedback, and accessibility on the web.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-bluebook-writing",
       "original_name": "bluebook-writing",
       "description": "Write design-reading books and articles in plain language with a two-layer skeleton: a zero-terminology everyday story first, then the professional layer with formal names, mechanisms, boundaries, and costs. Use when explaining unfamiliar systems to non-programmers.",
@@ -21735,6 +21903,14 @@
       "name": "antigravity-video-router",
       "original_name": "video-router",
       "description": "Route a video-production brief to generation, deterministic composition, supplied-footage editing, or an automatic cross-modal plan before production begins.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-improve-animations",
+      "original_name": "improve-animations",
+      "description": "Audit existing motion and write prioritized implementation plans with exact evidence, scope, and verification steps.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22751,6 +22927,14 @@
       "name": "antigravity-permission-manager",
       "original_name": "permission-manager",
       "description": "Manage opencode permissions: review always-allow lists, suggest safe read-only commands, configure permission patterns",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-remove-animations",
+      "original_name": "remove-animations",
+      "description": "Remove unnecessary interface motion while preserving final states, focus, layout, and animation-dependent behavior.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -24044,6 +24228,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-break-ui",
+      "original_name": "break-ui",
+      "description": "Stress-test a component with realistic worst-case data through a development-only fixture toggle and report verified failures.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-freshdesk-automation",
       "original_name": "freshdesk-automation",
       "description": "Automate Freshdesk helpdesk operations including tickets, contacts, companies, notes, and replies via Rube MCP (Composio). Always search tools first for current schemas.",
@@ -24182,7 +24374,7 @@
     {
       "name": "antigravity-emil-design-eng",
       "original_name": "emil-design-eng",
-      "description": "Use when designing or reviewing polished product UI with Emil Kowalski-inspired animation, interaction, and component craft guidance.",
+      "description": "Design and review polished UI with Emil Kowalski\u2019s guidance on animation, interaction feedback, component craft, and accessibility.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
