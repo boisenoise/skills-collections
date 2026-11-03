@@ -105,3 +105,27 @@ bounded durable installation. Preserve every check and measure the actual cycle.
 For fork CI awaiting approval, the coordinator delegates to the same protected
 merge gate before waiting for checks; it never approves runs directly. See the
 cycle reference for exact-head scheduling and failure boundaries.
+
+For measured CI optimization, run the scoped `maintenance:quick-check` before
+pushing and retain complete protected preflight afterward. Follow the component
+reference for bounded cache persistence, per-command timing and preview runtime
+scheduling. SkillSpector must select evidence by upstream CI run provenance before
+check name; metadata checks cannot substitute for scanner evidence. Keep private
+benchmark timings distinct from actual whole-cycle savings. No paid service,
+quota increase, privileged fork trigger or reduced test coverage is authorized.
+
+For reviewed upstream source repins, bind the complete immutable skill tree in the protected source-exception ledger; changing any bundled byte invalidates it. Review CDN script integrity in bundled HTML fixtures without executing the fixture or suppressing a real finding. See the [dated maintenance report](references/2026-11-02-maintenance.md) for evidence and scope.
+
+Follow [measured release finalization](references/release-finalization.md) after an
+explicitly authorized GitHub/site publication. Use the resumable finalizer instead
+of manually omitting Pages/legacy stages; preserve exact-run identity, no-drift
+proof, complete hosted verification and unknown-write stops. Preparation checks
+scratch capacity and verifies external PR contributor mentions before generating
+version surfaces. Do not narrow cache inputs or shard additional tests without
+negative invalidation and complete inventory evidence.
+
+For precise contribution readiness, use the bundled intake guide and contributor
+worked examples. Report all already-known author corrections before expensive
+review. Checklist-only evidence and untouched field scaffolding do not establish
+admission. Keep small fixes proportional; never require paid/live consequential
+tests or treat a heuristic quality score as review authority.

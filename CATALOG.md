@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-02 06:27 UTC*
+*Last updated: 2026-11-03 06:21 UTC*
 
-Total skills: **4046**
+Total skills: **4053**
 
 ## Skills by Source
 
@@ -1751,6 +1751,7 @@ pipelines, and system utilities.... |
 | `antigravity-block-storage` | Manage block storage volumes and LVM. Configure cloud block storage and local disks. Use when managi... |
 | `antigravity-blockchain-developer` | Build production-ready Web3 applications, smart contracts, and decentralized systems. Implements DeF... |
 | `antigravity-blockrun` | BlockRun works with Claude Code and Google Antigravity. |
+| `antigravity-blockvectra-docs` | Answer BlockVectra RPC, indexed-data, and Robinhood Chain integration questions from cited documenta... |
 | `antigravity-blog-title-generator` | Blog Title Generator. Use when working with topic or page summary. |
 | `antigravity-blog-writing-guide` | This skill enforces Sentry's blog writing standards across every post — whether you're helping an en... |
 | `antigravity-blue-green-deploy` | Configure zero-downtime deployment strategies including blue-green, canary, and rolling deployments. |
@@ -2080,7 +2081,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-database-migrations-sql-migrations` | SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, and SQL Server. Focus o... |
 | `antigravity-database-optimizer` | Expert database optimizer specializing in modern performance tuning, query optimization, and scalabl... |
 | `antigravity-database-security` | Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: exposur... |
-| `antigravity-datacircle` | Every GTM API plan on datacircle.dev, as one file you download and query. Use it to compare or price... |
+| `antigravity-datacircle` | Every plan of every GTM API on datacircle.dev, as one file you download and query. Use the file to c... |
 | `antigravity-datadog` | Implement Datadog monitoring and APM for infrastructure and applications. |
 | `antigravity-datadog-automation` | Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboar... |
 | `antigravity-datawebot` | Find products for sale across online shops, list returned sellers' prices with direct links, and run... |
@@ -2807,6 +2808,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-lightning-architecture-review` | Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze L... |
 | `antigravity-lightning-channel-factories` | Technical reference on Lightning Network channel factories, multi-party channels, LSP architectures,... |
 | `antigravity-lightning-factory-explainer` | Explain Bitcoin Lightning channel factories and the SuperScalar protocol — scalable Lightning onboar... |
+| `antigravity-lightweight-charts-react-components` | Build and debug React financial charts with realtime candles, viewport-preserving history, indicator... |
 | `antigravity-linear-automation` | Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles, teams, labels. Always searc... |
 | `antigravity-linear-claude-skill` | Manage Linear issues, projects, and teams |
 | `antigravity-link-relevance-evaluator` | Link Relevance Evaluator. Use when working with source page context and destination page context. |
@@ -2853,6 +2855,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-local-schema-builder` | Local Schema Builder. Use when working with business facts, page URL and actual address or service a... |
 | `antigravity-local-seo-audit-checklist` | Local SEO Audit Checklist. Use when working with business type, location and profile or site details... |
 | `antigravity-location-based-content-idea-generator` | Local Content Idea Generator. Use when working with location, audience and business topic. |
+| `antigravity-logbrew-debug-production` | Debug a production error with LogBrew evidence: find the issue, read its stack and first release, pu... |
 | `antigravity-logic-diff` | Compare two code versions for semantic equivalence via semi-formal tracing of both versions side-by-... |
 | `antigravity-logic-explain` | Explain what a specific piece of code actually does for a given input by producing a step-by-step ex... |
 | `antigravity-logic-fix-all` | Autonomous repository-wide audit-and-fix pipeline: health → review → locate/explain → fix → diff-ver... |
@@ -2885,6 +2888,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-m365-agents-py` | Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with ai... |
 | `antigravity-m365-agents-ts` | Microsoft 365 Agents SDK for TypeScript/Node.js. |
 | `antigravity-m365-entra-attack` | Microsoft 365 / Entra ID red-team attack chain |
+| `antigravity-mac-api-connection-diagnostics` | Diagnose an API or website connection failure from a Mac with Kilobat's read-only JSON probes before... |
 | `antigravity-mac-mini-llm-lab` | Configure a Mac mini as a reliable local LLM server with remote access, observability, and power-saf... |
 | `antigravity-machine-learning-ops-ml-pipeline` | Design and implement a complete ML pipeline for: $ARGUMENTS |
 | `antigravity-macos-menubar-tuist-app` | Build, refactor, or review SwiftUI macOS menubar apps that use Tuist. |
@@ -3000,6 +3004,7 @@ splash language, makepad script, m... |
 | `antigravity-mlops-engineer` | Build comprehensive ML pipelines, experiment tracking, and model registries with MLflow, Kubeflow, a... |
 | `antigravity-mmx-cli` | Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the... |
 | `antigravity-moatmri` | Analyze AI disruption pressure across a business, map competitive exposure, and produce a 90-day def... |
+| `antigravity-mobbin` | Find real app screens, user flows and website sections on Mobbin through the Mobbin MCP server, to g... |
 | `antigravity-mobile-design` | Design and review iOS, Android, React Native or Flutter interfaces for touch, accessibility, navigat... |
 | `antigravity-mobile-developer` | Develop React Native, Flutter, or native mobile apps with modern architecture patterns. Masters cros... |
 | `antigravity-mobile-friendly-test` | Mobile-Friendly Test. Use when working with accessible page or supplied screenshots and HTML. |
@@ -3177,7 +3182,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-openclaw-local-mac-mini` | Set up OpenClaw locally and run it reliably on a Mac mini for private, always-on local agent workflo... |
 | `antigravity-openclaw-security-hardening` | Harden OpenClaw self-hosted environments with baseline host controls, auth tightening, secret handli... |
 | `antigravity-opencode-delegate` | Delegate coding tasks to the OpenCode CLI only when the user explicitly requests it, while the orche... |
-| `antigravity-openhook` | Creates private callback inboxes with Openhook. Use when an agent needs to wait for a webhook, inspe... |
+| `antigravity-openhook` | Creates and joins private Openhook channels so people and their AI agents can exchange messages. Use... |
 | `antigravity-openshift` | Manage Red Hat OpenShift clusters and deployments. |
 | `antigravity-opentelemetry` | Instrument applications and infrastructure with OpenTelemetry for unified traces, metrics, and logs. |
 | `antigravity-opentofu-migration` | Migrate from Terraform to OpenTofu with state compatibility, provider registry setup, and CI/CD pipe... |
@@ -3274,6 +3279,7 @@ structures, and modern OOP features. U... |
 | `antigravity-policy-library` | Policy register: name, version, category, owner and approver, applies to, compliance framework, ackn... |
 | `antigravity-polis-protocol` | Coordinate multi-vendor AI agents as a self-improving team — a learning router assigns work by track... |
 | `antigravity-polis-protocol-a-self-optimizing-city-of-agents` | Polis Protocol: A Self-Optimizing City of Agents |
+| `antigravity-ponder` | Run coverage-gated multi-pass code, architecture, security, UI, or product reviews where every file ... |
 | `antigravity-popup-cro` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without... |
 | `antigravity-posix-shell-pro` | Expert in strict POSIX sh scripting for maximum portability across Unix-like systems. Specializes in... |
 | `antigravity-post` | Make share-post image sets that look native: Xiaohongshu carousels, X images, covers, App Store post... |
@@ -3631,6 +3637,7 @@ Plans content calendars and ident... |
 | `antigravity-shopify-firebase-app` | Scaffold, extend and deploy Shopify embedded apps on Firebase with Nitrogen. Use for a Shopify app o... |
 | `antigravity-shopify-review-triage` | Turn public 1-3-star Shopify App Store review rows into a P0-P3 triage brief: incident risk, repeate... |
 | `antigravity-short` | Rewrite the previous response more briefly while preserving the substance. |
+| `antigravity-show-the-change` | Explain a specific project change to non-programmers, with evidence and practical checks. |
 | `antigravity-signup-flow-cro` | You are an expert in optimizing signup and registration flows. Your goal is to reduce friction, incr... |
 | `antigravity-similarity-search-patterns` | Implement efficient similarity search with vector databases. Use when building semantic search, impl... |
 | `antigravity-simplify-code` | Review a diff for clarity and safe simplifications, then optionally apply low-risk fixes. |

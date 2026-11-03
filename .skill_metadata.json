@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-02T06:27:59.684234",
-  "skill_count": 4046,
+  "last_updated": "2026-11-03T06:21:00.148743",
+  "skill_count": 4053,
   "sources_processed": 19,
   "skills": [
     {
@@ -8324,6 +8324,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-mac-api-connection-diagnostics",
+      "original_name": "mac-api-connection-diagnostics",
+      "description": "Diagnose an API or website connection failure from a Mac with Kilobat's read-only JSON probes before changing application code or network settings.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-industrial-brutalist-ui",
       "original_name": "industrial-brutalist-ui",
       "description": "Use when creating raw industrial or tactical telemetry UIs with rigid grids, stark typography, CRT effects, and high-density data.",
@@ -9188,6 +9196,14 @@
       "license": "Apache-2.0"
     },
     {
+      "name": "antigravity-lightweight-charts-react-components",
+      "original_name": "lightweight-charts-react-components",
+      "description": "Build and debug React financial charts with realtime candles, viewport-preserving history, indicator panes, markers, and chart API refs using lightweight-charts-react-components.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-architecture-review",
       "original_name": "architecture-review",
       "description": "Review repository architecture using Ontoly Software Graph and MCP capabilities. Use when asked to explain architecture, module boundaries, package topology, service ownership, or architectural risk.",
@@ -10030,7 +10046,7 @@
     {
       "name": "antigravity-datacircle",
       "original_name": "datacircle",
-      "description": "Every GTM API plan on datacircle.dev, as one file you download and query. Use it to compare or price a GTM data API.",
+      "description": "Every plan of every GTM API on datacircle.dev, as one file you download and query. Use the file to compare or price a GTM API.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10836,6 +10852,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-blockvectra-docs",
+      "original_name": "blockvectra-docs",
+      "description": "Answer BlockVectra RPC, indexed-data, and Robinhood Chain integration questions from cited documentation. Use for source guidance, not blockchain execution.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-brain-to-docs",
       "original_name": "brain-to-docs",
       "description": "Interview the user to turn project vision and decisions into README and ADR documentation.",
@@ -11628,6 +11652,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ponder",
+      "original_name": "ponder",
+      "description": "Run coverage-gated multi-pass code, architecture, security, UI, or product reviews where every file must be graded and 4 perspectives deliberate to convergence.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-convex",
       "original_name": "convex",
       "description": "Convex reactive backend expert: schema design, TypeScript functions, real-time subscriptions, auth, file storage, scheduling, and deployment.",
@@ -12382,7 +12414,7 @@
     {
       "name": "antigravity-openhook",
       "original_name": "openhook",
-      "description": "Creates private callback inboxes with Openhook. Use when an agent needs to wait for a webhook, inspect received HTTP/email/DNS events, or verify a test callback's contents.",
+      "description": "Creates and joins private Openhook channels so people and their AI agents can exchange messages. Use for an Openhook invite, collaboration with another person\u2019s agent, or listening for channel messages.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17916,6 +17948,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-logbrew-debug-production",
+      "original_name": "logbrew-debug-production",
+      "description": "Debug a production error with LogBrew evidence: find the issue, read its stack and first release, pull its trace and logs, fix it, then check new events stop.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ai-engineering-toolkit",
       "original_name": "ai-engineering-toolkit",
       "description": "Overview of six AI engineering workflows: prompt evaluation (8-dimension scoring), context budget planning, RAG pipeline design, agent security audit (65-point checklist), eval harness building, and product sense coaching.",
@@ -20023,6 +20063,14 @@
       "name": "antigravity-loss-aversion-designer",
       "original_name": "loss-aversion-designer",
       "description": "Compare gain and loss framing and describe credible costs of inaction when an offer needs urgency without fearmongering.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-show-the-change",
+      "original_name": "show-the-change",
+      "description": "Explain a specific project change to non-programmers, with evidence and practical checks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22487,6 +22535,14 @@
       "name": "antigravity-stellar-multisig-threshold-coordinator",
       "original_name": "stellar-multisig-threshold-coordinator",
       "description": "Multi-signature signer and threshold coordination register: weight configurations, master key locks, and cosigner quorum thresholds for Stellar.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-mobbin",
+      "original_name": "mobbin",
+      "description": "Find real app screens, user flows and website sections on Mobbin through the Mobbin MCP server, to ground UI design and code in shipped products.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
