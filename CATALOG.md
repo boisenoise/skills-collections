@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-03 06:21 UTC*
+*Last updated: 2026-11-04 06:21 UTC*
 
-Total skills: **4053**
+Total skills: **4059**
 
 ## Skills by Source
 
@@ -1760,6 +1760,7 @@ pipelines, and system utilities.... |
 | `antigravity-board-governance` | Board and governance register: meeting date, agenda, decision, resolution number, vote result, actio... |
 | `antigravity-boost-asio-pro` | Use when writing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP serve... |
 | `antigravity-bounce-rate-estimator` | Bounce Rate Estimator. Use when working with sessions and bounced sessions, or sessions and engaged ... |
+| `antigravity-bowmark` | Use Bowmark when a task depends on what a live website shows right now: current prices, availability... |
 | `antigravity-box-automation` | Automate Box operations including file upload/download, content search, folder management, collabora... |
 | `antigravity-brain-to-docs` | Interview the user to turn project vision and decisions into README and ADR documentation. |
 | `antigravity-brainstorming` | Use before creative or constructive work (features, architecture, behavior). Transforms vague ideas ... |
@@ -1831,7 +1832,7 @@ pipelines, and system utilities.... |
 | `antigravity-canva-automation` | Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autofill. ... |
 | `antigravity-canvas-design` | These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSE... |
 | `antigravity-capacity-workload-planner` | Weekly capacity and workload register: available and allocated hours, utilisation percentage, over-a... |
-| `antigravity-career-ops` | Multi-CLI job-search command center: evaluate offers, scan portals, tailor CVs, track applications, ... |
+| `antigravity-career-ops` | Open-source AI job search agent for AI coding CLIs: evaluate offers, scan portals, tailor CVs, track... |
 | `antigravity-carrier-relationship-management` | Codified expertise for managing carrier portfolios, negotiating freight rates, tracking carrier perf... |
 | `antigravity-case-review` | Quality-gate review of a reverse-engineering or assessment case package: scope readiness, Evidence-t... |
 | `antigravity-cc-skill-backend-patterns` | Backend architecture patterns, API design, database optimization, and server-side best practices for... |
@@ -2013,6 +2014,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-copywriting-psychologist` | Write or revise conversion copy using audience awareness, motivations, and credible proof when ads, ... |
 | `antigravity-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
 | `antigravity-cost-optimization` | Strategies and patterns for optimizing cloud costs across AWS, Azure, and GCP. |
+| `antigravity-coupler-marketing-analytics` | Analyze cross-channel marketing performance from live Coupler.io data through its hosted MCP server:... |
 | `antigravity-course-upskilling-requests` | Training request register: course, provider, cost, duration, budget line, the three approval steps, ... |
 | `antigravity-court` | Put an idea on trial: a prosecutor and a defense Claude argue, 12 juror sub-agents vote independentl... |
 | `antigravity-cowork-to-code-bridge` | Use an already-installed, independently verified cowork-to-code bridge to run narrowly approved acti... |
@@ -2330,6 +2332,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-ffuf-web-fuzzing` | Expert guidance for ffuf web fuzzing during penetration testing, including authenticated fuzzing wit... |
 | `antigravity-figma` | Import Figma assets, tokens, components and motion into editable HyperFrames videos with source and ... |
 | `antigravity-figma-automation` | Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, exports. A... |
+| `antigravity-figma-designer` | Create structured Figma screens and libraries with ELAYA spacing, radius, semantic color variables, ... |
 | `antigravity-file-organizer` | Organize files and folders by inspecting their contents, proposing a structure, and reviewing duplic... |
 | `antigravity-file-path-traversal` | Identify and exploit file path traversal (directory traversal) vulnerabilities that allow attackers ... |
 | `antigravity-file-uploads` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, multipa... |
@@ -2776,6 +2779,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-lambda-lang` | Native agent-to-agent language for compact multi-agent messaging. A shared tongue agents speak direc... |
 | `antigravity-lambdatest-agent-skills` | Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and... |
 | `antigravity-landing-page` | Build landing, home and pricing pages that look like a real product instead of AI output: honest cop... |
+| `antigravity-landing-page-design` | Plan and build conversion-focused landing pages with intake, proof-based copy, explicit page structu... |
 | `antigravity-landing-page-generator` | Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB fra... |
 | `antigravity-langchain-architecture` | Master the LangChain framework for building sophisticated LLM applications with agents, chains, memo... |
 | `antigravity-langfuse` | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, ... |
@@ -3067,6 +3071,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-n8n-subworkflows` | Build reusable n8n sub-workflows with typed inputs, all-vs-each execution, discoverable naming, and ... |
 | `antigravity-n8n-validation-expert` | Expert guide for interpreting and fixing n8n validation errors. |
 | `antigravity-n8n-workflow-patterns` | Proven architectural patterns for building n8n workflows. |
+| `antigravity-nano-settlement-verify` | Check that a Nano (XNO) payment settled before a seller serves a paid call: one inline read-only scr... |
 | `antigravity-nanobanana-ppt-skills` | AI-powered PPT generation with document analysis and styled images |
 | `antigravity-nap-consistency-checker` | NAP Consistency Checker. Use when working with canonical business name, address and phone plus listi... |
 | `antigravity-native-data-fetching` | Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetch API... |
@@ -3258,7 +3263,7 @@ structures, and modern OOP features. U... |
 | `antigravity-pipecat-friday-agent` | Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini... |
 | `antigravity-pipedrive-automation` | Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and p... |
 | `antigravity-pitch-psychologist` | Structure pitches, decks, and talk tracks around audience beliefs, proof, and a clear decision when ... |
-| `antigravity-pixeltable` | Build Pixeltable apps in app.py with tables, computed columns, embedding search, and HTTP routes. Us... |
+| `antigravity-pixeltable` | Build Pixeltable apps for multimodal RAG, video and image search, audio transcription, agent memory,... |
 | `antigravity-placecall` | Place real outbound phone calls to US businesses through the PlaceCall API: book, ask, get quotes, t... |
 | `antigravity-plaid-fintech` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity ve... |
 | `antigravity-plan-ledger-tasks-yylo` | Create a concise Product Development Requirement and one or more implementation-sized YYLO Ledger ta... |
@@ -3612,6 +3617,7 @@ Plans content calendars and ident... |
 | `antigravity-seo-structure-architect` | Analyzes and optimizes content structure including header hierarchy, suggests schema markup, and int... |
 | `antigravity-seo-technical` | Audit technical SEO across crawlability, indexability, security, URLs, mobile, Core Web Vitals, stru... |
 | `antigravity-sequence-psychologist` | Plan email nurture and multi-touch communication sequences when each message should build trust and ... |
+| `antigravity-sequenzy-email-marketing` | Operate Sequenzy email campaigns through an authorized CLI or MCP connection: inspect audiences, pre... |
 | `antigravity-serply-search-mcp` | Search Google, Bing, Google News and Google Scholar, and read public pages, with the Serply MCP serv... |
 | `antigravity-server-management` | Server management principles and decision-making. Process management, monitoring strategy, and scali... |
 | `antigravity-service-mesh` | Implement Istio and Linkerd service meshes. Configure mTLS, traffic management, and observability. U... |
@@ -3725,7 +3731,7 @@ Plans content calendars and ident... |
 | `antigravity-sshepherd` | Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgres int... |
 | `antigravity-ssl-tls-management` | Manage SSL/TLS certificates with Let's Encrypt and internal PKI. Configure secure HTTPS, certificate... |
 | `antigravity-stability-ai` | Geracao de imagens via Stability AI (SD3.5, Ultra, Core). Text-to-image, img2img, inpainting, upscal... |
-| `antigravity-stageshow` | Create React product illustrations and cursor demos using a reusable UI kit, examples, motion guidan... |
+| `antigravity-stageshow` | Use when a user asks for a React product illustration, animated walkthrough, product demo, or cursor... |
 | `antigravity-stakeholder-investor-reports` | Stakeholder report register: stakeholder, period, key metrics, preparer, approver, send date and rep... |
 | `antigravity-startup-analyst` | Expert startup business analyst specializing in market sizing, financial modeling, competitive analy... |
 | `antigravity-startup-business-analyst-business-case` | Generate comprehensive investor-ready business case document with

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-03T06:21:00.148743",
-  "skill_count": 4053,
+  "last_updated": "2026-11-04T06:21:12.387936",
+  "skill_count": 4059,
   "sources_processed": 19,
   "skills": [
     {
@@ -7622,7 +7622,7 @@
     {
       "name": "antigravity-stageshow",
       "original_name": "stageshow",
-      "description": "Create React product illustrations and cursor demos using a reusable UI kit, examples, motion guidance, and visual verification tools.",
+      "description": "Use when a user asks for a React product illustration, animated walkthrough, product demo, or cursor-led UI animation. Build from the reusable UI kit and verify the result in the browser.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14052,6 +14052,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-coupler-marketing-analytics",
+      "original_name": "coupler-marketing-analytics",
+      "description": "Analyze cross-channel marketing performance from live Coupler.io data through its hosted MCP server: channel and campaign comparison, ROI, anomalies and budget insights.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-infinite-gratitude",
       "original_name": "infinite-gratitude",
       "description": "Plan and synthesize multi-perspective research; use parallel agents only when authorized and verify findings against sources.",
@@ -14519,6 +14527,14 @@
       "name": "antigravity-explain-like-socrates",
       "original_name": "explain-like-socrates",
       "description": "Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help understand a concept like socrates.\n",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-bowmark",
+      "original_name": "bowmark",
+      "description": "Use Bowmark when a task depends on what a live website shows right now: current prices, availability or stock, fares and quotes, a site search, or data behind a form or a login. The agent writes a short JavaScript script against typed site functions and gets typed results back.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15676,6 +15692,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-figma-designer",
+      "original_name": "figma-designer",
+      "description": "Create structured Figma screens and libraries with ELAYA spacing, radius, semantic color variables, text styles, auto layout, and component states.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-meta-description-optimizer",
       "original_name": "meta-description-optimizer",
       "description": "Meta Description Optimizer. Use when working with existing description and page content or summary.",
@@ -16191,6 +16215,14 @@
       "name": "antigravity-changelog-entry",
       "original_name": "changelog-entry",
       "description": "Generate a properly formatted CHANGELOG.md entry in Keep a Changelog format from a commit range or PR. Groups changes into Added/Changed/Deprecated/Removed/Fixed/Security categories and outputs a ready-to-paste block.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-landing-page-design",
+      "original_name": "landing-page-design",
+      "description": "Plan and build conversion-focused landing pages with intake, proof-based copy, explicit page structure, and the ELAYA visual system.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18516,6 +18548,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-nano-settlement-verify",
+      "original_name": "nano-settlement-verify",
+      "description": "Check that a Nano (XNO) payment settled before a seller serves a paid call: one inline read-only script asks a public node about a send block and returns a verdict. No seed, no wallet.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-apify-actor-development",
       "original_name": "apify-actor-development",
       "description": "Create, modify and validate Apify Actors with scoped inputs, storage schemas, runtime logic and deployment review.",
@@ -19038,7 +19078,7 @@
     {
       "name": "antigravity-career-ops",
       "original_name": "career-ops",
-      "description": "Multi-CLI job-search command center: evaluate offers, scan portals, tailor CVs, track applications, prep interviews. Invoke per mode.",
+      "description": "Open-source AI job search agent for AI coding CLIs: evaluate offers, scan portals, tailor CVs, track applications, prep interviews. Invoke per mode.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19263,6 +19303,14 @@
       "name": "antigravity-redirect-301-generator",
       "original_name": "redirect-301-generator",
       "description": "301 Redirect Generator. Use when working with source-to-destination mapping and deployment platform.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-sequenzy-email-marketing",
+      "original_name": "sequenzy-email-marketing",
+      "description": "Operate Sequenzy email campaigns through an authorized CLI or MCP connection: inspect audiences, prepare drafts, schedule approved sends, and verify delivery results.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21870,7 +21918,7 @@
     {
       "name": "antigravity-pixeltable",
       "original_name": "pixeltable",
-      "description": "Build Pixeltable apps in app.py with tables, computed columns, embedding search, and HTTP routes. Use for RAG, media pipelines, and tool-calling agents.",
+      "description": "Build Pixeltable apps for multimodal RAG, video and image search, audio transcription, agent memory, embeddings stored with the data, incremental pipelines, dataset versioning, and tool-calling agents.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
