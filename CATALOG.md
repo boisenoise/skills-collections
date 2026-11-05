@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-04 06:21 UTC*
+*Last updated: 2026-11-05 06:21 UTC*
 
-Total skills: **4059**
+Total skills: **4060**
 
 ## Skills by Source
 
@@ -3869,6 +3869,7 @@ calculations
 | `antigravity-threejs-textures` | Three.js textures - texture types, UV mapping, environment maps, texture settings. Use when working ... |
 | `antigravity-tiktok-automation` | Automate TikTok tasks via Rube MCP (Composio): upload/publish videos, post photos, manage content, a... |
 | `antigravity-time-ledger` | Natural-language time tracking: parse what the user says they did into Activity/Minutes/Date rows in... |
+| `antigravity-time-machine-recovery` | Diagnose failed or stalled macOS Time Machine backups and recover space on local APFS destinations t... |
 | `antigravity-time-tracking` | Time entry register: employee, project, client, task, hours, billable flag, rate and amount, invoice... |
 | `antigravity-title-meta-length-counter` | Title & Meta Length Counter. Use when working with title and/or meta description. |
 | `antigravity-tmux` | Expert tmux session, window, and pane management for terminal multiplexing, persistent remote workfl... |
