@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-05 06:21 UTC*
+*Last updated: 2026-11-06 06:21 UTC*
 
-Total skills: **4060**
+Total skills: **4077**
 
 ## Skills by Source
 
@@ -1739,6 +1739,13 @@ pipelines, and system utilities.... |
 | `antigravity-beautiful-prose` | A hard-edged writing style contract for timeless, forceful English prose without modern AI tics. Use... |
 | `antigravity-before-you-build` | Review product risk before coding by checking demand, alternatives, channels, switching costs, and f... |
 | `antigravity-behavioral-modes` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt ... |
+| `antigravity-better-accessibility` | Reviews and fixes keyboard and focus behavior, ARIA, accessible names, forms, screen-reader announce... |
+| `antigravity-better-colors` | Builds and checks color systems by generating palettes, naming semantic tokens, converting between f... |
+| `antigravity-better-interface` | Reviews a screen, flow or whole interface across accessibility, layout, writing, typography, color a... |
+| `antigravity-better-layout` | Sets grouping, alignment, reading order, responsive structure and room for translated text, so a lay... |
+| `antigravity-better-typography` | Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, trunc... |
+| `antigravity-better-ui` | Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows,... |
+| `antigravity-better-writing` | Writes and reviews interface copy, from labels and errors to empty states and confirmations, so it m... |
 | `antigravity-bevy-ecs-expert` | Master Bevy's Entity Component System (ECS) in Rust, covering Systems, Queries, Resources, and paral... |
 | `antigravity-bifrost-gateway` | Run and configure Bifrost, the open-source AI gateway: one OpenAI-compatible API for 20+ LLM provide... |
 | `antigravity-bilig-workpaper` | Use formula-backed WorkPaper JSON and MCP tools for agent spreadsheet tasks without driving Excel or... |
@@ -1771,6 +1778,7 @@ pipelines, and system utilities.... |
 | `antigravity-brand-kit-print-collateral` | Print collateral spec: item, finished/trim size and artwork size including bleed, bleed, colour mode... |
 | `antigravity-brand-perception-psychologist` | Audit visual, verbal, and behavioral brand signals and propose alignment changes when market percept... |
 | `antigravity-brave-man` | Runs a structured clarifying interview for new project requests before building. Instead of writing ... |
+| `antigravity-break` | Renders a component you choose under every scenario that can reach it on a temporary page and stress... |
 | `antigravity-break-ai-fix-loops` | Stop ineffective AI coding repair loops with stable failure fingerprints, a three-attempt budget, re... |
 | `antigravity-break-ui` | Stress-test a component with realistic worst-case data through a development-only fixture toggle and... |
 | `antigravity-brendangregg-use-tsa` | Methodical performance troubleshooting and root-cause analysis with Brendan Gregg's USE and TSA meth... |
@@ -1800,6 +1808,7 @@ pipelines, and system utilities.... |
 | `antigravity-bugcrowd-reporting` | Bugcrowd-specific reporting tactics complementing report-writing |
 | `antigravity-bugs-are-annoying` | Adversarial code auditor that hunts down bugs, logic errors, and security flaws. Use for deep correc... |
 | `antigravity-build` | Use when developing a major feature: research the project, create a phased implementation plan, trac... |
+| `antigravity-build-design` | Builds UI from a Figma file or a design image so it matches the design, using the project's existing... |
 | `antigravity-build-ui` | Step-by-step workflow for UI work: read the project, follow the plan for the job (new screen, dashbo... |
 | `antigravity-building-native-ui` | Complete guide for building beautiful apps with Expo Router. Covers fundamentals, styling, component... |
 | `antigravity-bulletmind` | Convert input into clean, structured, hierarchical bullet points for summarization, note-taking, and... |
@@ -2283,6 +2292,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-executing-plans` | Use when you have a written implementation plan to execute in a separate session with review checkpo... |
 | `antigravity-expense-accounting` | Expense accounting register: expense number and date, payee with PAN and VAT, bill reference, docume... |
 | `antigravity-expense-management` | Expense claim register: claim id, employee and department, amount and tax, approver and level, categ... |
+| `antigravity-explain-interface` | Explains how a website, a visual effect or an animation was built, from a live URL or a screenshot. |
 | `antigravity-explain-like-socrates` | Explains concepts using Socratic-style dialogue. Use when the user asks to explain, teach or help un... |
 | `antigravity-expo-animation` | Curated upstream guidance for Expo Animation; use when the workflow matches the user goal. |
 | `antigravity-expo-api-routes` | Guidelines for creating API routes in Expo Router with EAS Hosting |
@@ -2694,6 +2704,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-instructree` | Map, explain, and lint repository-scoped coding-agent instructions before changing code. |
 | `antigravity-interactive-portfolio` | Expert in building portfolios that actually land jobs and clients - not just showing work, but creat... |
 | `antigravity-intercom-automation` | Automate Intercom tasks via Rube MCP (Composio): conversations, contacts, companies, segments, admin... |
+| `antigravity-interface-review` | Reviews a branch, pull request or uncommitted change for the interface problems it introduced or reg... |
 | `antigravity-intern-program` | Internship register: intern and department, supervisor and mentor, institution, start and end dates,... |
 | `antigravity-internal-comms` | Write internal communications such as status reports, leadership updates, 3P updates, newsletters, F... |
 | `antigravity-internal-comms-anthropic` | Compatibility alias for internal-comms: draft status updates, newsletters and FAQs from approved sou... |
@@ -2888,6 +2899,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-lore` | Markdown project memory for AI agents. Use for decisions, architecture, conventions, monorepo scopes... |
 | `antigravity-loss-aversion-designer` | Compare gain and loss framing and describe credible costs of inaction when an offer needs urgency wi... |
 | `antigravity-lovable-cleanup` | Audits and strips Lovable scaffolding from Vite + React projects — removes lovable-tagger, swaps pla... |
+| `antigravity-lurkapi-ad-research` | Tear down the ads a brand or market runs in the Meta, Google, LinkedIn and TikTok ad libraries via L... |
 | `antigravity-m365-agents-dotnet` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.... |
 | `antigravity-m365-agents-py` | Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with ai... |
 | `antigravity-m365-agents-ts` | Microsoft 365 Agents SDK for TypeScript/Node.js. |
@@ -2998,6 +3010,7 @@ splash language, makepad script, m... |
 | `antigravity-microsoft-teams-automation` | Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meeti... |
 | `antigravity-mid-engagement-ir-detection` | Methodology for detecting client SOC patches, attacker activity, and security-state changes that occ... |
 | `antigravity-minecraft-bukkit-pro` | Master Minecraft server plugin development with Bukkit, Spigot, and Paper APIs. |
+| `antigravity-minicut-film-studio` | Install and use the official MiniCut film studio skill, pinned by commit, to make multi-shot AI shor... |
 | `antigravity-minimalist-ui` | Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restraine... |
 | `antigravity-miro-automation` | Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connector... |
 | `antigravity-mirrord` | Run a local process inside a live Kubernetes cluster's network, env and traffic with mirrord, so cha... |
@@ -3288,7 +3301,7 @@ structures, and modern OOP features. U... |
 | `antigravity-popup-cro` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without... |
 | `antigravity-posix-shell-pro` | Expert in strict POSIX sh scripting for maximum portability across Unix-like systems. Specializes in... |
 | `antigravity-post` | Make share-post image sets that look native: Xiaohongshu carousels, X images, covers, App Store post... |
-| `antigravity-postel-writing` | Draft X (Twitter) or LinkedIn posts in the user's own voice, research high-performing posts, and sch... |
+| `antigravity-postel-writing` | Find posts going viral in the user's niche, write their own version in their voice for X (Twitter), ... |
 | `antigravity-poster-design-studio` | Install and use the official AI Poster Maker package, pinned by digest, for paid hosted work on the ... |
 | `antigravity-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
 | `antigravity-postgres-readonly-queries` | Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and de... |
@@ -3745,6 +3758,7 @@ calculations
 | `antigravity-startup-financial-modeling` | Build comprehensive 3-5 year financial models with revenue projections, cost structures, cash flow a... |
 | `antigravity-startup-it-troubleshooting` | Practical IT troubleshooting playbooks for small teams without dedicated IT staff. |
 | `antigravity-startup-metrics-framework` | Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different s... |
+| `antigravity-state-machine` | Renders every state of a component you choose on a throwaway page, with mock data and a switcher, so... |
 | `antigravity-statsmodels` | Statsmodels is Python's premier library for statistical modeling, providing tools for estimation, in... |
 | `antigravity-stellar-anchor-integration` | Stellar anchor protocol compliance register: SEP-10 web authentication, SEP-24 interactive deposit a... |
 | `antigravity-stellar-asset-clawback-compliance` | Regulated Stellar asset clawback architecture register: issuer authorization flags, claimable balanc... |
@@ -3815,6 +3829,7 @@ calculations
 | `antigravity-team-collaboration-issue` | You are a GitHub issue resolution expert specializing in systematic bug investigation, feature imple... |
 | `antigravity-team-collaboration-standup-notes` | You are an expert team communication specialist focused on async-first standup practices, AI-assiste... |
 | `antigravity-team-composition-analysis` | Design optimal team structures, hiring plans, compensation strategies, and equity allocation for ear... |
+| `antigravity-teardown` | Creates technical illustrations of physical objects and of how things work, such as display pixels o... |
 | `antigravity-tech-writing-proofread` | Proofreads English technical writing for typos, grammar, punctuation, terminology consistency, jargo... |
 | `antigravity-technical-change-tracker` | Track code changes with structured JSON records, state machine enforcement, and AI session handoff f... |
 | `antigravity-technical-tutorials` | When the user wants to create step-by-step technical tutorials, quickstarts, or code walkthroughs. T... |
@@ -3953,6 +3968,7 @@ calculations
 | `antigravity-unslop-ui` | Audit and redesign AI-generated interfaces with product-specific visual direction, structured design... |
 | `antigravity-unsloth-finetuning` | Fine-tune and post-train LLMs with Unsloth Core on a single consumer GPU: VRAM sizing, LoRA/QLoRA, G... |
 | `antigravity-unsplash-integration` | Integration skill for searching and fetching high-quality, free-to-use professional photography from... |
+| `antigravity-untangle-codebase` | Untangle a whole codebase in one pass, so agents working in it read less per change, break less with... |
 | `antigravity-update-swiftui-apis` | Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with mode... |
 | `antigravity-upgrading-expo` | Guidelines for upgrading Expo SDK versions and fixing dependency issues |
 | `antigravity-upstash-qstash` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task de... |
@@ -3981,6 +3997,7 @@ calculations
 | `antigravity-ux-persuasion-engineer` | Audit decision friction and propose clear, accessible UX flows when layout, defaults, or sequencing ... |
 | `antigravity-uxkin-research` | Research how real products handle a screen, flow or visual style before designing it: search UXKIN's... |
 | `antigravity-uxui-principles` | Evaluate interfaces against 168 research-backed UX/UI principles, detect antipatterns, and inject UX... |
+| `antigravity-variant` | Builds multiple variants of a component you're working on and helps you iterate and pick one. |
 | `antigravity-variant-analysis` | Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when huntin... |
 | `antigravity-varlock` | Secure-by-default environment variable management for Claude Code sessions. |
 | `antigravity-varlock-claude-skill` | Secure environment variable management with explicit checks to reduce secret exposure in Claude sess... |
