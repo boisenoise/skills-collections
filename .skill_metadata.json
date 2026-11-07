@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-06T06:21:12.701608",
-  "skill_count": 4077,
+  "last_updated": "2026-11-07T06:18:06.414732",
+  "skill_count": 4084,
   "sources_processed": 19,
   "skills": [
     {
@@ -3090,6 +3090,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-jev-memory",
+      "original_name": "jev-memory",
+      "description": "Set up an explicitly requested Claude Code memory mod using Treg and Jev, with informed consent for prompt transmission, recurring charges and local preference storage.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "LicenseRef-Treg"
     },
     {
       "name": "antigravity-ai-agent-security",
@@ -6884,6 +6892,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-recruit",
+      "original_name": "recruit",
+      "description": "Turn a job description into an evidence-linked candidate shortlist through Treg, with job-related ranking and optional authorized business contact enrichment.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "LicenseRef-Treg"
+    },
+    {
       "name": "antigravity-screen-adverse-media",
       "original_name": "screen-adverse-media",
       "description": "Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure \u2014 corroboration-gated, returns \"review\" never \"guilty\". Use when the user asks to screen someone before onboarding, partnership, or investment; for AML/CTF flows; or for ongoing counterparty monitoring.",
@@ -10396,6 +10412,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-lead-signals",
+      "original_name": "lead-signals",
+      "description": "Find and qualify public buying signals through Treg, rank fitting business accounts and optionally enrich authorized business contact information.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "LicenseRef-Treg"
+    },
+    {
       "name": "antigravity-brand-guidelines-anthropic",
       "original_name": "brand-guidelines-anthropic",
       "description": "To access Anthropic's official brand identity and style resources, use this skill.",
@@ -13194,6 +13218,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-make-ugc",
+      "original_name": "make-ugc",
+      "description": "Create original AI UGC-style product videos through Treg: research hooks, approve a licensed presenter and voice, generate clips, add captions and report costs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "LicenseRef-Treg"
     },
     {
       "name": "antigravity-ui-update",
@@ -19412,6 +19444,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-treg",
+      "original_name": "treg",
+      "description": "Use the Treg CLI or MCP catalog to discover, price and call authorized external tools with team-scoped credentials and a user-approved budget.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "LicenseRef-Treg"
+    },
+    {
       "name": "antigravity-sequenzy-email-marketing",
       "original_name": "sequenzy-email-marketing",
       "description": "Operate Sequenzy email campaigns through an authorized CLI or MCP connection: inspect audiences, prepare drafts, schedule approved sends, and verify delivery results.",
@@ -24060,6 +24100,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-rea-growth",
+      "original_name": "rea-growth",
+      "description": "Analyze a company\u2019s public growth and content through Treg, distinguish observations from hypotheses, and produce an evidence-linked playbook within an approved budget.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "LicenseRef-Treg"
+    },
+    {
       "name": "antigravity-azure-security-keyvault-secrets-java",
       "original_name": "azure-security-keyvault-secrets-java",
       "description": "Azure Key Vault Secrets Java SDK for secret management. Use when storing, retrieving, or managing passwords, API keys, connection strings, or other sensitive configuration data.",
@@ -24658,6 +24706,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
+    },
+    {
+      "name": "antigravity-web-access",
+      "original_name": "web-access",
+      "description": "Use Treg for public web or platform data only when existing search, browser and connected tools cannot cover the task, with explicit cost and data boundaries.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "LicenseRef-Treg"
     },
     {
       "name": "antigravity-documentation-and-adrs",
@@ -32166,7 +32222,7 @@
     {
       "name": "marketing-reverse-engineer-marketing",
       "original_name": "reverse-engineer-marketing",
-      "description": "When the user wants to reverse engineer how another company grew and copy what worked. Also use when the user mentions 'reverse engineer,' 'how did X grow,' 'how does X get customers,' 'growth teardown,' 'marketing teardown,' 'GTM teardown,' 'growth blueprint,' 'what is X doing for marketing,' 'what made X take off,' 'copy X's playbook,' 'X's distribution strategy,' 'what content works for X,' 'funnel hack,' 'map their funnel,' or 'watch what X is doing.' Builds a dated log of a company's moves against its traffic curve from public data, sign-ups and demos, team interviews, and hidden signals (DNS, certificate logs, archives, sponsorships), compares it with the user's own data, and turns what lined up with growth into plays routed to the skill that runs each one. For a snapshot profile of a competitor's positioning, pricing, and features, see competitor-profiling. For comparison pages, see competitors. For why a single post went viral, see social.",
+      "description": "When the user wants to reverse engineer how another company grew and copy what worked. Also use when the user mentions 'reverse engineer,' 'how did X grow,' 'how does X get customers,' 'growth teardown,' 'marketing teardown,' 'GTM teardown,' 'what is X doing for marketing,' 'what made X take off,' 'copy X's playbook,' 'funnel hack,' 'map their funnel,' 'what is everyone in my category doing,' 'where are competitors weak,' 'what is X hiring for,' or 'watch what X is doing.' Builds a dated log of a company's moves against its traffic curve from public data, sign-ups and demos, team interviews, job posts, reviews, and hidden signals (DNS, certificate logs, archives), compares it with the user's own data and with other competitors, finds where they're weak, and turns it all into plays routed to the skill that runs each one. For a snapshot profile of a competitor's positioning, pricing, and features, see competitor-profiling. For comparison pages, see competitors. For why a single post went viral, see social.",
       "source": "coreyhaines31/marketingskills",
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT"

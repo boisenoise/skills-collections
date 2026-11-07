@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-06 06:21 UTC*
+*Last updated: 2026-11-07 06:18 UTC*
 
-Total skills: **4077**
+Total skills: **4084**
 
 ## Skills by Source
 
@@ -2742,6 +2742,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-jenkins` | Create and manage Jenkins CI/CD pipelines, configure agents, manage plugins, and automate builds. |
 | `antigravity-jest-skill` | Generates Jest unit and integration tests in JavaScript or TypeScript. Covers mocking, snapshots, as... |
 | `antigravity-jet-browser` | Verify or integrate Jet Browser when a project needs isolated WPE WebKit sessions, native input, scr... |
+| `antigravity-jev-memory` | Set up an explicitly requested Claude Code memory mod using Treg and Jev, with informed consent for ... |
 | `antigravity-jev-social` | Run read-only, browser-grounded Instagram, TikTok, or LinkedIn research through Jev routing and soca... |
 | `antigravity-jev-use` | Route enumerable judgment steps - did it work, which option, how risky, is this safe to run - to the... |
 | `antigravity-jira-automation` | Automate Jira tasks via Rube MCP (Composio): issues, projects, sprints, boards, comments, users. Alw... |
@@ -2804,6 +2805,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-launch-check` | Bounded pre-launch audit of a live URL for AI-built apps: exposed secret keys, open Supabase/Firebas... |
 | `antigravity-launch-strategy` | You are an expert in SaaS product launches and feature announcements. Your goal is to help users pla... |
 | `antigravity-lead-magnets` | Plan and optimize lead magnets for email capture and lead generation. Use when designing gated conte... |
+| `antigravity-lead-signals` | Find and qualify public buying signals through Treg, rank fitting business accounts and optionally e... |
 | `antigravity-learn` | Help a user learn a topic through adaptive tutoring, lesson planning, practice, retrieval checks, ex... |
 | `antigravity-learning-career-development` | Training register: course, provider, delivery method, department, employee, duration, progress perce... |
 | `antigravity-leave-management` | Leave register: request, leave type, employee and department, manager and approver, start and end da... |
@@ -2920,6 +2922,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-mailtrap-testing-with-sandbox` | Capture outbound email in Mailtrap Email Sandbox for development, staging, CI, HTML inspection, spam... |
 | `antigravity-maintain-codex-wiki` | Maintain a review-first engineering wiki with provenance, citation-aware queries, explicit capture a... |
 | `antigravity-make-automation` | Automate Make (Integromat) tasks via Rube MCP (Composio): operations, enums, language and timezone l... |
+| `antigravity-make-ugc` | Create original AI UGC-style product videos through Treg: research hooks, approve a licensed present... |
 | `antigravity-makepad-2-0-animation` | Makepad 2.0 guidance for animation; use when building or debugging Makepad UI code. |
 | `antigravity-makepad-2-0-dsl` | Makepad 2.0 guidance for dsl; use when building or debugging Makepad UI code. |
 | `antigravity-makepad-2-0-events` | Makepad 2.0 guidance for events; use when building or debugging Makepad UI code. |
@@ -3416,6 +3419,7 @@ structures, and modern OOP features. U... |
 | `antigravity-rayden-use` | Build and maintain Rayden UI components and screens in Figma via Figma MCP with full design token en... |
 | `antigravity-rclone-cli` | Rclone command-line cloud storage manager reference and usage guide. Use this skill whenever the use... |
 | `antigravity-re-create` | Completely delete and rewrite a file or module from scratch when structural rot makes patching impos... |
+| `antigravity-rea-growth` | Analyze a company’s public growth and content through Treg, distinguish observations from hypotheses... |
 | `antigravity-react-best-practices` | Comprehensive performance optimization guide for React and Next.js applications, adapted from Vercel... |
 | `antigravity-react-component-performance` | Diagnose slow React components and suggest targeted performance fixes. |
 | `antigravity-react-flow-architect` | Build production-ready ReactFlow applications with hierarchical navigation, performance optimization... |
@@ -3436,6 +3440,7 @@ structures, and modern OOP features. U... |
 | `antigravity-receiving-code-review` | Code review requires technical evaluation, not emotional performance. |
 | `antigravity-recognition-rewards` | Recognition register: employee, reward type, category, visibility, message and points awarded. Use f... |
 | `antigravity-recon-scope-triage` | Triage ASM/recon output for ownership before testing |
+| `antigravity-recruit` | Turn a job description into an evidence-linked candidate shortlist through Treg, with job-related ra... |
 | `antigravity-recruitment-pipeline` | Recruitment pipeline: candidate, position, stage, source, applied and interview dates, interview sco... |
 | `antigravity-recsys-pipeline-architect` | Designs composable recommendation, ranking, and feed pipelines using the six-stage Source→Hydrator→F... |
 | `antigravity-recursive-context-pruning-token-budgeting` | Optimizes AI agent performance by pruning redundant context, managing token usage, and enforcing ult... |
@@ -3912,6 +3917,7 @@ calculations
 | `antigravity-travel-health-analyzer` | 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。 |
 | `antigravity-travel-planner` | 旅行/行程规划需求时使用:规划去某地旅行、X天X城、带老人孩子、自驾、假期安排等。产出逐日行程表、预算估算(经济/舒适/奢华三档)、交通住宿建议、景点美食清单。必须先问预算,预算未确认只输出问题清单;... |
 | `antigravity-tree-ring-memory` | Use Tree Ring Memory for local-first AI-agent memory lifecycle work: recall, evidence, audit, forget... |
+| `antigravity-treg` | Use the Treg CLI or MCP catalog to discover, price and call authorized external tools with team-scop... |
 | `antigravity-trello-automation` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, as... |
 | `antigravity-trending-keyword-visualizer` | Trending Keyword Visualizer. Use when working with dated keyword interest or volume series with sour... |
 | `antigravity-triage` | Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if ... |
@@ -4060,6 +4066,7 @@ calculations
 | `antigravity-weather-pipeline-performance-diagnosis` | Diagnose slow weather-data workflows by measuring discovery, transfer, parsing, scientific processin... |
 | `antigravity-weaviate` | Search, query, inspect, create, and import data into Weaviate vector database collections using bund... |
 | `antigravity-weaviate-cookbooks` | Build Weaviate AI apps from official cookbook blueprints for RAG, agentic RAG, data exploration, mul... |
+| `antigravity-web-access` | Use Treg for public web or platform data only when existing search, browser and connected tools cann... |
 | `antigravity-web-artifacts-builder` | Create React frontend artifacts and bundle a reviewed project into a shareable HTML file. |
 | `antigravity-web-design-guidelines` | Review files for compliance with Web Interface Guidelines. |
 | `antigravity-web-design-system` | Choose a design direction for a website from real sites and write it down as a DESIGN.md: colors wit... |
