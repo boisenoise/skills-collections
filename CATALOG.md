@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-09 06:27 UTC*
+*Last updated: 2026-11-10 06:20 UTC*
 
-Total skills: **4084**
+Total skills: **4091**
 
 ## Skills by Source
 
@@ -1109,59 +1109,59 @@ Total skills: **4084**
 
 | Skill | Description |
 |-------|-------------|
-| `marketing-ab-testing` | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth exper... |
-| `marketing-ad-creative` | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary te... |
-| `marketing-ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), L... |
-| `marketing-ai-seo` | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-ge... |
-| `marketing-analytics` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when t... |
-| `marketing-aso` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user... |
-| `marketing-attribution` | When the user wants to figure out which marketing actually drives conversions and revenue, choose or... |
-| `marketing-churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed pa... |
-| `marketing-co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership o... |
-| `marketing-cold-email` | Write and run B2B cold outbound that gets replies, from cold emails and follow-ups to sending setup,... |
-| `marketing-community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. Use when the user w... |
-| `marketing-competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the ... |
-| `marketing-competitors` | When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing us... |
-| `marketing-content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what to... |
-| `marketing-conversion-tracking` | Set up, audit, verify, or fix website conversion tracking. Use when the conversion is a form submiss... |
-| `marketing-copy-editing` | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content... |
-| `marketing-copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page, including homepage, l... |
-| `marketing-cro` | When the user wants to optimize, improve, or increase conversions on any marketing page or form — in... |
-| `marketing-customer-research` | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions... |
-| `marketing-directory-submissions` | When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review dir... |
-| `marketing-emails` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or... |
-| `marketing-events` | When the user wants to plan, run, sponsor, speak at, or get pipeline from events — webinars, confere... |
-| `marketing-free-tools` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation... |
-| `marketing-image` | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, socia... |
-| `marketing-influencer-marketing` | When the user wants to run influencer, creator, or ambassador partnerships to promote their product ... |
-| `marketing-launch` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use wh... |
-| `marketing-lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation.... |
-| `marketing-link-building` | When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations. A... |
-| `marketing-marketing-council` | When the user wants multiple expert perspectives on a marketing question — a simulated board of advi... |
-| `marketing-marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. ... |
-| `marketing-marketing-loops` | When the user wants to set up a recurring, self-running marketing workflow — a repeatable loop an AI... |
-| `marketing-marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own... |
-| `marketing-marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marke... |
-| `marketing-offers` | When the user wants to design, construct, or improve an offer — the thing they actually sell — inclu... |
-| `marketing-onboarding` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or ti... |
-| `marketing-paywalls` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or featur... |
-| `marketing-popups` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conver... |
-| `marketing-pricing` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when ... |
-| `marketing-product-marketing` | When the user wants to create or update their product marketing context document. Also use when the ... |
-| `marketing-programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the ... |
-| `marketing-prospecting` | When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS... |
-| `marketing-public-relations` | When the user wants help with public relations, earned media, press coverage, journalist outreach, o... |
-| `marketing-referrals` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-o... |
-| `marketing-reverse-engineer-marketing` | When the user wants to reverse engineer how another company grew and copy what worked. Also use when... |
-| `marketing-revops` | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales h... |
-| `marketing-sales-enablement` | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or... |
-| `marketing-schema` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also u... |
-| `marketing-seo-audit` | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user m... |
-| `marketing-signup` | When the user wants to optimize signup, registration, account creation, or trial activation flows. A... |
-| `marketing-site-architecture` | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL str... |
-| `marketing-sms` | When the user wants to plan, build, or optimize SMS, MMS, or WhatsApp marketing — including welcome ... |
-| `marketing-social` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twit... |
-| `marketing-video` | When the user wants to create, generate, or produce video content using AI tools or programmatic fra... |
+| `marketing-ab-testing` | When the user wants to plan, run, or read A/B tests, or asks a judgement call on one: is the result ... |
+| `marketing-ad-creative` | When the user wants to write or judge ad creative, or asks which ad, hook, or angle to run or kill: ... |
+| `marketing-ads` | When the user wants to plan, run, or fix paid ads on Google, Meta, and LinkedIn, or asks a judgement... |
+| `marketing-ai-seo` | When the user wants to get cited and recommended in AI answers (ChatGPT, Perplexity, AI Overviews), ... |
+| `marketing-analytics` | When the user wants to set up or audit analytics, or asks whether a metric or number is calculated r... |
+| `marketing-aso` | When the user wants to audit or optimize an App Store or Google Play listing, or asks which title, k... |
+| `marketing-attribution` | When the user wants to work out which marketing drives revenue, or asks whether a channel is really ... |
+| `marketing-churn-prevention` | When the user wants to reduce churn, or asks why customers cancel, whether to offer a discount or pa... |
+| `marketing-co-marketing` | When the user wants co-marketing partners or joint campaigns, or asks whether a partner fits, a size... |
+| `marketing-cold-email` | When the user wants to write or run B2B cold outbound, or asks whether an opener, reason to reach ou... |
+| `marketing-community-marketing` | When the user wants to build or grow an online community, or asks whether a community is worth it, w... |
+| `marketing-competitor-profiling` | When the user wants to research competitors into dated profiles, or asks what a rival charges, claim... |
+| `marketing-competitors` | When the user wants to create or audit comparison and alternative pages ('X vs Y', 'X alternative', ... |
+| `marketing-content-strategy` | When the user wants to plan content, or asks which topic or piece to prioritize, what to write about... |
+| `marketing-conversion-tracking` | When the user wants to set up, audit, or fix conversion tracking to Google Ads, Meta, GA4, LinkedIn,... |
+| `marketing-copy-editing` | When the user wants to edit, tighten, proofread, or refresh existing copy, or asks whether to keep, ... |
+| `marketing-copywriting` | When the user wants to write or rewrite page copy (homepage, landing, pricing, feature), or asks whi... |
+| `marketing-cro` | When the user wants more conversions from a page or form, or asks why a page isn't converting, what ... |
+| `marketing-customer-research` | When the user wants to run or synthesize customer research, or asks what customer quotes, reviews, o... |
+| `marketing-directory-submissions` | When the user wants to list a product in startup, SaaS, AI, MCP, and review directories, or asks whi... |
+| `marketing-emails` | When the user wants to create or improve automated email sequences, or asks what to send, when, or w... |
+| `marketing-events` | When the user wants to plan, run, sponsor, or speak at events, or asks whether an event or booth is ... |
+| `marketing-free-tools` | When the user wants to plan or build a free tool as marketing, or asks whether a tool idea is worth ... |
+| `marketing-image` | When the user wants to create, generate, edit, or optimize marketing images, or asks which approach ... |
+| `marketing-influencer-marketing` | When the user wants creator, influencer, or ambassador partnerships, or asks which creators fit, wha... |
+| `marketing-launch` | When the user wants to plan a product or feature launch, or asks whether it's ready, when to announc... |
+| `marketing-lead-magnets` | When the user wants to plan or improve a lead magnet, or asks what to give away for emails or how mu... |
+| `marketing-link-building` | When the user wants backlinks and mentions that lift rankings and AI citations, or asks how to get s... |
+| `marketing-marketing-council` | When the user wants several expert takes on a marketing decision, or asks what a famous marketer wou... |
+| `marketing-marketing-ideas` | When the user wants marketing ideas or growth tactics for a software product, or asks what to try to... |
+| `marketing-marketing-loops` | When the user wants a recurring marketing job an AI agent runs on a cadence or trigger, or asks what... |
+| `marketing-marketing-plan` | When the user wants a full marketing or go-to-market plan for a client, an advised company, or their... |
+| `marketing-marketing-psychology` | When the user wants to apply psychology to marketing, or asks why buyers behave or value things as t... |
+| `marketing-offers` | When the user wants to design or improve the offer itself, or asks why it isn't selling or how to ad... |
+| `marketing-onboarding` | When the user wants better onboarding and activation, or asks why new users don't stick or what the ... |
+| `marketing-paywalls` | When the user wants to create or improve in-app paywalls and upgrade moments, or asks when or how ha... |
+| `marketing-popups` | When the user wants to create or improve popups, modals, slide-ins, sticky bars, and banners, or ask... |
+| `marketing-pricing` | When the user wants to set pricing and packaging, or asks what to charge, whether to raise prices, o... |
+| `marketing-product-marketing` | When the user wants to create or update the product marketing context doc (.agents/product-marketing... |
+| `marketing-programmatic-seo` | When the user wants SEO pages at scale from templates and data, or asks whether a page set will rank... |
+| `marketing-prospecting` | When the user wants to find and qualify prospects for outbound, or asks who to target first, which s... |
+| `marketing-public-relations` | When the user wants press and media coverage, or asks what to say to a reporter, whether a story is ... |
+| `marketing-referrals` | When the user wants referral and affiliate programs or word of mouth, or asks what to reward, how mu... |
+| `marketing-reverse-engineer-marketing` | When the user wants to know how another company grew and what to copy, or asks what a competitor did... |
+| `marketing-revops` | When the user wants to design revenue operations, or asks when a lead is ready for sales or why sale... |
+| `marketing-sales-enablement` | When the user wants sales collateral, or asks what to give a champion or rep, or how to answer an ob... |
+| `marketing-schema` | When the user wants to add, fix, or validate schema markup (JSON-LD), or asks which type fits a page... |
+| `marketing-seo-audit` | When the user wants to audit or diagnose SEO, or asks why traffic dropped, a page won't rank, or whe... |
+| `marketing-signup` | When the user wants better signup, registration, and trial start flows, or asks which fields or step... |
+| `marketing-site-architecture` | When the user wants to plan or restructure a website, or asks which pages they need or where somethi... |
+| `marketing-sms` | When the user wants SMS, MMS, or WhatsApp marketing, or asks whether texting is worth it or a messag... |
+| `marketing-social` | When the user wants organic social content for LinkedIn, X, Instagram, TikTok, or Facebook, or asks ... |
+| `marketing-video` | When the user wants to create video with AI tools or code, or asks which approach to use (screen rec... |
 
 ### itsmostafa/aws-agent-skills
 
@@ -1548,6 +1548,7 @@ Total skills: **4084**
 | `antigravity-automated-triage` | Triage Monte Carlo alerts interactively or build an automated workflow. Fetch, score, and troublesho... |
 | `antigravity-autonomous-agent-patterns` | Design patterns for building autonomous coding agents, inspired by [Cline](https://github.com/cline/... |
 | `antigravity-autonomous-agents` | Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools... |
+| `antigravity-autorekt` | Read live market data with the autorekt CLI before answering questions about prices, market moves, l... |
 | `antigravity-avalonia-layout-zafiro` | Guidelines for modern Avalonia UI layout using Zafiro.Avalonia, emphasizing shared styles, generic c... |
 | `antigravity-avalonia-viewmodels-zafiro` | Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI. |
 | `antigravity-avalonia-zafiro-development` | Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro too... |
@@ -1895,6 +1896,7 @@ pipelines, and system utilities.... |
 | `antigravity-clients-accounts` | Client and account register: contacts, billing address, tax ID and basis, payment terms, invoice tot... |
 | `antigravity-cline-delegate` | Delegate coding tasks to the Cline CLI (`cline`) only when the user explicitly requests it, while th... |
 | `antigravity-cline-pilot` | Proxy Cline CLI coding tasks: dispatch, monitor background runs via hard evidence, relay decision po... |
+| `antigravity-cloro-mcp` | Get Google results with the AI Overview, and ChatGPT, Google AI Mode, Bing AI Mode and Gemini answer... |
 | `antigravity-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |
 | `antigravity-closed-loop-delivery` | Use when a coding task must be completed against explicit acceptance criteria with minimal user re-i... |
 | `antigravity-cloud-architect` | Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC... |
@@ -1917,7 +1919,7 @@ pipelines, and system utilities.... |
 | `antigravity-coda-automation` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions... |
 | `antigravity-code-audit` | Authorized source-code security review and SAST workflows: Semgrep and CodeQL pattern hunting, dange... |
 | `antigravity-code-documentation-code-explain` | You are a code education expert specializing in explaining complex code through clear narratives, vi... |
-| `antigravity-code-documentation-doc-generate` | You are a documentation expert specializing in creating comprehensive, maintainable documentation fr... |
+| `antigravity-code-documentation-doc-generate` | Compatibility alias of documentation-generation-doc-generate. Generate scoped documentation from ver... |
 | `antigravity-code-of-conduct` | Build a human-reviewed conduct register after context-first intake. Use when an SME needs policy ack... |
 | `antigravity-code-polish` | Rewrites unprofessional code comments into clear ones and performs non-semantic cleanup. Use to prof... |
 | `antigravity-code-refactoring-context-restore` | Resume interrupted project work from a handoff and current checkout evidence; reconcile completed wo... |
@@ -1926,10 +1928,10 @@ pipelines, and system utilities.... |
 | `antigravity-code-review-ai-ai-review` | Review pull requests with source inspection, available static analysis and evidence-backed AI assist... |
 | `antigravity-code-review-and-quality` | Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by y... |
 | `antigravity-code-review-checklist` | Comprehensive checklist for conducting thorough code reviews covering functionality, security, perfo... |
-| `antigravity-code-review-excellence` | Transform code reviews from gatekeeping to knowledge sharing through constructive feedback, systemat... |
+| `antigravity-code-review-excellence` | Review a defined code diff for correctness, security, performance and maintainability; report eviden... |
 | `antigravity-code-review-sensei` | Expert code reviewer that catches bugs, security issues, performance problems, and design flaws with... |
 | `antigravity-code-reviewer` | Elite code review expert specializing in modern AI-powered code |
-| `antigravity-code-showcase-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
+| `antigravity-code-showcase-core-components` | Apply the ChrisWiles code-showcase component and token conventions when the target project actually ... |
 | `antigravity-code-showcase-react-ui-patterns` | Modern React UI patterns for loading states, error handling, and data fetching. Use when building UI... |
 | `antigravity-code-showcase-systematic-debugging` | Four-phase debugging methodology with root cause analysis. Use when investigating bugs, fixing test ... |
 | `antigravity-code-showcase-testing-patterns` | Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing uni... |
@@ -2021,7 +2023,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-copy-editing` | You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systema... |
 | `antigravity-copywriting` | Write rigorous, conversion-focused marketing copy for landing pages and emails. Enforces brief confi... |
 | `antigravity-copywriting-psychologist` | Write or revise conversion copy using audience awareness, motivations, and credible proof when ads, ... |
-| `antigravity-core-components` | Core component library and design system patterns. Use when building UI, using design tokens, or wor... |
+| `antigravity-core-components` | Adapt an existing project component library and design tokens to a UI change; inspect real exports, ... |
 | `antigravity-cost-optimization` | Strategies and patterns for optimizing cloud costs across AWS, Azure, and GCP. |
 | `antigravity-coupler-marketing-analytics` | Analyze cross-channel marketing performance from live Coupler.io data through its hosted MCP server:... |
 | `antigravity-course-upskilling-requests` | Training request register: course, provider, cost, duration, budget line, the three approval steps, ... |
@@ -2107,8 +2109,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-de-ai-writer` | Chinese AI-smell removal engine: 35 Chinese AI-tell patterns (赋能/闭环), AI-smell scoring, de-AI rewrit... |
 | `antigravity-debate-review` | Two-model debate review of a GitHub PR, GitLab MR, Azure DevOps PR, or local working tree, posted as... |
 | `antigravity-debug-buttercup` | All pods run in namespace crs. Use when pods in the crs namespace are in CrashLoopBackOff, OOMKilled... |
-| `antigravity-debugger` | Debugging specialist for errors, test failures, and unexpected
-behavior. Use proactively when encoun... |
+| `antigravity-debugger` | Investigate a reproducible error or failing test, test root-cause hypotheses, implement a scoped fix... |
 | `antigravity-debugging-and-error-recovery` | Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn't match ex... |
 | `antigravity-debugging-code` | Interactively debug source code — set breakpoints, step through execution line by line, inspect live... |
 | `antigravity-debugging-strategies` | Transform debugging from frustrating guesswork into systematic problem-solving with proven strategie... |
@@ -2124,6 +2125,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-define-my-content-pillars` | Find the three to five subjects someone can post about repeatedly, from what they have published and... |
 | `antigravity-defuddle` | Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to... |
 | `antigravity-dei-dashboard` | Diversity, equity and inclusion dashboard: metric by department and period, value against target, gr... |
+| `antigravity-deja-history` | Search this machine's past AI coding sessions across Claude Code, Codex, Cursor, Gemini CLI and thir... |
 | `antigravity-delegate-setup` | Configure approved delegation lanes across installed implementer CLIs, including optional model and ... |
 | `antigravity-delegating-to-agents` | Delegate bounded work to other AI agents while preserving context, ownership, and progress checks. |
 | `antigravity-dependency-analysis` | Analyze internal and package dependencies using Ontoly graph traversal. Use when asked which modules... |
@@ -2200,7 +2202,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-document-management-system` | Document register: type, owner, upload and signed dates, version, storage link, confidentiality and ... |
 | `antigravity-documentation` | Documentation generation workflow covering API docs, architecture docs, README files, code comments,... |
 | `antigravity-documentation-and-adrs` | Records decisions and documentation. Use when making architectural decisions, changing public APIs, ... |
-| `antigravity-documentation-generation-doc-generate` | You are a documentation expert specializing in creating comprehensive, maintainable documentation fr... |
+| `antigravity-documentation-generation-doc-generate` | Generate API, architecture or user documentation from current code and tests; validate examples and ... |
 | `antigravity-documentation-templates` | Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly d... |
 | `antigravity-docusign-automation` | Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document manageme... |
 | `antigravity-domain-authority-simulator` | Domain Authority Simulator. Use when working with domain signals and an explicit scoring rubric. |
@@ -2681,6 +2683,7 @@ behavior. Use proactively when encoun... |
 | `antigravity-image-generator` | Generate and edit images using Gemini's Nano Banana Pro model (gemini-3-pro-image-preview). Use this... |
 | `antigravity-image-studio` | Studio de geracao de imagens inteligente — roteamento automatico entre ai-studio-image (fotos humani... |
 | `antigravity-imagen` | AI image generation skill powered by Google Gemini, enabling seamless visual content creation for UI... |
+| `antigravity-imagera-media` | Generate or edit images, video clips, voiceovers and music through the hosted Imagera MCP server, qu... |
 | `antigravity-implement` | Implement a piece of work based on a PRD or set of issues. |
 | `antigravity-impress` | Presentation creation, format conversion (ODP/PPTX/PDF), slide automation with LibreOffice Impress. |
 | `antigravity-impression-to-click-ratio-calculator` | Impression-to-Click Ratio Calculator. Use when working with clicks and impressions for the same scop... |
@@ -3072,6 +3075,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-multi-platform-apps-multi-platform` | Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-f... |
 | `antigravity-multi-source-search` | Cross-validate web research and produce an offline-checkable evidence ledger with explicit source di... |
 | `antigravity-multi-tenant-llm-hosting` | Design secure, multi-tenant LLM hosting platforms with tenant isolation, quotas, billing attribution... |
+| `antigravity-music-for-robots` | Optional music-inspired creative exercise for multimodal agents. Ingests an unquantized acoustic MP3... |
 | `antigravity-music-generation-studio` | Install and use the official AI Music Generator package, pinned by digest, for paid hosted work on t... |
 | `antigravity-mysql` | Administer MySQL/MariaDB databases. Configure replication and optimize performance. Use when managin... |
 | `antigravity-n8n-agents` | Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output,... |
@@ -3552,6 +3556,7 @@ coll... |
 | `antigravity-scientific-writing` | Draft and revise scientific manuscripts with evidence-based structure, citation verification, report... |
 | `antigravity-scikit-learn` | Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model ... |
 | `antigravity-score-eval` | Use when scoring an evaluation diff against a supplied rubric and baseline fixture: retain evidence ... |
+| `antigravity-scrapingbee-cli` | Fetch web pages, crawl sites and get Google, Amazon, Walmart and YouTube data as JSON with the Scrap... |
 | `antigravity-screen-adverse-media` | Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure — cor... |
 | `antigravity-screen-reader-testing` | Practical guide to testing web applications with screen readers for comprehensive accessibility vali... |
 | `antigravity-screenshots` | Generate marketing screenshots of your app using Playwright. Use when the user wants to create scree... |
@@ -3802,6 +3807,7 @@ calculations
 | `antigravity-swiftui-ui-patterns` | Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens. |
 | `antigravity-swiftui-view-refactor` | Refactor SwiftUI views into smaller components with stable, explicit data flow. |
 | `antigravity-sympy` | SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical... |
+| `antigravity-sync-lipsync` | Lip-sync an existing video of a real person to new audio or a typed script with sync. labs through i... |
 | `antigravity-syncbook-discovery` | Find reciprocal collaborators on Syncbook or prepare a private profile draft for human review using ... |
 | `antigravity-system-prompt-lookup` | Checks what a shipped AI product's system prompt and tool schema actually say, by reading a dated ar... |
 | `antigravity-systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
