@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-12 06:21 UTC*
+*Last updated: 2026-11-13 06:20 UTC*
 
-Total skills: **4091**
+Total skills: **4093**
 
 ## Skills by Source
 
@@ -2904,6 +2904,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-lore` | Markdown project memory for AI agents. Use for decisions, architecture, conventions, monorepo scopes... |
 | `antigravity-loss-aversion-designer` | Compare gain and loss framing and describe credible costs of inaction when an offer needs urgency wi... |
 | `antigravity-lovable-cleanup` | Audits and strips Lovable scaffolding from Vite + React projects — removes lovable-tagger, swaps pla... |
+| `antigravity-lumify-odds` | Lumify's hosted sports MCP/REST API for sportsbook odds, line-movement history, public betting split... |
 | `antigravity-lurkapi-ad-research` | Tear down the ads a brand or market runs in the Meta, Google, LinkedIn and TikTok ad libraries via L... |
 | `antigravity-m365-agents-dotnet` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.... |
 | `antigravity-m365-agents-py` | Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with ai... |
@@ -3479,7 +3480,7 @@ structures, and modern OOP features. U... |
 | `antigravity-repo-native-refactor` | Review diffs without editing, or perform evidence-based cleanup while preserving authorized behavior... |
 | `antigravity-report-writing` | Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi |
 | `antigravity-reports-analytics` | Report register: type, source modules, owner, audience, frequency, last and next run and report link... |
-| `antigravity-repurpose-into-a-post` | Turn an article, newsletter, transcript or video into a Twitter/X or LinkedIn post that stands on it... |
+| `antigravity-repurpose-into-a-post` | Turn an article, newsletter, transcript or video into a Twitter or LinkedIn post that stands on its ... |
 | `antigravity-requesting-code-review` | Use when completing tasks, implementing major features, or before merging to verify work meets requi... |
 | `antigravity-requirements-writing` | Write and review verifiable requirements using EARS patterns, quality checks, defect review, and tra... |
 | `antigravity-research-prompt` | Turn vague research needs into one precise deep-research prompt with context and output criteria. |
@@ -3539,7 +3540,7 @@ coll... |
 | `antigravity-salesforce-automation` | Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL qu... |
 | `antigravity-salesforce-development` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex t... |
 | `antigravity-sam-altman` | Persona fictícia inspirada em temas públicos associados a Sam Altman; sem representação, citações ve... |
-| `antigravity-same-idea-both-platforms` | Write one idea as a Twitter/X post and a LinkedIn post that read as written separately, not pasted t... |
+| `antigravity-same-idea-both-platforms` | Write one idea as a Twitter post and a LinkedIn post that read as written separately, not pasted twi... |
 | `antigravity-sandbase-mcp` | Discover, inspect, and invoke 2,000+ AI models and APIs through SandBase's local MCP bridge with exp... |
 | `antigravity-sankhya-dashboard-html-jsp-custom-best-pratices` | This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sa... |
 | `antigravity-sast-configuration` | Static Application Security Testing (SAST) tool setup, configuration, and custom rule creation for c... |
@@ -3556,6 +3557,7 @@ coll... |
 | `antigravity-scientific-writing` | Draft and revise scientific manuscripts with evidence-based structure, citation verification, report... |
 | `antigravity-scikit-learn` | Machine learning in Python with scikit-learn. Use for classification, regression, clustering, model ... |
 | `antigravity-score-eval` | Use when scoring an evaluation diff against a supplied rubric and baseline fixture: retain evidence ... |
+| `antigravity-scrapely-scrape` | Collect web data with ready-made Scrape.ly scrapers: Google Maps places, Amazon products, LinkedIn j... |
 | `antigravity-scrapingbee-cli` | Fetch web pages, crawl sites and get Google, Amazon, Walmart and YouTube data as JSON with the Scrap... |
 | `antigravity-screen-adverse-media` | Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure — cor... |
 | `antigravity-screen-reader-testing` | Practical guide to testing web applications with screen readers for comprehensive accessibility vali... |
@@ -3935,7 +3937,7 @@ calculations
 | `antigravity-trust-calibrator` | Diagnose audience trust barriers and calibrate proof, certainty, and credibility signals when messag... |
 | `antigravity-tune-monitor` | Analyze a Monte Carlo monitor and recommend config changes to reduce alert noise. Supports metric, c... |
 | `antigravity-turborepo-caching` | Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up... |
-| `antigravity-turn-this-into-a-thread` | Turn a long idea, transcript, article or draft into a Twitter/X thread where every tweet stands alon... |
+| `antigravity-turn-this-into-a-thread` | Turn a long idea, transcript, article or draft into a Twitter thread where every tweet stands alone.... |
 | `antigravity-tutorial-engineer` | Creates step-by-step tutorials and educational content from code. Transforms complex concepts into p... |
 | `antigravity-tweetapi` | Look up public Twitter/X profiles, tweets, search results, lists, communities and Spaces with TweetA... |
 | `antigravity-twilio-communications` | Build communication features with Twilio: SMS messaging, voice calls, WhatsApp Business API, and use... |
@@ -4099,7 +4101,7 @@ calculations
 | `antigravity-what-could-break` | Find what a change breaks outside its own diff, then prove the one fact that makes it safe by runnin... |
 | `antigravity-whatsapp-automation` | Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload me... |
 | `antigravity-whatsapp-cloud-api` | Integracao com WhatsApp Business Cloud API (Meta). Mensagens, templates, webhooks HMAC-SHA256, autom... |
-| `antigravity-why-did-this-post-flop` | Diagnose why one Twitter/X or LinkedIn post underperformed: not seen, seen and skipped, or read and ... |
+| `antigravity-why-did-this-post-flop` | Diagnose why one Twitter or LinkedIn post underperformed: not seen, seen and skipped, or read and ig... |
 | `antigravity-wifi-wireless` | Authorized wireless security assessment: Wi-Fi capture, WPA handshake analysis, rogue AP detection r... |
 | `antigravity-wiki-architect` | You are a documentation architect that produces structured wiki catalogues and onboarding guides fro... |
 | `antigravity-wiki-builder` | Create and maintain reusable research wikis with source provenance, configurable structure, and loca... |
@@ -4135,7 +4137,7 @@ calculations
 | `antigravity-wp-site-health-auditor` | Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP... |
 | `antigravity-wrike-automation` | Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, as... |
 | `antigravity-write-design-md` | Write or update a project's DESIGN.md from the colors, type, spacing and components it really uses, ... |
-| `antigravity-write-in-my-voice` | Draft a Twitter/X or LinkedIn post that sounds like the person asking, from posts they already wrote... |
+| `antigravity-write-in-my-voice` | Draft a Twitter or LinkedIn post that sounds like the person asking, from posts they already wrote. ... |
 | `antigravity-write-swift` | Write and review modern Swift with value types, concurrency, protocols, API design, memory managemen... |
 | `antigravity-writer` | Document creation, format conversion (ODT/DOCX/PDF), mail merge, and automation with LibreOffice Wri... |
 | `antigravity-writing-great-skills` | Reference for writing and editing skills well — the vocabulary and principles that make a skill pred... |
