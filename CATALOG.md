@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-15 06:18 UTC*
+*Last updated: 2026-11-16 06:32 UTC*
 
-Total skills: **4093**
+Total skills: **4096**
 
 ## Skills by Source
 
@@ -1368,6 +1368,7 @@ Total skills: **4093**
 | `antigravity-ai-audiobook-narration` | Install and use the official AI Audiobook Generator package, pinned by digest, for paid hosted work ... |
 | `antigravity-ai-blog-intro-writer` | AI Blog Intro Writer. Use when working with topic and article angle, or article draft. |
 | `antigravity-ai-code-generation-guardrails` | Use when reviewing AI-generated code before merge or execution: plan AST/security checks, isolated b... |
+| `antigravity-ai-code-review-triage` | Review AI-authored pull requests when line-by-line reading no longer scales; separate defect detecti... |
 | `antigravity-ai-coding-agent-guardrails` | Secure AI coding agents (Claude Code, Cursor, Codex, Copilot) with permission boundaries, secret pro... |
 | `antigravity-ai-competitor-title-rewriter` | AI Competitor Title Rewriter. Use when working with competitor title and your page topic. |
 | `antigravity-ai-content-detector` | AI Content Detector. Use when working with text to review. |
@@ -2034,6 +2035,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-create-branch` | Create a git branch following Sentry naming conventions. Use when asked to "create a branch", "new b... |
 | `antigravity-create-issue-gate` | Use when starting a new implementation task and an issue must be created with strict acceptance crit... |
 | `antigravity-create-pr` | Alias for pr-writer. Use when users explicitly ask for "create-pr" or reference the legacy skill nam... |
+| `antigravity-creative-psychology-hooks` | Generate and grade ad hooks, angles and video openers with a creative psychology framework when paid... |
 | `antigravity-cred-omega` | CISO operacional enterprise para gestao total de credenciais e segredos. |
 | `antigravity-credit-cycle-analysis` | Debtor and creditor credit-cycle analysis: weighted collection or payment days, ageing buckets, cred... |
 | `antigravity-crewai` | Design role-based agents, tasks, crews, and flows with CrewAI. |
@@ -3125,6 +3127,7 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-nfs-storage` | Configure NFS servers and clients. Implement network file sharing for Linux systems. Use when settin... |
 | `antigravity-nft-standards` | Master ERC-721 and ERC-1155 NFT standards, metadata best practices, and advanced NFT features. |
 | `antigravity-nika` | Runs repeatable AI work as checked, budgeted workflow files. |
+| `antigravity-no-free-work` | Classify a client request against the agreed scope, then draft the reply and a priced change order. ... |
 | `antigravity-noaa-radar-satellite-fetching` | Retrieve NOAA NEXRAD and GOES products from public cloud archives using verified site, product, chan... |
 | `antigravity-nodejs-backend-patterns` | Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend app... |
 | `antigravity-nodejs-best-practices` | Node.js development principles and decision-making. Framework selection, async patterns, security, a... |

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-15T06:18:37.010187",
-  "skill_count": 4093,
+  "last_updated": "2026-11-16T06:32:50.804222",
+  "skill_count": 4096,
   "sources_processed": 19,
   "skills": [
     {
@@ -10292,6 +10292,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-no-free-work",
+      "original_name": "no-free-work",
+      "description": "Classify a client request against the agreed scope, then draft the reply and a priced change order. Use for scope creep, extra requests, or 'should I charge for this'.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-gcp-secret-manager",
       "original_name": "gcp-secret-manager",
       "description": "Secure secrets in Google Cloud Secret Manager. Configure IAM policies, integrate with GKE, and manage secret versions. Use when managing secrets in GCP environments.",
@@ -14127,6 +14135,14 @@
       "name": "antigravity-azure-communication-callingserver-java",
       "original_name": "azure-communication-callingserver-java",
       "description": "\u26a0\ufe0f DEPRECATED: This SDK has been renamed to Call Automation. For new projects, use azure-communication-callautomation instead. This skill is for maintaining legacy code only.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-creative-psychology-hooks",
+      "original_name": "creative-psychology-hooks",
+      "description": "Generate and grade ad hooks, angles and video openers with a creative psychology framework when paid social ideas need a clear mechanism instead of generic brainstorming.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -19711,6 +19727,14 @@
       "name": "antigravity-hipaa-compliance",
       "original_name": "hipaa-compliance",
       "description": "Implement HIPAA security and privacy rules. Configure PHI protections and BAA requirements. Use when handling healthcare data.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ai-code-review-triage",
+      "original_name": "ai-code-review-triage",
+      "description": "Review AI-authored pull requests when line-by-line reading no longer scales; separate defect detection, product-context checks, and scoped human sign-off.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
