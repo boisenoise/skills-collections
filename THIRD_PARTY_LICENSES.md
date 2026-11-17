@@ -2,7 +2,7 @@
 
 This repository aggregates skills from multiple sources. Each skill retains its original license.
 
-*Last updated: 2026-11-16 06:32 UTC*
+*Last updated: 2026-11-17 06:20 UTC*
 
 ## Source Repositories
 
@@ -139,6 +139,7 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | BSD-3-Clause license | 17 |
 | Biopython License Agreement | 1 |
 | CC BY-NC-SA 4.0 | 1 |
+| CC-BY-3.0 | 1 |
 | CC-BY-4.0 | 6 |
 | CC0-1.0 | 3 |
 | Complete terms in LICENSE.txt | 35 |
@@ -148,7 +149,7 @@ This repository aggregates skills from multiple sources. Each skill retains its 
 | GPL-3.0-or-later | 1 |
 | GPLv3 license | 1 |
 | LicenseRef-Treg | 7 |
-| MIT | 3781 |
+| MIT | 3801 |
 | MIT License | 4 |
 | MIT OR Apache-2.0 | 1 |
 | MIT license | 27 |
