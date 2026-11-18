@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-17T06:20:40.676251",
-  "skill_count": 4117,
+  "last_updated": "2026-11-18T06:20:54.623215",
+  "skill_count": 4153,
   "sources_processed": 19,
   "skills": [
     {
@@ -2164,6 +2164,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-first-screen-check",
+      "original_name": "boring-marketing-first-screen-check",
+      "description": "Audit what a mobile visitor sees on an ad destination or business homepage.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-radix-ui-design-system",
       "original_name": "radix-ui-design-system",
       "description": "Build accessible design systems with Radix UI primitives. Headless component customization, theming strategies, and compound component patterns for production-grade UI libraries.",
@@ -2252,9 +2260,25 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-long-form-article",
+      "original_name": "boring-marketing-long-form-article",
+      "description": "Research and draft a long-form guide with sourced facts and platform-specific edits.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-bill-gates",
       "original_name": "bill-gates",
       "description": "Simulacao educativa de analise estrategica inspirada em temas publicos de Bill Gates; nao representa a pessoa real ou suas opinioes atuais.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-start-here",
+      "original_name": "boring-marketing-start-here",
+      "description": "Build project marketing context from business evidence and route work to a matching skill.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -3524,6 +3548,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-newsletter",
+      "original_name": "boring-marketing-newsletter",
+      "description": "Plan and draft newsletter editions with a clear editorial angle and sourced material.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-apk-redteam-pipeline",
       "original_name": "apk-redteam-pipeline",
       "description": "End-to-end Android APK red-team pipeline",
@@ -4050,6 +4082,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-boring-marketing-keyword-research",
+      "original_name": "boring-marketing-keyword-research",
+      "description": "Organize search queries into topic families, intent and prioritized content briefs.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-customs-trade-compliance",
@@ -4652,6 +4692,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-ai-search",
+      "original_name": "boring-marketing-ai-search",
+      "description": "Audit and improve a brand's citations in AI search results.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-ask-sonner",
       "original_name": "ask-sonner",
       "description": "Set up and troubleshoot Sonner React toasts, including promises, loading states, updates, styling, theming, and placement.",
@@ -4743,6 +4791,14 @@
       "name": "antigravity-web-review",
       "original_name": "web-review",
       "description": "Review a website or landing page and list what to fix, most important first: message, generic AI look, consistency, copy, mobile, accessibility, speed and missing states.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-service-area-pages",
+      "original_name": "boring-marketing-service-area-pages",
+      "description": "Create distinct local service pages backed by credible evidence for each location.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -5615,6 +5671,14 @@
       "name": "antigravity-noaa-radar-satellite-fetching",
       "original_name": "noaa-radar-satellite-fetching",
       "description": "Retrieve NOAA NEXRAD and GOES products from public cloud archives using verified site, product, channel, sector, and scan-time selection.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-social-content",
+      "original_name": "boring-marketing-social-content",
+      "description": "Draft original X and LinkedIn posts grounded in a brand's past posts and real numbers.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -7804,6 +7868,14 @@
       "license": "MIT-0"
     },
     {
+      "name": "antigravity-boring-marketing-competitive-intel",
+      "original_name": "boring-marketing-competitive-intel",
+      "description": "Compare competitor positioning, offers, ads and public customer feedback.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-market-sizing-analysis",
       "original_name": "market-sizing-analysis",
       "description": "Comprehensive market sizing methodologies for calculating Total Addressable Market (TAM), Serviceable Available Market (SAM), and Serviceable Obtainable Market (SOM) for startup opportunities.",
@@ -8004,6 +8076,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-e2e",
+      "original_name": "e2e",
+      "description": "Write, run and debug e2e tests for web and iOS/Android apps that mix plain-language agent steps with exact assertions, replaying cached agent steps without model calls.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-vendor-contractor-management",
       "original_name": "vendor-contractor-management",
       "description": "Vendor register: name, type, services, contact, linked contract dates, payment terms and rating. Use for vendor and contractor management.",
@@ -8063,6 +8143,14 @@
       "name": "antigravity-attack-chain",
       "original_name": "attack-chain",
       "description": "Authorized multi-stage attack-path planning and orchestration spanning reconnaissance, initial access, privilege escalation, lateral movement, and reporting. Entry point for full engagements and cross-phase operations.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-lead-magnet",
+      "original_name": "boring-marketing-lead-magnet",
+      "description": "Research and prototype a useful opt-in resource, quiz or calculator.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9463,6 +9551,14 @@
       "name": "antigravity-parallel-search-mcp",
       "original_name": "parallel-search-mcp",
       "description": "Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses Parallel or its connected tools for current information and URL extraction.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-find-local-clients",
+      "original_name": "boring-marketing-find-local-clients",
+      "description": "Build a ranked list of local businesses from public search and directory evidence.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -10964,6 +11060,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-direct-response-copy",
+      "original_name": "boring-marketing-direct-response-copy",
+      "description": "Draft conversion copy from customer language, evidence and offer constraints.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-m365-agents-py",
       "original_name": "m365-agents-py",
       "description": "Microsoft 365 Agents SDK for Python. Build multichannel agents for Teams/M365/Copilot Studio with aiohttp hosting, AgentApplication routing, streaming responses, and MSAL-based auth.",
@@ -11191,6 +11295,14 @@
       "name": "antigravity-multi-advisor",
       "original_name": "multi-advisor",
       "description": "Conselho de especialistas \u2014 consulta multiplos agentes do ecossistema em paralelo para analise multi-perspectiva de qualquer topico. Ativa personas, especialistas e agentes tecnicos simultaneamente, cada um pela sua otica unica, e consolida em sintese decisoria final.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-google-ads-tracking",
+      "original_name": "boring-marketing-google-ads-tracking",
+      "description": "Audit Google Ads lead signals and plan or verify tracking corrections.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -12516,6 +12628,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-vibe-shield",
+      "original_name": "vibe-shield",
+      "description": "Audit Next.js, React, Express, Hono, Supabase SQL, Stripe webhooks, and SKILL.md or MCP configs across 92 static security and prompt-injection rules.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-customer-research",
       "original_name": "customer-research",
       "description": "When the user wants to conduct, analyze, or synthesize customer research.",
@@ -13388,6 +13508,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-site-audit",
+      "original_name": "boring-marketing-site-audit",
+      "description": "Crawl a site and prioritize technical SEO fixes. Use to check robots.txt, sitemaps, noindex, duplicate pages, broken links, metadata, page speed, and AI crawler access.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-red-team-tactics",
       "original_name": "red-team-tactics",
       "description": "Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting.",
@@ -13415,6 +13543,14 @@
       "name": "antigravity-animation-vocabulary",
       "original_name": "animation-vocabulary",
       "description": "Name a described animation effect using a reverse-lookup motion glossary.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-modern-java-guidance",
+      "original_name": "modern-java-guidance",
+      "description": "Guides agents to write Java 17/21+ and Spring Boot 3.x+ code with version detection and the mjg CLI scanner instead of Java 8 and Boot 2.x patterns.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -13951,6 +14087,14 @@
       "name": "antigravity-nerdzao-elite-gemini-high",
       "original_name": "nerdzao-elite-gemini-high",
       "description": "Modo Elite Coder + UX Pixel-Perfect otimizado especificamente para Gemini 3.1 Pro High. Workflow completo com foco em qualidade m\u00e1xima e efici\u00eancia de tokens.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-brand-voice",
+      "original_name": "boring-marketing-brand-voice",
+      "description": "Extract a brand voice profile with evidence and observable writing checks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -14951,6 +15095,14 @@
       "name": "antigravity-micro-saas-launcher",
       "original_name": "micro-saas-launcher",
       "description": "Expert in launching small, focused SaaS products fast - the indie hacker approach to building profitable software. Covers idea validation, MVP development, pricing, launch strategies, and growing to sustainable revenue. Ship in weeks, not months.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-email-sequences",
+      "original_name": "boring-marketing-email-sequences",
+      "description": "Draft lifecycle and sales email sequences with send timing and delivery checks.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -16972,6 +17124,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-worktable-mcp",
+      "original_name": "worktable-mcp",
+      "description": "Find, cite and update Docs, Records, HTML Docs, annotations and threads in a Worktable workspace through Worktable's MCP server. Use when the user chooses Worktable.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-waf-setup",
       "original_name": "waf-setup",
       "description": "Deploy and tune Web Application Firewalls. Configure rules for OWASP Top 10 protection. Use when protecting web applications from common attacks.",
@@ -17079,6 +17239,14 @@
       "name": "antigravity-cc-skill-strategic-compact",
       "original_name": "cc-skill-strategic-compact",
       "description": "Prepare a verified checkpoint before condensing an agent conversation at a phase boundary. Use during long tasks when context is repetitive; preserves constraints, evidence, decisions and the next action.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-local-seo-plan",
+      "original_name": "boring-marketing-local-seo-plan",
+      "description": "Prioritize local SEO fixes, service coverage and location page decisions.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -17351,6 +17519,14 @@
       "name": "antigravity-agent-orchestration-multi-agent-optimize",
       "original_name": "agent-orchestration-multi-agent-optimize",
       "description": "Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orchestration. Use when improving agent performance, throughput, or reliability.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-meta-ads",
+      "original_name": "boring-marketing-meta-ads",
+      "description": "Run account preflight, create paused Meta campaigns, and verify pixel and Conversions API events. Use for Facebook Ads API launches, permission errors, and tracking audits.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -18692,6 +18868,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-landing-page",
+      "original_name": "boring-marketing-landing-page",
+      "description": "Build or audit a mobile-first offer page with message match and conversion checks.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-lookdev-auto",
       "original_name": "lookdev-auto",
       "description": "Automated visual tuning: a vision or video model rates rendered variants in a loop. Render several labeled variants into one artifact, ask the model to rate them and suggest better values, render the suggestions, ask it to pick the best, repeat until good \u2014 the model is the eye, you run the loop.",
@@ -18791,6 +18975,14 @@
       "name": "antigravity-unsplash-integration",
       "original_name": "unsplash-integration",
       "description": "Integration skill for searching and fetching high-quality, free-to-use professional photography from Unsplash.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-seo-content",
+      "original_name": "boring-marketing-seo-content",
+      "description": "Draft or refresh search content using intent, firsthand evidence and citation gaps.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21468,6 +21660,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-google-business-profile",
+      "original_name": "boring-marketing-google-business-profile",
+      "description": "Audit a Google Business Profile against nearby competitors and draft profile posts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-vibers-code-review",
       "original_name": "vibers-code-review",
       "description": "Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, and follow-up PRs from the Vibers service.",
@@ -21679,6 +21879,14 @@
       "name": "antigravity-link-relevance-evaluator",
       "original_name": "link-relevance-evaluator",
       "description": "Link Relevance Evaluator. Use when working with source page context and destination page context.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-speed-to-lead",
+      "original_name": "boring-marketing-speed-to-lead",
+      "description": "Analyze missed calls and response time, then design a follow-up workflow.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21956,6 +22164,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-paid-ads",
+      "original_name": "boring-marketing-paid-ads",
+      "description": "Turn an ad matrix into campaign drafts, creative briefs and a measurement plan.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-fact-check-x-complete",
       "original_name": "fact-check-x-complete",
       "description": "Compare claims from one or more AI answers, verify their citations against public primary sources, and produce an evidence-linked fact-check report without installing a bundled browser runtime.",
@@ -22028,6 +22244,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-pitch-the-fix",
+      "original_name": "boring-marketing-pitch-the-fix",
+      "description": "Draft a targeted prospect email around one observable business problem and a proposed fix.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-push-skill-to-github",
       "original_name": "push-skill-to-github",
       "description": "Commit and push skill changes to the configured skills repository after review and validation.",
@@ -22079,6 +22303,14 @@
       "name": "antigravity-unity-ecs-patterns",
       "original_name": "unity-ecs-patterns",
       "description": "Production patterns for Unity's Data-Oriented Technology Stack (DOTS) including Entity Component System, Job System, and Burst Compiler.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-audience-research",
+      "original_name": "boring-marketing-audience-research",
+      "description": "Mine public conversations for audience segments and verbatim customer language.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22263,6 +22495,14 @@
       "name": "antigravity-azure-mgmt-arizeaiobservabilityeval-dotnet",
       "original_name": "azure-mgmt-arizeaiobservabilityeval-dotnet",
       "description": "Azure Resource Manager SDK for Arize AI Observability and Evaluation (.NET).",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-creative",
+      "original_name": "boring-marketing-creative",
+      "description": "Plan and produce campaign visuals, product media and short advertising videos.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22612,6 +22852,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-content-atomizer",
+      "original_name": "boring-marketing-content-atomizer",
+      "description": "Adapt an existing asset into native social drafts for the brand's priority channels.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hunt-idor",
       "original_name": "hunt-idor",
       "description": "Hunting skill for idor vulnerabilities. Built from 26 public bug bounty reports. Use when hunting idor on any target.",
@@ -22903,6 +23151,14 @@
       "name": "antigravity-spec-driven-development",
       "original_name": "spec-driven-development",
       "description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-programmatic-seo",
+      "original_name": "boring-marketing-programmatic-seo",
+      "description": "Validate a dataset and build templated SEO pages with genuinely distinct information.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -23380,6 +23636,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-boring-marketing-reviews",
+      "original_name": "boring-marketing-reviews",
+      "description": "Assess review coverage, draft owner replies and plan compliant review requests.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-unpaid-intern",
       "original_name": "unpaid-intern",
       "description": "A free second brain for work in plain markdown files the user owns. Turns transcripts, docs, and tickets into briefings, meeting prep, debriefs, follow-ups, and status tables.",
@@ -23431,6 +23695,14 @@
       "name": "antigravity-ai-schema-markup-generator",
       "original_name": "ai-schema-markup-generator",
       "description": "Schema Markup Generator. Use when working with entity type or page facts and canonical page URL.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-positioning-angles",
+      "original_name": "boring-marketing-positioning-angles",
+      "description": "Build positioning options and an ad matrix from customer and competitive research.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -23919,6 +24191,14 @@
       "name": "antigravity-frontend-developer",
       "original_name": "frontend-developer",
       "description": "Build React components, implement responsive layouts, and handle client-side state management. Masters React 19, Next.js 15, and modern frontend architecture.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-ads-incrementality-check",
+      "original_name": "boring-marketing-ads-incrementality-check",
+      "description": "Design a matched ad pause test using call or sales logs.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -24903,6 +25183,14 @@
       "name": "antigravity-user-thoughts",
       "original_name": "user-thoughts",
       "description": "Persist user decisions and project constraints to mdbase across sessions. Use on explicit /user-thoughts or /ustht requests, or within previously authorized project-memory capture scope.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-boring-marketing-performance-review",
+      "original_name": "boring-marketing-performance-review",
+      "description": "Analyze campaign data to identify a measurable bottleneck and rank next tests.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

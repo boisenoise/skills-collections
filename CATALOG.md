@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-17 06:20 UTC*
+*Last updated: 2026-11-18 06:20 UTC*
 
-Total skills: **4117**
+Total skills: **4153**
 
 ## Skills by Source
 
@@ -1770,6 +1770,38 @@ pipelines, and system utilities.... |
 | `antigravity-blueprint` | Turn a one-line objective into a step-by-step construction plan any coding agent can execute cold. E... |
 | `antigravity-board-governance` | Board and governance register: meeting date, agenda, decision, resolution number, vote result, actio... |
 | `antigravity-boost-asio-pro` | Use when writing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP serve... |
+| `antigravity-boring-marketing-ads-incrementality-check` | Design a matched ad pause test using call or sales logs. |
+| `antigravity-boring-marketing-ai-search` | Audit and improve a brand's citations in AI search results. |
+| `antigravity-boring-marketing-audience-research` | Mine public conversations for audience segments and verbatim customer language. |
+| `antigravity-boring-marketing-brand-voice` | Extract a brand voice profile with evidence and observable writing checks. |
+| `antigravity-boring-marketing-competitive-intel` | Compare competitor positioning, offers, ads and public customer feedback. |
+| `antigravity-boring-marketing-content-atomizer` | Adapt an existing asset into native social drafts for the brand's priority channels. |
+| `antigravity-boring-marketing-creative` | Plan and produce campaign visuals, product media and short advertising videos. |
+| `antigravity-boring-marketing-direct-response-copy` | Draft conversion copy from customer language, evidence and offer constraints. |
+| `antigravity-boring-marketing-email-sequences` | Draft lifecycle and sales email sequences with send timing and delivery checks. |
+| `antigravity-boring-marketing-find-local-clients` | Build a ranked list of local businesses from public search and directory evidence. |
+| `antigravity-boring-marketing-first-screen-check` | Audit what a mobile visitor sees on an ad destination or business homepage. |
+| `antigravity-boring-marketing-google-ads-tracking` | Audit Google Ads lead signals and plan or verify tracking corrections. |
+| `antigravity-boring-marketing-google-business-profile` | Audit a Google Business Profile against nearby competitors and draft profile posts. |
+| `antigravity-boring-marketing-keyword-research` | Organize search queries into topic families, intent and prioritized content briefs. |
+| `antigravity-boring-marketing-landing-page` | Build or audit a mobile-first offer page with message match and conversion checks. |
+| `antigravity-boring-marketing-lead-magnet` | Research and prototype a useful opt-in resource, quiz or calculator. |
+| `antigravity-boring-marketing-local-seo-plan` | Prioritize local SEO fixes, service coverage and location page decisions. |
+| `antigravity-boring-marketing-long-form-article` | Research and draft a long-form guide with sourced facts and platform-specific edits. |
+| `antigravity-boring-marketing-meta-ads` | Run account preflight, create paused Meta campaigns, and verify pixel and Conversions API events. Us... |
+| `antigravity-boring-marketing-newsletter` | Plan and draft newsletter editions with a clear editorial angle and sourced material. |
+| `antigravity-boring-marketing-paid-ads` | Turn an ad matrix into campaign drafts, creative briefs and a measurement plan. |
+| `antigravity-boring-marketing-performance-review` | Analyze campaign data to identify a measurable bottleneck and rank next tests. |
+| `antigravity-boring-marketing-pitch-the-fix` | Draft a targeted prospect email around one observable business problem and a proposed fix. |
+| `antigravity-boring-marketing-positioning-angles` | Build positioning options and an ad matrix from customer and competitive research. |
+| `antigravity-boring-marketing-programmatic-seo` | Validate a dataset and build templated SEO pages with genuinely distinct information. |
+| `antigravity-boring-marketing-reviews` | Assess review coverage, draft owner replies and plan compliant review requests. |
+| `antigravity-boring-marketing-seo-content` | Draft or refresh search content using intent, firsthand evidence and citation gaps. |
+| `antigravity-boring-marketing-service-area-pages` | Create distinct local service pages backed by credible evidence for each location. |
+| `antigravity-boring-marketing-site-audit` | Crawl a site and prioritize technical SEO fixes. Use to check robots.txt, sitemaps, noindex, duplica... |
+| `antigravity-boring-marketing-social-content` | Draft original X and LinkedIn posts grounded in a brand's past posts and real numbers. |
+| `antigravity-boring-marketing-speed-to-lead` | Analyze missed calls and response time, then design a follow-up workflow. |
+| `antigravity-boring-marketing-start-here` | Build project marketing context from business evidence and route work to a matching skill. |
 | `antigravity-bounce-rate-estimator` | Bounce Rate Estimator. Use when working with sessions and bounced sessions, or sessions and engaged ... |
 | `antigravity-bowmark` | Use Bowmark when a task depends on what a live website shows right now: current prices, availability... |
 | `antigravity-box-automation` | Automate Box operations including file upload/download, content search, folder management, collabora... |
@@ -2236,6 +2268,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-duplicate-content-checker` | Duplicate Content Checker. Use when working with two or more texts or accessible pages. |
 | `antigravity-dwarf-expert` | Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard... |
 | `antigravity-dx-optimizer` | Developer Experience specialist. Improves tooling, setup, and workflows. Use for requested project s... |
+| `antigravity-e2e` | Write, run and debug e2e tests for web and iOS/Android apps that mix plain-language agent steps with... |
 | `antigravity-e2e-testing` | End-to-end testing workflow with Playwright for browser automation, visual regression, cross-browser... |
 | `antigravity-e2e-testing-patterns` | Build reliable, fast, and maintainable end-to-end test suites that provide confidence to ship code q... |
 | `antigravity-earllm-build` | Build, maintain, and extend the EarLLM One Android project — a Kotlin/Compose app that connects Blue... |
@@ -3055,6 +3088,7 @@ splash language, makepad script, m... |
 | `antigravity-model-serving-kubernetes` | Deploy ML models on Kubernetes with KServe (formerly KFServing) and NVIDIA Triton Inference Server. |
 | `antigravity-model-supply-chain-security` | Secure the AI model supply chain with artifact signing, provenance attestation, SBOM workflows, depe... |
 | `antigravity-modellix` | Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (mo... |
+| `antigravity-modern-java-guidance` | Guides agents to write Java 17/21+ and Spring Boot 3.x+ code with version detection and the mjg CLI ... |
 | `antigravity-modern-javascript-patterns` | Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns... |
 | `antigravity-moltnode-chain-reader` | Read 31 blockchains over keyless JSON-RPC with MoltNode (balances, blocks, contract calls) and get C... |
 | `antigravity-molykit` | CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
@@ -4059,6 +4093,7 @@ calculations
 | `antigravity-vibe-code-auditor` | Audit rapidly generated or AI-produced code for structural flaws, fragility, and production risks. |
 | `antigravity-vibe-code-cleanup` | Safe production cleanup and hardening for vibe-coded fullstack apps (Next.js, React, Node.js, etc.).... |
 | `antigravity-vibe-delegate` | Delegate coding tasks to the Mistral Vibe CLI (`vibe`) only when the user explicitly requests it, wh... |
+| `antigravity-vibe-shield` | Audit Next.js, React, Express, Hono, Supabase SQL, Stripe webhooks, and SKILL.md or MCP configs acro... |
 | `antigravity-vibecode-production-qa-validator` | 13-phase production QA for fullstack Next.js apps: build verification, SEO tags, OG images, favicon,... |
 | `antigravity-vibers-code-review` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security review, an... |
 | `antigravity-viboscope` | Psychological compatibility matching — find cofounders, collaborators, and friends with explicit con... |
@@ -4157,6 +4192,7 @@ calculations
 | `antigravity-workflow-patterns` | Use this skill when implementing tasks according to Conductor's TDD workflow, handling phase checkpo... |
 | `antigravity-workflow-yylo` | Create and maintain validated YYLO Ledger workflow Records while keeping storage, execution, and run... |
 | `antigravity-workorai` | WorkorAI talent-marketplace skill: candidates search jobs and manage applications; employers run the... |
+| `antigravity-worktable-mcp` | Find, cite and update Docs, Records, HTML Docs, annotations and threads in a Worktable workspace thr... |
 | `antigravity-wp-guard` | Review generated or changed WordPress plugins, themes, and blocks for security, internationalization... |
 | `antigravity-wp-site-health-auditor` | Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP... |
 | `antigravity-wrike-automation` | Automate Wrike project management via Rube MCP (Composio): create tasks/folders, manage projects, as... |
