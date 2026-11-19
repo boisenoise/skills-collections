@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-18 06:20 UTC*
+*Last updated: 2026-11-19 06:21 UTC*
 
-Total skills: **4153**
+Total skills: **4158**
 
 ## Skills by Source
 
@@ -1879,6 +1879,7 @@ pipelines, and system utilities.... |
 | `antigravity-canvas-design` | These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSE... |
 | `antigravity-capacity-workload-planner` | Weekly capacity and workload register: available and allocated hours, utilisation percentage, over-a... |
 | `antigravity-capturekit-mcp` | Take page screenshots or PDFs, extract page content, metadata and links, or get a page summary throu... |
+| `antigravity-carbonmark-carbon-retirement` | Price and retire verified carbon credits on Base through Carbonmark's x402 API. Use when a user asks... |
 | `antigravity-career-ops` | Open-source AI job search agent for AI coding CLIs: evaluate offers, scan portals, tailor CVs, track... |
 | `antigravity-carrier-relationship-management` | Codified expertise for managing carrier portfolios, negotiating freight rates, tracking carrier perf... |
 | `antigravity-case-review` | Quality-gate review of a reverse-engineering or assessment case package: scope readiness, Evidence-t... |
@@ -2510,6 +2511,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-gh-review-requests` | Fetch unread GitHub notifications for open PRs where review is requested from a specified team or op... |
 | `antigravity-gha-security-review` | Review GitHub Actions workflows for exploitable vulnerabilities with concrete attack paths and harml... |
 | `antigravity-ghidra-reverse` | Free/open reverse engineering with Ghidra (headless or GUI): decompilation, cross-references, script... |
+| `antigravity-ghost-qa` | Run autonomous headless Playwright browser QA across Desktop, Tablet, and Mobile viewports to catch ... |
 | `antigravity-git-advanced-workflows` | Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from ... |
 | `antigravity-git-commit-message` | Generates conventional-commit messages from staged changes: type prefix + English imperative subject... |
 | `antigravity-git-hooks-automation` | Master Git hooks setup with Husky, lint-staged, pre-commit framework, and commitlint. Automate code ... |
@@ -3463,6 +3465,7 @@ structures, and modern OOP features. U... |
 | `antigravity-quality-nonconformance` | Operational guidance for quality control, non-conformance investigation, root cause analysis, correc... |
 | `antigravity-quant-analyst` | Build financial models, backtest trading strategies, and analyze market data. Implements risk metric... |
 | `antigravity-quit-sponsor` | Helps an AI agent provide non-judgmental, evidence-informed quit-smoking support with user-consented... |
+| `antigravity-qurl-private-review` | Share one local web app with an approved browser reviewer through qURL, check the app loads, and del... |
 | `antigravity-radar-satellite-analysis` | Interpret weather radar and satellite observations by validating product metadata and geometry, deri... |
 | `antigravity-radare2` | Drive the radare2 CLI for binary reconnaissance, disassembly, analysis, function locating, export, a... |
 | `antigravity-radio-sdr` | Authorized RF/SDR security research: signal identification, replay-feasibility study in shielded lab... |
@@ -3848,6 +3851,7 @@ calculations
 | `antigravity-suno-lyrics-to-song` | Install and use the official Lyrics to Song package, pinned by digest, for paid hosted work on the B... |
 | `antigravity-supabase` | Use when doing ANY task involving Supabase. |
 | `antigravity-supabase-automation` | Automate Supabase database queries, table management, project administration, storage, edge function... |
+| `antigravity-supabase-edge-function-caller-auth` | Audit and fix who can call each Supabase Edge Function: verify_jwt settings, withSupabase auth modes... |
 | `antigravity-supabase-postgres-best-practices` | Postgres performance optimization and best practices from Supabase. Use this skill when writing, rev... |
 | `antigravity-super-code` | Standing house style to enforce dense, correct, and idiomatic code on all coding tasks. Minimizes co... |
 | `antigravity-supercov` | Measure line, branch and MC/DC coverage of a project's existing tests with the supercov CLI, then wr... |
@@ -4036,6 +4040,7 @@ calculations
 | `antigravity-unslop-file` | Humanize natural-language memory files (CLAUDE.md, todos, preferences, docs) by removing AI-isms and... |
 | `antigravity-unslop-review` | Rewrites code review comments so they read like a human teammate wrote them. Cuts corporate-AI throa... |
 | `antigravity-unslop-ui` | Audit and redesign AI-generated interfaces with product-specific visual direction, structured design... |
+| `antigravity-unslop-ui-audit` | Use the Unslop UI design linter for static frontend diagnostics, contrast checks, and reviewing desi... |
 | `antigravity-unsloth-finetuning` | Fine-tune and post-train LLMs with Unsloth Core on a single consumer GPU: VRAM sizing, LoRA/QLoRA, G... |
 | `antigravity-unsplash-integration` | Integration skill for searching and fetching high-quality, free-to-use professional photography from... |
 | `antigravity-untangle-codebase` | Untangle a whole codebase in one pass, so agents working in it read less per change, break less with... |
