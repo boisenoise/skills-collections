@@ -2,7 +2,7 @@
 name: prospecting
 description: "When the user wants to find and qualify prospects for outbound, or asks who to target first, which signal to prioritize, or where to spot buyers with the problem: buying signals, enrichment, verification, account research. Verify emails before a sequence, never scrape LinkedIn: define audiences in Sales Navigator and pull contacts from licensed data. For outreach, see cold-email. For competitor research, see competitor-profiling."
 metadata:
-  version: 1.5.3
+  version: 1.6.3
 ---
 
 # Prospecting
@@ -86,7 +86,7 @@ Apply this rubric for the **SaaS, B2B, and Local SMB** branches. The **Demand-si
 
 Branch-specific signals refine the scoring — see each reference file. Default ratio target: ~20% Hot, ~30% Warm, rest Cold/Skip.
 
-Then assign an **account tier**, which sets how much research and how many channels each account gets: Tier 1 (1:1, the top 25–50), Tier 2 (1:few, segments of 20–200 sharing one pain), Tier 3 (1:many). Tier 1 accounts get a sourced research brief before any outreach. See [references/signal-plays.md](references/signal-plays.md) for tiers and [references/account-research.md](references/account-research.md) for the brief and the rules for agent research.
+Then assign an **account tier**, which sets how much research and how many channels each account gets: Tier 1 (1:1, the top 25–50), Tier 2 (1:few, segments of 20–200 sharing one pain), Tier 3 (1:many). Tier 1 accounts get a sourced research brief before any outreach. See [references/signal-plays.md](references/signal-plays.md) for tiers, signal ranking, gap plays, and org-shape signals (a departed leader, a missing role, growth without job posts), and [references/account-research.md](references/account-research.md) for the brief and the rules for agent research.
 
 ### Phase 5 — Output the lead sheet
 
@@ -245,7 +245,7 @@ score,business,category,area,distance_km,website_status,website_url,social_urls,
 
 For implementation, see the [tools registry](https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md). Key prospecting tools:
 
-| Tool | Best For | MCP | Guide |
+| Tool | Fits | MCP | Guide |
 |------|----------|:---:|-------|
 | **Apollo** | B2B / SaaS firmographic + contact discovery | ✓ | [apollo.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/apollo.md) |
 | **Clay** | Multi-source enrichment + waterfall | ✓ | [clay.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/clay.md) |
@@ -256,7 +256,7 @@ For implementation, see the [tools registry](https://github.com/coreyhaines31/ma
 | **ZoomInfo** | Enterprise B2B contact + intent | ✓ | [zoominfo.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/zoominfo.md) |
 | **Hunter** | Email pattern + verification | ✓ | [hunter.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/hunter.md) |
 | **Snov** | Email finder + verifier | - | [snov.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/snov.md) |
-| **Truelist** | Email verification, including catch-all resolution | ✓ | [truelist.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/truelist.md) |
+| **Truelist** (built by this repository's maintainer; say so if you name it) | Email verification, including catch-all resolution | ✓ | [truelist.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/truelist.md) |
 | **Outreach** | Sales engagement (post-list) | ✓ | [outreach.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/outreach.md) |
 | **RB2B** | Visitor identification (warm intent) | - | [rb2b.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/rb2b.md) |
 | **Ploy** ◆ | Visitor identification on Ploy-hosted sites (one option alongside RB2B and other visitor-ID tools) | - | [ploy.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/ploy.md) |

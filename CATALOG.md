@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-19 06:21 UTC*
+*Last updated: 2026-11-20 06:20 UTC*
 
-Total skills: **4158**
+Total skills: **4185**
 
 ## Skills by Source
 
@@ -2180,6 +2180,15 @@ consistency, and correctness. Use after setu... |
 | `antigravity-deployment-validation-config-validate` | Validate application configurations with schemas, configuration tests, and checks for security and e... |
 | `antigravity-deprecation-and-migration` | Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrat... |
 | `antigravity-desearch-mcp` | Use Desearch MCP when the user chooses Desearch for web research, X posts, people discovery, or comp... |
+| `antigravity-design-how-build-design-system` | Extract semantic tokens and reusable components from an existing app, check behavior and visual pari... |
+| `antigravity-design-how-component-docs` | Write one component entry from implementation, stories and real call sites, including states, behavi... |
+| `antigravity-design-how-design-system-boss` | Route a whole-app UI consistency request to a design-system build or adoption audit, then verify a r... |
+| `antigravity-design-how-make-font` | Fit a modifiable open typeface to aggregate reference measurements, then verify glyph coverage, spac... |
+| `antigravity-design-how-make-logo` | Develop original mark and wordmark directions from a brief, compare legibility and similarity, and p... |
+| `antigravity-design-how-make-motion` | Turn an approved product story into a short motion video with a timing sheet, review cuts and measur... |
+| `antigravity-design-how-migrate-design-system` | Audit or replace legacy UI with an existing design system in bounded waves while preserving route be... |
+| `antigravity-design-how-token-mapping` | Produce a read-only mapping from hardcoded styling to semantic design tokens with exact, near, ambig... |
+| `antigravity-design-how-ui-review` | Review a rendered screen or flow and rank reproducible usability, accessibility and responsive defec... |
 | `antigravity-design-it` | Routes frontend design tasks to 48 specific UI styles. Triggers for websites, app screens, or UI com... |
 | `antigravity-design-md` | Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files |
 | `antigravity-design-orchestration` | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and executi... |
@@ -2283,6 +2292,18 @@ consistency, and correctness. Use after setu... |
 | `antigravity-ecl-harness-engineer` | Create or audit ECL Agent Harness infrastructure: AGENTS.md, change tracking, repository guidance, l... |
 | `antigravity-ecommerce-listing-image-set` | Install and use the official Ecommerce Product Images package, pinned by digest, for paid hosted wor... |
 | `antigravity-edr-bypass-re` | Review EDR telemetry and known defense-evasion classes using offline evidence and controlled defensi... |
+| `antigravity-effect-smol-ai-docs` | Update Effect AI documentation sources and verify generated LLMS.md, examples and coverage. |
+| `antigravity-effect-smol-bundle-analysis` | Compare Effect bundle fixtures across revisions and identify verified changes in bytes and compositi... |
+| `antigravity-effect-smol-changesets` | Audit Effect package changes for consumer-visible impacts and record the appropriate changeset and m... |
+| `antigravity-effect-smol-ci-maintenance` | Review or update Effect GitHub Actions with a job-by-job trigger, revision, permission and artifact ... |
+| `antigravity-effect-smol-dependency-maintenance` | Synchronize Effect workspace dependency changes across manifests, lockfile and the affected validati... |
+| `antigravity-effect-smol-effect-development` | Implement or review Effect integrations using targeted repository API guidance and version-matched r... |
+| `antigravity-effect-smol-jsdocs` | Write or review Effect public JSDoc against declaration, implementation, call-site and doctest evide... |
+| `antigravity-effect-smol-migration-guidance` | Keep Effect v3-to-v4 migration annotations and generated guidance aligned with verified public API r... |
+| `antigravity-effect-smol-package-development` | Create or move an Effect workspace package while checking registration, exports, generated barrels a... |
+| `antigravity-effect-smol-performance-analysis` | Compare Effect runtime performance or TypeScript checker cost with matched fixtures and repeatable m... |
+| `antigravity-effect-smol-test-development` | Add focused Vitest and Tstyche coverage for Effect runtime behavior and public type inference. |
+| `antigravity-effect-smol-vendored-assets` | Refresh Effect vendored assets with pinned sources, retained notices, deterministic generation and v... |
 | `antigravity-effective-agent-skills` | Author and review high-quality agent skills with triggers, progressive disclosure, and safety notes. |
 | `antigravity-efficient-web-research` | Protocol for token-efficient web research. Use when accessing URLs, GitHub repos, or running search ... |
 | `antigravity-ejentum-reasoning-harness` | MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each cal... |
@@ -3868,6 +3889,11 @@ calculations
 | `antigravity-swiftui-performance-audit` | Audit SwiftUI performance issues from code review and profiling evidence. |
 | `antigravity-swiftui-ui-patterns` | Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens. |
 | `antigravity-swiftui-view-refactor` | Refactor SwiftUI views into smaller components with stable, explicit data flow. |
+| `antigravity-sybil-glm53-offload-setup` | Select, verify and benchmark a GLM-5.3-Flash EXL3 offload mode on a single supported Linux NVIDIA ho... |
+| `antigravity-sybil-inference-optimisation` | Benchmark and tune local LLM serving against a measured ceiling with controlled comparisons, resourc... |
+| `antigravity-sybil-local-studio-contribution-triage` | Evaluate PR eligibility from pinned T3 Code policy and immutable submission evidence before any auth... |
+| `antigravity-sybil-local-studio-test-t3-app` | Verify a T3 Code web or desktop flow through its Browser panel against isolated checkout state. |
+| `antigravity-sybil-local-studio-test-t3-mobile` | Verify the native T3 Code client through its Device panel, an isolated backend and the returned targ... |
 | `antigravity-sympy` | SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical... |
 | `antigravity-sync-lipsync` | Lip-sync an existing video of a real person to new audio or a typed script with sync. labs through i... |
 | `antigravity-syncbook-discovery` | Find reciprocal collaborators on Syncbook or prepare a private profile draft for human review using ... |
@@ -4089,6 +4115,7 @@ calculations
 | `antigravity-vercel-deployments` | Deploy frontend and full-stack apps on Vercel with previews, edge functions, environment promotion, ... |
 | `antigravity-vercel-optimize` | Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans... |
 | `antigravity-vercel-react-view-transitions` | Guide React and Next.js view transitions, shared element animations, route transitions, transition t... |
+| `antigravity-vercel-vgpu` | Build and profile WGSL shaders and WebGPU passes using the installed vgpu package and version-matche... |
 | `antigravity-verification-before-completion` | Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation... |
 | `antigravity-verify-citations` | Verify citations and references in a document, report, or article against real sources. Use when the... |
 | `antigravity-verify-document` | Check whether a document (PDF or image) shows signs of tampering or forgery before you rely on it. U... |
