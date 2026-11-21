@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-20 06:20 UTC*
+*Last updated: 2026-11-21 06:18 UTC*
 
-Total skills: **4185**
+Total skills: **4192**
 
 ## Skills by Source
 
@@ -1200,6 +1200,7 @@ Total skills: **4185**
 | `context-eng-filesystem-context` | This skill should be used when agent work needs file-backed context: durable scratchpads, tool-outpu... |
 | `context-eng-harness-engineering` | This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaf... |
 | `context-eng-hosted-agents` | This skill should be used when designing hosted or background agent infrastructure: sandboxed execut... |
+| `context-eng-instruction-surface-security` | Hardens agent runtimes against persistent prompt injection or unauthorized changes to instructions a... |
 | `context-eng-latent-briefing` | This skill should be used when the user asks to "share memory between agents", "KV cache compaction ... |
 | `context-eng-long-horizon-prompting` | This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-runnin... |
 | `context-eng-memory-systems` | This skill should be used for persistent semantic memory in agent systems: cross-session knowledge r... |
@@ -1714,6 +1715,7 @@ Total skills: **4185**
 | `antigravity-azure-storage-queue-ts` | Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue) for message queue operations. U... |
 | `antigravity-azure-vms` | Manage Azure Virtual Machines and scale sets. Configure availability sets and managed disks. Use whe... |
 | `antigravity-azure-web-pubsub-ts` | Real-time messaging with WebSocket connections and pub/sub patterns. |
+| `antigravity-b2b-hiring-intent-radar` | Query public read-only ATS feeds across 9 platforms to extract company tech-stack signals, disclosed... |
 | `antigravity-babysit-pr` | Babysit a pull request through its bot review rounds: verify, fix, reply, resolve. Use for any babys... |
 | `antigravity-backend-architect` | Expert backend architect specializing in scalable API design, microservices architecture, and distri... |
 | `antigravity-backend-dev-guidelines` | You are a senior backend engineer operating production-grade services under strict architectural and... |
@@ -1906,6 +1908,7 @@ pipelines, and system utilities.... |
 | `antigravity-churn-prevention` | Reduce voluntary and involuntary churn with cancel flows, save offers, dunning, win-back tactics, an... |
 | `antigravity-ci-cd-and-automation` | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use... |
 | `antigravity-cicd-automation-workflow-automate` | You are a workflow automation expert specializing in creating efficient CI/CD pipelines, GitHub Acti... |
+| `antigravity-cinematic-ui-ux` | Build high-performance cinematic web experiences with GSAP 3.12+, Lenis smooth scroll, canvas frame ... |
 | `antigravity-circleci` | Configure CircleCI workflows and orbs for continuous integration and deployment. |
 | `antigravity-circleci-automation` | Automate CircleCI tasks via Rube MCP (Composio): trigger pipelines, monitor workflows/jobs, retrieve... |
 | `antigravity-cirq` | Cirq is Google Quantum AI's open-source framework for designing, simulating, and running quantum cir... |
@@ -1977,6 +1980,7 @@ pipelines, and system utilities.... |
 | `antigravity-code-simplification` | Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use wh... |
 | `antigravity-code-simplifier` | Simplifies and refines code for clarity, consistency, and maintainability while preserving all funct... |
 | `antigravity-codebase-audit-pre-push` | Deep audit before GitHub push: removes junk files, dead code, security holes, and optimization issue... |
+| `antigravity-codebase-aware-ui-prompts` | Transform product requirements into precise, architecture-preserving UI implementation prompts for C... |
 | `antigravity-codebase-cleanup-deps-audit` | You are a dependency security expert specializing in vulnerability scanning, license compliance, and... |
 | `antigravity-codebase-cleanup-refactor-clean` | You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and ... |
 | `antigravity-codebase-cleanup-tech-debt` | Identify technical debt from actual code and change history, estimate its impact, and prioritize bou... |
@@ -2441,6 +2445,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-footval-scout-and-rank-players` | Scout and rank footballers with FootVal: shortlists by league, position, age, foot and value; underv... |
 | `antigravity-footval-stats-and-transfer-news` | Football season leaderboards and transfer news from FootVal: top scorers, assists, minutes and appea... |
 | `antigravity-footval-value-and-compare-players` | Explain what a footballer is worth with FootVal: its own transfer value next to the market value, th... |
+| `antigravity-foragent-call` | Connect two AI agents by private phone number so they can talk directly and exchange files across co... |
 | `antigravity-form-cro` | Optimize any form that is NOT signup or account registration — including lead capture, contact, demo... |
 | `antigravity-formik-patterns` | Formik form handling with validation patterns. Use when building forms, implementing validation, or ... |
 | `antigravity-fp-async` | Practical async patterns using TaskEither - clean pipelines instead of try/catch hell, with real API... |
@@ -2527,6 +2532,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-geo-technical` | Technical SEO audit with GEO-specific checks — crawlability, indexability, security, performance, SS... |
 | `antigravity-geoffrey-hinton` | Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio Turing 2018, coautor do traba... |
 | `antigravity-get-seen-in-replies` | Write a reply to someone else's tweet that is worth reading on its own. Use when someone asks what t... |
+| `antigravity-getyoutubetranscript` | Fetch YouTube transcripts in any caption language a video has, search YouTube, and list channel vide... |
 | `antigravity-gh-attach` | Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use... |
 | `antigravity-gh-image` | Upload local images to GitHub and get canonical user-attachments embed URLs; use when asked to attac... |
 | `antigravity-gh-review-requests` | Fetch unread GitHub notifications for open PRs where review is requested from a specified team or op... |
@@ -3462,6 +3468,7 @@ structures, and modern OOP features. U... |
 | `antigravity-prototype` | Build a throwaway prototype to flesh out a design — a runnable terminal app for state/business-logic... |
 | `antigravity-public-relations` | When the user wants help with public relations, earned media, press coverage, journalist outreach, o... |
 | `antigravity-pubmed-database` | Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, ... |
+| `antigravity-punchtape` | Use a user-authorized punchtape zone to verify agreed project checks and record a machine verdict. |
 | `antigravity-puppeteer-skill` | Generates Puppeteer scripts for browser automation, scraping, and PDF generation. Triggers on: "Pupp... |
 | `antigravity-purchase-accounting` | Purchase register: supplier, invoice, gross amount, VAT and TDS, net payable, ledger account and pay... |
 | `antigravity-push-skill-to-github` | Commit and push skill changes to the configured skills repository after review and validation. |
