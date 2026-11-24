@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-23 06:29 UTC*
+*Last updated: 2026-11-24 06:20 UTC*
 
-Total skills: **4267**
+Total skills: **4268**
 
 ## Skills by Source
 
@@ -1952,7 +1952,7 @@ pipelines, and system utilities.... |
 | `antigravity-clients-accounts` | Client and account register: contacts, billing address, tax ID and basis, payment terms, invoice tot... |
 | `antigravity-cline-delegate` | Delegate coding tasks to the Cline CLI (`cline`) only when the user explicitly requests it, while th... |
 | `antigravity-cline-pilot` | Proxy Cline CLI coding tasks: dispatch, monitor background runs via hard evidence, relay decision po... |
-| `antigravity-cloro-mcp` | Get Google results with the AI Overview, and ChatGPT, Google AI Mode, Bing AI Mode and Gemini answer... |
+| `antigravity-cloro-mcp` | Get Google and Bing results with the AI Overview, and ChatGPT, Google AI Mode, Bing AI Mode and Gemi... |
 | `antigravity-close-automation` | Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and ... |
 | `antigravity-closed-loop-delivery` | Use when a coding task must be completed against explicit acceptance criteria with minimal user re-i... |
 | `antigravity-cloud-architect` | Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC... |
@@ -4133,6 +4133,7 @@ calculations
 | `antigravity-unity-developer` | Build Unity games with optimized C# scripts, efficient rendering, and proper asset management. Maste... |
 | `antigravity-unity-ecs-patterns` | Production patterns for Unity's Data-Oriented Technology Stack (DOTS) including Entity Component Sys... |
 | `antigravity-unpaid-intern` | A free second brain for work in plain markdown files the user owns. Turns transcripts, docs, and tic... |
+| `antigravity-unpolish-ai-writing` | Strip AI writing tells from a draft, then optionally add sparse seeded typos at researched human err... |
 | `antigravity-unreal-engine-cpp-pro` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, ... |
 | `antigravity-unship` | Compare AI agent-made UI variants locally in a real app, then keep one and clean up unused temporary... |
 | `antigravity-unslop` | Post-process AI-generated text through the unslop CLI to strip AI writing patterns before publishing |
