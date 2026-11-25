@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-24T06:20:50.908615",
-  "skill_count": 4268,
+  "last_updated": "2026-11-25T06:21:28.781453",
+  "skill_count": 4276,
   "sources_processed": 19,
   "skills": [
     {
@@ -3311,6 +3311,14 @@
       "name": "antigravity-agents-generator",
       "original_name": "agents-generator",
       "description": "Generate project-specific AGENTS.md and companion rules by analyzing a codebase. Supports full, minimal, update, and dry-run modes with package-manager detection, monorepos, backups, managed blocks, confidence scoring, and command validation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-nitrosend-klaviyo-migration",
+      "original_name": "nitrosend-klaviyo-migration",
+      "description": "Move email marketing from Klaviyo to Nitrosend: bring suppressed profiles across first, import subscribed profiles by list, then rebuild flows as inactive drafts.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9260,6 +9268,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ghost-record",
+      "original_name": "ghost-record",
+      "description": "Record a React component interaction as a replayable Ghost Cursor demo. Use only when the user explicitly invokes ghost-record.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-mercury-mcp",
       "original_name": "mercury-mcp",
       "description": "Cheatsheet for the Mercury (proton) MCP tools. Use when connected to the Mercury MCP server to look up which mercury_* tool to call for messaging teammates, threads, tasks, automations, or admin team-graph edits.",
@@ -12332,6 +12348,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-mobilebox-cloud-phones",
+      "original_name": "mobilebox-cloud-phones",
+      "description": "Drive a Mobilebox cloud Android phone or iOS simulator over MCP or REST: create it, read the screen, tap and type, install an app, then delete it. Needs a Mobilebox account.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-hunt-cors",
       "original_name": "hunt-cors",
       "description": "Hunt CORS Misconfiguration",
@@ -14714,6 +14738,14 @@
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-nitrosend-mailchimp-migration",
+      "original_name": "nitrosend-mailchimp-migration",
+      "description": "Move a Mailchimp audience to Nitrosend without losing consent: import opt-outs first, connect Mailchimp to sync subscribed members, then rebuild journeys as drafts.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
     },
     {
       "name": "antigravity-c4-component",
@@ -17447,6 +17479,14 @@
       "name": "antigravity-odoo-qweb-templates",
       "original_name": "odoo-qweb-templates",
       "description": "Expert in Odoo QWeb templating for PDF reports, email templates, and website pages. Covers t-if, t-foreach, t-field, and report actions.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-nitrosend-email-platform-migration",
+      "original_name": "nitrosend-email-platform-migration",
+      "description": "Move contacts from MailerLite, Brevo, Kit, ActiveCampaign, HubSpot or any CSV export to Nitrosend, importing opt-outs first and only subscribed contacts after.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -21564,6 +21604,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-ultrafast",
+      "original_name": "ultrafast",
+      "description": "Make or edit videos as ultrafast JSON documents with the uf CLI or its MCP tools: write, check, look at frames, review, then export MP4, ProRes, WebM, GIF or frame sequences.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
       "name": "antigravity-hunt-dispatch",
       "original_name": "hunt-dispatch",
       "description": "Skill-set loader for /hunt orchestrator.",
@@ -21759,6 +21807,14 @@
       "name": "antigravity-deployment-pipeline-design",
       "original_name": "deployment-pipeline-design",
       "description": "Architecture patterns for multi-stage CI/CD pipelines with approval gates and deployment strategies.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-ui-diff",
+      "original_name": "ui-diff",
+      "description": "Compare UI screenshots between revisions, capture interactions, and draft a visual PR review. Use for visual regressions, component diffs or preview comparisons.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -22791,6 +22847,14 @@
       "name": "antigravity-ios-flows",
       "original_name": "ios-flows",
       "description": "Plan an iPhone app flow from how real apps handle it: onboarding, sign-up, paywalls, permissions, cancellation, account deletion and settings.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-nitrosend-shopify-email-marketing",
+      "original_name": "nitrosend-shopify-email-marketing",
+      "description": "Run Shopify email marketing in Nitrosend: connect the store with customer consent kept, segment on orders and store activity, and draft the core store flows.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"

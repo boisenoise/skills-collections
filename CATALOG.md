@@ -1,8 +1,8 @@
 # Skills Catalog
 
-*Last updated: 2026-11-24 06:20 UTC*
+*Last updated: 2026-11-25 06:21 UTC*
 
-Total skills: **4268**
+Total skills: **4276**
 
 ## Skills by Source
 
@@ -2569,6 +2569,7 @@ consistency, and correctness. Use after setu... |
 | `antigravity-gha-security-review` | Review GitHub Actions workflows for exploitable vulnerabilities with concrete attack paths and harml... |
 | `antigravity-ghidra-reverse` | Free/open reverse engineering with Ghidra (headless or GUI): decompilation, cross-references, script... |
 | `antigravity-ghost-qa` | Run autonomous headless Playwright browser QA across Desktop, Tablet, and Mobile viewports to catch ... |
+| `antigravity-ghost-record` | Record a React component interaction as a replayable Ghost Cursor demo. Use only when the user expli... |
 | `antigravity-git-advanced-workflows` | Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from ... |
 | `antigravity-git-commit-message` | Generates conventional-commit messages from staged changes: type prefix + English imperative subject... |
 | `antigravity-git-hooks-automation` | Master Git hooks setup with Husky, lint-staged, pre-commit framework, and commitlint. Automate code ... |
@@ -3155,6 +3156,7 @@ splash language, makepad script, m... |
 | `antigravity-mobile-native` | Improve mobile web behavior for touch, viewport sizing, safe areas, inputs, scrolling, and native-fe... |
 | `antigravity-mobile-reverse` | Authorized Android/iOS application reverse engineering and security testing: APK/IPA analysis, runti... |
 | `antigravity-mobile-security-coder` | Expert in secure mobile coding practices specializing in input validation, WebView security, and mob... |
+| `antigravity-mobilebox-cloud-phones` | Drive a Mobilebox cloud Android phone or iOS simulator over MCP or REST: create it, read the screen,... |
 | `antigravity-mock-hunter` | Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data... |
 | `antigravity-model-registry-governance` | Establish model registry standards, governance controls, metadata schemas, approvals, and lifecycle ... |
 | `antigravity-model-serving-kubernetes` | Deploy ML models on Kubernetes with KServe (formerly KFServing) and NVIDIA Triton Inference Server. |
@@ -3246,6 +3248,10 @@ BotClient, OpenAI, SSE streaming, AI chat, m... |
 | `antigravity-nfs-storage` | Configure NFS servers and clients. Implement network file sharing for Linux systems. Use when settin... |
 | `antigravity-nft-standards` | Master ERC-721 and ERC-1155 NFT standards, metadata best practices, and advanced NFT features. |
 | `antigravity-nika` | Runs repeatable AI work as checked, budgeted workflow files. |
+| `antigravity-nitrosend-email-platform-migration` | Move contacts from MailerLite, Brevo, Kit, ActiveCampaign, HubSpot or any CSV export to Nitrosend, i... |
+| `antigravity-nitrosend-klaviyo-migration` | Move email marketing from Klaviyo to Nitrosend: bring suppressed profiles across first, import subsc... |
+| `antigravity-nitrosend-mailchimp-migration` | Move a Mailchimp audience to Nitrosend without losing consent: import opt-outs first, connect Mailch... |
+| `antigravity-nitrosend-shopify-email-marketing` | Run Shopify email marketing in Nitrosend: connect the store with customer consent kept, segment on o... |
 | `antigravity-no-free-work` | Classify a client request against the agreed scope, then draft the reply and a priced change order. ... |
 | `antigravity-no-obvious-questions` | Filter every question before asking the user: skip ones answerable from context, tools, common sense... |
 | `antigravity-noaa-radar-satellite-fetching` | Retrieve NOAA NEXRAD and GOES products from public cloud archives using verified site, product, chan... |
@@ -4106,6 +4112,7 @@ calculations
 | `antigravity-ui-a11y` | Audit a component or page for accessibility issues and fix them |
 | `antigravity-ui-component` | Generate a new UI component following the StyleSeed design conventions |
 | `antigravity-ui-design` | Mandatory for any product's screens, a builder's too, and any mock, prototype or artifact that shows... |
+| `antigravity-ui-diff` | Compare UI screenshots between revisions, capture interactions, and draft a visual PR review. Use fo... |
 | `antigravity-ui-from-screenshot` | Turn a screenshot or mockup into matching UI with the project's own components, then compare the res... |
 | `antigravity-ui-lint` | Quick automated lint — detects common design system violations in seconds |
 | `antigravity-ui-motion` | Apply a named StyleSeed motion to a component — either one of the 5 personality seeds (Spring/Silk/S... |
@@ -4123,6 +4130,7 @@ calculations
 | `antigravity-ui-ux-pro-max` | Comprehensive design guide for web and mobile applications. Use when designing new UI components or ... |
 | `antigravity-ui-visual-validator` | Rigorous visual validation expert specializing in UI testing, design system compliance, and accessib... |
 | `antigravity-uiverify-triage-visual-changes` | Triage a UI Verify visual regression build from your coding agent over MCP: sort changed screenshots... |
+| `antigravity-ultrafast` | Make or edit videos as ultrafast JSON documents with the uf CLI or its MCP tools: write, check, look... |
 | `antigravity-uncle-bob-craft` | Use when performing code review, writing or refactoring code, or discussing architecture; complement... |
 | `antigravity-understand-customers` | Synthesize consented customer research into pains, buying objections, switching triggers and attribu... |
 | `antigravity-understand-project-yylo` | Inspect the current product architecture, dependencies, and validation loops before planning or impl... |
