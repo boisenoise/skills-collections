@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-26T06:21:16.801572",
-  "skill_count": 4276,
+  "last_updated": "2026-11-27T06:21:20.663675",
+  "skill_count": 4289,
   "sources_processed": 19,
   "skills": [
     {
@@ -3372,6 +3372,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-dopamine-talk",
+      "original_name": "dopamine-talk",
+      "description": "Cut file-path recaps, trailing hedging disclaimers, boilerplate padding, and unasked critic-gates from coding agent replies. Use for direct explanations or architecture ideas.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-database-migrations-migration-observability",
       "original_name": "database-migrations-migration-observability",
       "description": "Migration monitoring, CDC, and observability infrastructure",
@@ -4980,6 +4988,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-pronounce-word",
+      "original_name": "pronounce-word",
+      "description": "Speak an English word or developer term aloud via the say-it CLI, using a community pronunciation dictionary so names like kubectl, GIF or Pydantic come out the way engineers actually say them.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-churn-prevention",
       "original_name": "churn-prevention",
       "description": "Reduce voluntary and involuntary churn with cancel flows, save offers, dunning, win-back tactics, and retention strategy. Use when users are cancelling, failed payments are rising, or subscription retention needs improvement.",
@@ -6071,6 +6087,14 @@
       "name": "antigravity-hunt-cache-poison",
       "original_name": "hunt-cache-poison",
       "description": "Hunting skill for cache poison vulnerabilities.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-atelier-ui",
+      "original_name": "atelier-ui",
+      "description": "Route frontend builds across brand sites, app dashboards, and 3D scenes using 1-turn intake, WCAG AA palettes, anti-slop rules, and visual QA.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -9204,6 +9228,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-alphasift",
+      "original_name": "alphasift",
+      "description": "Screen equities across 7 markets (CN/US/HK/JP/KR/TW/IN), run walk-forward pattern audits, and generate T+N research digests via AlphaSift CLI or STDIO MCP. Research only.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
       "name": "antigravity-helpdesk-automation",
       "original_name": "helpdesk-automation",
       "description": "Automate HelpDesk tasks via Rube MCP (Composio): list tickets, manage views, use canned responses, and configure custom fields. Always search tools first for current schemas.",
@@ -9599,6 +9631,14 @@
       "name": "antigravity-loss-aversion-designer",
       "original_name": "loss-aversion-designer",
       "description": "Compare gain and loss framing and describe credible costs of inaction when an offer needs urgency without fearmongering.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-searchapi-search-mcp",
+      "original_name": "searchapi-search-mcp",
+      "description": "Search Google (web, News, Scholar, Images), Bing, YouTube, Amazon and 100+ engines as structured results through the SearchApi MCP server. Use when the user chooses SearchApi or its connected tools.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -15092,6 +15132,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-cross-source-metric-reconciliation",
+      "original_name": "cross-source-metric-reconciliation",
+      "description": "Use when two systems report different values for the same business metric and you must decide which number to trust, explain the gap, and present one figure with its source and as-of time.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-laravel-development-workflow",
       "original_name": "laravel-development-workflow",
       "description": "Build and fix existing Laravel applications through root-cause diagnosis, repository-native implementation, regression coverage, and risk-based verification.",
@@ -18876,6 +18924,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-setsuzei-japan-tax-savings",
+      "original_name": "setsuzei-japan-tax-savings",
+      "description": "Estimate how much Japanese income and resident tax a freelancer can still save before year-end (furusato nozei limit, iDeCo, mutual aid, blue-return deduction) by running the setsuzei CLI.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-favicon",
       "original_name": "favicon",
       "description": "Generate favicons from a source image",
@@ -19620,6 +19676,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-nia-teams-agent-bridge",
+      "original_name": "nia-teams-agent-bridge",
+      "description": "Connect local coding agents (Claude Code, Codex, WorkBuddy, Doubao, Antigravity, Droid, Pi, DSH) to a Nia Teams GroupChat for two-way collaboration.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-agent-squad",
       "original_name": "agent-squad",
       "description": "Main agent orchestrator that coordinates a specialized squad of agents",
@@ -19943,6 +20007,14 @@
       "name": "antigravity-find-matching-tenders",
       "original_name": "find-matching-tenders",
       "description": "Find open AU/NZ government tenders matching what a company does, ranked by fit with why and gap analysis. Use when the user asks to find tenders, bid opportunities, government contracts, or RFPs for their business (or a client's).",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "antigravity-gridpin-offline-geocoding",
+      "original_name": "gridpin-offline-geocoding",
+      "description": "Geocode or reverse-geocode addresses locally with the gridpin CLI: no API key, addresses stay on the machine. Use for one address or a CSV in a covered country.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "Apache-2.0"
@@ -23156,6 +23228,14 @@
       "license": "MIT"
     },
     {
+      "name": "antigravity-overleaf-collaboration",
+      "original_name": "overleaf-collaboration",
+      "description": "Review changes, resolve co-author conflicts, and handle comments in shared Overleaf LaTeX papers. Use when an Overleaf push is refused or the user asks for tracked suggestions or review replies.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
       "name": "antigravity-link-relevance-evaluator",
       "original_name": "link-relevance-evaluator",
       "description": "Link Relevance Evaluator. Use when working with source page context and destination page context.",
@@ -23559,6 +23639,14 @@
       "name": "antigravity-odoo-upgrade-advisor",
       "original_name": "odoo-upgrade-advisor",
       "description": "Step-by-step Odoo version upgrade advisor: pre-upgrade checklist, community vs enterprise upgrade path, OCA module compatibility, and post-upgrade validation.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-email-testing",
+      "original_name": "email-testing",
+      "description": "Check HTML email and emulate Outlook, Gmail, Apple Mail, Yahoo Mail, and AOL Mail locally with the Hyper Elements CLI before sending. Emulations, not renders by the real clients.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -26087,6 +26175,14 @@
       "name": "antigravity-project-brief",
       "original_name": "project-brief",
       "description": "Project Detail Optimizer. Use when working with one sentence, rough notes or an existing project brief.",
+      "source": "sickn33/antigravity-awesome-skills",
+      "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "license": "MIT"
+    },
+    {
+      "name": "antigravity-publora-social-posting",
+      "original_name": "publora-social-posting",
+      "description": "Draft, schedule or publish one post to LinkedIn, X, Instagram, Threads, TikTok, YouTube, Facebook, Bluesky, Mastodon or Telegram through the Publora MCP server.",
       "source": "sickn33/antigravity-awesome-skills",
       "source_url": "https://github.com/sickn33/antigravity-awesome-skills",
       "license": "MIT"
@@ -33423,6 +33519,14 @@
       "name": "context-eng-hosted-agents",
       "original_name": "hosted-agents",
       "description": "This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes.",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "license": "MIT"
+    },
+    {
+      "name": "context-eng-compaction-control-profiling",
+      "original_name": "compaction-control-profiling",
+      "description": "This skill should be used when deciding, for a specific model and workload, whether the harness or the model should control compaction, and when qualifying or calibrating that choice with measurements: context-budget sweeps that compare harness-driven and model-driven compaction on one harness, the context-pressure regime where delegation pays, a per-model compaction behavior profile (interface uptake, compression factor per call, reopen rate of archived content, context fill at first compaction, response to pressure warnings), context anxiety and timing-instruction calibration, reversible collapse-and-archive interfaces, and re-qualification after a model or prompt change. Route the editable-file protocol, harness invariants, and edit-position cache cost of self-editing agents to self-managed-context, summary content to context-compression, harness thresholds and cache layout to context-optimization, and general evaluation design to evaluation.",
       "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
       "license": "MIT"
